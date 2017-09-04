@@ -1,0 +1,56 @@
+{
+    "name": "ls-presentation-template",
+    "version": "1.0.1",
+    "description": "lecture-slides.js presentation template",
+    "author": "Dennis Schulmeister-Zimolong",
+    "license": "BSD-3-Clause",
+    "homepage": "https://github.com/DennisSchulmeister/ls-presentation-template#readme",
+    "bugs": {
+        "url": "https://github.com/DennisSchulmeister/ls-presentation-template/issues"
+    },
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DennisSchulmeister/ls-presentation-template.git"
+    },
+    "keywords": [
+        "slideshow",
+        "presentation",
+        "lecture-slide.js",
+        "template"
+    ],
+    "scripts": {
+        "clean": "node scripts/clean.js",
+        "build:static": "npm run clean; node scripts/build-static.js",
+        "build:webpack": "webpack",
+        "build": "npm run build:static; npm run build:webpack",
+        "watch": "npm run build:static; watch-run -p 'static/**' npm run build:static",
+        "devserver": "npm run watch & webpack-dev-server --content-base build/",
+        "staticserver": "npm run build; http-server ./build"
+    },
+    "config": {
+        "src_dir": "src",
+        "static_dir": "static",
+        "build_dir": "build",
+        "public_url": "",
+        "replace_variables_extensions": ".htm; .html"
+    },
+    "devDependencies": {
+        "css-loader": "^0.28.7",
+        "extract-text-webpack-plugin": "^3.0.0",
+        "file-loader": "^0.11.2",
+        "html-loader": "^0.5.1",
+        "http-server": "^0.10.0",
+        "lecture-slides.js": "^1.0.0-alpha",
+        "less": "^2.7.2",
+        "less-loader": "^4.0.5",
+        "shelljs": "^0.7.8",
+        "style-loader": "^0.18.2",
+        "uglify-es": "git://github.com/mishoo/UglifyJS2#harmony",
+        "uglifyjs-webpack-plugin": "^0.4.6",
+        "url-loader": "^0.5.9",
+        "watch-run": "^1.2.5",
+        "webpack": "^3.5.5",
+        "webpack-dev-server": "^2.7.1"
+    }
+}
