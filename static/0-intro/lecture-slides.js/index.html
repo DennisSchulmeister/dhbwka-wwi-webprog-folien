@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="shortcut icon" href="%public_url%/favicon.svg" />
-        <link rel="stylesheet" href="%public_url%/style.css" />
-        <script src="%public_url%/learning-slides.bundle.js"></script>
+        <link rel="shortcut icon" href="../../favicon.svg" />
+        <link rel="stylesheet" href="../../style.css" />
+        <script src="../../learning-slides.bundle.js"></script>
     </head>
     <body class="slides invisible" data-title="Über diese Folien" tabindex="0">
         <header>
@@ -20,11 +20,11 @@
         </section>
 
         <section>
-            <h1>Tastatur- und Touch-Bedienung</h1>
+            <h1>Tastatur- und Touchbedienung</h1>
             <article>
                 <p>
                     Natürlich kannst du die einfach die Befehle in der Toolbar
-                    oben anklicken, um dich durch die Seiten zu hangeln. FÜr die
+                    oben anklicken, um dich durch die Seiten zu hangeln. Für die
                     meisten Dinge kannst du aber auch einfach die Tastatur oder
                     die bekannten Touchgesten nutzen.
                 </p>
@@ -125,20 +125,20 @@
                     Zum Starten benötigst du …
                 </p>
                 <ul>
-                    <li><a href="https://github.com/DennisSchulmeister/lecture-slides.js">lecture-slide.js</a> (diese Webanwendung)</li>
                     <li>Das <a href="https://github.com/DennisSchulmeister/ls-presentation-template">Vorlageprojekt für Folien</a></li>
-                    <li>Inhalte in der Datei <tt>static/index.html</tt></li>
+                    <li>Eigene Inhalte in der Datei <tt>static/index.html</tt></li>
                     <li>Den richtigen Befehl, um die finalen Dateien zu bauen</li>
                 </ul>
                 <p>
                     Mit folgenden Befehlen wird der Quellcode der Folien gebaut:
                 </p>
                 <ul>
+                    <li>Einmalig am Anfang: <tt>yarn install</tt></li>
                     <li>Während der Entwicklung: <tt>npm run devserver</tt></li>
                     <li>Zum Hochladen auf einen Server: <tt>npm run build</tt></li>
                 </ul>
                 <p>
-                    Der erste Befehl führt einen lokalen Webserver aus, der auf
+                    Der zweite Befehl führt einen lokalen Webserver aus, der auf
                     Port 8080 lauscht. Öffne einfach <a href="http://localhost:8080">http://localhost:8080</a>,
                     um die Seite zu sehen.
                 </p>
@@ -221,22 +221,30 @@
                     rufe einfach einen der folgenden Befehle auf:
                 </p>
                 <ul>
+                    <li>Einmalig am Anfang: <tt>yarn install</tt></li>
                     <li>Während der Entwicklung: <tt>npm run devserver</tt></li>
                     <li>Zum Hochladen auf einen Server: <tt>npm run build</tt></li>
                 </ul>
                 <p>
-                    Der erste Befehl führt einen lokalen Webserver aus, der auf
-                    Port 8080 lauscht. Öffne einfach <a href="http://localhost:8080">http://localhost:8080</a>,
-                    um die Seite zu sehen.
+                    Der erste Befehl lädt die ganzen Abhängigkeiten herunter, die
+                    zum Bauen der Folien benötigt werden. Ihn musst du daher nur
+                    in jedem Projekt einmalig ausführen. Die Abhängigkeiten werden
+                    dann im neuen Unterverzeichnis <tt>node_modules</tt> gespeichert.
                 </p>
                 <p>
-                    Sobald du fertig bist, führe einfach den zweiten Befehl aus.
+                    Der zweite Befehl führt einen lokalen Webserver aus, der auf
+                    Port 8080 lauscht. Öffne daher <a href="http://localhost:8080">http://localhost:8080</a>,
+                    um die Folien zu sehen.
+                </p>
+                <p>
+                    Sobald du fertig bist, führe einfach den dritten Befehl aus.
                     Er baut die fertige Version der Präsentation und legt sie
                     im <tt>build</tt>-Verzeichnis ab. Die sich dort befindenden
                     Dateien kannst du einfach auf irgend einen Webserver packen,
-                    um die Webanwendung nutzen zu können. Dafür brauchst du nicht
-                    mal einen großen Server, selbst der kleinste, am Markt verfügbare
-                    wäre schon absolut überdimensioniert.
+                    um die Folien nutzen zu können. Dafür brauchst du nicht
+                    mal einen großen Server, selbst der kleinste Webserver überhaupt
+                    reicht schon aus. Oder du öffnest die HTML-Dateien einfach nur
+                    so im Browser, wenn du die Folien nur für dich erstellt hast.
                 </p>
 
                 <hr />
@@ -269,10 +277,10 @@
             <h1>Übersetzung in andere Sprachen</h1>
             <article>
                 <p>
-                    Standardmäßig sind die mit lecture-slide.js erstellten
-                    Präsentationen auf englisch. Zwar kannst du deine Folien
-                    in jeder Sprache schreiben, wie du willst, die Befehle und
-                    Meldungen sind aber englisch. Das lässt sich aber ganz
+                    Standardmäßig sind die mit <a href="https://github.com/DennisSchulmeister/lecture-slides.js">lecture-slide.js</a>
+                    (so heißt diese Anwendung) erstellten Präsentationen auf englisch.
+                    Zwar kannst du deine Folien in jeder Sprache schreiben, wie du willst,
+                    die Befehle und Meldungen sind aber englisch. Das lässt sich aber ganz
                     leicht ändern.
                 </p>
                 <ol>
