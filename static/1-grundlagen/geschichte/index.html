@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" href="../../favicon.svg" />
+        <link rel="stylesheet" href="../../style.css" />
+        <script src="../../learning-slides.bundle.js"></script>
+    </head>
+    <body class="slides invisible" data-title="Grundlagen des Web" tabindex="0">
+        <header>
+            <h2>Inhaltsverzeichnis</h2>
+            <p>
+                Hier schauen wir uns ein paar Grundlagen zum Web an. Du erfährst,
+                wie das Web entwickelt wurde und was seine wesentlichen Merkmale
+                ausmacht.
+            </p>
+        </header>
+
+        <section>
+            <h1>Eine kleine Zeittafel</h1>
+            <article>
+                <div class="container-fluid">
+                    <div class="row" style="margin-bottom: 1em">
+                        <div class="col-md">
+                            <img src="1960er.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1969: Das Internet kommt zur Welt
+                        </div>
+                        <div class="col-md">
+                            <img src="1970er.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1970 – 1979: Erste Internetprotokolle
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 1em">
+                        <div class="col-md">
+                            <img src="1980er.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1980 – 1989: Wandel zum modernen Internet
+                        </div>
+                        <div class="col-md">
+                            <img src="1990er.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1990 – heute: Das World Wide Web erobert die Welt
+                        </div>
+                    </div>
+                </div>
+                <div class="dhbw-fontsize-tiny">
+                    Bildnachweise:
+                    <a href="https://pixabay.com/de/vw-camper-volkswagen-vw-auto-336606/">Pixabay: Free-Photos</a>,
+                    <a href="https://pixabay.com/de/aufzeichnungen-antik-musik-143468/">Pixabay: CopleyNathan</a>,
+                    <a href="https://pixabay.com/en/waikiki-sunny-beach-travel-hawaii-2244523/">Pixabay: jed_ant</a>,
+                    <a href="http://cdn1.tekrevue.com/wp-content/uploads/2014/05/old-pc-windows-95.jpg">old-pc-windows-95.jpg</a>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Mensch, das Internet. Wie lange gibt es das eigentlich schon?
+                    20 Jahre? 30 Jahre? Gefühlt doch irgendwie schon immer.
+                    Und so ganz falsch ist das auch gar nicht. Oder hättest du
+                    gedacht, dass die ersten Überlegungen dazu schon bis in die
+                    1960er-Jahre hinein reichen? Bzw. sogar bis in die 1950er,
+                    wenn man es mega-genau nimmt.
+                </p>
+                <p>
+                    Für die meisten von uns gibt es das Internet also tatsächlich
+                    schon immer. Obwohl dann aber auch wieder irgendwie nicht.
+                    Frag mal deine Eltern, wann sie ihren ersten Internetanschluss
+                    bekommen haben. Denn das Internet gibt es zwar schon seit den
+                    1960er/1970er-Jahren, im Alltag angekommen ist es aber erst
+                    viel später. Nämlich erst ab der Mitte der 1990er-Jahre und
+                    für viele Familien sogar erst in den 2000ern.
+                </p>
+                <p>
+                    Doch jetzt erst mal einen Schritt zurück. Bis ins Jahr 1969
+                    als alles begann. Auf den folgenden Folien zeigen wir dir ein
+                    paar der wichtigsten Erinnerungen des Internets. Sozusagen die
+                    Stationen, die es in seiner wechselhaften Geschichte durchlaufen
+                    hat. Natürlich können wir das hier nur kurz anreißen. Wenn du
+                    mehr darüber erfahren willst, hat Wikipedia einen
+                    <a href="https://de.wikipedia.org/wiki/Geschichte_des_Internets">ausführlichen
+                    Artikel</a> darüber an dessen Ende sich auch gute Literaturempfehlungen
+                    befinden.
+                </p>
+                <p>
+                    Außerdem lernst du hier, dass es einen kleinen aber feinen
+                    Unterschied macht, ob man vom <i>Internet</i> oder vom
+                    <i>World Wide Web</i>, also dem Web bzw. dem Netz,
+                    spricht.
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-image="1960er.jpg">
+            <h1 style="color: yellow">Die Geburt: Ende der 1960er</h1>
+            <article>
+                <div class="h2 img-thumbnail mx-auto dhbw-lightbox float-right">
+                    <h2>1969, Vereinigte Staaten von Amerika</h2>
+                    <ul>
+                        <li>
+                            Die ersten vier Rechner des ARAPNET gehen oline
+                        </li>
+                        <li>
+                            Steve Crocker schreibt den <a href="https://tools.ietf.org/html/rfc1">RFC #1</a>
+                        </li>
+                    </ul>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/vuiBTJZfeo8?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section data-background-image="1970er.jpg">
+            <h1 style="color: yellow">Die Kindheit: In den 1970ern</h1>
+            <article>
+                <div class="h2 img-thumbnail mx-auto dhbw-lightbox float-right">
+                    <ul>
+                        <li>
+                            <span class="dhbw-lightblue">1971:</span> Der Vorläufer der E-Mail wird erfunden
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1973:</span> TCP/IP war damals noch ein Protokoll
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1977:</span> Weltweite Demonstration der Technik
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1979:</span> Die ersten Multi-Player Games erscheinen
+                            <img src="rogue.png" class="img-fluid d-block" style="margin-top: 0.5em" />
+                            <span class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://drl.chaosforge.org/images/12.png">https://drl.chaosforge.org/images/12.png</a>
+                                </small>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <section data-background-image="1980er.jpg">
+            <h1 style="color: yellow">Jugendalter: In den 1980ern</h1>
+            <article>
+                <div class="h2 img-thumbnail mx-auto dhbw-lightbox float-right">
+                    <ul>
+                        <li>
+                            <span class="dhbw-lightblue">1983:</span> Geburt des Internets – Im ARPANET wird auf TCP/IP umgestellt
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1984:</span> Die Uni Karlsruhe empfängt die erste E-Mail Deutschlands
+                            <img src="erste_email.jpg" class="img-fluid d-block" style="margin-top: 0.5em" />
+                            <span class="dhbw-fontsize-tiny">
+                                <small>
+                                    Foto: Uli Deck
+                                </small>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1985:</span> Mit symbolics.com wird die erste .com-Domain registriert
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1989:</span> Erstmals wächst das Internet auf mehr als 100.000 Teilnehmer
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1989:</span> Tim Berners-Lee skizziert seine Ideen für das World Wide Web
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <section data-background-image="1990er.jpg">
+            <h1 style="color: yellow">Frühes Erwachsenenalter: Ab den 1990ern</h1>
+            <article>
+                <div class="h2 img-thumbnail mx-auto dhbw-lightbox float-right">
+                    <ul>
+                        <li>
+                            <span class="dhbw-lightblue">1990:</span> Der Internet-Toaster wird erfunden
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1991:</span> Freigabe des Internets zur kommerziellen Nutzung
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1991:</span> Im CERN steht der erste Webserver der Welt
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1993:</span> Bereits über 500 Webserver außerhalb des CERN
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1994:</span> Pizza Hut führt die Onlinebestellung von Pizza ein
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1995:</span> Der Vatikan ist von nun an im Internet vertreten
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1995:</span> Sun veröffentlicht die Programmiersprache Java
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">1995:</span> Die ersten Arbeiten zu IPv6 werden begonnen
+                        </li>
+                        <li>
+                            <span class="dhbw-lightblue">…</span>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <section>
+            <h1>Die Idee hinter dem World Wide Web</h1>
+            <article>
+                <h2>Alles begann mit einer einfachen Idee</h2>
+                <img src="world_wide_web.svg" class="img-fluid d-block" style="margin-bottom: 3em" />
+
+                <h2>Die aber auch bald ihre Kritiker fand</h2>
+                <blockquote class="blockquote">
+                    <p class="mb-0">Das World Wide Web ist ein großen Misthaufen mit ein paar Perlen drin.</p>
+                    <footer class="blockquote-footer">Joseph Weizenbaum</footer>
+                </blockquote>
+            </article>
+            <aside>
+                <p>
+                    Die vorrausgegangenen Folien haben dir einen Eindruck vermittelt,
+                    welche großen Ereignisse es in der Entwicklung des Internets
+                    gegeben hat. Auch wenn Leonard Kleinrock, einer der Urväter des
+                    Internets, zurecht darauf hinweist, dass diese Dinge immer im
+                    Verborgenen geschehen sind und sich die Geschichtsträchtigkeit
+                    immer erst hinterher herausgestellt hat.
+                </p>
+                <p>
+                    So war es auch 1989, als Tim Berners-Lee, einer der Forscher am
+                    europäischen Kernforschungszentrum, eine Idee hatte. Zu dieser Zeit
+                    hatte er schon eine Weile am CERN gearbeitet und er hatte gesehen,
+                    dass jede Forschergruppe ihr eigenes Computersystem nutzte, in dem
+                    sie ihre Ergebnisse dokumentierten. Und da das zu dieser Zeit noch
+                    nicht selbstverständlich war, waren die Systeme nicht miteinander
+                    vernetzt. Trotz Computer fand der Informationsaustausch also noch
+                    immer analog und auf Papier statt.
+                </p>
+                <p>
+                    Zur Lösung des Problems stellte er sich eine weltweite Wissenssammlung
+                    vor, auf die jeder mit einem Computer zugreifen könnte. Ein einfaches
+                    Zugriffsprogramm (heute sagen wir „Browser” dazu) sollte genügen, um
+                    die Informationen abzurufen, eigene Informationen zu veröffentlichen
+                    und vorhandene Informationen zu bearbeiten. Kommt dir irgendwie bekannt
+                    vor? Tatsächlich hatte Jim Wales bei der Gründung der Wikipedia fast
+                    die gleiche Idee. Denn die freie Editierbarkeit der Webinhalte hatte
+                    sich damals noch nicht durchgesetzt.
+                </p>
+                <p>
+                    In den 1980ern war die Forschung an sog. Hypertexten weit verbreitet
+                    und es gab auch einige solcher Programme für Personal Computer (vgl.
+                    <a href="https://en.wikipedia.org/wiki/HyperCard">Apple Hypercard</a>).
+                    Die Idee von Hypertexten ist dabei ganz einfach, dass die lineare Form
+                    eines Buchs (von Deckel zu Deckel) eigentlich relativ schlecht darin
+                    ist, komplexe Zusammenhänge zu erfassen. Denn die Reihenfolge, in der
+                    die Informationen eines Buchs präsentiert werden, ist oftmals nur eine
+                    von vielen Möglichkeiten, diese zu strukturieren. Hypertexte verabschieden
+                    sich daher von der linearen Form und führen Verlinkungen ein, so dass
+                    der Leser bei Bedarf einfach an eine themenverwandte Stelle springen und
+                    dort weiterlesen kann.
+                </p>
+                <p>
+                    Und genau so etwas wollte Tim Berners-Lee auf das globale Internet
+                    übertragen. Denn bisher konnte man über das Internet E-Mails senden
+                    und empfangen, sich auf anderen Computern einloggen oder Dateien
+                    austauschen, ein Infomationssystem wie das World Wide Web gab es
+                    aber noch nicht. Also setzte sich Berners-Lee ran und schrieb den
+                    heute berühmten Aufsatz „Information Management – A Proposal” und
+                    legte ihn seinem Arbeitgeber vor. Dieser fand die Idee auch durchaus
+                    interessant, dabei blieb es dann aber auch.
+                </p>
+                <p>
+                    Keiner konnte ja damals ahnen, was aus dieser Idee einmal werden
+                    würde. Dass sie einmak soweit kommen würde, dass der bekannte
+                    Informatiker Joseph Weizenbaum einmal sagte: „Das World Wide Web
+                    ist ein großer Misthaufen mit ein paar Perlen drin.”
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Die Bestandteile des World Wide Web</h1>
+            <article>
+                <div class="container-fluid">
+                    <div class="row" style="margin-bottom: 1em">
+                        <div class="col-md">
+                            <h3 class="dhbw-lightblue">Von Tim Berners-Lee erfunden</h3>
+                            <ul>
+                                <li>
+                                    <b>HTML:</b> Beschreibungssprache für die Dokumente und Inhalte im Web
+                                </li>
+
+                                <li>
+                                    <b>URL:</b> Formales Schema zur Adressierung aller Web-Ressourcecn
+                                </li>
+
+                                <li>
+                                    <b>HTTP:</b> Einfaches Übertragungsprotokoll zum Abruf der HTML-Dateien
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md">
+                            <h3 class="dhbw-lightblue">Nachträglich hinzugefügt</h3>
+                            <ul>
+                                <li>
+                                    <b>CSS:</b> Stylesheet-Sprache zur Gestaltung von HTML-Dateien
+                                </li>
+
+                                <li>
+                                    <b>JavaScript:</b> Einfache Sprache für interaktive Elemente im Browser
+                                </li>
+
+                                <li>
+                                    <b>WebSockets:</b> Zusätzliches Übertragungsprotokoll zur Kommunikation mit dem Server
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <img src="tim_berners_lee.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            Tim Berners-Lee im Jahr 2014
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://de.wikipedia.org/wiki/Tim_Berners-Lee#/media/File:Sir_Tim_Berners-Lee.jpg">Wikipedia</a>
+                                </small>
+                            </p>
+                        </div>
+                        <div class="col-md">
+                            <img src="first_web_server.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            Der erste Webserver der Welt.
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://upload.wikimedia.org/wikipedia/commons/d/d1/First_Web_Server.jpg">Wikipedia</a>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <h2>Ursprüngliche Entwicklung des Web</h2>
+                <p>
+                    In den folgenden Jahren machte sich Tim Berners-Lee daran, seine
+                    Vision umzusetzen. Er ging also wirklich her und hat angefangen,
+                    sowohl einen Webserver als auch einen Browser zu entwickeln.
+                    Als Entwicklungsmaschine nutzte er hierfür einen
+                    <a href="https://de.wikipedia.org/wiki/NeXTcube">NeXTcube</a>,
+                    der für sich genommen schon eine interessante Geschichte wert
+                    wäre.
+                </p>
+                <p>
+                    So viel sei an dieser Stelle aber zum NeXTcube und der Firma
+                    NeXT verraten. Als Steve Jobs 1985 die von ihm mitgegründete
+                    Firma Apple im Streit verlies, gründete er kurzerhand einfach
+                    einen neuen Computerhersteller. 1996 wurde dieser von Apple
+                    übernommen und Steve Jobs kehrte zu seiner ersten Firma zurück.
+                </p>
+                <p>
+                    Doch nun wieder zurück zu unserem Web. Bereits in dem Aufsatz
+                    von 1989 beschreibt Berners-Lee die drei wesentlichen Elemente,
+                    die zusammengenommen das World Wide Web ergeben (vom Internet
+                    einmal abgesehen):
+                </p>
+                <ul>
+                    <li>
+                        <b>HTML</b> (Hypertext Markup Language) als die Beschreibungssprache,
+                        die zum Verfassen von Dokumenten im Web genutzt werden sollte. Tatsächlich
+                        ging es ihm anfangs noch nicht im Webseiten, wie wir sie heute kennen,
+                        sondern eher um einfache Textdokumente. Aus diesem Grund lehnte er sich
+                        an der vorhandenen Sprache SGML an und vereinfachte sie.
+                    </li>
+                    <li>
+                        <b>URL</b> (Uniform Resource Locator) als das formale Schema das zur
+                        Adressierung der Dokumente und Ressourcen im Web dienen sollte.
+                        Vereinfacht gesagt kannst du dir das so vorstellen, das jedes Dokument
+                        einfach eine weltweit eindeutige Adresse bekommen sollte, die man zum
+                        Aufruf des Dokuments im Browser eingeben sollte. Hm, Moment mal. Das
+                        kennen wir doch irgendwie … Stimm, das ist heute natürlich alles
+                        immer noch so. 😎
+                    </li>
+                    <li>
+                        <b>HTTP</b> (HyperText Transfer Protocol) als ein total einfaches
+                        Übertragungsprotokoll zwischen Browser und Server. Das Protokoll
+                        war gerade am Anfang so einfach, dass der Browser einfach nur das
+                        Wort <tt>GET</tt> zusammen mit dem gesuchten Dateinamen an den
+                        Server geschickt hat und der Server daraufhin den Inhalt der Datei
+                        lieferte. Heute geht das immer noch, es ist aber dann doch ein wenig
+                        komplizierter geworden.
+                    </li>
+                </ul>
+                <p>
+                    1991 war es dann soweit. Eine erste lauffähige Version der Software
+                    war vorhanden und Berners-Lee setzte den ersten Webserver mit der
+                    ersten Webseite auf. Diese hatte die Adresse
+                    <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">http://info.cern.ch/hypertext/WWW/TheProject.html</a>
+                    und beschrieb einfach nur „das Projekt”, wie er es damals nannte.
+                </p>
+
+                <h2>Die Entwicklung in den folgenden Jahren</h2>
+                <p>
+                    Mit dem World Wide Web hatte Berners-Lee einen Zeitgeist getroffen.
+                    Zwar gab es für ein paar Jahre mit <a href="https://de.wikipedia.org/wiki/Gopher">Gopher</a>
+                    einen alternativen Informationsdienst im Internet, dieser konnte sich
+                    jedoch nicht gegen die neuen multimedialen Fähigkeiten des Web durchsetzen.
+                    Und so kam es, dass 1993 noch im selben Jahr, als Berners-Lee die Software
+                    der Allgemeinheit zur Verfügung stellte, weltweit bereits über 500 Webserver
+                    online gingen.
+                </p>
+                <p>
+                    In den Folgejahren entwickelte sich daher eine immer größere Fangemeinde
+                    um das World Wide Web und Tim Bernes-Lee verlies das CERN, um das bekannte
+                    <a href="https://www.w3.org/">W3C</a> zu gründen und somit die Weiterentwicklung
+                    des Web zu koordinieren.
+                </p>
+                <p>
+                    Unter der neuen Führung des W3C entwickelte sich das Web schnell weiter.
+                    Gerade in den Anfangsjahren sind daher oftmals neue Versionen der
+                    zugrunde liegenden Technologien erschienen und oftmals gab es von einer
+                    Idee auch mehrere, konkurrierende Implementierungen, von denen sich dann
+                    eine letztlich durchgesetzt hat. So war es beispielsweise bei <b>CSS</b>.
+                    Relativ bald erkannte man, dass HTML zwar gut zur Strukturierung von
+                    Inhalten geeignet war, man aber ihre Darstellung kaum beeinflussen konnte.
+                    Unterschiedliche Browserhersteller implementierten daher unterschiedliche
+                    Stylesheet-Sprachen, die ein <i>Besucher</i> einer Webseite nutzen konnte,
+                    um die Gestaltung der Webseite nach seinen Wünschen anzupassen.
+                    Natürlich war das noch viel zu umständlich. CSS setzte sich also auch
+                    deshalb durch, weil es von nun an der <i>Anbieter</i> einer Webseite
+                    war, der ihr Layout definierte.
+                </p>
+                <p>
+                    1995 veröffentlichte die damlige Firma Sun die Programmiersprache Java
+                    und viele sahen bereits das Ende der alten Programmiersprachen kommen.
+                    Denn Java war einfacher als die älteren Sprachen, dennoch sehr mächtig,
+                    konnte mit dem Internet und dem Web umgehen und war zudem noch
+                    plattformunabhängig. Ein einmal geschriebenes Javaprogramm war also
+                    auf unterschiedlichsten Betriebssystemen und unterschiedlichsten
+                    Computern lauffähig.
+                </p>
+                <p>
+                    Von dieser Popularität wollte man bei Netscape (dem Vorläufer der heutigen
+                    Mozilla-Organisation) profitieren und spendierte dem hauseigenen
+                    Netscape Navigator (so hieß der Firefox damals noch) eine eigene
+                    Programmiersprache, mit der es möglich war, interaktive Elemente in
+                    einer Webseite zu definieren. Diese Sprache lehnte sich von der Syntax
+                    her an Java an (was keine Kunst ist, da Java sich an C und C++ anlehnt)
+                    und wurde kurzerhand einfach <b>JavaScript</b> genannt – obwohl es sonst
+                    keine Gemeinsamkeiten mit Java gab. Microsoft versuchte eine Zeit lang
+                    mit JScript seine eigene Version dieser Sprache durchzusetzen, kam damit
+                    letztlich aber nicht durch, weshalb uns JavaScript auch heute noch in
+                    der Webentwicklung begleitet.
+                </p>
+                <p>
+                    Der Letzte im Bunde sind <b>WebSockets</b>. Hierbei handelt es sich
+                    eine Entwickler der 2010er, die aber trotzdem an dieser Stelle erwähnt
+                    werden sol. Denn bei WebSockets handelt es sich erstmals seit der
+                    Geschichte des Web um ein weiteres Übertragungsprotokoll neben HTTP
+                    mit weiter Verbreitung. Es dient allerdings nicht dem Abruf von
+                    Webseiten, sondern mehr dazu, einer im Browser laufenden Anwendung
+                    die Möglichkeit zu geben, in Echtzeit Daten mit dem Server auszutauschen.
+                    Gegen Ende der Vorlesung werden wir das Protokoll daher nutzen, um
+                    einen kleinen Mehrbenutzer-Chat zu entwickeln.
+                </p>
+                <p>
+                    Und der Rest, wie es so schön heißt, ist Geschichte!
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Weitere Erfindungen der 1990er</h1>
+            <article>
+                <div class="container-fluid">
+                    <div class="row" style="margin-bottom: 1em">
+                        <div class="col-md">
+                            <img src="linux.png" class="img-thumbnail d-block" style="width: 100%" />
+                            1991: Der Linux Kernel
+                        </div>
+                        <div class="col-md">
+                            <img src="palm.png" class="img-thumbnail d-block" style="width: 100%" />
+                            1992: Personal Digital Assistants
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 1em">
+                        <div class="col-md">
+                            <img src="windows95.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1995: Taskleiste, Startmenü, Desktop und
+                            <a href="http://www.der-postillon.com/2017/06/windows-nachhaltig.html">Papierkorb</a>
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="http://www.pcworld.com/article/3027904/windows/windows-95-is-back-right-inside-your-browser.html">PCWorld</a>
+                                </small>
+                            </p>
+                        </div>
+                        <div class="col-md">
+                            <img src="dvd.png" class="img-thumbnail d-block" style="width: 100%" />
+                            1999: Filme auf DVD
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://de.wikipedia.org/wiki/DVD#/media/File:DVD.png">Wikipedia</a>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Die 1990er waren schon eine verrückte Zeit. Voller neuer
+                    Ideen und Hypes, auf die die Leute aufgesprungen sind.
+                    An dieser Stelle daher ein kleiner Ausblick, was noch alles
+                    in den 1990ern erfunden wurde, was wir heute noch kennen und
+                    nutzen.
+                </p>
+                <ul>
+                    <li>
+                        <b>1991:</b> Linux Torvalds kündigt im Usenet den
+                        <a href="https://de.wikipedia.org/wiki/Linux">Linux Kernel</a> an.
+                        Heute läuft die Mehrheit aller Webseiten auf einem
+                        <a href="https://httpd.apache.org">Apache-Server</a>
+                        unter Linux.
+                    </li>
+                    <li>
+                        <b>1992:</b> Mit dem Apple Newton und dem Palm Zoomer erschiene
+                        die ersten PDAs (Personal Digital Assistant). Die Kombination
+                        von PDA und Handy in einem Gerät sollte 2007 als Smartphone
+                        bekannt werden, als Apple das iPhone vorstellte.
+                    </li>
+                    <li>
+                        <b>1995:</b> Microsoft veröffentlicht mit Windows 95
+                        die erste Windows-Version mit den bekannten drei Buttons
+                        in der Titelzeile eines Fensters, einem Desktop, auf dem
+                        Dateien und Icons abgelegt werden können, dem Windows
+                        Explorer, einem Papierkorb sowie der Taskleiste mit dem
+                        Startmenü.
+                    </li>
+                    <li>
+                        <b>1999:</b> Die ersten DVDs kommen auf den Markt.
+                    </li>
+                </ul>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(153, 190, 137)">
+            <h1>Hinweise zum Schluss</h1>
+            <article>
+                <h4>Daran solltest du denken …</h4>
+                <ul>
+                    <li>Dies war ein mittelgroßen Selbststudium, die nachfolgenden werden umfangreicher sein.</li>
+                    <li>(Mehr Folien, dafür weniger Text und Geschichten 🙂)</li>
+                    <li>Zusätzlich werden sie auch kleinere Aufgaben und Übungen beinhalten.</li>
+                    <li>Plane also ausreichend Zeit für dein Selbststudium ein!</li>
+                </ul>
+                <div style="font-size: 400px; color: white; transform: rotate(-5deg) translate(-20px,0);" class="dhbw-text-shadow" >!</div>
+            </article>
+            <aside>
+                <p>
+                    Wenn du jetzt noch die Lernkontrolle und das Feedback in Moodle
+                    ausfüllst, hast du schon einen ziemlich guten Eindruck davon,
+                    was dich im Selbststudium erwarten wird. Eine Warnung soll an
+                    dieser Stelle aber noch ausgesprochen werden:
+                </p>
+                <p>
+                    Das war ja nur ein kurzes Kapitel. Die nachfolgenden
+                    Selbststudiumseinheiten werden deutlich größer als diese
+                    sein und auch kleinere Aufgaben und Übungen umfassen.
+                    Du solltest dir also unbedingt ausreichend Zeit einplanen
+                    und nicht erst, wie man das sonst ja so mit Hausaufgaben macht,
+                    erst in der Straßenbahm auf dem Weg zur Hochschule damit anfangen. 😉
+                </p>
+                <p>
+                    Obwohl diese Folien natürlich durchaus für die Betrachtung
+                    auf dem Smartphone geeignet sind. In der Straßenbahn auf
+                    dem Weg nach Hause ist also okay … 😃
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(158, 203, 231)">
+            <h1>Rechtshinweise</h1>
+            <article>
+                <h4>Creative Commons Namensnennung 4.0 International</h4>
+                <ul>
+                    <li>Beliebiges Teilen ist erlaubt</li>
+                    <li>Die Unterlagen dürfen bearbeitet und verändert werden</li>
+                    <li>Wenn die Namens- und Urheberangaben erhalten bleiben</li>
+                    <li>Und keine weiteren Einschränkungen auferlegt werden</li>
+                </ul>
+                <span style="font-size: 400px; color: white;" class="dhbw-text-shadow" >§</span>
+            </article>
+            <aside style="font-size: 80%">
+                <h4>Kontaktdaten</h4>
+                <p>
+                    Dennis Schulmeister-Zimolong<br/>
+                    Wilhelm-Danner-Str. 33<br/>
+                    76287 Rheinstetten<br/>
+                    E-Mail: dhbw@windows3.de<br/>
+                </p>
+
+                <h4>Urheberrecht und Lizenzvereinbarung</h4>
+                <p>
+                    © 2017 Dennis Schulmeister-Zimolong
+                </p>
+                <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons Lizenzvertrag" />
+                <p>
+                    Das Werk <i>Vorlesung "Webprogrammierung" im Studiengang Wirtschaftsinformatik
+                    an der DHBW Karlsruhe</i> von <a href="http://www.windows3.de">Dennis Schulmeister-Zimolong</a>
+                    ist lizenziert unter <a href="http://creativecommons.org/licenses/by/4.0/"><i>Creative Commons
+                    Namensnennung 4.0 International</i></a>.
+                </p>
+                <p>
+                    Du darfst:
+                </p>
+                <ul>
+                    <li>
+                        <b>Teilen</b> — das Material in jedwedem Format oder Medium vervielfältigen
+                        und weiterverbreiten
+                    </li>
+                    <li>
+                        <b>Bearbeiten</b> — das Material remixen, verändern und darauf aufbauen
+                        und zwar für beliebige Zwecke, sogar kommerziell.
+                    </li>
+                </ul>
+                <p>
+                    Unter folgenden Bedingungen:
+                </p>
+                <ul>
+                    <li>
+                        <b>Namensnennung</b> — Du musst angemessene Urheber- und Rechteangaben
+                        machen, einen Link zur Lizenz beifügen und angeben, ob Änderungen
+                        vorgenommen wurden. Diese Angaben dürfen in jeder angemessenen Art
+                        und Weise gemacht werden, allerdings nicht so, dass der Eindruck
+                        entsteht, der Lizenzgeber unterstütze gerade dich oder deine Nutzung
+                        besonders.
+                    </li>
+                    <li>
+                        <b>Keine weiteren Einschränkungen</b> — Du darfst keine zusätzlichen Klauseln
+                        oder technische Verfahren einsetzen, die anderen rechtlich irgendetwas
+                        untersagen, was die Lizenz erlaubt.
+                    </li>
+                </ul>
+                <p>
+                    Es werden keine Garantien gegeben und auch keine Gewähr geleistet.
+                    Die Lizenz verschafft dir möglicherweise nicht alle Erlaubnisse,
+                    die du für die jeweilige Nutzung brauchst. Es können beispielsweise
+                    andere Rechte wie Persönlichkeits- und Datenschutzrechte zu beachten
+                    sein, die deine Nutzung des Materials entsprechend beschränken.
+                </p>
+            </aside>
+        </section>
+    </body>
+</html>
