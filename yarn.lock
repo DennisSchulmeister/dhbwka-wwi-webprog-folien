@@ -1465,6 +1465,10 @@ he@1.1.x, he@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
+highlight.js@^9.12.0:
+  version "9.12.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.12.0.tgz#e6d9dbe57cbefe60751f02af336195870c90c01e"
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
@@ -1999,6 +2003,13 @@ lru-cache@^4.0.1:
   dependencies:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
+
+ls-plugin-highlight.js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ls-plugin-highlight.js/-/ls-plugin-highlight.js-1.0.1.tgz#25ae5e6f9c29633f54c545a5cb30e79570b3fc68"
+  dependencies:
+    highlight.js "^9.12.0"
+    jquery "^3.2.1"
 
 macaddress@^0.2.8:
   version "0.2.8"

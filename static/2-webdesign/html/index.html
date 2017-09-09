@@ -180,8 +180,8 @@
                     <h4 class="dhbw-lightblue">SVG (Scalable Vector Graphics)</h4>
                     <ul>
                         <li>XML-basiertes Grafikformat für skalierbare <a href="https://de.wikipedia.org/wiki/Vektorgrafik" target="_blank">Vektorgrafiken</a></li>
-                        <li>Kann zur Definition grafischer Elemente wie z.B. Schaubilder genutzt werden</li>
-                        <li>Kein Ersatz für <a href="https://de.wikipedia.org/wiki/Rastergrafik" target="_blank">Rastergrafikformate</a> wie JPEG und PNG</li>
+                        <li>Kann mit CSS und JavaScript umfangreich zur Laufzeit angepasst werden</li>
+                        <li>Ist daher gut zur Definition interaktiver, grafischer Elemente geeignet</li>
                         <li>Rechtecke, Kreise, Linien, Kurven, Flächen, Füllungen, …</li>
                     </ul>
 
@@ -198,11 +198,11 @@
             </article>
             <aside>
                 <p>
-                    Dass die Beispiele auf der vorherigen Folie komplett auf HTML basieren,
-                    ist so nicht ganz richtig. Denn streng genommen handelt es sich bei HTML
-                    nur um den Teil zur Strukturierung der Inhalte. Zwar werden der grundlegende
-                    Aufbau einer Oberfläche sowie alle darin enthaltenen Informationen in HTML
-                    definiert, ohne ein paar Freunde, geht es dann allerdings doch nicht. 😎
+                    Dass die Beispiele auf der vorherigen Folie nur auf HTML basieren, ist so
+                    nicht richtig. Denn streng genommen handelt es sich bei HTML nur um den Teil
+                    zur Strukturierung der Inhalte. Zwar werden der grundlegende Aufbau einer
+                    Oberfläche sowie alle darin enthaltenen Informationen in HTML definiert,
+                    ohne ein paar Freunde geht es dann allerdings doch nicht. 😎
                 </p>
 
                 <div class="embed-responsive embed-responsive-16by9" style="margin-bottom: 1em">
@@ -217,22 +217,31 @@
                 <dl>
                     <dt>HTML (HyperText Markup Language)</dt>
                     <dd>
-                        Wie bereits gesagt werden mit HTML die darzustellenden Inhalte definiert,
-                        indem zum Beispiel Überschriften und Textinhalte festgelegt werden. Bei
-                        komplexeren Layouts werden hier auch die „Bereiche” definiert, die auf
-                        dem Bildschirm angeordnet werden sollen, zum Beispiel die „Kopfzeile” und
-                        eine „Sidebar”.
+                        Mit HTML werden die darzustellenden Inhalte definiert und die
+                        „Bereiche” einer Seite festgelegt. Hierfür werden in einer HTML-Datei
+                        alle Textinhalte wie Überschriften, Absätze oder Abbildungen festgelegt
+                        und mit Namen versehen, um sie später zum Beispiel zu einem Kopfbereich
+                        oder einer Side Bar gestalten zu können.
                     </dd>
 
                     <dt>CSS (Cascading StyleSheets)</dt>
                     <dd>
-                        HTML beinhaltet selbst kaum Anweisungen, welche die Darstellung der darin
-                        definierten Inhalte festlegen. Sämtliche Anweisungen, die sich nur auf das
-                        Erscheinungsbild nicht jedoch auf die Semantik (Bedeutung) eines Elements
-                        beziehen wurden im Laufe der Jahre aus HTML entfernt oder semantisch
-                        umdefiniert. Stattdessen wird die Darstellung über ein sogenanntes Stylesheet
-                        geregelt, das hierfür einfach ein paar HTML-Elemente auswählt und dann festlegt,
-                        wie diese aussehen sollen.
+                        <p>
+                            Das Aussehen der HTML-Inhalte wird in einem sogenannten Stylesheet
+                            definiert. Denn HTML selbst beinhaltet keine Anweisungen hierfür.
+                            Stattdessen sollen Inhalt und Aussehen getrennt geregelt werden,
+                            um eine bessere Wiederverwendbarkeit des Layouts zu erzielen.¹
+                            Hier kommen dann die Namen ins Spiel, die man den einzelnen Elementen
+                            einer HTML-Datei gibt. Denn darüber lassen sie sich im Stylesheet
+                            ansprechen und gestalten.
+                        </p>
+                        <p>
+                            <small>
+                                ¹ Beispielsweise um zwei HTML-Dateien dasselbe Layout zu geben.
+                                Oder um an Weihnachten seiner Webseite ein anderes Layout zu geben,
+                                ohne alle HTMLs anpassen zu müssen.
+                            </small> 🎅 🎄
+                        </p>
                     </dd>
 
                     <dt>SVG (Scalable Vector Graphics)</dt>
@@ -246,14 +255,13 @@
 
                     <dt>JavaScript</dt>
                     <dd>
-                        Die Schaltzentrale, die den meisten HTML-Anwendungen ihre (clientseitige) Logik
-                        gibt, ist JavaScript. Die Einzelheiten zu JavaScript wirst du noch in einem
-                        späteren Kapitel erfahren. Hier reicht es erst mal nur zu wissen, dass es sich um
-                        eine vollwertige Programmiersprache handelt, die eingebettet in einer Webseite komplett
-                        im Browser läuft und alle Inhalte der Seite ändern kann. Zusammen mit der sehr
-                        umfangreichen  <a href="https://de.wikipedia.org/wiki/Programmierschnittstelle"
-                        target="_blank">Programmierschnittstelle (API)</a> zur
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank">App-Entwicklung</a>
+                        Die Schaltzentrale, die allen Webanwendungen ihre clientseitige Logik gibt,
+                        ist JavaScript. Einzelheiten dazu wirst du später noch erfahren. Hier reicht
+                        es erst mal zu wissen, dass es sich um eine vollwertige Programmiersprache
+                        handelt, die eingebettet in einer Webseite im Browser läuft und alle Inhalte
+                        der Seite ändern kann. Zusammen mit ihrer umfangreichen
+                        <a href="https://de.wikipedia.org/wiki/Programmierschnittstelle" target="_blank">Programmierschnittstelle (API)</a>
+                        zur <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank">App-Entwicklung</a>
                         lassen sich damit fast beliebige Anwendungen entwickeln.
                     </dd>
                 </dl>
@@ -322,11 +330,11 @@
                         <ul>
                             <li>Verlustfreie Komprimierung der Bilder¹</li>
                             <li>Untersützung jeder beliebigen Farbtiefe ohne Farbrasterung²</li>
-                            <li>Unterstützung eines Alpha-Kanals für halbdurchsichtige Pixel</li>
+                            <li>Unterstützung eines Alphakanals für halbdurchsichtige Pixel³</li>
                         </ul>
                         <p>
                             Jedoch ist das Format nicht für alle Arten von Bildern geeignet. Insbesondere
-                            Fotoähnliche Bilder mit vielen Farben führen zu sehr großen Dateien. Am besten
+                            fotoähnliche Bilder mit vielen Farben führen zu sehr großen Dateien. Am besten
                             eignet es sich daher für Screenshots, bei denen es auf die Lesbarkeit der Schrift
                             ankommt sowie für Bilder mit wenigen Farben oder mit halbdurchsichtigem Hintergrund.
                         </p>
@@ -338,9 +346,14 @@
                         <p>
                             <small>
                                 ² Es wird keine Farbrasterung benötigt, um die Anzahl der Farben zu reduzieren.
-                                Andere Formate besitzen arbeiten mit einer sogenannten Farbpalette und können
-                                daher nur eine bestimmte Anzahl Farben gleichzeitig darstellen, meist nur 256
-                                Stück.
+                                Andere Formate arbeiten hier mit einer sogenannten Farbpalette und können nur
+                                eine bestimmte Anzahl Farben gleichzeitig darstellen, meist nur 256 Stück.
+                            </small>
+                        </p>
+                        <p>
+                            <small>
+                                ³ Zu jedem Pixel wird zusätzlich noch ein Prozentwert gespeichert, wie durchsichtig
+                                oder deckend er dargestellt wird.
                             </small>
                         </p>
                     </dd>
@@ -348,11 +361,11 @@
                     <dt>GIF (Graphics Interchange Format)</dt>
                     <dd>
                         Das GIF-Format wurde bereits 1988 noch vor dem Web erfunden. Lange Zeit galt es als das
-                        Standardformat für den Austausch von Bildern innerhalb und außerhalb des Internets. Im
-                        Vergleich zu PNG hat es aber die Nachteile, dass es nur 256 Farben speichern kann und
-                        dass keine halbtransparenten Pixel unterstützt werden. GIF-Grafiken mit durchsichtigem
-                        Hintergrund haben daher so gut wie immer unschöne Kanten. Jedoch kann man damit einfache
-                        Animationen erstellen, was mit PNG nicht möglich ist.
+                        Standardformat für den Austausch von Bildern zwischen Computerbenutzern. Im Vergleich zu
+                        PNG hat es aber die Nachteile, dass es nur 256 Farben speichern kann und dass keine
+                        halbtransparenten Pixel unterstützt werden. GIF-Grafiken mit durchsichtigem Hintergrund
+                        haben daher so gut wie immer unschöne Kanten. Jedoch kann man damit einfache Animationen
+                        erstellen, was mit PNG nicht möglich ist.
 
                         <img src="earth.gif" class="img-thumbnail img-fluid d-block" />
 
@@ -380,7 +393,7 @@
                     <dt>SVG (Scalable Vector Graphics)</dt>
                     <dd>
                         <p>
-                            SVG ist ein XML-basiertes Format für skalierbare Vektorgrafiken. (Sagt ja schon
+                            SVG ist ein XML-basiertes Format für skalierbare Vektorgrafiken (sagt ja schon
                             der Name 🙃). Anstelle einzelner Pixel werden nur Anweisungen gespeichert, anhand
                             derer sich eine Zeichnung rekonstruieren lässt. SVG-Grafiken sehen daher in jeder
                             Größe und Auflösung gestochen scharf aus. Das Format eignet sich daher gut für
@@ -425,14 +438,14 @@
                         <b>Mittlere Bilder:</b> ca. 800 bis 1000 Pixel hoch oder breit, ca. 120 kB
                     </li>
                     <li>
-                        <b>Große Bilder:</b> 1000 bis 1500 Pixel hoch oder breit, ca. 250 kB
+                        <b>Große Bilder:</b> ca. 1000 bis 1500 Pixel hoch oder breit, ca. 250 kB
                     </li>
                 </ul>
                 <p>
                     Diese Werte sind sicher sehr konservativ geschätzt und du wirst sie nicht immer einhalten
                     können. Und je mehr die Bildschirmauflösungen und Internetbandbreiten im Laufe der Zeit
-                    zunehmen werden, desto größer werden die Zahlen. Dennoch solltest du wirklich im jeden
-                    Preis versuchen, jedes unnötige kB einzusparen. Denn es gibt immer einen Anwender, der
+                    zunehmen werden, desto größer können die Zahlen werden. Dennoch solltest du wirklich um
+                    jeden Preis versuchen, jedes unnötige kB einzusparen. Denn es gibt immer einen Anwender, der
                     gerade im tiefsten Urwald (oder im kanadischen Hinterland!) sitzt und über eine instabile
                     und mega-langsame Funkverbindung surft, die ständig zusammen bricht (haben wir in Kanada
                     wirklich erlebt). Deshalb solltest du die Anzahl der Pixel immer klein halten, auch wenn

@@ -38,6 +38,9 @@
 import SlideshowPlayer from "lecture-slides.js";
 import "./style/style.less";
 
+import LsPluginHighlightJs from "ls-plugin-highlight.js";
+import "./node_modules/highlight.js/styles/atom-one-light.css";
+
 window.addEventListener("load", () => {
     let player = new SlideshowPlayer({
         labelPrev: "Zurück",
@@ -46,6 +49,9 @@ window.addEventListener("load", () => {
         labelOverview: "Übersicht",
         labelPresentationMode: "Präsentationsmodus",
         mode: "overview",
+        plugins: {
+            HighlightJs: new LsPluginHighlightJs(),
+        }
     });
 
     player.start();
