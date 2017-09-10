@@ -189,7 +189,7 @@
                     <ul>
                         <li>Programmiersprache, die innerhalb des Browsers ausgeführt wird</li>
                         <li>Ermöglicht es, auf Ereignisse wie Mausklicks zu reagieren</li>
-                        <li>Ermöglicht die nachträgliche Veränderung der sichtbaren Seiteninhalte</li>
+                        <li>Kann die Dargestellten Inhalte einer Seite zur Laufzeit ändern</li>
                         <li>
                             Bietet ein umfangreiches <a href="https://de.wikipedia.org/wiki/Programmierschnittstelle" target="_blank">API</a>
                             zur <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank">App-Entwicklung</a>
@@ -198,11 +198,11 @@
             </article>
             <aside>
                 <p>
-                    Dass die Beispiele auf der vorherigen Folie nur auf HTML basieren, ist so
-                    nicht richtig. Denn streng genommen handelt es sich bei HTML nur um den Teil
-                    zur Strukturierung der Inhalte. Zwar werden der grundlegende Aufbau einer
-                    Oberfläche sowie alle darin enthaltenen Informationen in HTML definiert,
-                    ohne ein paar Freunde geht es dann allerdings doch nicht. 😎
+                    Dass die Beispiele auf der vorherigen Folie nur auf HTML basieren, ist nicht
+                    ganz richtig. Denn streng genommen handelt es sich bei HTML nur um eine einfache
+                    Sprache zur Strukturierung der Inhalte. Zwar werden der grundlegende Aufbau einer
+                    Seite sowie alle darin enthaltenen Informationen in HTML definiert, ohne ein paar
+                    Freunde geht es dann aber doch nicht. 😎
                 </p>
 
                 <div class="embed-responsive embed-responsive-16by9" style="margin-bottom: 1em">
@@ -232,8 +232,8 @@
                             Stattdessen sollen Inhalt und Aussehen getrennt geregelt werden,
                             um eine bessere Wiederverwendbarkeit des Layouts zu erzielen.¹
                             Hier kommen dann die Namen ins Spiel, die man den einzelnen Elementen
-                            einer HTML-Datei gibt. Denn darüber lassen sie sich im Stylesheet
-                            ansprechen und gestalten.
+                            einer HTML-Datei gibt. Denn darüber lassen sich die Teile einer Seite
+                            im Stylesheet ansprechen und gestalten.
                         </p>
                         <p>
                             <small>
@@ -271,13 +271,1030 @@
         <section>
             <h1>Die grundlegende Syntax einer HTML-Datei</h1>
             <article>
-                ...
-                <!-- https://de.wikipedia.org/wiki/Auszeichnungssprache -->
-                <!-- https://en.wikipedia.org/wiki/Microsoft_Notepad -->
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Beispiel für eine einfache HTML-Datei&lt;/title&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;p&gt;
+                                Dies ist eine &lt;u&gt;einfache&lt;/u&gt; HTML-Seite zur Verdeutlichung
+                                der grundlegenden HTML-Syntax. Wie man gut sehen kann, handelt
+                                es sich bei HTML um ein einfaches Format, das man auch ohne
+                                große Erklärungen schnell versteht.
+                            &lt;/p&gt;
+                            &lt;hr /&gt;
+                            &lt;p&gt;
+                                Programmiersprachen, die der Strukturierung einer Textdatei durch
+                                in den Text eingebettete, für Menschen lesbare Steuerinformationen
+                                dienen, nennt man &lt;a href="https://de.wikipedia.org/wiki/Auszeichnungssprache"&gt;
+                                Markup Languages&lt;/a&gt; oder Auszeichnugssprachen.
+                            &lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
             </article>
             <aside>
                 <p>
-                    ...
+                    Wie du siehst, ist HTML wirklich ein einfaches Format. Auch ohne ausschweifende Erklärungen an
+                    dieser Stelle brauchst du dir nur ein wenig das Beispiel anschauen und du siehst sofort, was die
+                    wichtigsten Eigenheiten einer HTML-Datei sind. Um aber ganz sicher zu gehen, erklären wir es dir
+                    hier trotzdem nochmal. 💃
+                </p>
+                <p>
+                    Zunächst musst du wissen, dass es sich bei HTML um eine sogenannte
+                    <a href="https://de.wikipedia.org/wiki/Auszeichnungssprache" target_"blank">Markup Language</a>
+                    (Auszeichnungssprache) handelt. Damit ist gemeint, dass HTML-Dateien einfache
+                    Textdateien sind, wie sie mit jedem beliebigen Texteditor wie zum Beispiel
+                    <a href="https://en.wikipedia.org/wiki/Microsoft_Notepad">Notepad</a> erstellt
+                    und bearbeitet werden können. Neben Buchstaben, Zahlen und Zeilenumbrüchen
+                    beinhalten sie noch für Mensch und Computer gleichermaßen lesbare Steueranweisungen,
+                    die einzelnen Abschnitten eine Bedeutung zuweisen und dem Text dadurch eine Struktur
+                    geben. Weitere Beispiele für solche Sprachen sind:
+                </p>
+                <ul>
+                    <li><a href="https://de.wikipedia.org/wiki/LaTeX" target="_blank">TeX und LaTeX</a></li>
+                    <li><a href="http://docutils.sourceforge.net/rst.html" target="_blank">ReStructuredText</a></li>
+                    <li><a href="http://markdown.de/" target="_blank">Markdown</a></li>
+                    <li><a href="https://txstyle.org/" target="_blank">Textile</a></li>
+                    <li><a href="https://de.wikipedia.org/wiki/Wikitext" target="_blank">Wikitext</a></li>
+                    <li><a href="https://de.wikipedia.org/wiki/PostScript" target="_blank">PostScript</a></li>
+                    <li><a href="https://de.wikipedia.org/wiki/Rich_Text_Format" target="_blank">Rich Text Format</a></li>
+                    <li>…</li>
+                </ul>
+                <p>
+                    Auszeichnungssprachen stehen im Gegensatz zu
+                    <a href="https://de.wikipedia.org/wiki/Bin%C3%A4rdatei" target="_blank">Binärdateien</a>,
+                    wie sie von <a href="https://de.wikipedia.org/wiki/Microsoft_Word" target="_blank">Microsoft Word</a>,
+                    <a href="https://de.wikipedia.org/wiki/LibreOffice" target="_blank">Libre Office</a>
+                    und anderen Programmen erstellt werden. Denn diese lassen sich nicht in einem Texteditor
+                    öffnen und beinhalten auch keinen lesbaren „Quellcode”, der von Hand angepasst werden kann.
+                </p>
+                <p>
+                    Die Syntaxregeln von HTML sind eigentlich ziemlich einfach. Wie du
+                    im Beispiel siehst, werden alle HTML-Anweisungen (die sogenannten Tags,
+                    englisch „Tägs” gesprochen) in spitzen Klammern geschrieben, wobei
+                    es drei Arten von Tags gibt:
+                </p>
+                <ul>
+                    <li>
+                        <b>Öffnende Tags:</b> Diese erkennst du daran, dass sie nur aus einem
+                        Befehl in spitzen Klammern bestehen und keinen Schrägstrich beinhalten.
+                        Sie markieren den Anfang eines Bereichs. Zum Beispiel
+                        <src-code language="html">&lt;title&gt;</src-code>.
+                    </li>
+                    <li>
+                        <p>
+                            <b>Schließende Tags:</b> Zu jedem öffnenden Tag gehört ein schließendes
+                            Tag mit genau demselben Namen. Vor dem Namen steht jedoch ein Schrägstrich.
+                            Sie markieren damit das Ende eines Bereichs. Zum Beispiel
+                            <src-code language="html">&lt;/body&gt;</src-code>. Bei der Reihenfolge ist
+                            darauf zu achten, dass die Bereiche immer korrekt geschachtelt werden.
+                            Dass heißt die Tags müssen immer in der umgekehrten Reihenfolge geschlossen
+                            werden, wie sie geöffnet wurden.
+                        </p>
+                    </li>
+                    <li>
+                        <b>Sich selbst schließende Tags:</b> Ein Sonderfall sind die sich selbst
+                        schließenden Tags. Dabei handelt es sich um Tags, auf die kein schließendes
+                        Tag folgt. Sie erkennst du um Schrägstrich hinter dem Namen, der allerdings
+                        auch wegbleiben darf. Aus diesem Grund sind sowohl <src-code language="html">&lt;br /&gt;</src-code>
+                        als auch <src-code language="html">&lt;br&gt;</src-code> gültige sich selbst
+                        schließende Tags.
+                    </li>
+                </ul>
+                <p>
+                    Manchmal haben die Tags noch sogenannte Attribute, die innerhalb der spitzen
+                    Klammern des Starrttags stehen. Im Beispielquellcode siehst du das bei den Tags
+                    <src-code language="html">&lt;meta charset="utf-8" /&gt;</src-code> und
+                    <src-code language="html">&lt;a href="https://..."&gt;</src-code>.
+                    <code>charset</code> und <code>href</code> sind hier die Attribute der Tags.
+                </p>
+                <p>
+                    Die Groß- und Kleinschreibung der Tagnamen und Attribute ist egal. Inzwischen
+                    hat sich aber die Kleinschreibung als allgemeine Form eingebürgert, obwohl
+                    die Leute bis Anfang der 2000er noch die Großschreibung bevorzugt haben.
+                    <a href="https://www.youtube.com/watch?v=L9EKqQWPjyo" target="_blank">Things
+                    have changed</a>.
+                </p>
+                <p>
+                    Darüber hinaus hat jedes HTML-Dokument einen festen Aufbau, der in der folgenden
+                    Abbildung dargestellt ist:
+                </p>
+
+                <img src="html_syntax.svg" class="d-block" style="width: 100%; margin-bottom: 1em"/>
+
+                <p>
+                    Die erste Zeile sollte immer <src-code language="">&lt;!DOCTYPE html&gt;</src-code>
+                    lauten. Dadurch wird definiert, dass es sich um eine HTML 5-Datei handelt, und
+                    der Browser alle neuen Anzeigefeatures zur Verfügung stellen soll. Ältere HTML-Versionen
+                    haben hier kompliziertere Angaben, die teilweise dazu führen, dass die Browser in eine
+                    Art Kompatibilitätsmodus schalten. Mit solchen alten Sachen wollen wir uns hier aber
+                    nicht herumschlagen. 👯
+                </p>
+                <p>
+                    Das erste richtige Tag einer HTML-Datei ist immer das <src-code language="html">&lt;html&gt;</src-code>-Tag.
+                    Man nennt es auch das Wurzelelement, da sich durch die Tags immer eine Baumstruktur ergibt,
+                    die beim <src-code language="html">&lt;html&gt;</src-code>-Tag beginnt. Folgerichtig muss
+                    <src-code language="html">&lt;/html&gt;</src-code> auch das letzte Tag sein.
+                </p>
+                <p>
+                    Innerhalb von <src-code language="html">&lt;html&gt;…&lt;/html&gt;</src-code> befinden sich dann
+                    immer die beiden Bereiche <src-code language="html">&lt;head&gt;…&lt;/head&gt;</src-code> und
+                    <src-code language="html">&lt;body&gt;…&lt;/body&gt;</src-code> in genau dieser Reihenfolge.
+                    Im <code>head</code> befinden sich dabei sämtliche nicht sichtbaren Informationen über die Seite,
+                    wie zum Beispiel der verwendete Zeichensatz oder ihr Name, wenn du so willst also die Metadaten.
+                    Und im <code>body</code> stehen dann alle Sachen, die der Browser auf den Schirm bringen soll, also
+                    alle Überschriten, Absätze und sonstigen Inhalte.
+                </p>
+                <p>
+                    Mehr Regeln gibt es im Prinzip nicht, außer dass die Zeichen <code>&lt;</code> und
+                    <code>&gt;</code> nicht außerhalb von Tags vorkommen dürfen. Willst du sie verwenden,
+                    musst du sie durch sogenannte Entitäten ersetzen:
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Zeichen</th>
+                            <th>Ersatzschreibweise</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>
+                            <code>&lt;</code>
+                        </td>
+                        <td>
+                            <src-code language="html">&amp;lt;</src-code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>&gt;</code>
+                        </td>
+                        <td>
+                            <src-code language="html">&amp;gt;</src-code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>&amp;</code>
+                        </td>
+                        <td>
+                            <src-code language="html">&amp;amp;</src-code>
+                        </td>
+                    </tr>
+                </table>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 1: Deine erste HTML-Datei</h1>
+            <article>
+                <ol>
+                    <li>Kopiere den Quellcode der vorangegangenen Folie in einen Texteditor deiner Wahl.</li>
+                    <li>Speichere die Datei mit der Endung <tt>.html</tt> ab und öffne sie im Browser.</li>
+                    <li>Ändere ein paar Inhalte in der Datei und schaue dir das Ergebnis an.</li>
+                </ol>
+                <p>
+                    <b>Hinweis:</b> Achte auf den richtigen Zeichensatz der Datei. Das Tag
+                    <src-code language="html">&lt;meta charset="utf-8" /&gt;</src-code> weist den Browser
+                    an, die Datei als UTF-8-Datei zu lesen. Sonst werden die Umlaute und Sonderzeichen
+                    nicht richtig dargestellt.
+                </p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md">
+                            <img src="aufgabe1_editor.png" class="img-thumbnail d-block" style="width: 100%" />
+                            Quellcode im Editor
+                        </div>
+                        <div class="col-md">
+                            <img src="aufgabe1_browser.png" class="img-thumbnail d-block" style="width: 100%" />
+                            Darstellung im Browser
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Um dir zu zeigen, wie einfach HTML funktioniert, sollst du hier eine
+                    einfache HTML-Datei anlegen und im Browser öffnen. Dafür kannst hierfür
+                    einfach deinen Lieblingstexteditor verwenden. Wenn du noch keinen hast,
+                    können wir dir <a href="https://atom.io/" target="_blank">Github Atom</a>
+                    nur empfehlen. 🚀
+                </p>
+                <img src="github_atom.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
+                </p>
+                <p>
+                    Stelle sicher, dass du die Datei mit der Endung <tt>.html</tt> und im UTF-8-Format
+                    speicherst. Ein Doppelklick sollte dann genügen, um sie im Browser zu öffnen und die
+                    Sonderzeichen sollten auch alle korrekt aussehen.
+                </p>
+                <p>
+                    Zugegeben, das Ergebnis ist noch ein wenig schlicht. Aber wir sind ja auch noch
+                    nicht fertig. 😋
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>„Unsichtbare” HTML-Elemente</h1>
+            <article>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a
+                            id            = "unsichtbar-uebersicht-tab"
+                            class         = "nav-link active"
+                            data-toggle   = "tab"
+                            href          = "#unsichtbar-uebersicht"
+                            role          = "tab"
+                            aria-controls = "Übersicht"
+                            aria-expanded = "true"
+                        >
+                            Übersicht
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            id            = "unsichtbar-beispiel-tab"
+                            class         = "nav-link"
+                            data-toggle   = "tab"
+                            href          = "#unsichtbar-beispiel"
+                            role          = "tab"
+                            aria-controls = "Beispiel"
+                        >
+                            Beispiel
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div
+                        class           = "tab-pane fade show active"
+                        id              = "unsichtbar-uebersicht"
+                        role            = "tabpanel"
+                        aria-labelledby = "unsichtbar-uebersicht-tab"
+                    >
+                        <h2>Grundstruktur eines HTML-Dokuments</h2>
+
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;...&lt;/head&gt;
+                                &lt;body&gt;...&lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em; margin-bottom: 1em">
+                            Siehe <a href="#3">Folie 3</a>. 😎
+                        </p>
+
+                        <h2>Elemente innerhalb des Kopfbereichs</h2>
+
+                        <dl>
+                            <dt>
+                                <src-code language="html">
+                                    &lt;title&gt;Meine erste Webseite&lt;/title&gt;
+                                </src-code>
+                            </dt>
+                            <dd>
+                                Legt den Dokumenttitel fest, der in der Titelzeile des Browsers angezeigt wird.
+                            </dd>
+
+                            <dt>
+                                <src-code language="html">
+                                    &lt;meta name="name" content="wert" /&gt;
+                                </src-code>
+                            </dt>
+                            <dd>
+                                Erlaubt es, verschiedene Metadaten wie den Autor der Seite oder Schlagwörter zu ihrem
+                                Inhalt zu definieren. Diese Informationen werden von den Suchmaschinen praktisch aber
+                                nicht mehr ausgewertet.
+                            </dd>
+
+                            <dt>
+                                <src-code language="html">
+                                    &lt;meta charset="utf-8" /&gt;
+                                </src-code>
+                            </dt>
+                            <dd>
+                                Sonderform des <src-code language="html">&lt;meta&gt;</src-code>-Tags zur Definition
+                                des Zeichensatzes der Seite. Der Standardwert lautet <code>utf-8</code>, sollte aber
+                                trotzdem immer mitgegeben werdendamit, dass Umlaute und Sonderzeichen richtig dargestellt
+                                werden.
+                            </dd>
+
+                            <dt>
+                                <src-code language="html">
+                                    &lt;link rel="shortcut icon" href="favicon.svg" /&gt;
+                                </src-code>
+                            </dt>
+                            <dd>
+                                Ordnet der Seite ein Icon zu, das neben ihrem Titel angezeigt wird.
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div
+                        class           = "tab-pane fade"
+                        id              = "unsichtbar-beispiel"
+                        role            = "tabpanel"
+                        aria-labelledby = "unsichtbar-beispiel-tab"
+                    >
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8" /&gt;
+                                    &lt;title&gt;Meine erste Webseite&lt;/title&gt;
+                                    &lt;link rel="shortcut icon" href="favicon.svg" /&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    ...
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Auf dieser und der nächsten Folie siehst du ein paar der wichtigsten
+                    HTML-Elemente. Mit ihnen kannst du schon kleine Webseiten wie in den
+                    Anfangstagen des Web erzeugen. Natürlich gibt es noch viel mehr Elemente.
+                    Aber diese kannst du raus suchen, wenn du sie mal benötigst. Sonst wären
+                    die Folien ja unendlich lang. 📄📄📄📄📄📄📄📄📄
+                </p>
+                <p>
+                    Im <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" taget="_blank">
+                    Mozilla Developer Network</a> gibt es eine gute Übersicht. Hier
+                    findest du vor allem auch die Elemente, die spezielle Bedeutungen
+                    wie die Kennzeichnung eines Zitats oder die Markierung von
+                    Tastenkombinationen haben.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Tatsächlich angezeigte HTML-Elemente</h1>
+            <article>
+                <!-- Überschriften und Absätze -->
+                <h2>Überschriften und Absätze</h2>
+
+                <div style="margin-bottom: 2em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-ueberschriften-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-ueberschriften-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-ueberschriften-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-ueberschriften-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-ueberschriften-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-ueberschriften-screenshot"
+                                role          = "tab"
+                                aria-controls = "So sieht es aus"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Überschriften und Absätze: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "sichtbar-ueberschriften-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-ueberschriften-uebersicht-tab"
+                        >
+                            <source-code language="html">
+                                &lt;h1&gt;Per Anhalter durch die Galaxis&lt;/h1&gt;
+                                &lt;h2&gt;Die fünfteilige Trilogie&lt;/h2&gt;
+                                &lt;h3&gt;Entstehung des ersten Buchs&lt;/h3&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Die Elemente <src-code language="html">&lt;h1&gt;</src-code> bis
+                                <src-code language="html">&lt;h6&gt;</src-code> definieren Überschriften
+                                verschiedener Arten. <src-code language="html">&lt;h1&gt;</src-code> ist
+                                dabei eine Hauptüberschrift, <src-code language="html">&lt;h2&gt;</src-code>
+                                eine Unterüberschrift, <src-code language="html">&lt;h3&gt;</src-code>
+                                eine Unterunterüberschrift und so weiter.
+                            </p>
+
+                            <source-code language="html">
+                                &lt;p&gt;
+                                    Dies ist ein Absatz, wie er unter einer Überschrift stehen könnte.
+                                &lt;p&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Absätze werden mit dem <src-code language="html">&lt;p&gt;</src-code>-Element
+                                definiert. Das „p” steht dabei für „Paragraph”. Absätze sollten in der Regel
+                                nicht geschachtelt werden. Überschriften sollten ebenfalls oberhalb und nicht
+                                innerhalb der Absätze stehen.
+                            </p>
+                        </div>
+                        <!-- Überschriften und Absätze: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-ueberschriften-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-ueberschriften-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;h1&gt;Per Anhalter durch die Galaxis&lt;/h1&gt;
+                                &lt;h2&gt;Die fünfteilige Trilogie&lt;/h2&gt;
+                                &lt;p&gt;
+                                    Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
+                                    Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
+                                    verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
+                                    fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
+                                    nach seinem Tod die Fortsetzung „Und übrigens noch was …” von Eoin Colfer.
+                                &lt;/p&gt;
+                                &lt;p&gt;
+                                    Die Serie umfasst daher folgende Titel:
+                                &lt;/p&gt;
+                                ...
+                            </source-code>
+                        </div>
+                        <!-- Überschriften und Absätze: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-ueberschriften-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-ueberschriften-screenshot-tab"
+                        >
+                            <h3>Per Anhalter durch die Galaxis</h3>
+                            <h4>Die fünfteilige Trilogie</h4>
+                            <p>
+                                Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
+                                Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
+                                verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
+                                fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
+                                nach seinem Tod die Fortsetzung „Und übrigens noch was …” von Eoin Colfer.
+                            </p>
+                            <p>
+                                Die Serie umfasst daher folgende Titel:
+                            </p>
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Textformatierung -->
+                <h2>Textformatierung</h2>
+
+                <div style="margin-bottom: 2em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-textformatierung-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-textformatierung-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-textformatierung-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-textformatierung-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-textformatierung-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-textformatierung-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Textformatierung: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "sichtbar-textformatierung-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-textformatierung-uebersicht-tab"
+                        >
+                            <source-code language="html">
+                                &lt;b&gt;Fett&lt;/b&gt;
+                                &lt;i&gt;Kursiv&lt;/i&gt;
+                                &lt;u&gt;Unterstrichen&lt;/u&gt;
+                                &lt;tt&gt;Schreibmaschine&lt;/tt&gt;
+                                &lt;small&gt;Kleine Schriftgröße&lt;/small&gt;
+                                &lt;large&gt;Große Schriftgröße&lt;/large&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Einzelne Wörter oder Teile eines Satzes können mit den hier gezeigten
+                                Elementen direkt formatiert werden. Es handelt sich um die einzigen
+                                HTML-Elemente, die direkt das Aussehen ihres Inhalts verändern. Lange
+                                Zeit war ihre Verwendung nicht gern gesehen. Seitdem man den Elementen
+                                aber eine semantische Bedeutung gegeben und dann festgelegt hat, wie
+                                diese dargestellt werden soll, geht die Verwendung wieder in Ordnung. 🙃
+                            </p>
+                        </div>
+                        <!-- Textformatierung: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-textformatierung-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-textformatierung-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;p&gt;
+                                    &lt;b&gt;Wichtiger Hinweis:&lt;/b&gt; Lese immer das Kleingedruckte eines
+                                    Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
+                                    und kaum verstehen kann. &lt;i&gt;Im Kleingedruckten stecken oft viele
+                                    ungeahnte Fallen!&lt;/i&gt;
+                                &lt;/p&gt;
+                                &lt;p&gt;
+                                    &lt;u&gt;Hier ein Beispiel:&lt;/u&gt;
+                                &lt;/p&gt;
+                                &lt;p&gt;
+                                    &lt;small&gt;
+                                        &lt;small&gt;
+                                            Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
+                                            Wir garantieren für nichts und erstatten auch kein Geld zurück.
+                                            Wer bei uns kauft, ist selbst schuld.
+                                        &lt;/small&gt;
+                                    &lt;/small&gt;
+                                &lt;/p&gt;
+                            </source-code>
+                        </div>
+                        <!-- Textformatierung: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-textformatierung-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-textformatierung-screenshot-tab"
+                        >
+                            <p>
+                                <b>Wichtiger Hinweis:</b> Lese immer das Kleingedruckte eines
+                                Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
+                                und kaum verstehen kann. <i>Im Kleingedruckten stecken oft viele
+                                ungeahnte Fallen!</i>
+                            </p>
+                            <p>
+                                <u>Hier ein Beispiel:</u>
+                            </p>
+                            <p>
+                                <small>
+                                    <small>
+                                        Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
+                                        Wir garantieren für nichts und erstatten auch kein Geld zurück.
+                                        Wer bei uns kauft, ist selbst schuld.
+                                    </small>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zeilenumbrüche und Trennlinien -->
+                <h2>Zeilenumbrüche und Trennlinien</h2>
+
+                <div style="margin-bottom: 2em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-umbrueche-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-umbrueche-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-umbrueche-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-umbrueche-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-umbrueche-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-umbrueche-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Zeilenumbrüche und Trennlinien: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "sichtbar-umbrueche-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-umbrueche-uebersicht-tab"
+                        >
+                            <source-code language="html">
+                                &lt;br /&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Definiert einen Zeilenumbruch, ohne einen neuen Absatz zu beginnen.
+                                Manchmal kann das ganz nützlich sein, um auf die Schnelle ein paar
+                                Elemente untereinander anzuordnen. <src-code language="html">&lt;br /&gt;</src-code>
+                                sollte aber sparsam verwendet werden, da die Umbrüche auf kleineren
+                                Bildschirmen oftmals unschön aussehen.
+                            </p>
+
+                            <source-code language="html">
+                                &lt;hr /&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                „hr” steht für „Horizontal Ruler” und fügt eine waagerechte Trennlinie
+                                ein. Heutzutage sieht man das Element nicht mehr so oft. Braucht man
+                                aber nur eine kleine Trennlinie, ist es oft einfacher, als sich mit den
+                                Rahmenlinien eines Absatzes herumzuschlagen.
+                            </p>
+                        </div>
+                        <!-- Zeilenumbrüche und Trennlinien: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-umbrueche-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-umbrueche-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;b&gt;Alice Wunderland&lt;/b&gt; &lt;br /&gt;
+                                Hinter dem Haus 7 &lt;br /&gt;
+                                76185 Karlsruhe-Märchendorf
+
+                                &lt;hr /&gt;
+
+                                &lt;b&gt;Grinsender Kater&lt;/b&gt; &lt;br /&gt;
+                                Im Garten 9 &lt;br /&gt;
+                                76185 Karlsruhe-Märchendorf
+                            </source-code>
+                        </div>
+                        <!-- Zeilenumbrüche und Trennlinien: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-umbrueche-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-umbrueche-screenshot-tab"
+                        >
+                            <b>Alice Wunderland</b> <br />
+                            Hinter dem Haus 7 <br />
+                            76185 Karlsruhe-Märchendorf
+
+                            <hr />
+
+                            <b>Grinsender Kater</b> <br />
+                            Im Garten 9 <br />
+                            76185 Karlsruhe-Märchendorf
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bilder und Links -->
+                <h2>Bilder und Links</h2>
+
+                <div style="margin-bottom: 2em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-links-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-links-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-links-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-links-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-links-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-links-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Bilder und Links: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "sichtbar-links-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-links-uebersicht-tab"
+                        >
+                            <source-code language="html">
+                                &lt;img src="familie.jpg" alt="Meine Familie und der Hund" /&gt;
+                                &lt;img src="../fotos/feuerstein.jpg" alt="Fred Feuerstein" /&gt;
+                                &lt;img src="www.beispiel.de/album/geroellheimer.jpg" alt="Barnie Geröllheimer" /&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Mit diesem Tag wird ein Bild in die Seite eingefügt. Das Attribut
+                                <code>src</code> beinhaltet dabei die URL des Bildes, wobei das Bild
+                                entweder im selben Verzeichnis, in einem anderen Verzeichnis oder sogar
+                                auf einem anderen Server liegen kann. <code>alt</code> ist der Alternativtext,
+                                der zum Beispiel von Screenreadern vorgelesen wird. Deshalb sollte dieses
+                                Attribut immer mitgegeben werden, wenn das Bild wesentliche Informationen
+                                beinhaltet.
+                            </p>
+
+                            <source-code language="html">
+                                &lt;a href="http://www.pingu-mobil.de/js/"&gt;JS.Scratch&lt;/a&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Dies ist ein Link bzw. Verweis auf eine andere Seite. „a” steht dabei für
+                                „Anchor”. Bei einem Link muss es sich nicht, wie hier gezeigt, um einfachen
+                                Text handeln. Zwischen dem öffnenden und dem schließenden Tag dürfen
+                                beliebige HTML-Elemente stehen, um sie anklickbar zu machen.
+                            </p>
+
+                            <source-code language="html">
+                                &lt;a id="uebersicht" /&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Dies ist kein Link auf eine andere Seite sondern ein Anker innerhalb derselben
+                                Seite. Das Tag wird daher vom Browser nicht dargestellt. Durch Anhängen von
+                                <code>#uebersicht</code> an die aktuelle URL kann beim Aufruf der Seite aber
+                                direkt an die Stelle des Ankers gesprungen werden. Wenn du genau hinsiehst, ist
+                                dir das sicher schon mal bei Wikipedia und anderen Seiten aufgefallen,
+                            </p>
+                        </div>
+                        <!-- Bilder und Links: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-links-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-links-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;h4&gt;JS.Scratch: Interaktiver JavaScript-Editor&lt;/h4&gt;
+                                &lt;img src="screenshot.png" alt="Screenshot von JS.Scratch" /&gt; &lt;br /&gt;
+                                &lt;a href="https://www.pingu-mobil.de/js/"&gt;Editor starten&lt;/a&gt;
+                            </source-code>
+                        </div>
+                        <!-- Bilder und Links: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-links-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-links-screenshot-tab"
+                        >
+                            <h4>JS.Scratch: Interaktiver JavaScript-Editor</h4>
+                            <img src="screenshot.png" class="img-fluid" alt="Screenshot von JS.Scratch" />
+                            <br />
+                            <a href="https://www.pingu-mobil.de/js/">Editor starten</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aufzählungen und Listen -->
+                <h2>Aufzählungen und Listen</h2>
+
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-listen-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-listen-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-listen-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-listen-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "sichtbar-listen-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#sichtbar-listen-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Aufzählungen und Listen: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "sichtbar-listen-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-listen-uebersicht-tab"
+                        >
+                            <source-code language="html">
+                                &lt;ul&gt;
+                                    &lt;li&gt;Garfield langt zu&lt;/li&gt;
+                                    &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
+                                    &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
+                                    &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
+                                    &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
+                                &lt;/ul&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                „ul” steht für „Unordered List” und beschreibt eine unsortierte Liste,
+                                also eine einfache Liste ohne Nummerierung. Dementsprechend sind die
+                                <src-code language="html">&lt;li&gt;</src-code>-Elemente die „List Items”.
+                                Die Listenelemente können beliebigen weiteren HTML-Quellcode wie Absätze
+                                oder untergeordnete Listen enthalten.
+                            </p>
+
+                            <source-code language="html">
+                                &lt;ol&gt;
+                                    &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
+                                    &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
+                                    &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
+                                    &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
+                                    &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
+                                &lt;/ol&gt;
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Das ist eigentlich dasselbe wie <src-code language="html">&lt;ul&gt;</src-code>,
+                                nur dass es sich um eine „Ordered List” also eine Liste mit Aufzählungszeichen handelt.
+                            </p>
+                        </div>
+                        <!-- Aufzählungen und Listen: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-listen-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-listen-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;h2&gt;Meine Lieblinugsbücher als ich jung war&lt;/h2&gt;
+                                &lt;ul&gt;
+                                    &lt;li&gt;
+                                        &lt;p&gt;
+                                            Garfield-Comics
+                                        &lt;/p&gt;
+                                        &lt;ul&gt;
+                                            &lt;li&gt;Garfield langt zu&lt;/li&gt;
+                                            &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
+                                            &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
+                                            &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
+                                            &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/li&gt;
+                                    &lt;li&gt;
+                                        &lt;p&gt;
+                                            Anhalter-Romane
+                                        &lt;/p&gt;
+                                        &lt;ol&gt;
+                                            &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
+                                            &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
+                                            &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
+                                            &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
+                                            &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
+                                        &lt;/ol&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            </source-code>
+                        </div>
+                        <!-- Aufzählungen und Listen: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "sichtbar-listen-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "sichtbar-listen-screenshot-tab"
+                        >
+                            <h4>Meine Lieblinugsbücher als ich jung war</h4>
+                            <ul>
+                                <li>
+                                    <p>
+                                        Garfield-Comics
+                                    </p>
+                                    <ul style="margin-bottom: 1em">
+                                        <li>Garfield langt zu</li>
+                                        <li>Garfield schläft sich durch</li>
+                                        <li>Garfield überlebensgroß</li>
+                                        <li>Garfield breitet sich aus</li>
+                                        <li>Garfield sahnt ab</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p>
+                                        Anhalter-Romane
+                                    </p>
+                                    <ol>
+                                        <li>Per Anhalter durch die Galaxis</li>
+                                        <li>Das Restaurant am Ende des Universums</li>
+                                        <li>Das Leben, das Universum und der ganze Rest</li>
+                                        <li>Macht's gut und danke für den Fisch</li>
+                                        <li>Einmal Rupert und zurück</li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <blockquote>
+                    <p class="mb-0">
+                        Auf den Schirm, Mr. Spock!
+                    </p>
+                    <footer class="blockquote-footer">
+                        Captain Kirk
+                    </footer>
+                </blockquote>
+
+                <img src="enterprise.jpg" class="img-fluid img-thumbnail d-block" />
+                <p>
+                    <small>
+                        Bildnachweis: © 1994, Dan Blair
+                    </small>
+                </p>
+                <p>
+                    Die HTML-Elemente auf dieser Folie gehören alle in den <code>body</code>
+                    der Seite. Sie strukturieren den Inhalt der Seite und werden vom Browser
+                    daher auch tatsächlich angezeigt.
                 </p>
             </aside>
         </section>
@@ -502,158 +1519,679 @@
             </aside>
         </section>
 
-        <section>
-            <h1>...</h1>
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 2: Ein kleines HTML-Quiz</h1>
             <article>
-                ...
+                <h2>Mit welchem HTML-Tag kann man …</h2>
+
+                <p>a) … den Hauptteil einer Webseite deklarieren?</p>
+                <ol>
+                    <li>
+                        <src-code language="html">&lt;header&gt;</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;body&gt;</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;p&gt;</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;main&gt;</src-code>
+                    </li>
+                </ol>
+
+                <p>b) … eine Überschrift definieren?</p>
+                <ol>
+                    <li>
+                        <src-code language="html">&lt;ul&gt;</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;b&gt;</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;h1&gt;</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;head&gt;</src-code>
+                    </li>
+                </ol>
+
+                <p>c) … einen Zeilenumbruch erzeugen?</p>
+                <ol>
+                    <li>
+                        <src-code language="html">&lt;br&gt;</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;hr&gt;</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;p&gt;</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;div&gt;</src-code>
+                    </li>
+                </ol>
+
+                <p>d) … eine nummerierte Liste erstellen?</p>
+                <ol>
+                    <li>
+                        <source-code language="html">
+                            &lt;ul&gt;
+                                &lt;li&gt;…&lt;/li&gt;
+                                &lt;li&gt;…&lt;/li&gt;
+                                &lt;li&gt;…&lt;/li&gt;
+                            &lt;/ul&gt;
+                        </source-code>
+                    </li>
+                    <li>
+                        <source-code language="html">
+                            &lt;ol&gt;
+                                &lt;li&gt;…&lt;/li&gt;
+                                &lt;li&gt;…&lt;/li&gt;
+                                &lt;li&gt;…&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </source-code>
+                    </li>
+                </ol>
+
+                <h2>Mit welchem Grafikformat kann man …</h2>
+
+                <p>a) … durchsichtige Bilder in eine Seite einbinden?</p>
+                <ol>
+                    <li>PNG</li>
+                    <li>GIF</li>
+                    <li>SVG</li>
+                    <li>JPEG</li>
+                </ol>
+
+                <p>b) … einfache Animationen erstellen?</p>
+                <ol>
+                    <li>PNG</li>
+                    <li>GIF</li>
+                    <li>SVG</li>
+                    <li>JPEG</li>
+                </ol>
+
+                <p>a) … vollfarbige Seitenhintergründe mit kurzen Ladenzeiten realisieren?</p>
+                <ol>
+                    <li>PNG</li>
+                    <li>GIF</li>
+                    <li>SVG</li>
+                    <li>JPEG</li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> 2, 3, 1, 2, 1 und 2, 2, 4
+                    </small>
+                </p>
+            </article>
+            <aside>
+                Hast du auch gut aufgepasst? Klar, sicher. Zur Kontrolle haben wir
+                hier aber ein kleines Quiz für dich. 📑
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 3: Verschiedene HTML-Elemente anwenden</h1>
+            <article>
+                <p>
+                    Lege eine neue HTML-Datei an und probiere die gelernten HTML-Tags aus:
+                </p>
+                <ol>
+                    <li>Definiere mehrere Absätze mit Überschriften und Unterüberschriften.</li>
+                    <li>Verwende mindestens eine geordnete oder ungeordnete Aufzählungsliste.</li>
+                    <li>Baue ein/zwei Bilder in die Seite ein. Achte darauf, dass sie nicht zu groß sind!</li>
+                    <li>Füge der Seite einen Link auf einen Wikipedia-Artikel deiner Wahl hinzu.</li>
+                </ol>
+                <p>
+                    So könnte die Seite hinterher zum Beispiel aussehen:
+                </p>
+                <img src="aufgabe3.png" class="img-fluid img-thumbnail d-block" />
             </article>
             <aside>
                 <p>
-                    ...
+                    Jetzt kennst du ja schon einige HTML-Elemente. Dann wollen wir sie doch
+                    gleich mal verwenden. Lege daher schnell eine neue HTML-Datei an und fülle
+                    sie wie in der Folie beschrieben. Spiele dabei ruhig ein wenig herum und
+                    probiere aus was geht. Wenn du willst, kannst du im Internet auch noch
+                    weitere HTML-Elemente recherchieren.
                 </p>
             </aside>
         </section>
 
         <section>
-            <h1>...</h1>
+            <h1>Strukturgebende Elemente</h1>
             <article>
-                ...
+                <dl>
+                    <dt>
+                        <src-code language="html">&lt;div&gt;…&lt;/div&gt;</src-code> <br />
+                        <src-code language="html">&lt;header&gt;…&lt;/header&gt;</src-code> <br />
+                        <src-code language="html">&lt;footer&gt;…&lt;/footer&gt;</src-code> <br />
+                        <src-code language="html">&lt;section&gt;…&lt;/section&gt;</src-code> <br />
+                        <src-code language="html">&lt;nav&gt;…&lt;/nav&gt;</src-code> <br />
+                        …
+                    </dt>
+                    <dd>
+                        Definieren ein allgemeines <b>Blockelement</b>. Als Blockelemente erzwingen sie
+                        standardmäßig einen Zeilenumbruch vor und hinter sich und sie nehmen immer
+                        eine maximale Breite ein. Die Höhe richtet jedoch sich nach ihrem Inhalt.
+                    </dd>
+
+                    <dt>
+                        <src-code language="html">&lt;span&gt;…&lt;/span&gt;</src-code>
+                    </dt>
+                    <dd>
+                        Definiert ein allgemeines <b>Inlineelement</b>. Wie der Name sagt, wird das
+                        Element im laufenden Textfluss angezeigt und es werden keine Zeilenumbrüche
+                        erzwungen. Höhe und Breite richten sich nach dem Inhalt.
+                    </dd>
+                </dl>
+
+                <img src="layoutmodell.svg" class="d-block" style="width: 100%" />
             </article>
             <aside>
                 <p>
-                    ...
+                    Was wir bis hierher gemacht haben, war ja schon alles ganz schön. Aber so
+                    wirklich modern hat es noch nicht ausgesehen. 🙄 Wie bekommen wir denn jetzt
+                    die ganzen tollen Layouts hin, die auf <a href="#1">Folie 1</a> die Vielfalt
+                    von HTML zur Schau stellen? Mit Absätzen und Aufzählungen scheint es ja
+                    nicht so recht hinzuhauen. 😕
+                </p>
+                <p>
+                    Tatsächlich brauchen wir gar nicht mehr so viel. Eigentlich müssen wir uns nur
+                    noch anschauen, was man mit Stylesheets so alles machen kann und welche etwas
+                    allgemeineren HTML-Elemente es gibt, die ganz einfach nur einen Bereich mit
+                    bieliebigem Inhalt definieren. Hier schauen wir uns die benötigten HTML-Elemente
+                    an. Wie das mit den Stylesheets funktioniert, erfährst du dann im nächsten Foliensatz.
+                </p>
+
+                <h2>Block- und Inlineelemente</h2>
+                <p>
+                    Was wir dir bisher noch nicht erklärt haben ist, wie der Browser die HTML-Elemente
+                    eigentlich auf dem Bildschirm anordnet. Zeit das nachzuholen. Im Prinzip ist es auch
+                    ganz einfach: Da HTML-Seiten ursprünglich ja nur aus formatiertem Text bestanden,
+                    geht der Browser zeilenweise von oben nach unten, von links nach rechts vor.
+                    Eben genauso, wie wir in der westlichen Welt schreiben und lesen.
+                </p>
+                <p>
+                    Dabei unterscheidet der Browser bei jedem Element, ob es sich um ein <b>Blockelement</b>
+                    oder um eine <b>Inlineelement</b> handelt. Blockelemente stehen nämlich immer in einer
+                    eigenen Zeile und sind immer so breit wie möglich. Vor und nach einem Blockelement fügt
+                    der Browser daher automatisch einen Zeilenumbruch ein. Beispiele hierfür sind:
+                </p>
+                <ul>
+                    <li>Überschriften</li>
+                    <li>Absätze</li>
+                    <li>Listen und Aufzählungen</li>
+                    <li>…</li>
+                </ul>
+                <p>
+                    Inlineelemente hingegen erzeugen keinen automatischen Zeilenumbruch. Sie werden stattdessen
+                    auf einer Linie (der Basislinie des Textes) so lange nebeneinander angeordnet, bis rechts
+                    kein Platz mehr ist und die folgenden Elemente in die nächste Zeile rutschen. Dies ist auch
+                    der Grund, warum Inlineelemente etwas sparsamer mit dem Platz umgehen. Bei ihnen richtet sich
+                    nicht nur die Höhe nach ihrem Inhalt (wie bei Blockelementen), sondern auch ihre Breite. Das heißt,
+                    Inlinelemente sind immer „so klein wie möglich und so groß wie nötig”. Beispiele hierfür sind:
+                </p>
+                <ul>
+                    <li>Bilder</li>
+                    <li>Links</li>
+                    <li>Einzelne Wörter</li>
+                    <li>Fettgedruckte Bereiche</li>
+                    <li>Kursive Bereiche</li>
+                    <li>…</li>
+                </ul>
+                <p>
+                    Auf der Folie siehst du zusätzlich noch einen Sonderfall. Ganz unten ist
+                    ein Bild, dem das Attribut <src-code language="html">style="float: right"</src-code>
+                    zugewiesen wurde. Dies ist eine CSS-Anweisung, die dafür sorgt, dass das Bild ganz an den
+                    rechten Rand rutscht. Solche Elemente werden vom Browser immer etwas speziell behandelt,
+                    weshalb man die Anweisung heutzutage nicht mehr so oft benutzt. Denn, wenn du dir die
+                    Abbildung genau anschaust, sieht du, dass das Bild quasi in den nächsten Absatz hinein
+                    fällt. Der Browser tut bei der Anordnung der Blockelemente (des folgenden Absatzes)
+                    einfach so, als gäbe es das Bild gar nicht. Bei der Anordnung der Inlineelemente (der
+                    Buchstaben innerhalb des Absatzes) wird es dann aber wieder berücksichtigt. Komplizierte
+                    Sache, nicht? 🐰
+                </p>
+
+                <h2>Allgemeingültigte HTML-Elemente</h2>
+                <p>
+                    Natürlich kann man dammit jetzt noch nicht so wirklich komplizierte Layouts gestalten.
+                    Denn dafür funktioniert das Ganze noch viel zu sehr wie eine alte Schreibmaschine.
+                    Mit Stylesheets kann man das Verhalten des Browsers jedoch sehr flexibel übersteuern
+                    und man kann für jedes Element festlegen, wie es aussehen soll und wo es angezeigt
+                    werden soll. Das schauen wir uns im nächsten Foliensatz dann auch an.
+                </p>
+                <p>
+                    Wichtig ist an dieser Stelle aber, dass es verschiedene HTML-Elemente gibt, die eigentlich
+                    keine wirkliche Bedeutung besitzen, sondern nur dafür da sind, die Bereiche zu definieren,
+                    die im Stylesheet angesprochen werden. Die wichtigsten beiden davon sind
+                    <src-code language="html">&lt;div&gt;</src-code> und <src-code language="html">&lt;span&gt;</src-code>:
+                </p>
+                <ul>
+                    <li>
+                        <src-code language="html">&lt;div&gt;…&lt;/div&gt;</src-code>:
+                        Definiert ein ganz allgemeines Blockelement. Das Tag hat darüber hinaus keine tiefere
+                        Bedeutung. Kritiker behaupten deshalb auch, es stehe für den „diversen Kram”, den die
+                        Leute dort hinein packen.
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;span&gt;…&lt;/span&gt;</src-code>:
+                        Definiert ein allgemeines Inlineelement. Genau wie <src-code language="html">&lt;div&gt;</src-code>
+                        hat es darüber hinaus keine Bedeutung.
+                    </li>
+                </ul>
+                <p>
+                    Da der Quellcode einer Seite mit vielen <src-code language="html">&lt;div&gt;</src-code>-Elementen
+                    schnell unübersichtlich wird, wurden mit HTML5 eine ganze Reihe weiterer Tags eingeführt, die sich
+                    genau gleich verhalten. Nur mit dem Unterschied, dass man an ihrem Namen ihre ungefähre Bedeutung
+                    ablesen kann:
+                </p>
+                <ul>
+                    <li>
+                        <src-code language="html">&lt;header&gt;…&lt;/header&gt;</src-code>:
+                        Definiert den Kopfbereich der Seite, bzw. einen Bereich der oberhalb eines anderen steht,
+                        mit diesem aber fest verbunden ist.
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;footer&gt;…&lt;/footer&gt;</src-code>:
+                        Definiert den Fußbereich der Seite, bzw. einen Bereich der unterhalb eines anderen steht.
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;section&gt;…&lt;/section&gt;</src-code>:
+                        Unterteilt einen Bereich in beliebig viele, eigenständige Abschnitte.
+                    </li>
+                    <li>
+                        <src-code language="html">&lt;nav&gt;…&lt;/nav&gt;</src-code>:
+                        Kennzeichnet einen Navigationsbereich. Also einen Bereich, in dem anklickbare Elemente
+                        enthalten sind, mit denen man sich innerhalb der Seite bewegen kann.
+                    </li>
+                    <li>
+                        <b>Und so weiter:</b> Es gibt noch einige mehr.
+                    </li>
+                </ul>
+                <p>
+                    Damit lässt sich eine Seite beliebig unterteilen, um zusammen mit CSS ihr Layout zu definieren.
+                    Schauen wir uns hierfür auf der nächsten Folie gleich ein Beispiel an. 👍
                 </p>
             </aside>
         </section>
 
         <section>
-            <h1>...</h1>
+            <h1>Beispiel für eine komplexe Webseite</h1>
             <article>
-                ...
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "komplex-screenshot-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#komplex-screenshot"
+                                role          = "tab"
+                                aria-controls = "Screenshot"
+                                aria-expanded = "true"
+                            >
+                                Screenshot
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "komplex-quellcode-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#komplex-quellcode"
+                                role          = "tab"
+                                aria-controls = "Quellcode"
+                            >
+                                Quellcode
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Screenshot -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "komplex-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "komplex-screenshot-tab"
+                        >
+                            <img src="wikiberd.png" class="img-thumbnail d-block " style="width: 100%"/>
+                        </div>
+                        <!-- Quellcode -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "komplex-quellcode"
+                            role            = "tabpanel"
+                            aria-labelledby = "komplex-quellcode-tab"
+                        >
+                            <source-code language="html">
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;title&gt;WikiBerd | Gopherspace&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;!-- Kopfbereich mit dem Titel der Seite --&gt;
+                                        &lt;header&gt;
+                                            &lt;img src="logo.png" alt="WikiBerd"/&gt;
+                                            &lt;h1&gt;Gopherspace&lt;/h1&gt;
+                                        &lt;/header&gt;
+
+                                        &lt;!-- Hauptbereich der Seite --&gt;
+                                        &lt;main&gt;
+                                            &lt;i&gt;Gopherspace&lt;/i&gt; -- ein absolut luftleerer Raum …
+                                        &lt;/main&gt;
+
+                                        &lt;!-- Side Bar mit Toolbox und Lizenz --&gt;
+                                        &lt;aside&gt;
+                                            &lt;nav&gt;
+                                                &lt;h6&gt;Toolbox&lt;h6&gt;
+                                                &lt;ul&gt;
+                                                    &lt;li&gt; &lt;a href="…"&gt;RSS&lt;/a&gt; &lt;/li&gt;
+                                                    …
+                                                &lt;/ul&gt;
+                                            &lt;/nav&gt;
+                                            &lt;section&gt;
+                                                &lt;h6&gt;Lizenz&lt;h6&gt;
+                                                …
+                                            &lt;/section&gt;
+                                        &lt;/aside&gt;
+
+                                        &lt;!-- Fußbereich der Seite --&gt;
+                                        &lt;footer&gt;
+                                            You‘re watching WikiBerd. …
+                                        &lt;/footer&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 <p>
-                    ...
+                    Hier siehst du ein vollständiges Beispiel für eine Webseite mit etwas
+                    komplexerem Layout. Am Quellcode kannst du gut erkennen, wie die einzelnen
+                    Bereiche mit unterschiedlichen HTML-Elementen ausgezeichnet wurden.
+                </p>
+                <p>
+                    Außerdem siehst du hier auch, wie man Kommentare in HTML einbaut. Nämlich
+                    mit <src-code language="html">&lt;!-- Kommentar --&gt;</src-code>.
                 </p>
             </aside>
         </section>
 
-        <section>
-            <h1>...</h1>
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 4: Welcher Quellcode passt?</h1>
             <article>
-                ...
-            </article>
-            <aside>
                 <p>
-                    ...
+                    Welcher Quellcode entspricht am ehesten der Abbildung?
                 </p>
-            </aside>
-        </section>
 
-        <section>
-            <h1>...</h1>
-            <article>
-                ...
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe4-screenshot-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe4-screenshot"
+                                role          = "tab"
+                                aria-controls = "Screenshot"
+                                aria-expanded = "true"
+                            >
+                                Screenshot
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe4-quellcode1-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe4-quellcode1"
+                                role          = "tab"
+                                aria-controls = "Quellcode 1"
+                            >
+                                Quellcode 1
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe4-quellcode2-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe4-quellcode2"
+                                role          = "tab"
+                                aria-controls = "Quellcode 2"
+                            >
+                                Quellcode 2
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe4-quellcode3-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe4-quellcode3"
+                                role          = "tab"
+                                aria-controls = "Quellcode 3"
+                            >
+                                Quellcode 3
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe4-loesung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe4-loesung"
+                                role          = "tab"
+                                aria-controls = "Lösung"
+                            >
+                                Lösung
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Screenshot -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "aufgabe4-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe4-screenshot-tab"
+                        >
+                            <img src="aufgabe4.png" class="img-thumbnail d-block" style="width: 100%" />
+                        </div>
+                        <!-- Quellcode 1 -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe4-quellcode1"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe4-quellcode1-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;IoT/Embedded-Workshop 2017&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;h1&gt;IoT/Embedded-Workshop 2017&lt;/h1&gt;
+                                        &lt;div&gt;
+                                            6. Semester Wirtschaftsinformatik, DHBW Karlsuruhe
+                                        &lt;/div&gt;
+
+                                        &lt;hr /&gt;
+
+                                        &lt;h2&gt;Vielen Dank für die erfolgreichen Projekte&lt;/h2&gt;
+                                        &lt;p&gt;
+                                            An dieser Stelle vielen Dank an alle Projektteilnehmer …
+                                        &lt;/p&gt;
+                                        &lt;div&gt;
+                                            dennis …
+                                        &lt;/div&gt;
+
+                                        &lt;h2&gt;DingDong 9. Blogeintrag: Die PhoneGap Applikation&lt;/h2&gt;
+                                        &lt;p&gt;
+                                            Zu guter letzt kommt in diesem Artikel noch die Applikation …
+                                        &lt;/p&gt;
+                                        &lt;div&gt;
+                                            katholnigs …
+                                        &lt;/div&gt;
+                                        …
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Quellcode 2 -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe4-quellcode2"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe4-quellcode2-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;IoT/Embedded-Workshop 2017&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;header&gt;
+                                            &lt;h1&gt;IoT/Embedded-Workshop 2017&lt;/h1&gt;
+                                            6. Semester Wirtschaftsinformatik, DHBW Karlsuruhe
+                                        &lt;/header&gt;
+
+                                        &lt;main&gt;
+                                            &lt;article&gt;
+                                                &lt;h2&gt;Vielen Dank für die erfolgreichen Projekte&lt;/h2&gt;
+                                                &lt;p&gt;
+                                                    An dieser Stelle vielen Dank an alle Projektteilnehmer …
+                                                &lt;/p&gt;
+                                                &lt;footer&gt;
+                                                    dennis …
+                                                &lt;/footer&gt;
+                                            &lt;/article&gt;
+                                            &lt;article&gt;
+                                                &lt;h2&gt;DingDong 9. Blogeintrag: Die PhoneGap Applikation&lt;/h2&gt;
+                                                &lt;p&gt;
+                                                    Zu guter letzt kommt in diesem Artikel noch die Applikation …
+                                                &lt;/p&gt;
+                                                &lt;footer&gt;
+                                                    katholnigs …
+                                                &lt;/footer&gt;
+                                            &lt;/article&gt;
+                                            …
+                                        &lt;/main&gt;
+
+                                        &lt;aside&gt;
+                                            &lt;input name="search" placeholder="Suchen" /&gt;
+                                            &lt;h5&gt;Kategorien&lt;/h5&gt;
+                                            &lt;nav&gt;
+                                                …
+                                            &lt;/nav&gt;
+                                        &lt;/aside&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Quellcode 3 -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe4-quellcode3"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe4-quellcode3-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;IoT/Embedded-Workshop 2017&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;div name="header"&gt;
+                                            &lt;h1&gt;IoT/Embedded-Workshop 2017&lt;/h1&gt;
+                                            6. Semester Wirtschaftsinformatik, DHBW Karlsuruhe
+                                        &lt;/div&gt;
+
+                                        &lt;div name="main"&gt;
+                                            &lt;div class="article"&gt;
+                                                &lt;h2&gt;Vielen Dank für die erfolgreichen Projekte&lt;/h2&gt;
+                                                &lt;div class="preview"&gt;
+                                                    An dieser Stelle vielen Dank an alle Projektteilnehmer …
+                                                &lt;/div&gt;
+                                                &lt;div class="footer"&gt;
+                                                    dennis …
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class="article"&gt;
+                                                &lt;h2&gt;DingDong 9. Blogeintrag: Die PhoneGap Applikation&lt;/h2&gt;
+                                                &lt;div class="preview"&gt;
+                                                    Zu guter letzt kommt in diesem Artikel noch die Applikation …
+                                                &lt;/div&gt;
+                                                &lt;div class="footer"&gt;
+                                                    katholnigs …
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                            …
+                                        &lt;/div&gt;
+
+                                        &lt;div id="sidebar"&gt;
+                                            &lt;input name="search" placeholder="Suchen" /&gt;
+                                            &lt;h5&gt;Kategorien&lt;/h5&gt;
+                                            &lt;div&gt;
+                                                …
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Lösung -->
+                        <div
+                            class           = "tab-pane fade bg-white"
+                            id              = "aufgabe4-loesung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe4-loesung-tab"
+                        >
+                            <p>
+                                Die Lösung ist Quellcode 2 oder 3, eher aber noch Quellcode 2.
+                            </p>
+                            <ul>
+                                <li>
+                                    Quellcode 1 ist es nicht, da er nicht alle Elemente entält.
+                                    Unter anderem fehlt die Sidebar.
+                                </li>
+                                <li>
+                                    Quellcode 2 enthält ansatzweise alle Elemente des Screenshots.
+                                    Zusätzlich nutzt er Tags wie
+                                    <src-code language="html">&lt;article&gt;</src-code> und
+                                    <src-code language="html">&lt;nav&gt;</src-code>, welche die
+                                    Bedeutung der eingeklammerten Bereiche widerspiegeln.
+                                </li>
+                                <li>
+                                    Quellcode 3 könnte es auch sein. Die vielen <src-code language="html">&lt;div&gt;</src-code>
+                                    sind aber nicht so übersichtlich.
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 <p>
-                    ...
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>...</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                <p>
-                    ...
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>...</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                <p>
-                    ...
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>...</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                <p>
-                    ...
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>...</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                <p>
-                    ...
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>...</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                <p>
-                    ...
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>...</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                <p>
-                    ...
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>...</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                <p>
-                    ...
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>...</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                <p>
-                    ...
+                    Zum Abschluss des Kapitels wirst du hier nochmal richtig auf die Probe gestellt.
+                    Schaue dir den Screenshot und die Quellcodes auf der Folie an und überlege dir,
+                    welcher Quellcode am ehesten zur Abbildung passt. Schaffst du es, den richtigen
+                    Tipp abzugeben? 🤔
                 </p>
             </aside>
         </section>
