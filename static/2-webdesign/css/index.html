@@ -19,7 +19,7 @@
         <section>
             <h1>Einführendes Beispiel</h1>
             <article>
-                <div>
+                <div style="margin-bottom: 0.25em">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a
@@ -91,9 +91,47 @@
                             role            = "tabpanel"
                             aria-labelledby = "einfuehrung-html1-tab"
                         >
-                            <soruce-code language="html">
-                                HTML QUELLCODE
-                            </soruce-code>
+                            <source-code language="html">
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8"
+                                        &lt;title&gt;Faszination Klavier&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;header&gt;
+                                            &lt;h2&gt;Faszination Klavier&lt;/h2&gt;
+                                        &lt;/header&gt;
+                                        &lt;main&gt;
+                                            &lt;h3&gt;Wählen Sie eine Kategorie&lt;/h3&gt;
+
+                                            &lt;div class="card"&gt;
+                                                &lt;img src="piano1.jpg" /&gt;
+                                                &lt;b&gt;Das richtige Klavier finden&lt;/b&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class="card"&gt;
+                                                &lt;img src="piano2.jpg" /&gt;
+                                                &lt;b&gt;Spielen mit zwei Händen&lt;/b&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class="card"&gt;
+                                                &lt;img src="piano3.jpg" /&gt;
+                                                &lt;b&gt;Musizieren vor Publikum&lt;/b&gt;
+                                            &lt;/div&gt;
+                                        &lt;/main&gt;
+                                        &lt;footer&gt;
+                                            © Die Online-Klavierschule
+                                            &lt;nav&gt;
+                                                &lt;ul&gt;
+                                                    &lt;li&gt; &lt;a&gt;Startseite&lt;/a&gt; &lt;/li&gt;
+                                                    &lt;li&gt; &lt;a&gt;Das richtige Klavier finden&lt;/a&gt; &lt;/li&gt;
+                                                    &lt;li&gt; &lt;a&gt;Spielen mit zwei Händen&lt;/a&gt; &lt;/li&gt;
+                                                    &lt;li&gt; &lt;a&gt;Musizieren vor Publikum&lt;/a&gt; &lt;/li&gt;
+                                                    &lt;li&gt; &lt;a&gt;Impressum&lt;/a&gt; &lt;/li&gt;
+                                                &lt;/ul&gt;
+                                            &lt;/nav&gt;
+                                        &lt;/footer&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
                         </div>
                         <!-- Aussehen -->
                         <div
@@ -102,7 +140,39 @@
                             role            = "tabpanel"
                             aria-labelledby = "einfuehrung-screenshot1-tab"
                         >
-                            <img src="einfuehrung1.png" class="img-thumbnail d-block" style="width: 100%" />
+                            <!-- Beispiel Start -->
+                            <header>
+                                <h2 style="color: black">Faszination Klavier</h2>
+                            </header>
+                            <div>
+                                <h3>Wählen Sie eine Kategorie</h3>
+
+                                <div>
+                                    <img src="piano1.jpg" />
+                                    <b>Das richtige Klavier finden</b>
+                                </div>
+                                <div>
+                                    <img src="piano2.jpg" />
+                                    <b>Spielen mit zwei Händen</b>
+                                </div>
+                                <div>
+                                    <img src="piano3.jpg" />
+                                    <b>Musizieren vor Publikum</b>
+                                </div>
+                            </div>
+                            <footer>
+                                © Die Online-Klavierschule
+                                <nav>
+                                    <ul>
+                                        <li> <a>Startseite</a> </li>
+                                        <li> <a>Das richtige Klavier finden</a> </li>
+                                        <li> <a>Spielen mit zwei Händen</a> </li>
+                                        <li> <a>Musizieren vor Publikum</a> </li>
+                                        <li> <a>Impressum</a> </li>
+                                    </ul>
+                                </nav>
+                            </footer>
+                            <!-- Beispiel Ende -->
                         </div>
                         <!-- Stylesheet einbinden -->
                         <div
@@ -111,9 +181,17 @@
                             role            = "tabpanel"
                             aria-labelledby = "einfuehrung-html2-tab"
                         >
-                            <soruce-code language="html">
-                                STYLESHEET EINBINDEN
-                            </soruce-code>
+                            <source-code language="html">
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        …
+                                        &lt;link rel="stylesheet" href="style.css" /&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        …
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
                         </div>
                         <!-- CSS-Quellcode -->
                         <div
@@ -122,9 +200,83 @@
                             role            = "tabpanel"
                             aria-labelledby = "einfuehrung-css-tab"
                         >
-                            <soruce-code language="css">
-                                CSS QUELLCODE
-                            </soruce-code>
+                            <source-code language="css">
+                                html, body {
+                                    margin: 0;
+                                    padding: 0;
+                                }
+
+                                header, footer {
+                                    background-color: #0A0A0A;
+
+                                    border-style: solid;
+                                    border-color: black;
+                                    border-width: 0;
+                                    border-bottom-width: 2px;
+
+                                    padding: 0.5em;
+                                    color: white;
+                                    font-size: 95%;
+                                }
+
+                                header h2 {
+                                    font-size: 150%;
+                                    text-align: center;
+                                    margin: 0;
+
+                                    color: white;
+                                    text-shadow: 1px 1px 1px grey;
+                                }
+
+                                main {
+                                    background-color: rgb(230, 230, 230);
+                                    padding: 0.5em 0.5em 5em 0.5em;
+                                }
+
+                                .card {
+                                    display: inline-block;
+                                    width: 30%;
+
+                                    border: 1px solid darkgrey;
+                                    border-radius: 0.5em;
+                                    background: white;
+                                    padding: 0.5em;
+
+                                    transition: transform 0.5s, background 0.5s;
+                                    transform: scale(1);
+                                }
+
+                                .card:hover {
+                                    background: rgba(245, 245, 245);
+                                    transform: scale(1.03);
+                                    cursor: pointer;
+                                }
+
+                                .card img {
+                                    display: block;
+                                    width: 100%;
+                                    margin-bottom: 0.5em;
+                                }
+
+                                footer ul {
+                                    list-style: none;
+                                    padding: 0;
+                                }
+
+                                footer li {
+                                    display: inline-block;
+                                    margin-right: 1em;
+                                }
+
+                                a, a:visited {
+                                    color: rgb(246, 178, 188);
+                                    text-decoration: none;
+                                }
+
+                                a:hover {
+                                    color: white;
+                                }
+                            </source-code>
                         </div>
                         <!-- Neues Aussehen -->
                         <div
@@ -133,13 +285,267 @@
                             role            = "tabpanel"
                             aria-labelledby = "einfuehrung-screenshot2-tab"
                         >
-                            <img src="einfuehrung2.png" class="img-thumbnail d-block" style="width: 100%" />
+                            <!-- Beispiel Start -->
+                            <style>
+                                #einfuehrung-vorschau2 {
+                                    margin: 0;
+                                    padding: 0;
+                                }
+
+                                #einfuehrung-screenshot2 header,
+                                #einfuehrung-screenshot2 footer {
+                                    background-color: #0A0A0A;
+
+                                    border-style: solid;
+                                    border-color: black;
+                                    border-width: 0;
+                                    border-bottom-width: 2px;
+
+                                    padding: 0.5em;
+                                    color: white;
+                                    font-size: 95%;
+                                }
+
+                                #einfuehrung-screenshot2 header h2 {
+                                    font-size: 150%;
+                                    text-align: center;
+                                    margin: 0;
+
+                                    color: white;
+                                    text-shadow: 1px 1px 1px grey;
+                                }
+
+                                #einfuehrung-screenshot2 .main {
+                                    background-color: rgb(230, 230, 230);
+                                    padding: 0.5em 0.5em 5em 0.5em;
+                                }
+
+                                #einfuehrung-screenshot2 .card {
+                                    display: inline-block;
+                                    width: 30%;
+
+                                    border: 1px solid darkgrey;
+                                    border-radius: 0.5em;
+                                    background: white;
+                                    padding: 0.5em;
+
+                                    transition: transform 0.5s, background 0.5s;
+                                    transform: scale(1);
+                                }
+
+                                #einfuehrung-screenshot2 .card:hover {
+                                    background: rgba(245, 245, 245);
+                                    transform: scale(1.03);
+                                    cursor: pointer;
+                                }
+
+                                #einfuehrung-screenshot2 .card img {
+                                    display: block;
+                                    width: 100%;
+                                    margin-bottom: 0.5em;
+                                }
+
+                                #einfuehrung-screenshot2 footer ul {
+                                    list-style: none;
+                                    padding: 0;
+                                }
+
+                                #einfuehrung-screenshot2 footer li {
+                                    display: inline-block;
+                                    margin-right: 1em;
+                                }
+
+                                #einfuehrung-screenshot2 a,
+                                #einfuehrung-screenshot2 a:visited {
+                                    color: rgb(246, 178, 188);
+                                    text-decoration: none;
+                                }
+
+                                #einfuehrung-screenshot2 a:hover {
+                                    color: white;
+                                }
+                            </style>
+                            <header>
+                                <h2>Faszination Klavier</h2>
+                            </header>
+                            <div class="main">
+                                <h3>Wählen Sie eine Kategorie</h3>
+
+                                <div class="card">
+                                    <img src="piano1.jpg" />
+                                    <b>Das richtige Klavier finden</b>
+                                </div>
+                                <div class="card">
+                                    <img src="piano2.jpg" />
+                                    <b>Spielen mit zwei Händen</b>
+                                </div>
+                                <div class="card">
+                                    <img src="piano3.jpg" />
+                                    <b>Musizieren vor Publikum</b>
+                                </div>
+                            </div>
+                            <footer>
+                                © Die Online-Klavierschule
+                                <nav>
+                                    <ul>
+                                        <li> <a>Startseite</a> </li>
+                                        <li> <a>Das richtige Klavier finden</a> </li>
+                                        <li> <a>Spielen mit zwei Händen</a> </li>
+                                        <li> <a>Musizieren vor Publikum</a> </li>
+                                        <li> <a>Impressum</a> </li>
+                                    </ul>
+                                </nav>
+                            </footer>
+                            <!-- Beispiel Ende -->
                         </div>
                     </div>
                 </div>
+
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweise:
+                            <a href="https://pixabay.com/en/wooden-furniture-piano-organ-2561950/" target="_blank">Pixabay: StockSnap</a>,
+                            <a href="https://pixabay.com/en/piano-keyboard-instrument-musical-2564908/" target="_blank">Pixabay: StockSnap</a>,
+                            <a href="https://pixabay.com/en/manhattan-concert-solo-piano-park-1674404/" target="_blank">Pixabay: Robert_z_Ziemi</a>
+                        </small>
+                    </small>
+                </p>
             </article>
             <aside>
-                ...
+                <h2>Was sehen wir hier?</h2>
+                <p>
+                    Nach dem Studium des letzten Foliensatzes hast du dich sicher gewundert, wie
+                    aus dem bisschen HTML, das du da gesehen hast, jemals ein Webseiten-Layout
+                    entstehen soll. Ohne große Umschweife wollen wir dir das an dieser Stelle nun
+                    zeigen. Mach dir nichts daraus, wenn du den CSS-Quellcode nocht nicht komplett
+                    verstehst. Wenn du mit diesen Folien durch bist, kannst du ihn dir ja nochmal
+                    anschauen. 🙂
+                </p>
+                <p>
+                    Doch was sehen wir da in der Folie? 🤔 Zunächst einmal siehst du das Grundgerüst
+                    einer einfachen Webseite. Schaue dir den HTML-Quellcode ruhig genauer an. Anhand
+                    der HTML-Elemente kannst du erkennen, dass es drei große Bereiche gibt:
+                </p>
+                <ol>
+                    <li>Kopfbereich</li>
+                    <li>Hauptteil</li>
+                    <li>Fußzeile</li>
+                </ol>
+                <p>
+                    Innerhalb des Kopfbereichs ist nur eine Überschrift. Im Hauptteil sind jedoch mehrere
+                    <src-code language="html">&lt;div&gt;</src-code>-Container, in denen sich jeweils ein
+                    Bild und ein Text befinden. Der Footer hingegen enthält einen Copyrightvermerk und eine
+                    eigenartige Liste in einem <src-code language="html">&lt;nav&gt;</src-code>.
+                </p>
+                <p>
+                    Alles klar soweit? Kannst du dir ungefähr vorstellen, wie die Seite wohl aussehen
+                    soll? Wenn ja, dann klicke auf „Aussehen” und schaue nach, ob du recht hast.
+                </p>
+                <p>
+                    Schon gemacht und nun wieder hier? Nun, okay. Vermutlich ist das doch noch nicht
+                    ganz, was du erwartet hattest, oder? 🙃 Irgendwie war es aber auch klar, denn der
+                    Browser kann ja keine Gedanken lesen. Er kann nur die Regeln anwenden, die wir dir
+                    im letzten Foliensatz gezeigt haben. Und die sind halt doch recht einfach …
+                </p>
+
+                <h2>Und nun bitte mit Stil</h2>
+                <p>
+                    An dieser Stelle kannst du ja mal auf „Neues Aussehen” klicken und schauen, wie die
+                    Seite mit etwas CSS aussehen könnte. Gleich viel besser, nicht? 😲 Das ist tatsächlich
+                    dieselbe Seite, nur dass sie jetzt eben noch ein Stylesheet besitzt. Hast du bemerkt,
+                    wie sich die Bilder und die Links im Fußbereich verhalten? Diese Stylesheets scheinen
+                    gar nicht so schlecht zu sein. 😎
+                </p>
+                <p>
+                    Im Reiter „Stylesheet einbinden” siehst du, dass wir nur eine kleine Zeile in das HTML
+                    einfügen müssen, um das Stylesheet zu laden. Diese befindet sich im
+                    <src-code language="html">&lt;head&gt;</src-code> und lautet:
+                </p>
+                <source-code language="html">
+                    &lt;link rel="stylesheet" href="style.css" /&gt;
+                </source-code>
+                <p>
+                    Das ist ja einfach. Und so wie du es inzwischen gewohnt bist, wird damit eine CSS-Datei
+                    angesprochen, die im selben Verzeichnis wie das HTML liegt. Sie könnte aber auch in einem
+                    anderen Verzeichnis oder auf einem anderen Server liegen. Wobei letzteres würde man in der
+                    Praxis eher nicht machen. Was aber durchaus vorkommt ist, dass ein HTML mehrere Stylesheets
+                    hat. Hierfür musst du nur mehrere solcher <src-code language="html">&lt;link&gt;</src-code>-Elemente
+                    einbauen.
+                </p>
+                <p>
+                    Es gibt noch zwei andere Arten, wie man CSS-Anweisungen mit HTML kombinieren kann. Diese zeigen wir
+                    dir auf der <a href="#2">nächsten Folie</a>. Für den Moment solltest du hier aber erst weiter lesen. 🙂
+                </p>
+
+                <h2>Die Stylesheet-Syntax</h2>
+                <p>
+                    An dem Beispiel siehst auch schön die Syntax eines CSS-Stylesheets. Sie ist nicht wirklich kompliziert,
+                    man muss nur ein paar einfache Grundregeln kennen. Eigentlich unterscheidet man nur drei Dinge:
+                </p>
+                <ul>
+                    <li>
+                        <b>Selektoren:</b> Das ist das, was vor den geschweiften Klammern steht. Damit werden die
+                        HTML-Elemente ausgewählt, die man gestalten will.
+                    </li>
+                    <li>
+                        <b>Die geschweiften Klammern:</b> Sie fassen immer mehrere CSS-Anweisungen zusammen, die
+                        nach einem Selektor stehen. Deshalb darf man sie nie weglassen, auch wenn man nur eine
+                        CSS-Anweisungen zuordnen will.
+                    </li>
+                    <li>
+                        <b>Anweisungen</b>: Innerhalb der geschweiften Klammern stehen dann die eigentlichen
+                        CSS-Anweisungen. Der Name einer Anweisung steht vor dem Doppelpunkt, ihr Wert danach.
+                        Jede Anweisung endet mit einem Strichpunkt.
+                    </li>
+                </ul>
+                <p>
+                    Im Beispiel nicht sichtbar sind Kommentare. Sie werden ähnlich wie in Java mit
+                    <src-code language="css">/* ... */</src-code> gekennzeichnet. Die aus Java bekannte Kurzform
+                    mit <code>//</code> am Anfang einer Zeile ist allerdings nicht erlaubt. 😳
+                </p>
+                <p>
+                    Welche Selektoren es gibt und was die einzelnen Anweisungen bewirken, erklären wir die auf
+                    den nächsten Folien. Hier brauchst du dir darum noch keinen Kopf machen. 🤗
+                </p>
+
+                <h2>Aber ist das auch das richtige HTML?</h2>
+                <p>
+                    Bis hierhin mag ja alles noch ganz klar sein. Aber vielleicht hast du dir beim Anschauen auch
+                    die Frage gestellt, ob das HTML so überhaupt in Ordnung ist. Also ob es zum Beispiel okay ist,
+                    eine Liste mit <src-code language="html">&lt;ul&gt;</src-code> zu definieren, obwohl die Einträge
+                    eigentlich gar nicht wie eine Aufzählung aussehen sollen.
+                </p>
+                <p>
+                    Und tatsächlich, das HTML ist absolut in Ordnung. Nicht, dass man jetzt einfach irgendwelchen
+                    Schweinecode schreiben kann, den man halt mit einem Stylesheet in Form bringt 🐷🤣, sondern der
+                    Code ist aus einem ganz anderen Grund okay: Es handelt sich um sogenannten „semantischen HTML-Code”.
+                    Das heißt, es wurden wirklich nur so viele HTML-Anweisungen verwendet, wie zur Gestaltung der
+                    Seite absolut notwendig sind, kein Element ist zu viel. Und jedes Element drückt durch  Namen
+                    (oder da, wo es kein passendes HTML-Element gibt, durch das <src-code language="html">class</src-code>-Attribut)
+                    aus, was es darstellen soll. Kurz gesagt: Auch ohne das Ergebnis zu kennen, sieht man dem Code an,
+                    was er bewirken soll.
+                </p>
+                <p>
+                    Deshalb ist es auch okay, die Navigationselemente der Fußzeile in eine ungeordnete Liste zu
+                    packen. Denn um genau das handelt es sich ja: Um eine Liste. Nur dass die Einträge eben nicht
+                    untereinander sondern nebeneinander stehen und keine Aufzählungszeichen beinhalten sollen.
+                    Trotzdem ist es eine Aufzählung von etwas. Du könntest jetzt natürlich einwenden, dass es am Ende
+                    vom Tag eigentlich völlig egal ist, ob die Navigation als Liste oder durch irgend ein anderes
+                    HTML-Element definiert wird, so lange es hinterher so aussieht, wie es soll. Im Prinzip hast du
+                    damit auch recht, allerdings nur so lange, wie jemand die Seite wirklich auf dem Bildschirm anschaut.
+                </p>
+                <p>
+                    Wie bitte?! Wie kann denn jemand die Seite nicht auf dem Bildschirm anschauen? 😲 Ja, das geht.
+                    Viele Menschen sind auf Screenreader und andere Geräte wie
+                    <a href="https://de.wikipedia.org/wiki/Braillezeile" target="_blank">Brailezeilen</a> angewiesen,
+                    um mit dem Computer umgehen zu können. Wenn deine Navigation nur aus geschachtelten
+                    <src-code language="html">&lt;div&gt;</src-code>s besteht, können diese Geräte nichts damit anfangen
+                    und lesen die Navigation als Fließtext zusammen mit dem Rest der Seite vor. Handelt es sich aber um
+                    eine in einem <src-code language="html">&lt;nav&gt;</src-code> eingeschlossene Liste, wissen die Geräte,
+                    dass es sich um eine Navigation mit mehreren Auswahlmöglichkeiten handelt. Dementsprechend können sie die
+                    Punkte dann auch vorlesen. Du siehst also, semantisches Markup ist sehr wichtig.
+                </p>
             </aside>
         </section>
 
@@ -978,9 +1384,9 @@
                                 Heute wirkt es jedoch oft altbacken und wird daher nicht mehr so angewendet.
                             </p>
 
-                            <soruce-code language="html">
+                            <source-code language="html">
                                 GEKACHELTER HINTERGRUND
-                            </soruce-code>
+                            </source-code>
                         </div>
                         <!-- Ein großes Hintergrundbild -->
                         <div
@@ -1001,9 +1407,9 @@
                                 in kleine Kästchen mit einfarbigem Hintergrund setzt.
                             </p>
 
-                            <soruce-code language="html">
+                            <source-code language="html">
                                 EIN GROSSES HINTERGRUNDBILD
-                            </soruce-code>
+                            </source-code>
                         </div>
                         <!-- Parallax Scrolling -->
                         <div
@@ -1026,9 +1432,9 @@
                                 zu erstellen.
                             </p>
 
-                            <soruce-code language="html">
+                            <source-code language="html">
                                 PARALLAX-EFFEKT
-                            </soruce-code>
+                            </source-code>
                         </div>
                     </div>
                 </div>
@@ -1117,9 +1523,9 @@
                             id              = "animationen-html"
                             aria-labelledby = "animationen-html-tab"
                         >
-                            <soruce-code language="html">
+                            <source-code language="html">
                                 HTML QUELLCODE
-                            </soruce-code>
+                            </source-code>
                         </div>
                         <!-- CSS-Quellcode -->
                         <div
@@ -1128,9 +1534,9 @@
                             role            = "tabpanel"
                             aria-labelledby = "animationen-css-tab"
                         >
-                            <soruce-code language="CSS">
+                            <source-code language="CSS">
                                 CSS QUELLCODE
-                            </soruce-code>
+                            </source-code>
                         </div>
                         <!-- Ergebnis -->
                         <div
@@ -1407,9 +1813,9 @@
                             id              = "drei_spalten-html"
                             aria-labelledby = "drei_spalten-html-tab"
                         >
-                            <soruce-code language="html">
+                            <source-code language="html">
                                 HTML QUELLCODE
-                            </soruce-code>
+                            </source-code>
                         </div>
                         <!-- CSS-Quellcode -->
                         <div
@@ -1418,9 +1824,9 @@
                             role            = "tabpanel"
                             aria-labelledby = "drei_spalten-css-tab"
                         >
-                            <soruce-code language="CSS">
+                            <source-code language="CSS">
                                 CSS QUELLCODE
-                            </soruce-code>
+                            </source-code>
                         </div>
                         <!-- Ergebnis -->
                         <div
