@@ -6,10 +6,1469 @@
         <link rel="stylesheet" href="../../style.css" />
         <script src="../../learning-slides.bundle.js"></script>
     </head>
-    <body class="slides invisible" data-title="__Name der Präsentation hier__" tabindex="0">
+    <body class="slides invisible" data-title="Layouts erstellen mit CSS" tabindex="0">
         <header>
             <h2>Inhaltsverzeichnis</h2>
+            <p>
+                Sicher wartest du schon ganz interessiert darauf, dein neu erworbenes
+                HTML-Wissen anzuwenden und ansprechende Layouts zu gestalten. Hier
+                erfährst du daher alles über CSS, was du hierfür wissen musst.
+            </p>
         </header>
+
+        <section>
+            <h1>Einführendes Beispiel</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "einfuehrung-html1-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#einfuehrung-html1"
+                                role          = "tab"
+                                aria-controls = "HTML-Quellcode"
+                                aria-expanded = "true"
+                            >
+                                HTML-Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "einfuehrung-screenshot1-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#einfuehrung-screenshot1"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "einfuehrung-html2-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#einfuehrung-html2"
+                                role          = "tab"
+                                aria-controls = "Stylesheet einbinden"
+                            >
+                                Stylesheet einbinden
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "einfuehrung-css-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#einfuehrung-css"
+                                role          = "tab"
+                                aria-controls = "CSS-Quellcode"
+                            >
+                                CSS-Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "einfuehrung-screenshot2-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#einfuehrung-screenshot2"
+                                role          = "tab"
+                                aria-controls = "Neues Aussehen"
+                            >
+                                Neues Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- HTML-Quellcode -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "einfuehrung-html1"
+                            role            = "tabpanel"
+                            aria-labelledby = "einfuehrung-html1-tab"
+                        >
+                            <soruce-code language="html">
+                                HTML QUELLCODE
+                            </soruce-code>
+                        </div>
+                        <!-- Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "einfuehrung-screenshot1"
+                            role            = "tabpanel"
+                            aria-labelledby = "einfuehrung-screenshot1-tab"
+                        >
+                            <img src="einfuehrung1.png" class="img-thumbnail d-block" style="width: 100%" />
+                        </div>
+                        <!-- Stylesheet einbinden -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "einfuehrung-html2"
+                            role            = "tabpanel"
+                            aria-labelledby = "einfuehrung-html2-tab"
+                        >
+                            <soruce-code language="html">
+                                STYLESHEET EINBINDEN
+                            </soruce-code>
+                        </div>
+                        <!-- CSS-Quellcode -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "einfuehrung-css"
+                            role            = "tabpanel"
+                            aria-labelledby = "einfuehrung-css-tab"
+                        >
+                            <soruce-code language="css">
+                                CSS QUELLCODE
+                            </soruce-code>
+                        </div>
+                        <!-- Neues Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "einfuehrung-screenshot2"
+                            role            = "tabpanel"
+                            aria-labelledby = "einfuehrung-screenshot2-tab"
+                        >
+                            <img src="einfuehrung2.png" class="img-thumbnail d-block" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                ...
+            </aside>
+        </section>
+
+        <section>
+            <h1>HTML und CSS in derselben Datei</h1>
+            <article>
+                ...
+            </article>
+            <aside>
+                ...
+            </aside>
+        </section>
+
+        <section>
+            <h1>CSS-Selektoren und das Document Object Model</h1>
+            <article>
+                ...
+            </article>
+            <aside>
+                ...
+            </aside>
+        </section>
+
+        <section>
+            <h1>Häufig benötigte CSS-Anweisungen</h1>
+            <article>
+                <!-- Textformatierung -->
+                <h2>Textformatierung</h2>
+
+                <div style="margin-bottom: 1em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "css-text-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#css-text-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-text-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-text-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-text-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-text-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Textformatierung: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "css-text-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-text-uebersicht-tab"
+                        >
+                            <source-code language="css">
+                                QUELLCODE
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Erklärung
+                            </p>
+                        </div>
+                        <!-- Textformatierung: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-text-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-text-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Textformatierung mit CSS&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /* ... */
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Textformatierung: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-text-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-text-screenshot-tab"
+                        >
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hintergrundfarben und Bilder -->
+                <h2>Hintergrundfarben und Bilder</h2>
+
+                <div style="margin-bottom: 1em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "css-hintergrund-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#css-hintergrund-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-hintergrund-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-hintergrund-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-hintergrund-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-hintergrund-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Hintergrundfarben und Bilder: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "css-hintergrund-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-hintergrund-uebersicht-tab"
+                        >
+                            <source-code language="css">
+                                QUELLCODE
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Erklärung
+                            </p>
+                        </div>
+                        <!-- Hintergrundfarben und Bilder: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-hintergrund-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-hintergrund-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Hintergrundfarben und Bilder mit CSS&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /* ... */
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Hintergrundfarben und Bilder: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-hintergrund-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-hintergrund-screenshot-tab"
+                        >
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anzeigeart und Größe -->
+                <h2>Anzeigeart und Größe</h2>
+
+                <div style="margin-bottom: 1em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "css-groesse-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#css-groesse-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-groesse-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-groesse-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-groesse-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-groesse-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Anzeigeart und Größe: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "css-groesse-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-groesse-uebersicht-tab"
+                        >
+                            <source-code language="css">
+                                QUELLCODE
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Erklärung
+                            </p>
+                        </div>
+                        <!-- Anzeigeart und Größe: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-groesse-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-groesse-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Anzeigeart und Größe von Elementen&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /* ... */
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Anzeigeart und Größe: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-groesse-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "cc-groesse-screenshot-tab"
+                        >
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Innenabstand und Außenabstand -->
+                <h2>Innenabstand und Außenabstand</h2>
+
+                <div style="margin-bottom: 1em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "css-abstand-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#css-abstand-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-abstand-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-abstand-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-abstand-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-abstand-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Innenabstand und Außenabstand: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "css-abstand-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-abstand-uebersicht-tab"
+                        >
+                            <source-code language="css">
+                                QUELLCODE
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Erklärung
+                            </p>
+                        </div>
+                        <!-- Innenabstand und Außenabstand: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-abstand-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-abstand-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Innenabstand und Außenabstand von Elementen&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /* ... */
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Innenabstand und Außenabstand: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-abstand-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-abstand-screenshot-tab"
+                        >
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rund um den Rahmen -->
+                <h2>Rund um den Rahmen</h2>
+
+                <div style="margin-bottom: 1em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "css-rahmen-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#css-rahmen-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-rahmen-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-rahmen-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-rahmen-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-rahmen-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Rund um den Rahmen: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "css-rahmen-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-rahmen-uebersicht-tab"
+                        >
+                            <source-code language="css">
+                                QUELLCODE
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Erklärung
+                            </p>
+                        </div>
+                        <!-- Rund um den Rahmen: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-rahmen-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-rahmen-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Rund um den Rahmen&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /* ... */
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Rund um den Rahmen: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-rahmen-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-rahmen-screenshot-tab"
+                        >
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2D- und 3D-Transformationen -->
+                <h2>2D- und 3D-Transformationen</h2>
+
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "css-transformationen-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#css-transformationen-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-transformationen-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-transformationen-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "css-transformationen-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#css-transformationen-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- 2D- und 3D-Transformationen: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "css-transformationen-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-transformationen-uebersicht-tab"
+                        >
+                            <source-code language="css">
+                                QUELLCODE
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Erklärung
+                            </p>
+                        </div>
+                        <!-- 2D- und 3D-Transformationen: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-transformationen-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-transformationen-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;2D- und 3D-Transformationen mit CSS&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /* ... */
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- 2D- und 3D-Transformationen: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "css-transformationen-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "css-transformationen-screenshot-tab"
+                        >
+                            ...
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                ...
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 1: Ein kleines CSS-Quiz</h1>
+            <article>
+                <h2>Welcher CSS-Selektor wählt …</h2>
+
+                <p>… alle Absätze der Seite aus?=</p>
+                <ol>
+                    <li>
+                        <src-code language="css">div</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">p.absatz</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">p &gt; .absatz</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">p</src-code>
+                    </li>
+                </ol>
+
+                <p>… alle Elemente der Klasse „info” aus?</p>
+                <ol>
+                    <li>
+                        <src-code language="css">info</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">#info</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">.info</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">info()</src-code>
+                    </li>
+                </ol>
+
+                <p>… das Element mit der ID „page-title” aus?</p>
+                <ol>
+                    <li>
+                        <src-code language="css">page-title</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">#page-title</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">.page-title</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">page #title</src-code>
+                    </li>
+                </ol>
+
+                <p>
+                    … alle Elemente der Klasse „active” aus, die sich innerhalb eines
+                    <src-code language="html">&lt;nav&gt;</src-code>-Elements befinden?
+                </p>
+                <ol>
+                    <li>
+                        <src-code language="css">nav .active</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">nav > .active</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">nav.active</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">nav #active</src-code>
+                    </li>
+                </ol>
+
+                <h2>Mit welcher CSS-Anweisung kann man …</h2>
+
+                <p>… die Schriftart festlegen?</p>
+                <ol>
+                    <li>
+                        <src-code language="css">font-size</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">font-family</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">font-weight</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">text-decoration</src-code>
+                    </li>
+                </ol>
+
+                <p>… ein Hintergrundbild setzen?</p>
+                <ol>
+                    <li>
+                        <src-code language="css">background-color</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">background-image</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">background-size</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">background</src-code>
+                    </li>
+                </ol>
+
+                <p>… den Innenabstand vom Rahmen eines Elements zu seinem Inhalt definieren?</p>
+                <ol>
+                    <li>
+                        <src-code language="css">padding</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">margin</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">border</src-code>
+                    </li>
+                </ol>
+
+                <p>… einen Schatten definieren?</p>
+                <ol>
+                    <li>
+                        <src-code language="css">border-radius</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">text-decoration</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">text-shadow</src-code>
+                    </li>
+                    <li>
+                        <src-code language="css">box-shadow</src-code>
+                    </li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> 4, 3, 2, 1 und 2, 2, 2 und 4, 1, 3 und 4
+                    </small>
+                </p>
+            </article>
+            <aside>
+                Hoffentlich hast du nicht schon wieder alles vergessen. 😁 Dieses kleine
+                Quiz soll dir helfen, das zu prüfen. 📑
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 2: Dein erstes Stylesheet</h1>
+            <article>
+                <p>
+                    Lade dir das <a href="" target="_blank">Vorlageprojekt für diese Aufgabe</a>
+                    herunter und passe die Datei <tt>style.css</tt> wie unten beschrieben an.
+                    Das Endergebnis sollte dann ungefähr wie im Screenshot aussehen.
+                </p>
+                <ul>
+                    <li>
+                        …
+                    </li>
+                    <li>
+                        …
+                    </li>
+                    <li>
+                        …
+                    </li>
+                    <li>
+                        …
+                    </li>
+                </ul>
+                <img src="aufgabe2.png" class="img-thumbnail d-block" style="width: 100%"/>
+            </article>
+            <aside>
+                <p>
+                    Hier darfst du ein wenig programmieren. Lade dir die in der Folie
+                    verlinkte Vorlage herunter und passe das Stylesheet wie in der
+                    Folie beschrieben an. Viel Spaß dabei. 🤩
+                </p>
+                <img src="../../github_atom.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Spaß mit Hintergrundbildern</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "hintergrund-kacheln-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#hintergrund-kacheln"
+                                role          = "tab"
+                                aria-controls = "Gekachelter Hintergrund"
+                                aria-expanded = "true"
+                            >
+                                Gekachelter Hintergrund
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "hintergrund-vollbild-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#hintergrund-vollbild"
+                                role          = "tab"
+                                aria-controls = "Ein großes Hintergrundbild"
+                            >
+                                Ein großes Hintergrundbild
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "hintergrund-parallax-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#hintergrund-parallax"
+                                role          = "tab"
+                                aria-controls = "Parallax-Effekt"
+                            >
+                                Parallax-Effekt
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Gekachelter Hintergrund -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            role            = "tabpanel"
+                            id              = "hintergrund-kacheln"
+                            aria-labelledby = "hintergrund-kacheln-tab"
+                        >
+                            <p>
+                                <a href=".." target="_blank">Beispiel ansehen</a>
+                            </p>
+                            <p>
+                                ...
+                                Vor allem in den frühen Jahren des Web hat man diesen Effekt häufig gesehen.
+                                Heute wirkt es jedoch oft altbacken und wird daher nicht mehr so angewendet.
+                            </p>
+
+                            <soruce-code language="html">
+                                GEKACHELTER HINTERGRUND
+                            </soruce-code>
+                        </div>
+                        <!-- Ein großes Hintergrundbild -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "hintergrund-vollbild"
+                            role            = "tabpanel"
+                            aria-labelledby = "hintergrund-vollbild-tab"
+                        >
+                            <p>
+                                <a href=".." target="_blank">Beispiel ansehen</a>
+                            </p>
+                            <p>
+                                ...
+                                Dieser Effekt war eine Zeit lang modern und kommt immer mal wieder zum Einsatz,
+                                wenn ein einfarbiger Hintergrund zu langweilig aussieht. Allerdings darf das
+                                Hintergrundbild nicht zu unruhig wirken und muss einen guten Kontrast zur Schrift
+                                ergeben, entweder weil das Bild nur wenige Farben besitzt oder weil du den Text
+                                in kleine Kästchen mit einfarbigem Hintergrund setzt.
+                            </p>
+
+                            <soruce-code language="html">
+                                EIN GROSSES HINTERGRUNDBILD
+                            </soruce-code>
+                        </div>
+                        <!-- Parallax Scrolling -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "hintergrund-parallax"
+                            role            = "tabpanel"
+                            aria-labelledby = "hintergrund-parallax-tab"
+                        >
+                            <p>
+                                <a href=".." target="_blank">Beispiel ansehen</a>
+                            </p>
+                            <p>
+                                ...
+                                Du hast sicher auch schon immer mal wieder Webseiten gesehen, bei der sich
+                                die ganze Musik auf einer einzigen, langen Seite abspielt. Gerade bei
+                                Produktpräsentationen ist dies ganz beliebt. Damit die Seite nicht so statisch
+                                wirkt, wird dabei oft ein sogenannter Parallax-Scrolling-Effekt eingesetzt,
+                                bei dem der Hintergrund anders scrollt als der Vordergrund. Manche Webdesigner
+                                verkünsteln sich hier regelrecht, das grundlegende Layout ist aber einfach
+                                zu erstellen.
+                            </p>
+
+                            <soruce-code language="html">
+                                PARALLAX-EFFEKT
+                            </soruce-code>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                ...
+                <p>
+                    Aber denke daran, dass zu viele Hintergrundbilder die Ladezeit deiner Seite
+                    erhöhen. Du solltest es daher gerade mit dem Parallax-Effekt nicht übertreiben
+                    und wie in den HTML-Folien gezeigt, die Dateigröße der Bilder so gut wie möglich
+                    optimieren. 🤓
+                </p
+            </aside>
+        </section>
+
+        <section>
+            <h1>Animationen mit CSS</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "animationen-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#animationen-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "animationen-html-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#animationen-html"
+                                role          = "tab"
+                                aria-controls = "HTML-Quellcode"
+                                aria-expanded = "true"
+                            >
+                                HTML-Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "animationen-css-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#animationen-css"
+                                role          = "tab"
+                                aria-controls = "CSS-Quellcode"
+                            >
+                                CSS-Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "animationen-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#animationen-screenshot"
+                                role          = "tab"
+                                aria-controls = "Ergebnis"
+                            >
+                                Ergebnis
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            role            = "tabpanel"
+                            id              = "animationen-uebersicht"
+                            aria-labelledby = "animationen-uebersicht-tab"
+                        >
+                            ÜBERSICHT
+                        </div>
+                        <!-- HTML-Quellcode -->
+                        <div
+                            class           = "tab-pane fade"
+                            role            = "tabpanel"
+                            id              = "animationen-html"
+                            aria-labelledby = "animationen-html-tab"
+                        >
+                            <soruce-code language="html">
+                                HTML QUELLCODE
+                            </soruce-code>
+                        </div>
+                        <!-- CSS-Quellcode -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "animationen-css"
+                            role            = "tabpanel"
+                            aria-labelledby = "animationen-css-tab"
+                        >
+                            <soruce-code language="CSS">
+                                CSS QUELLCODE
+                            </soruce-code>
+                        </div>
+                        <!-- Ergebnis -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "animationen-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "animationen-screenshot-tab"
+                        >
+                            ERGEBNIS
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                ...
+            </aside>
+        </section>
+
+        <section>
+            <h1>HTML-Elemente positionieren</h1>
+            <article>
+                <!-- Elemente am Viewport fixieren -->
+                <h2>Elemente am Viewport fixieren</h2>
+
+                <p>
+                    einführende worte ...
+                </p>
+
+                <div style="margin-bottom: 1em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "positionierung-viewport-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#positionierung-viewport-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "positionierung-viewport-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#positionierung-viewport-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Elemente am Viewport fixieren: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "positionierung-viewport-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "positionierung-viewport-uebersicht-tab"
+                        >
+                            <source-code language="css">
+                                QUELLCODE
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Erklärung
+                            </p>
+                        </div>
+                        <!-- Elemente am Viewport fixieren: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "positionierung-viewport-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "positionierung-viewport-beispiel-tab"
+                        >
+                            <p>
+                                <a href="..." target="_blank">Beispiel ansehen</a>
+                            </p>
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Immer sichtbare Kopfzeile&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /* ... */
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elemente relativ zueinander positionieren -->
+                <h2>Elemente relativ zueinander positionieren</h2>
+
+                <p>
+                    einführende worte ...
+                </p>
+
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "positionierung-relativ-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#positionierung-relativ-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "positionierung-relativ-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#positionierung-relativ-beispiel"
+                                role          = "tab"
+                                aria-controls = "Beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "positionierung-relativ-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#positionierung-relativ-screenshot"
+                                role          = "tab"
+                                aria-controls = "Aussehen"
+                            >
+                                Aussehen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                        <!-- Elemente relativ zueinander positionieren: Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "positionierung-relativ-uebersicht"
+                            role            = "tabpanel"
+                            aria-labelledby = "positionierung-relativ-uebersicht-tab"
+                        >
+                            <source-code language="css">
+                                QUELLCODE
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Erklärung
+                            </p>
+                        </div>
+                        <!-- Elemente relativ zueinander positionieren: Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "positionierung-relativ-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "positionierung-relativ-beispiel-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Relative Positionierung&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /* ... */
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Elemente relativ zueinander positionieren: Aussehen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "positionierung-relativ-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "positionierung-relativ-screenshot-tab"
+                        >
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+            <aside>
+                ...
+            </aside>
+        </section>
+
+        <section>
+            <h1>Realisierung eines 3-spaltigen Layouts</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "drei_spalten-uebersicht-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#drei_spalten-uebersicht"
+                                role          = "tab"
+                                aria-controls = "Übersicht"
+                                aria-expanded = "true"
+                            >
+                                Übersicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "drei_spalten-html-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#drei_spalten-html"
+                                role          = "tab"
+                                aria-controls = "HTML-Quellcode"
+                                aria-expanded = "true"
+                            >
+                                HTML-Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "drei_spalten-css-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#drei_spalten-css"
+                                role          = "tab"
+                                aria-controls = "CSS-Quellcode"
+                            >
+                                CSS-Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "drei_spalten-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#drei_spalten-screenshot"
+                                role          = "tab"
+                                aria-controls = "Ergebnis"
+                            >
+                                Ergebnis
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Übersicht -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            role            = "tabpanel"
+                            id              = "drei_spalten-uebersicht"
+                            aria-labelledby = "drei_spalten-uebersicht-tab"
+                        >
+                            ÜBERSICHT
+                        </div>
+                        <!-- HTML-Quellcode -->
+                        <div
+                            class           = "tab-pane fade"
+                            role            = "tabpanel"
+                            id              = "drei_spalten-html"
+                            aria-labelledby = "drei_spalten-html-tab"
+                        >
+                            <soruce-code language="html">
+                                HTML QUELLCODE
+                            </soruce-code>
+                        </div>
+                        <!-- CSS-Quellcode -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "drei_spalten-css"
+                            role            = "tabpanel"
+                            aria-labelledby = "drei_spalten-css-tab"
+                        >
+                            <soruce-code language="CSS">
+                                CSS QUELLCODE
+                            </soruce-code>
+                        </div>
+                        <!-- Ergebnis -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "drei_spalten-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "drei_spalten-screenshot-tab"
+                        >
+                            ERGEBNIS
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                ...
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 3: Erstellung eines einfachen Layouts</h1>
+            <article>
+                ...
+            </article>
+            <aside>
+                ...
+                <img src="../../github_atom.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
+                </p>
+                ...
+            </aside>
+        </section>
+
+        <section>
+            <h1>Weitere CSS-Layoutmodule</h1>
+            <article>
+                ...
+            </article>
+            <aside>
+                ...
+                <!-- Kurzer Verweis auf Flexbox und Grid, Grid allerdings noch nicht für IE -->
+                <!-- https://css-tricks.com/snippets/css/a-guide-to-flexbox/ -->
+                <!-- https://css-tricks.com/snippets/css/complete-guide-grid/ -->
+            </aside>
+        </section>
 
         <section data-background-color="rgb(158, 203, 231)">
             <h1>Rechtshinweise</h1>
