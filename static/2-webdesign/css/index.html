@@ -12,7 +12,7 @@
             <p>
                 Sicher wartest du schon ganz interessiert darauf, dein neu erworbenes
                 HTML-Wissen anzuwenden und ansprechende Layouts zu gestalten. Hier
-                erfährst du daher alles über CSS, was du hierfür wissen musst.
+                erfährst du daher alles über CSS, was du dafür wissen musst.
             </p>
         </header>
 
@@ -92,6 +92,7 @@
                             aria-labelledby = "einfuehrung-html1-tab"
                         >
                             <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
                                 &lt;html&gt;
                                     &lt;head&gt;
                                         &lt;meta charset="utf-8"
@@ -182,6 +183,7 @@
                             aria-labelledby = "einfuehrung-html2-tab"
                         >
                             <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
                                 &lt;html&gt;
                                     &lt;head&gt;
                                         …
@@ -239,7 +241,7 @@
 
                                     border: 1px solid darkgrey;
                                     border-radius: 0.5em;
-                                    background: white;
+                                    background: rgba(245, 245, 245);
                                     padding: 0.5em;
 
                                     transition: transform 0.5s, background 0.5s;
@@ -247,7 +249,7 @@
                                 }
 
                                 .card:hover {
-                                    background: rgba(245, 245, 245);
+                                    background: white;
                                     transform: scale(1.03);
                                     cursor: pointer;
                                 }
@@ -258,12 +260,12 @@
                                     margin-bottom: 0.5em;
                                 }
 
-                                footer ul {
+                                footer nav &gt; ul {
                                     list-style: none;
                                     padding: 0;
                                 }
 
-                                footer li {
+                                footer nav &gt; ul &gt; li {
                                     display: inline-block;
                                     margin-right: 1em;
                                 }
@@ -326,7 +328,7 @@
 
                                     border: 1px solid darkgrey;
                                     border-radius: 0.5em;
-                                    background: white;
+                                    background: rgba(245, 245, 245);
                                     padding: 0.5em;
 
                                     transition: transform 0.5s, background 0.5s;
@@ -334,7 +336,7 @@
                                 }
 
                                 #einfuehrung-screenshot2 .card:hover {
-                                    background: rgba(245, 245, 245);
+                                    background: white;
                                     transform: scale(1.03);
                                     cursor: pointer;
                                 }
@@ -345,12 +347,12 @@
                                     margin-bottom: 0.5em;
                                 }
 
-                                #einfuehrung-screenshot2 footer ul {
+                                #einfuehrung-screenshot2 footer nav > ul {
                                     list-style: none;
                                     padding: 0;
                                 }
 
-                                #einfuehrung-screenshot2 footer li {
+                                #einfuehrung-screenshot2 footer nav > ul > li {
                                     display: inline-block;
                                     margin-right: 1em;
                                 }
@@ -521,7 +523,7 @@
                     Schweinecode schreiben kann, den man halt mit einem Stylesheet in Form bringt 🐷🤣, sondern der
                     Code ist aus einem ganz anderen Grund okay: Es handelt sich um sogenannten „semantischen HTML-Code”.
                     Das heißt, es wurden wirklich nur so viele HTML-Anweisungen verwendet, wie zur Gestaltung der
-                    Seite absolut notwendig sind, kein Element ist zu viel. Und jedes Element drückt durch  Namen
+                    Seite absolut notwendig sind, kein Element ist zu viel. Und jedes Element drückt durch seinen Namen
                     (oder da, wo es kein passendes HTML-Element gibt, durch das <src-code language="html">class</src-code>-Attribut)
                     aus, was es darstellen soll. Kurz gesagt: Auch ohne das Ergebnis zu kennen, sieht man dem Code an,
                     was er bewirken soll.
@@ -530,7 +532,7 @@
                     Deshalb ist es auch okay, die Navigationselemente der Fußzeile in eine ungeordnete Liste zu
                     packen. Denn um genau das handelt es sich ja: Um eine Liste. Nur dass die Einträge eben nicht
                     untereinander sondern nebeneinander stehen und keine Aufzählungszeichen beinhalten sollen.
-                    Trotzdem ist es eine Aufzählung von etwas. Du könntest jetzt natürlich einwenden, dass es am Ende
+                    Trotzdem ist es eine Aufzählung. Du könntest jetzt natürlich einwenden, dass es am Ende
                     vom Tag eigentlich völlig egal ist, ob die Navigation als Liste oder durch irgend ein anderes
                     HTML-Element definiert wird, so lange es hinterher so aussieht, wie es soll. Im Prinzip hast du
                     damit auch recht, allerdings nur so lange, wie jemand die Seite wirklich auf dem Bildschirm anschaut.
@@ -544,7 +546,7 @@
                     und lesen die Navigation als Fließtext zusammen mit dem Rest der Seite vor. Handelt es sich aber um
                     eine in einem <src-code language="html">&lt;nav&gt;</src-code> eingeschlossene Liste, wissen die Geräte,
                     dass es sich um eine Navigation mit mehreren Auswahlmöglichkeiten handelt. Dementsprechend können sie die
-                    Punkte dann auch vorlesen. Du siehst also, semantisches Markup ist sehr wichtig.
+                    Punkte dann auch vorlesen. Du siehst: Semantisches Markup ist sehr wichtig.
                 </p>
             </aside>
         </section>
@@ -552,20 +554,283 @@
         <section>
             <h1>HTML und CSS in derselben Datei</h1>
             <article>
-                ...
+                <p>
+                    <src-code language="html">&lt;style&gt;</src-code> innerhalb des
+                    <src-code language="html">&lt;head&gt;</src-code> wirkt auf die
+                    gesamte Seite.
+                    <br />
+                    Mit dem <src-code language="html">style</src-code>-Attribut können
+                    einzelne HTML-Elemente gestyled werden.
+                </p>
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8"&gt;
+                            &lt;title&gt;HTML und CSS in einer Datei&lt;/title&gt;
+                            &lt;style&gt;
+                                h1 {
+                                    color: #CD0D0D;
+                                    text-shadow: 1px 1px 1px grey;
+                                    margin: 0;
+                                }
+
+                                p {
+                                    margin-top: 0.5em;
+                                }
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                        &lt;h1&gt;HTML und CSS endlich vereint!&lt;/h1&gt;
+                        &lt;p&gt;
+                            Was lange währt, wird endlich gut. Nachdem sich HTML und
+                            CSS nach ihrer Trennung lange Zeit nicht mehr gesehen haben,
+                            haben sie heute endlich wieder zueinander gefunden.
+                        &lt;/p&gt;
+                        &lt;p style="color: darkred; font-weight: bold;"&gt;
+                            Mit dem style-Attribut kann man gezielt einzelne Elemente
+                            gestalten. Das style-Element wirkt hingegen auf die ganze
+                            Seite und sollte daher eher im head stehen.
+                        &lt;/p&gt;
+                    &lt;/html&gt;
+                </source-code>
             </article>
             <aside>
-                ...
+                <p>
+                    Wenn es mal schnell gehen soll und du keine zwei Dateien für HTML
+                    und CSS anlegen willst, kannst du beides auch in eine Datei packen.
+                    Natürlich ist das dann nicht so schön, wie mit getrennten Dateien und
+                    du hast nicht all die Vorteile, die die Trennung von HTML und CSS
+                    mit sich bringt. Manchmal braucht man das aber auch gar nicht. 😏
+                </p>
+                <p>
+                    HTML und CSS können auf zwei Arten miteinander „vermischt” werden:
+                </p>
+                <ul>
+                    <li>
+                        Durch ein <src-code language="html">&lt;style&gt;</src-code>-Element
+                        im <src-code language="html">&lt;head&gt;</src-code> der Seite
+                    </li>
+                    <li>
+                        Durch das <src-code language="html">style</src-code>-Attribut, das
+                        man jedem HTML-Element geben kann
+                    </li>
+                </ul>
+                <p>
+                    Beide Beispiele siehst du auf der Folie. Dort siehst du auch, dass die
+                    Syntax innerhalb von <src-code language="html">&lt;style&gt;…&lt;/style&gt;</src-code>
+                    genau dieselbe wie in einer normalen CSS-Datei ist. Wohingegen sich das
+                    <src-code language="html">style</src-code>-Attribut immer nur auf ein einzelnes
+                    HTML-Element auswirkt und deshalb ohne Selektor und geschweifte Klammern
+                    auskommt.
+                </p>
+
+                <hr />
+
+                <p>
+                    <b>Achtung:</b> Mische HTML und CSS nur, wenn du gute Gründe dafür hast.
+                    Faulheit sollte nicht dazu gehören. 😉
+                </p>
             </aside>
         </section>
 
         <section>
             <h1>CSS-Selektoren und das Document Object Model</h1>
             <article>
-                ...
+                <h2>Das Document Object Model</h2>
+                <img src="dom_baum.svg" class="img-fluid d-block" style="margin-bottom: 2em" />
+
+                <h2>Einfache CSS-Selektoren</h2>
+                <dl style="margin-bottom: 2em">
+                    <dt>
+                        <src-code language="css">html</src-code> <br />
+                        <src-code language="css">body</src-code> <br />
+                        <src-code language="css">h1</src-code> <br />
+                        <src-code language="css">p</src-code>
+                    </dt>
+                    <dd>
+                        Auswahl von Elementen nach ihrem Tag-Namen
+                    </dd>
+
+                    <dt>
+                        <src-code language="css">#logo</src-code>
+                    </dt>
+                    <dd>
+                        Das Element mit <src-code language="html">id="logo"</src-code>
+                    </dd>
+
+                    <dt>
+                        <src-code language="css">.card</src-code>
+                    </dt>
+                    <dd>
+                        Alle Elemente mit <src-code language="html">class="card"</src-code>
+                    </dd>
+
+                    <dt>
+                        <src-code language="css">input[readonly]</src-code>
+                    </dt>
+                    <dd>
+                        Abfrage beliebiger HTML-Attribute: Suche alle
+                        <src-code language="html">&lt;input&gt;</src-code>, die ein
+                        Attribut namens <src-code language="html">readonly</src-code> haben
+                    </dd>
+                </dl>
+
+                <h2>Zusammengesetzte CSS-Selektoren</h2>
+                <dl>
+                    <dt>
+                        <src-code language="css">h1, h2, h3</src-code>
+                    </dt>
+                    <dd>
+                        ODER-Verknüpfung bzw. Vereinigungsmenge mehrerer Selektoren
+                    </dd>
+
+                    <dt>
+                        <src-code language="css">section.warning</src-code>
+                    </dt>
+                    <dd>
+                        UND-Verknüpfung zweier Selektoren:
+                        Alle <src-code language="html">&lt;section&gt;</src-code> mit
+                        <src-code language="html">class="warning"</src-code>
+                    </dd>
+
+                    <dt>
+                        <src-code language="css">article .infobox</src-code>
+                    </dt>
+                    <dd>
+                        Eltern/Kind-Beziehung (transitiv): Suche alle Elemente mit
+                        <src-code language="html">class="infobox"</src-code>, die irgendwo
+                        innerhalb eines <src-code language="html">&lt;article&gt;</src-code>-Elements
+                        stehen
+                    </dd>
+
+                    <dt>
+                        <src-code language="css">section &gt; h1</src-code>
+                    </dt>
+                    <dd>
+                        Eltern/Kind-Beziehung (nicht transitiv): Suche alle
+                        <src-code language="html">&lt;h1&gt;</src-code>, deren Elternelement
+                        ein <src-code language="html">&lt;section&gt;</src-code> ist
+                    </dd>
+
+
+                </dl>
             </article>
             <aside>
-                ...
+                <h2>Wie der Browser eine Seite sieht</h2>
+                <p>
+                    Wir möchten dich an dieser Stelle nicht langweilen. 😴 Für der Verständnis von
+                    CSS und später auch JavaScript ist es aber gut zu wissen, wie der Browser eigentlich
+                    eine Webseite sieht. Also, welche Informationen er im Speicher hält, auf die du mit
+                    CSS und JavaScript zugreifen kannst, die die Darstellung der Seite beeinflussen.
+                    Gemeint ist das sogenannte <b>Document Object Model</b>.
+                </p>
+                <p>
+                    Der Name verrät es schon: Es handelt sich um eine Sammlung von Objekten (im Sinne von
+                    Objekten, wie du sie aus Java kennst), die alle Inhalte des aktuellen HTML-Dokuments beinhalten.
+                    Und da HTML streng hierarchisch aufgebaut ist (es gibt nur ein Wurzelelement und die Elemente
+                    müssen korrekt geschachtelt werden), ist auch die Objektstruktur hierarchisch aufgebaut.
+                    Man spricht auch von einer Baumstruktur. Aber das weißt ja bereits aus „Algorithmen und
+                    Datenstrukturen”.¹
+                </p>
+                <p>
+                    Wenn wir uns mit JavaScript beschäftigen, wirst du sehen, dass du die Struktur zur Laufzeit
+                    verändern kannst und dass die Änderungen sofort auf dem Bildschirm sichtbar werden. Zum Beispiel
+                    kannst du einfach neue Objekte in den Baum einhängen, um weitere Inhalte auf der Seite anzuzeigen.
+                    Oder du kannst einzelne Elemente löschen, um sie von der Seite verschwinden zu lassen.
+                </p>
+                <p>
+                    CSS arbeitet auch mit dem Document Object Model. Und zwar durch die Selektoren, mit denen man
+                    eigentlich die Struktur des DOM-Baums (so wird das Document Object Model oft genannt) abfragt.
+                </p>
+                <p>
+                    <small>¹ Und du hast dich schon gefragt, wofür die Vorlesung gut gewesen sein soll.</small> 🤣
+                </p>
+
+                <h2>Einfache Selektoren zur Abfrage des DOM</h2>
+                <p>
+                    Auf der Folie siehst du verschiedene Beispiele für die wichtigsten Arten von CSS-Selektoren.
+                    Genauer hingesehen erkennst du, dass es eigentlich nur ein paar wenige Grundformen gibt,
+                    die immer wieder miteinander kombiniert werden. Wenn doch nur andere Abfragesprachen wie
+                    SQL so einfach wären. 😉
+                </p>
+                <p>
+                    Die einfachste Abfrage ist die Suche aller Elemente, die einen bestimmten Tag-Namen besitzen.
+                    Zum Beispiel alle Überschriften 1 oder alle Absätze. Hierfür schreibt man einfach nur den Namen
+                    der gesuchten Tags ohne irgendwas davor oder dahinter. <src-code language="css">div</src-code>
+                    wählt daher alle <src-code language="html">&lt;div&gt;</src-code>-Elemente aus und
+                    <src-code language="css">body</src-code> das <src-code language="html">&lt;body&gt;</src-code>,
+                    von dem es ja nur eines geben kann.
+                </p>
+                <p>
+                    Jedem HTML-Element kann man über das <src-code language="html">id</src-code>-Attribut eine
+                    eindeutige ID zuordnen. Macht man dabei alles richtig, sollte es die ID wirklich nur einmal
+                    im gesamten Dokument geben. Auswählen kann man das Element dann durch den Namen der ID mit
+                    einem vorangestellten Schweinegatter 🚪 (oder Hash Tag für die Generation Twitter). Zum Beispiel:
+                    <src-code language="css">#logo</src-code> oder <src-code language="css">#copyright</src-code>.
+                </p>
+                <p>
+                    Will man mehrere Elemente mit möglicherweise unterschiedlichem Namen auswählen, kann man
+                    das <src-code language="html">class</src-code>-Attribut hierfür verwenden. Mit ihm kann man
+                    einem HTML-Element mehrere durch Leerzeichen getrennte Klassen zuordnen. Die Namen sind frei
+                    auswählbar. Innerhalb des Stylesheets muss dem Klassennamen nur ein Punkt vorangestellt werden,
+                    um ihn abzufragen. Zum Beispiel: <src-code language="css">.info</src-code> oder
+                    <src-code language="css">.critical_warning</src-code>.
+                </p>
+                <p>
+                    Anstelle der vorgegebenen <src-code language="html">id-</src-code> und <src-code language="html">class-</src-code>-Attribute
+                    kann man auch beliebige andere HTML-Attribute abfragen. Das kommt zwar selten vor, ist aber gerade
+                    bei der Gestaltung von Eingabeformularen praktisch, um zum Beispiel nicht eingabebereite
+                    Elemente anders zu gestalten, als eingabebereite. Hierfür wird einfach der Name des gesuchten
+                    Attributs in eckige Klammern geschrieben. Wahlweise kann man noch den Attributwert abprüfen.
+                    Beispiele: <src-code language="css">*[href="beispiel.de"]</src-code>, <src-code language="css">input[readonly]</src-code>
+                </p>
+
+                <h2>Verknüpfung mehrerer CSS-Selektoren</h2>
+                <p>
+                    Damit kennst du schon alle Grundformen zur Auswahl verschiedener HTML-Elemente.
+                    Am Anfang wirst du die folgenden wohl noch gar nicht brauchen. Trotzdem sollst
+                    du hier erfahren, wie man die Suche der HTML-Elemente durch Kombination mehrerer
+                    Selektoren verfeinern kann.
+                </p>
+                <p>
+                    Die erste Möglichkeit ist eine UND-Verknüpfung. Das heißt, man sucht nur bestimmte
+                    Elemente, die mehrere Bedingungen gleichzeitig erfüllen. Alles was man dazu tun muss,
+                    ist die Selektoren <u>ohne Leerzeichen dazwischen</u> hintereinander zu schreiben.
+                    Zum Beispiel <src-code language="css">p.info</src-code> für alle <src-code language="html">&lt;p&gt;</src-code>,
+                    mit <src-code language="html">class="info"</src-code>.
+                </p>
+                <p>
+                    Eine weitere Möglichkeit ist die ODER-Verknüpfung. Hier sucht man verschiedene Elemente,
+                    die eine von mehreren Bedingungen erfüllen. Sie müssen nicht alle Bedingungen erfüllen,
+                    eine würde schon völlig reichen. Hierfür schreibt man einfach die Selektoren als eine Art Liste
+                    durch Komma getrennt hintereinander. Zum Beispiel <src-code language="css">h1, h2, h3</src-code>.
+                </p>
+                <p>
+                    Zum Schluss gibt es noch die Möglichkeit, Elemente zu suchen, die an einer bestimmten
+                    Stelle im Dokument stehen. Also zu prüfen, welches die übergeordneten Elemente eines
+                    Elements sind. Eine transitive Suche erreicht man dabei, indem man einfach zwei oder
+                    mehr Selektoren <u>durch Leerzeichen getrennt</u> hintereinander schreibt. Beispielsweise
+                    bedeutet <src-code language="css">article .infobox</src-code> „Suche alle Elemente mit
+                    <src-code language="html">class="infobox"</src-code>, die sich irgendwo innerhalb eines
+                    <src-code language="html">&lt;article&gt;</src-code> befinden. Das
+                    <src-code language="html">&lt;article&gt;</src-code>-Element muss nicht das direkte
+                    Elternelement sein, indirekt aber schon.”
+                </p>
+                <p>
+                    Gerne findet die transitive Suche auch mal zu viele Elemente. Nämlich Elemente, die irgendwo
+                    tief geschachtelt innerhalb eines anderen Elements stecken. Um dies zu verhindern, kann man
+                    die zusammengehörigen Selektoren durch ein Größerzeichen (spitze Klammer) trennen. Dadurch
+                    schränkt man die Suche auf nur die direkten Kinder eines Elements ein. Zum Beispiel:
+                    <src-code language="css">section &gt; h1</src-code>.
+                </p>
+
+                <h2>Praxisbeispiel</h2>
+                <p>
+                    Dir raucht nach all den abstrakten Beispielen der Kopf? Kein Problem. Gehe zurück zu
+                    <a href="#1">Folie 1</a> und schaue dir den CSS-Quellcode nochmal an. Vergleiche ihn
+                    mit dem HTML-Quellcode und überlege dir, welche Elemente jeweils ausgewählt werden.
+                    Die beste Übung ist aber sicher, CSS selbst zu schreiben. Das machen wir auch bald. 🎨
+                </p>
             </aside>
         </section>
 
@@ -575,7 +840,7 @@
                 <!-- Textformatierung -->
                 <h2>Textformatierung</h2>
 
-                <div style="margin-bottom: 1em">
+                <div style="margin-bottom: 2em">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a
@@ -623,12 +888,50 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-text-uebersicht-tab"
                         >
-                            <source-code language="css">
-                                QUELLCODE
-                            </source-code>
-                            <p style="margin-top: -0.5em">
-                                Erklärung
-                            </p>
+                            <dl>
+                                <dt>
+                                    <src-code language="css">
+                                        font-family: Liberation Sans, Arial, sans-serif;
+                                    </src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Legt die Schriftart für ein Element und seine Unterelemente fest.
+                                    Werden mehrere Schriftarten angegeben, wird die erste gefundene verwendet.
+                                    Immer vorhandene Schriften sind: <code>serif</code>, <code>sans-serif</code>,
+                                    <code>monospace</code>, <code>fantasy</code>.
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">
+                                        font-size: 12pt;
+                                    </src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Legt die Schriftgröße eines Elements fest. Erlaubt sind entweder numerische Werte oder
+                                    folgende Konstanten: <code>small</code>, <code>x-small</code>, <code>large</code>,
+                                    <code>x-large</code>, …
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">
+                                        font-weight: bold;
+                                    </src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Legt fest, wie kräftig die Schrift erscheint. <code>bold</code> ist der normale Fettdruck.
+                                    Es gibt aber auch <code>normal</code>, <code>bolder</code> und <code>lighter</code>.
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">
+                                        color: crimson;
+                                    </src-code>
+                                </dt>
+                                <dd>
+                                    Ändert die Schriftfarbe des aktuellen Elements. Erlaubt sind alle Farbwerte der
+                                    vorangegangenen Folie.
+                                </dd>
+                            </dl>
                         </div>
                         <!-- Textformatierung: Beispiel -->
                         <div
@@ -637,20 +940,16 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-text-beispiel-tab"
                         >
-                            <source-code language="html">
-                                &lt;!DOCTYPE html&gt;
-                                &lt;html&gt;
-                                    &lt;head&gt;
-                                        &lt;meta charset="utf-8" /&gt;
-                                        &lt;title&gt;Textformatierung mit CSS&lt;/title&gt;
-                                        &lt;style&gt;
-                                            /* ... */
-                                        &lt;/style&gt;
-                                    &lt;/head&gt;
-                                    &lt;body&gt;
-                                        ...
-                                    &lt;/body&gt;
-                                &lt;/html&gt;
+                            <source-code language="css">
+                                html {
+                                    font-family: Liberation Sans, sans;
+                                    font-size: 12pt;
+                                }
+
+                                h1 {
+                                    color: crimson;
+                                    font-weight: bold;
+                                }
                             </source-code>
                         </div>
                         <!-- Textformatierung: Aussehen -->
@@ -660,7 +959,21 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-text-screenshot-tab"
                         >
-                            ...
+                            <style>
+                                #css-text-screenshot {
+                                    font-family: Liberation Serif, serif;
+                                    font-size: 12pt;
+                                }
+
+                                #css-text-screenshot h3 {
+                                    color: crimson;
+                                    font-weight: bold;
+                                }
+                            </style>
+                            <h3>Dies ist eine Überschrift 1</h3>
+                            <p>
+                                Und dies ist ein kleiner Absatz.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -668,7 +981,7 @@
                 <!-- Hintergrundfarben und Bilder -->
                 <h2>Hintergrundfarben und Bilder</h2>
 
-                <div style="margin-bottom: 1em">
+                <div style="margin-bottom: 2em">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a
@@ -716,12 +1029,29 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-hintergrund-uebersicht-tab"
                         >
-                            <source-code language="css">
-                                QUELLCODE
-                            </source-code>
-                            <p style="margin-top: -0.5em">
-                                Erklärung
-                            </p>
+                            <dl>
+                                <dt>
+                                    <src-code language="css">
+                                        background-color: rgba(244, 186, 110, 0.9);
+                                    </src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Ändert die Hintergrundfarbe eines Elements. Erlaubt sind natürlich
+                                    alle Farbwerte aus der Folie zuvor. Mit <code>rgba()</code> lassen
+                                    sich damit auch halbdurchsichtige Hintergründe definieren.
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">
+                                        background-image: url(bg.jpg);
+                                    </src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Legt ein Hintergrundbild fest, das standardmäßig so oft wiederholt
+                                    wird, bis das Element komplett damit bedeckt ist. Siehe <a href="#8">Folie 8</a>
+                                    für weitere Möglichkeiten.
+                                </dd>
+                            </dl>
                         </div>
                         <!-- Hintergrundfarben und Bilder: Beispiel -->
                         <div
@@ -730,30 +1060,71 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-hintergrund-beispiel-tab"
                         >
-                            <source-code language="html">
-                                &lt;!DOCTYPE html&gt;
-                                &lt;html&gt;
-                                    &lt;head&gt;
-                                        &lt;meta charset="utf-8" /&gt;
-                                        &lt;title&gt;Hintergrundfarben und Bilder mit CSS&lt;/title&gt;
-                                        &lt;style&gt;
-                                            /* ... */
-                                        &lt;/style&gt;
-                                    &lt;/head&gt;
-                                    &lt;body&gt;
-                                        ...
-                                    &lt;/body&gt;
-                                &lt;/html&gt;
+                            <source-code language="css">
+                                html {
+                                    background-color: #F0F0F0;
+                                }
+
+                                header > nav {
+                                    background-color: rgb(4, 192, 242);
+                                }
+
+                                .black {
+                                    background-image: url(black_pattern.jpg);
+                                }
                             </source-code>
                         </div>
                         <!-- Hintergrundfarben und Bilder: Aussehen -->
                         <div
-                            class           = "tab-pane fade"
+                            class           = "tab-pane fade img-thumbnail"
                             id              = "css-hintergrund-screenshot"
                             role            = "tabpanel"
                             aria-labelledby = "css-hintergrund-screenshot-tab"
+                            style           = "min-height: 10em; padding: 0;"
                         >
-                            ...
+                            <style>
+                                #css-hintergrund-screenshot * {
+                                    margin: 0;
+                                }
+
+                                #css-hintergrund-screenshot {
+                                    background-color: #F0F0F0;
+                                }
+
+                                #css-hintergrund-screenshot header > nav {
+                                    background-color: rgb(4, 192, 242);
+                                    color: white;
+                                    font-weight: bold;
+                                    min-height: 3em;
+                                    padding: 0.5em;
+                                }
+
+                                #css-hintergrund-screenshot .black {
+                                    background-image: url(black_pattern.jpg);
+                                    color: white;
+                                }
+
+                                #css-hintergrund-screenshot .main {
+                                    min-height: 10em;
+                                    padding: 0.5em;
+                                }
+
+                                #css-hintergrund-screenshot footer {
+                                    min-height: 4em;
+                                    padding: 0.5em;
+                                }
+                            </style>
+                            <header>
+                                <nav>
+                                    Geldsack AG - Finanzdienstleistungen
+                                </nav>
+                            </header>
+                            <div class="main">
+                                Hier kommt auch irgend ein Text hin …
+                            </div>
+                            <footer class="black">
+                                Alle Rechte vorbehalten
+                            </footer>
                         </div>
                     </div>
                 </div>
@@ -761,7 +1132,7 @@
                 <!-- Anzeigeart und Größe -->
                 <h2>Anzeigeart und Größe</h2>
 
-                <div style="margin-bottom: 1em">
+                <div style="margin-bottom: 2em">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a
@@ -809,12 +1180,52 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-groesse-uebersicht-tab"
                         >
-                            <source-code language="css">
-                                QUELLCODE
-                            </source-code>
-                            <p style="margin-top: -0.5em">
-                                Erklärung
-                            </p>
+                            <dl>
+                                <dt>
+                                    <src-code language="css">display: block;</src-code> <br />
+                                    <src-code language="css">display: inline;</src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Dies sind die bekannten Voreinstellungen des Browsers, so wie sie im
+                                    HTML-Folienatz erklärt wurden.
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">
+                                        display: inline-block;
+                                    </src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Eine Mischung aus Inline- und Blockelement. Im Prinzip handelt es sich
+                                    beim betroffenen Element weiterhin um ein Blockelement, das sich in Teilen
+                                    aber wie ein Inline verhält. Unter anderem passen sich Breite und Höhe komplett
+                                    dem Inhalt an und es kann in derselben Zeile stehen wie weitere
+                                    <src-code language="css">inline-block</src-code>-Elemente
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">width: 75%;</src-code> <br />
+                                    <src-code language="css">min-width: 45%;</src-code> <br />
+                                    <src-code language="css">height: 10em;</src-code>
+                                    <src-code language="css">min-height: 10em;</src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Legen die Breite und Höhe der ausgewählten Elemente fest. <src-code language="css">width</src-code>
+                                    und <src-code language="css">height</src-code> legen eine fixe Größe fest und können daher dazu führen,
+                                    dass zu viel Inhalt aus den Elementen herausragt.
+                                    <src-code language="css">min-width</src-code> und <src-code language="css">min-height</src-code>
+                                    erlauben dem Element hingegen, mit seinem Inhalt zu wachsen.
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">
+                                        overflow: hidden;
+                                    </src-code>
+                                </dt>
+                                <dd>
+                                    Sorgt dafür, dass zu großer Inhalt nicht aus dem Element herausläuft, sondern abgeschnitten wird.
+                                </dd>
+                            </dl>
                         </div>
                         <!-- Anzeigeart und Größe: Beispiel -->
                         <div
@@ -823,20 +1234,20 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-groesse-beispiel-tab"
                         >
-                            <source-code language="html">
-                                &lt;!DOCTYPE html&gt;
-                                &lt;html&gt;
-                                    &lt;head&gt;
-                                        &lt;meta charset="utf-8" /&gt;
-                                        &lt;title&gt;Anzeigeart und Größe von Elementen&lt;/title&gt;
-                                        &lt;style&gt;
-                                            /* ... */
-                                        &lt;/style&gt;
-                                    &lt;/head&gt;
-                                    &lt;body&gt;
-                                        ...
-                                    &lt;/body&gt;
-                                &lt;/html&gt;
+                            <source-code language="css">
+                                div.card {
+                                    display: inline-block;
+                                    min-width: 7em;
+                                    height: 3em;
+
+                                    margin: 0.25em;
+                                    padding: 0.5em;
+
+                                    border: 1px solid black;
+                                    border-radius: 0.3em;
+                                    background-color: rgb(129, 8, 30);
+                                    color: white;
+                                }
                             </source-code>
                         </div>
                         <!-- Anzeigeart und Größe: Aussehen -->
@@ -844,9 +1255,32 @@
                             class           = "tab-pane fade"
                             id              = "css-groesse-screenshot"
                             role            = "tabpanel"
-                            aria-labelledby = "cc-groesse-screenshot-tab"
+                            aria-labelledby = "css-groesse-screenshot-tab"
                         >
-                            ...
+                            <style>
+                                #css-groesse-screenshot .card {
+                                    display: inline-block;
+                                    min-width: 7em;
+                                    height: 3em;
+
+                                    margin: 0.25em;
+                                    padding: 0.5em;
+
+                                    border: 1px solid black;
+                                    border-radius: 0.3em;
+                                    background-color: rgb(129, 8, 30);
+                                    color: white;
+                                }
+                            </style>
+                            <div class="card">
+                                Dies sind Karten.
+                            </div>
+                            <div class="card">
+                                Dank „inline-block” stehen sie
+                            </div>
+                            <div class="card">
+                                nebeneinander!
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -854,7 +1288,7 @@
                 <!-- Innenabstand und Außenabstand -->
                 <h2>Innenabstand und Außenabstand</h2>
 
-                <div style="margin-bottom: 1em">
+                <div style="margin-bottom: 2em">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a
@@ -902,12 +1336,46 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-abstand-uebersicht-tab"
                         >
-                            <source-code language="css">
-                                QUELLCODE
-                            </source-code>
-                            <p style="margin-top: -0.5em">
-                                Erklärung
-                            </p>
+                            <dl>
+                                <dt>
+                                    <src-code language="css">
+                                        margin: 1em;
+                                    </src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Sorgt dafür, dass ein gleichmäßiger Abstand von 1em um die betroffenen
+                                    Elemente frei bleibt. <b>Achtung:</b> Die <src-code language="css">margin</src-code>s
+                                    zweier benachbarter Elemente addieren sich auf (siehe Skizze).
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">margin: 1em 0 2em 0;</src-code> <br />
+                                    <src-code language="css">margin-top: 1em;</src-code> <br />
+                                    <src-code language="css">margin-right: 0;</src-code> <br />
+                                    <src-code language="css">margin-bottom: 2em;</src-code> <br />
+                                    <src-code language="css">margin-left: 0;</src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Erlaubt es, die vier Abstände um ein Element herum einzeln zu definieren.
+                                    Die Kurzform in der ersten Zeile wird im Uhrzeigersinn gelesen: Oben, rechts, unten, links.
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">padding: 1em;</src-code> <br />
+                                    <src-code language="css">padding: 1em 0 2em 0;</src-code> <br />
+                                    <src-code language="css">padding-top: 1em;</src-code> <br />
+                                    <src-code language="css">padding-right: 0;</src-code> <br />
+                                    <src-code language="css">padding-bottom: 2em;</src-code> <br />
+                                    <src-code language="css">padding-left: 0;</src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Im Prinzip dasselbe wie <src-code language="css">margin</src-code>, nur dass
+                                    es nicht um den Platz um das Element herum geht, sondern um den <u>inneren</u>
+                                    Abstand vom Rand des Elements zu seinem Inhalt.
+                                </dd>
+                            </dl>
+
+                            <img src="margin_padding.svg" class="d-block img-fluid" />
                         </div>
                         <!-- Innenabstand und Außenabstand: Beispiel -->
                         <div
@@ -916,20 +1384,27 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-abstand-beispiel-tab"
                         >
-                            <source-code language="html">
-                                &lt;!DOCTYPE html&gt;
-                                &lt;html&gt;
-                                    &lt;head&gt;
-                                        &lt;meta charset="utf-8" /&gt;
-                                        &lt;title&gt;Innenabstand und Außenabstand von Elementen&lt;/title&gt;
-                                        &lt;style&gt;
-                                            /* ... */
-                                        &lt;/style&gt;
-                                    &lt;/head&gt;
-                                    &lt;body&gt;
-                                        ...
-                                    &lt;/body&gt;
-                                &lt;/html&gt;
+                            <source-code language="css">
+                                .gross {
+                                    display: inline-block;
+
+                                    font-size: 130%;
+                                    padding: 3em;
+                                    margin: 1rem;
+
+                                    background-color: rgb(7, 88, 97);
+                                    color: white;
+                                }
+
+                                .klein {
+                                    display: inline-block;
+
+                                    padding: 0.75em;
+                                    margin: 1rem;
+
+                                    background-color: rgb(138, 54, 172);
+                                    color: white;
+                                }
                             </source-code>
                         </div>
                         <!-- Innenabstand und Außenabstand: Aussehen -->
@@ -939,7 +1414,34 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-abstand-screenshot-tab"
                         >
-                            ...
+                            <style>
+                                #css-abstand-screenshot .gross {
+                                    display: inline-block;
+
+                                    font-size: 130%;
+                                    padding: 3em;
+                                    margin: 1rem;
+
+                                    background-color: rgb(7, 88, 97);
+                                    color: white;
+                                }
+
+                                #css-abstand-screenshot .klein {
+                                    display: inline-block;
+
+                                    padding: 0.75em;
+                                    margin: 1rem;
+
+                                    background-color: rgb(138, 54, 172);
+                                    color: white;
+                                }
+                            </style>
+                            <div class="gross">
+                                Großer Bereich
+                            </div>
+                            <div class="klein">
+                                Kleiner Bereich
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -947,7 +1449,7 @@
                 <!-- Rund um den Rahmen -->
                 <h2>Rund um den Rahmen</h2>
 
-                <div style="margin-bottom: 1em">
+                <div style="margin-bottom: 2em">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a
@@ -995,12 +1497,46 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-rahmen-uebersicht-tab"
                         >
-                            <source-code language="css">
-                                QUELLCODE
-                            </source-code>
-                            <p style="margin-top: -0.5em">
-                                Erklärung
-                            </p>
+                            <dl>
+                                <dt>
+                                    <src-code language="css">border: 1px solid black;</src-code> <br />
+                                    <src-code language="css">border-width: 1px;</src-code> <br />
+                                    <src-code language="css">border-style: solid;</src-code> <br />
+                                    <src-code language="css">border-color: black;</src-code> <br />
+                                    <src-code language="css">border-bottom-width: 0;</src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Verschiedene Optionen zur Definition der Rahmendicke, Rahmenart und Rahmenfarbe.
+                                    <src-code language="css">border-width</src-code>, <src-code language="css">border-style</src-code>
+                                    und <src-code language="css">border-color</src-code> können alle vier oder nur eine Seite beeinflussen.
+                                    Für letzteres muss nach <src-code language="css">border-</src-code> eine der vier Richtungen angegeben
+                                    werden: <src-code language="css">top</src-code>; <src-code language="css">right</src-code>,
+                                    <src-code language="css">bottom</src-code>, <src-code language="css">left</src-code>.
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">border-radius: 0.5em;</src-code> <br/>
+                                    <src-code language="css">border-top-left-radius: 4px;</src-code> <br/>
+                                    <src-code language="css">border-top-right-radius: 50%;</src-code> <br/>
+                                    <src-code language="css">border-bottom-left-radius: 1rem;</src-code> <br/>
+                                    <src-code language="css">border-bottom-right-radius: 0.75vh;</src-code> <br/>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Früher waren alle HTML-Elemente eckig wie Toastbrot. 🍞 Heute können sie auch
+                                    abgerundete Ecken besitzen.
+                                </dd>
+
+                                <dt>
+                                    <src-code language="css">
+                                        box-shadow: 2px 2px 4px rgba(0,0,0, 0.5);
+                                    </src-code>
+                                </dt>
+                                <dd style="margin-bottom: 0.75em">
+                                    Zeichnet einen weichen Schatten um das Element herum. Diese Anweisung ist
+                                    der Schlüssel zum Google Material-Design. Die vier Werte bedeuten: X-Richtung,
+                                    Y-Richtung, Weichzeichnung und Farbe.
+                                </dd>
+                            </dl>
                         </div>
                         <!-- Rund um den Rahmen: Beispiel -->
                         <div
@@ -1009,20 +1545,42 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-rahmen-beispiel-tab"
                         >
-                            <source-code language="html">
-                                &lt;!DOCTYPE html&gt;
-                                &lt;html&gt;
-                                    &lt;head&gt;
-                                        &lt;meta charset="utf-8" /&gt;
-                                        &lt;title&gt;Rund um den Rahmen&lt;/title&gt;
-                                        &lt;style&gt;
-                                            /* ... */
-                                        &lt;/style&gt;
-                                    &lt;/head&gt;
-                                    &lt;body&gt;
-                                        ...
-                                    &lt;/body&gt;
-                                &lt;/html&gt;
+                            <source-code language="css">
+                                .rect1, .rect2, .rect3, .rect4 {
+                                    display: inline-block;
+                                    padding: 0.5em;
+                                    font-size: 160%;
+                                    min-width: 3.5em;
+
+                                    box-shadow: 1px 1px 2px rgba(0,0,0, 0.5);
+                                }
+
+                                .rect1 {
+                                    border: 2px solid black;
+                                    border-radius: 0.3em;
+                                    background: rgb(107, 159, 103);
+                                }
+
+                                .rect2 {
+                                    border: 2px solid black;
+                                    border-top-left-radius: 0.3em;
+                                    border-top-right-radius: 0.3em;
+                                    background: rgb(17, 189, 207);
+                                }
+
+                                .rect3 {
+                                    border: 2px solid black;
+                                    border-top-left-radius: 0.3em;
+                                    border-bottom-right-radius: 0.3em;
+                                    background: rgb(58, 159, 80);
+                                }
+
+                                .rect4 {
+                                    border: 2px solid black;
+                                    border-top-right-radius: 50%;
+                                    border-bottom-right-radius: 50%;
+                                    background: rgb(194, 194, 93);
+                                }
                             </source-code>
                         </div>
                         <!-- Rund um den Rahmen: Aussehen -->
@@ -1032,106 +1590,264 @@
                             role            = "tabpanel"
                             aria-labelledby = "css-rahmen-screenshot-tab"
                         >
-                            ...
-                        </div>
-                    </div>
-                </div>
+                            <style>
+                                #css-rahmen-screenshot .rect1,
+                                #css-rahmen-screenshot .rect2,
+                                #css-rahmen-screenshot .rect3,
+                                #css-rahmen-screenshot .rect4 {
+                                    display: inline-block;
+                                    padding: 0.5em;
+                                    font-size: 160%;
+                                    min-width: 3.5em;
 
-                <!-- 2D- und 3D-Transformationen -->
-                <h2>2D- und 3D-Transformationen</h2>
+                                    box-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+                                }
 
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                id            = "css-transformationen-uebersicht-tab"
-                                class         = "nav-link active"
-                                data-toggle   = "tab"
-                                href          = "#css-transformationen-uebersicht"
-                                role          = "tab"
-                                aria-controls = "Übersicht"
-                                aria-expanded = "true"
-                            >
-                                Übersicht
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "css-transformationen-beispiel-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#css-transformationen-beispiel"
-                                role          = "tab"
-                                aria-controls = "Beispiel"
-                            >
-                                Beispiel
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "css-transformationen-screenshot-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#css-transformationen-screenshot"
-                                role          = "tab"
-                                aria-controls = "Aussehen"
-                            >
-                                Aussehen
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
-                        <!-- 2D- und 3D-Transformationen: Übersicht -->
-                        <div
-                            class           = "tab-pane fade show active"
-                            id              = "css-transformationen-uebersicht"
-                            role            = "tabpanel"
-                            aria-labelledby = "css-transformationen-uebersicht-tab"
-                        >
-                            <source-code language="css">
-                                QUELLCODE
-                            </source-code>
-                            <p style="margin-top: -0.5em">
-                                Erklärung
-                            </p>
-                        </div>
-                        <!-- 2D- und 3D-Transformationen: Beispiel -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "css-transformationen-beispiel"
-                            role            = "tabpanel"
-                            aria-labelledby = "css-transformationen-beispiel-tab"
-                        >
-                            <source-code language="html">
-                                &lt;!DOCTYPE html&gt;
-                                &lt;html&gt;
-                                    &lt;head&gt;
-                                        &lt;meta charset="utf-8" /&gt;
-                                        &lt;title&gt;2D- und 3D-Transformationen mit CSS&lt;/title&gt;
-                                        &lt;style&gt;
-                                            /* ... */
-                                        &lt;/style&gt;
-                                    &lt;/head&gt;
-                                    &lt;body&gt;
-                                        ...
-                                    &lt;/body&gt;
-                                &lt;/html&gt;
-                            </source-code>
-                        </div>
-                        <!-- 2D- und 3D-Transformationen: Aussehen -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "css-transformationen-screenshot"
-                            role            = "tabpanel"
-                            aria-labelledby = "css-transformationen-screenshot-tab"
-                        >
-                            ...
+                                #css-rahmen-screenshot .rect1 {
+                                    border: 2px solid black;
+                                    border-radius: 0.3em;
+                                    background: rgb(112, 213, 104);
+                                }
+
+                                #css-rahmen-screenshot .rect2 {
+                                    border: 2px solid black;
+                                    border-top-left-radius: 0.3em;
+                                    border-top-right-radius: 0.3em;
+                                    background: rgb(63, 236, 254);
+                                }
+
+                                #css-rahmen-screenshot .rect3 {
+                                    border: 2px solid black;
+                                    border-top-left-radius: 0.3em;
+                                    border-bottom-right-radius: 0.3em;
+                                    background: rgb(179, 54, 54);
+                                }
+
+                                #css-rahmen-screenshot .rect4 {
+                                    border: 2px solid black;
+                                    border-top-right-radius: 100%;
+                                    border-bottom-right-radius: 100%;
+                                    background: rgb(231, 231, 58);
+                                }
+                            </style>
+                            <div class="rect1">1</div>
+                            <div class="rect2">2</div>
+                            <div class="rect3">3</div>
+                            <div class="rect4">4</div>
                         </div>
                     </div>
                 </div>
             </article>
             <aside>
-                ...
+                <p>
+                    Sicher wundert es dich nicht, dass es für alle möglichen Dinge eine ganze
+                    Menge CSS-Anweisungen gibt. Unmöglich, sie alle hier aufzuzählen, geschweige
+                    denn zu jeder noch ein Beispiel zu zeigen und alle Einzelheiten zu erklären. 🎉
+                    Ein paar wesentliche Anweisungen wollen wir die hier aber nicht vorenthalten.
+                </p>
+                <p>
+                    Wie immer hat das <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank">
+                    Mozilla Developer Network</a> eine hervorragende Übersicht.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Maßeinheiten und Farben in CSS</h1>
+            <article>
+                <!-- Maßeinheinte und Farben -->
+                <h2>Maßeinheiten</h2>
+                <table style="margin-bottom: 2em">
+                    <thead>
+                        <tr>
+                            <th>Einheit</th>
+                            <th>Beschreibung</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td><code>px</code></td>
+                        <td>
+                            Ein „virtueller” Pixel auf den Bildschirm
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>pt</code></td>
+                        <td>
+                            1 Punkt = 0,376 Millimeter, üblich für Schriftgrößen
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>em</code></td>
+                        <td>
+                            Ungefähr die Breite eines großen M („Geviert”)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>ex</code></td>
+                        <td>
+                            Höhe eines kleinen X
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>rem</code></td>
+                        <td>
+                            Wie <code>em</code> nur mit der Schriftgröße des Wurzelelements
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>%</code></td>
+                        <td>
+                            Ein Prozent der Höhe oder Breite des Elternelements, je nach Verwendung
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>vw</code></td>
+                        <td>
+                            Ein Prozent der Breite des Browserfensters (Viewport Width)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>vh</code></td>
+                        <td>
+                            Ein Prozent der Höhe des Browserfensters (Viewport Height)
+                        </td>
+                    </tr>
+                </table>
+
+                <h2>Farben in CSS</h2>
+                <dl>
+                    <dt>Eingebaute Namen</dt>
+                    <dd>
+                        <ul>
+                            <li><code>red</code></li>
+                            <li><code>lightblue</code></li>
+                            <li><code>darkseagreen</code></li>
+                            <li>
+                                <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">W3Schools: HTML Color Names</a>
+                            </li>
+                        </ul>
+                    </dd>
+
+                    <dt>Hexadezimalcode</dt>
+                    <dd>
+                        <ul>
+                            <li><code>#FF0000</code></li>
+                            <li><code>#FFFF00</code></li>
+                            <li><code>#ADD8E6</code></li>
+                        </ul>
+                    <dt>RGB-Tuppel</dt>
+                    <dd>
+                        <ul>
+                            <li><code>rgb(255, 255, 0)</code></li>
+                            <li><code>rgb(173, 216, 230)</code></li>
+                        </ul>
+                    </dd>
+
+                    <dt>RGBA-Tuppel</dt>
+                    <dd>
+                        <ul>
+                            <li><code>rgb(100, 100, 100, 0.75)</code></li>
+                            <li><code>rgb(173, 216, 230, 0.85)</code></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </article>
+            <aside>
+                <p>
+                    Okay, zugegeben. Das jetzt alles auswendig zu lernen ist ziemlich müßig.
+                    Du musst es ja auch nicht gleich im Schlaf aufsagen können, doch um die
+                    meisten der eben vorstellten CSS-Anweisungen zu verstehen, solltest du
+                    wissen, wie Längenangaben und Farben in CSS beschrieben werden. Denn darum
+                    geht es ja beim Layout: Um Positionen, Abstände und Farben.
+                </p>
+
+                <h2>Wie vermisst man die Welt?</h2>
+                <p>
+                    CSS kennt ziemlich viele Maßeinheiten. Auf der Folie sind deshalb gar nicht
+                    alle aufgezählt. Die wichtigsten sind aber alle dabei. Bei vielen davon handelt
+                    es sich um absolute Einheiten, bei allen anderen um relative Einheiten. Doch
+                    was ist damit gemeint?
+                </p>
+                <ul>
+                    <li>
+                        <b>Aboslute Einheiten:</b> Diese sind per Definition immer glieich
+                        groß. Ein Zentimeter ist ein Zentimeter ist ein Zentimeter.
+                        Beispiele: <code>px</code>, <code>pt</code>, <code>cm</code>, <code>mm</code>, …
+                    </li>
+                    <li>
+                        <b>Relative Einheiten:</b> Beziehen sich immer auf einen bestimmten
+                        Bezugswert. Häufig handelt es sich dabei um die Schritgröße oder um die
+                        Breite/Höhe eines anderen Elements. Beispiele: <code>em</code>, <code>rem</code>,
+                        <code>%</code>, <code>vh</code>, …
+                    </li>
+                </ul>
+                <p>
+                    Für die meisten Einheiten reicht die Kurzbeschreibung auf der Folie. Manche sind dann
+                    aber doch ein wenig komisch, so dass wir sie uns lieber nochmal anschauen sollten. Zum
+                    Beispiel, was bitte schön ist ein „virtueller Pixel”? Ist ein Pixel denn nicht einfach
+                    ein Pixel auf dem Bildschirm?
+                </p>
+                <p>
+                    Leider nein. Früher war das mal so. Doch seitdem hochauflösende Bildschirme Standard
+                    geworden sind und es Smartphones mit höchst unterschiedlichen Displays gibt, ist es
+                    etwas kompliziert geworden. Auslöser war das iPhone 1, das 2007 auf den Mark kam.
+                    Es hatte eine Auflösung von 320x480 Pixeln, für die viele Webseiten optimiert wurden.
+                    Im Laufe der Zeit kamen dann aber immer mehr Geräte mit derselben Größe aber mit
+                    hochauflösendern Displays auf den Markt, auf denen die iPhone-Webseiten viel zu klein
+                    aussahen. Deshalb haben sich die Browserhersteller einen Trick überlegt:
+                </p>
+                <p>
+                    <b>Der Browser lügt, was die Bildschirmauflösung angeht!</b> Ja richtig, der
+                    Browser lügt. Und zwar bis sich die Balken biegen. 🏗 Tatsächlich gibt es gar keine
+                    Möglichkeit, die wahre Bildschirmauflösung abzufragen. Denn jeder Browser meldet
+                    einfach eine – nach Ansicht des Herstellers – zum jeweiligen Gerät passende Auflösung
+                    und rechnet die Pixelwerte entsprechend um. Dadurch wollte man die alten iPhone-Webseiten
+                    retten und den Webdesignern Arbeit ersparen. Tatsächlich erreicht hat man damit, dass du
+                    die Einheit <code>px</code> meiden solltest wie der Teufel das Weihwasser. 👹 Die Dicke eines
+                    Rahmens, die größe einer Schrift, das sind noch Dinge, die du in Pixeln angeben kannst. Für
+                    alles andere solltest du aber besser andere Einheiten verwenden.
+                </p>
+                <p>
+                    Weitere interessante Einheiten sind <code>em</code>, <code>ex</code> und <code>rem</code>.
+                    Sie beziehen sich alle auf die aktuelle Schriftgröße. Ein <code>em</code> wächst also automatisch,
+                    wenn du die Schriftgröße des jeweiligen Elements vergrößerst. Für viele Dinge ist das ziemlich
+                    praktisch, da man immer ein gutes Ergebnis erhält. Zum Beispiel für Abstände, da der Betrachter
+                    bei einer größeren Schrift in der Regel auch einen größeren Abstand erwartet. <code>em</code> und
+                    <code>ex</code> richten sich hierbei nach der Schriftgröße des jeweiligen HTML-Elements.
+                    <code>rem</code> hingegen nach der allgemeinen Schriftgröße der Webseite, wie sie dem
+                    <src-code language="html">&lt;html&gt;</src-code>-Element zugewiesen wurde.
+                </p>
+
+                <h2>Was ist überhaupt eine Farbe?</h2>
+                <p>
+                    Über Farben, was sie sind, und woraus sie sich zusammen setzen könnte man ganze
+                    Bücher schreiben. 📚 Und klar, natürlich gibt es auch Bücher, die nichts anderes
+                    beinhalten. 🤓 So ist sicher keine allzu große Überraschung, dass es mehrere Modelle
+                    gibt, <a href="https://xkcd.com/1882/" target="_blank">wie eine Farbe beschrieben
+                    werden kann</a>.
+                </p>
+                <p>
+                    Für den Computer bestehen Farben oftmals aus den drei Grundfarben Rot, Grün und Blau,
+                    weil so gut wie jeder Computerbildschirm damit arbeitet. Es handelt sich dabei um die
+                    <b>additiven Grundfarben der Lichtmischung</b>, wie sie auch in der Physik Anwendung
+                    finden. Wenn du dich in deiner Freizeit mit Malerei beschäftigst, kennst du stattdessen
+                    die <b>subtraktiven Grundfarben der Malerei</b>. Diese sind Rot, Grün und <i>Gelb</i>.
+                    Hier haben wir es aber mit einem Computer zu tun. 💻
+                </p>
+                <p>
+                    CSS richtet sich auch nach dem Rot-Grün-Blau-Modell, wobei für jeden Farbanteil ein
+                    Byte und somit die Werte von 0 … 255 verwendet werden. Wie du auf der Folie siehst,
+                    gibt es verschiedene Schreibweisen für die drei Farbanteile: Die hexadezimale Form,
+                    die etwas kompakter ist, und die <code>rgb()</code>-Form, die einfacher zu verstehen
+                    ist. Welche du davon verwendest, ist Geschmackssache. 🍉 In älteren Stylesheets wirst
+                    du aber eher die Hex-Schreibweise vorfinden, da es sie schon länger gibt.
+                </p>
+                <p>
+                    Eine Sonderform nimmt die <code>rgba()</code>-Notation ein. Sie drückt genau dasselbe
+                    wie <code>rgb()</code> aus, nur dass noch ein vierter Wert für die Deckkraft hinzukommt.
+                    Es handelt sich dabei um eine beliebige Kommazahl zwischen 0…1, wobei 0 komplett unsichtbar
+                    und 1 komplett deckend ist.
+                </p>
             </aside>
         </section>
 
@@ -1140,7 +1856,7 @@
             <article>
                 <h2>Welcher CSS-Selektor wählt …</h2>
 
-                <p>… alle Absätze der Seite aus?=</p>
+                <p>… alle Absätze der Seite aus?</p>
                 <ol>
                     <li>
                         <src-code language="css">div</src-code>
@@ -1288,31 +2004,457 @@
             <h1>Aufgabe 2: Dein erstes Stylesheet</h1>
             <article>
                 <p>
-                    Lade dir das <a href="" target="_blank">Vorlageprojekt für diese Aufgabe</a>
-                    herunter und passe die Datei <tt>style.css</tt> wie unten beschrieben an.
-                    Das Endergebnis sollte dann ungefähr wie im Screenshot aussehen.
+                    Kopiere den folgenden Quellcode in eine neue HTML-Datei und passe das
+                    Stylesheet gemäß der Beschreibung an. Das Ergebnis sollte ungefähr wie
+                    auf dem dritten Reiter aussehen.
                 </p>
-                <ul>
-                    <li>
-                        …
-                    </li>
-                    <li>
-                        …
-                    </li>
-                    <li>
-                        …
-                    </li>
-                    <li>
-                        …
-                    </li>
-                </ul>
-                <img src="aufgabe2.png" class="img-thumbnail d-block" style="width: 100%"/>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-html-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-html"
+                                role          = "tab"
+                                aria-controls = "HTML-Quellcode"
+                                aria-expanded = "true"
+                            >
+                                HTML-Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-beschreibung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-beschreibung"
+                                role          = "tab"
+                                aria-controls = "Beschreibung"
+                            >
+                                Beschreibung
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-vorschau-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-vorschau"
+                                role          = "tab"
+                                aria-controls = "Vorschau"
+                            >
+                                Vorschau
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-loesung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-loesung"
+                                role          = "tab"
+                                aria-controls = "Lösung"
+                            >
+                                Lösung
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- HTML-Quellcode -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            role            = "tabpanel"
+                            id              = "aufgabe2-html"
+                            aria-labelledby = "aufgabe2-html-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8"&gt;
+                                        &lt;title&gt;Mein erstes Stylesheet&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /** Schreibe hier dein Stylesheet */
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;header&gt;
+                                            &lt;h1&gt;Meine kleine Musiksammlung&lt;/h1&gt;
+                                        &lt;/header&gt;
+                                        &lt;main&gt;
+                                            &lt;h2&gt;Joe Cocker&lt;/h2&gt;
+
+                                            &lt;div class="album"&gt;
+                                                &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                                &lt;div class="description"&gt;
+                                                    &lt;span class="title"&gt;Accross From Midnight&lt;/span&gt;
+                                                    &lt;br /&gt;
+                                                    1997, 12 Titel, Lieblingssong: &lt;i&gt;The Last One To Know&lt;/i&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="album"&gt;
+                                                &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                                &lt;div class="description"&gt;
+                                                    &lt;span class="title"&gt;No Ordinary World&lt;/span&gt;
+                                                    &lt;br /&gt;
+                                                    1999, 12 Titel, Lieblingssong: &lt;i&gt;My Father's Son&lt;/i&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="album"&gt;
+                                                &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                                &lt;div class="description"&gt;
+                                                    &lt;span class="title"&gt;Fire It Up&lt;/span&gt;
+                                                    &lt;br /&gt;
+                                                    2012, 13 Titel, Lieblingssong: &lt;i&gt;Younger&lt;/i&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;h2&gt;Mark Knopfler&lt;/h2&gt;
+
+                                            &lt;div class="album"&gt;
+                                                &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                                &lt;div class="description"&gt;
+                                                    &lt;span class="title"&gt;Golden Heart&lt;/span&gt;
+                                                    &lt;br /&gt;
+                                                    1996, 14 Titel, Lieblingssong: &lt;i&gt;Are We In Trouble Now&lt;/i&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="album"&gt;
+                                                &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                                &lt;div class="description"&gt;
+                                                    &lt;span class="title"&gt;Sailing To Philadelphia&lt;/span&gt;
+                                                    &lt;br /&gt;
+                                                    2000, 13 Titel, Lieblingssong: &lt;i&gt;Sailing To Philadelphia&lt;/i&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="album"&gt;
+                                                &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                                &lt;div class="description"&gt;
+                                                    &lt;span class="title"&gt;All The Roadrunning&lt;/span&gt;
+                                                    &lt;br /&gt;
+                                                    2006, 12 Titel, Lieblingssong: &lt;i&gt;I Dug Up A Diamond&lt;/i&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="album"&gt;
+                                                &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                                &lt;div class="description"&gt;
+                                                    &lt;span class="title"&gt;Tracker (Deluxe Edition)&lt;/span&gt;
+                                                    &lt;br /&gt;
+                                                    2015, 18 Titel, Lieblingssong: &lt;i&gt;Terminal To Tribute To&lt;/i&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;h2&gt;Queen&lt;/h2&gt;
+
+                                            &lt;div class="album"&gt;
+                                                &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                                &lt;div class="description"&gt;
+                                                    &lt;span class="title"&gt;The Works&lt;/span&gt;
+                                                    &lt;br /&gt;
+                                                    1984, 9 Titel, Lieblingssong: &lt;i&gt;I Want To Break Free&lt;/i&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="album"&gt;
+                                                &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                                &lt;div class="description"&gt;
+                                                    &lt;span class="title"&gt;A Kind Of Magic&lt;/span&gt;
+                                                    &lt;br /&gt;
+                                                    1986, 9 Titel, Lieblingssong: &lt;i&gt;Friends Will Be Friends&lt;/i&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/main&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Beschreibung -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe2-beschreibung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-beschreibung-tab"
+                        >
+                            <h4>&lt;html&gt; und &lt;body&gt;</h4>
+                            <ul>
+                                <li>
+                                    Außenabstand: 0
+                                </li>
+                                <li>
+                                    Innenabstand: 0
+                                </li>
+                            </ul>
+
+                            <h4>Der Header</h4>
+                            <ul>
+                                <li>
+                                    Hintergrundfabe: rgb(22, 177, 198)
+                                </li>
+                                <li>
+                                    Schriftfarbe: Weiß
+                                </li>
+                                <li>
+                                    Innenabstand: 0.5em
+                                </li>
+                                <li>
+                                    Außenabstand nach unten: 1em
+                                </li>
+                            </ul>
+
+                            <h4>Der Hauptbereich</h4>
+                            <ul>
+                                <li>
+                                    Innenabstand: 0.5em
+                                </li>
+                                <li>
+                                    Schriftfarbe der Überschriften: rgb(17, 96, 107)
+                                </li>
+                            </ul>
+
+                            <h4>Die einzelnen Alben</h4>
+                            <ul>
+                                <li>
+                                    Durchgezogener Rahmen, 1px breit, hellgrau
+                                </li>
+                                <li>
+                                    Kein Innenabstand
+                                </li>
+                                <li>
+                                    Außenabstand nach unten: 1em
+                                </li>
+                                <li>
+                                    Breite: 30em
+                                </li>
+                                <li>
+                                    Schriftgröße des Icons: 330%
+                                </li>
+                                <li>
+                                    Albumtitel fettgedruckt
+                                </li>
+                                <li>
+                                    Icon und Beschreibung nebeneinander (mit <src-code language="css">display: inline-block</src-code>)
+                                </li>
+                                <li>
+                                    Abstand links von der Beschreibung: 0.5em
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Vorschau -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe2-vorschau"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-vorschau-tab"
+                        >
+                            <style>
+                                #aufgabe2-vorschau {
+                                    margin: 0;
+                                    padding: 0;
+                                }
+
+                                #aufgabe2-vorschau header {
+                                    background: rgb(22, 177, 198);
+                                    color: white;
+                                    font-weight: bold;
+                                    text-shadow: 1px 1px 1px rgba(200, 200, 200, 0.75);
+                                    padding: 0.5em;
+                                    margin-bottom: 1em;
+                                }
+
+                                #aufgabe2-vorschau h2 {
+                                    color: white;
+                                }
+
+                                #aufgabe2-vorschau .main {
+                                    padding: 0.5em;
+                                }
+
+                                #aufgabe2-vorschau h3 {
+                                    color: rgb(17, 96, 107);
+                                }
+
+                                #aufgabe2-vorschau .album {
+                                    border: 1px solid lightgrey;
+                                    padding: 0.5em;
+                                    width: 30em;
+                                    margin-bottom: 1em;
+                                    color: rgba(25, 25, 25);
+                                }
+
+                                #aufgabe2-vorschau .album > .icon {
+                                    font-size: 330%;
+                                    display: inline-block;
+                                }
+
+                                #aufgabe2-vorschau .album > .description {
+                                    display: inline-block;
+                                    margin-left: 0.5em;
+                                }
+
+                                #aufgabe2-vorschau .album .title {
+                                    font-weight: bold;
+                                }
+                            </style>
+                            <header>
+                                <h2>Meine kleine Musiksammlung</h2>
+                            </header>
+                            <div class="main">
+                                <h3>Joe Cocker</h3>
+
+                                <div class="album">
+                                    <div class="icon">💿</div>
+                                    <div class="description">
+                                        <span class="title">Accross From Midnight</span>
+                                        <br />
+                                        1997, 12 Titel, Lieblingssong: <i>The Last One To Know</i>
+                                    </div>
+                                </div>
+
+                                <div class="album">
+                                    <div class="icon">💿</div>
+                                    <div class="description">
+                                        <span class="title">No Ordinary World</span>
+                                        <br />
+                                        1999, 12 Titel, Lieblingssong: <i>My Father's Son</i>
+                                    </div>
+                                </div>
+
+                                <div class="album">
+                                    <div class="icon">💿</div>
+                                    <div class="description">
+                                        <span class="title">Fire It Up</span>
+                                        <br />
+                                        2012, 13 Titel, Lieblingssong: <i>Younger</i>
+                                    </div>
+                                </div>
+
+                                <h3>Mark Knopfler</h3>
+
+                                <div class="album">
+                                    <div class="icon">💿</div>
+                                    <div class="description">
+                                        <span class="title">Golden Heart</span>
+                                        <br />
+                                        1996, 14 Titel, Lieblingssong: <i>Are We In Trouble Now</i>
+                                    </div>
+                                </div>
+
+                                <div class="album">
+                                    <div class="icon">💿</div>
+                                    <div class="description">
+                                        <span class="title">Sailing To Philadelphia</span>
+                                        <br />
+                                        2000, 13 Titel, Lieblingssong: <i>Sailing To Philadelphia</i>
+                                    </div>
+                                </div>
+
+                                <div class="album">
+                                    <div class="icon">💿</div>
+                                    <div class="description">
+                                        <span class="title">All The Roadrunning</span>
+                                        <br />
+                                        2006, 12 Titel, Lieblingssong: <i>I Dug Up A Diamond</i>
+                                    </div>
+                                </div>
+
+                                <div class="album">
+                                    <div class="icon">💿</div>
+                                    <div class="description">
+                                        <span class="title">Tracker (Deluxe Edition)</span>
+                                        <br />
+                                        2015, 18 Titel, Lieblingssong: <i>Terminal To Tribute To</i>
+                                    </div>
+                                </div>
+
+                                <h3>Queen</h3>
+
+                                <div class="album">
+                                    <div class="icon">💿</div>
+                                    <div class="description">
+                                        <span class="title">The Works</span>
+                                        <br />
+                                        1984, 9 Titel, Lieblingssong: <i>I Want To Break Free</i>
+                                    </div>
+                                </div>
+
+                                <div class="album">
+                                    <div class="icon">💿</div>
+                                    <div class="description">
+                                        <span class="title">A Kind Of Magic</span>
+                                        <br />
+                                        1986, 9 Titel, Lieblingssong: <i>Friends Will Be Friends</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Vorschau -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe2-loesung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-loesung-tab"
+                        >
+                            <source-code language="css">
+                                html, body {
+                                    margin: 0;
+                                    padding: 0;
+                                }
+
+                                header {
+                                    background: rgb(22, 177, 198);
+                                    color: white;
+                                    font-weight: bold;
+                                    text-shadow: 1px 1px 1px rgba(200, 200, 200, 0.75);
+                                    padding: 0.5em;
+                                    margin-bottom: 1em;
+                                }
+
+                                main {
+                                    padding: 0.5em;
+                                }
+
+                                h2 {
+                                    color: rgb(17, 96, 107);
+                                }
+
+                                .album {
+                                    border: 1px solid lightgrey;
+                                    width: 30em;
+                                    padding: 0.5em;
+                                    margin-bottom: 1em;
+                                    color: rgba(25, 25, 25);
+                                }
+
+                                .album > .icon {
+                                    font-size: 330%;
+                                    display: inline-block;
+                                }
+
+                                .album > .description {
+                                    display: inline-block;
+                                    margin-left: 0.5em;
+                                }
+
+                                .album .title {
+                                    font-weight: bold;
+                                }
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 <p>
-                    Hier darfst du ein wenig programmieren. Lade dir die in der Folie
-                    verlinkte Vorlage herunter und passe das Stylesheet wie in der
-                    Folie beschrieben an. Viel Spaß dabei. 🤩
+                    Hier darfst du ein wenig programmieren. Kopiere daher den HTML-Quellcode
+                    in eine neue Datei und passe ihn wie auf der Folie beschrieben an. Eine
+                    Vorschau, wie die Seite hinterher aussehen soll, siehst du im dritten
+                    Reiter. Viel Spaß dabei. 🤩
                 </p>
                 <img src="../../github_atom.png" class="img-fluid d-block"/>
                 <p>
@@ -1325,7 +2467,7 @@
         </section>
 
         <section>
-            <h1>Spaß mit Hintergrundbildern</h1>
+            <h1>Exkurs: Spaß mit Hintergrundbildern</h1>
             <article>
                 <div>
                     <ul class="nav nav-tabs" role="tablist">
@@ -1375,18 +2517,33 @@
                             id              = "hintergrund-kacheln"
                             aria-labelledby = "hintergrund-kacheln-tab"
                         >
+                            <source-code language="css">
+                                html {
+                                    background-image: url(tiles.png);
+                                }
+                            </source-code>
                             <p>
-                                <a href=".." target="_blank">Beispiel ansehen</a>
+                                Ordnet man einem beliebigen Element ein Hintergrundbild zu, wird das Bild
+                                standardmäßig wie die Kacheln im Bad so oft wiederholt, bis sie das ganze
+                                Element ausfüllen. In der Regel ordnet man es daher dem
+                                <src-code language="html">&lt;html&gt;</src-code> oder <src-code language="html">&lt;body&gt;</src-code>
+                                zu, um die ganze Seite damit auszufüllen.
                             </p>
                             <p>
-                                ...
                                 Vor allem in den frühen Jahren des Web hat man diesen Effekt häufig gesehen.
-                                Heute wirkt es jedoch oft altbacken und wird daher nicht mehr so angewendet.
+                                Heute wirkt es jedoch oft altbacken und wird daher nicht mehr so oft angewendet.
                             </p>
 
-                            <source-code language="html">
-                                GEKACHELTER HINTERGRUND
-                            </source-code>
+                            <h3>Beispiel</h3>
+                            <div class="img-thumbnail" style="height: 15em; background-image: url(tiles.png);">
+                                <h4>Meine erste Webseite</h4>
+                                <p>
+                                    Und sie hat sogar einen gekachelten Hintergrund, so wie früher in den 1990ern.
+                                </p>
+                                <p>
+                                    Naja, modern ist das nicht. Heute bevorzugt man eher einfarbige Hintergründe.
+                                </p>
+                            </div>
                         </div>
                         <!-- Ein großes Hintergrundbild -->
                         <div
@@ -1395,21 +2552,42 @@
                             role            = "tabpanel"
                             aria-labelledby = "hintergrund-vollbild-tab"
                         >
+                            <source-code language="css">
+                                html {
+                                    background-image: url(foto.jpg);
+                                    background-repeat: no-repeat;
+                                    background-position: center center;
+                                    background-size: cover;
+                                }
+                            </source-code>
                             <p>
-                                <a href=".." target="_blank">Beispiel ansehen</a>
+                                Die obigen CSS-Anweisungen zeigen, wie man der Seite ein Hintergrundbild zuordnen
+                                kann, das immer die volle Größe ausfüllt. Da man nicht wissen kann, welche Größe
+                                des Browserfenster später haben wird, wird um die Mitte herum alles abgeschnitten,
+                                was nicht in das Fenster passt. Das Bild wird dafür aber immer so gestreckt, dass
+                                es das ganze Fenster ausfüllt ohne zu verzerren.
                             </p>
                             <p>
-                                ...
-                                Dieser Effekt war eine Zeit lang modern und kommt immer mal wieder zum Einsatz,
-                                wenn ein einfarbiger Hintergrund zu langweilig aussieht. Allerdings darf das
-                                Hintergrundbild nicht zu unruhig wirken und muss einen guten Kontrast zur Schrift
-                                ergeben, entweder weil das Bild nur wenige Farben besitzt oder weil du den Text
-                                in kleine Kästchen mit einfarbigem Hintergrund setzt.
+                                Dieser Effekt war in den 2010ern eine Zeit lang modern, tritt inzwischen aber
+                                nicht mehr ganz so oft auf. Wichtig ist, dass man trotz des Bildes die Schrift
+                                noch gut lesen kann.
                             </p>
 
-                            <source-code language="html">
-                                EIN GROSSES HINTERGRUNDBILD
-                            </source-code>
+                            <h3>Beispiel</h3>
+                            <div class="img-thumbnail" style="height: 15em; background: url(evening.jpg) no-repeat center center; background-size: cover;">
+                                <div style="display: inline-block; margin: 4em; background: rgba(255,255,255,0.85); border: 1px solid lightgrey; padding: 0.5em;">
+                                    <h4 style="color: red; text-shadow: 1px 1px 1px darkred;">Eine moderne Seite mit Hintergrundbild</h4>
+                                    Sieht irgendwie cool aus, oder?
+                                </div>
+                            </div>
+
+                            <p>
+                                <small>
+                                    <small>
+                                        Bildnachweis: <a href="https://pixabay.com/en/evening-tree-silhouette-background-194018/" target="_blank">Pixabay: Meitzke</a>
+                                     </small>
+                                </small>
+                            </p>
                         </div>
                         <!-- Parallax Scrolling -->
                         <div
@@ -1418,32 +2596,64 @@
                             role            = "tabpanel"
                             aria-labelledby = "hintergrund-parallax-tab"
                         >
-                            <p>
-                                <a href=".." target="_blank">Beispiel ansehen</a>
-                            </p>
-                            <p>
-                                ...
-                                Du hast sicher auch schon immer mal wieder Webseiten gesehen, bei der sich
-                                die ganze Musik auf einer einzigen, langen Seite abspielt. Gerade bei
-                                Produktpräsentationen ist dies ganz beliebt. Damit die Seite nicht so statisch
-                                wirkt, wird dabei oft ein sogenannter Parallax-Scrolling-Effekt eingesetzt,
-                                bei dem der Hintergrund anders scrollt als der Vordergrund. Manche Webdesigner
-                                verkünsteln sich hier regelrecht, das grundlegende Layout ist aber einfach
-                                zu erstellen.
-                            </p>
+                            <source-code language="css">
+                                .ebene {
+                                    background-repeat: no-repeat;
+                                    background-position: center center;
+                                    background-size: cover;
+                                    background-attachment: fixed;
+                                }
 
-                            <source-code language="html">
-                                PARALLAX-EFFEKT
+                                #ebene1 {
+                                    background-image: url(bild1.jpg);
+                                }
+
+                                #ebene1 {
+                                    background-image: url(bild2.jpg);
+                                }
+
+                                #ebene3 {
+                                    background-image: url(bild3.jpg);
+                                }
                             </source-code>
+                            <p>
+                                Ordnet man die Hintergrundbilder nicht der gesamten Seite sondern einzelnen
+                                untereinander stehenden Elementen zu und verwendet man dabei noch die Anweisung
+                                <src-code language="css">background-attachment: fixed;</src-code>, entsteht ein
+                                interessanter Effekt. Beim Scrollen bleibt ein Teil des Hintergrunds stehen und
+                                ein anderer Teil schiebt sich quasi darüber.
+                            </p>
+                            <p>
+                                Dieser Effekt, der ebenfalls seit ca. 2010 sehr beliebt ist, nennt sich „Parallax
+                                Scrolling”. Er eignet sich am besten für One-Pager, also Webseiten, die nur aus
+                                einer langen, nach unten scrollenden Seite bestehen. Manche Webdesigner haben
+                                den Effekt mit JavaScript perfektioniert und auf die Spitze getrieben. Das Grundgerüst
+                                ist aber ziemlich einfach.
+                            </p>
+                            <p>
+                                <b>Hinweis:</b> Auf mobilen Geräten funktioniert der Effekt ziemlich schlecht,
+                                da diese, um Akku zu sparen, verschiedene Optimierungen beim Scrollen anwenden,
+                                die mit <src-code language="css">background-attachment: fixed;</src-code> nicht
+                                harmonieren. Man sollte den Effekt daher durch ein „Media Query” auf nicht-mobile
+                                Geräte beschränken.
+                            </p>
+                            <p>
+                                <a href="parallax.html" target="_blank">Beispiel ansehen</a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </article>
             <aside>
-                ...
                 <p>
-                    Aber denke daran, dass zu viele Hintergrundbilder die Ladezeit deiner Seite
-                    erhöhen. Du solltest es daher gerade mit dem Parallax-Effekt nicht übertreiben
+                    Wenn du dich ein wenig tiefer mit CSS beschäftigen willst, siehst du hier
+                    verschiedene Möglichkeiten, wie man eine Seite mit Hintergrundbildern
+                    aufwerten kann. Wenn dir von den vorangegangenen Folien nur noch schwindelig
+                    ist, gehe gleich weiter zu <a href="#10">Folie 10</a>.
+                </p>
+                <p>
+                    <b>Achtung:</b> Denke daran, dass zu viele Hintergrundbilder die Ladezeit deiner
+                    Seite erhöhen. Du solltest es daher gerade mit dem Parallax-Effekt nicht übertreiben
                     und wie in den HTML-Folien gezeigt, die Dateigröße der Bilder so gut wie möglich
                     optimieren. 🤓
                 </p
@@ -1451,7 +2661,7 @@
         </section>
 
         <section>
-            <h1>Animationen mit CSS</h1>
+            <h1>Exkurs: Animationen mit CSS</h1>
             <article>
                 <div>
                     <ul class="nav nav-tabs" role="tablist">
@@ -1470,27 +2680,15 @@
                         </li>
                         <li class="nav-item">
                             <a
-                                id            = "animationen-html-tab"
+                                id            = "animationen-beispiel-tab"
                                 class         = "nav-link"
                                 data-toggle   = "tab"
-                                href          = "#animationen-html"
+                                href          = "#animationen-beispiel"
                                 role          = "tab"
-                                aria-controls = "HTML-Quellcode"
+                                aria-controls = "Beispiel"
                                 aria-expanded = "true"
                             >
-                                HTML-Quellcode
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "animationen-css-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#animationen-css"
-                                role          = "tab"
-                                aria-controls = "CSS-Quellcode"
-                            >
-                                CSS-Quellcode
+                                Beispiel
                             </a>
                         </li>
                         <li class="nav-item">
@@ -1500,9 +2698,9 @@
                                 data-toggle   = "tab"
                                 href          = "#animationen-screenshot"
                                 role          = "tab"
-                                aria-controls = "Ergebnis"
+                                aria-controls = "Aussehen"
                             >
-                                Ergebnis
+                                Aussehen
                             </a>
                         </li>
                     </ul>
@@ -1514,365 +2712,263 @@
                             id              = "animationen-uebersicht"
                             aria-labelledby = "animationen-uebersicht-tab"
                         >
-                            ÜBERSICHT
+                            <dl>
+                                <dt>
+                                    <src-code language="css">
+                                        transition: width 0.7s, height 0.7s;
+                                    </src-code>
+                                </dt>
+                                <dd style="margin-bottom: 1em">
+                                    Legt fest, welche Eigenschaften animiert werden sollen und wie lange
+                                    die Animation jeweils dauern soll. Mehrere Animationen können durch
+                                    Komma getrennt definiert werden. Abgespielt werden den Animationen,
+                                    wenn sich die jeweilige Eigenschaft verändert. Hierfür braucht man
+                                    eigentlich JavaScript, einfache Mausereignisse gehen aber auch ohne.
+                                </dd>
+
+                                <dt>
+                                    <source-code language="css">
+                                        @keyframes hin-und-her {
+                                            0% {
+                                                transform: rotate(-4deg);
+                                            }
+                                            100% {
+                                                transform: rotate(4deg);
+                                            }
+                                        }
+                                    </source-code>
+                                </dt>
+                                <dd style="margin-bottom: 1em">
+                                    Keyframe-Animationen werden mit <src-code language="css">@keyframe</src-code> definiert,
+                                    wobei der Animation ein eindeutiger Namen gegeben werden muss. Die einzelnen Zeitpunkte
+                                    innerhalb der Transaktion werden in Prozent von 0% bis 100% angegeben. Wie lange die
+                                    Animation dauert und wie schnell die Zeitpunkte erreicht sind, hängt von der Geschwindigkeit
+                                    ab, die man ihr später gibt.
+                                </dd>
+
+                                <dt>
+                                    <source-code language="css">
+                                        .wackelpeter {
+                                            animation: hin-und-her 0.7s alternate infinite;
+                                        }
+                                    </source-code>
+                                </dt>
+                                <dd>
+                                    Über die <src-code language="css">animation</src-code>-Anweisung und ihre Ableger wird
+                                    eine benannte Keyframe-Animation an ein Element gebunden. Die Animation fängt sofort an
+                                    zu laufen und muss nicht zuvor aktiviert werden.
+                                </dd>
+                            </dl>
                         </div>
-                        <!-- HTML-Quellcode -->
+                        <!-- Beispiel -->
                         <div
                             class           = "tab-pane fade"
                             role            = "tabpanel"
-                            id              = "animationen-html"
-                            aria-labelledby = "animationen-html-tab"
+                            id              = "animationen-beispiel"
+                            aria-labelledby = "animationen-beispiel-tab"
                         >
                             <source-code language="html">
-                                HTML QUELLCODE
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Einfache Animationen mit CSS&lt;/title&gt;
+                                        &lt;style&gt;
+                                            /** Transition, wenn die Maus drüber fährt */
+                                            .icon {
+                                                font-size: 330%;
+                                                transition: font-size 0.4s;
+                                            }
+
+                                            .icon:hover {
+                                                font-size: 450%;
+                                            }
+
+                                            /** Dauerhafte Keyframe-Animation */
+                                            @keyframes a1 {
+                                                0% {
+                                                    transform: rotate(-4deg);
+                                                }
+                                                100% {
+                                                    transform: rotate(4deg);
+                                                }
+                                            }
+
+                                            .wackeln {
+                                                font-size: 330%;
+                                                display: inline-block;
+                                                transform-origin: 50% 50%;
+                                                animation: a1 0.5s alternate infinite;
+                                                animation-timing-function: linear;
+                                            }
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;p&gt;
+                                            &lt;span class="icon"&gt;📸&lt;/span&gt;
+                                            &lt;span class="icon"&gt;🔭&lt;/span&gt;
+                                            &lt;span class="icon"&gt; 💾&lt;/span&gt;
+                                        &lt;/p&gt;
+                                        &lt;p&gt;
+                                            &lt;div class="wackeln"&gt;🎹&lt;/div&gt;
+                                            &lt;div class="wackeln"&gt;🎸&lt;/div&gt;
+                                            &lt;div class="wackeln"&gt;🥁&lt;/div&gt;
+                                            &lt;div class="wackeln"&gt;🎷&lt;/div&gt;
+                                        &lt;/p&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
                             </source-code>
                         </div>
-                        <!-- CSS-Quellcode -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "animationen-css"
-                            role            = "tabpanel"
-                            aria-labelledby = "animationen-css-tab"
-                        >
-                            <source-code language="CSS">
-                                CSS QUELLCODE
-                            </source-code>
-                        </div>
-                        <!-- Ergebnis -->
+                        <!-- Aussehen -->
                         <div
                             class           = "tab-pane fade"
                             id              = "animationen-screenshot"
                             role            = "tabpanel"
                             aria-labelledby = "animationen-screenshot-tab"
                         >
-                            ERGEBNIS
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <aside>
-                ...
-            </aside>
-        </section>
+                            <style>
+                                #animationen-screenshot .icon {
+                                    font-size: 330%;
+                                    transition: font-size 0.4s;
+                                }
 
-        <section>
-            <h1>HTML-Elemente positionieren</h1>
-            <article>
-                <!-- Elemente am Viewport fixieren -->
-                <h2>Elemente am Viewport fixieren</h2>
+                                #animationen-screenshot .icon:hover {
+                                    font-size: 450%;
+                                }
 
-                <p>
-                    einführende worte ...
-                </p>
+                                @keyframes a1 {
+                                    0% {
+                                        transform: rotate(-4deg);
+                                    }
+                                    100% {
+                                        transform: rotate(4deg);
+                                    }
+                                }
 
-                <div style="margin-bottom: 1em">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                id            = "positionierung-viewport-uebersicht-tab"
-                                class         = "nav-link active"
-                                data-toggle   = "tab"
-                                href          = "#positionierung-viewport-uebersicht"
-                                role          = "tab"
-                                aria-controls = "Übersicht"
-                                aria-expanded = "true"
-                            >
-                                Übersicht
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "positionierung-viewport-beispiel-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#positionierung-viewport-beispiel"
-                                role          = "tab"
-                                aria-controls = "Beispiel"
-                            >
-                                Beispiel
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
-                        <!-- Elemente am Viewport fixieren: Übersicht -->
-                        <div
-                            class           = "tab-pane fade show active"
-                            id              = "positionierung-viewport-uebersicht"
-                            role            = "tabpanel"
-                            aria-labelledby = "positionierung-viewport-uebersicht-tab"
-                        >
-                            <source-code language="css">
-                                QUELLCODE
-                            </source-code>
-                            <p style="margin-top: -0.5em">
-                                Erklärung
-                            </p>
-                        </div>
-                        <!-- Elemente am Viewport fixieren: Beispiel -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "positionierung-viewport-beispiel"
-                            role            = "tabpanel"
-                            aria-labelledby = "positionierung-viewport-beispiel-tab"
-                        >
+                                #animationen-screenshot .wackeln {
+                                    font-size: 330%;
+                                    display: inline-block;
+                                    transform-origin: 50% 50%;
+                                    animation: a1 0.5s alternate infinite;
+                                    animation-timing-function: linear;
+                                }
+                            </style>
                             <p>
-                                <a href="..." target="_blank">Beispiel ansehen</a>
+                                <span class="icon">📸</span>
+                                <span class="icon">🔭</span>
+                                <span class="icon"> 💾</span>
                             </p>
-                            <source-code language="html">
-                                &lt;!DOCTYPE html&gt;
-                                &lt;html&gt;
-                                    &lt;head&gt;
-                                        &lt;meta charset="utf-8" /&gt;
-                                        &lt;title&gt;Immer sichtbare Kopfzeile&lt;/title&gt;
-                                        &lt;style&gt;
-                                            /* ... */
-                                        &lt;/style&gt;
-                                    &lt;/head&gt;
-                                    &lt;body&gt;
-                                        ...
-                                    &lt;/body&gt;
-                                &lt;/html&gt;
-                            </source-code>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Elemente relativ zueinander positionieren -->
-                <h2>Elemente relativ zueinander positionieren</h2>
-
-                <p>
-                    einführende worte ...
-                </p>
-
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                id            = "positionierung-relativ-uebersicht-tab"
-                                class         = "nav-link active"
-                                data-toggle   = "tab"
-                                href          = "#positionierung-relativ-uebersicht"
-                                role          = "tab"
-                                aria-controls = "Übersicht"
-                                aria-expanded = "true"
-                            >
-                                Übersicht
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "positionierung-relativ-beispiel-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#positionierung-relativ-beispiel"
-                                role          = "tab"
-                                aria-controls = "Beispiel"
-                            >
-                                Beispiel
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "positionierung-relativ-screenshot-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#positionierung-relativ-screenshot"
-                                role          = "tab"
-                                aria-controls = "Aussehen"
-                            >
-                                Aussehen
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
-                        <!-- Elemente relativ zueinander positionieren: Übersicht -->
-                        <div
-                            class           = "tab-pane fade show active"
-                            id              = "positionierung-relativ-uebersicht"
-                            role            = "tabpanel"
-                            aria-labelledby = "positionierung-relativ-uebersicht-tab"
-                        >
-                            <source-code language="css">
-                                QUELLCODE
-                            </source-code>
-                            <p style="margin-top: -0.5em">
-                                Erklärung
+                            <p>
+                                <div class="wackeln">🎹</div>
+                                <div class="wackeln">🎸</div>
+                                <div class="wackeln">🥁</div>
+                                <div class="wackeln">🎷</div>
                             </p>
                         </div>
-                        <!-- Elemente relativ zueinander positionieren: Beispiel -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "positionierung-relativ-beispiel"
-                            role            = "tabpanel"
-                            aria-labelledby = "positionierung-relativ-beispiel-tab"
-                        >
-                            <source-code language="html">
-                                &lt;!DOCTYPE html&gt;
-                                &lt;html&gt;
-                                    &lt;head&gt;
-                                        &lt;meta charset="utf-8" /&gt;
-                                        &lt;title&gt;Relative Positionierung&lt;/title&gt;
-                                        &lt;style&gt;
-                                            /* ... */
-                                        &lt;/style&gt;
-                                    &lt;/head&gt;
-                                    &lt;body&gt;
-                                        ...
-                                    &lt;/body&gt;
-                                &lt;/html&gt;
-                            </source-code>
-                        </div>
-                        <!-- Elemente relativ zueinander positionieren: Aussehen -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "positionierung-relativ-screenshot"
-                            role            = "tabpanel"
-                            aria-labelledby = "positionierung-relativ-screenshot-tab"
-                        >
-                            ...
-                        </div>
-                    </div>
-                </div>
-
-            </article>
-            <aside>
-                ...
-            </aside>
-        </section>
-
-        <section>
-            <h1>Realisierung eines 3-spaltigen Layouts</h1>
-            <article>
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                id            = "drei_spalten-uebersicht-tab"
-                                class         = "nav-link active"
-                                data-toggle   = "tab"
-                                href          = "#drei_spalten-uebersicht"
-                                role          = "tab"
-                                aria-controls = "Übersicht"
-                                aria-expanded = "true"
-                            >
-                                Übersicht
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "drei_spalten-html-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#drei_spalten-html"
-                                role          = "tab"
-                                aria-controls = "HTML-Quellcode"
-                                aria-expanded = "true"
-                            >
-                                HTML-Quellcode
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "drei_spalten-css-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#drei_spalten-css"
-                                role          = "tab"
-                                aria-controls = "CSS-Quellcode"
-                            >
-                                CSS-Quellcode
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "drei_spalten-screenshot-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#drei_spalten-screenshot"
-                                role          = "tab"
-                                aria-controls = "Ergebnis"
-                            >
-                                Ergebnis
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
-                        <!-- Übersicht -->
-                        <div
-                            class           = "tab-pane fade show active"
-                            role            = "tabpanel"
-                            id              = "drei_spalten-uebersicht"
-                            aria-labelledby = "drei_spalten-uebersicht-tab"
-                        >
-                            ÜBERSICHT
-                        </div>
-                        <!-- HTML-Quellcode -->
-                        <div
-                            class           = "tab-pane fade"
-                            role            = "tabpanel"
-                            id              = "drei_spalten-html"
-                            aria-labelledby = "drei_spalten-html-tab"
-                        >
-                            <source-code language="html">
-                                HTML QUELLCODE
-                            </source-code>
-                        </div>
-                        <!-- CSS-Quellcode -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "drei_spalten-css"
-                            role            = "tabpanel"
-                            aria-labelledby = "drei_spalten-css-tab"
-                        >
-                            <source-code language="CSS">
-                                CSS QUELLCODE
-                            </source-code>
-                        </div>
-                        <!-- Ergebnis -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "drei_spalten-screenshot"
-                            role            = "tabpanel"
-                            aria-labelledby = "drei_spalten-screenshot-tab"
-                        >
-                            ERGEBNIS
-                        </div>
                     </div>
                 </div>
             </article>
             <aside>
-                ...
-            </aside>
-        </section>
-
-        <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 3: Erstellung eines einfachen Layouts</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                ...
-                <img src="../../github_atom.png" class="img-fluid d-block"/>
                 <p>
-                    <small>
-                        Bildnachweis:
-                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
-                    </small>
+                    Mit CSS ist es problemlos möglich, einfache Animationen zu erstellen.
+                    Klar, die großen Walt Disney Meisterwerke wirst du damit nicht imitieren
+                    können, aber für einfache, bewegliche User Interfaces reicht es allemal. 🎥🎞🎬
+                    Hierfür kennt CSS zwei Arten von Animationen:
                 </p>
-                ...
+                <ul>
+                    <li>transition</li>
+                    <li>keyframes</li>
+                </ul>
+                <p>
+                    Mit der Anweisung <src-code language="css">transition</src-code> lassen sich,
+                    wie der Name bereits andeutet, die Übgergänge von einem Zustand zum anderen
+                    animieren. Beispielsweise kann ein Element, wenn die Maus darüber fährt,
+                    eine leichte Drehung vollziehen oder einen etwas helleren Hintergrund annehmen.
+                    Gerade im Zusammenhang mit JavaScript ist das eine sehr einfache und wirkungsvolle
+                    Art, dem Anwender visuelles Feedback zu geben.
+                </p>
+                <p>
+                    Für komplexere Animationen, bei denen mehrere Werte gleichzeitig verändert werden
+                    sollen und die nicht einfach nur von Wert A nach Wert B überblenden, gibt es
+                    <src-code language="css">keyframe</src-code>-Animationen. Der Begriff Keyframe stammt
+                    dabei aus der alten Zeichentrickschule und meint, dass man mehrere Zeitpunkte markieren
+                    kann und dann festlegt, welchen Wert bestimmte Eigenschaften jeweils haben sollen.
+                    Um die Zwischenschritte zwischen den Keyframes kümmert sich CSS automatisch. 📺
+                </p>
+                <p>
+                    Auf der Folie findest du für beide Techniken ein kleines Beispiel.
+                    Für weitere Infos über Keyframe-Animationen empfehlen wir dir den passenden
+                    Artikel auf <a href="https://css-tricks.com/snippets/css/keyframe-animation-syntax/" target="_blank">css-tricks.com</a>.
+                </p>
             </aside>
         </section>
 
-        <section>
+        <section data-background-color="rgb(153, 190, 137)">
             <h1>Weitere CSS-Layoutmodule</h1>
             <article>
-                ...
+                <h2>Alternative CSS-Layoutalgorithmen</h2>
+                <ul>
+                    <li>
+                        Die Kombination aus Block- und Inlineelementen ist nicht die einzige Art,
+                        die Inhalte eines HTML-Dokuments anzuordnen.
+                    </li>
+                    <li>
+                        Neuere CSS-Versionen kennen stattdessen verschiedene „Layoutmodule”, mit
+                        denen zwischen verscheidenen Algorithmen umgeschaltet werden kann.
+                    </li>
+                    <li>
+                        Zwei wesentliche Algorithmen sind
+                        <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Flexbox</a>
+                        und das
+                        <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">Grid-Modul</a>.
+                    </li>
+                </ul>
+                <div style="font-size: 330px; color: white;" class="dhbw-text-shadow" >🔎</div>
             </article>
             <aside>
-                ...
-                <!-- Kurzer Verweis auf Flexbox und Grid, Grid allerdings noch nicht für IE -->
-                <!-- https://css-tricks.com/snippets/css/a-guide-to-flexbox/ -->
-                <!-- https://css-tricks.com/snippets/css/complete-guide-grid/ -->
+                <p>
+                    Wenn du dich bis hierhin durchgearbeitet hast und auch alle Aufgaben
+                    bearbeitet hast, kannst du schon ziemlich viel mit CSS bewegen. 👍
+                    Es gibt aber auch viele Layouts, an denen du dir die Zähne ausbeißen
+                    wirst. Zum Beispiel, wenn du ein Element horizontal oder vertikal
+                    zentrieren willst ohne seine Größe zu kennen.
+                </p>
+                <p>
+                    Für diesen under andere Fälle wurden in den letzten Jahren sogenannte
+                    CSS-Layoutmodule eingeführt. Keine Angst vor dem Begriff, mit Modulen
+                    ist hier nur gemeint, dass es Erweiterungen zum CSS-Standard sind, die
+                    mit den verschiedenen Werten der <src-code language="css">display</src-code>-Anweisung
+                    aktivieren werden. Dadurch wird sozusagen eine andere Logik aktiv, wie
+                    die Kinder innerhalb eines Elements angeordnet werden, wodurch sich
+                    viele Layouts wesentlich eleganter umsetzen lassen. Und das schöne
+                    dabei ist, dass man die Layoutmodule nach Belieben kombinieren kann,
+                    da sie ja immer nur auf ein Element wirken.
+                </p>
+                <p>
+                    So nun aber genug der schönen Worte. Wenn du nach dem Studium etwas
+                    Zeit hast und dich im Webdesign verbessern willst, willst du dich
+                    definitiv mit den folgenden Themen auseinandersetzen:
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">
+                            Das Flexbox-Modell
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">
+                            Das Grid-Layoutmodul
+                        </a>
+                    </li>
+                </ul>
+
+                <hr />
+
+                <p>
+                    <b>Achtung:</b> Verwechsle das Grid-Layoutmodul nicht mit CSS-Grids, die du
+                    im nächsten Foliensatz kennen lernst. Die Grundidee ist zwar ähnlich, es sind
+                    aber dennoch unterschiedliche Ansätze mit unterschiedlichen Zielen.
+                </p>
             </aside>
         </section>
 

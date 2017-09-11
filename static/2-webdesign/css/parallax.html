@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Beispiel für den Parallex Scrolling-Effekt</title>
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                font-family: sans;
+                font-size: 20pt;
+            }
+
+            .ebene {
+                padding: 2em;
+
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+            }
+
+            #ebene1,
+            #ebene4 {
+                background-image: url(parallax1.jpg);
+                background-attachment: fixed;
+            }
+
+            #ebene2 {
+                background-image: url(parallax2.jpg);
+            }
+
+            #ebene3 {
+                background-image: url(parallax3.jpg);
+                background-attachment: fixed;
+            }
+
+            h1 {
+                color: rgb(167, 17, 26);
+                text-shadow: 2px 2px 2px black;
+                font-size: 200%;
+                margin: 0;
+            }
+
+            h2 {
+                color: lightblue;
+                text-shadow: 2px 2px 2px black;
+                font-size: 160%;
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ebene" id="ebene1" style="padding-top: 10em; min-height: 80vh;">
+            <h1 >Herzlich Willkommen</h1>
+            <p>
+                Ordnet man die Hintergrundbilder nicht der gesamten Seite sondern einzelnen
+                untereinander stehenden Elementen zu und verwendet man dabei noch die Anweisung
+                <tt>background-attachment: fixed;</tt>, entsteht ein interessanter Effekt.
+                Beim Scrollen bleibt ein Teil des Hintergrunds stehen und ein anderer Teil schiebt sich quasi darüber.
+            </p>
+            <p>
+                Dieser Effekt, der ebenfalls seit ca. 2010 sehr beliebt ist, nennt sich „Parallax
+                Scrolling”. Er eignet sich am besten für One-Pager, also Webseiten, die nur aus
+                einer langen, nach unten scrollenden Seite bestehen. Manche Webdesigner haben
+                den Effekt mit JavaScript perfektioniert und auf die Spitze getrieben. Das Grundgerüst
+                ist aber ziemlich einfach.
+            </p>
+            <p>
+                <b>Hinweis:</b> Auf mobilen Geräten funktioniert der Effekt ziemlich schlecht,
+                da diese, um Akku zu sparen, verschiedene Optimierungen beim Scrollen anwenden,
+                die mit <tt>background-attachment: fixed;</tt> nicht
+                harmonieren. Man sollte den Effekt daher durch ein „Media Query” auf nicht-mobile
+                Geräte beschränken.
+            </p>
+        </div>
+
+        <div class="ebene" id="ebene2" style="min-height: 80vh;">
+        </div>
+
+        <div class="ebene" id="ebene3" style="padding-top: 5em; padding-bottom: 5em;">
+            <h2>Auf wiedersehen!</h2>
+        </div>
+
+        <div class="ebene" id="ebene4" style="min-height: 80vh;">
+        </div>
+    </body>
+</html>
