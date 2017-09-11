@@ -580,17 +580,19 @@
                                 }
                             &lt;/style&gt;
                         &lt;/head&gt;
-                        &lt;h1&gt;HTML und CSS endlich vereint!&lt;/h1&gt;
-                        &lt;p&gt;
-                            Was lange währt, wird endlich gut. Nachdem sich HTML und
-                            CSS nach ihrer Trennung lange Zeit nicht mehr gesehen haben,
-                            haben sie heute endlich wieder zueinander gefunden.
-                        &lt;/p&gt;
-                        &lt;p style="color: darkred; font-weight: bold;"&gt;
-                            Mit dem style-Attribut kann man gezielt einzelne Elemente
-                            gestalten. Das style-Element wirkt hingegen auf die ganze
-                            Seite und sollte daher eher im head stehen.
-                        &lt;/p&gt;
+                        &lt;body&gt;
+                            &lt;h1&gt;HTML und CSS endlich vereint!&lt;/h1&gt;
+                            &lt;p&gt;
+                                Was lange währt, wird endlich gut. Nachdem sich HTML und
+                                CSS nach ihrer Trennung lange Zeit nicht mehr gesehen haben,
+                                haben sie heute endlich wieder zueinander gefunden.
+                            &lt;/p&gt;
+                            &lt;p style="color: darkred; font-weight: bold;"&gt;
+                                Mit dem style-Attribut kann man gezielt einzelne Elemente
+                                gestalten. Das style-Element wirkt hingegen auf die ganze
+                                Seite und sollte daher eher im head stehen.
+                            &lt;/p&gt;
+                        &lt;/body&gt;
                     &lt;/html&gt;
                 </source-code>
             </article>
@@ -928,8 +930,8 @@
                                     </src-code>
                                 </dt>
                                 <dd>
-                                    Ändert die Schriftfarbe des aktuellen Elements. Erlaubt sind alle Farbwerte der
-                                    vorangegangenen Folie.
+                                    Ändert die Schriftfarbe des aktuellen Elements. Erlaubt sind alle Farbwerte, wie
+                                    auf der nächsten Folie beschrieben.
                                 </dd>
                             </dl>
                         </div>
@@ -942,7 +944,7 @@
                         >
                             <source-code language="css">
                                 html {
-                                    font-family: Liberation Sans, sans;
+                                    font-family: Liberation Serif, serif;
                                     font-size: 12pt;
                                 }
 
@@ -1037,7 +1039,7 @@
                                 </dt>
                                 <dd style="margin-bottom: 0.75em">
                                     Ändert die Hintergrundfarbe eines Elements. Erlaubt sind natürlich
-                                    alle Farbwerte aus der Folie zuvor. Mit <code>rgba()</code> lassen
+                                    alle Farbwerte aus der nächsten Folie. Mit <code>rgba()</code> lassen
                                     sich damit auch halbdurchsichtige Hintergründe definieren.
                                 </dd>
 
@@ -2741,7 +2743,7 @@
                                 <dd style="margin-bottom: 1em">
                                     Keyframe-Animationen werden mit <src-code language="css">@keyframe</src-code> definiert,
                                     wobei der Animation ein eindeutiger Namen gegeben werden muss. Die einzelnen Zeitpunkte
-                                    innerhalb der Transaktion werden in Prozent von 0% bis 100% angegeben. Wie lange die
+                                    innerhalb der Animation werden in Prozent von 0% bis 100% angegeben. Wie lange die
                                     Animation dauert und wie schnell die Zeitpunkte erreicht sind, hängt von der Geschwindigkeit
                                     ab, die man ihr später gibt.
                                 </dd>
@@ -2934,7 +2936,7 @@
                     zentrieren willst ohne seine Größe zu kennen.
                 </p>
                 <p>
-                    Für diesen under andere Fälle wurden in den letzten Jahren sogenannte
+                    Für diesen und andere Fälle wurden in den letzten Jahren sogenannte
                     CSS-Layoutmodule eingeführt. Keine Angst vor dem Begriff, mit Modulen
                     ist hier nur gemeint, dass es Erweiterungen zum CSS-Standard sind, die
                     mit den verschiedenen Werten der <src-code language="css">display</src-code>-Anweisung
