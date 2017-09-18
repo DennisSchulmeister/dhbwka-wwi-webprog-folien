@@ -6,10 +6,2507 @@
         <link rel="stylesheet" href="../../style.css" />
         <script src="../../learning-slides.bundle.js"></script>
     </head>
-    <body class="slides invisible" data-title="__Name der Präsentation hier__" tabindex="0">
+    <body class="slides invisible" data-title="Responsive Webdesign" tabindex="0">
         <header>
             <h2>Inhaltsverzeichnis</h2>
+            <p>
+                Wenn du wirklich moderne Webseiten und Webanwendungen gestalten willst,
+                musst du deine Seiten so gestalten, dass sie auf allen nur denkbaren
+                Geräten gut aussehen. Hier erfährst du wie.
+            </p>
         </header>
+
+        <section>
+            <h1>Mobile Webseiten früher und heute</h1>
+            <article>
+                <img src="devices.jpg" alt="Laptop, Tablet, Smarthpone" class="img-thumbnail d-block" style="width: 100%;" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis:
+                            <a href="https://pixabay.com/en/office-freelancer-computer-business-583839/" target="_blank">Pixabay: FirmBee</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Früher eine Webseite zu gestalten war einfach. Man ging einfach von irgend einer
+                    Bildschirmauflösung aus und setzte voraus, dass ein Besucher schon dieselbe Auflösung
+                    nutzen würde. Auf vielen Seiten stand daher irgendwo unten der dezente Hinweis
+                    „optimiert für 1024 x 768” oder so ähnlich. Auch wenn natürlich jedem klar war, dass
+                    kein Anwender jemals wirklich seine Auflösung deshalb ändern würde. 😉
+                </p>
+                <p>
+                    Als dann 2007 das iPhone 📱 auf den Markt kam, fingen die Leute zwar an, dieselben
+                    Webseiten auf viel kleineren Geräten anzuschauen, aber die Welt war irgendwie
+                    trotzdem noch in Ordnung. 🌅 Denn es gab ja nur das iPhone mit seiner Auflösung von
+                    320 x 240 Pixeln, auf die man sich als Webdesigner einstellen konnte. Üblicherweise
+                    gab es damals von einer Webseite einfach zwei Versionen: Eine für Computer und
+                    eine für Mobiltelefone. Und falls ein Anwender doch mal die falsche Version aufrief,
+                    lenkte man ihn einfach mit einer sogenannten <a href="https://de.wikipedia.org/wiki/Browserweiche"
+                    target="_blank">Browserweiche</a> von <a href="www.beispiel.de">www.beispiel.de</a> auf
+                    <a href="m.beispiel.de">m.beispiel.de</a> um oder umgekehrt.
+                </p>
+                <p>
+                    Doch dann kamen Android und andere Mobilsysteme und mit ihnen eine unüberschaubare
+                    Anzahl an Geräten auf den Markt. Jedes mit seiner eigenen Bildschirmauflösung und
+                    jedes mit seinen ganz eigenen Besonderheiten. Und plötzlich war die Welt gar nicht
+                    mehr in Ordnung, denn eine Webseite, die auf dem einen Gerät gut aussah konnte auf
+                    dem anderen Gerät unbenutzbar sein ⁉. Plötzlich merkte man, dass nicht die Anzahl
+                    der Pixel eine Rolle spielt, sondern die Displaygröße und die Pixeldichte. Doch
+                    woher sollte man diese Zahlen wissen? Zwar konnte man auf dem Server mehr oder
+                    weniger zuverlässig erkennen, <a href="https://de.wikipedia.org/wiki/User_Agent#Aufbau_des_HTTP-User-Agent-Headers"
+                    target="_blank">welches Gerät der Anwender nutzte</a>, darüber hinaus gab der Browser
+                    aber keine weiteren Informationen preis. 😒
+                </p>
+                <p>
+                    2012 zeichnete sich dann endlich eine Lösung ab, als <b>Media Queries</b> in CSS
+                    eingeführt wurden. Denn sie erlauben es, ohne Zuhilfenahme des Servers und ohne fragewürdige
+                    Hacks ganz zuverlässig die Eigenschaften des Endgeräts abzufragen. Seither sind
+                    dann auch die getrennten Webseiten für Mobilgeräte wieder aus der Mode gekommen.
+                    Denn letztlich war auch das nur eine Notlösung, die an vielen Stellen doppelte Arbeit
+                    machte.
+                </p>
+                <p>
+                    Heute ist es stattdessen üblich, eine Webseite gleich von Anfang an so zu bauen, dass sie
+                    vom kleinen Smartphone 📞 bis zur großen Kinoleinwand 📺 auf jedem Bildschirm gut aussieht.
+                    <b>Responsive Webdesign</b> nennt sich dieser Ansatz und im folgenden wollen wir dir
+                    zeigen, wie er funktioniert.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Der Browser dein Freund und Helfer</h1>
+            <article>
+                <h2>Entwicklungswerkzeuge</h2>
+
+                <ul class="dhbw-carousel-links">
+                    <li>
+                        <a href="#browser-devtools-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                    </li>
+                    <li>
+                        <a href="#browser-devtools-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                    </li>
+                    <li>
+                        <a href="#browser-devtools-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                    </li>
+                </ul>
+                <div id="browser-devtools-carousel" class="carousel slide" style="margin-bottom: 1em;" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item img-thumbnail active">
+                            <p>
+                                Man nehme eine beliebige Webseite (hier im Firefox) und drücke <kbd>F12</kbd>.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_01.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Schon öffnen sich unten die Entwicklerwerkzeuge.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_02.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Viele mächtige Werkzeuge verstecken sich hier. Allen voran die Quellcodeansicht …
+                            </p>
+                            <img class="active d-block w-100" src="devtools_03.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                … oder die Konsole …
+                            </p>
+                            <img class="active d-block w-100" src="devtools_04.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                … oder der JavaScript-Debugger …
+                            </p>
+                            <img class="active d-block w-100" src="devtools_05.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                … oder die Netzwerkanalyse.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_06.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Doch nun zurück zum Quellcode. Hier sehen wir, welches HTML und CSS gerade angezeigt wird.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_07.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Um dich über ein Element zu informieren, musst du es nur im Quellcode anklicken.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_08.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Oder du schaltest die Funktion „Element auf Seite auswählen” ein …
+                            </p>
+                            <img class="active d-block w-100" src="devtools_09.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                … und fährst dann mit der Maus drüber.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_10.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Rechts unten siehst du die CSS-Anweisungen des ausgewählten Elements.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_11.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Jede Änderung am CSS wird sofort aktiv.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_12.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Mit einem Rechtsklick kannst du aber auch die HTML-Struktur ändern.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_13.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Und auch diese Änderung wird sofort aktiv.
+                            </p>
+                            <img class="active d-block w-100" src="devtools_14.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Auf diese Weise kannst du ganz leicht Dinge ausprobieren, ohne den Browser zu verlassen.
+                            </p>
+                            <img class="active d-block w-25 m-auto" src="../../finish.svg" />
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Responsive-Design-Modus</h2>
+
+                <ul class="dhbw-carousel-links">
+                    <li>
+                        <a href="#browser-resmode-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                    </li>
+                    <li>
+                        <a href="#browser-resmode-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                    </li>
+                    <li>
+                        <a href="#browser-resmode-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                    </li>
+                </ul>
+                <div id="browser-resmode-carousel" class="carousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item img-thumbnail active">
+                            <p>
+                                Ein Klick genügt und du kommst in den „Responsive-Design-Modus”.
+                            </p>
+                            <img class="active d-block w-100" src="resmode_01.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Dort kannst du zum Beispiel prüfen, wie deine Seite auf einem Smartphone aussieht.
+                            </p>
+                            <img class="active d-block w-100" src="resmode_02.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Natürlich kannst du auch ganz easy auf Querformat umschalten.
+                            </p>
+                            <img class="active d-block w-100" src="resmode_03.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Oder auf eine beliebige andere Bildschirmauflösung.
+                            </p>
+                            <img class="active d-block w-100" src="resmode_04.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Den Responsive-Design-Modus solltest du deshalb so oft wie möglich verwenden.
+                            </p>
+                            <img class="active d-block w-25 m-auto" src="../../finish.svg" />
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis für das Endesymbol: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Bevor wir uns auf Media Queries, Mobile First und die anderen Techniken des
+                    Responsive Webdesign stürzen, wollen wir erst noch ein wenig Werbung für deinen
+                    Browser machen. 📣 Denn der hat so manche Tricks parat, die dir beim Entwickeln
+                    und Testen deiner Webseite helfen können.
+                </p>
+
+                <h2>Die Entwicklerwerkzeuge</h2>
+                <p>
+                    Mit dem Hammer in der Hand sieht alles aus wie ein Nagel. 🔨 Das hast du sicher
+                    schon mal gehört. Bei den Entwicklerwerkzeugen des Browsers ist das jedoch etwas
+                    anderes. Denn dabei handelt es sich eher um <a href="https://www.amazon.de/Wenger-Schweizer-Offiziersmesser-Messer-Schatulle/dp/B000R0JDSI"
+                    target="_blank" title="unbedingt auch die Bewertungen lesen">das ultimative Schweizer
+                    Taschenmesser</a>, dessen Funktionen du unbedingt kennen solltest. Der Aufruf erfolgt
+                    bei den meisten Browsern mit der <kbd>F12</kbd>-Taste, woraufhin sich in der Regel
+                    unten ein Panel mit unterschiedlichen Tabreitern öffnet.
+                </p>
+                <p>
+                    In den Screenshots auf der Folie siehst du die Entwicklerwerkzeuge vom Firefox.
+                    Im Chrome, Internet Explorer und Edge sehen sie fast gleich aus, jedoch haben
+                    manche Werkzeuge andere Namen und der ein oder andere Button befindet sich an
+                    einer anderen Stelle. Davon abgesehen wirst du dich aber auch dort schnell
+                    zurechtfinden. Natürlich können wir hier nicht auf jeden einzelnen Reiter im
+                    Detail eingehen, zumal es auch noch ein paar versteckte Reiter gibt, die erst in
+                    den Einstellungen aktiviert werden wollen. Vier wesentliche Reiter werden uns
+                    von nun an aber immer wieder begleiten:
+                </p>
+                <dl>
+                    <dt>Quellcodeansicht („Inspector” im Firefox, „Elements” im Chrome)</dt>
+                    <dd>
+                        <p>
+                            Hinter dieser Ansicht verbirgt sich ein wahres Multitalent. Denn hier siehst
+                            du nicht einfach nur den HTML-Quellcode deiner Seite. Den kannst du dir auch
+                            im Texteditor anschauen. 🙂 Stattdessen siehst du das Document Object Model,
+                            so wie es tatsächlich im Speicher des Browsers vorliegt. Das mag am Anfang noch
+                            keinen Unterschied machen, sobald wird aber mit JavaScript anfangen, die
+                            sichtbaren Inhalte zur Laufzeit zu verändern, wirst du sehen, dass die
+                            Änderungen wie von Zauberhand auch in der Quellcodeansicht auftauchen.
+                        </p>
+                        <p>
+                            Sehr praktisch ist dabei auch, dass du dir zu jedem HTML-Element verschiedene
+                            Informationen anzeigen lassen kannst. Du brauchst es nur im Quellcode anzuklicken
+                            oder mit der Funktion „Element auf Seite wählen” (im Firefox links oben) auf der
+                            Seite mit der Maus drüber fahren. Daraufhin wird das Element farbig hervorgehoben
+                            und es werden folgende Dinge angezeigt:
+                        </p>
+                        <ul>
+                            <li>
+                                Ober- oder Unterhalb des Elements stehen seine Art und Größe in Pixeln.
+                            </li>
+                            <li>
+                                Hilfslinien helfen dir, die Anordnung des Elements zu überprüfen.
+                            </li>
+                            <li>
+                                Rechts vom Quellcode werden die CSS-Eigenschaften des Elements angezeigt.
+                            </li>
+                        </ul>
+                        <p>
+                            Das Schöne an der Sache ist, dass du auch direkt Änderungen vornehmen kannst. 📝
+                            Du kannst also ohne den Browser zu verlassen verschiedene HTML-Elemente und
+                            CSS-Anweisungen ausprobieren, so lange bis dir die Darstellung gefällt. Hierfür
+                            kannst du zum Beispiel einfach ein paar CSS-Anweisungen überschreiben oder neue
+                            einfügen. Per Klick auf eine Anweisung kannst du sie auch kurz deaktivieren, um
+                            zu prüfen, ob sie überhaupt eine Auswirkung hat.
+                        </p>
+                        <p>
+                            Zusätzlich kannst du mit einem einfachen Rechtsklick den HTML-Code der Seite
+                            modifizieren. Das Einzige, was du hier nicht kannst, ist deine Änderungen zu
+                            speichern. 💾 Hierfür musst du nach wie vor in deinem Lieblingseditor den
+                            Quellcode bearbeiten. ✎
+                        </p>
+                    </dd>
+
+                    <dt>
+                        Konsole
+                    </dt>
+                    <dd>
+                        <p>
+                            Diese schauen wir uns im JavaScript-Kapitel nochmal näher an. Unter anderem
+                            siehst du hier Warnungen und Fehlermeldungen und kannst einzelne JavaScript-Befehle
+                            ausführen.
+                        </p>
+                    </dd>
+
+                    <dt>
+                        JavaScript-Debugger („Debugger” im Firefox, „Sources” im Chrome)
+                    </dt>
+                    <dd>
+                        <p>
+                            Der Debugger wird interessant, sobald wir anfangen, mit JavaScript unsere erste
+                            Browser App zu schreiben. Am manchen Stellen wirst du dann richtig froh sein,
+                            im Debugger einfach mal ein paar Breakpoints setzen zu können, um zum Beispiel
+                            die Inhalte einiger Variablen zu überprüfen.
+                        </p>
+                    </dd>
+
+                    <dt>
+                        Netzwerkanalyse
+                    </dt>
+                    <dd>
+                        <p>
+                            Anfangs können wir mit der Netzwerkanalyse noch nicht so viel anfangen, da wir
+                            das HTTP-Protokoll noch nicht richtig besprochen haben. Trotzdem solltest du
+                            einfach mal anschauen, was die Netzwerkanalyse so macht, während du eine Webseite
+                            aufrufst. Starte hierfür zunächst in einem leeren Tabreiter die Netzwerkanalyse
+                            und rufe dann eine beliebige Webseite auf. Schnell wirst du sehen, warum zu viele
+                            schlecht optimierte Bilder auf einer Seite richtig „ins Geld gehen” können. 💰
+                        </p>
+                        <p>
+                            Google Chrome (bzw. Chromium) geht dabei sogar noch einen Schritt weiter und
+                            protokolliert nicht nur die Ladezeiten, sondern erlaubt sogar die Simulation einer
+                            langsamen Internetverbindung. Damit kannst du dann auch gleich die Ladezeiten
+                            🐢 auf dem Smartphone unterwegs auf hoher See 🚢 überprüfen.
+                        </p>
+                    </dd>
+                </dl>
+
+                <h2>Der Responsive-Design-Modus</h2>
+                <p>
+                    Eine weitere Wunderwafe 🎇 ist der Responsive-Design-Modus, den du mit einem kurzen
+                    Mausklick in den Entwicklerwerkzeugen aktivieren kannst. Oder klar, du kannst auch einfach
+                    die Tastenkombination <kbd>Shift</kbd>+<kbd>Strg</kbd>+<kbd>M</kbd> drücken. Das ist natürlich
+                    viel professioneller. 😎
+                </p>
+                <img src="devtools_toolbar.png" class="d-block img-responsive" />
+                <p>
+                    So rum oder so rum wirst du sehen, dass sich die Anzeige im Browser dadurch deutlich
+                    verändert. Denn im Responsive-Design-Modus simuliert der Browser die Anzeige eines
+                    Smartphones oder Tablets, wahlweise im Hochformat oder im Querformat. Über eine
+                    Dropdownliste am oberen Bildschirmrand kannst du dabei zwischen ein paar häufig
+                    vorkommenden Auflösungen auswählen. Du kannst aber auch einfach eine völlig eigene
+                    Auflösung eingeben oder den Sichtbereich mit der Maus verändern.
+                </p>
+                <p>
+                    Damit deine Seite auf möglichst vielen Geräten gut aussieht, solltest du den
+                    Responsive-Design-Modus so oft wie möglich verwenden und dabei möglichst viele
+                    Auflösungen durchprobieren. Denn auch heute kann es sonst passieren, dass deine
+                    Seite bei bestimmten Auflösungen super aussieht 💃 und bei anderen eben nicht.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Wie es nicht aussehen soll</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "so-nicht-html-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#so-nicht-html"
+                                role          = "tab"
+                                aria-controls = "HTML-Quellcode"
+                                aria-expanded = "true"
+                            >
+                                HTML-Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "so-nicht-css-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#so-nicht-css"
+                                role          = "tab"
+                                aria-controls = "Stylesheet"
+                            >
+                                Stylesheet
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "so-nicht-browser-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#so-nicht-browser"
+                                role          = "tab"
+                                aria-controls = "Browser-Ansicht"
+                            >
+                                Browser-Ansicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "so-nicht-smartphone-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#so-nicht-smartphone"
+                                role          = "tab"
+                                aria-controls = "Smartphone-Ansicht"
+                            >
+                                Smartphone-Ansicht
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- HTML-Quellcode -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            role            = "tabpanel"
+                            id              = "so-nicht-html"
+                            aria-labelledby = "so-nicht-html-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;link rel="stylesheet" href="style.css" /&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;header&gt;
+                                            &lt;h1&gt;Smartphones, nutzt das wirklich jemand?&lt;/h1&gt;
+                                        &lt;/header&gt;
+
+                                        &lt;section&gt;
+                                            &lt;!-- Hauptbereich mit Inhalt --&gt;
+                                            &lt;main&gt;
+                                                &lt;h1&gt;Japer (Alberta)&lt;/h1&gt;
+                                                &lt;p&gt;
+                                                    Jasper ist eine Siedlung innerhalb des Jasper-Nationalparks …
+                                                &lt;/p&gt;
+
+                                                &lt;img src="jasper1.jpg" alt="Typisches Haus in Jasper"/&gt;
+                                                &lt;img src="jasper2.jpg" alt="Typische Straße in Jasper"/&gt;
+
+                                                &lt;h2&gt;Lage&lt;/h2&gt;
+                                                &lt;p&gt;
+                                                    Jasper liegt im Jasper-Nationalpark nahe der Grenze …
+                                                &lt;/p&gt;
+                                                …
+                                            &lt;/main&gt;
+
+                                            &lt;!-- Side Bar mit Navigation --&gt;
+                                            &lt;nav&gt;
+                                                &lt;h2&gt;Toolbox&lt;/h2&gt;
+                                                &lt;ul&gt;
+                                                    &lt;li&gt; &lt;a&gt;Einstellungen&lt;/a&gt; &lt;/li&gt;
+                                                    &lt;li&gt; &lt;a&gt;Bearbeiten&lt;/a&gt; &lt;/li&gt;
+                                                    &lt;li&gt; &lt;a&gt;Nutzer/innen&lt;/a&gt; &lt;/li&gt;
+                                                    …
+                                                &lt;/ul&gt;
+                                            &lt;/nav&gt;
+                                        &lt;/section&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Stylesheet -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "so-nicht-css"
+                            role            = "tabpanel"
+                            aria-labelledby = "so-nicht-css-tab"
+                        >
+                            <source-code language="css">
+                                /** Allgemeines **/
+                                html {
+                                    font-family: sans-serif;
+                                    font-size: 2.3vmin;
+                                }
+
+                                /** Hauptbereich **/
+                                section {
+                                    display: flex;
+                                }
+
+                                section main {
+                                    padding: 0.5rem;
+                                }
+
+                                section img {
+                                    display: inline-block;
+                                    max-width: calc(50% - 2em);
+                                    margin: 0 1em 1em 0;
+
+                                    background: white;
+                                    border: …
+                                }
+                            </source-code>
+                        </div>
+                        <!-- Browser-Ansicht -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "so-nicht-browser"
+                            role            = "tabpanel"
+                            aria-labelledby = "so-nicht-browser-tab"
+                        >
+                            <img src="so_nicht1.jpg" class="d-block" style="width: 100%" />
+                        </div>
+                        <!-- Smartphone-Ansicht -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "so-nicht-smartphone"
+                            role            = "tabpanel"
+                            aria-labelledby = "so-nicht-smartphone-tab"
+                        >
+                            <img src="so_nicht2.jpg" class="d-block" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Hier siehst du eine einfache Webseite, bei der nicht auf die Darstellung
+                    auf Smartphones und Tablets geachtet wurde. Zwar ist der Quellcode recht
+                    übersichtlich und auch semantisch sinnvoll aufgebaut, auf dem Smartphone
+                    ist die Seite jedoch viel zu klein und die Sidebar nimmt wertvollen
+                    Bildschirmplatz ein.
+                </p>
+                <p>
+                    Das Stylesheet auf der Folie ist natürlich so nicht komplett und würde
+                    daher auch nicht zu denselben Screenshots führen. Damit du aber besser sehen
+                    kannst, wo die Probleme liegen, sind nur die besonders kritischen Stellen
+                    abgedruckt und alles andere, was sich nur um Farben, Rahmen, Hintergründe
+                    und so weiter dreht, wurde weggelassen.
+                </p>
+
+                <h2>Die Schriftgröße</h2>
+                <p>
+                    Für die Schriftgröße wird hier eigentlich ein genialer Trick angewendet:
+                    Sie wird nicht, wie sonst üblich, in <tt>pt</tt> oder <tt>px</tt> sondern
+                    als relative Schriftgröße <tt>vmin</tt> angegeben. Wie du sicher noch
+                    weißt handelt es sich dabei um eine relative Größenangabe, die sich auf
+                    die Größe des Browserfensters bezieht.
+                </p>
+                <p>
+                    Dadurch wird erreicht, dass die Schrift umso größer wird, je größer der
+                    Bildschirm ist. Ziemlich genial, da die Schrift somit auch noch auf einem
+                    Flachbildfernseher gut erkannt werden kann, den man typischerweise ja nur
+                    aus einigen Metern Entfernung betrachtet. Doch umgekehrt funktioniert es
+                    leider auch: Je kleiner der Bildschirm ist, desto kleiner ist die Schrift.
+                    Als Folge daraus ist sie auf dem Smartphone nur schwer lesbar. 🔎
+                </p>
+
+                <h2>Die Sidebar</h2>
+                <p>
+                    Für die Sidebar wurde ein anderer schöner Trick verwendet: Inhalt und
+                    Sidebar sind zwei HTML-Elemente, die sich in einer gemeinsamen
+                    <src-code language="html">&lt;section&gt;</src-code> befinden, wobei
+                    die Sidebar im Quellcode auf den Hauptinhalt folgt, da sie rechts davon
+                    stehen soll. Damit die beiden nun aber nicht untereinander sondern nebeneinander
+                    stehen, wird durch die Anweisung <src-code language="css">display: flex</src-code>
+                    der <a ref="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">
+                    Flexbox-Algorithmus</a> aktiviert, wobei schon seine Voreinstellungen
+                    das gewünsche Ergebnis liefern. Weitere CSS-Anweisungen werden daher
+                    nicht benötigt.
+                </p>
+                <p>
+                    Auf großen Bildschirmen sieht das ziemlich gut aus. Auf dem Smartphone
+                    ist es jedoch eine mittlere Katastrophe. 💣 Denn die Sidebar verkleinert
+                    den ohnehin schon schmalen Bildschirm nochmal um kostbare 25%. Und dass
+                    ohne selbst gut bedienbar zu sein, da sie hierfür eigentlich viel zu
+                    „dünn” erscheint und noch viel breiter sein müsste.
+                </p>
+
+                <h2>Die Bilder</h2>
+                <p>
+                    Ob die Bilder auf dem Smartphone zu klein erscheinen oder ihre Größe
+                    doch genau richtig ist, ist Ansichtssache. Soll die Seite mehr einen
+                    Überblick über viele Bilder geben, ist die Anordnung von zwei Bildern
+                    nebeneinander sicherlich praktisch, da dadurch automatisch eine
+                    gitterförmige Anordnung ähnlich einer Bildergallerie entsteht.
+                </p>
+                <p>
+                    Umgekehrt kann man dadurch aber kaum noch Details erkennen, so dass man
+                    eigentlich gar nicht beurteilten kann, wie der in beschriebene Ort eigentlich
+                    aussieht. In diesem Fall wäre es daher wohl besser, die Bilder untereinander
+                    und in voller Breite darzustellen, damit zumindest ein paar Details noch gut
+                    zu sehen sind. Und da die Bilder selbst im Querformat sind, würden sie sich
+                    bei einem hochkant gehaltenen Handy auch gut in das Seitenlayout einfügen
+                    und bei einer 90°-Drehung fast das gesamte Display ausfüllen.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Dieselbe Seite ein wenig anders</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "so-schon-html-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#so-schon-html"
+                                role          = "tab"
+                                aria-controls = "HTML-Quellcode"
+                                aria-expanded = "true"
+                            >
+                                HTML-Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "so-schon-css-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#so-schon-css"
+                                role          = "tab"
+                                aria-controls = "Stylesheet"
+                            >
+                                Stylesheet
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "so-schon-browser-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#so-schon-browser"
+                                role          = "tab"
+                                aria-controls = "Browser-Ansicht"
+                            >
+                                Browser-Ansicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "so-schon-smartphone-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#so-schon-smartphone"
+                                role          = "tab"
+                                aria-controls = "Smartphone-Ansicht"
+                            >
+                                Smartphone-Ansicht
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- HTML-Quellcode -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            role            = "tabpanel"
+                            id              = "so-schon-html"
+                            aria-labelledby = "so-schon-html-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;link rel="stylesheet" href="style.css" /&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;header&gt;
+                                            &lt;h1&gt;Klar nutzen wir Smartphones &lt;/h1&gt;
+                                        &lt;/header&gt;
+
+                                        &lt;section&gt;
+                                            &lt;!-- Side Bar mit Navigation --&gt;
+                                            &lt;!-- Steht jetzt vor dem Hauptbereich --&gt;
+                                            &lt;nav&gt;
+                                                &lt;h2&gt;Toolbox&lt;/h2&gt;
+                                                &lt;ul&gt;
+                                                    &lt;li&gt; &lt;a&gt;Einstellungen&lt;/a&gt; &lt;/li&gt;
+                                                    &lt;li&gt; &lt;a&gt;Bearbeiten&lt;/a&gt; &lt;/li&gt;
+                                                    &lt;li&gt; &lt;a&gt;Nutzer/innen&lt;/a&gt; &lt;/li&gt;
+                                                    …
+                                                &lt;/ul&gt;
+                                            &lt;/nav&gt;
+
+                                            &lt;!-- Hauptbereich mit Inhalt --&gt;
+                                            &lt;main&gt;
+                                                …
+                                            &lt;/main&gt;
+                                        &lt;/section&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Stylesheet -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "so-schon-css"
+                            role            = "tabpanel"
+                            aria-labelledby = "so-schon-css-tab"
+                        >
+                            <source-code language="css">
+                                /** Allgemeines und Smartphone **/
+                                html {
+                                    font-family: sans-serif;
+                                    font-size: 10pt;
+                                }
+
+                                section main {
+                                    padding: 0.5rem;
+                                }
+
+                                section img {
+                                    max-width: calc(100% - 1rem);
+                                    display: block;
+                                    margin-bottom: 1em;
+
+                                    background: white;
+                                    border: …
+                                }
+
+                                /** Große Bildschirme **/
+                                @media (min-width: 40em) {
+                                    html {
+                                        font-size: 2.3vmin;
+                                    }
+
+                                    section {
+                                        display: flex;
+                                    }
+
+                                    section img {
+                                        display: inline-block;
+                                        max-width: calc(50% - 2em);
+                                        margin: 0 1em 1em 0;
+                                    }
+                                }
+                            </source-code>
+                        </div>
+                        <!-- Browser-Ansicht -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "so-schon-browser"
+                            role            = "tabpanel"
+                            aria-labelledby = "so-schon-browser-tab"
+                        >
+                            <img src="so_schon1.jpg" class="d-block" style="width: 100%" />
+                        </div>
+                        <!-- Smartphone-Ansicht -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "so-schon-smartphone"
+                            role            = "tabpanel"
+                            aria-labelledby = "so-schon-smartphone-tab"
+                        >
+                            <img src="so_schon2.jpg" class="d-block" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Diese Version der Seite sieht gleich viel besser aus. Also am Computer
+                    natürlich nicht, aber die Smartphone-Ansicht ist nun richtig gelungen. ☺
+                    Die Sidebar ist plötzlich zu einem Top-Menü geworden und man sieht schön,
+                    wie die am Computer nebeneinander liegenden Bilder untereinander stehen
+                    und durch ihre Breite deutlich erkennbar sind. Das gesamte Layout entfaltet
+                    sich für Smartphones typisch schön von oben nach unten. Doch warum ist das
+                    so? Welche Quellcode-Anpassungen haben zu dieser deutlichen Veränderung
+                    geführt?
+                </p>
+
+                <h2>Anordnung der Sidebar</h2>
+                <p>
+                    Am HTML-Code hat sich eigentlich gar nichts geändert. Lediglich das
+                    <src-code language="html">&lt;nav&gt;</src-code>-Element mit der Sidebar
+                    ist nun vor das <src-code language="html">&lt;main&gt;</src-code> gerutscht,
+                    damit es auf dem Smartphone ganz oben erscheint. Bei beiden Elementen handelt
+                    es sich ja um Blockelemente, die der Browser standardmäßig maximal breit sind
+                    und untereinander darstellt. Auf großen Bildschirmen wird stattdessen der
+                    Flexbox-Algorithmus eingeschaltet, so dass sie nebeneinander stehen.
+                </p>
+
+                <h2>Media Queries und Mobile First</h2>
+                <p>
+                    Das Vorgehen mit der Sidebar ist keineswegs zufällig so gewählt. Vielleicht
+                    denkst du dir jetzt: „Ist doch egal, ob die Sidebar im HTML vor oder nach
+                    dem Hauptbereich steht. Es kommt doch 'eh auf das Stylesheet an, wo sie
+                    letztlich dargestellt wird.” Im Prinzip stimmt das sogar. Doch sieh es mal
+                    so: Für die Darstellung auf mobilen Geräten nutzen wir das Standardverhalten
+                    das Browsers und brauchen daher keine sonderlichen CSS-Anweisungen. Nur auf
+                    großen Bildschirmen, wo die Darstellung untereinander auch nicht gut aussehen
+                    würde, müssen wir etwas nachhelfen.
+                </p>
+                <p>
+                    Dieses Vorgehen wird auch <b>Mobile First</b> genannt und ist eine Grundregel
+                    modernen Webdesigns. Kleine Geräte benötigen ein einfacheres Layout als große
+                    Geräte. Also fängst du immer an, deine Webseite für kleine Bildschirme zu
+                    gestalten. Wenn das dann soweit geklappt hat, baust du Fallunterscheidungen
+                    (sogenannte <b>Media Queries</b>) in die Stylesheets ein, um einzelne Anweisungen
+                    zu übersteuern (wie die Schritgröße) oder zusätzliche Befehle auszuführen (wie die
+                    Umschaltung auf Flexbox).
+                </p>
+                <p>
+                    Im Beispiel auf der Folie beinhaltet das Stylesheet folgenden Media Query:
+                </p>
+                <source-code language="css">
+                    @media (min-width: 40em) {
+                        …
+                    }
+                </source-code>
+                <p>
+                    Daran siehst du auch schon die grundlegende Syntax, wobei hier konkret abgefragt
+                    wird, ob der Bildschirm mindestens <tt>40em</tt> breit ist. Dies ist ein wenig
+                    unkonventionell, da die Bildschirmgröße in der Regel mit Pixelangaben geprüft wird.
+                    Die Einheit <tt>em</tt> bezieht sich hingegen auf die Schriftgröße und prüft daher,
+                    ob eine gewisse Mindestanzahl an Buchstaben auf den Bildschirm passt. Unsere
+                    persönliche Erfahrung ist, dass dies ein wenig stabiler funktioniert als eine
+                    Abfrage auf Pixel. Die meisten Webdesigner prüfen stattdessen aber trotzdem die
+                    Pixel.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Mehr über Media Queries</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "mq-syntax-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#mq-syntax"
+                                role          = "tab"
+                                aria-controls = "Syntax der Prüfungen"
+                            >
+                                Syntax der Prüfungen
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "mq-html-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#mq-html"
+                                role          = "tab"
+                                aria-controls = "Im HTML-Code"
+                            >
+                                Im HTML-Code
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "mq-css-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#mq-css"
+                                role          = "tab"
+                                aria-controls = "Im Stylesheet"
+                            >
+                                Im Stylesheet
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Syntax der Prüfungen -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "mq-syntax"
+                            role            = "tabpanel"
+                            aria-labelledby = "mq-syntax-tab"
+                        >
+                            <h2>Syntaxbeschreibung</h2>
+
+                            <source-code language="css">
+                                ausgabemedium (eigenschaft: wert)
+                            </source-code>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Ausgabemedium</th>
+                                        <th>Beschreibung</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td><tt>all</tt></td>
+                                    <td>Alle Geräte, keine Einschränkung</td>
+                                </tr>
+                                <tr>
+                                    <td><tt>screen</tt></td>
+                                    <td>Bildschirm</td>
+                                </tr>
+                                <tr>
+                                    <td><tt>print</tt></td>
+                                    <td>Drucker</td>
+                                </tr>
+                                <tr>
+                                    <td><tt>speech</tt></td>
+                                    <td>Sprachsynthesizer</td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" style="padding: 1em"></td>
+                                </tr>
+
+                                <thead>
+                                    <tr>
+                                        <th>Eigenschaft</th>
+                                        <th>Beschreibung</th>
+                                    </tr>
+                                </thead>
+                                <tr>
+                                    <td><tt>width</tt></td>
+                                    <td>Exakte Breite</td>
+                                </tr>
+                                <tr>
+                                    <td><tt>min-width</tt></td>
+                                    <td>Mindestbreite</td>
+                                </tr>
+                                <tr>
+                                    <td><tt>max-width</tt></td>
+                                    <td>Maximalbreite</td>
+                                </tr>
+                                <tr>
+                                    <td><tt>height</tt></td>
+                                    <td>Exakte Höhe</td>
+                                </tr>
+                                <tr>
+                                    <td><tt>min-height</tt></td>
+                                    <td>Mindesthöhe</td>
+                                </tr>
+                                <tr>
+                                    <td><tt>max-height</tt></td>
+                                    <td>Maximalhöhe</td>
+                                </rd>
+                                <tr>
+                                    <td><tt>aspect-ratio</tt></td>
+                                    <td>Seitenverhhältnis</td>
+                                </tr>
+                                <tr>
+                                    <td><tt>orientation</tt></td>
+                                    <td><tt>portrait</tt> (Hochformat), <tt>landscape</tt> (Querformat)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">…</td>
+                                </tr>
+                            </table>
+
+                            <h2 style="margin-top: 1em;">Beispiele</h2>
+
+                            <src-code language="css">all (min-width: 800px)</src-code>
+                            <p>
+                                Alle Ausgabemedien mit einer Mindestbreite von 800 Pixeln.
+                            </p>
+
+                            <src-code language="css">(min-width: 800px)</src-code>
+                            <p>
+                                Dasselbe wie oben. Wenn alle Medien gemeint sind, kann das <code>all</code> fehlen.
+                            </p>
+
+                            <src-code language="css">print</src-code>
+                            <p>
+                                Eingrenzung nur auf Drucker. Wird häufig genutzt, um störende Elemente nicht zu drucken.
+                            </p>
+
+                            <src-code language="css">(orientation: landscape), (min-width: 1024px)</src-code>
+                            <p>
+                                ODER-Verknüpfung mehrerer Prüfung.
+                            </p>
+
+                            <src-code language="css">screen (max-width: 600px) and screen (orientation: landscape)</src-code>
+                            <p>
+                                UND-Verknüpfung mehrerer Prüfungen.
+                            </p>
+
+                            <h2 style="margin-top: 1em;">Gängige Gerätegrößen</h2>
+
+                            <src-code language="css">(max-width: 768px)</src-code>
+                            <p>
+                                Kleine Geräte und Smartphones
+                            </p>
+
+                            <src-code language="css">(min-width: 768px)</src-code>
+                            <p>
+                                Mittlere Geräte und Tablets
+                            </p>
+
+                            <src-code language="css">(min-width: 992px)</src-code>
+                            <p>
+                                Sehr große Tablets oder kleine Computerbildschirme
+                            </p>
+
+                            <src-code language="css">(min-width: 1200px)</src-code>
+                            <p>
+                                Große Computerbildschirme und Fernseher
+                            </p>
+
+                            <p>
+                                <small>
+                                    <small>
+                                        Quelle: <a href="https://getbootstrap.com/docs/4.0/layout/overview/" target="_blank">Bootstrap-Dokumentation</a>
+                                    </small>
+                                </small>
+                            </p>
+                        </div>
+                        <!-- Im HTML-Code -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "mq-html"
+                            role            = "tabpanel"
+                            aria-labelledby = "mq-html-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Media Queries beim Laden der Stylesheets&lt;/title&gt;
+
+                                        &lt;!-- Allgemeines Stylesheet für alle Ausgabemedien --&gt;
+                                        &lt;link rel="stylesheet" href="common.css"/&gt;
+
+                                        &lt;!-- Medienabhängige Stylesheets mit zusätzlichen Anweisungen --&gt;
+                                        &lt;link rel="stylesheet" media="print" href="print.css"/&gt;
+                                        &lt;link rel="stylesheet" media="screen and (min-width: 40em)" href="desktop.css"/&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Im Stylesheet -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "mq-css"
+                            role            = "tabpanel"
+                            aria-labelledby = "mq-css-tab"
+                        >
+                            <source-code language="css">
+                                @import url(desktop.css) screen (min-width: 60em);
+                            </source-code>
+                            <p>
+                                Hier wird ein anderes Stylesheet eingelesen. Aber nur, wenn die
+                                Webseite auf einem Bildschirm mit mindestens <tt>60em</tt> Breite
+                                dargestellt wird.
+                            </p>
+                            <hr />
+
+                            <source-code language="css">
+                                @media print {
+                                    header, footer {
+                                        display: block;
+                                        background: none;
+                                        color: black;
+                                    }
+                                }
+                            </source-code>
+                            <p>
+                                Sorgt dafür, dass bestimmte Elemente beim Drucken untereinander
+                                stehen und keinen Hintergrund haben.
+                            </p>
+                            <hr />
+
+                            <source-code language="css">
+                                @media screen (min-width: 800px) {
+                                    #main_parent {
+                                        display: flex;
+                                    }
+                                }
+                            </source-code>
+                            <p>
+                                Schaltet für ein Element den Flexbox-Algorithmus ein, wenn der Bildschirm
+                                mindestens <tt>800px</tt> breit ist.
+                            </p>
+                            <hr />
+
+                            <source-code language="css">
+                                @media (orientation: landscape) {
+                                    html {
+                                        background-image: url(landscape.jpg);
+                                    }
+                                }
+                            </source-code>
+                            <p>
+                                Setzt ein spezielles Hintergrundbild, wenn die Webseite im Querforamt angezeigt wird.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Auf der Folie gerade eben hast du schon ein kleines Beispiel für Media
+                    Queries gesehen. Auch hast du schon gesehen, wie durch ihren richtigen
+                    Einsatz der „Mobile-First”-Ansatz realisiert werden kann. Auf dieser
+                    Folie siehst du nun eine ausführliche Übersicht über die Syntax und die
+                    Möglichkeiten von Media Queries. 😎 Wie immer gilt: Auswendig lernen
+                    auf eigene Gefahr. 💂
+                </p>
+
+                <h2>Ausgabemedien und ihre Eigenschaften</h2>
+                <p>
+                    Media Queries erlauben es dir, sowohl die Art des Ausgabegeräts zu
+                    prüfen, als auch seine Eigenheiten. Hierfür kannst du an folgenden
+                    Stellen entsprechende Prüfungen einbauen, wobei die Varianten eins
+                    und drei am häufigsten vorkommen:
+                </p>
+                <ol>
+                    <li>
+                        Im HTML-Dokument beim Einbinden eines Stylesheets
+                    </li>
+                    <li>
+                        Innerhalb einer CSS-Datei beim Import eines anderen Stylesheets
+                    </li>
+                    <li>
+                        Innerhalb einer CSS-Datei zur Begrenzung einzelner Codeblöcke
+                    </li>
+                </ol>
+                <p>
+                    Die genaue Syntax unterscheidet sich ein kleinwenig an jeder Stelle.
+                    Generell kann man aber sagen, dass Media Queries immer den folgenden,
+                    allgemeinen Aufbau haben:
+                </p>
+                <source-code language="css">
+                    ausgabemedium (eigenschaft: wert)
+                </source-code>
+                <p>
+                    Vor der Klammer steht dabei eines der folgenden Ausgabegeräte:
+                </p>
+                <ul>
+                    <li>
+                        <tt>all</tt>: Alle Geräte, keine Einschränkung
+                    </li>
+                    <li>
+                        <tt>screen</tt>: Alle Geräte mit Bildschirm
+                    </li>
+                    <li>
+                        <tt>print</tt>: Druck der Seite auf Papier
+                    </li>
+                    <li>
+                        <tt>speech</tt>: Wiedergabe mit einem Sprachsynthesizer
+                    </li>
+                </ul>
+                <p>
+                    Anstelle von <code>all</code> kann das Ausgabegerät auch entfallen,
+                    so dass der Ausdruck gleich bei den Klammern beginnt. Beides meint
+                    genau dasselbe.
+                </p>
+                <p>
+                    Innerhalb der Klammern steht dann, sofern sie überhaupt vorhanden
+                    sind, eine zu prüfende Eigenschaft und der dazugehörige Wert.
+                    Hiervon gibt es inzwischen einige, am meisten werden aber die
+                    folgenden Verwendet:
+                </p>
+                <ul>
+                    <li>
+                        <tt>min-width</tt>: Mindestbreite der Ausgabe
+                    </li>
+                    <li>
+                        <tt>max-width</tt>: Maximale Breite der Ausgabe
+                    </li>
+                    <li>
+                        <tt>orientation</tt>:
+                        <tt>portrait</tt> (Hochformat), <tt>landscape</tt> (Querformat)
+                    </li>
+                </ul>
+                <p>
+                    Auf der Folie stehen noch ein paar mehr Eigenschaften. Und auch so gibt
+                    es noch viele mehr. Diese hier sind aber die wichtigsten, die man so gut
+                    wie immer braucht.
+                </p>
+
+                <h2>Media Queries im HTML-Quellcode</h2>
+                <p>
+                    Innerhalb des HTML-Dokuments können Media Queries nur als Attribute zu
+                    ein paar wenigen Elementen, bei denen dies explizit vorgesehen ist,
+                    verwendet werden. Davon abgesehen kennt HTML keine Media Queries. Du
+                    kannst also nicht einfach ein paar HTML-Anweisungen mit einem Media
+                    Query umrahmen, um sie auf bestimmte Ausgabemedien zu begrenzen. Das
+                    musst du schon über das Stylesheet regeln.
+                </p>
+                <p>
+                    Der wichtigste Anwendungsfall in HTML ist die Einbindung verschiedener
+                    Stylesheets je nach Anzeigeart. Beispielsweise gehört es zum guten Ton,
+                    zusätzlich zum normalen Stylesheet auch eins für den Drucker zu schreiben,
+                    damit sich der Seiteninhalt auf Papier nicht zwischen all den Navigationsleisten,
+                    Headern, Footern und der Werbung verliert.
+                </p>
+                <source-code language="html">
+                    &lt;link rel="stylesheet" media="print" href="print.css"/&gt;
+                </source-code>
+                <p>
+                    Mithilfe der eben erläuterten Abfragesyntax kann die Einbindung eines
+                    Stylesheets aber auch von komplexeren Bedingungen abhängig gemacht werden.
+                    Zum Beispiel wie hier:
+                </p>
+                <source-code language="html">
+                    &lt;link rel="stylesheet" media="screen and (min-width: 40em)" href="desktop.css"/&gt;
+                </source-code>
+
+                <h2>Media Queries im CSS-Stylesheet</h2>
+                <p>
+                    Der häufigste Ort, wo man Media Queries in ihrem natürlichen Lebensraum
+                    antreffen kann, ist innerhalb eines CSS-Stylesheets. Denn hier können
+                    sie entweder den Import weiterer Stylesheets begrenzen, oder sie können
+                    ganze Codeblöcke einrahmen, um diese nur bei Zutreffen einer Bedingung
+                    auszuführen.
+                </p>
+                <p>
+                    Beim Import eines Stylehssets wird die Bedingung einfach hinter die
+                    URL des einzubindenden anderen Stylesheets geschrieben:
+                </p>
+                <source-code language="css">
+                    @import url(desktop.css) screen (min-width: 60em);
+                </source-code>
+                <p>
+                    Viel häufiger kommt es jedoch vor, dass einfach nur ein paar Zeilen
+                    innerhalb einer CSS-Datei durch eine Abfrage bgerenzt werden sollen.
+                    In diesem Fall schreibt man einfach <code>@media</code> vor die Prüfung
+                    und setzt zu schützenden Zeilen in geschweifte Klammern dahinter:
+                </p>
+                <source-code language="css">
+                    @media screen (min-width: 800px) {
+                        html {
+                            font-size: 14pt;
+                        }
+
+                        #main_parent {
+                            display: flex;
+                        }
+                    }
+                </source-code>
+                <p>
+                    Wichtig dabei ist nur, dass das Media Query immer stets ganze Blöcke
+                    bestehend aus mindestens einem Selektor und seinen Anweisungen umranden
+                    muss. Das obige Beispiel ist daher okay. Das folgende hingegen ist falsch:
+                </p>
+                <source-code language="css">
+                    /* ACHTUNG FALSCH */
+                    main {
+                        @media screen (min-width: 800px) {
+                            display: flex;
+                        }
+                    }
+                </source-code>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 1: Ein kleines Webdesign-Quiz</h1>
+            <article>
+                <h2>Was bewirkt der folgende Media Query?</h2>
+                <source-code language="css">
+                    body {
+                        font-size: 11pt;
+                    }
+
+                    @media (max-width: 30em) {
+                        body {
+                            font-size: 9pt;
+                        }
+                    }
+                </source-code>
+                <ol style="margin-bottom: 2em; padding: 0.75em;">
+                    <li>Auf Bildschirmen im Querformat wird eine größere Schriftart verwendet.</li>
+                    <li>Auf kleinen Bildschirmen wird eine etwas kleinere Schriftart verwendet.</li>
+                    <li>Auf großen Bildschirmen wird eine etwas kleinere Schriftart verwendet.</li>
+                </ol>
+
+                <h2>Was bewirkt der folgende Media Query?</h2>
+                <source-code language="css">
+                    @media all and (orientation: landscape) {
+                        main {
+                            background-image: url(landscape.jpg);
+                        }
+                    }
+
+                    @media all and (orientation: portrait) {
+                        main {
+                            background-image: url(portrait.jpg);
+                        }
+                    }
+                </source-code>
+                <ol style="margin-bottom: 2em; padding: 0.75em;">
+                    <li>Bildschirme im Hochformat verwenden ein anderes Hintergrundbild als im Querformat.</li>
+                    <li>Der Anwender kann zwischen einem Landschaftsbild und einem Porträt als Hintergrund umschalten.</li>
+                    <li>Falls die Seite ausgedruckt wird, werden alle Hintergrundbilder deaktiviert.</li>
+                </ol>
+
+                <h2>Was bewirkt der folgende Media Query?</h2>
+                <source-code language="css">
+                    @media print {
+                        nav, aside, footer {
+                            display: none;
+                        }
+
+                        main {
+                            color: black;
+                            background: none;
+                        }
+                    }
+                </source-code>
+                <ol style="margin-bottom: 2em; padding: 0.75em;">
+                    <li>Auf kleinen Bildschirmen werden überflssige Elemte nicht angezeigt.</li>
+                    <li>Asdrucke in DIN A5 oder kleiner beinhalten weniger Elemente als im DIN A4-Format.</li>
+                    <li>Ein Ausdruck der Seite beinhaltet nur den Hauptbereich ohne sonstige Elemente.</li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> 2, 1, 3
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Hast du bis hierhin gut aufgepasst? 🐘 Klar hast du das. Das folgende
+                    Quiz sollte für dich daher ein Kinderspiel sein. 🎲
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 2: Ein einfaches Fallbeispiel</h1>
+            <article>
+                <p>
+                    Kopiere den folgenden HTML-Code in eine neue Datei und passe ihn gemäß der Beschreibung an.
+                </p>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-html-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-html"
+                                role          = "tab"
+                                aria-controls = "HTML-Code"
+                            >
+                                HTML-Code
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-beschreibung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-beschreibung"
+                                role          = "tab"
+                                aria-controls = "Beschreibung"
+                            >
+                                Beschreibung
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-browser-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-browser"
+                                role          = "tab"
+                                aria-controls = "Browser-Ansicht"
+                            >
+                                Browser-Ansicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-smartphone-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-smartphone"
+                                role          = "tab"
+                                aria-controls = "Smartphone-Ansicht"
+                            >
+                                Smartphone-Ansicht
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-loesung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-loesung"
+                                role          = "tab"
+                                aria-controls = "Lösung"
+                            >
+                                Lösung
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- HTML-Code -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "aufgabe2-html"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-html-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Media-Query-Aufgabe&lt;/title&gt;
+
+                                        &lt;style&gt;
+                                            html {
+                                                font-family: sans-serif;
+                                                font-size: 12pt;
+
+                                                background-image: url(https://unsplash.it/1024/768/?random);
+                                                background-repeat: no-repeat;
+                                                background-position: center center;
+                                                background-size: cover;
+                                            }
+
+                                            h1 {
+                                                color: crimson;
+                                            }
+
+                                            main {
+                                                text-align: center;
+                                            }
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;main&gt;
+                                            &lt;h1&gt;Das Gedicht vom Älter werden&lt;/h1&gt;
+
+                                            &lt;p&gt;
+                                                Das große Glück, noch klein zu sein, &lt;br /&gt;
+                                                Sieht mancher Mensch als Kind nicht ein. &lt;br /&gt;
+                                                Und möchte, dass er ungefähr &lt;br /&gt;
+                                                So 16 oder 17 wär'.
+                                            &lt;/p&gt;
+
+                                            &lt;p&gt;
+                                                Doch schon mit 18 denkt er: „Halt! &lt;br /&gt;
+                                                Wer über 20 ist, ist alt.” &lt;br /&gt;
+                                                Warum? Die 20 sind vergnüglich – &lt;br /&gt;
+                                                Auch sind die 30 noch vorzüglich.
+                                            &lt;/p&gt;
+
+                                            &lt;p&gt;
+                                                Zwar in den 40, welche Wende, &lt;br /&gt;
+                                                Da gilt die 50 fast als Ende. &lt;br /&gt;
+                                                Doch in den 50, peu à peu, &lt;br /&gt;
+                                                Schraubt man das Ende in die Höh'!
+                                            &lt;/p&gt;
+
+                                            &lt;p&gt;
+                                                Die 60 scheinen noch passabel &lt;br /&gt;
+                                                Und erst die 70 miserabel. &lt;br /&gt;
+                                                Mit 70 aber hofft man still: &lt;br /&gt;
+                                                „Ich schaff' die 80, so Gott will.”
+                                            &lt;/p&gt;
+
+                                            &lt;p&gt;
+                                                Wer dann die 80 biblisch überlebt, &lt;br /&gt;
+                                                Zielsicher auf die 90 strebt. &lt;br /&gt;
+                                                Dort angelangt, sucht er geschwind &lt;br /&gt;
+                                                Nach Freunden, die noch älter sind.
+                                            &lt;/p&gt;
+
+                                            &lt;p&gt;
+                                                Doch hat die Mitte 90 man erreicht &lt;br /&gt;
+                                                – Die Jahre, wo einen nichts mehr wundert –, &lt;br /&gt;
+                                                Denkt man mituntner: „Na, vielleicht &lt;br /&gt;
+                                                Schaffst du mit Gottes Hilfe auch die 100.”
+                                            &lt;/p&gt;
+                                        &lt;/main&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Beschreibung -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe2-beschreibung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-beschreibung-tab"
+                        >
+                            <h2>Auf dem Smartphone</h2>
+                            <ul>
+                                <li>
+                                    Auf dem Smartphone soll kein Hintergrundbild angezeigt werden.
+                                </li>
+                                <li>
+                                    Auch soll das <src-code language="html">&lt;main&gt;</src-code> auf dem Smartphone maximal breit sein.
+                                </li>
+                            </ul>
+
+                            <h2>Für Bildschirme ab 50em</h2>
+                            <ul>
+                                <li>
+                                    Zeige das Hintergrundbild, so wie im HTML bereits angegeben.
+                                </li>
+                                <li>
+                                    Mache das <src-code language="html">&lt;main&gt;</src-code> genau <tt>40em</tt> breit.
+                                </li>
+                                <li>
+                                    Verwende <src-code language="css">margin: 0 auto;</src-code>, um das
+                                    <src-code language="html">&lt;main&gt;</src-code> mittig zu zentrieren.
+                                </li>
+                                <li>
+                                    Sorge dafür, dass oberhalb und unterhalb <tt>2em</tt> Platz bleiben.
+                                </li>
+                                <li>
+                                    Lasse innerhalb des <src-code language="html">&lt;main&gt;</src-code>
+                                    <tt>1em</tt> Abstand zum Text.
+                                </li>
+                                <li>
+                                    Gebe dem <src-code language="html">&lt;main&gt;</src-code> einen weißen Hintergrund
+                                    und einen dezenten Rahmen.
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Browser-Ansicht -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe2-browser"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-browser-tab"
+                        >
+                            <img src="aufgabe2_browser.jpg" class="d-block" style="width: 100%" />
+                        </div>
+                        <!-- Smartphone-Ansicht -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe2-smartphone"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-smartphone-tab"
+                        >
+                            <img src="aufgabe2_smartphone.jpg" class="d-block" style="width: 100%" />
+                        </div>
+                        <!-- Lösung -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe2-loesung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-loesung-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Media-Query-Aufgabe&lt;/title&gt;
+
+                                        &lt;style&gt;
+                                            html {
+                                                font-family: sans-serif;
+                                                font-size: 12pt;
+                                            }
+
+                                            h1 {
+                                                color: crimson;
+                                            }
+
+                                            main {
+                                                text-align: center;
+                                            }
+
+                                            @media (min-width: 50em) {
+                                                html {
+                                                    background-image: url(https://unsplash.it/1024/768/?random);
+                                                    background-repeat: no-repeat;
+                                                    background-position: center center;
+                                                    background-size: cover;
+                                                }
+
+                                                main {
+                                                    width: 40em;
+
+                                                    margin: 0 auto;
+                                                    margin-top: 2em;
+                                                    margin-bottom: 2em;
+
+                                                    background: white;
+                                                    border: 1px solid #E5E5E5;
+                                                    box-shadow: 1px 1px 2px #BFBFBF;
+
+                                                    padding: 1em;
+                                                }
+                                            }
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;main&gt;
+                                            …
+                                        &lt;/main&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Hier kannst du dich mit Media Queries ein wenig vertraut machen. Die Aufgabe
+                    ist ganz einfach, versprochen. Wenn du alles richtig machst, hast du hinterher
+                    aber trotzdem eine echte „Mobile First”-Seite erstellt. 🐊
+                </p>
+                <img src="../../github_atom.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Automatisch responsive dank CSS-Grids</h1>
+            <article>
+                <h2>Anordnung auf großen Bildschirmen</h2>
+
+                <ul>
+                    <li>
+                        Mehrere Elemente stehen nebeneinander in einer Zeile.
+                    </li>
+                    <li>
+                        Das Gitter kann beliebig viele Zeilen umfassen.
+                    </li>
+                    <li>
+                        Jede Zeile umfasst in der Regel zwischen 10 und 16 feste Spalten.
+                    </li>
+                    <li>
+                        Durch CSS-Klassen wird bestimmt, wie viele Spalten jedes Element einnimmt.
+                    </li>
+                    <li>
+                        Durch dieselben CSS-Klassen wird auch festgelegt, ab wann ein Bildschirm groß genug ist.
+                    </li>
+                </ul>
+
+                <img src="css-grid.svg" class="d-block" style="width: 100%; margin-bottom: 1em;" />
+
+                <div id="grids-beispiel-article1" class="img-thumbnail" style="margin-bottom: 1em;">
+                    <style>
+                        #grids-beispiel-article1 .row {
+                            margin-bottom: 0 !important;
+                        }
+                        #grids-beispiel-article1 .row > * {
+                            border: 1px solid darkgrey;
+                        }
+                    </style>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4" style="background: rgb(160, 143, 207)">Kästchen <br /> 1 / 1</div>
+                            <div class="col-4" style="background: rgb(9, 83, 136);">Kästchen <br /> 1 / 2</div>
+                            <div class="col-4" style="background: rgb(254, 242, 181);">Kästchen <br /> 1 / 3</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-9" style="background: rgb(149, 162, 146);">Kästchen <br /> 2 / 1</div>
+                            <div class="col-3" style="background: rgb(25, 138, 111);">Kästchen <br /> 2 / 2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Anordnung auf kleinen Bildschirmen</h2>
+
+                <ul>
+                    <li>
+                        Alle Elemente werden automatisch untereinander angeordnet.
+                    </li>
+                    <li>
+                        Jedes Element nimmt die volle Displaybreite ein.
+                    </li>
+                </ul>
+
+                <div id="grids-beispiel-article2" class="img-thumbnail"">
+                    <style>
+                        #grids-beispiel-article2 .row {
+                            margin-bottom: 0 !important;
+                        }
+                        #grids-beispiel-article2 .row > * {
+                            border: 1px solid darkgrey;
+                        }
+                    </style>
+                    <div class="container-fluid">
+                        <div style="background: rgb(160, 143, 207)">Kästchen <br /> 1 / 1</div>
+                        <div style="background: rgb(9, 83, 136);">Kästchen <br /> 1 / 2</div>
+                        <div style="background: rgb(254, 242, 181);">Kästchen <br /> 1 / 3</div>
+                        <div style="background: rgb(149, 162, 146);">Kästchen <br /> 2 / 1</div>
+                        <div style="background: rgb(25, 138, 111);">Kästchen <br /> 2 / 2</div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Mit den bis hierher gelernten Techniken bist du ziemlich frei in der Gestaltung
+                    deiner Webseiten und kannst auch ziemlich komplexe Layouts realisieren. Wenn diese
+                    aber auch noch responsive sein sollen, wirst du schnell merken, dass CSS an einigen
+                    Stellen auch mal zickig und nicht immer auf den ersten Blick intuitiv sein kann. 🐰
+                    Hier kommen CSS Grids ins Spiel, da sie es erlauben, mit wenig Aufwad recht komplexe
+                    Layouts zu realisieren.
+                </p>
+                <p>
+                    Die Grundidee der CSS Grids basiert dabei auf der Beobachtung, dass viele moderne
+                    Weblayouts ähnlich wie die Seiten einer Zeitung gestaltet sind. Nämlich mit mehr oder
+                    weniger großen, rechteckigen Bereichen, die einfach in unterschiedlicher Breite
+                    zeilenweise nebeneinander stehen, deren Höhe sich aber nach ihrem Inhalt richtet.
+                    Klingt kompliziert? 😕 Keine Panik. Die folgende Abbildung zeigt dir, was gemeint ist:
+                </p>
+                <div id="grids-beispiel-aside1" class="img-thumbnail" style="margin-bottom: 0.4em;">
+                    <style>
+                        #grids-beispiel-aside1 .row {
+                            margin-bottom: 0 !important;
+                        }
+                        #grids-beispiel-aside1 .row > * {
+                            border: 1px solid darkgrey;
+                        }
+                    </style>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4" style="background: rgb(160, 143, 207)">Kästchen <br /> 1 / 1</div>
+                            <div class="col-4" style="background: rgb(9, 83, 136);">Kästchen <br /> 1 / 2</div>
+                            <div class="col-4" style="background: rgb(254, 242, 181);">Kästchen <br /> 1 / 3</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-9" style="background: rgb(149, 162, 146);">Kästchen <br /> 2 / 1</div>
+                            <div class="col-3" style="background: rgb(25, 138, 111);">Kästchen <br /> 2 / 2</div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    Diese Darstellung ist aber nur die Ansicht am Computer. Auf kleinen Geräten wie Tables
+                    und Smartphones sieht es hingegen so aus:
+                </p>
+                <div id="grids-beispiel-aside2" class="img-thumbnail" style="margin-bottom: 0.4em;">
+                    <style>
+                        #grids-beispiel-aside2 .row {
+                            margin-bottom: 0 !important;
+                        }
+                        #grids-beispiel-aside2 .row > * {
+                            border: 1px solid darkgrey;
+                        }
+                    </style>
+                    <div class="container-fluid">
+                        <div style="background: rgb(160, 143, 207)">Kästchen <br /> 1 / 1</div>
+                        <div style="background: rgb(9, 83, 136);">Kästchen <br /> 1 / 2</div>
+                        <div style="background: rgb(254, 242, 181);">Kästchen <br /> 1 / 3</div>
+                        <div style="background: rgb(149, 162, 146);">Kästchen <br /> 2 / 1</div>
+                        <div style="background: rgb(25, 138, 111);">Kästchen <br /> 2 / 2</div>
+                    </div>
+                </div>
+                <p>
+                    Alles, was du hierfür tun musst, ist dir ein CSS-Framework zu besorgen, das ein
+                    solches Grid zur Verfügung stellt. In der Vorlesung verwenden wir hierfür
+                    <a href="https://getbootstrap.com" target="_blank">Bootstrap.css</a>. Dieses
+                    bindest du dann in deinen eigenen Quellcode ein und erzeugst das Grid durch die
+                    in der Dokumentation vorgegebenen HTML-Elemente. Im Fall von Bootstrap würde das
+                    (ohne die Integration des Frameworks selbst) ungefähr so aussehen:
+                </p>
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;!-- Hier Bootstrap einfügen --&gt;
+                            …
+                        &lt;/head&gt
+                        &lt;body&gt;
+                            &lt;div class="container"&gt;
+                                &lt;div class="row"&gt;
+                                    &lt;div class="col-md-4"&gt;Kästchen 1 / 1&lt;/div&gt;
+                                    &lt;div class="col-md-4"&gt;Kästchen 1 / 2&lt;/div&gt;
+                                    &lt;div class="col-md-4"&gt;Kästchen 1 / 3&lt;/div&gt;
+                                &lt;div&gt;
+                                &lt;div class="row"&gt;
+                                    &lt;div class="col-md-9"&gt;Kästchen 2 / 1&lt;/div&gt;
+                                    &lt;div class="col-md-3"&gt;Kästchen 2 / 2&lt;/div&gt;
+                                &lt;div&gt;
+                            &lt;div&gt;
+                    &lt;/html&gt;
+                </source-code>
+                <p>
+                    Um den Rest kümmert sich dann das Framework von selbst. Es sorgt also von alleine
+                    dafür, dass die Elemente je nach Bildschirmgröße nebeneinander oder untereinander
+                    angeordnet werden sollen.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>CSS-Grids am Beispiel von Bootstrap</h1>
+            <article>
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Beispiel für Bootstrap&lt;/title&gt;
+
+                            &lt;!-- Bootstrap Stylesheets und Javascript --&gt;
+                            &lt;link rel="stylesheet" href="css/bootstrap.min.css"&gt;
+
+                            &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"&gt;&lt;/script&gt;
+                            &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"&gt;&lt;/script&gt;
+                            &lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;!-- Container für das Grid --&gt;
+                            &lt;div class="container"&gt;
+                                &lt;!-- Zeile mit drei gleichgroßen Spalten --&gt;
+                                &lt;div class="row"&gt;
+                                    &lt;div class="col-md-4"&gt;
+                                        &lt;h2&gt;Die Beatles&lt;/h2&gt;
+                                        &lt;p&gt;The Beatles waren …&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="col-md-4"&gt;
+                                        &lt;h2&gt;Abbey Road Studios&lt;/h2&gt;
+                                        &lt;p&gt;Abbey Road Studios sind die …&lt;p&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="col-md-4"&gt;
+                                        &lt;img src="img/london.jpg" alt="Abbey Road in London"/&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+
+                <img src="bootstrap-grid.svg" class="d-block" style="width: 100%;" />
+            </article>
+            <aside>
+                <p>
+                    Auf dieser Folie siehst du ein kleines Beispiel, wie Bootstrap in einer
+                    Seite verwendet werden kann. 😎 Es handelt sich dabei um eine einfache Seite
+                    drei gleichgroßen, ab mittelgroßen Bildschirmen nebeneinander stehenden
+                    Bereichen. Sobald der Bildschirm schmaler als 992 Pixel wird, rutschen
+                    die Elemente untereinander. 📱
+                </p>
+                <p>
+                    Zunächst siehst du, dass im <src-code language="html">&lt;head&gt;</src-code>
+                    ein Stylesheet und drei weitere JavaScript-Dateien eingebunden werden müssen.
+                    Diese haben folgende Aufgaben:
+                </p>
+                <ul>
+                    <li>
+                        <tt>bootstrap.min.css</tt>: Das Stylesheet und Herzstück 💟 von Bootstrap
+                    </li>
+                    <li>
+                        <tt>jquery.min.js</tt>: Von Bootstrap benötigte JavaScript-Bibliothek mit
+                        verschiedenen Hilfsfunktionen zur DOM-Manipulation
+                    </li>
+                    <li>
+                        <tt>popper.min.js</tt>: Noch eine von Bootstrap benötigte JavaScript-Bibliothek
+                    </li>
+                    <li>
+                        <tt>bootstrap.min.js</tt>: Der JavaScript-Code von Bootstrap
+                    </li>
+                </ul>
+                <p>
+                    Wenn du wirklich nur das CSS Grid von Bootstrap verwenden möchstest, musst du
+                    die JavaScript-Dateien nicht einbinden. Meistens besteht eine Webseite dann
+                    aber doch aus mehr Inhalten und nutzt auch das ein oder andere interaktive
+                    Bootstrap-Element, so wie Dropdown-Menüs, ein Karussel oder umschaltbare
+                    Tabreiter. Spätestens dann läuft ohne JavaScript gar nichts mehr. ☕
+                </p>
+
+                <h2>Verwendung des CSS Grids</h2>
+                <p>
+                    Das Grid selbst ist relativ einfach zu definieren und besteht lediglich aus
+                    drei ineinander geschachtelten <src-code language="html">&lt;div&gt;</src-code>-Elementen.
+                    Diese bekommen durch ihre Klasse verschiedene Funktionen zugeordnet:
+                </p>
+                <ul>
+                    <li>
+                        <tt>container</tt> oder <tt>container-fluid</tt>: Dies ist das Hauptelement, dessen
+                        Inhalt mit dem Grid angeordnet werden soll.
+                    </li>
+                    <li>
+                        <tt>row</tt>: Entspricht einer Zeile innerhalb des Gitters. Jede Zeile ist dabei in
+                        zwölf Spalten unterteilt, die für die Anordnung ihrer Inhalte genutzt werden können.
+                    </li>
+                    <li>
+                        <tt>col-…</tt>: Ein Bereich innerhalb einer Spalte. Die Zahl am Ende der Klasse sagt
+                        aus, wie viele der zwölf verfügbaren Spalten das Element in Anspruch nimmt. Vor der
+                        Zahl kann dann wahlweise noch eine der Bildschirmklassen angegeben werden (s. Abbildung),
+                        bei deren Unterschreiten die Elemente stattdessen untereinander stehen sollen.
+                    </li>
+                </ul>
+                <source-code language="html">
+                    &lt;div class="container-fluid"&gt;
+                        &lt;div class="row"&gt;
+                            &lt;div class="col–…"&gt;
+                                Zeile 1, Kästchen 1
+                            &lt;/div&gt;
+                            &lt;div class="col–…"&gt;
+                                Zeile 1, Kästchen 2
+                            &lt;/div&gt;
+                            &lt;div class="col–…"&gt;
+                                Zeile 1, Kästchen 3
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="row"&gt;
+                            &lt;div class="col–…"&gt;
+                                Zeile 2, Kästchen 1
+                            &lt;/div&gt;
+                            &lt;div class="col–…"&gt;
+                                Zeile 2, Kästchen 2
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                </source-code>
+                <p>
+                    Die Klasse <tt>col</tt> bedeutet einfach, dass ein Element den maximal noch zur Verfügung
+                    stehenden Platz innerhalb seiner Zeile einnimmt. Klassen wie <tt>col-4</tt> oder <tt>col-10</tt>
+                    hingegen bedeuten, dass das Element vier bzw. zehn der zwölf Spalten belegt. In der Regel
+                    würde man aber noch eine Bildschirmklasse hinzufügen somit zum Beispiel Klassen wie
+                    <tt>col-md-3</tt> oder <tt>col-lg-2</tt> verwenden. Diese bewirken, dass die Elemente bei
+                    unterschreiten der jeweiligen Bildschirmklasse untereinander 🍔 und sonst nebeneinander 🍱
+                    angeordnet werden.
+                </p>
+                <p>
+                    Ab wann ein Display als klein oder groß gilt, kannst du der Abbildung in der Folie entnehmen.
+                </p>
+
+                <h2>Bis zur Unendlichkeit und noch viel weiter</h2>
+                <footer class="blockquote-footer" style="margin-bottom: 1em;">
+                    Captain Buzz Lightyear - Star Command
+                </footer>
+                <p>
+                    Bootstrap kann übrigens noch viel mehr. Es handelt sich um eines der
+                    beliebtesten CSS-Frameworks überhaupt, da es für viele Aufgaben bereits
+                    fertige und erprobte Lösungen mitbringt. Beispielsweise ist es mit
+                    Bootstrap ein Leichtes, eine Kopfzeile mit Dropdown-Menüs zu gestalten,
+                    oder komplexe Elemente wie Tabreiter und gut aussehende Eingabeformulare
+                    nachzubilden.
+                </p>
+                <p>
+                    Du meinst, du hast das schon mal irgendwo gesehen? 👲 Ja, richtig. Diese
+                    Seite nutzt auch Bootstrap. 💫
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Anleitung zur Integration von Bootstrap</h1>
+            <article>
+                <h2>Wenn du keine besonderen Werkzeuge benutzt</h2>
+
+                <ul class="dhbw-carousel-links">
+                    <li>
+                        <a href="#bootstrap-download-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                    </li>
+                    <li>
+                        <a href="#bootstrap-download-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                    </li>
+                    <li>
+                        <a href="#bootstrap-download-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                    </li>
+                </ul>
+                <div id="bootstrap-download-carousel" class="carousel slide" style="margin-bottom: 1em;" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item img-thumbnail active">
+                            <p>
+                                Besuche die Seite <a href="https://getbootstrap.com" target="_blank">getbootstrap.com</a>
+                                und lade dir die aktuelle Version herunter.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_download_01.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Entpacke die ZIP-Datei irgendwo auf deinem Rechner.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_download_02.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Lege ein neues Verzeichnis für deine neue Webseite an.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_download_03.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Lege für Bootstrap ein eigenes Unterverzeichnis <code>bootstrap</code> an.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_download_04.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Kopiere den Inhalt aus Bootstraps <code>dist</code>-Verzeichnis in das neue Unterverzeichnis.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_download_05.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Lege im Hauptverzeichnis eine HTML-Datei mit folgender Grundstruktur an.
+                            </p>
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Title der Seite&lt;/title&gt;
+
+                                        &lt;link rel="stylesheet" href="css/bootstrap.min.css"&gt;
+                                        &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"&gt;&lt;/script&gt;
+                                        &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"&gt;&lt;/script&gt;
+                                        &lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        …
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Das war's. Viel Spaß beim Programmieren.
+                            </p>
+                            <img class="active d-block w-25 m-auto" src="../../finish.svg" />
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Wenn du mit Netbeans programmierst</h2>
+
+                <ul class="dhbw-carousel-links">
+                    <li>
+                        <a href="#bootstrap-netbeans-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                    </li>
+                    <li>
+                        <a href="#bootstrap-netbeans-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                    </li>
+                    <li>
+                        <a href="#bootstrap-netbeans-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                    </li>
+                </ul>
+                <div id="bootstrap-netbeans-carousel" class="carousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item img-thumbnail active">
+                            <p>
+                                Wähle im <tt>File</tt>-Menü den Eintrag <tt>New Project…</tt> aus.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_netbeans_01.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Aus der Rubrik <tt>HTML5/JavaScript</tt> wähle <tt>HTML5/JS Application</tt> aus und gehe weiter.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_netbeans_02.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Gebe den Namen und Speicherort deines neuen Webprojekts ein und gehe weiter.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_netbeans_03.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Auf der dritten Seite wähle <tt>Download Online Template</tt> » <tt>Initializr: Bootstrap</tt> aus schließe das Fenster.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_netbeans_04.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                In der Toolbar kannst festlegen, mit welchen Browser du testen willst.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_netbeans_05.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Mit dem grünen „Play”-Symbol startest du einen lokalen Webserver und deinen Browser.
+                            </p>
+                            <img class="active d-block w-100" src="bootstrap_netbeans_06.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Das war schon alles. Du kannst jetzt direkt loslegen. <br />
+                            </p>
+                            <p>
+                                <b>Achtung!</b> Netbeans verwendet ggf. nicht die aktuellste Bootstrap-Version. <br />
+                                Achte daher auf die richtige Version, wenn du die Bootstrap-Doku liest. <br />
+                                Das HTML-Grundgerüst von Netbeans ist auch ziemlich kompliziert. 👿
+                            </p>
+                            <img class="active d-block w-25 m-auto" src="../../finish.svg" />
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis für das Endesymbol: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Bootstrap lässt sich kinderleicht in ein Webprojekt einbinden. Du musst lediglich
+                    eine CSS-Datei und eine JavaScript-Datei in den Projekt kopieren, die du im HTML-Code
+                    dann aufrufst. Wie du das machst, erfährst du auf den folgenden Screenshots. 📷
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 3: Ein kleines Bootstrap-Quiz</h1>
+            <article>
+                <h2>Wie wird der folgende HTML-Code mit Bootstrap dargestellt?</h2>
+                <source-code language="html">
+                    &lt;div class="container"&gt;
+                        &lt;div class="row"&gt;
+                            &lt;div class="col-md-4"&gt;…&lt;/div&gt;
+                            &lt;div class="col-md-8"&gt;…&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="row"&gt;
+                            &lt;div class="col-md-12"&gt;…&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                </source-code>
+                <ol style="margin-bottom: 2em; padding: 0.75em;">
+                    <li>
+                        Auf mittelgroßen Bildschirmen werden zwei Zeilen mit jeweils zwei Elementen
+                        nebeneinander angezeigt. Auf kleineren Bildschirmen steht alles untereinander.
+                    </li>
+                    <li>
+                        Auf allen Bildschirmen werden zwei unterschiedliche große Elemente in der
+                        ersten Zeile und ein großes Element in der zweiten Zeile dargestellt.
+                    </li>
+                    <li>
+                        Auf mittgelgroßen Bildschirmen stehen zwei unterschiedlich große Elemente
+                        in der ersten Zeile und ein großes Element in der zweiten Zeile. Auf kleineren
+                        Bildschirmen steht alles untereinander.
+                    </li>
+                </ol>
+
+                <h2>Wie wird der folgende HTML-Code mit Bootstrap dargestellt?</h2>
+                <source-code language="html">
+                    &lt;div class="container"&gt;
+                        &lt;div class="row"&gt;
+                            &lt;div class="col-lg-4"&gt;…&lt;/div&gt;
+                            &lt;div class="col-lg-4"&gt;…&lt;/div&gt;
+                            &lt;div class="col-lg-4"&gt;…&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="row"&gt;
+                            &lt;div class="col-lg-2"&gt;…&lt;/div&gt;
+                            &lt;div class="col-lg-4"&gt;…&lt;/div&gt;
+                            &lt;div class="col-lg-3"&gt;…&lt;/div&gt;
+                            &lt;div class="col-lg-3"&gt;…&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                </source-code>
+                <ol style="margin-bottom: 2em; padding: 0.75em;">
+                    <li>
+                        Auf großen Bildschirmen werden zwei Zeilen mit jeweils drei oder vier
+                        Elementen nebeneinander angezeigt. Auf kleineren Bildschirmen steht alles
+                        untereinander.
+                    </li>
+                    <li>
+                        Auf mittelgroßen Bildschirmen werden zwei Zeilen mit jeweils drei oder
+                        vier Elementen nebeneinander angezeigt. Auf kleineren Bildschirmen steht
+                        alles untereinander.
+                    </li>
+                    <li>
+                        Auf allen Bildschirmen werden zwei Zeilen mit jeweils drei oder vier
+                        Elementen nebeneinander angezeigt.
+                    </li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> 3, 1
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Das CSS-Grid von Bootstrap ist so herrlich einfach und doch flexibel. 💯
+                    Dieser Test sollte daher ein Klacks für dich sein. 🎓
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 4: Wir erkunden Bootstrap</h1>
+            <article>
+                <p>
+                    Lade dir das <a href="Bootstrap-Aufgabe.zip" download>ZIP-File zu dieser Aufgabe</a>
+                    herunter, damit du einen Grundstock an Bildern hast. Anschließend lege ein neues Projekt
+                    mit Bootstrap an und baue die Seite aus der Vorschau nach.
+                </p>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe4-vorschau-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe4-vorschau"
+                                role          = "tab"
+                                aria-controls = "Vorschau"
+                            >
+                                Vorschau
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe4-hinweise-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe4-hinweise"
+                                role          = "tab"
+                                aria-controls = "Hinweise"
+                            >
+                                Hinweise
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe4-loesung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe4-loesung"
+                                role          = "tab"
+                                aria-controls = "Lösung"
+                            >
+                                Lösung
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Vorschau -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "aufgabe4-vorschau"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe4-vorschau-tab"
+                        >
+                            <style>
+                                #aufgabe4-vorschau .row {
+                                    margin: 0;
+                                }
+
+                                #aufgabe4-vorschau h2 {
+                                    color: #A52A2A;
+                                }
+
+                                #aufgabe4-vorschau img {
+                                    display: block;
+                                    width: 100%;
+                                }
+
+                                #aufgabe4-vorschau .bigtext {
+                                    font-size: 130%;
+                                    color: white;
+                                    padding: 0.5em;
+                                    padding-left: 0.5em !important;
+                                    padding-right: 0.5em !important;
+                                }
+
+                                #aufgabe4-vorschau .red {
+                                    background-color: #880033;
+                                }
+
+                                #aufgabe4-vorschau .blue {
+                                    background-color: #005987;
+                                }
+
+                                #aufgabe4-vorschau .green {
+                                    background-color: #1B8D68;
+                                }
+                            </style>
+                            <div class="container-fluid">
+                                <div class="row no-gutters">
+                                    <div class="col">
+                                        <h2>Mein schönster Urlaub</h2>
+                                    </div>
+                                </div>
+
+                                <div class="row no-gutters">
+                                    <div class="col-md-9">
+                                        <img src="aufgabe4/auto.jpg" alt="Mein Auto" />
+                                    </div>
+                                    <div class="col-md-3 bigtext red">
+                                        Wir sind viel Auto gefahren.
+                                    </div>
+                                </div>
+
+                                <div class="row no-gutters">
+                                    <div class="col-md-6">
+                                        <img src="aufgabe4/boot.jpg" alt="Schnellboot" />
+                                    </div>
+                                    <div class="col-md-3 bigtext blue">
+                                        Aber manchmal auch mit dem Boot.
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="aufgabe4/bucht.jpg" alt="Bucht am Meer" />
+                                    </div>
+                                </div>
+
+                                <div class="row no-gutters">
+                                    <div class="col-md-3">
+                                        <img src="aufgabe4/baer.jpg" alt="Bär im Wald" />
+                                    </div>
+                                    <div class="col-md-3 bigtext green">
+                                        Finde den Bär.
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="aufgabe4/vancouver.jpg" alt="Hafen in Vancoucer" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="aufgabe4/denmanst.jpg" alt="Denman St. in Vancouver" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Hinweise -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe4-hinweise"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe4-hinweise-tab"
+                        >
+                            <h2>Farbcodes</h2>
+                            <ul>
+                                <li>
+                                    Die Farbe der Überschrift nennt sich <code>crimson</code>.
+                                </li>
+                                <li>
+                                    Der Farbcode des roten Kästchens ist <code>#880033</code>.
+                                </li>
+                                <li>
+                                    Der Farbcode des blauen Kästchens ist <code>#005987</code>.
+                                </li>
+                                <li>
+                                    Der Farbcode des grünen Kästchens ist <code>#1B8D68</code>.
+                                </li>
+                            </ul>
+
+                            <h2>Abstände</h2>
+                            <ul>
+                                <li>
+                                    Damit zwischen den Kästchen kein Abstand bleibt, musst du den
+                                    <src-code language="html">&lt;div class="row"&gt;</src-code>
+                                    zusätzlich noch die Klasse <code>no-gutters</code> geben.
+                                    Sonst verschiebt sich das ganze Layout.
+                                </li>
+                                <li>
+                                    Für den linken und rechten Innenabstand innerhalb der fabrigen
+                                    Kästchen benötigst du die CSS-Anweisungen
+                                    <src-code language="css">padding-left: 0.5em !important;</src-code>
+                                    und
+                                    <src-code language="css">padding-right: 0.5em !important;</src-code>.
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Lösung -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe4-loesung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe4-loesung-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Bootstrap-Aufgabe&lt;/title&gt;
+
+                                        &lt;script src="bootstrap/js/bootstrap.min.js"&gt;&lt;/script&gt;
+                                        &lt;link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" /&gt;
+
+                                        &lt;style&gt;
+                                            html {
+                                                font-family: sans-serif;
+                                                font-size: 12pt;
+                                                padding: 1em 0 1em 0;
+                                            }
+
+                                            h1 {
+                                                color: #A52A2A;
+                                            }
+
+                                            img {
+                                                display: block;
+                                                width: 100%;
+                                            }
+
+                                            .bigtext {
+                                                font-size: 300%;
+                                                color: white;
+                                                padding: 0.5em;
+                                                padding-left: 0.5em !important;
+                                                padding-right: 0.5em !important;
+                                            }
+
+                                            .red {
+                                                background-color: #880033;
+                                            }
+
+                                            .blue {
+                                                background-color: #005987;
+                                            }
+
+                                            .green {
+                                                background-color: #1B8D68;
+                                            }
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;div class="container-fluid"&gt;
+                                            &lt;div class="row no-gutters"&gt;
+                                                &lt;div class="col"&gt;
+                                                    &lt;h1&gt;Mein schönster Urlaub&lt;/h1&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="row no-gutters"&gt;
+                                                &lt;div class="col-md-9"&gt;
+                                                    &lt;img src="auto.jpg" alt="Mein Auto" /&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class="col-md-3 bigtext red"&gt;
+                                                    Wir sind viel Auto gefahren.
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="row no-gutters"&gt;
+                                                &lt;div class="col-md-6"&gt;
+                                                    &lt;img src="boot.jpg" alt="Schnellboot" /&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class="col-md-3 bigtext blue"&gt;
+                                                    Aber manchmal auch mit dem Boot.
+                                                &lt;/div&gt;
+                                                &lt;div class="col-md-3"&gt;
+                                                    &lt;img src="bucht.jpg" alt="Bucht am Meer" /&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="row no-gutters"&gt;
+                                                &lt;div class="col-md-3"&gt;
+                                                    &lt;img src="baer.jpg" alt="Bär im Wald" /&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class="col-md-3 bigtext green"&gt;
+                                                    Finde den Bär.
+                                                &lt;/div&gt;
+                                                &lt;div class="col-md-3"&gt;
+                                                    &lt;img src="vancouver.jpg" alt="Hafen in Vancoucer" /&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class="col-md-3"&gt;
+                                                    &lt;img src="denmanst.jpg" alt="Denman St. in Vancouver" /&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Zeit, mal wieder was zu programmieren. Ich weiß, ich weiß. Darauf hast du dich
+                    schon gefreut. 😍 Na, dann kannst du jetzt aufatmen. Du darfst eine kleine
+                    Bildergalerie mit Bootstrap erstellen.
+                </p>
+                <img src="../../github_atom.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
+                </p>
+            </aside>
+        </section>
 
         <section data-background-color="rgb(158, 203, 231)">
             <h1>Rechtshinweise</h1>
