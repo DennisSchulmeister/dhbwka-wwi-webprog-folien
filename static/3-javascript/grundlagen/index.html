@@ -145,7 +145,7 @@
                     Webseite mit JavaScript über das Document Object Model zu beeinflussen,
                     mehr Integration war aber nicht vorgesehen. Ein Grund dafür war sicher,
                     dass die vorherige HTML-Version schon 1999 zur einer Zeit verabschiedet
-                    wurde, als das Web tasächlich fast nur aus einfachen Webseiten bestand. 📜
+                    wurde, als das Web tatsächlich fast nur aus einfachen Webseiten bestand. 📜
                 </p>
                 <p>
                     Innerhalb der folgenden 15 Jahre 📆 hatten sich die Art der Webseiten und der
@@ -167,8 +167,8 @@
                     Damit einher geht auch ein neues Verständnis für das Web. Anstelle eines einfachen
                     Informationssystems zum Abruf textlastiger Webseiten wird es heute immer mehr als
                     vollwertige Anwendungsplattform verstanden, deren Bestandteile zur Entwicklung
-                    vieler verschiedener Anwendungen genutzt werden können. Auf der Folie siehst du eine
-                    daher eine Übersicht aller HTML 5-APIs. Für weitere Details empfehlen wir dir zusätzlich
+                    vieler verschiedener Anwendungen genutzt werden können. Auf der Folie siehst du daher
+                    eine Übersicht aller HTML 5-APIs. Für weitere Details empfehlen wir dir zusätzlich
                     noch folgende Seiten. Insbesondere auch, weil die Browser noch mehr APIs unterstützen,
                     als derzeit offiziell verabschiedet wurden.
                 </p>
@@ -611,7 +611,7 @@
                         Elements zu ändern, wenn man auch die Höhe aller seiner übergeordneten Elternelemente
                         setzt. Also nur, wenn man bei <src-code language="html">&lt;html&gt;</src-code> anfängt
                         und allen untergeordneten Elementen bis zu dem, dessen Höhe man setzen will, eine
-                        explizite Höhe gibt, funktioniertdie CSS-Anweisung <src-code language="css">height</src-code>
+                        explizite Höhe gibt, funktioniert die CSS-Anweisung <src-code language="css">height</src-code>
                         wie gewollt. Klingt komisch, ist aber so. 🐭
                     </small>
                 </p>
@@ -725,10 +725,10 @@
                     let vorhangRechts = document.querySelector("#theater &gt; .rechts");
                 </source-code>
                 <p>
-                    Die Syntax für <code>document.querySelector</code> ist dabei dieselbe Syntax, die auch schon
-                    von CSS her kennst. Das Ergebnis wird jeweils ein eine lokale Variable gespeichert, was du
-                    am vorangestellten <code>let</code> erkennen kannst. Darauf folgt dann eine Prüfung, ob der
-                    Vorhang offen oder geschlossen ist:
+                    Die Syntax für <code>document.querySelector</code> ist dabei dieselbe Syntax, die du auch
+                    schon von CSS her kennst. Das Ergebnis wird jeweils ein eine lokale Variable gespeichert,
+                    was du am vorangestellten <code>let</code> erkennen kannst. Darauf folgt dann eine Prüfung,
+                    ob der Vorhang offen oder geschlossen ist:
                 </p>
                 <source-code language="javascript">
                     if (!vorhangIstOffen) {
@@ -767,7 +767,7 @@
                         applaus2.currentTime = 0;
                         applaus2.play();
 
-                        // Entfernte die Klasse "offen", um Vorhänge wieder ins Bild
+                        // Entfernte die Klasse "offen", um die Vorhänge wieder ins Bild
                         // zu schieben
                         vorhangLinks.classList.remove("offen");
                         vorhangRechts.classList.remove("offen");
@@ -787,7 +787,7 @@
                 <p>
                     Wie du siehst, ist das gar kein besonders komplizierter Quellcode.
                     Lediglich der letzte Befehl hat es etwas in sich. Um ihn zu verstehen,
-                    musst du wissen, wie <src-code language=javascript>window.setTimeout()</src-code>
+                    musst du wissen, wie die Methode <src-code language=javascript>window.setTimeout()</src-code>
                     definiert ist:
                 </p>
                 <source-code language=javascript>
@@ -800,7 +800,7 @@
                     in einer Variable ablegen oder eben auch einer anderen Funktion als Parameter
                     übergeben kann. Und <src-code language=javascript>() =&gt; …</src-code> ist in
                     JavaScript die Schreibweise für eine anonyme Funktion ohne Namen. Also das, was
-                    in Java eine Lambda-Funktion ist. Etwas leserlich hätten wir deshalb auch schreiben
+                    in Java eine Lambda-Funktion ist. Etwas leserlicher hätten wir deshalb auch schreiben
                     können:
                 </p>
                 <source-code language=javascript>
@@ -904,8 +904,8 @@
                             </source-code>
                             <p>
                                 Etwas ungewöhnlich ist, dass Variablen automatisch globale Variablen sind,
-                                wenn man ihnen nicht <tt>var</tt> oder <tt>let</tt> voranstellt. Hier muss
-                                mal also wirklich aufpassen, damit es nicht zu diffizilen, schwer zu findenden
+                                wenn man ihnen nicht <tt>var</tt> oder <tt>let</tt> voranstellt. Hier musst
+                                du also wirklich aufpassen, damit es nicht zu diffizilen, schwer zu findenden
                                 Fehlern kommt. Älterer Code nutzt noch <tt>var</tt>, neuer Code sollte
                                 stattdessen aber immer <tt>let</tt> verwenden, <a href="https://davidwalsh.name/for-and-against-let" target="_blank">
                                 da es die Gültigkeit der Variablen noch mehr eingrenzt</a>.
@@ -917,9 +917,9 @@
                             <p>
                                 Da JavaScript keine wirkliche Deklaration von Variablen kennt, wird auch ihr
                                 Typ nicht fest vorgegeben. Stattdessen hängt es immer davon ab, was man gerade
-                                in eine Variable reinschreibt, welchen Typ sie hat. Im obigen Beispiel handelt
-                                es sich bei der Variable erst um einen String und dann um eine Zahl. Das ist
-                                zwar nicht schön, aber durchaus erlaubt.
+                                in eine Variable reinschreibt. Im obigen Beispiel handelt es sich bei der Variable
+                                erst um einen String und dann um eine Zahl. Das ist zwar nicht schön, aber durchaus
+                                erlaubt.
                             </p>
                         </div>
                         <!-- Java -->
@@ -1091,7 +1091,7 @@
                             </source-code>
                             <p>
                                 Hier gibt es fast gar keine Unterschiede zu Java. Lediglich
-                                den Operator <tt>===</tt> kenn Java nicht: Er prüft nicht nur, ob
+                                den Operator <tt>===</tt> kennt Java nicht: Er prüft nicht nur, ob
                                 zwei Variablen inhaltlich gleich sind, sondern auch ob sie denselben
                                 Typ haben:
                             </p>
@@ -1528,7 +1528,7 @@
                         for (var i = 0; i < 10; i++) { … }
                         console.log(i);
 
-                        // Variable mit let, gibt "undefined" aus
+                        // Variable mit let, wirft einen ReferenceError// Variable mit let, wirft einen ReferenceError
                         for (let j = 0; j < 10; j++) { … }
                         console.log(j);
                     }
@@ -1732,7 +1732,7 @@
 
                             <p>
                                 <b>Vorsicht:</b> Diese Lösung nutzt Rekursion und kann daher nur für relativ
-                                kleine Zahlen verwendet werden. Ist die Zahl <tt>𝑛</tt> zu groß, kommt es zu
+                                kleine Zahlen verwendet werden. Ist die Zahl <tt>𝑛</tt> zu groß, kommt es
                                 möglicherweiße zu einem Abbruch.
                             </p>
                         </div>
@@ -1776,7 +1776,7 @@
                     Aah, endlich. Genug der schönen Worte und her mit dem
                     JavaScript-Editor. Rufe die Seite von <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a>
                     auf und probiere, die folgende Aufgabe zu lösen. Wie wünschen
-                    dir Viel Erfolg dabei! 🐞
+                    dir viel Erfolg dabei! 🐞
                 </p>
                 <img src="../js.scratch.png" class="img-fluid d-block"/>
                 <p>
@@ -1827,7 +1827,7 @@
                             aria-labelledby = "aufgabe2-aufgabe-tab"
                         >
                             <p>
-                                Schaue dir den folgenden JavaScript-Code und lassen ihn auch mal in
+                                Schaue dir den folgenden JavaScript-Code und lasse ihn auch mal in
                                 <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a> laufen.
                                 Anschließend beantworte die folgenden Fragen:
                             </p>
@@ -1936,7 +1936,7 @@
                     <li>Prüfung, ob die Variable <tt>ergebnis</tt> den Wert <tt>42</tt> enthält</li>
                 </ol>
 
-                <p>c) <src-code language="javascript">multiply = (a, b) => return a * b;</src-code></p>
+                <p>c) <src-code language="javascript">multiply = (a, b) => a * b;</src-code></p>
                 <ol>
                     <li>Deklaration der beiden Variablen <tt>a</tt> und <tt>b</tt> und anschließende Multiplikation der beiden Werte</li>
                     <li>Definition einer Liste mit den Werten <tt>a</tt> und <tt>b</tt> mit anschließender Multiplikation der beiden Werte</li>
@@ -1947,7 +1947,7 @@
                     d) <src-code language="javascript">ergebnis = 42; ergebnis = "zweiundvierzig";</src-code>
                 </p>
                 <ol>
-                    <li>Duyk Typing: Die Variable <tt>ergebnis</tt> ist erst ein Integer, dann ein String</li>
+                    <li>Die Variable <tt>ergebnis</tt> ist erst ein Integer, dann ein String</li>
                     <li>Umwandlung des Werts in der Variablen <tt>ergebnis</tt> von einem String in einen Integer</li>
                     <li>Syntaxfehler: Das ist in JavaScript so nicht erlaubt</li>
                 </ol>
@@ -2029,7 +2029,7 @@
                             "Hi!"
                         ];
 
-                        let nr = Math.floor(Math.random() * 4);
+                        let nr = Math.floor(Math.random() * texte.length);
                         return texte[nr];
                     }
                 </source-code>
@@ -2121,7 +2121,7 @@
                     <tt>m</tt> erwartet und als Ergebnis <tt>n * m</tt> zurückliefert.
                 </p>
                 <p>
-                    Dir saust der Kopf? 😱 Du findest das ziemlich kompliziert? Du hälst es
+                    Dir saust der Kopf? 😱 Du findest das ziemlich kompliziert? Du hältst es
                     vielleicht sogar für höhere Magie? 🔮 Mach dir nichts daraus. Wir wollten
                     es nur mal erwähnen. Wenn dich das Thema mehr interessiert, lies dir auf
                     Wikipedia den Artikel über <a href="https://de.wikipedia.org/wiki/Closure_(Funktion)" target="_blank">
@@ -2886,7 +2886,7 @@
             </article>
             <aside>
                 Um später AJAX-Aufrufe an den Server schicken zu können, solltest du
-                Sattelfest in JSON sein. Hier kannst du daher gleich ausprobieren, ob
+                sattelfest in JSON sein. Hier kannst du daher gleich ausprobieren, ob
                 du auch komplexe Daten im JavaScript/JSON-Format beschreiben kannst. 📄
             </aside>
         </section>
