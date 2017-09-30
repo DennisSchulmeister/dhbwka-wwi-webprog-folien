@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <title>DOM-Manipulation mit JavaScript</title>
+
         <link rel="shortcut icon" href="../../favicon.svg" />
         <link rel="stylesheet" href="../../style.css" />
         <script src="../../learning-slides.bundle.js"></script>
@@ -19,7 +21,135 @@
         <section>
             <h1>JavaScript in HTML einbinden</h1>
             <article>
-                .
+                <h2>Direkt im HTML-Code</h2>
+
+                <div style="margin-bottom: 1em;">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "einbinden-direkt-html-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#einbinden-direkt-html"
+                                role          = "tab"
+                                aria-controls = "einbinden-direkt-html"
+                                aria-expanded = "true"
+                            >
+                                HTML-Code
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "einbinden-direkt-ergebnis-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#einbinden-direkt-html"
+                                role          = "tab"
+                                aria-controls = "einbinden-direkt-html"
+                            >
+                                Ergebnis
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- HTML-Code -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "einbinden-direkt-html"
+                            role            = "tabpanel"
+                            aria-labelledby = "einbinden-direkt-html-tab"
+                        >
+                            <source-code language="html">
+                                HTML-Code
+                            </source-code>
+                        </div>
+                        <!-- Ergebnis -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "einbinden-direkt-ergebnis"
+                            role            = "tabpanel"
+                            aria-labelledby = "einbinden-direkt-ergebnis-tab"
+                        >
+                            Ergebnis
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Ein einer separaten Datei</h2>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "einbinden-separat-html-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#einbinden-separat-html"
+                                role          = "tab"
+                                aria-controls = "einbinden-separat-html"
+                                aria-expanded = "true"
+                            >
+                                HTML-Code
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "einbinden-separat-javascript-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#einbinden-separat-html"
+                                role          = "tab"
+                                aria-controls = "einbinden-separat-html"
+                            >
+                                JavaScript
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "einbinden-separat-ergebnis-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#einbinden-separat-html"
+                                role          = "tab"
+                                aria-controls = "einbinden-separat-html"
+                            >
+                                Ergebnis
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- HTML-Code -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "einbinden-separat-html"
+                            role            = "tabpanel"
+                            aria-labelledby = "einbinden-separat-html-tab"
+                        >
+                            <source-code language="html">
+                                HTML-Code
+                            </source-code>
+                        </div>
+                        <!-- JavaScript -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "einbinden-separat-javascript"
+                            role            = "tabpanel"
+                            aria-labelledby = "einbinden-separat-javascript-tab"
+                        >
+                            <source-code language="javascript">
+                                JavaScript
+                            </source-code>
+                        </div>
+                        <!-- Ergebnis -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "einbinden-separat-ergebnis"
+                            role            = "tabpanel"
+                            aria-labelledby = "einbinden-separat-ergebnis-tab"
+                        >
+                            Ergebnis
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 .

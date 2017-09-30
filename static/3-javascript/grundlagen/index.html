@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <title>Grundlagen JavaScript</title>
+
         <link rel="shortcut icon" href="../../favicon.svg" />
         <link rel="stylesheet" href="../../style.css" />
         <script src="../../learning-slides.bundle.js"></script>
@@ -195,7 +197,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vorhang-vorschau"
                                 role          = "tab"
-                                aria-controls = "Vorschau"
+                                aria-controls = "vorhang-vorschau"
                                 aria-expanded = "true"
                             >
                                 Vorschau
@@ -208,7 +210,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vorhang-html"
                                 role          = "tab"
-                                aria-controls = "HTML"
+                                aria-controls = "vorhang-html"
                             >
                                 HTML
                             </a>
@@ -220,7 +222,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vorhang-stylesheet"
                                 role          = "tab"
-                                aria-controls = "Stylesheet"
+                                aria-controls = "vorhang-stylesheet"
                             >
                                 Stylesheet
                             </a>
@@ -232,12 +234,11 @@
                                 data-toggle   = "tab"
                                 href          = "#vorhang-javascript"
                                 role          = "tab"
-                                aria-controls = "JavaScript"
+                                aria-controls = "vorhang-javascript"
                             >
                                 JavaScript
                             </a>
                         </li>
-                        <li class="nav-item">
                     </ul>
                     <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
                         <!-- Vorschau -->
@@ -864,7 +865,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vergleich-variablen-javascript"
                                 role          = "tab"
-                                aria-controls = "JavaScript"
+                                aria-controls = "vergleich-variablen-javascript"
                                 aria-expanded = "true"
                             >
                                 JavaScript
@@ -877,7 +878,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vergleich-variablen-java"
                                 role          = "tab"
-                                aria-controls = "Java"
+                                aria-controls = "vergleich-variablen-java"
                             >
                                 Java
                             </a>
@@ -975,7 +976,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vergleich-funktionen-javascript"
                                 role          = "tab"
-                                aria-controls = "JavaScript"
+                                aria-controls = "vergleich-funktionen-javascript"
                                 aria-expanded = "true"
                             >
                                 JavaScript
@@ -988,7 +989,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vergleich-funktionen-java"
                                 role          = "tab"
-                                aria-controls = "Java"
+                                aria-controls = "vergleich-funktionen-java"
                             >
                                 Java
                             </a>
@@ -1053,7 +1054,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vergleich-unterscheidungen-javascript"
                                 role          = "tab"
-                                aria-controls = "JavaScript"
+                                aria-controls = "vergleich-unterscheidungen-javascript"
                                 aria-expanded = "true"
                             >
                                 JavaScript
@@ -1066,7 +1067,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vergleich-unterscheidungen-java"
                                 role          = "tab"
-                                aria-controls = "Java"
+                                aria-controls = "vergleich-unterscheidungen-java"
                             >
                                 Java
                             </a>
@@ -1081,9 +1082,9 @@
                             aria-labelledby = "vergleich-unterscheidungen-javascript-tab"
                         >
                             <source-code language="javascript">
-                                if (alter < 18) {
+                                if (alter &lt; 18) {
                                     …
-                                } else if (alter < 60) {
+                                } else if (alter &lt; 60) {
                                     …
                                 } else {
                                     …
@@ -1143,9 +1144,9 @@
                             aria-labelledby = "vergleich-unterscheidungen-java-tab"
                         >
                             <source-code language="java">
-                                if (alter < 18) {
+                                if (alter &lt; 18) {
                                     …
-                                } else if (alter < 60) {
+                                } else if (alter &lt; 60) {
                                     …
                                 } else {
                                     …
@@ -1201,7 +1202,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vergleich-schleifen-javascript"
                                 role          = "tab"
-                                aria-controls = "JavaScript"
+                                aria-controls = "vergleich-schleifen-javascript"
                                 aria-expanded = "true"
                             >
                                 JavaScript
@@ -1214,7 +1215,7 @@
                                 data-toggle   = "tab"
                                 href          = "#vergleich-schleifen-java"
                                 role          = "tab"
-                                aria-controls = "Java"
+                                aria-controls = "vergleich-schleifen-java"
                             >
                                 Java
                             </a>
@@ -1239,7 +1240,7 @@
                                     i--;
                                 } while (i > 0);
 
-                                for (let i = 0; i < 100; i++) {
+                                for (let i = 0; i &lt; 100; i++) {
                                     …
                                 }
                             </source-code>
@@ -1283,7 +1284,7 @@
                                     i--;
                                 } while (i > 0);
 
-                                for (int i = 0; i < 100; i++) {
+                                for (int i = 0; i &lt; 100; i++) {
                                     …
                                 }
                             </source-code>
@@ -1525,11 +1526,11 @@
                 <source-code language="javascript">
                     function lonestar() {
                         // Variable mit var, gibt "10" aus
-                        for (var i = 0; i < 10; i++) { … }
+                        for (var i = 0; i &lt; 10; i++) { … }
                         console.log(i);
 
                         // Variable mit let, wirft einen ReferenceError// Variable mit let, wirft einen ReferenceError
-                        for (let j = 0; j < 10; j++) { … }
+                        for (let j = 0; j &lt; 10; j++) { … }
                         console.log(j);
                     }
                 </source-code>
@@ -1638,7 +1639,7 @@
                                 data-toggle   = "tab"
                                 href          = "#aufgabe1-aufgabe"
                                 role          = "tab"
-                                aria-controls = "Aufgabe"
+                                aria-controls = "aufgabe1-aufgabe"
                                 aria-expanded = "true"
                             >
                                 Aufgabe
@@ -1651,7 +1652,7 @@
                                 data-toggle   = "tab"
                                 href          = "#aufgabe1-loesung1"
                                 role          = "tab"
-                                aria-controls = "Lösung 1"
+                                aria-controls = "aufgabe1-loesung1"
                             >
                                 Lösung 1
                             </a>
@@ -1663,7 +1664,7 @@
                                 data-toggle   = "tab"
                                 href          = "#aufgabe1-loesung2"
                                 role          = "tab"
-                                aria-controls = "Lösung 2"
+                                aria-controls = "aufgabe1-loesung2"
                             >
                                 Lösung 2
                             </a>
@@ -1799,7 +1800,7 @@
                                 data-toggle   = "tab"
                                 href          = "#aufgabe2-aufgabe"
                                 role          = "tab"
-                                aria-controls = "Aufgabe"
+                                aria-controls = "aufgabe2-aufgabe"
                                 aria-expanded = "true"
                             >
                                 Aufgabe
@@ -1812,7 +1813,7 @@
                                 data-toggle   = "tab"
                                 href          = "#aufgabe2-loesung"
                                 role          = "tab"
-                                aria-controls = "Lösung 1"
+                                aria-controls = "aufgabe2-loesung"
                             >
                                 Lösung
                             </a>
@@ -2144,7 +2145,7 @@
                                 data-toggle   = "tab"
                                 href          = "#komplex-listen-javascript"
                                 role          = "tab"
-                                aria-controls = "JavaScript"
+                                aria-controls = "komplex-listen-javascript"
                                 aria-expanded = "true"
                             >
                                 JavaScript
@@ -2157,7 +2158,7 @@
                                 data-toggle   = "tab"
                                 href          = "#komplex-listen-java"
                                 role          = "tab"
-                                aria-controls = "Java"
+                                aria-controls = "komplex-listen-java"
                             >
                                 Java
                             </a>
@@ -2203,7 +2204,7 @@
                                 Einträge eines Arrays abarbeiten.
                             </p>
                             <source-code language="javascript">
-                                for (let i = 0; i < einkaufsliste.length; i++) {
+                                for (let i = 0; i &lt; einkaufsliste.length; i++) {
                                     console.log(einkaufsliste[i]);
                                 }
 
@@ -2239,7 +2240,7 @@
                                 Der Zugriff erfolgt entweder per Index oder über eine For-Each-Schleife:
                             </p>
                             <source-code language="java">
-                                for (int i = 0; i < einkaufsliste.length; i++) {
+                                for (int i = 0; i &lt; einkaufsliste.length; i++) {
                                     System.println(einkfaufsliste[i]);
                                 }
 
@@ -2295,7 +2296,7 @@
                                 data-toggle   = "tab"
                                 href          = "#komplex-dicts-javascript"
                                 role          = "tab"
-                                aria-controls = "JavaScript"
+                                aria-controls = "komplex-dicts-javascript"
                                 aria-expanded = "true"
                             >
                                 JavaScript
@@ -2308,7 +2309,7 @@
                                 data-toggle   = "tab"
                                 href          = "#komplex-dicts-java"
                                 role          = "tab"
-                                aria-controls = "Java"
+                                aria-controls = "komplex-dicts-java"
                             >
                                 Java
                             </a>
@@ -2420,7 +2421,7 @@
                                 data-toggle   = "tab"
                                 href          = "#komplex-beides-javascript"
                                 role          = "tab"
-                                aria-controls = "JavaScript"
+                                aria-controls = "komplex-beides-javascript"
                                 aria-expanded = "true"
                             >
                                 JavaScript
@@ -2433,7 +2434,7 @@
                                 data-toggle   = "tab"
                                 href          = "#komplex-beides-java"
                                 role          = "tab"
-                                aria-controls = "Java"
+                                aria-controls = "komplex-beides-java"
                             >
                                 Java
                             </a>
@@ -2725,7 +2726,7 @@
                                 data-toggle   = "tab"
                                 href          = "#aufgabe6-aufgabe"
                                 role          = "tab"
-                                aria-controls = "Aufgabe"
+                                aria-controls = "aufgabe6-aufgabe"
                                 aria-expanded = "true"
                             >
                                 Aufgabe
@@ -2738,7 +2739,7 @@
                                 data-toggle   = "tab"
                                 href          = "#aufgabe6-loesung"
                                 role          = "tab"
-                                aria-controls = "Lösung 1"
+                                aria-controls = "aufgabe6-loesung"
                             >
                                 Lösung
                             </a>
