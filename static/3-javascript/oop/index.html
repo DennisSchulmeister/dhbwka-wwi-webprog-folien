@@ -108,6 +108,14 @@
                 .
             </article>
             <aside>
+                <!--
+                Problem: Ein im UI sochtbarer Wert wird an mehreren Stellen geschrieben.
+                Einfache Lösung: An allen Stellen das DOM-Update einbauen.
+                Ist aber nicht so schön, da doppelter Quellcode und schwer zu pflegen, wenn sich die HTML-Struktur ändert.
+                Bessere Lösung: Eine Funktion/Methode definieren, die den Wert setzt und das DOM aktualisiert
+                Diese Lösung lässt sich mit einer DataBinding-Klasse verallgemeinern
+                Hinweis auf Angular.js / Knockout.js, die u.a. two-way-binding bieten, dafür aber vorschrieben, wie der Code strukturiert sein muss.
+                -->
                 .
             </aside>
         </section>
