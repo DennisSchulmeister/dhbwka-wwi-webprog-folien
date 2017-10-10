@@ -97,7 +97,7 @@
                                 &lt;!DOCTYPE html&gt;
                                 &lt;html&gt;
                                     &lt;head&gt;
-                                        &lt;meta charset="utf-8"
+                                        &lt;meta charset="utf-8"&gt;
                                         &lt;title&gt;Faszination Klavier&lt;/title&gt;
                                     &lt;/head&gt;
                                     &lt;body&gt;
@@ -701,7 +701,7 @@
                         <src-code language="css">article .infobox</src-code>
                     </dt>
                     <dd>
-                        Eltern/Kind-Beziehung (transitiv): Suche alle Elemente mit
+                        Eltern/Kind-Beziehung (transitiv, d.h. alle Nachfahren) bzw. Nachfahre-Beziehung: Suche alle Elemente mit
                         <src-code language="html">class="infobox"</src-code>, die irgendwo
                         innerhalb eines <src-code language="html">&lt;article&gt;</src-code>-Elements
                         stehen
@@ -711,8 +711,8 @@
                         <src-code language="css">section &gt; h1</src-code>
                     </dt>
                     <dd>
-                        Eltern/Kind-Beziehung (nicht transitiv): Suche alle
-                        <src-code language="html">&lt;h1&gt;</src-code>, deren Elternelement
+                        Eltern/Kind-Beziehung (nicht transitiv, d.h. nur direkte Nachfahren): Suche alle
+                        <src-code language="html">&lt;h1&gt;</src-code>, deren direktes Elternelement
                         ein <src-code language="html">&lt;section&gt;</src-code> ist
                     </dd>
 
@@ -1750,8 +1750,8 @@
                     <dt>RGBA-Tuppel</dt>
                     <dd>
                         <ul>
-                            <li><code>rgb(100, 100, 100, 0.75)</code></li>
-                            <li><code>rgb(173, 216, 230, 0.85)</code></li>
+                            <li><code>rgba(100, 100, 100, 0.75)</code></li>
+                            <li><code>rgba(173, 216, 230, 0.85)</code></li>
                         </ul>
                     </dd>
                 </dl>
@@ -1858,7 +1858,7 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 1: Ein kleines CSS-Quiz</h1>
             <article>
-                <h2>Welcher CSS-Selektor wählt …</h2>
+                <h2>Aufgabe 1.1: Welcher CSS-Selektor wählt …</h2>
 
                 <p>a) … alle Absätze der Seite aus?</p>
                 <ol>
@@ -1927,7 +1927,7 @@
                     </li>
                 </ol>
 
-                <h2>Mit welcher CSS-Anweisung kann man …</h2>
+                <h2>Aufgabe 1.2: Mit welcher CSS-Anweisung kann man …</h2>
 
                 <p>a) … die Schriftart festlegen?</p>
                 <ol>
@@ -1994,7 +1994,8 @@
 
                 <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
                     <small>
-                        <b>Lösung:</b> 4, 3, 2, 1 und 2, 2, 2 und 4, 1, 3 und 4
+                        <!-- <b>Lösung:</b> 4, 3, 2, 1 und 2, 2, 2 und 4, 1, 3 und 4 -->
+                        <b>Lösung:</b> Aufgabe 1.1: 4, 3, 2, 1 und 2; Aufgabe 1.2: 2, 2 und 4, 1, 3 und 4
                     </small>
                 </p>
             </article>
