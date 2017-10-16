@@ -1,0 +1,9 @@
+Hallo, Welt!
+
+Ich bin eine einfache Textdatei auf einem Webserver. :-)
+Man kann mich im Browser unter folgender URL aufrufen:
+
+https://www.wpvs.de/webprog/hallo-http.txt
+
+Mehr Spaß macht es jedoch, den HTTP-Aufruf von Hand in
+ein Terminal einzugeben.

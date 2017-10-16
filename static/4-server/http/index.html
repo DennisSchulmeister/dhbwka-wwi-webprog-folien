@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Einmal Server und zurück</title>
+
+        <link rel="shortcut icon" href="../../favicon.svg" />
+        <link rel="stylesheet" href="../../style.css" />
+        <script src="../../learning-slides.bundle.js"></script>
+    </head>
+    <body class="slides invisible" data-title="Einmal Server und zurück" tabindex="0">
+        <header>
+            <h2>Inhaltsverzeichnis</h2>
+            <p>
+                Arthur Dent hatte schon lange keinen so schlechten Tag mehr wie den,
+                an dem die Erde in die Luft flog. 🔥 Halt, Moment, Stop. Falsches Buch. 📘
+                Hier geht es darum, den Server in unsere Webentwicklung miteinzubeziehen.
+            </p>
+        </header>
+
+        <section>
+            <h1>Was passiert beim Aufruf einer Webseite?</h1>
+
+            <article>
+                <style>
+                    #http-intro > div {
+                        display: inline-block;
+                        float: left;
+                        box-sizing: border-box;
+
+                        position: relative;
+                        padding-bottom: 30%;
+                    }
+
+                    #http-intro .http-intro-w3  { width: 25%; }
+                    #http-intro .http-intro-w4  { width: 34%; }
+                    #http-intro .http-intro-w6  { width: 50%; }
+                    #http-intro .http-intro-w8  { width: 66%; }
+                    #http-intro .http-intro-w12 { width: 100%; }
+
+                    #http-intro .img-thumbnail {
+                        margin-right: 0.33em;
+                        margin-bottom: 0.33em;
+                        padding: 0;
+                        overflow: hidden;
+
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+
+                        border: 1px solid rgb(214, 214, 214);
+                        border-radius: 0.3em;
+                    }
+
+                    #http-intro .img-thumbnail img {
+                        position: absolute;
+                        bottom: 0;
+                        display: block;
+                        width: 100%;
+                    }
+
+                    #http-intro .img-thumbnail p {
+                        width: 100%;
+                        padding: 0.2em;
+                    }
+
+                    .http-intro-hidden {
+                        display: none !important;
+                    }
+
+                    .http-intro-next > .img-thumbnail {
+                        background-color: rgb(223, 247, 252);
+                        color: rgb(18, 84, 116);
+                        font-size: 80%;
+
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+
+                        transition: filter 0.2s, box-shadow: 0.2s, opacity 0.75s;
+                    }
+
+                    .http-intro-next > .img-thumbnail:hover {
+                        filter: contrast(90%);
+                        box-shadow: 0 0 2px rgba(0,0,0,0.25);
+                        cursor: pointer;
+                    }
+
+                    @media all and (max-width: 1500px) {
+                        #http-intro > div {
+                            display: block;
+                            width: 100% !important;
+                            padding-bottom: 0;
+                            float: none;
+                        }
+
+                        #http-intro .img-thumbnail {
+                            position: relative;
+                        }
+
+                        #http-intro .img-thumbnail img {
+                            width: auto;
+                            height: 100%;
+                            position: relative;
+                        }
+                    }
+                </style>
+
+                <script>
+                let http_intro_showNext = (event, classHidden) => {
+                    let element = document.querySelector(`.${classHidden}`);
+                    if (element != null) element.classList.remove(classHidden);
+
+                    element = document.querySelector(`.${classHidden}`);
+                    if (element === null) event.target.parentNode.remove(event.target);
+                };
+                </script>
+
+                <div id="http-intro">
+                    <div class="http-intro-w8">
+                        <div class="img-thumbnail">
+                            <p>
+                                Unsere Geschichte beginnt mit einen Browser und einem Webserver.
+                            </p>
+                            <img src="http_intro_01.svg" />
+                        </div>
+                    </div>
+                    <div class="http-intro-w4 http-intro-hidden">
+                        <div class="img-thumbnail">
+                            <p>
+                                Und einem Anwender, der eine URL eingibt.
+                            </p>
+                            <img src="http_intro_02.svg" />
+                        </div>
+                    </div>
+                    <div class="http-intro-w6 http-intro-hidden">
+                        <div class="img-thumbnail">
+                            <p>
+                                Daraufhin baut der Browser eine Verbindung zum Server auf.
+                            </p>
+                            <img src="http_intro_03.svg" />
+                        </div>
+                    </div>
+                    <div class="http-intro-w6 http-intro-hidden">
+                        <div class="img-thumbnail">
+                            <p>
+                                Und sendet ihm eine Anfrage, um die Seite abzurufen. In diesem Fall eine GET-Anfrage.
+                            </p>
+                            <img src="http_intro_04.svg" />
+                        </div>
+                    </div>
+                    <div class="http-intro-w12 http-intro-hidden">
+                        <div class="img-thumbnail">
+                            <p>
+                                Der Server (da er ja ein lieber Server ist 💗) antwortet mit Statuscode 200 und dem Inhalt der Seite.
+                            </p>
+                            <img src="http_intro_05.svg" />
+                        </div>
+                    </div>
+                    <div class="http-intro-w3 http-intro-hidden">
+                        <div class="img-thumbnail">
+                            <p>
+                                Sogleich macht sich der Browser daran die Seite darzustellen.
+                            </p>
+                            <img src="http_intro_06.svg" />
+                        </div>
+                    </div>
+                    <div class="http-intro-w3 http-intro-hidden">
+                        <div class="img-thumbnail">
+                            <p>
+                                Doch halt! Die Seite enthält ja noch Stylesheets, Skripte und Bilder.
+                            </p>
+                            <img src="http_intro_07.svg" />
+                        </div>
+                    </div>
+                    <div class="http-intro-w6 http-intro-hidden">
+                        <div class="img-thumbnail">
+                            <p>
+                                Diese muss der Browser alle vom Server abrufen.
+                            </p>
+                            <img src="http_intro_08.svg" />
+                        </div>
+                    </div>
+                    <div class="http-intro-w8 http-intro-hidden">
+                        <div class="img-thumbnail">
+                            <p>
+                                Und der Server antwortet fleißig mit den gesuchten Dateien.
+                            </p>
+                            <img src="http_intro_09.svg" />
+                        </div>
+                    </div>
+                    <div class="http-intro-w4 http-intro-hidden">
+                        <div class="img-thumbnail">
+                            <p>
+                                Am Ende ist die Seite vollständig aufgebaut und die Verbindung wird getrennt.
+                            </p>
+                            <img src="http_intro_10.svg" />
+                        </div>
+                    </div>
+
+                    <div class="http-intro-w3 http-intro-next" onclick="http_intro_showNext(event, 'http-intro-hidden')">
+                        <div class="img-thumbnail">
+                            <span style="font-size: 400%">🖼️</span>
+                            Nächstes Bild anzeigen
+                        </div>
+                    </div>
+                </div>
+
+                <p style="clear: both;">
+                    <small>
+                        <small>
+                            Bildnachweise:
+                            <a href="https://pixabay.com/de/computer-schreibtisch-modern-ger%C3%A4t-154114/" target="_blank">Pixabay: OpenClipart-Vectors</a>,
+                            <a href="https://pixabay.com/de/server-hardware-netzwerk-computer-37258/" target="_blank">Pixabay: Clker-Free-Vector-Images</a>,
+                            <a href="https://pixabay.com/de/mann-gesch%C3%A4ft-cartoon-kaufmann-1351761/" target="_blank">Pixabay: ROverhate</a>,
+                            <a href="https://pixabay.com/de/palette-farben-malerei-werkzeug-1817857/" target="_blank">Pixabay: Jsprzperez</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Erinnerst du dich noch an den Anfang der Vorlesung, als wir uns die
+                    Grundlagen des World Wide Web angeschaut haben? Dort gab es eine kleine
+                    Übersicht, welche Techniken zusammen das Web ausmachen:
+                </p>
+                <ul>
+                    <li>
+                        <b>HTML:</b> Beschreibungssprache für Webseiten und Dokumente im
+                        Web
+                    </li>
+                    <li>
+                        <b>CSS:</b> Stylesheet-Sprache zur Gestaltung der HTML-Dateien
+                    </li>
+                    <li>
+                        <b>JavaScript:</b> (Mehr oder weniger) einfache Skriptsprache
+                        für die Clientlogik
+                    </li>
+                    <li>
+                        <b>HTTP:</b> Übertragungsprotokoll für den Datenaustausch mit
+                        dem Server
+                    </li>
+                    <li>
+                        <b>WebSockets:</b> Zusätzliches, asynchrones Übertragungsprotokoll
+                    </li>
+                </ul>
+                <p>
+                    Das Meisten davon haben wir uns inzwischen genauer angeschaut, so dass
+                    du heute sicher viel besser nachvollziehen kannst, warum diese Techniken
+                    für das Web so wichtig sind. Aber halt, Moment mal. 🙋 Haben wir nicht
+                    etwas vergessen? Ach ja richtig: Der Server. 🤤 Den haben wir uns ja noch
+                    gar nicht angeschaut. Und das, obwohl er für so viele Webanwendungen so
+                    unheimlich wichtig ist. Zeit also, dass wir das hier nun nachholen.
+                    Doch bevor wir das tun können, müssen wir erst eine ganz zentrale Frage
+                    beantworten¹:
+                </p>
+                <p>
+                    <i>
+                        Wie funktioniert das eigentlich, wenn der Browser eine Seite
+                        vom Server abruft?
+                    </i>
+                </p>
+                <p>
+                    Die Antwort darauf siehst du auf dieser Folie. 🎟️
+                </p>
+                <p>
+                    <small>
+                        ¹ Nein, ausnahmesweiße einmal nicht <a href="https://www.google.de/search?q=answer+to+life+the+universe+and+everything"
+                        target="_blank">die Frage nach dem Leben, dem Universum und dem ganzen Rest.</a>
+                        Die Antwort darauf kennen wir ja schon: 42.
+                    </small>
+                    🤖 🐬
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Inahlt einer HTTP-Nachricht</h1>
+            <article>
+                <style>
+                    #http-nachricht1 table {
+                        color: rgb(80,80,80);
+                    }
+
+                    #http-nachricht1 td {
+                        vertical-align: top;
+                        padding: 0;
+                        padding: 0 0.3em 0 0.3em;
+                    }
+
+                    #http-nachricht1 .http-nachricht {
+                        font-family: monospace;
+                        color: black;
+                        background-color: rgb(240,240,240);
+                    }
+
+                    #http-nachricht1 .http-verb       { color: darkred; }
+                    #http-nachricht1 .http-url        { color: darkgreen; }
+                    #http-nachricht1 .http-version    { color: darkcyan; }
+                    #http-nachricht1 .http-header     { color: darkblue; }
+                    #http-nachricht1 .http-statuscode { color: darkred; }
+                    #http-nachricht1 .http-statustext { color: darkgreen; }
+                    #http-nachricht1 .http-optional   { color: red; }
+                </style>
+                <div id="http-nachricht1" style="margin-bottom: 1em;">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "http-nachricht1-anfrage-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#http-nachricht1-anfrage"
+                                role          = "tab"
+                                aria-controls = "http-nachricht1-anfrage"
+                                aria-expanded = "true"
+                            >
+                                Anfrage
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "http-nachricht1-antwort-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#http-nachricht1-antwort"
+                                role          = "tab"
+                                aria-controls = "http-nachricht1-antwort"
+                            >
+                                Antwort
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Anfrage -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "http-nachricht1-anfrage"
+                            role            = "tabpanel"
+                            aria-labelledby = "http-nachricht1-anfrage-tab"
+                        >
+                            <table>
+                                <tr>
+                                    <td>
+                                        Verb
+                                    </td>
+                                    <td>
+                                        Pfad
+                                    </td>
+                                    <td>
+                                        HTTP-Version
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="http-nachricht http-verb">
+                                        POST
+                                    </td>
+                                    <td class="http-nachricht http-url">
+                                        /feedback/save.php
+                                    </td>
+                                    <td class="http-nachricht http-version">
+                                        HTTP/1.1
+                                    </td>
+                                    <td>
+                                        Anfragezeile
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="http-nachricht http-header" colspan="3" >
+                                        Host: www.wpvs.de <br />
+                                        Content-Type: text/json <br />
+                                        Accept: text/json <br />
+                                        Connection: keep-alive <br />
+                                    </td>
+                                    <td>
+                                        Header Fields
+                                        <span class="http-optional">¹</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="http-nachricht" colspan="3">
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        Leerzeile
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="http-nachricht http-body" colspan="3">
+                                        { <br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;"course": "webprog", <br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;"year": 2017, <br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;"text": "Vielen Dank für diese tolle Vorlesung!" <br />
+                                        }
+                                    </td>
+                                    <td>
+                                        Request Body
+                                        <span class="http-optional">¹</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- Antwort -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "http-nachricht1-antwort"
+                            role            = "tabpanel"
+                            aria-labelledby = "http-nachricht1-antwort-tab"
+                        >
+                        <table>
+                            <tr>
+                                <td>
+                                    HTTP-Version
+                                </td>
+                                <td>
+                                    Statuscode
+                                </td>
+                                <td>
+                                    Bezeichnung
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="http-nachricht http-version">
+                                    HTTP/1.1
+                                </td>
+                                <td class="http-nachricht http-statuscode">
+                                    200
+                                </td>
+                                <td class="http-nachricht http-statustext">
+                                    Ok
+                                </td>
+                                <td>
+                                    Antwortzeile
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="http-nachricht http-header" colspan="3" >
+                                    Content-Type: text/json <br />
+                                    Content-Length: 55 <br />
+                                    Date: Sun, 15 Oct 2017 20:18:17 GMT
+                                </td>
+                                <td>
+                                    Header Fields
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="http-nachricht" colspan="3">
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    Leerzeile
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="http-nachricht http-body" colspan="3">
+                                    { <br />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"type": "success", <br />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;"message": "Feedback wurde gespeichert", <br />
+                                    }
+                                </td>
+                                <td>
+                                    Response Body
+                                </td>
+                            </tr>
+                        </table>
+                        </div>
+                    </div>
+
+                    <p>
+                        <small>
+                            <small>
+                                <span class="http-optional">¹</span> Optional
+                            </small>
+                        </small>
+                    </p>
+                </div>
+
+                <div id="http-nachricht2">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "http-nachricht2-verben-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#http-nachricht2-verben"
+                                role          = "tab"
+                                aria-controls = "http-nachricht2-verben"
+                                aria-expanded = "true"
+                            >
+                                Verben
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "http-nachricht2-statuscodes-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#http-nachricht2-statuscodes"
+                                role          = "tab"
+                                aria-controls = "http-nachricht2-statuscodes"
+                            >
+                                Statuscodes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "http-nachricht2-versionen-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#http-nachricht2-versionen"
+                                role          = "tab"
+                                aria-controls = "http-nachricht2-versionen"
+                            >
+                                HTTP-Versionen
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Verben -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "http-nachricht2-verben"
+                            role            = "tabpanel"
+                            aria-labelledby = "http-nachricht2-verben-tab"
+                        >
+                            <h2>GET</h2>
+                            <ul>
+                                <li>
+                                    Inhalte vom Server abrufen
+                                </li>
+                                <li>
+                                    Die Anfrage darf keinen Request Body enthalten
+                                </li>
+                                <li>
+                                    Der Server antwortet mit dem gewünschten Inhalt oder einer Fehlerseite
+                                </li>
+                            </ul>
+
+                            <h2>PUT</h2>
+                            <ul>
+                                <li>
+                                    Neue Inhalte auf den Server hochladen
+                                </li>
+                                <li>
+                                    Der Inhalt der Datei muss im Request Body mitgeschickt werden
+                                </li>
+                                <li>
+                                    Der Server antwortet mit einer neuen HTML-Seite oder einer Fehlerseite
+                                </li>
+                            </ul>
+
+                            <h2>POST</h2>
+                            <ul>
+                                <li>
+                                    Daten zur Verarbeitung an den Server schicken
+                                </li>
+                                <li>
+                                    Wird häufig verwendet, um vorhandene Daten auf dem Server zu aktualisieren
+                                </li>
+                                <li>
+                                    Der Server antwortet mit einer neuen HTML-Seite oder einer Fehlerseite
+                                </li>
+                            </ul>
+
+                            <h2>DELETE</h2>
+                            <ul>
+                                <li>
+                                    Daten auf dem Server löschen
+                                </li>
+                                <li>
+                                    Die Anfrage darf keinen Request Body enthalten
+                                </li>
+                                <li>
+                                    Der Server antwortet mit einer neuen HTML-Seite oder einer Fehlerseite
+                                </li>
+                            </ul>
+
+                            <h2>Seltener verwendete Verben</h2>
+                            <p>
+                                <tt>HEAD</tt>, <tt>OPTIONS</tt>, <tt>TRACE</tt>, <tt>PATCH</tt>
+                            </p>
+                        </div>
+                        <!-- Statuscodes -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "http-nachricht2-statuscodes"
+                            role            = "tabpanel"
+                            aria-labelledby = "http-nachricht2-statuscodes-tab"
+                        >
+                            <h2>1xx: Informationen</h2>
+                            <ul>
+                                <li>
+                                    Zwischenmeldung, um die Verbindung aufrecht zu erhalten
+                                </li>
+                                <li>
+                                    Verhindert, dass die Verbindung durch einen Timeout vorzeitig beendet wird
+                                </li>
+                            </ul>
+
+                            <h2>2xx: Erfolgreicher Abschluss</h2>
+                            <ul>
+                                <li>
+                                    Die Anfrage wurde erfolgreich bearbeitet
+                                </li>
+                                <li>
+                                    <tt>200 OK</tt>: Alles roger! Der Response Body beinhaltet die gewünschten Daten 👌🏼
+                                </li>
+                                <li>
+                                    <tt>202 Accepted</tt>: Die Anfrage wurde empfangen, wird aber erst später bearbeitet
+                                </li>
+                                <li>
+                                    …
+                                </li>
+                            </ul>
+
+                            <h2>3xx: Umleitung</h2>
+                            <ul>
+                                <li>
+                                    Es sind weitere Aktionen vom Client notwendig
+                                </li>
+                                <li>
+                                    <tt>300 Multiple Choice</tt>: Die Anfrage war nicht eindeutig genug
+                                </li>
+                                <li>
+                                    <tt>301 Moved Permanently</tt>: Umleitung des Clients auf eine andere URL
+                                </li>
+                                <li>
+                                    …
+                                </li>
+                            </ul>
+
+                            <h2>4xx: Client Fehler</h2>
+                            <ul>
+                                <li>
+                                    Der Client hat etwas falsch gemacht; die Verarbeitung wird abgelehnt
+                                </li>
+                                <li>
+                                    <tt>400 Bad Request</tt>: Ungültige bzw. fehlerhafte Anfrage
+                                </li>
+                                <li>
+                                    <tt>401 Unauthorized</tt>: Keine Berechtigung für diese Aktion
+                                </li>
+                                <li>
+                                    <tt>403 Forbidden</tt>: Die Aktion ist prinzipiell nicht erlaubt
+                                </li>
+                                <li>
+                                    <tt>404 Not Found</tt>: Der gesuchte Inhalt wurde nicht gefunden
+                                </li>
+                                <li>
+                                    …
+                                </li>
+                            </ul>
+
+                            <h2>5xx: Server Fehler</h2>
+                            <ul>
+                                <li>
+                                    Anfrage kann aufgrund eines Serverfehlers nicht bearbeitet werden
+                                </li>
+                                <li>
+                                    <tt>500 Internal Server Error</tt>: Schwerer technischer Fehler, alles ist kaputt! 🗑️
+                                </li>
+                                <li>
+                                    <tt>501 Not Implemented</tt>: Die Funktion ist nicht verfügbar
+                                </li>
+                                <li>
+                                    <tt>503 Service Unavailable</tt>: Temporärer Fehler, bitte später nochmal versuchen
+                                </li>
+                                <li>
+                                    …
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Versionen -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "http-nachricht2-versionen"
+                            role            = "tabpanel"
+                            aria-labelledby = "http-nachricht2-versionen-tab"
+                        >
+                            <h2>HTTP/0.9</h2>
+                            <p>
+                                Dies war die ursprüngliche von Tim Berners-Lee entwickelte HTTP-Version, wie sie 1991 veröffentlicht wurde.
+                                In dieser Version gab es nur GET-Anfragen und noch keine Header Fields. Eine Anfrage bestand daher lediglich
+                                aus einer Zeile:
+                            </p>
+                            <source-code language="http">
+                                GET /index.html
+                            </source-code>
+                            <p>
+                                Die Antwort des Servers beinhalte nur den Inhalt der abgerufenen Datei, sonst nichts.
+                            </p>
+
+                            <h2 style="margin-top: 1em;">HTTP/1.0</h2>
+                            <p>
+                                1996 wurde HTTP/1.0 veröffentlicht. Ab hier haben die HTTP-Nachrichten den oben gezeigten Aufbau.
+                            </p>
+
+                            <h2 style="margin-top: 1em;">HTTP/1.1</h2>
+                            <p>
+                                Diese Version wurde 1999 veröffentlicht und brachte weitreichende Verbesserungen. Unter anderem
+                                die Möglichkeit, die Verbindung zwischen zwei Anfragen offen zu halten. Denn zuvor wurde die Verbindung
+                                nach jeder Antwort automatisch getrennt. Da aber gerade der Verbindungsaufbau bei TCP/IP sehr langsam ist,
+                                führte dies zu langen Wartezeiten, wenn mehrere Dateien vom selben Server abgerufen werden mussten.
+                            </p>
+
+                            <h2 style="margin-top: 1em;">HTTP/2</h2>
+                            <p>
+                                2015 wurde HTTP/2 offiziell verabschiedet. In seinen Grundzügen basiert es auf dem von Google entwickelten
+                                SPDY-Protokoll. Die Inhalte der HTTP-Nachrichten sind weitgehend gleich geblieben, jedoch werden sie nicht
+                                mehr in der oben gezeigten Textform kodiert. Stattdessen kommt ein kompaktes und in vielen Dingen eindeutiger
+                                spezifiziertes Binärformat zum Einsatz.¹
+                            </p>
+                            <p>
+                                Als weitere größere Neuerung führt HTTP/2 <b>Server Push</b> ein, wodurch der Server beim Abruf einer
+                                HTML-Seite selbstständig weitere Dateien an den Browser schicken kann. Somit können Stylesheets, Skripte
+                                und Bilder schon an den Browser geschickt werden, bevor dieser überhaupt weiß, dass er sie benötigen wird.
+                            </p>
+                            <p>
+                                Stand 2017 hat sich HTTP/2 noch nicht gegen HTTP/1 durchgesetzt. Die meisten Webseiten verwenden weiterhin
+                                HTTP/1. Man kann aber davon ausgehen, dass sich das im Laufe der Jahre ändern wird.
+                            </p>
+                            <p>
+                                <small>
+                                    <small>
+                                        ¹ Beispielsweise war bei HTTP/1.x nie definiert, welche Bytefolge ein Zeilenende markiert.
+                                    </small>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Das Übertragungsprotokoll, mit dem der Browser Daten vom Server abruft, heißt HTTP. Die Abkürzung steht eigentlich
+                    für <b>HyperText Transfer Protocol</b>. Heute nennt es aber niemand mehr so. 🙂
+                </p>
+
+                <h2>Alles beginnt mit einer Anfrage</h2>
+                <p>
+                    HTTP ist wirklich ein simples Protokoll. Oder zumindest war es das einmal, als es erfunden wurde. Im Laufe der
+                    Zeit wurde es natürlich immer mehr erweitert. In seinen Grundzügen ist es aber immer noch relativ einfach:
+                    Der Browser stellt eine Verbindung zum Server her, sendet eine Anfrage und bekommt eine Antwort. Ende. 👸🏼
+                </p>
+                <p>
+                    Die Anfrage beinhaltet dabei stets folgende Daten:
+                </p>
+                <ul>
+                    <li>
+                        <b>Verb:</b> Kennzeichnet die Aktion, die der Server ausführen soll. Zum Beispiel <tt>GET</tt> für
+                        den Abruf einer Seite, oder <tt>PUT</tt> zum Hochladen einer Datei.
+                    </li>
+                    <li>
+                        <b>Pfad:</b> Der Dateipfad, auf den sich die Anfrage bezieht. Oft handelt es sich einfach um eine
+                        Datei, die der Server zurückschicken soll. Das muss aber nicht so sein, wie wir später noch sehen
+                        werden. 😮
+                    </li>
+                    <li>
+                        <b>HTTP-Version:</b> In HTTP/1 dient dies hauptsächlich dazu, die Anfrage von der Antwort zu unterscheiden.
+                        Bei der Anfrage steht die HTTP-Version in der ersten Zeile hinten, bei der Antwort ganz am Anfang. Darüber
+                        hinaus steuert die HTTP-Version aber auch welche Header Fields (siehe nächster Punkt) die Gegenseite
+                        verstehen muss.
+                    </li>
+                    <li>
+                        <b>Header Fields (optional):</b> Dies sind Daten, die das Verhalten des Servers beeinflussen. Beispielsweise
+                        wird hier die angeforderte Domain mitgeschickt, da heutzutage die meisten Webserver mehrere Domains mit derselben
+                        IP-Adresse bedienen.
+                    </li>
+                    <li>
+                        <b>Request Body (optional):</b> Hier können Daten an den Server geschickt werden, die dieser speichern
+                        oder weiterverarbeiten soll. Ob der Server einen Request Body erwartet hängt dabei vom verwendeten
+                        HTTP-Verb ab.
+                    </li>
+                </ul>
+                <p>
+                    Den genauen Aufbau einer HTTP-Anfrage sowie alle erlaubten Verben findest du auf der Folie. 📄
+                </p>
+
+                <h2>Und endet mit einer Antwort</h2>
+                <p>
+                    Die Antwort des Servers sieht im Prinzip genauso aus, wie eine Anfrage. Anstelle von Verb und Pfad beinhaltet
+                    sie jedoch einen Statuscode, der darüber Auskunft gibt, ob die angeforderte Aktion ausgeführt werden konnte.
+                    Jede Antwort beinhaltet daher folgende Daten:
+                </p>
+                <ul>
+                    <li>
+                        <b>HTTP-Version:</b> Die HTTP-Version, nach deren Regeln die Antwort aufgebaut ist
+                    </li>
+                    <li>
+                        <b>Statuscode:</b> Nummerischer Code, der die Art der Antwort definiert
+                    </li>
+                    <li>
+                        <b>Statustext:</b> Kurze, menschenverständliche Beschreibung zum Statuscode
+                    </li>
+                    <li>
+                        <b>Header Fields:</b> Verschiedene Informationen über die gelieferten Daten, zum Beispiel das Datenformat
+                        (<a href="https://de.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions" target="_blank">MIME-Type</a>)
+                        und die Anzahl Bytes
+                    </li>
+                    <li>
+                        <b>Response Body:</b> Die eigentlichen abgerufenen Daten oder bei Fehlern eine HTML-Seite mit einer Fehlerbeschreibung
+                    </li>
+                </ul>
+                <p>
+                    Dabei ist der Statuscode schon so eine komische Sache, da er vom Browser eigentlich gar nicht angezeigt wird. 🙈
+                    Verschiedene Statuscodes lösen aber ein unterschiedliches Verhalten beim Browser aus. Meistens zeigt der Browser
+                    einfach nur den Inhalt des Responsy Body an. Der Statuscode 301 führt aber zum Beispiel dazu, dass der Browser
+                    auf eine neue Seite weitergeleitet wird.
+                </p>
+
+                <h2>Über die verschiedenen HTTP-Versionen</h2>
+                <p>
+                    Heute sind eigentlich nur zwei HTTP-Versionen von Bedeutung: HTTP/1.1 und HTTP/2. HTTP/1.1 ist dabei zur Zeit
+                    noch deutlich in der Überzahl, langfristig wird es aber wohl durch HTTP/2 abgelöst werden. Inhaltlich sind die
+                    beiden Versionen nahezu identisch. Jedoch verwendet HTTP/2 nicht mehr die auf de Folie gezeigte Textform
+                    sondern ersetzt diese durch eine effizientere binäre Darstellung. 🏎️
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Zeit für eine Demonstration</h1>
+            <article>
+                <ul class="dhbw-carousel-links">
+                    <li>
+                        <a href="#http-demo-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                    </li>
+                    <li>
+                        <a href="#http-demo-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                    </li>
+                    <li>
+                        <a href="#http-demo-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                    </li>
+                </ul>
+                <div id="http-demo-carousel" class="carousel" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item img-thumbnail active">
+                            <p>
+                                Wir starten mit einer leeren Konsole. Du kennst doch die Konsole deines Betriebssystems, oder? 🐒
+                            </p>
+                            <img class="active d-block w-100" src="http_demo_01.gif" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Mit <tt>telnet</tt> stellen wir eine <a href="https://de.wikipedia.org/wiki/Socket_(Software)"
+                                target="_blank">TCP/IP-Verbindung</a> zum Webserver her.
+                            </p>
+                            <img class="active d-block w-100" src="http_demo_02.gif" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Daraufhin meldet <tt>telnet</tt>, dass die Verbindung erfolgreich aufgebaut wurde und der Server wartet
+                                auf Eingaben.
+                            </p>
+                            <img class="active d-block w-100" src="http_demo_03.gif" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Wir schicken eine <tt>GET</tt>-Anfrage zum Abruf der Datei <tt>/webprog/hallo-http.txt</tt>.
+                            </p>
+                            <img class="active d-block w-100" src="http_demo_04.gif" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Als nächstes folgt das Header Field <tt>Host</tt>, da es mehrere Domains mit derselben IP-Adresse gibt.
+                            </p>
+                            <img class="active d-block w-100" src="http_demo_05.gif" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Das war es dann auch schon mit den Header Fields. Zum Abschluss folgt deshalb eine Leerzeile.
+                            </p>
+                            <img class="active d-block w-100" src="http_demo_06.gif" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Und schon schickt uns der Server die Antwort und trennt die Verbindung.
+                            </p>
+                            <img class="active d-block w-100" src="http_demo_07.gif" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                So einfach ist das. 👍🏻 Allerdings nur mit HTTP/1, denn HTTP/2 kodiert die Nachrichten in einer kompakteren
+                                Binärform.
+                            </p>
+                            <img class="active d-block w-25 m-auto" src="../../finish.svg" />
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis für das Endesymbol: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Um dir zu zeigen, dass HTTP wirklich so ein einfaches Protokoll ist, haben wir hier
+                    eine kleine Demonstration für dich. 📺 Wir rufen eine Datei von einem Webserver ab
+                    mit nichts weiter als der guten alten Konsole. Kein Browser, kein gar nichts. Nur
+                    eine Konsole. Denn: Wo eine Konsole ist, ist ein Weg. 🏜️
+                </p>
+
+                <div class="embed-responsive embed-responsive-16by9" style="margin-bottom: 1em">
+                    <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/xEd-SEzgkF4?rel=0?rel=0" allowfullscreen></iframe>
+                </div>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Aufzeichnung der HTTP-Kommunikation im Browser</h1>
+            <article>
+                <ul class="dhbw-carousel-links">
+                    <li>
+                        <a href="#devtool-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                    </li>
+                    <li>
+                        <a href="#devtool-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                    </li>
+                    <li>
+                        <a href="#devtool-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                    </li>
+                </ul>
+                <div id="devtool-carousel" class="carousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item img-thumbnail active">
+                            <p>
+                                Wir starten mit den geöffneten Entwicklerwerkzeugen. <kbd>F12</kbd> und schon sind sie da.
+                            </p>
+                            <img class="active d-block w-100" src="devtool_01.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Dann rufen wir die Webseite auf, deren Ladezeiten wir untersuchen wollen.
+                            </p>
+                            <img class="active d-block w-100" src="devtool_02.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Der Browser zeichnet daraufhin die Kommunikation auf und zeigt folgende Übersicht an.
+                                Jede Zeile entspricht einer abgerufenen Datei.
+                            </p>
+                            <img class="active d-block w-100" src="devtool_03.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Jede Zeile kann angeklickt werden, um sie näher zu untersuchen. Rechts sieht man
+                                dann unter anderem die Header Fields der HTTP-Nachrichten.
+                            </p>
+                            <img class="active d-block w-100" src="devtool_04.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Der Inhalt der untersuchten Datei kann natürlich auch angezeigt werden.
+                            </p>
+                            <img class="active d-block w-100" src="devtool_05.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Ebenso wie eine Detailübersicht, wie viel Zeit wofür verwendet wurde.
+                            </p>
+                            <img class="active d-block w-100" src="devtool_06.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Unten Links versteckt sich im Firefox die „Performanceanalyse”.
+                            </p>
+                            <img class="active d-block w-100" src="devtool_07.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Sie zeigt, wie lange die einzelnen Teil der Seite laden. Einmal wenn der
+                                Browser die Dateien bereits kennt <i>(Primed Cache)</i> und einmal für
+                                komplett neue Besucher <i>(Empty Cache)</i>.
+                            </p>
+                            <img class="active d-block w-100" src="devtool_08.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Hier endet unsere kleine Rundreise. Die Netzwerkanalyse des Browsers ist ein
+                                äußerst nützliches Werkzeug.
+                            </p>
+                            <img class="active d-block w-25 m-auto" src="../../finish.svg" />
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis für das Endesymbol: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Jetzt, wo wir uns auch das HTTP-Protokoll angeschaut haben, bist du bereit für
+                    das letzte große Geheimnis der Entwicklungswerkzeuge des Browsers: Die Netzwerkanalyse. 👑
+                    Auf dieser Folie zeigen wir dir, wie du damit die gesamte HTTP-Kommunikation beim Aufruf
+                    einer Seite aufzeichnen und untersuchen kannst. Damit kommst du langen Ladezeiten ganz
+                    schnell auf die Spur. 🕑
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 1: Ein kleines HTTP-Quiz</h1>
+            <article>
+                <h2>Aufgabe 1.1: HTTP-Verben</h2>
+
+                <p>
+                    a) Was bedeutet das HTTP-Verb <tt>POST</tt>?
+                </p>
+                <ol>
+                    <li>
+                        Vorhandene Daten vom Server abrufen
+                    </li>
+                    <li>
+                        Daten auf dem Server löschen (<tt>POST</tt> = Postpone)
+                    </li>
+                    <li>
+                        Daten zur Verarbeitung an den Server schicken
+                    </li>
+                </ol>
+
+                <p>
+                    b) Was bedeutet das HTTP-Verb <tt>DELETE</tt>?
+                </p>
+                <ol>
+                    <li>
+                        Daten im Browser löschen
+                    </li>
+                    <li>
+                        Daten auf dem Server löschen
+                    </li>
+                    <li>
+                        Prüfen, ob die Daten gelöscht werden können
+                    </li>
+                </ol>
+
+                <p>
+                    c) Was bedeutet das HTTP-Verb <tt>GET</tt>?
+                </p>
+                <ol>
+                    <li>
+                        Daten vom Server abrufen, zum Beispiel eine HTML-Datei
+                    </li>
+                    <li>
+                        Abrufen einer Dateiliste vom Server mit allen Dateien einer Webseite
+                    </li>
+                    <li>
+                        Übertrag einer Datei vom Browser an den Server
+                    </li>
+                </ol>
+
+                <h2>Aufgabe 1.2: Statuscodes</h2>
+
+                <p>
+                    a) Was bedeutet der Statuscode <tt>401 Unauthorized</tt>?
+                </p>
+                <ol>
+                    <li>
+                        Die gesuchten Daten wurden nicht gefunden
+                    </li>
+                    <li>
+                        Die gewünschte Funktion wurde nicht ausprogrammiert
+                    </li>
+                    <li>
+                        Der Anwender ist für die gewünschte Funktion nicht berechtigt
+                    </li>
+                </ol>
+
+                <p>
+                    b) Was bedeutet der Statuscode <tt>503 Service Unavailble</tt>?
+                </p>
+                <ol>
+                    <li>
+                        Es ist ein temporärer Fehler aufgetreten, bitte später nochmal versuchen
+                    </li>
+                    <li>
+                        Es ist ein schwerwiegender Fehler aufgetreten
+                    </li>
+                    <li>
+                        Die gesuchte Information wurde nicht gefunden
+                    </li>
+                </ol>
+
+                <p>
+                    c) Welcher Statuscode signalisiert, dass die Seite nicht gefunden wurde?
+                </p>
+                <ol>
+                    <li>
+                        <tt>200</tt>
+                    </li>
+                    <li>
+                        <tt>301</tt>
+                    </li>
+                    <li>
+                        <tt>404</tt>
+                    </li>
+                </ol>
+
+                <p>
+                    d) Welcher Statuscode wird geschickt, wenn alles okay ist?
+                </p>
+                <ol>
+                    <li>
+                        <tt>100</tt>
+                    </li>
+                    <li>
+                        <tt>200</tt>
+                    </li>
+                    <li>
+                        <tt>300</tt>
+                    </li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> Aufgabe 1.1: 3, 2, 1; Aufgabe 1.2: 3, 1, 3, 2
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Wie immer an dieser Stelle: Ein kleines Quiz mit dem du prüfen kannst,
+                    ob du dir die wichtigsten Dinge gemerkt hast. 🐧
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Serverseitige Webentwicklung mit Java</h1>
+            <article>
+                <h2>Statische Dateien vs. Javacode</h2>
+                <div style="margin-bottom: 1em;">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "java-laufzeit-statisch-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#java-laufzeit-statisch"
+                                role          = "tab"
+                                aria-controls = "java-laufzeit-statisch"
+                                aria-expanded = "true"
+                            >
+                                Statische Dateien
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "java-laufzeit-dynamisch-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#java-laufzeit-dynamisch"
+                                role          = "tab"
+                                aria-controls = "java-laufzeit-dynamisch"
+                            >
+                                Javacode
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Statische Dateien -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "java-laufzeit-statisch"
+                            role            = "tabpanel"
+                            aria-labelledby = "java-laufzeit-statisch-tab"
+                        >
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md">
+                                        1. Der Webserver empfängt eine HTTP-Anfrage.
+                                    </div>
+                                    <div class="col-md">
+                                        2. Da sich die Anfrage auf eine einfache Datei bezieht, sucht der Server die Datei im Dateisystem.
+                                    </div>
+                                    <div class="col-md">
+                                        3. Kann der Server die Datei finden, schickt er als Antwort den Statuscode 200 sowie den Inhalt der Datei.
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="java_webserver_01.svg" class="d-block" style="width: 100%; margin: 0 auto; margin-top: 1em; margin-bottom: 1em;" />
+                        </div>
+                        <!-- Javacode -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "java-laufzeit-dynamisch"
+                            role            = "tabpanel"
+                            aria-labelledby = "java-laufzeit-dynamisch-tab"
+                        >
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md">
+                                        1. Der Webserver empfängt eine HTTP-Anfrage.
+                                    </div>
+                                    <div class="col-md">
+                                        2. Dieses mal bezieht sich die Anfrage auf ein <b>Servlet</b> oder eine <b>Java Server Page</b>.
+                                    </div>
+                                    <div class="col-md">
+                                        3. Der Server führt das Servlet bzw. die Java Server Page aus, um eine Antwort zu generieren.
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="java_webserver_02.svg" class="d-block" style="width: 100%; margin: 0 auto; margin-top: 1em; margin-bottom: 1em;" />
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Webcontainer vs. eingebetter Webserver</h2>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "java-server-webcontainer-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#java-server-webcontainer"
+                                role          = "tab"
+                                aria-controls = "java-server-webcontainer"
+                                aria-expanded = "true"
+                            >
+                                Externer Webcontainer
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "java-server-eingebettet-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#java-server-eingebettet"
+                                role          = "tab"
+                                aria-controls = "java-server-eingebettet"
+                            >
+                                Eingebetteter Webserver
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Externer Webcontainer -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "java-server-webcontainer"
+                            role            = "tabpanel"
+                            aria-labelledby = "java-server-webcontainer-tab"
+                        >
+                            <p>
+                                Die klassische Form der Webentwicklung in Java. Ein ein Java geschriebener Webserver
+                                (der sogenannte <b>Webcontainer</b> bzw. <b>Applikationsserver</b>) beherbergt eine
+                                beliebige Anzahl an Webanwendungen. Die Webanwendungen müssen hierfür als <b>Webarchive</b>
+                                verpackt und im Server <b>deployed</b> werden (Deployment = Die Webanwendung mit dem Server
+                                zusammenbringen).
+                            </p>
+                            <p>
+                                Historisch bedingt sind Webcontainer große, schwergewichtige Applikationsserver, die viele
+                                Ressourcen benötigen und je nach Einsatzgebiet umfangreich konfiguriert werden wollen.
+                                Aber es ist wie mit jedem Schlachtschiff: 🚢 Einmal in Dienst gestellt verrichtet es viele Jahre
+                                lang seine Arbeit.
+                            </p>
+                            <img src="java_webcontainer.svg" class="d-block img-responsive" style="margin-top: 1em; margin-bottom: 1em;" />
+                            <p>
+                                Bekannte Applikationsserver sind:
+                                <a href="http://tomcat.apache.org/" target="_blank">Tomcat</a>,
+                                <a href="https://www.eclipse.org/jetty/" target="_blank">Jetty</a>,
+                                <a href="https://javaee.github.io/GlassFish/" target="_blank">GlassFish</a>,
+                                <a href="http://wildfly.org/" target="_blank">Wildfly</a>.
+                            </p>
+                        </div>
+                        <!-- Eingebetteter Webserver -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "java-server-eingebettet"
+                            role            = "tabpanel"
+                            aria-labelledby = "java-server-eingebettet-tab"
+                        >
+                            <p>
+                                Moderne Alternative zu herkömmlichen Webcontainern: Bring Your Own Webserver. Bei der Webanwendung
+                                handelt es sich um ein gewöhnliches Javaprogramm mit einem integrierten Webserver. Dieser Ansatz
+                                kommt vor allem bei <a href="https://jaxenter.de/was-sind-microservices-40571" target="_blank">Microservices</a>
+                                und <a href="https://12factor.net/de/" target="_blank">12-Faktor-Apps</a> zum Einsatz.
+                            </p>
+                            <p>
+                                Natürlich musst du nicht gleich einen eigenen Webserver programmieren. Hierfür gibt es fertige
+                                Bibliotheken, die du in deine Anwendung einbauen kannst. Im Vergleich zu einer herkömmlichen
+                                Webanwendung ist sie dadurch viel einfacher in Betrieb zu nehmen und verbraucht in der Regel
+                                auch weniger Ressourcen. 🛥️
+                            </p>
+                            <img src="java_eingebetteter_webserver.svg" class="d-block img-responsive" style="margin-top: 1em; margin-bottom: 1em;" />
+                            <p>
+                                Bekannte HTTP-Server-Bibliotheken sind:
+                                <a href="https://docs.oracle.com/javase/9/docs/api/index.html?jdk.httpserver-summary.html" target="_blank">Die Klasse HttpServer</a>,
+                                <a href="https://github.com/NanoHttpd/nanohttpd" target="_blank">NanoHTTPD</a>,
+                                <a href="http://undertow.io/" target="_blank">Undertow</a>,
+                                <a href="http://sparkjava.com/" target="_blank">Spark</a>,
+                                <a href="https://www.eclipse.org/jetty/" target="_blank">Jetty</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <h2>Statisch oder dynamisch?</h2>
+                <p>
+                    Alle Webseiten, die wir bisher erstellt haben, brauchen keinen besonderen Webserver.
+                    Ein einfacher Webserver, der einfach nur die von uns erstellten Dateien bereitstellen
+                    kann, reicht völlig aus. Denn bisher haben wir uns ja nur mit den Techniken des Browsers
+                    und damit der clientseitigen Webentwicklung beschäftigt. Doch das Frontend, wie eine
+                    Browser App in diesem Zusammenhang oft genannt wird, ist tatsächlich nur die eine Seite
+                    der Medaille. 🥇 Die andere Seite ist der Server bzw. das Backend.
+                </p>
+                <p>
+                    Serverseitig gibt es eine schier unermessliche Auswahl an Programmiersprachen und Frameworks.
+                    Da ist wirklich für jeden Geschmack etwas dabei. 🍕 An der DHBW machen wir es uns jedoch
+                    einfach und verwenden Java. 🍵 Denn unabhängig von der Programmiersprache ist das Prinzip
+                    eigentlich immer dasselbe: Anstatt als Antwort einfach den statischen Inhalt einer Datei zu
+                    liefern führt der Server ein Stückchen Programmcode aus, um die Antwort auf eine HTTP-Anfrage
+                    zu generieren. Der einzige Unterschied besteht dann eigentlich nur darin, wie der Code aufgebaut
+                    sein muss. 🏗️
+                </p>
+                <p>
+                    Java unterscheidet hier zwischen <b>Servlets</b> und <b>Java Server Pages</b>. Servlets sind
+                    dabei einfache Javaklassen, die eine Anfrage empfangen und eine Antwort generieren. Beispielsweise
+                    eine HTML-Seite oder ein PDF-Dokument. Und Java Server Pages sind bereits fertige HTML-Dateien
+                    (bzw. einfache Textdateien), in denen immer mal wieder kleine Schnippsel Javacode vorkommen,
+                    um Teile der Seite dynamisch zu erzeugen.
+                </p>
+                <p>
+                    In diesem Kapitel schauen wir uns nur Java Server Pages an. Zu Servlets kommen wir ein andermal.
+                </p>
+
+                <h2>Auf die Verpackung kommt es an</h2>
+                <p>
+                    Historisch bedingt werden Webanwendungen oft so entwickelt, dass sie in einem bereits vorgefertigten
+                    Webserver zum Laufen gebracht werden. Man installiert also einen Webserver auf seiner Maschine und
+                    richten ihn so ein, dass er die Quellcodes der Webanwendung finden und ausführen kann. Dieser Ansatz
+                    kommt auch in Java zum Einsatz. Im Gegensatz zu den meisten anderen Programmiersprachen lässt sich
+                    Java aber nicht mit jedem Webserver nutzen. Denn im Javaumfeld gibt es speziellen Webserver, die
+                    sogenannten <b>Webcontainer</b> oder auch <b>Applikationsserver</b>, die nur darauf ausgelegt sind,
+                    javabasierte Webanwendungen auszuführen. Sie sind selbst auch in Java geschrieben und bringen bereits
+                    alles mit, um eine oder mehrere Webanwendungen laufen lassen zu können.
+                </p>
+                <p>
+                    Der Nachteil an den Webcontainern ist, dass sie groß, schwer und ressourcenhungrig sind. In den letzten
+                    Jahren hat sich das zwar immer mehr gebessert, mit den kleinen, schlanken Webservern anderer Programmiersprachen
+                    können sie aber immer noch nicht mithalten. Webcontainer kommen daher oft im Unternehmensumfeld bei
+                    der Entwicklung von Unternehmensanwendungen oder Kundenportalen zum Einsatz. Eben dort wo Zeit und Geld
+                    im Überfluss vorhanden sind 💸 oder man sich zumindest performante Hardware leisten kann. 💪
+                </p>
+                <p>
+                    Eine moderne Alternative dazu sind <a href="https://jaxenter.de/was-sind-microservices-40571" target="_blank">Microservices</a>
+                    oder auch <a href="https://12factor.net/de/" target="_blank">12-Faktor-Apps</a>, wie sie nicht zuletzt auch
+                    durch die Programmierung in der Cloud (PaaS) beliebt geworden sind. 🌥️ Hier sagt man sich „Bring Your Own
+                    Webserver” und schreibt einfach ganz normale Javaprogramme, die zufälligerweise einen eigen Webserver
+                    beinhalten. Dadurch hat man den Vorteil, dass die Anwendungen insgesamt viel schlanker werden und in der
+                    Regel auch einfacher in Betrieb zu nehmen sind. Denn Anstatt jede Anwendung aufwändig zu einem sogenannten
+                    <b>Webarchiv</b> zu verpacken und dieses im Webcontainer zu deployen, reicht es einfach, das Programm zu starten.
+                    So wie man eben ein Javaprogramm startet. 🤓
+                </p>
+                <p>
+                    Auch wenn Microservices der deutlich moderne Ansatz sind, beschäftigen wir uns hier weiterhin mit den
+                    klassischen Webcontainern. Einerseits, weil sie nach wie vor ihre Einsatzgebiete haben und andererseits,
+                    weil wir uns hier so auf das Wesentliche konzentrieren können. Nämlich die Behandlung von HTTP-Anfragen,
+                    ohne hierfür ein eigenes Rahmenprogramm entwickeln zu müssen. 🦄
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Unsere erste Java Server Page</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "jsp-quellcode-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#jsp-quellcode"
+                                role          = "tab"
+                                aria-controls = "jsp-quellcode"
+                                aria-expanded = "true"
+                            >
+                                Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "jsp-vorschau1-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#jsp-vorschau1"
+                                role          = "tab"
+                                aria-controls = "jsp-vorschau1"
+                            >
+                                Der erste Aufruf
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "jsp-vorschau1-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#jsp-vorschau2"
+                                role          = "tab"
+                                aria-controls = "jsp-vorschau2"
+                            >
+                                Nachdem das Formular abgeschickt wurde
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Quellcode -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "jsp-quellcode"
+                            role            = "tabpanel"
+                            aria-labelledby = "jsp-quellcode-tab"
+                        >
+                            <source-code language="html">
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;JSP-Beispiel&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;form method="post"&gt;
+                                            Name: &lt;input name="dein_name"/&gt;
+                                            Alter: &lt;input name="dein_alter"/&gt;
+                                            &lt;input type="hidden" name="aktion" value="zeigen"/&gt;
+                                            &lt;input type="submit" value="Los!"/&gt;
+                                        &lt;/form&gt;
+
+                                        &lt;!-- Alles zwischen &lt;% und %&gt; ist Javacode --&gt;
+                                        &lt;% if (request.getMethod().equals("POST")) { %&gt;
+                                            &lt;h2&gt;Bisherige Eingabe&lt;/h2&gt;
+                                            &lt;b&gt;Name: &lt;/b&gt; &lt;%= request.getParameter("dein_name") %&gt;
+                                            &lt;br/&gt;
+                                            &lt;b&gt;Alter:&lt;/b&gt; &lt;%= request.getParameter("dein_alter") %&gt;
+                                            &lt;br/&gt;
+                                        &lt;% } %&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Der erste Aufruf -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "jsp-vorschau1"
+                            role            = "tabpanel"
+                            aria-labelledby = "jsp-vorschau1-tab"
+                        >
+                            <p>
+                                Der HTML-Code aus Sicht des Browsers:
+                            </p>
+
+                            <img src="jsp_01.png" class="d-block img-responsive" style="margin-bottom: 1em;" />
+
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;JSP-Beispiel&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;form method="post"&gt;
+                                            Name: &lt;input name="dein_name"/&gt;
+                                            Alter: &lt;input name="dein_alter"/&gt;
+                                            &lt;input type="hidden" name="aktion" value="zeigen"/&gt;
+                                            &lt;input type="submit" value="Los!"/&gt;
+                                        &lt;/form&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Nachdem das Formular abgeschickt wurde -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "jsp-vorschau2"
+                            role            = "tabpanel"
+                            aria-labelledby = "jsp-vorschau2-tab"
+                        >
+                            <p>
+                                Der neue HTML-Code aus Sicht des Browsers:
+                            </p>
+
+                            <img src="jsp_02.png" class="d-block img-responsive" style="margin-bottom: 1em;" />
+
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;JSP-Beispiel&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;form method="post"&gt;
+                                            Name: &lt;input name="dein_name"/&gt;
+                                            Alter: &lt;input name="dein_alter"/&gt;
+                                            &lt;input type="hidden" name="aktion" value="zeigen"/&gt;
+                                            &lt;input type="submit" value="Los!"/&gt;
+                                        &lt;/form&gt;
+
+                                        &lt;h2&gt;Bisherige Eingabe&lt;/h2&gt;
+                                        &lt;b&gt;Name: &lt;/b&gt; Richard Löwneherz
+                                        &lt;br/&gt;
+                                        &lt;b&gt;Alter:&lt;/b&gt; 27
+                                        &lt;br/&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Zugegeben: Dieses Beispiel ist nicht sehr beeindruckend. 💤🛌 Aber es zeigt trotzdem,
+                    wie Java Server Pages funktionieren. Wie du siehst, handelt es sich um einfache
+                    HTML-Dateien (oder jede beliebige Art von Textdatei), deren Inhalt nahezu unverändert
+                    an den Aufrufer geschickt wird. Zwischen den Zeilen gibt es aber immer mal wieder
+                    gekennzeichnete Bereiche mit Javacode, der bereits auf dem Server ausgeführt wird.
+                </p>
+                <p>
+                    Der Javacode ist durch folgende Elemente gekennzeichnet:
+                </p>
+                <dl>
+                    <dt>
+                        <src-code language="html">
+                            &lt;%@page … %&gt;
+                        </src-code>
+                    </dt>
+                    <dd>
+                        Hierbei handelt es sich um die <code>@page</code>-Direktive. Sie teilt Java mit,
+                        welchen Zeichensatz die Datei verwendet und um was für einen Dateityp es sich aus
+                        Sicht des Browsers handelt.¹
+                    </dd>
+
+                    <dt>
+                        <src-code language="html">
+                            &lt;% … %&gt;
+                        </src-code>
+                    </dt>
+                    <dd>
+                        Diese Zeichenfolge kann beliebigen Javacode umschließen. Anstelle der Punkte könnten
+                        hier zum Beispiel <code>if</code>-Abfragen, <code>while</code>-Schleifen und alles
+                        mögliche andere stehen.
+                    </dd>
+
+                    <dt>
+                        <src-code language="html">
+                            &lt;%= … %&gt;
+                        </src-code>
+                    </dt>
+                    <dd>
+                        Auch diese Zeichen umschließen fast beliebigen Javacode. Jedoch muss der Code einen
+                        Wert oder ein Ergebnis zurückliefern, das an dieser Stelle in die HTTP-Antwort eingebaut
+                        wird. Dadurch lassen sich ganz einfach dynamische Inhalte erzeugen, wo zum Beispiel
+                        ein Wert aus einer Datenbanktabelle übernommen wird.
+                    </dd>
+
+                    <dt>
+                        <src-code language="html">
+                            &lt;%-- … --%&gt;
+                        </src-code>
+                    </dt>
+                    <dd>
+                        Kennzeichnet einen Kommentar. Im Gegensatz zu einfachen HTML-Kommentaren werden diese
+                        Kommentare schon vom Server ausgefiltert und gar nicht erst an den Browser geschickt,.
+                    </dd>
+                </dl>
+
+                <p>
+                    <small>
+                        <small>
+                            ¹ Hier haben wir es natürlich mit einer HTML-Datei zu tun.
+                        </small>
+                    </small>
+                </p>
+
+                <h2>Was passiert hier?</h2>
+                <p>
+                    Wenn der Browser die Seite aufruft, lädt Java die JSP-Datei und durchsucht sie nach Javacode.
+                    Java geht dabei ganz systematisch von links oben nach rechts unten vor. So lange dabei kein
+                    Javacode gefunden wird, werden alle Inhalte unverändert an den Browser geschickt. Stolpert
+                    Java jedoch über ein Stück Javacode, führt es diesen erst aus.
+                </p>
+                <p>
+                    Aus diesem Grund werden alle HTML-Elemente ab der <code>if</code>-Anweisung bis zum
+                    <code><% } %></code> zunächst nicht an den Browser geschickt. Denn die <code>if</code>-Bedingung
+                    prüft, ob die Seite mit der <tt>POST</tt>-Anfrage aufgerufen wurde. Der normale Aufruf einer
+                    Seite führt aber immer zu einer <tt>GET</tt>-Anfrage.
+                </p>
+                <p>
+                    Diese Bedingung trifft daher erst zu, wenn das Formular abgeschickt wird. Denn dabei wird – da dem
+                    Formular das <tt>action</tt>-Attribut fehlt – einfach dieselbe Seite erneut vom Server abgerufen.
+                    Dieses mal jedoch als <tt>POST</tt>-Anfrage mit den Formulareingaben im Gepäck (genauer gesagt
+                    im Request Body). 💼
+                </p>
+                <p>
+                    Beim zweiten Aufruf der Seite trifft die <code>if</code>-Bedingung daher zu und der Inhalt wird
+                    an den Browser geschickt. Dabei werden dann auch die Werte der beiden Parameter <tt>dein_name</tt>
+                    und <tt>dein_alter</tt> ausgegeben, so wie sie von der Methode <src-code language="java">
+                    request.getParameter("…")</src-code> zurückgegeben werden.
+                </p>
+
+                <h2>Ein Wort der Warnung</h2>
+                <p>
+                    Auch wenn das hier nur ein kurzer Überblick war, wollen wir die hier gezeigte
+                    Syntax nicht weiter vertiefen. Denn moderne Java Server Pages bieten viel bessere
+                    Möglichkeiten, die auch ohne Mischung von HTML und Javacode funktionieren. 💫
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Wir steigen auf Netbeans um</h1>
+            <article>
+                <ul class="dhbw-carousel-links">
+                    <li>
+                        <a href="#netbeans-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                    </li>
+                    <li>
+                        <a href="#netbeans-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                    </li>
+                    <li>
+                        <a href="#netbeans-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                    </li>
+                </ul>
+                <div id="netbeans-carousel" class="carousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item img-thumbnail active">
+                            <p>
+                                Starte Netbeans und wähle im <tt>File</tt>-Menü den Eintrag <tt>New Project…</tt> aus.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_01.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Als Projekttyp suche <tt>Web Application</tt> in der Kategorie <tt>Java Web</tt>.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_02.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Im nächsten Fenster musst du den Namen und Speicherort des Projekts eingeben.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_03.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Die darauf folgenden Servereinstellungen kannst du einfach übernehmen. GlassFish passt.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_04.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Die vorgefertigte <tt>index.html</tt> brauchen wir allerdings nicht. Deshalb weg damit (rechte Maustaste).
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_05.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Stattdessen musst du im Order <tt>Web Pages</tt> eine neue Java Server Page anlegen.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_06.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Die Datei soll den Namen <tt>index</tt> haben, damit sie als Startseite aufgerufen wird.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_07.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Den Quellcode kannst du dabei aus der vorherigen Folie übernehmen.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_08.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Dann noch schnell geschaut, ob der richtige Browser voreingestellt ist.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_09.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Und das Projekt laufen lassen. Unten siehst du, wie der GlassFish Applikationsserver nun startet.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_10.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Wenn alles gut geht, sollte sich nach einer Weile dein Browser mit der neuen Seite öffnen.
+                            </p>
+                            <img class="active d-block w-100" src="netbeans_11.jpg" />
+                        </div>
+                        <div class="carousel-item img-thumbnail">
+                            <p>
+                                Das war es auch schon. 🤗 <br />
+                                Natürlich musst du die <tt>index.html</tt> nicht löschen, wenn du nicht willst. <br />
+                                In einem Projekt mit Java Server Pages ist sie in der Regel aber überflüssig. 🤽🏼
+                            </p>
+                            <img class="active d-block w-25 m-auto" src="../../finish.svg" />
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis für das Endesymbol: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Da unsere Webanwendungen von nun an immer auch einen Serverteil haben werden,
+                    steigen wir ab hier auf Netbeans um. Zwar kannst du Java Server Pages auch
+                    mit Atom oder irgend einem anderen Editor programmieren. Dazu bräuchtest du
+                    dann aber ein ausgewachsenes <a href="https://jaxenter.de/8-build-tools-im-vergleich-ant-buildr-maven-bazel-buck-gradle-pants-sbt-41627"
+                    target="_blank">Buildsystem</a> wie <a href="http://ant.apache.org/" target="_blank">
+                    Ant</a> oder <a href="https://maven.apache.org/" target="_blank">Maven</a>,
+                    um die Erstellung der Webarchive zu automatisieren.
+                </p>
+                <p>
+                    In der Praxis ist das zwar richtig und wichtig, hier wollen wir uns das aber nicht
+                    antun. 👾 Denn keines der genannten Buildsystem ist wirklich einfach zu verstehen,
+                    geschweige denn fehlerfrei zum Laufen zu bringen … 🚶
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 2: Dein erstes Netbeans-Projekt</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-aufgabe-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-aufgabe"
+                                role          = "tab"
+                                aria-controls = "aufgabe2-aufgabe"
+                                aria-expanded = "true"
+                            >
+                                Aufgabe
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-loesung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-loesung"
+                                role          = "tab"
+                                aria-controls = "aufgabe2-loesung"
+                            >
+                                Lösung
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Aufgabe -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "aufgabe2-aufgabe"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-aufgabe-tab"
+                        >
+                            <ol>
+                                <li>
+                                    Starte Netbeans und lege ein neues Java-Webprojekt an.
+                                </li>
+                                <li>
+                                    Lösche die standardmäßig erzeugte <tt>index.html</tt>-Datei und ersetze sie durch eine Datei namens <tt>index.jsp</tt>.
+                                </li>
+                                <li>
+                                    Kopiere den Quellcode aus <a href="#7">Folie 7</a> in die JSP-Datei und lasse sie laufen.
+                                </li>
+                                <li>
+                                    Wenn alles soweit klappt, erweitere das Formular um die zwei Felder <i>Telefonnummer</i> und <i>Hobby</i>.
+                                </li>
+                                <li>
+                                    Ändere den Javacode danach so ab, dass keine leeren Felder in der Bestätigungsseite angezeigt werden.
+                                </li>
+                            </ol>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <img src="aufgabe2_editor.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                                        Quellcode in Netbeans
+                                    </div>
+                                    <div class="col-md">
+                                        <img src="aufgabe2_browser.png" class="img-thumbnail d-block" style="width: 100%" />
+                                        Darstellung im Browser
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Lösung -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe2-loesung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-loesung-tab"
+                        >
+                            <source-code language="html">
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;JSP-Beispiel&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;form method="post"&gt;
+                                            Name: &lt;input name="dein_name"/&gt;
+                                            Alter: &lt;input name="dein_alter"/&gt;
+                                            &lt;br /&gt;
+                                            Telefon: &lt;input name="dein_telefon"/&gt;
+                                            Hobby: &lt;input name="dein_hobby"/&gt;
+                                            &lt;input type="submit" value="Los!"/&gt;
+                                        &lt;/form&gt;
+
+                                        &lt;!-- Alles zwischen &lt;% und %&gt; ist Javacode --&gt;
+                                        &lt;% if (request.getMethod().equals("POST")) { %&gt;
+                                            &lt;h2&gt;Bisherige Eingabe&lt;/h2&gt;
+                                            &lt;% if (!request.getParameter("dein_name").equals("")) %&gt;
+                                                &lt;b&gt;Name: &lt;/b&gt; &lt;%= request.getParameter("dein_name") %&gt;
+                                                &lt;br/&gt;
+                                            &lt;% } %&gt;
+                                            &lt;% if (!request.getParameter("dein_alter").equals("")) %&gt;
+                                                &lt;b&gt;Alter:&lt;/b&gt; &lt;%= request.getParameter("dein_alter") %&gt;
+                                                &lt;br/&gt;
+                                            &lt;% } %&gt;
+                                            &lt;% if (!request.getParameter("dein_telefon").equals("")) %&gt;
+                                                &lt;b&gt;Telefon:&lt;/b&gt; &lt;%= request.getParameter("dein_telefon") %&gt;
+                                                &lt;br/&gt;
+                                            &lt;% } %&gt;
+                                            &lt;% if (!request.getParameter("dein_hobby").equals("")) %&gt;
+                                                &lt;b&gt;Hobby:&lt;/b&gt; &lt;%= request.getParameter("dein_hobby") %&gt;
+                                                &lt;br/&gt;
+                                            &lt;% } %&gt;
+                                        &lt;% } %&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Hier darfst du ein wenig programmieren. Keine Angst, nicht zu viel.
+                    Du sollst lediglich einmal Netbeans anschmeißen und ein eigenes kleines
+                    Webprojekt erstellen. Den Quellcode dazu kennst du schon. Mit ein paar
+                    einfachen Handgriffen sollte sich dieser relativ einfach ausführen lassen. 🎬
+                </p>
+                <img src="../../github_atom.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Mehrere Seiten aus einem Guss</h1>
+            <article>
+                TODO
+            </article>
+            <aside>
+                <p>
+                    Zum Abschluss des Kapitels schauen wir uns hier noch ein Praxisbeispiel an,
+                    wie Java Server Pages ein echtes Alltagsproblem lösen können. 🤕
+                </p>
+                <p>
+                    TODO
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 3: Hallo Welt mal zwei</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe3-aufgabe-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe3-aufgabe"
+                                role          = "tab"
+                                aria-controls = "aufgabe3-aufgabe"
+                                aria-expanded = "true"
+                            >
+                                Aufgabe
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe3-loesung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe3-loesung"
+                                role          = "tab"
+                                aria-controls = "aufgabe3-loesung"
+                            >
+                                Lösung
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Aufgabe -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "aufgabe3-aufgabe"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe3-aufgabe-tab"
+                        >
+                            TODO
+                        </div>
+                        <!-- Lösung -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe3-loesung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe3-loesung-tab"
+                        >
+                            <h2>WEB-INF/tags/templates/base.tag</h2>
+                            <p>
+                                Template für die beiden anderen Seiten
+                            </p>
+                            <source-code language="html">
+                                TODO
+                            </source-code>
+
+                            <h2>index.jsp</h2>
+                            <p>
+                                Startseite, die beim Aufruf der Seite angezeigt wird
+                            </p>
+                            <source-code language="html">
+                                TODO
+                            </source-code>
+
+                            <h2>result.jsp</h2>
+                            <p>
+                                Bestätigungsseite, in der die Formulareingaben ausgegeben werden
+                            </p>
+                            <source-code language="html">
+                                TODO
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Das mit den JSP-basierten Templates ist ja praktisch, nicht wahr?
+                    Da kann man ganz einfach mehrere Seiten mit ähnlichem Layout erstellen.
+                    Und genau das sollst du hier mal ausprobieren. 📖
+                </p>
+                <img src="../../github_atom.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(158, 203, 231)">
+            <h1>Rechtshinweise</h1>
+            <article>
+                <h4>Creative Commons Namensnennung 4.0 International</h4>
+                <ul>
+                    <li>Beliebiges Teilen ist erlaubt</li>
+                    <li>Die Unterlagen dürfen bearbeitet und verändert werden</li>
+                    <li>Wenn die Namens- und Urheberangaben erhalten bleiben</li>
+                    <li>Und keine weiteren Einschränkungen auferlegt werden</li>
+                </ul>
+                <span style="font-size: 400px; color: white;" class="dhbw-text-shadow" >§</span>
+            </article>
+            <aside style="font-size: 80%">
+                <h4>Kontaktdaten</h4>
+                <p>
+                    Dennis Schulmeister-Zimolong<br/>
+                    E-Mail: dhbw@windows3.de<br/>
+                </p>
+
+                <h4>Urheberrecht und Lizenzvereinbarung</h4>
+                <p>
+                    © 2017 Dennis Schulmeister-Zimolong <br/>
+                    <a href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien" target="_blank">https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien</a>
+                </p>
+                <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons Lizenzvertrag" />
+                <p>
+                    Das Werk <i>Vorlesung "Webprogrammierung" im Studiengang Wirtschaftsinformatik
+                    an der DHBW Karlsruhe</i> von <a href="http://www.windows3.de" target="_blank">Dennis Schulmeister-Zimolong</a>
+                    ist lizenziert unter <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><i>Creative Commons
+                    Namensnennung 4.0 International</i></a>.
+                </p>
+                <p>
+                    Du darfst:
+                </p>
+                <ul>
+                    <li>
+                        <b>Teilen</b> — das Material in jedwedem Format oder Medium vervielfältigen
+                        und weiterverbreiten
+                    </li>
+                    <li>
+                        <b>Bearbeiten</b> — das Material remixen, verändern und darauf aufbauen
+                        und zwar für beliebige Zwecke, sogar kommerziell.
+                    </li>
+                </ul>
+                <p>
+                    Unter folgenden Bedingungen:
+                </p>
+                <ul>
+                    <li>
+                        <b>Namensnennung</b> — Du musst angemessene Urheber- und Rechteangaben
+                        machen, einen Link zur Lizenz beifügen und angeben, ob Änderungen
+                        vorgenommen wurden. Diese Angaben dürfen in jeder angemessenen Art
+                        und Weise gemacht werden, allerdings nicht so, dass der Eindruck
+                        entsteht, der Lizenzgeber unterstütze gerade dich oder deine Nutzung
+                        besonders.
+                    </li>
+                    <li>
+                        <b>Keine weiteren Einschränkungen</b> — Du darfst keine zusätzlichen Klauseln
+                        oder technische Verfahren einsetzen, die anderen rechtlich irgendetwas
+                        untersagen, was die Lizenz erlaubt.
+                    </li>
+                </ul>
+                <p>
+                    Es werden keine Garantien gegeben und auch keine Gewähr geleistet.
+                    Die Lizenz verschafft dir möglicherweise nicht alle Erlaubnisse,
+                    die du für die jeweilige Nutzung brauchst. Es können beispielsweise
+                    andere Rechte wie Persönlichkeits- und Datenschutzrechte zu beachten
+                    sein, die deine Nutzung des Materials entsprechend beschränken.
+                </p>
+            </aside>
+        </section>
+    </body>
+</html>

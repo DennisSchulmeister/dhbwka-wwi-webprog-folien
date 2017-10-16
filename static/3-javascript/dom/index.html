@@ -979,10 +979,10 @@
                                 <dd>
                                     <p>
                                         Auch wenn man es zunächst denken würde, aber das Ergebnis der Methoden <code>getElementsByClassName</code>
-                                        und <code>querSelectorAll</code> ist kein Array. <code>getElementsByClassName</code> liefert eine
-                                        <code>HTMLCollection</code> und <code>querSelectorAll</code> ein <code>NodeList</code>-Objekt. Beide
+                                        und <code>querySelectorAll</code> ist kein Array. <code>getElementsByClassName</code> liefert eine
+                                        <code>HTMLCollection</code> und <code>querySelectorAll</code> ein <code>NodeList</code>-Objekt. Beide
                                         verhalten sich ähnlich wie Arrays, besitzen aber nicht ganz dieselben Methoden. Die <code>forEach</code>-Methode
-                                        zum Beispiel funktioniert nur beim Ergebnis von <code>querSelectorAll</code>. 😕
+                                        zum Beispiel funktioniert nur beim Ergebnis von <code>querySelectorAll</code>. 😕
                                     </p>
                                 </dd>
                             </dl>
@@ -2544,7 +2544,7 @@
                                 <dd style="margin-bottom: 0.75em;">
                                     <p>
                                         Und hier siehst du, wie du auf die Kindelemente eines HTML-Elements zugreifen kannst. Hier gilt
-                                        wieder, dass es sich bei <code>childList</code> um ein <code>NodeList</code>-Objekt und nicht
+                                        wieder, dass es sich bei <code>childNodes</code> um ein <code>NodeList</code>-Objekt und nicht
                                         um ein vollwertiges Array handelt.
                                     </p>
                                 </dd>
@@ -3543,7 +3543,7 @@
                         Inhalte umgeschaltet werden.
                     </li>
                     <li>
-                        Dann werden alle Tablaschen im HTML-Dokument gesucht und in der Variabke <tt>tabItems</tt>
+                        Dann werden alle Tablaschen im HTML-Dokument gesucht und in der Variablen <tt>tabItems</tt>
                         abgelegt.
                     </li>
                     <li>
@@ -4259,8 +4259,8 @@
                 <p>
                     Das zu überprüfende Formular steht in der Variablen <code>event.target</code>.
                     Dieses Objekt hat für jedes Eingabefeld ein gleichnamiges Attribut, dessen Name
-                    sich aus dem <code>name</code>-Attribut im HTML ergibt. Jedes Eingabefeld hingegen
-                    besitzt das <code>value</code>-Attribut für seinen Inhalt:
+                    sich aus dem <code>name</code>-Attribut im HTML ergibt. Und dieses besitzt widerum
+                    ein <code>value</code>-Attribut für seinen Inhalt:
                 </p>
                 <source-code language="javascript">
                     let validateForm = event =&gt; {

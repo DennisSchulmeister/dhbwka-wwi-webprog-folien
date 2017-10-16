@@ -16,6 +16,8 @@ Object.keys(process.env).forEach(env_var => {
 });
 
 shell.ls("-R", src_dir).forEach(file => {
+    if (file.startsWith("_") || file.includes("/_")) return;
+
     let src_path = path.join(src_dir, file);
     let dst_path = path.join(build_dir, file);
     let src_stat = fs.statSync(src_path);
