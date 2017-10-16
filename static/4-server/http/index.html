@@ -970,7 +970,7 @@
                         </div>
                         <div class="carousel-item img-thumbnail">
                             <p>
-                                Unten Links versteckt sich im Firefox die „Performanceanalyse”.
+                                Unten links versteckt sich im Firefox die „Performanceanalyse”.
                             </p>
                             <img class="active d-block w-100" src="devtool_07.jpg" />
                         </div>
@@ -1346,10 +1346,10 @@
                     Webserver zum Laufen gebracht werden. Man installiert also einen Webserver auf seiner Maschine und
                     richten ihn so ein, dass er die Quellcodes der Webanwendung finden und ausführen kann. Dieser Ansatz
                     kommt auch in Java zum Einsatz. Im Gegensatz zu den meisten anderen Programmiersprachen lässt sich
-                    Java aber nicht mit jedem Webserver nutzen. Denn im Javaumfeld gibt es speziellen Webserver, die
+                    Java aber nicht mit jedem Webserver nutzen. Denn im Javaumfeld gibt es spezielle Webserver, die
                     sogenannten <b>Webcontainer</b> oder auch <b>Applikationsserver</b>, die nur darauf ausgelegt sind,
                     javabasierte Webanwendungen auszuführen. Sie sind selbst auch in Java geschrieben und bringen bereits
-                    alles mit, um eine oder mehrere Webanwendungen laufen lassen zu können.
+                    alles mit, um eine oder mehrere Webanwendungen laufen zu lassen.
                 </p>
                 <p>
                     Der Nachteil an den Webcontainern ist, dass sie groß, schwer und ressourcenhungrig sind. In den letzten
@@ -1371,8 +1371,8 @@
                 <p>
                     Auch wenn Microservices der deutlich moderne Ansatz sind, beschäftigen wir uns hier weiterhin mit den
                     klassischen Webcontainern. Einerseits, weil sie nach wie vor ihre Einsatzgebiete haben und andererseits,
-                    weil wir uns hier so auf das Wesentliche konzentrieren können. Nämlich die Behandlung von HTTP-Anfragen,
-                    ohne hierfür ein eigenes Rahmenprogramm entwickeln zu müssen. 🦄
+                    weil wir uns so auf das Wesentliche konzentrieren können. Nämlich die Behandlung von HTTP-Anfragen, ohne
+                    hierfür ein eigenes Rahmenprogramm entwickeln zu müssen. 🦄
                 </p>
             </aside>
         </section>
@@ -1546,8 +1546,8 @@
                     </dt>
                     <dd>
                         Hierbei handelt es sich um die <code>@page</code>-Direktive. Sie teilt Java mit,
-                        welchen Zeichensatz die Datei verwendet und um was für einen Dateityp es sich aus
-                        Sicht des Browsers handelt.¹
+                        welchen Zeichensatz die Datei verwendet und welches Dateiformat wir an den Browser
+                        schicken wollen.¹
                     </dd>
 
                     <dt>
@@ -1568,12 +1568,12 @@
                     </dt>
                     <dd>
                         Auch diese Zeichen umschließen fast beliebigen Javacode. Jedoch muss der Code einen
-                        Wert oder ein Ergebnis zurückliefern, das an dieser Stelle in die HTTP-Antwort eingebaut
-                        wird. Dadurch lassen sich ganz einfach dynamische Inhalte erzeugen, wo zum Beispiel
-                        ein Wert aus einer Datenbanktabelle übernommen wird.
+                        Wert zurückliefern, der an dieser Stelle in die HTTP-Antwort eingebaut wird. Dadurch
+                        lassen sich ganz einfach dynamische Inhalte erzeugen, wo zum Beispiel ein Wert aus
+                        einer Datenbanktabelle übernommen wird.
                     </dd>
 
-                    <dt>
+                    <!-- <dt>
                         <src-code language="html">
                             &lt;%-- … --%&gt;
                         </src-code>
@@ -1581,14 +1581,12 @@
                     <dd>
                         Kennzeichnet einen Kommentar. Im Gegensatz zu einfachen HTML-Kommentaren werden diese
                         Kommentare schon vom Server ausgefiltert und gar nicht erst an den Browser geschickt,.
-                    </dd>
+                    </dd> -->
                 </dl>
 
                 <p>
                     <small>
-                        <small>
-                            ¹ Hier haben wir es natürlich mit einer HTML-Datei zu tun.
-                        </small>
+                        ¹ Hier haben wir es natürlich mit einer HTML-Datei zu tun.
                     </small>
                 </p>
 
@@ -1612,7 +1610,7 @@
                     im Request Body). 💼
                 </p>
                 <p>
-                    Beim zweiten Aufruf der Seite trifft die <code>if</code>-Bedingung daher zu und der Inhalt wird
+                    Beim zweiten Aufruf der Seite trifft die <code>if</code>-Bedingung daher zu und ihr Inhalt wird
                     an den Browser geschickt. Dabei werden dann auch die Werte der beiden Parameter <tt>dein_name</tt>
                     und <tt>dein_alter</tt> ausgegeben, so wie sie von der Methode <src-code language="java">
                     request.getParameter("…")</src-code> zurückgegeben werden.
@@ -1887,21 +1885,333 @@
         <section>
             <h1>Mehrere Seiten aus einem Guss</h1>
             <article>
-                TODO
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "templates-beispiel-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#templates-beispiel"
+                                role          = "tab"
+                                aria-controls = "templates-beispiel"
+                                aria-expanded = "true"
+                            >
+                                Das wollen wir erreichen
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "templates-template-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#templates-template"
+                                role          = "tab"
+                                aria-controls = "templates-template"
+                            >
+                                Mit diesem Template
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "templates-inhalt1-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#templates-inhalt1"
+                                role          = "tab"
+                                aria-controls = "templates-inhalt1"
+                            >
+                                Und diesem Inhalt
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "templates-inhalt2-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#templates-inhalt2"
+                                role          = "tab"
+                                aria-controls = "templates-inhalt2"
+                            >
+                                Oder diesem Inhalt
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Das wollen wir erreichen -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "templates-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "templates-beispiel-tab"
+                        >
+                            <p>
+                                Mehrere HTML-Seiten derselben Webanwendung nutzen dasselbe Layout. Alle Seiten
+                                sollen sich dabei dasselbe HTML-Grundgerüst teilen. Doppelter Quellcode soll
+                                möglichst vermieden werden.
+                            </p>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <img src="template_01.jpg" class="d-block img-thumbnail" style="width: 100%" />
+                                    </div>
+                                    <div class="col-md">
+                                        <img src="template_02.jpg" class="d-block img-thumbnail" style="width: 100%" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <img src="template_03.jpg" class="d-block img-thumbnail" style="width: 100%" />
+                                    </div>
+                                    <div class="col-md">
+                                        <img src="template_04.jpg" class="d-block img-thumbnail" style="width: 100%" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mit diesem Template -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "templates-template"
+                            role            = "tabpanel"
+                            aria-labelledby = "templates-template-tab"
+                        >
+                            <p>
+                                Hierfür wird das HTML-Grundgerüst der Seite in eine eigene Datei ausgelagert. In vielen
+                                Webframeworks wird diese Datei ein <b>Template</b> (deutsch „Vorlage”) genannt. Anstelle
+                                des echten Inhalts beinhaltet das Template überall Platzhalter, wo später etwas eingefügt
+                                werden soll.
+                            </p>
+                            <source-code language="html">
+                                &lt;%@tag pageEncoding="UTF-8"%&gt;
+
+                                &lt;!-- Definition der Platzhalter, die unten verwendet werden. --&gt;
+                                &lt;!-- fragment="true" bedeutet, dass ein ganzes Stück HTML-Code eingefügt wird. --&gt;
+                                &lt;!-- Andernfalls wird nur ein kurzer Textausschnitt ohne HTML-Code übernommen. --&gt;
+                                &lt;%@attribute name="title"%&gt;
+                                &lt;%@attribute name="body" fragment="true" %&gt;
+                                &lt;%@attribute name="footer" fragment="true" %&gt;
+
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8"&gt;
+
+                                        &lt;!-- Platzhalter für den Titel --&gt;
+                                        &lt;title&gt;${title}&lt;/title&gt;
+
+                                        &lt;link rel="stylesheet" href="style.css" /&gt;
+                                        &lt;script src="script.js"&gt;&lt;/script&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;nav&gt;
+                                            &lt;!-- Nochmal der Platzhalter für den Titel --&gt;
+                                            &lt;h1&gt;${title}&lt;/h1&gt;
+
+                                            &lt;ul&gt;
+                                                &lt;li&gt;
+                                                    &lt;a href="index.jsp"&gt;Startseite&lt;/a&gt;
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    &lt;a href="firmenportrait.jsp"&gt;Firmenportrait&lt;/a&gt;
+                                                &lt;/li&gt;
+                                                …
+                                            &lt;/ul&gt;
+                                        &lt;/nav&gt;
+
+                                        &lt;main&gt;
+                                            &lt;!-- Platzhalter für den Body-Inhalt --&gt;
+                                            &lt;jsp:invoke fragment="body"/&gt;
+                                        &lt;/main&gt;
+
+                                        &lt;footer&gt;
+                                            &lt;ul&gt;
+                                                …
+                                            &lt;/ul&gt;
+
+                                            &lt;!-- Platzhalter für den Footer-Inhalt --&gt;
+                                            &lt;jsp:invoke fragment="footer"/&gt;
+                                        &lt;/footer&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Und diesem Inhalt -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "templates-inhalt1"
+                            role            = "tabpanel"
+                            aria-labelledby = "templates-inhalt1-tab"
+                        >
+                            <p>
+                                Der tatsächliche Inhalt, der in das Template eingefügt wird, kommt aus einer
+                                anderen Datei. Es handelt sich dabei um die eigentliche HTML/JSP-Datei, die
+                                der Anwender gerade abrufen will. 🔄 Sie beinhaltet einen Verweis auf das
+                                zu verwendende Template, so dass der Server weiß, dass er erst beide Dateien
+                                „übereinanderlegen” muss, um die fertige Seite zu erzeugen. 📄📑
+                            </p>
+                            <source-code language="html">
+                                &lt;!-- Verweis auf das Verzeichnis, in dem unser Template liegt --&gt;
+                                &lt;%@taglib prefix="template" tagdir="/WEB-INF/tags/templates" %&gt;
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+
+                                &lt;!-- Aufruf des Templates mit dem Namen „base.tag“ --&gt;
+                                &lt;template:base&gt;
+
+                                    &lt;!-- Inhalt für die Titel-Platzhalter --&gt;
+                                    &lt;jsp:attribute name="title"&gt;Startseite&lt;/jsp:attribute&gt;
+
+                                    &lt;!-- Inhalt für den Body-Platzhalter --&gt;
+                                    &lt;jsp:attribute name="body"&gt;
+                                        &lt;h1&gt;Ihr perfekter Feierabend!&lt;/h1&gt;
+                                        &lt;img src="feierabend.jpg" alt="" /&gt;
+                                        &lt;p&gt;
+                                            Kommen Sie nach einem anstrengenden Arbeitstag nach Hause und lassen
+                                            Sie sich von unseren Premiumbieren verwöhnen. Es gibt nichts besseres,
+                                            um den Tag ausklingen zu lassen …
+                                        &lt;/p&gt;
+                                    &lt;/jsp:attribute&gt;
+
+                                    &lt;!-- Inhalt für den Footer-Platzhalter --&gt;
+                                    &lt;jsp:attribute name="footer"&gt;
+                                        © 2017 Liquid Spirit Webdesign Ltd.
+                                        &lt;br /&gt;
+                                        Im Land wo Hopfen und Malz fließt
+                                    &lt;/jsp:attribute&gt;
+
+                                &lt;/template:base&gt;
+                            </source-code>
+                        </div>
+                        <!-- Oder diesem Inhalt -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "templates-inhalt2"
+                            role            = "tabpanel"
+                            aria-labelledby = "templates-inhalt2-tab"
+                        >
+                            <p>
+                                Was einmal geht, geht auch zweimal. 💕 Das HTML-Template kann natürlich für beliebig
+                                viele Seiten verwendet werden, die dadurch alle ein einheitliches Layout bekommen.
+                            </p>
+                            <source-code language="html">
+                                &lt;%@taglib prefix="template" tagdir="/WEB-INF/tags/templates" %&gt;
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+
+                                &lt;template:base&gt;
+                                    &lt;jsp:attribute name="title"&gt;Firmenportrait&lt;/jsp:attribute&gt;
+
+                                    &lt;jsp:attribute name="body"&gt;
+                                        &lt;h2&gt;Alles begann als kleines Familienunternehmen&lt;/h2&gt;
+                                        &lt;p&gt;
+                                            „Wir sollten aufhören, weniger zu trinken”. Dies war stets das
+                                            Motto von Julius Sinner, bevor er 1873 seine erste kleine Brauerei
+                                            gründete. Dabei hatte er nur ein äußerst bescheidenes Startkapital
+                                            und der Erfolg war keinesfalls gewiss …
+                                        &lt;/p&gt;
+                                    &lt;/jsp:attribute&gt;
+
+                                    &lt;jsp:attribute name="footer"&gt;
+                                        © 2017 Liquid Spirit Webdesign Ltd.
+                                        &lt;br /&gt;
+                                        Im Land wo Hopfen und Malz fließt
+                                    &lt;/jsp:attribute&gt;
+                                &lt;/template:base&gt;
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 <p>
                     Zum Abschluss des Kapitels schauen wir uns hier noch ein Praxisbeispiel an,
-                    wie Java Server Pages ein echtes Alltagsproblem lösen können. 🤕
+                    wie Java Server Pages ein echtes Alltagsproblem lösen können. 🤕 Bei unseren
+                    bisherigen Webseiten haben wir den gesamten Inhalt in eine einzige HTML-Datei
+                    gepackt. Unter anderem auch deshalb, weil es echt mühselig ist, ein Projekt
+                    mit vielen einzelnen HTML-Dateien zu verwalten, so dass alle HTML-Seiten immer
+                    denselben Aufbau besitzen. 🤤
                 </p>
                 <p>
-                    TODO
+                    Wie sich herausstellt kann uns der Server hier ganz einfach weiterhelfen.
+                    Denn so gut wie jedes Webframework (egal ob Java, Ruby, Python, PHP oder
+                    wie auch immer) kennt <b>Templates</b> in der ein oder anderen Form, wobei
+                    das Wort „Template” bzw. auf deutsch „Vorlage” hier wörtlich zu nehmen ist.
+                    Den ein Template ist tatsächlich nichts anderes als eine Vorlage für viele
+                    HTML-Dateien, die alle gleich aufgebaut sein sollen. 🏡 🏡 🏡 🏡
+                </p>
+                <p>
+                    Im zweiten Tabreiter auf der Folie siehst du, wie ein solches Template in
+                    Java aussehen kann. 📄 Wie du siehst, beinhaltet das Template den kompletten
+                    Quellcode einer fertigen HTML-Seite jedoch ohne die veränderlichen Inhalte.
+                    An ihrer Stelle enthält es Platzhalter, die mit verschiedenen Inhalten
+                    ausgefüllt werden können. 🕳️
+                </p>
+                <p>
+                    Welches Template eine Seite benutzt, bleibt dem Anwender im Endeffekt vollkommen
+                    verborgen. Denn dieser ruft wie gewohnt einfach nur Seiten vom Server ab. Jedoch
+                    beinhalten die Seiten keinen kompletten HTML-Code sondern nur einen Verweis auf
+                    ein Template sowie die in das Template einzufügenden Inhalte. Beim Abruf der
+                    Seite setzt der Server dann beides zusammen, bevor er seine Antwort verschickt.
+                </p>
+                <p>
+                    Beispielsweise kann es sein, dass der Anwender die Seite <tt>impressum.jsp</tt> mit
+                    folgendem (vereinfachten) Inhalt anfordert:
+                </p>
+                <source-code language="html">
+                    &lt;template:base&gt;
+                        &lt;jsp:attribute name="title"&gt;Impressum&lt;/jsp:attribute&gt;
+                        &lt;jsp:attribute name="body"&gt;
+                            &lt;p&gt;
+                                Unsere Firma stellt sich vor …
+                            &lt;/p&gt;
+                        &lt;/jsp:attribute&gt;
+                    &lt;/template:base&gt;
+                </source-code>
+                <p>
+                    Ganz offensichtlich handelt es sich nicht um eine komplette HTML-Datei. Muss es aber
+                    auch nicht, denn die Datei verweist auf ein Template mit dem Namen <tt>base.tag</tt>,
+                    das zum Beispiel folgendes Codegerüst beinhalten könnte:
+                </p>
+                <source-code language="html">
+                    &lt;!DOCTYPE html>
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;${title}&lt;/title&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h1&gt;${title}&lt;/h1&gt;
+                            &lt;jsp:invoke fragment="body"/&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+                <p>
+                    Dann würde an den Browser folgende Seite geschickt werden:
+                </p>
+                <source-code language="html">
+                    &lt;!DOCTYPE html>
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Impressum&lt;/title&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h1&gt;Impressum&lt;/h1&gt;
+                            &lt;p&gt;
+                                Unsere Firma stellt sich vor …
+                            &lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+                <p>
+                    Okay, zugegeben! Die Syntax, wie Templates mit Java Server Pages realisiert werden,
+                    ist schon ziemlich gewöhnungsbedürftig. 🤶🏼 Das Prinzip ist aber genau dasselbe wie in
+                    vielen anderen, modernen Webframeworks. 🖖🏼
                 </p>
             </aside>
         </section>
 
         <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 3: Hallo Welt mal zwei</h1>
+            <h1>Aufgabe 3: Hallo Welt mal drei</h1>
             <article>
                 <div>
                     <ul class="nav nav-tabs" role="tablist">
@@ -1916,6 +2226,42 @@
                                 aria-expanded = "true"
                             >
                                 Aufgabe
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe3-index_jsp-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe3-index_jsp"
+                                role          = "tab"
+                                aria-controls = "aufgabe3-index_jsp"
+                            >
+                                index.jsp
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe3-ehrenamt_jsp-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe3-ehrenamt_jsp"
+                                role          = "tab"
+                                aria-controls = "aufgabe3-ehrenamt_jsp"
+                            >
+                                ehrenamt.jsp
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe3-santa_jsp-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe3-santa_jsp"
+                                role          = "tab"
+                                aria-controls = "aufgabe3-santa_jsp"
+                            >
+                                santa.jsp
                             </a>
                         </li>
                         <li class="nav-item">
@@ -1939,7 +2285,308 @@
                             role            = "tabpanel"
                             aria-labelledby = "aufgabe3-aufgabe-tab"
                         >
-                            TODO
+                            <p>
+                                Kopiere die folgenden Java Server Pages in eine neues Java-Webprojekt
+                                und schaue, ob du es zum Laufen bekommst. Anschließend versuche, so viel
+                                HTML-Code wie möglich in ein gemeinsames Template auszulagern. Das Template
+                                sollte dabei den Dateinamen <tt>base.tag</tt> haben und im Verzeichnis
+                                <tt>WEB-INF/tags/templates</tt> liegen.
+                            </p>
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="aufgabe3_01.jpg" class="d-block img-thumbnail" style="width: 100%;" />
+                                        <p>
+                                            <small>
+                                                <tt>index.jsp</tt>
+                                            </small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="aufgabe3_02.jpg" class="d-block img-thumbnail" style="width: 100%;" />
+                                        <p>
+                                            <small>
+                                                <tt>ehrenamt.jsp</tt>
+                                            </small>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="aufgabe3_03.jpg" class="d-block img-thumbnail" style="width: 100%;" />
+                                        <p>
+                                            <small>
+                                                <tt>santa.jsp</tt>
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- index.jsp -->
+                        <div
+                            class           = "tab-pane fade show"
+                            id              = "aufgabe3-index_jsp"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe3-index_jsp-tab"
+                        >
+                            <source-code language="html">
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Startseite&lt;/title&gt;
+
+                                        &lt;style&gt;
+                                            html, body {
+                                                height: 100%;
+                                            }
+
+                                            html {
+                                                font-family: sans-serif;
+                                                font-size: 12pt;
+                                            }
+
+                                            h1 {
+                                                color: crimson;
+                                            }
+
+                                            @media (min-width: 50em) {
+                                                html {
+                                                    background-image: url(https://unsplash.it/1024/768/?image=1073);
+                                                    background-repeat: no-repeat;
+                                                    background-position: center center;
+                                                    background-size: cover;
+
+                                                    box-sizing: border-box;
+                                                    padding-top: 2em;
+                                                    padding-bottom: 2em;
+                                                }
+
+                                                main {
+                                                    width: 40em;
+                                                    margin: 0 auto;
+
+                                                    background: white;
+                                                    border: 1px solid #E5E5E5;
+                                                    box-shadow: 1px 1px 2px #BFBFBF;
+
+                                                    padding: 1em;
+                                                }
+                                            }
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;main&gt;
+                                            &lt;h1&gt;Startseite&lt;/h1&gt;
+
+                                            &lt;ul&gt;
+                                                &lt;li&gt;
+                                                    &lt;a href="ehrenamt.jsp"&gt;Nur kein Ehrenamt&lt;/a&gt;
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    &lt;a href="santa.jsp"&gt;Is Santa Claus A Sysadmin?&lt;/a&gt;
+                                                &lt;/li&gt;
+                                            &lt;/ul&gt;
+                                        &lt;/main&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- ehrenamt.jsp -->
+                        <div
+                            class           = "tab-pane fade show"
+                            id              = "aufgabe3-ehrenamt_jsp"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe3-ehrenamt_jsp-tab"
+                        >
+                            <source-code language="html">
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Nur kein Ehrenamt&lt;/title&gt;
+
+                                        &lt;style&gt;
+                                            html, body {
+                                                height: 100%;
+                                            }
+
+                                            html {
+                                                font-family: sans-serif;
+                                                font-size: 12pt;
+                                            }
+
+                                            h1 {
+                                                color: crimson;
+                                            }
+
+                                            @media (min-width: 50em) {
+                                                html {
+                                                    background-image: url(https://unsplash.it/1024/768/?image=1073);
+                                                    background-repeat: no-repeat;
+                                                    background-position: center center;
+                                                    background-size: cover;
+
+                                                    box-sizing: border-box;
+                                                    padding-top: 2em;
+                                                    padding-bottom: 2em;
+                                                }
+
+                                                main {
+                                                    width: 40em;
+                                                    margin: 0 auto;
+
+                                                    background: white;
+                                                    border: 1px solid #E5E5E5;
+                                                    box-shadow: 1px 1px 2px #BFBFBF;
+
+                                                    padding: 1em;
+                                                }
+                                            }
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;main&gt;
+                                            &lt;h1&gt;Nur kein Ehrenamt&lt;/h1&gt;
+
+                                            Willst Du froh und glücklich leben, &lt;br /&gt;
+                                            laß kein Ehrenamt dir geben! &lt;br /&gt;
+                                            Willst du nicht zu früh ins Grab &lt;br /&gt;
+                                            lehne jedes Amt gleich ab! &lt;br /&gt;
+                                            &lt;br /&gt;
+
+                                            Wieviel Mühen, Sorgen, Plagen &lt;br /&gt;
+                                            wieviel Ärger mußt Du tragen; &lt;br /&gt;
+                                            gibst viel Geld aus, opferst Zeit - &lt;br /&gt;
+                                            und der Lohn? Undankbarkeit! &lt;br /&gt;
+                                            &lt;br /&gt;
+
+                                            Ohne Amt lebst Du so friedlich &lt;br /&gt;
+                                            und so ruhig und so gemütlich, &lt;br /&gt;
+                                            Du sparst Kraft und Geld und Zeit, &lt;br /&gt;
+                                            wirst geachtet weit und breit. &lt;br /&gt;
+                                            &lt;br /&gt;
+
+                                            So ein Amt bringt niemals Ehre, &lt;br /&gt;
+                                            denn der Klatschsucht scharfe Schere &lt;br /&gt;
+                                            schneidet boshaft Dir, schnipp-schnapp, &lt;br /&gt;
+                                            Deine Ehre vielfach ab. &lt;br /&gt;
+                                            &lt;br /&gt;
+
+                                            Willst du froh und glücklich leben, &lt;br /&gt;
+                                            laß kein Ehrenamt dir geben! &lt;br /&gt;
+                                            Willst du nicht zu früh ins Grab &lt;br /&gt;
+                                            lehne jedes Amt gleich ab! &lt;br /&gt;
+                                            &lt;br /&gt;
+
+                                            Selbst Dein Ruf geht Dir verloren, &lt;br /&gt;
+                                            wirst beschmutzt vor Tür und Toren, &lt;br /&gt;
+                                            und es macht ihn oberfaul &lt;br /&gt;
+                                            jedes ungewaschne Maul! &lt;br /&gt;
+                                            &lt;br /&gt;
+
+                                            Drum, so rat ich Dir im Treuen: &lt;br /&gt;
+                                            willst Du Weib (Mann) und Kind erfreuen, &lt;br /&gt;
+                                            soll Dein Kopf Dir nicht mehr brummen, &lt;br /&gt;
+                                            laß das Amt doch and'ren Dummen. &lt;br /&gt;
+                                        &lt;/main&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- santa.jsp -->
+                        <div
+                            class           = "tab-pane fade show"
+                            id              = "aufgabe3-santa_jsp"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe3-santa_jsp-tab"
+                        >
+                            <source-code language="html">
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Is Santa Claus A Sysadmin?&lt;/title&gt;
+
+                                        &lt;style&gt;
+                                            html, body {
+                                                height: 100%;
+                                            }
+
+                                            html {
+                                                font-family: sans-serif;
+                                                font-size: 12pt;
+                                            }
+
+                                            h1 {
+                                                color: crimson;
+                                            }
+
+                                            @media (min-width: 50em) {
+                                                html {
+                                                    background-image: url(https://unsplash.it/1024/768/?image=1073);
+                                                    background-repeat: no-repeat;
+                                                    background-position: center center;
+                                                    background-size: cover;
+
+                                                    box-sizing: border-box;
+                                                    padding-top: 2em;
+                                                    padding-bottom: 2em;
+                                                }
+
+                                                main {
+                                                    width: 40em;
+                                                    margin: 0 auto;
+
+                                                    background: white;
+                                                    border: 1px solid #E5E5E5;
+                                                    box-shadow: 1px 1px 2px #BFBFBF;
+
+                                                    padding: 1em;
+                                                }
+                                            }
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;main&gt;
+                                            &lt;h1&gt;Is Santa Claus A Sysadmin?&lt;/h1&gt;
+
+                                            &lt;ol&gt;
+                                                &lt;li&gt;
+                                                    Santa is bearded, corpulent, and dresses funny.
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    When you ask Santa for something, the odds of receiving what you wanted are infinitesimal.
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    Santa seldom answers your mail.
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    Santa doesn't care about your deadlines.
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    Your parents ascribed supernatural powers to Santa, but did all the work themselves.
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    Nobody knows who Santa has to answer to for his actions.
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    Santa laughes entirely too much.
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    Santa thinks nothing of breaking into your $HOME.
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    Only a lunatic says bad things about Santa in his presence
+                                                &lt;/li&gt;
+                                            &lt;/ol&gt;
+                                        &lt;/main&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
                         </div>
                         <!-- Lösung -->
                         <div
@@ -1949,27 +2596,181 @@
                             aria-labelledby = "aufgabe3-loesung-tab"
                         >
                             <h2>WEB-INF/tags/templates/base.tag</h2>
-                            <p>
-                                Template für die beiden anderen Seiten
-                            </p>
                             <source-code language="html">
-                                TODO
+                                &lt;%@tag pageEncoding="UTF-8"%&gt;
+
+                                &lt;%@attribute name="title"%&gt;
+                                &lt;%@attribute name="body" fragment="true" %&gt;
+
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;${title}&lt;/title&gt;
+
+                                        &lt;style&gt;
+                                            html, body {
+                                                height: 100%;
+                                            }
+
+                                            html {
+                                                font-family: sans-serif;
+                                                font-size: 12pt;
+                                            }
+
+                                            h1 {
+                                                color: crimson;
+                                            }
+
+                                            @media (min-width: 50em) {
+                                                html {
+                                                    background-image: url(https://unsplash.it/1024/768/?image=1073);
+                                                    background-repeat: no-repeat;
+                                                    background-position: center center;
+                                                    background-size: cover;
+
+                                                    box-sizing: border-box;
+                                                    padding-top: 2em;
+                                                    padding-bottom: 2em;
+                                                }
+
+                                                main {
+                                                    width: 40em;
+                                                    margin: 0 auto;
+
+                                                    background: white;
+                                                    border: 1px solid #E5E5E5;
+                                                    box-shadow: 1px 1px 2px #BFBFBF;
+
+                                                    padding: 1em;
+                                                }
+                                            }
+                                        &lt;/style&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;main&gt;
+                                            &lt;h1&gt;${title}&lt;/h1&gt;
+
+                                            &lt;jsp:invoke fragment="body"/&gt;
+                                        &lt;/main&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
                             </source-code>
 
                             <h2>index.jsp</h2>
-                            <p>
-                                Startseite, die beim Aufruf der Seite angezeigt wird
-                            </p>
                             <source-code language="html">
-                                TODO
+                                &lt;%@taglib prefix="template" tagdir="/WEB-INF/tags/templates" %&gt;
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+
+                                &lt;template:base&gt;
+                                    &lt;jsp:attribute name="title"&gt;Startseite&lt;/jsp:attribute&gt;
+
+                                    &lt;jsp:attribute name="body"&gt;
+                                        &lt;ul&gt;
+                                            &lt;li&gt;
+                                                &lt;a href="ehrenamt.jsp"&gt;Nur kein Ehrenamt&lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                &lt;a href="santa.jsp"&gt;Is Santa Claus A Sysadmin?&lt;/a&gt;
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/jsp:attribute&gt;
+                                &lt;/template:base&gt;
                             </source-code>
 
-                            <h2>result.jsp</h2>
-                            <p>
-                                Bestätigungsseite, in der die Formulareingaben ausgegeben werden
-                            </p>
+                            <h2>ehrenamt.jsp</h2>
                             <source-code language="html">
-                                TODO
+                                &lt;%@taglib prefix="template" tagdir="/WEB-INF/tags/templates" %&gt;
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+
+                                &lt;template:base&gt;
+                                    &lt;jsp:attribute name="title"&gt;Nur kein Ehrenamt&lt;/jsp:attribute&gt;
+
+                                    &lt;jsp:attribute name="body"&gt;
+                                        Willst Du froh und glücklich leben, &lt;br /&gt;
+                                        laß kein Ehrenamt dir geben! &lt;br /&gt;
+                                        Willst du nicht zu früh ins Grab &lt;br /&gt;
+                                        lehne jedes Amt gleich ab! &lt;br /&gt;
+                                        &lt;br /&gt;
+
+                                        Wieviel Mühen, Sorgen, Plagen &lt;br /&gt;
+                                        wieviel Ärger mußt Du tragen; &lt;br /&gt;
+                                        gibst viel Geld aus, opferst Zeit - &lt;br /&gt;
+                                        und der Lohn? Undankbarkeit! &lt;br /&gt;
+                                        &lt;br /&gt;
+
+                                        Ohne Amt lebst Du so friedlich &lt;br /&gt;
+                                        und so ruhig und so gemütlich, &lt;br /&gt;
+                                        Du sparst Kraft und Geld und Zeit, &lt;br /&gt;
+                                        wirst geachtet weit und breit. &lt;br /&gt;
+                                        &lt;br /&gt;
+
+                                        So ein Amt bringt niemals Ehre, &lt;br /&gt;
+                                        denn der Klatschsucht scharfe Schere &lt;br /&gt;
+                                        schneidet boshaft Dir, schnipp-schnapp, &lt;br /&gt;
+                                        Deine Ehre vielfach ab. &lt;br /&gt;
+                                        &lt;br /&gt;
+
+                                        Willst du froh und glücklich leben, &lt;br /&gt;
+                                        laß kein Ehrenamt dir geben! &lt;br /&gt;
+                                        Willst du nicht zu früh ins Grab &lt;br /&gt;
+                                        lehne jedes Amt gleich ab! &lt;br /&gt;
+                                        &lt;br /&gt;
+
+                                        Selbst Dein Ruf geht Dir verloren, &lt;br /&gt;
+                                        wirst beschmutzt vor Tür und Toren, &lt;br /&gt;
+                                        und es macht ihn oberfaul &lt;br /&gt;
+                                        jedes ungewaschne Maul! &lt;br /&gt;
+                                        &lt;br /&gt;
+
+                                        Drum, so rat ich Dir im Treuen: &lt;br /&gt;
+                                        willst Du Weib (Mann) und Kind erfreuen, &lt;br /&gt;
+                                        soll Dein Kopf Dir nicht mehr brummen, &lt;br /&gt;
+                                        laß das Amt doch and'ren Dummen. &lt;br /&gt;
+                                    &lt;/jsp:attribute&gt;
+                                &lt;/template:base&gt;
+                            </source-code>
+
+                            <h2>santa.jsp</h2>
+                            <source-code language="html">
+                                &lt;%@taglib prefix="template" tagdir="/WEB-INF/tags/templates" %&gt;
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+
+                                &lt;template:base&gt;
+                                    &lt;jsp:attribute name="title"&gt;Is Santa Claus A Sysadmin?&lt;/jsp:attribute&gt;
+
+                                    &lt;jsp:attribute name="body"&gt;
+                                        &lt;ol&gt;
+                                            &lt;li&gt;
+                                                Santa is bearded, corpulent, and dresses funny.
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                When you ask Santa for something, the odds of receiving what you wanted are infinitesimal.
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                Santa seldom answers your mail.
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                Santa doesn't care about your deadlines.
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                Your parents ascribed supernatural powers to Santa, but did all the work themselves.
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                Nobody knows who Santa has to answer to for his actions.
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                Santa laughes entirely too much.
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                Santa thinks nothing of breaking into your $HOME.
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                Only a lunatic says bad things about Santa in his presence
+                                            &lt;/li&gt;
+                                        &lt;/ol&gt;
+                                    &lt;/jsp:attribute&gt;
+                                &lt;/template:base&gt;
                             </source-code>
                         </div>
                     </div>
