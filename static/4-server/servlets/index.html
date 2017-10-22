@@ -2,19 +2,465 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Serverseitige Webentwicklung mit Servlets</title>
+        <title>Serverseitige Logik mit Servlets</title>
 
         <link rel="shortcut icon" href="../../favicon.svg" />
         <link rel="stylesheet" href="../../style.css" />
         <script src="../../learning-slides.bundle.js"></script>
     </head>
-    <body class="slides invisible" data-title="Serverseitige Webentwicklung mit Servlets" tabindex="0">
+    <body class="slides invisible" data-title="Serverseitige Logik mit Servlets" tabindex="0">
         <header>
             <h2>Inhaltsverzeichnis</h2>
             <p>
-                …
+                In diesem Kapitel bauen wir auf deinem Wissen zu HTTP und Java Server
+                Pages auf und vervollständigen nun das Bild vom Server. Du erfährst
+                hier, wie der serverseitige Quellcode einer Webanwendung überlicherweise
+                gegliedert ist lernst die Programmierung in Java als konkretes Beispiel
+                kennen. Mit diesem Wissen ausgerüstet kannst du dich dann auch in
+                vielen anderen Webframeworks schnell zurechtfinden.
             </p>
         </header>
+
+        <section>
+            <h1>Die drei Arten von Webanwendungen</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "webanwendungen-browser-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#webanwendungen-browser"
+                                role          = "tab"
+                                aria-controls = "webanwendungen-browser"
+                                aria-expanded = "true"
+                            >
+                                Komplett im Browser
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "webanwendungen-server-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#webanwendungen-server"
+                                role          = "tab"
+                                aria-controls = "webanwendungen-server"
+                            >
+                                Komplett auf dem Server
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "webanwendungen-beides-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#webanwendungen-beides"
+                                role          = "tab"
+                                aria-controls = "webanwendungen-beides"
+                            >
+                                Sowohl als auch
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Komplett im Browser -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "webanwendungen-browser"
+                            role            = "tabpanel"
+                            aria-labelledby = "webanwendungen-browser-tab"
+                        >
+                            <img src="webanwendung_01.svg" class="d-block" style="width: 100%;" />
+
+                            <p>
+                                <small>
+                                    <small>
+                                        Bildnachweis für das Smartphone: <a href="https://pixabay.com/de/iphone-handy-apple-telefon-mobil-160307/" target="_blank">Pixabay: OpenClipart-Vectors</a>
+                                    </small>
+                                </small>
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Die komplette Anwendungslogik befindet sich im Browser (JavaScript)
+                                </li>
+                                <li>
+                                    Die Anwendung kann lokal komplett ohne Server ausgeführt werden
+                                </li>
+                                <li>
+                                    Ein Server wird nur benötigt, wenn die Anwendung über das Internet aufrufbar sein soll
+                                </li>
+                                <li>
+                                    Mit <a href="http://cordova.apache.org/" target="_blank">Phonegap/Cordova</a> erstelle mobile Anwendungen funktionieren auch nach diesem Prinzip
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Komplett auf dem Server -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "webanwendungen-server"
+                            role            = "tabpanel"
+                            aria-labelledby = "webanwendungen-server-tab"
+                        >
+                            <img src="webanwendung_02.svg" class="d-block" style="width: 100%;" />
+
+                            <ul>
+                                <li>
+                                    <b class="dhbw-lightblue">Der Klassiker:</b> Die Anwendungslogik liegt komplett auf dem Server
+                                </li>
+                                <li>
+                                    JavaScript kommt im Browser wenn überhaupt nur sehr sparsam zum Einsatz
+                                </li>
+                                <li>
+                                    Stattdessen führt jede Aktion dazu, dass eine neue Seite vom Server geladen wird
+                                </li>
+                                <li>
+                                    Der Server führt dabei die Anwendungslogik aus und generiert das anzuzeigende HTML
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Sowohl als auch -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "webanwendungen-beides"
+                            role            = "tabpanel"
+                            aria-labelledby = "webanwendungen-beides-tab"
+                        >
+                            <img src="webanwendung_03.svg" class="d-block" style="width: 100%;" />
+
+                            <ul>
+                                <li>
+                                    <b class="dhbw-lightblue">Das Beste beider Welten:</b> Browser und Server beinhalten je einen Teil der Anwendungslogik
+                                </li>
+                                <li>
+                                    Der HTML-Code der Seite kann zur Laufzeit generiert werden oder in einer einfachen HTML-Datei liegen
+                                </li>
+                                <li>
+                                    Bei verschiedenen Aktionen werden mit JavaScript weitere Daten mit dem Server ausgetauscht
+                                </li>
+                                <li>
+                                    Die empfangenen Daten werden dabei durch geschickte DOM-Manipulation sichtbar gemacht
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Bevor wir nun anfangen können, den Server in unsere Webanwendungen miteinzubeziehen, musst du
+                    erst verstehen, welche Möglichkeiten es hierfür gibt. Denn davon hängt maßgeblich ab, wie
+                    die Webanwendungen aufgebaut sind und wie aufwändig ihre Programmierung möglicherweise wird.
+                    Die zentrale Frage dabei ist einfach, welche Aufgabe der Server überhaupt haben soll:
+                </p>
+                <ol>
+                    <li>
+                        Die Anwendung läuft im Browser und benötigt keinen Server
+                    </li>
+                    <li>
+                        Die Anwendung wird komplett serverseitig realisiert
+                    </li>
+                    <li>
+                        Die Anwendung läuft im Browser, greift aber auf einzelne Serverfunktionen zurück
+                    </li>
+                </ol>
+                <p>
+                    Jeder dieser Ansätze hat seine ganz eigenen Vor- und Nachteile, weshalb es immer vom konkreten
+                    Anwendungsfall abhängt, welcher gerade am besten geeignet ist. Doch auch dann hängt es immer
+                    ein wenig von den eigenen Vorlieben ab, welcher Ansatz einem am leichtesten fällt. 🐊
+                </p>
+
+                <h2>Browser Apps ohne Server</h2>
+                <p>
+                    Eigentlich waren Browser ja nur als einfache Anzeigeprogramme konzipiert, mit denen man eben
+                    im Web surfen und HTML-Seiten anzeigen konnte. Doch spätestens seit HTML5 hat sich die Idee
+                    durchgesetzt, den Browser als <a href="https://xkcd.com/1367/" target="_blank">vollwertige
+                    Laufzeitumgebung für universelle Apps</a> zu nutzen. Viele Webanwendungen laufen daher, sobald
+                    sie einmal geladen wurden, allein im Browser mit keinerlei Server im Hintergrund, weshalb dem
+                    JavaScript-Code hier eine besondere Bedeutung zukommt. Dass dabei auch beeindruckende Ergebnisse
+                    möglich sind, zeigen folgende Beispiele:
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://dx7.vstforx.de/" target="_blank">Yamaha DX7 Online-Emulation</a>
+                    </li>
+                    <li>
+                        <a href="http://www.playmapscube.com/" target="_blank">Google Maps Cube</a>
+                    </li>
+                    <li>
+                        <a href="http://www.ellison.rocks/clumsy-bird/" target="_blank">Clumsy Bird</a>
+                    </li>
+                </ul>
+                <p>
+                    Mit <a href="http://cordova.apache.org/" target="_blank">Phonegap bzw. Cordova</a> entwickelte
+                    Mobile Apps 📱 funktionieren übrigens genauso. Es handelt sich dabei lediglich um HTML-, CSS- und
+                    JavaScript-Dateien, die in einer Art Vollbildbrowser angezeigt werden.
+                </p>
+
+                <h2>Komplett serverseitige Webanwendungen</h2>
+                <p>
+                    Dies ist die klassische Art von Webanwendungen, wie es sie schon in den frühen Tagen des Webs gab,
+                    als noch die Dinosaurier die Welt beherrschten. 🐲 Der Browser zeigt hier lediglich den HTML-Code
+                    an, den er vom Server geschickt bekommt. Jeder Mausklick bzw. generell jede Aktion des Anwenders
+                    führt dazu, dass eine neue Seite geladen wird, weshalb browserseitig kein oder nur sehr wenig
+                    JavaScript zum Einsatz kommt. Denn im Prinzip wird JavaScript hier auch gar nicht benötigt, da der
+                    Browser bei jedem Klick auf einen Link oder beim Abschicken eines Formulars ohnehin ganz von alleine
+                    eine neue Seite anfordert.
+                </p>
+                <p>
+                    Der angezeigte HTML-Code wird in der Regel zur Laufzeit vom Server generiert. Jedes mal, wenn der
+                    Browser eine Seite anfordert und hierfür eine HTTP-Anfrage schickt, führt der Server die gewünschte
+                    Aktion aus und erzeugt eine neue HTML-Seite, in der das Ergebnis dargestellt wird.
+                </p>
+
+                <h2>Der Server als Funktionsbibliothek</h2>
+                <p>
+                    Auch wenn viele Webframeworks noch aus der Welt der rein serverseitigen Webanwendungen stammen,
+                    setzt sich heute immer mehr eine strikte Trennung zwischen dem Frontend und dem Backend einer
+                    Webanwendung durch. 🔪
+                </p>
+                <p>
+                    Der Browser ist hierbei das Frontend und führt eine Webseite bestehend aus
+                    HTML, CSS und JavaScript-Code aus. Diese muss natürlich erst vom Server geladen werden, weshalb
+                    manche Anwendungen den HTML-Code, wie bei einer herkömmlichen Webanwendung, vom Server dynamisch
+                    erzeugen lassen. Meistens wird darauf aber verzichtet, um Frontend und Backend unabhängig voneinander
+                    und häufig auch in getrennten Teams entwickeln zu können.
+                </p>
+                <p>
+                    Hauptaufgabe des Servers ist es in diesem Fall, Funktionen bereitzustellen, die der Browser
+                    via JavaScript aufrufen kann (vgl. <a href="https://de.wikipedia.org/wiki/Ajax_(Programmierung)" target="_blank">
+                    AJAX</a> und <a href="https://de.wikipedia.org/wiki/WebSocket" target="_blank">WebSockets</a>).
+                    Das automatische Neuladen der Seite soll dabei möglichst vermieden werden, weshalb du alle
+                    Aufrufe in JavaScript selbst ausprogrammieren musst. Dabei musst du dann auch die empfangenen
+                    Antwortdaten durch geschickte DOM-Manipulation in der Seite sichtbar machen.
+                </p>
+                <p>
+                    Vorteil dieses Ansatzes ist, dass die serverseitigen Funktionen aus unterschiedlichen Frontends
+                    heraus konsumiert werden können, beispielsweise einer Webseite und einer Desktopanwendung. Auch
+                    kann eine so entwickelte Webanwendung längere Offlinezeiten überstehen, solange sie keine Verbindung
+                    zum Server benötigt. Hierfür muss allerdings eine gute Schnittstelle zwischen Client und Server
+                    definiert werden¹, was nicht immer ganz einfach ist. Nächstes Semester werden wir mit
+                    <a href="https://de.wikipedia.org/wiki/SOAP" target="_blank">SOAP-</a> und
+                    <a href="https://de.wikipedia.org/wiki/Representational_State_Transfer" target="_blank">REST</a>-Webservices
+                    jedoch zwei weit verbreitete Techniken kennenlernen. 🎭
+                </p>
+                <p>
+                    <small>
+                        ¹ Welche Funktionen bietet der Server? Wie werden sie aufgerufen? Welche Daten müssen dabei
+                        an den Server übertragen werden? Mit welchen Daten antwortet er? In welcher Reihenfolge sind
+                        die Funktionen aufzurufen? Und so weiter …
+                    </small>
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Was der Server bei einer Anfrage macht</h1>
+            <article>
+                <img src="struktur.svg" class="d-block" style="width: 100%; box-sizing: border-box; padding: 1em;" />
+            </article>
+            <aside>
+                <p>
+                    Die folgende Abbildung zeigt den typischen Ablauf, wie die meisten Webframeworks eingehende HTTP-Anfragen
+                    auf dem Server bearbeiten. Natürlich besitzt jedes Framework etwas andere Begrifflichkeiten und auch die
+                    Programmierung unterscheidet sich teilweise deutlich. Im Wesentlichen machen sie aber immer die folgenden
+                    drei Dinge:
+                </p>
+
+                <h2>Wohin mit der Anfrage?</h2>
+                <p>
+                    Im ersten Schritt wird die in der Anfrage enthaltene URL ausgewertet. Dabei geht es vor allem darum
+                    herauszufinden, welcher Teil der Webanwendung für die Anfrage zuständig ist. Dieser Schritt wird daher
+                    auch <b>Routing</b> genannt, da die Anfrage anhand ihrer URL serverintern an die richtige Stelle
+                    weitergeleitet wird. Die meisten Frameworks erlauben es daher, Routingregeln für die URLs zu definieren.
+                </p>
+                <p>
+                    Ein einfaches Beispiel für einen Blog 📖 könnte dabei wie folgt aussehen:
+                </p>
+                <table style="margin-bottom: 1.5em;">
+                    <tr>
+                        <td>
+                            <tt>/</tt>
+                        </td>
+                        <td>
+                            →
+                        </td>
+                        <td>
+                            Startseite
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <tt>/article/</tt>
+                        </td>
+                        <td>
+                            →
+                        </td>
+                        <td>
+                            Übersicht mit allen Bloggeinträgen
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <tt>/article/<span style="color: darkred">${name}</span>/</tt>
+                        </td>
+                        <td>
+                            →
+                        </td>
+                        <td>
+                            Inhalt eines einzelnen Bloggeintrags
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <tt>/article/<span style="color: darkred">${name}</span>/comments</tt>
+                        </td>
+                        <td>
+                            →
+                        </td>
+                        <td>
+                            Kommentare zu einem bestimmten Bloggeintrag
+                        </td>
+                    </tr>
+                </table>
+
+                <h2>Der Request Handler ist dran</h2>
+                <p>
+                    Durch das Routing wird die Anfrage an einen sogenannten <b>Request Handler</b> weitergeleitet. Je
+                    nach Programmiersprache und Framework handelt es sich dabei um eine Klasse, Methode oder eine Funktion,
+                    in jedem Fall also zum Programmcode, der zur Bearbeitung der Anfrage ausgeführt wird. Er bekommt daher
+                    alle Daten der HTTP-Anfrage übergegeben und kann auch eine Antwort generieren.
+                </p>
+                <p>
+                    Hier liegt daher die Anwendungslogik des Servers, wo zum Beispiel Datensätze aus einer Datenbank gelesen
+                    oder neue Einträge gespeichert werden können. 💾
+                </p>
+
+                <h2>Erzeugung des HTML-Codes</h2>
+                <p>
+                    Nachdem die gewünschte Aktion vom Request Handler ausgeführt wurde (zum Beispiel einen neuen Blogeintrag
+                    zu speichern oder einen vorhandenen Eintrag aus der Datenbank zu lesen), wird die Anfrage in aller Regel
+                    an ein <b>HTML-Template</b> weitergereicht, um daraus die anzuzeigende Seite zu generieren. Dabei kommt
+                    dann wieder das Prinzip mit den Platzhaltern zum Tragen, wobei das Template verschiedene Platzhalter
+                    enthält, die vom Request Handler mit Inhalten ausgefüllt werden. Die hierfür benötigten Daten werden deshalb
+                    in einen sogenannten <b>Kontext</b> (eine Name/Wert-Liste) geschrieben, den das Template auslesen kann.
+                </p>
+                <p>
+                    Alternativ kann der Request Handler auch einfach direkt eine HTTP-Antwort erzeugen, wenn zum Beispiel
+                    ein Format wie PDF oder JSON als Antwort erwartet wird. In diesem Fall entfällt denn der zusätzliche
+                    Schritt mit dem Template.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Und nun das ganze mit Java</h1>
+            <article>
+                …
+            </article>
+            <aside>
+                <p>
+                    …
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Die wichtigsten Servlet-Methoden</h1>
+            <article>
+                …
+            </article>
+            <aside>
+                <p>
+                    …
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Beispiel: Ein Servlet sagt „Hallo”</h1>
+            <article>
+                <!-- FORM GET/POST-Pattern für ein einfaches "Hallo Welt" -->
+                …
+            </article>
+            <aside>
+                <p>
+                    …
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 1: Ein kleines Servlet-Quiz</h1>
+            <article>
+                …
+            </article>
+            <aside>
+                <p>
+                    …
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Weiterleitung an eine Java Server Page</h1>
+            <article>
+                …
+            </article>
+            <aside>
+                <p>
+                    …
+                    <!-- (1) RequestDispatcher -->
+                    <!-- (2) Wenige wichtige JSP Tags und Expressions -->
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Beispiel: „Hallo Welt” gleich viel schöner</h1>
+            <article>
+                …
+            </article>
+            <aside>
+                <p>
+                    …
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Die drei Kontexte im Detail</h1>
+            <article>
+                …
+            </article>
+            <aside>
+                <p>
+                    …
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 2: Eine klitzekleine Webanwendung</h1>
+            <article>
+                <!-- Mini TODO-Liste: Ein <input /> und ein <ol> auf einer Seite -->
+                …
+            </article>
+            <aside>
+                <p>
+                    …
+                </p>
+                <img src="../../github_atom.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
+                </p>
+            </aside>
+        </section>
 
         <section data-background-color="rgb(158, 203, 231)">
             <h1>Rechtshinweise</h1>
