@@ -96,6 +96,9 @@
                                     Mit <a href="http://cordova.apache.org/" target="_blank">Phonegap/Cordova</a> erstelle mobile Anwendungen funktionieren auch nach diesem Prinzip
                                 </li>
                             </ul>
+                            <p>
+                                So haben wir bisher gearbeitet.
+                            </p>
                         </div>
                         <!-- Komplett auf dem Server -->
                         <div
@@ -120,6 +123,9 @@
                                     Der Server führt dabei die Anwendungslogik aus und generiert das anzuzeigende HTML
                                 </li>
                             </ul>
+                            <p>
+                                Das schauen wir uns heute etwas genauer an.
+                            </p>
                         </div>
                         <!-- Sowohl als auch -->
                         <div
@@ -144,6 +150,9 @@
                                     Die empfangenen Daten werden dabei durch geschickte DOM-Manipulation sichtbar gemacht
                                 </li>
                             </ul>
+                            <p>
+                                Das behandeln wir ein anderes mal.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -274,7 +283,8 @@
                     Im ersten Schritt wird die in der Anfrage enthaltene URL ausgewertet. Dabei geht es vor allem darum
                     herauszufinden, welcher Teil der Webanwendung für die Anfrage zuständig ist. Dieser Schritt wird daher
                     auch <b>Routing</b> genannt, da die Anfrage anhand ihrer URL serverintern an die richtige Stelle
-                    weitergeleitet wird. Die meisten Frameworks erlauben es daher, Routingregeln für die URLs zu definieren.
+                    weitergeleitet wird. Die meisten Frameworks erlauben es dementsprechend, Routingregeln für die URLs
+                    zu definieren.
                 </p>
                 <p>
                     Ein einfaches Beispiel für einen Blog 📖 könnte dabei wie folgt aussehen:
@@ -330,8 +340,8 @@
                 <p>
                     Durch das Routing wird die Anfrage an einen sogenannten <b>Request Handler</b> weitergeleitet. Je
                     nach Programmiersprache und Framework handelt es sich dabei um eine Klasse, Methode oder eine Funktion,
-                    in jedem Fall also zum Programmcode, der zur Bearbeitung der Anfrage ausgeführt wird. Er bekommt daher
-                    alle Daten der HTTP-Anfrage übergegeben und kann auch eine Antwort generieren.
+                    in jedem Fall also um Programmcode, der zur Bearbeitung der Anfrage ausgeführt wird. Er bekommt alle
+                    Daten der HTTP-Anfrage übergegeben und kann auch eine Antwort generieren.
                 </p>
                 <p>
                     Hier liegt daher die Anwendungslogik des Servers, wo zum Beispiel Datensätze aus einer Datenbank gelesen
@@ -341,7 +351,7 @@
                 <h2>Erzeugung des HTML-Codes</h2>
                 <p>
                     Nachdem die gewünschte Aktion vom Request Handler ausgeführt wurde (zum Beispiel einen neuen Blogeintrag
-                    zu speichern oder einen vorhandenen Eintrag aus der Datenbank zu lesen), wird die Anfrage in aller Regel
+                    speichern oder einen Eintrag aus der Datenbank lesen), wird die Anfrage in aller Regel
                     an ein <b>HTML-Template</b> weitergereicht, um daraus die anzuzeigende Seite zu generieren. Dabei kommt
                     dann wieder das Prinzip mit den Platzhaltern zum Tragen, wobei das Template verschiedene Platzhalter
                     enthält, die vom Request Handler mit Inhalten ausgefüllt werden. Die hierfür benötigten Daten werden deshalb
@@ -356,13 +366,297 @@
         </section>
 
         <section>
-            <h1>Und nun das ganze mit Java</h1>
+            <h1>Und nun das Ganze mit Java</h1>
             <article>
-                …
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "erstes_servlet-quellcode-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#erstes_servlet-quellcode"
+                                role          = "tab"
+                                aria-controls = "erstes_servlet-quellcode"
+                                aria-expanded = "true"
+                            >
+                                Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "erstes_servlet-netbeans-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#erstes_servlet-netbeans"
+                                role          = "tab"
+                                aria-controls = "erstes_servlet-netbeans"
+                                aria-expanded = "true"
+                            >
+                                Netbeans-Projekt
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "erstes_servlet-ergebnis-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#erstes_servlet-ergebnis"
+                                role          = "tab"
+                                aria-controls = "erstes_servlet-ergebnis"
+                            >
+                                Ergebnis
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Quellcode -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "erstes_servlet-quellcode"
+                            role            = "tabpanel"
+                            aria-labelledby = "erstes_servlet-quellcode-tab"
+                        >
+                            <source-code language="java">
+                                import java.io.IOException;
+                                import java.io.PrintWriter;
+                                import javax.servlet.ServletException;
+                                import javax.servlet.annotation.WebServlet;
+                                import javax.servlet.http.HttpServlet;
+                                import javax.servlet.http.HttpServletRequest;
+                                import javax.servlet.http.HttpServletResponse;
+
+                                /**
+                                 * Dies ist ein Minimalbeispiel für ein Servlet, das auf HTTP-Anfragen reagiert.
+                                 */
+                                @WebServlet(
+                                    urlPatterns = {
+                                        "/",
+                                        "/hallo/*",
+                                    }
+                                )
+                                public class MinimalesServlet extends HttpServlet {
+
+                                    /**
+                                     * Diese Methode reagiert auf GET-Anfragen.
+                                     */
+                                    @Override
+                                    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                                    throws IOException, ServletException {
+                                        // Datenstrom für Ausgabe zum Client
+                                        response.setContentType("text/html");
+                                        PrintWriter toClient = response.getWriter();
+
+                                        // HTML-Code erzeugen und ausgeben
+                                        toClient.println("&lt;html&gt;");
+                                        toClient.println("  &lt;body&gt;");
+                                        toClient.println("    &lt;h1&gt;Hallo Servlet!&lt;/h1&gt;");
+                                        toClient.println("  &lt;/body&gt;");
+                                        toClient.println("&lt;/html&gt;");
+
+                                        toClient.flush();
+                                    }
+
+                                }
+                            </source-code>
+                        </div>
+                        <!-- Netbeans-Projekt -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "erstes_servlet-netbeans"
+                            role            = "tabpanel"
+                            aria-labelledby = "erstes_servlet-netbeans-tab"
+                        >
+                            <img src="minimales_servlet_netbeans.png" class="d-block" style="width: 100%;" />
+                        </div>
+                        <!-- Ergebnis -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "erstes_servlet-ergebnis"
+                            role            = "tabpanel"
+                            aria-labelledby = "erstes_servlet-ergebnis-tab"
+                        >
+                            <img src="minimales_servlet_ergebnis.png" class="d-block img-responsive" style="max-width: 100%;"/>
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 <p>
-                    …
+                    Wenn du den eben erklärten Ablauf verstanden hast, ist der hier gezeigte Javacode nicht wirklich
+                    schwer. Du musst dir nur folgende zwei Dinge merken:
+                </p>
+                <ol>
+                    <li>
+                        Request Handler in Java sind die sogenannten <b>Servlets</b>. Dabei handelt es sich um einfache
+                        Klassen, die von <code>HttpServlet</code> erben.
+                    </li>
+                    <li>
+                        Das URL-Routing wird entweder in der Datei <tt>WEB-INF/web.xml</tt> oder, wie hier gezeigt, über
+                        die Annotation <code>@WebServlet</code> vor den Servletklassen definiert.
+                    </li>
+                </ol>
+                <p>
+                    Mit diesem Wissen ausgestattet können wir uns den Quellcode nun genauer anschauen. Übrigens handelt es sich hierbei
+                    um eine vollständige, serverseitige Webanwendung, wie die beiden Screenshots auf der Folie zeigen.¹ 📷
+                </p>
+                <p>
+                    <small>
+                        ¹ Die Ordner <tt>META-INF</tt> und <tt>WEB-INF</tt> generiert Netbeans automatisch. Du solltest sie auch nicht löschen.
+                    </small>
+                </p>
+
+                <h2>Das URL-Routing</h2>
+                <p>
+                    Vor der eigentlichen Serlvetklasse findest du im Quellcode die Annotation <code>@WebServlet</code>. Sie dient, wie Annotationen
+                    in der Java Enterpride Edition allgemein, dazu die nachfolgende Klasse für einen bestimmten Anwendungsfall zu konfigurieren.
+                    Hier in unserem Fall legt sie daher fest, unter welchen URLs das Servlet aufrufbar ist, indem dem Parameter <tt>urlPatterns</tt>
+                    eine Liste² mit Suchmustern mitgegeben wird:
+                </p>
+                <source-code language="java">
+                    @WebServlet(
+                        urlPatterns = {
+                            "/",
+                            "/hallo/*",
+                        }
+                    )
+                </source-code>
+                <p>
+                    Im Vergleich zu anderen Frameworks ist das URL-Routing von Java leider etwas simpel ausgefallen. Denn es werden nur sogenannte
+                    Prefix-Regeln unterstützt, bei denen das Sternchen für eine beliebige Zeichenkette steht. Du wirst daher nicht drumherum kommen,
+                    in bestimmten Fällen die URL im Javacode noch weiter analysieren zu müssen. Beispielsweise wenn du, wie im Blogbeispiel gezeigt,
+                    die ID das gesuchten Blogeintrags ermitteln willst. Andere Frameworks bieten hier mehr Möglichkeiten.
+                </p>
+                <p>
+                    Angenommen, dein Applikationsserver lauscht auf Port 8080 und deine Webanwendung heißt „beispiel_app”. Dann würden folgende
+                    URLs zu einem Aufruf des Servlets führen:
+                </p>
+                <ul>
+                    <li>
+                        <tt>http://localhost:8080/beispiel_app/</tt>
+                    </li>
+                    <li>
+                        <tt>http://localhost:8080/beispiel_app/hallo/</tt>
+                    </li>
+                    <li>
+                        <tt>http://localhost:8080/beispiel_app/hallo/welt</tt>
+                    </li>
+                    <li>
+                        <tt>http://localhost:8080/beispiel_app/hallo/dieter/</tt>
+                    </li>
+                    <li>
+                        <tt>…</tt>
+                    </li>
+                </ul>
+                <p>
+                    Du siehst, Java stellt immer den Namen der Webanwendung vor die eigentliche URL. Das kommt daher, dass der Quellcode in einem
+                    Webcontainer ausgeführt wird, der ja beliebig viele Webanwendungen beherbergen kann.
+                </p>
+                <p>
+                    <small>
+                        ² Verwechsle die geschweiften Klammern hier nicht mit JavaScript. Es handelt sich tatsächlich um eine Liste und nicht um
+                        ein Dictionary.
+                    </small> 🤔
+                </p>
+
+                <h2>Die Servletklasse</h2>
+                <p>
+                    Das Servlet selbst ist eigentlich relativ einfach aufgebaut. Es handelt sich lediglich um eine
+                    Javaklasse, die von <code>HttpServlet</code> erbt:
+                </p>
+                <source-code language="java">
+                    public class MinimalesServlet extends HttpServlet {
+                        …
+                    }
+                </source-code>
+                <p>
+                    Dadurch besitzt sie je HTTP-Verb eine Methode, die bei einer entsprechenden Anfrage aufgerufen wird.
+                    Hier im Beispiel wurde allerdings nur die <code>doGet(…)</code>-Methode überschrieben, weshalb das Servlet
+                    auch nur auf <tt>GET</tt>-Anfragen reagiert. Alle anderen Anfragen lehnt es mit dem Statuscode <tt>405 Method
+                    Not Allowed</tt> ab. 🚭
+                </p>
+                <p>
+                    Die <code>doGet(…)</code>-Methode hat dabei einen interessanten Aufbau. Zunächst einmal bekommt sie zwei
+                    Parameter übergeben, die jeweils für die HTTP-Anfrage und die HTTP-Antwort stehen. Außerdem kann sie die
+                    beiden Exceptions <code>IOException</code> und <code>ServletException</code> werfen. Darüber musst du dir
+                    in der Regel aber keine Gedanken machen:
+                </p>
+                <source-code language="java">
+                    @Override
+                    public void doGet(
+                        HttpServletRequest requqest,
+                        HttpServletResponse respone
+                    ) throws IOException, ServletException {
+                        …
+                    }
+                </source-code>
+                <p>
+                    Bevor nun eine Antwort generiert wird, wird erst das Header Field <tt>content-type</tt> gesetzt, um dem
+                    Browser zu sagen, dass wir ihm HTML-Daten schicken:
+                </p>
+                <source-code language="java">
+                    response.setContentType("text/html");
+                </source-code>
+                <p>
+                    Anschließend besorgt sich die Methode einen <code>PrintWriter</code>-Datenstrom und schreibt dort die
+                    eigentliche Antwort hinein. Also alles das, was im Response Body zurückgeschickt werden soll:
+                </p>
+                <source-code language="java">
+                    PrintWriter toClient = response.getWriter();
+
+                    toClient.println("&lt;html&gt;");
+                    toClient.println("  &lt;body&gt;");
+                    toClient.println("    &lt;h1&gt;Hallo Servlet!&lt;/h1&gt;");
+                    toClient.println("  &lt;/body&gt;");
+                    toClient.println("&lt;/html&gt;");
+
+                    toClient.flush();
+                </source-code>
+
+                <h2>Wie geht es nun weiter?</h2>
+                <p>
+                    Natürlich ist das noch nicht wirklich schöner Quellcode. Denn wer will schon HTML-Seiten auf diese Weise
+                    zusammenbauen? 🤤 In <a href="#8">Folie 8</a> zeigen wir dir daher, wie die Bearbeitung an eine Java Server
+                    Page weitergegeben werden kann.
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 1: Dein erstes Servlet</h1>
+            <article>
+                <p>
+                    Lege in Netbeans ein <a href="../http/#8" target="_blank">neues Java-Webprojekt</a> an und probiere folgende Sachen aus:
+                </p>
+                <ol>
+                    <li>
+                        Lösche die Datei <tt>index.html</tt> aus dem Ordner <tt>Web Pages.</tt>
+                    </li>
+                    <li>
+                        Stattdessen lege eine neue Klasse an und kopiere den Quellcode aus <a href="#3">Folie 3</a> hinein.
+                    </li>
+                    <li>
+                        Starte die Anwendung und rufe das Servlet im Browser auf. Es sollte die Meldung „Hallo Servlet!” erscheinen.
+                    </li>
+                    <li>
+                        Schreibe ein zweites Servlet, das auf die URL <tt>/bye/</tt> reagiert und „Auf Wiedersehen!” anzeigt.
+                    </li>
+                </ol>
+
+                <img src="aufgabe1.png" class="d-block img-thumbnail" style="width: 100%;" />
+            </article>
+            <aside>
+                <p>
+                    Wir haben zwar noch nicht viel Quellcode gesehen, doch wollen wir
+                    an dieser Stelle gleich mal ausprobieren, ob das mit den Servlets
+                    wirklich so einfach funktioniert. Zeit also, Netbeans anzustarten. 🏁
+                </p>
+                <img src="../../github_atom.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
                 </p>
             </aside>
         </section>
@@ -370,87 +664,1543 @@
         <section>
             <h1>Die wichtigsten Servlet-Methoden</h1>
             <article>
-                …
+                <h2>HttpServlet: Der Servlet selbst</h2>
+
+                <div style="margin-bottom: 1em;">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "methoden-http_servlet-anfragen-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#methoden-http_servlet-anfragen"
+                                role          = "tab"
+                                aria-controls = "methoden-http_servlet-anfragen"
+                                aria-expanded = "true"
+                            >
+                                Bearbeitung von HTTP-Anfragen
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "methoden-http_servlet-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#methoden-http_servlet-beispiel"
+                                role          = "tab"
+                                aria-controls = "methoden-http_servlet-beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Bearbeitung von HTTP-Anfragen -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "methoden-http_servlet-anfragen"
+                            role            = "tabpanel"
+                            aria-labelledby = "methoden-http_servlet-anfragen-tab"
+                        >
+                            <source-code language="java">
+                                public void service(HttpServletRequest request, HttpServletResponse response)
+                                throws IOException, ServletEcxeption
+                            </source-code>
+                            <p style="margin-top: -0.5em; margin-bottom: 1em;">
+                                Diese Methode kannst du überschreiben, wenn du wirklich auf alle HTTP-Anfragen reagieren willst,
+                                egal welches Verb dabei verwendet wurde.
+                            </p>
+
+                            <source-code language="java">
+                                public void doGet(HttpServletRequest request, HttpServletResponse response) …
+                                public void doPut(HttpServletRequest request, HttpServletResponse response) …
+                                public void doPost(HttpServletRequest request, HttpServletResponse response) …
+                                public void doDelete(HttpServletRequest request, HttpServletResponse response) …
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Meistens ist es jedoch besser, eine dieser Methoden zu überschreiben. Denn dadurch kannst du gezielt
+                                festlegen, wie sich das Servlet bei verschiedenen HTTP-Verben verhalten soll.
+                            </p>
+                        </div>
+                        <!-- Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "methoden-http_servlet-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "methoden-http_servlet-beispiel-tab"
+                        >
+                            <source-code language="java">
+                                /**
+                                 * Dieses Beispiel zeigt die Verwendung der verschiedenen doXXX-Methoden.
+                                 */
+                                @WebServlet(urlPatterns = {"/"})
+                                public class GetPostServlet extends HttpServlet {
+
+                                    /**
+                                     * Wir haben eine GET-Anfrage empfangen.
+                                     */
+                                    @Override
+                                    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                                    throws IOException, ServletException {
+                                        …
+                                    }
+
+                                    /**
+                                     * Wir haben eine POST-Anfrage empfangen.
+                                     */
+                                    @Override
+                                    public void doPost(HttpServletRequest request, HttpServletResponse response)
+                                    throws IOException, ServletException {
+                                        …
+                                    }
+
+                                }
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>HttpServletRequest: Die HTTP-Anfrage</h2>
+
+                <div style="margin-bottom: 1em;">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "methoden-http_servlet_request-anfrage-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#methoden-http_servlet_request-anfrage"
+                                role          = "tab"
+                                aria-controls = "methoden-http_servlet_request-anfrage"
+                                aria-expanded = "true"
+                            >
+                                Werte aus der HTTP-Anfrage lesen
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "methoden-http_servlet_request-sonstige-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#methoden-http_servlet_request-sonstige"
+                                role          = "tab"
+                                aria-controls = "methoden-http_servlet_request-sonstige"
+                            >
+                                Sonstige Methoden
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "methoden-http_servlet_request-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#methoden-http_servlet_request-beispiel"
+                                role          = "tab"
+                                aria-controls = "methoden-http_servlet_request-beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "methoden-http_servlet_request-screenshot-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#methoden-http_servlet_request-screenshot"
+                                role          = "tab"
+                                aria-controls = "methoden-http_servlet_request-screenshot"
+                            >
+                                Screenshot
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Werte aus der HTTP-Anfrage lesen -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "methoden-http_servlet_request-anfrage"
+                            role            = "tabpanel"
+                            aria-labelledby = "methoden-http_servlet_request-anfrage-tab"
+                        >
+                            <source-code language="java">
+                                public String getRequestURI()
+                            </source-code>
+                            <p style="margin-top: -0.5em; margin-bottom: 1em;">
+                                Liefert den Pfad der URL, so wie er in der HTTP-Anfrage geschickt wurde. Der String
+                                beinhaltet daher auch den Namen der Webanwendung, mit dem ja jeder URL beginnt (siehe
+                                Screenshot).
+                            </p>
+
+                            <source-code language="java">
+                                public String getQueryString()
+                            </source-code>
+                            <p style="margin-top: -0.5em; margin-bottom: 1em;">
+                                Liefert die Anfrageparameter aus der URL oder <code>null</code>, falls die URL keine
+                                Anfrageparameter enthält.
+                            </p>
+
+                            <source-code language="java">
+                                public String getParameter(String name)
+                            </source-code>
+                            <p style="margin-top: -0.5em; margin-bottom: 1em;">
+                                Liefert den Wert eines einzelnen Anfrageparameters aus der URL. Alternativ kann damit auch der
+                                Wert eines Formularfelds ausgelesen werden, wenn ein HTML-Formular abgeschickt wurde.
+                            </p>
+
+                            <source-code language="java">
+                                public String getHeader(String name)
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Liefert den Wert eines einzelnen Header Fields aus der HTTP-Anfrage oder <code>null</code>,
+                                wenn es das Feld nicht gibt.
+                            </p>
+                        </div>
+                        <!-- Sonstige Methoden -->
+                        <div
+                            class           = "tab-pane fade show"
+                            id              = "methoden-http_servlet_request-sonstige"
+                            role            = "tabpanel"
+                            aria-labelledby = "methoden-http_servlet_request-sonstige-tab"
+                        >
+                            <source-code language="java">
+                                public HttpSession getSession()
+                            </source-code>
+                            <p style="margin-top: -0.5em; margin-bottom: 1em;">
+                                Liefert den sogenannten <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html"
+                                target="_blank">Session Kontext</a> zurück. Diesen kannst du als Notizblock nutzen 🗒️, um dir über eine
+                                Anfrage hinaus benutzerspezifische Werte zu merken.
+                            </p>
+
+                            <source-code language="java">
+                                public RequestDispatcher getRequestDispatcher(String URL)
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Dieses Monster benötigen wir später, um die Bearbeitung einer HTTP-Anfrage an eine Java Server Page
+                                weiterzugeben. 👾
+                            </p>
+                        </div>
+                        <!-- Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "methoden-http_servlet_request-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "methoden-http_servlet_request-beispiel-tab"
+                        >
+                            <source-code language="java">
+                                /**
+                                 * Dieses Beispiel zeigt den Aufruf einiger wichtiger Methoden
+                                 * von HttpServletRequest.
+                                 */
+                                @WebServlet(urlPatterns = {"/"})
+                                public class RequestMethodenServlet extends HttpServlet {
+
+                                    /**
+                                     * Wir haben eine GET-Anfrage empfangen.
+                                     */
+                                    @Override
+                                    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                                    throws IOException, ServletException {
+                                        // Informationen aus der HTTP-Anfrage auslesen
+                                        String uri = request.getRequestURI();
+                                        String query = request.getQueryString();
+                                        String vornameParameter = request.getParameter("vorname");
+                                        String userAgent = request.getHeader("user-agent");
+
+                                        // Antwort senden
+                                        response.setContentType("text/plain");
+                                        PrintWriter toClient = response.getWriter();
+
+                                        toClient.println("Folgende Anfrage hast du geschickt");
+                                        toClient.println("==================================");
+                                        toClient.println("");
+                                        toClient.println("URL: " + uri);
+                                        toClient.println("Query String: " + query);
+                                        toClient.println("Parameter vorname: " + vornameParameter);
+                                        toClient.println("User Agent: " + userAgent);
+
+                                        toClient.flush();
+                                    }
+
+                                }
+                            </source-code>
+                        </div>
+                        <!-- Screenshot -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "methoden-http_servlet_request-screenshot"
+                            role            = "tabpanel"
+                            aria-labelledby = "methoden-http_servlet_request-screenshot-tab"
+                        >
+                            <img src="servlet_request_methoden.png" class="d-block" style="width: 100%" />
+                        </div>
+                    </div>
+                </div>
+
+                <h2>HttpServletResponse: Die HTTP-Antwort</h2>
+
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "methoden-http_servlet_response-antwort-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#methoden-http_servlet_response-antwort"
+                                role          = "tab"
+                                aria-controls = "methoden-http_servlet_response-antwort"
+                                aria-expanded = "true"
+                            >
+                                Werte in die Antwort schreiben
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "methoden-http_servlet_response-beispiel-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#methoden-http_servlet_response-beispiel"
+                                role          = "tab"
+                                aria-controls = "methoden-http_servlet_response-beispiel"
+                            >
+                                Beispiel
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Werte in die Antwort schreiben -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "methoden-http_servlet_response-antwort"
+                            role            = "tabpanel"
+                            aria-labelledby = "methoden-http_servlet_response-antwort-tab"
+                        >
+                            <source-code language="java">
+                                public void setStatus(int code)
+                                public void sendError(int code)
+                            </source-code>
+                            <p style="margin-top: -0.5em; margin-bottom: 1em;">
+                                Setzt den Statuscode der HTTP-Antwort. Für jeden Statuscode gibt eine entsprechende Konstante,
+                                zum Beispiel <code>response.SC_NOT_FOUND</code>. Im Gegensatz zu <code>setStatus()</code> schickt
+                                <code>sendError()</code> die Antwort mit einer Standardfehlerseite sofort ab.
+                            </p>
+
+                            <source-code language="java">
+                                public void sendRedirect(String url)
+                            </source-code>
+                            <p style="margin-top: -0.5em; margin-bottom: 1em;">
+                                Sendet den Stautscode <tt>302 Redirect</tt> an den Browser und fordert ihn damit auf,
+                                eine neue Seite zu laden.
+                            </p>
+
+                            <source-code language="java">
+                                void setContentType(String type)
+                            </source-code>
+                            <p style="margin-top: -0.5em; margin-bottom: 1em;">
+                                Setzt das Header Field <tt>content-type</tt>, um dem Browser mitzuteilen, welches
+                                Format die zurückgelieferten Daten haben. Der Wert <tt>type</tt> muss einem gültigen
+                                <a href="https://en.wikipedia.org/wiki/Media_type" target="_blank">MIME-Type</a> entsprechen.
+                            </p>
+
+                            <source-code language="java">
+                                public PrintWriter getWriter()
+                            </source-code>
+                            <p style="margin-top: -0.5em">
+                                Liefert einen <code>PrintWriter</code> zurück, mit dem der Response Body geschrieben werden kann.
+                                <b>Wichtig:</b> Sobald du anfängst, etwas in den Datenstrom zu schreiben, kannst du keine anderen
+                                Methoden von <code>HttpServletResponse</code> mehr aufrufen, da dadurch der Response Header
+                                abgeschlossen wird.
+                            </p>
+                        </div>
+                        <!-- Beispiel -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "methoden-http_servlet_response-beispiel"
+                            role            = "tabpanel"
+                            aria-labelledby = "methoden-http_servlet_response-beispiel-tab"
+                        >
+                            <source-code language="java">
+                                /**
+                                 * Dieses Beispiel leitet den Aufrufer immer an Google weiter.
+                                 */
+                                @WebServlet(urlPatterns = {"/"})
+                                public class RedirectServlet extends HttpServlet {
+
+                                    /**
+                                     * Wir haben eine GET-Anfrage empfangen.
+                                     */
+                                    @Override
+                                    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                                    throws IOException, ServletException {
+                                        response.sendRedirect("https://www.google.de");
+                                    }
+
+                                }
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 <p>
-                    …
+                    Auf dieser Folie findest du eine Übersicht der wichtigsten Methoden rund um Servlets.
+                    Natürlich ist die Übersicht nicht vollständig, es sind aber alle wesentlichen Methoden
+                    dabei, die man so im Alltag benötigt. 🐪 Diese teilen sich dabei auf die folgenden
+                    Klassen bzw. Interfaces auf:
+                </p>
+                <ul>
+                    <li>
+                        <b><tt>HttpServlet</tt>:</b> Das jeweilige Servlet selbst. Diese Methoden
+                        kannst du überschreiben und mit eigenem Inhalt füllen.
+                    </li>
+                    <li>
+                        <b><tt>HttpServletRequest</tt>:</b> Alles rund um die HTTP-Anfrage.
+                    </li>
+                    <li>
+                        <b><tt>HttpServletResponse</tt>:</b> Alles rund um die HTTP-Antwort.
+                    </li>
+                </ul>
+                <p>
+                    Alle weiteren Methoden kannst du ja bei Bedarf in der
+                    <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/package-summary.html" target="_blank">API-Dokumentation</a>
+                    nachschlagen. 📚
                 </p>
             </aside>
         </section>
 
         <section>
-            <h1>Beispiel: Ein Servlet sagt „Hallo”</h1>
+            <h1>Beispiel: Formulareingaben verarbeiten</h1>
             <article>
-                <!-- FORM GET/POST-Pattern für ein einfaches "Hallo Welt" -->
-                …
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "formular-quellcode-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#formular-quellcode"
+                                role          = "tab"
+                                aria-controls = "formular-quellcode"
+                                aria-expanded = "true"
+                            >
+                                Quellcode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "formular-vorschau1-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#formular-vorschau1"
+                                role          = "tab"
+                                aria-controls = "formular-vorschau1"
+                            >
+                                Der erste Aufruf
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "formular-vorschau1-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#formular-vorschau2"
+                                role          = "tab"
+                                aria-controls = "formular-vorschau2"
+                            >
+                                Nachdem das Formular abgeschickt wurde
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Quellcode -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "formular-quellcode"
+                            role            = "tabpanel"
+                            aria-labelledby = "formular-quellcode-tab"
+                        >
+                            <source-code language="java">
+                                import java.io.IOException;
+                                import java.io.PrintWriter;
+                                import javax.servlet.ServletException;
+                                import javax.servlet.annotation.WebServlet;
+                                import javax.servlet.http.HttpServlet;
+                                import javax.servlet.http.HttpServletRequest;
+                                import javax.servlet.http.HttpServletResponse;
+                                import javax.servlet.http.HttpSession;
+
+                                /**
+                                 * Dieses Servlet zeigt, wie du Formulareingaben richtig behandelt werden.
+                                 * Es zeigt, dass bei einer GET-Anfrage das Formular geschickt wird und
+                                 * dieses seine Daten per POST an den Server schickt. Bei einer POST-Anfrage
+                                 * müssen daher die Formulardaten ausgelesen und verarbeitet werden, woraufhin
+                                 * der Browser durch einen Redirect zum Neuladen der Seite gezwungen wird.
+                                 */
+                                @WebServlet(urlPatterns = {"/formular/"})
+                                public class FormularServlet extends HttpServlet{
+
+                                    /**
+                                     * GET-Anfrage: Liefert eine HTML-Seite mit einem Formular
+                                     */
+                                    @Override
+                                    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                                    throws IOException, ServletException {
+                                        // Anfang der HTML-Seite
+                                        response.setContentType("text/html");
+                                        response.setCharacterEncoding("utf-8");
+
+                                        PrintWriter toClient = response.getWriter();
+
+                                        toClient.println("&lt;!DOCTYPE html&gt;");
+                                        toClient.println("&lt;html&gt;");
+                                        toClient.println("    &lt;head&gt;");
+                                        toClient.println("        &lt;meta charset='utf-8' /&gt;");
+                                        toClient.println("        &lt;title&gt;Hallo-Welt-Formular&lt;/title&gt;");
+                                        toClient.println("    &lt;/head&gt;");
+                                        toClient.println("    &lt;body&gt;");
+
+                                        // Hier nun das eigentliche Formular
+                                        toClient.println("        &lt;form method='POST'&gt;");
+                                        toClient.println("            Wie heißt du?");
+                                        toClient.println("            &lt;input name='vorname' type='text' /&gt;");
+                                        toClient.println("            &lt;input type='submit' value='Abschicken' /&gt;");
+                                        toClient.println("        &lt;/form&gt;");
+
+                                        // Zuletzt eingegebener Vorname, falls vorhanden
+                                        // Der Wert wird in der doPost()-Methode im Session Kontext abgelegt
+                                        HttpSession session = request.getSession();
+                                        String vorname = (String) session.getAttribute("vorname");
+
+                                        if (vorname != null) {
+                                            toClient.println("        &lt;p&gt;");
+                                            toClient.println("            Hallo, " + vorname + "!");
+                                            toClient.println("        &lt;/p&gt;");
+                                        }
+
+                                        // Abschluss der Seite
+                                        toClient.println("    &lt;/body&gt;");
+                                        toClient.println("&lt;/html&gt;");
+
+                                        toClient.flush();
+                                    }
+
+                                    /**
+                                     * POST-Anfrage: Verarbeitet die Formulareingaben und zwingt den Browser
+                                     * danach, die Seite neuzuladen.
+                                     */
+                                    @Override
+                                    public void doPost(HttpServletRequest request, HttpServletResponse response)
+                                    throws IOException, ServletException {
+                                        // Eingebenen Vornamen auslesen
+                                        String vorname = request.getParameter("vorname");
+
+                                        // Vornamen im Session Kontext speichern
+                                        HttpSession session = request.getSession();
+                                        session.setAttribute("vorname", vorname);
+
+                                        // Browser zwingen, die Seite mit einem GET neuzuladen
+                                        response.sendRedirect(request.getRequestURI());
+                                    }
+
+                                }
+                            </source-code>
+                        </div>
+                        <!-- Der erste Aufruf -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "formular-vorschau1"
+                            role            = "tabpanel"
+                            aria-labelledby = "formular-vorschau1-tab"
+                        >
+                            <p>
+                                Der HTML-Code aus Sicht des Browsers nach dem ersten Aufruf. In den Entwicklerwerkzeugen
+                                wurde nur eine <tt>GET</tt>-Anfrage aufgezeichnet.
+                            </p>
+
+                            <img src="formular_01.png" class="d-block img-responsive" style="margin-bottom: 1em;" />
+
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset='utf-8' /&gt;
+                                        &lt;title&gt;Hallo-Welt-Formular&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;form method='POST'&gt;
+                                            Wie heißt du?
+                                            &lt;input name='vorname' type='text' /&gt;
+                                            &lt;input type='submit' value='Abschicken' /&gt;
+                                        &lt;/form&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Nachdem das Formular abgeschickt wurde -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "formular-vorschau2"
+                            role            = "tabpanel"
+                            aria-labelledby = "formular-vorschau2-tab"
+                        >
+                            <p>
+                                Der neue HTML-Code aus Sicht des Browsers. In den Entwicklerwerkzeugen sieht man schön,
+                                wie erst ein <tt>POST</tt> und dann ein <tt>GET</tt> an den Server gesendet wird.
+                            </p>
+
+                            <img src="formular_02.png" class="d-block img-responsive" style="margin-bottom: 1em;" />
+
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset='utf-8' /&gt;
+                                        &lt;title&gt;Hallo-Welt-Formular&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;form method='POST'&gt;
+                                            Wie heißt du?
+                                            &lt;input name='vorname' type='text' /&gt;
+                                            &lt;input type='submit' value='Abschicken' /&gt;
+                                        &lt;/form&gt;
+                                        &lt;p&gt;
+                                            Hallo, Alf!
+                                        &lt;/p&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 <p>
-                    …
+                    Erinnerst du dich noch an das <a href="../../3-javascript/dom/#8" target="_blank">Kontaktformular</a> aus dem JavaScript
+                    DOM-Kapitel? 📰 Hier zeigen wir dir, wie Browser und Server in modernen Webanwendungen zusammenspielen, um die Inhalte
+                    eines Formulars auszuwerten. Im Prinzip passiert dabei folgendes:
+                </p>
+                <ol>
+                    <li>
+                        Der Browser sendet eine <tt>GET</tt>-Anfrage und bekommt daraufhin eine HTML-Seite mit einem Formular.
+                    </li>
+                    <li>
+                        Wird das Formular abgeschickt, sendet der Browser eine <tt>POST</tt>-Anfrage mit den eingebenen Werten an den Server.
+                    </li>
+                    <li>
+                        Der Server verarbeitet die Eingaben und bestätigt dies mit <tt>302 Redirect</tt>.
+                    </li>
+                    <li>
+                        Als Folge daraus lädt der Browser die Seite mit einer weiteren <tt>GET</tt>-Anfrage neu.
+                    </li>
+                </ol>
+                <p>
+                    Dieses Vorgehen wird manchmal <a href="https://en.wikipedia.org/wiki/Post/Redirect/Get" target="_blank">Post-Redirect-Get</a>
+                    genannt, nach dem Ablauf, was beim Abschicken des Formulars passiert. Um dies in Java nachzubauen brauchen wir daher ein
+                    ein Servlet, das sowohl auf <tt>GET</tt> als auch <tt>POST</tt> reagiert:
+                </p>
+                <source-code language="java">
+                    public class FormularServlet extends HttpServlet {
+                        @Override
+                        public void doGet(…) {
+                            …
+                        }
+
+                        @Override
+                        public void doPost(…) {
+                            …
+                        }
+                    }
+                </source-code>
+
+                <h2>Der erste Aufruf der Seite</h2>
+                <p>
+                    In der <code>doGet()</code>-Methode senden wir eine einfache HTML-Seite mit einem kleinen Formular an den Browser.
+                    Der Code ist zugegeben nicht sehr schön. Aber noch wissen wir nicht, wie wir das HTML in eine Java Server Page
+                    auslagern können. 😕
+                </p>
+                <source-code language="java">
+                    // Hier nun das eigentliche Formular
+                    toClient.println("  &lt;form method='POST'&gt;");
+                    toClient.println("    Wie heißt du?");
+                    toClient.println("    &lt;input name='vorname' type='text' /&gt;");
+                    toClient.println("    &lt;input type='submit' value='Abschicken' /&gt;");
+                    toClient.println("  &lt;/form&gt;");
+                </source-code>
+                <p>
+                    Wie du siehst, besitzt das Formular das Attribut <src-code language="html">method='POST'</src-code>. Dadurch
+                    wird sichergestellt, dass beim Abschicken des Formulars eine <tt>POST</tt>-Anfrage geschickt wird. Und zwar
+                    an dieselbe URL, wie die Seite selbst, da dem Formular kein <code>action</code>-Attribut mir einer anderen
+                    URL mitgegeben wurde. 🚣🏼
+                </p>
+
+                <h2>Post/Redirect/Get</h2>
+                <p>
+                    Die Verarbeitung der Formulareingaben erfolgt in <code>doPost()</code>. Zunächst wird dabei der eingegebene
+                    Vorname aus den Formulardaten ausgelesen.
+                </p>
+                <source-code language="java">
+                    String vorname = request.getParameter("vorname");
+                </source-code>
+                <p>
+                    Eigentlich müsste man hier noch prüfen, ob der zurückgelieferte Wert ungleich <code>null</code> und ggf.
+                    auch ungleich einem leeren String ist. Darauf verzichten wir hier jetzt aber. Anschließend wird der Wert
+                    im Session Kontext abgelegt, so dass er auch bei späteren Anfragen noch verfügbar ist.
+                </p>
+                <source-code language="java">
+                    HttpSession session = request.getSession();
+                    session.setAttribute("vorname", vorname);
+                </source-code>
+                <p>
+                    Das war's auch schon mit dem Verarbeiten der Eingaben. Zum Schluss wird der Browser daher zum Neuladen der
+                    Seite aufgefordert. Hierfür muss die Anfrage mit dem Statuscode <tt>302 Redirect</tt> beantwortet werden,
+                    wobei die aufzurufende URL im Header Field <tt>Location</tt> steht. Als kleine Abkürzung bietet uns Java
+                    hierfür die <code>sendRedirect()</code>-Methode:
+                </p>
+                <source-code language="html">
+                    response.sendRedirect(request.getRequestURI());
+                </source-code>
+                <p>
+                    Natürlich ist es kein Muss, den Anwender wieder auf dieselbe Seite zu führen. Häufig beinhaltet das Formular
+                    stattdessen ein <src-code language="html">&lt;input type="hidden" value="…"&gt;</src-code> mit der neuen
+                    Zieladresse. In unserem Fall machen wir das jedoch nicht und verwenden als Zieladresse einfach die aktuelle
+                    URL der Seite. Der Server führt deshalb nochmal die <code>doGet()</code>-Methode aus, findet dann im Session
+                    Kontext allerdings den zuvor dort abgelegten Wert. Folgende <code>if</code>-Abfrage trifft daher dann zu:
+                </p>
+                <source-code language="java">
+                    HttpSession session = request.getSession();
+                    String vorname = (String) session.getAttribute("vorname");
+
+                    if (vorname != null) {
+                        toClient.println("  &lt;p&gt;");
+                        toClient.println("    Hallo, " + vorname + "!");
+                        toClient.println("  &lt;/p&gt;");
+                    }
+                </source-code>
+                <p>
+                    Dadurch wird dann beim zweiten Durchlauf der zuvor eingegebene Name angezeigt. 👋🏽
+                </p>
+
+                <h2>Überprüfung der Formulareingaben</h2>
+                <p>
+                    Was wir hier jetzt nicht gezeigt haben, ist wie der Server die Formulareingaben
+                    überprüfen kann. Das Vorgehen dabei wäre aber ungefähr folgendes:
+                </p>
+                <p>
+                    Zunächst einmal solltest du die Eingaben, <a href="../../3-javascript/dom/#8" target="_blank">
+                    wie im JavaScript/DOM-Kapitel gezeigt</a>, zunächst clientseitig überprüfen. Werden dabei fehlende
+                    oder falsche Eingaben entdeckt, wird das Formular nicht abgeschickt.
+                </p>
+                <p>
+                    Anschließend führt der Server in <code>doPost()</code> seine eigenen Prüfungen durch. Dabei darf
+                    sich der Server unter keinen Umständen darauf verlassen, in irgend einer Form valide Daten vom
+                    Browser empfangen zu haben. „Don't Trust The Client” lautet das Motto hier. Es müssen also alle
+                    Prüfungen hier erneut durchgeführt werden. ❕
+                </p>
+                <p>
+                    Sind die Eingaben okay, leitet der Server den Anwender auf die neue Zieladresse weiter. Sind die
+                    Eingaben nicht okay, leitet der Server den Anwender stattdessen auf Seite mit dem Formular zurück.
+                    Sämtliche Formulareingaben müssen dabei mit dem <code>value</code>-Attribut in das HTML übernommen
+                    werden, damit sie nicht verloren gehen. Zum Beispiel so:
+                </p>
+                <source-code language="html">
+                    &lt;input name="kundenname" type="Text" value="Klaus Kunde" /&gt;
+                </source-code>
+                <p>
+                    Zusätzlich sollte natürlich eine aussagekräftige Fehlermeldung angezeigt werden.
                 </p>
             </aside>
         </section>
 
         <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 1: Ein kleines Servlet-Quiz</h1>
+            <h1>Aufgabe 2: Ein kleines Servlet-Quiz</h1>
             <article>
-                …
+                <h2>Aufgabe 1.1: Grundlagen</h2>
+
+                <p>
+                    1. Wie werden Request Handler in Java allgemein genannt?
+                </p>
+                <ol>
+                    <li>
+                        HTTP Handler
+                    </li>
+                    <li>
+                        Java Server Pages
+                    </li>
+                    <li>
+                        Servlets
+                    </li>
+                </ol>
+
+                <p>
+                    2. Auf welche zwei Arten kann das URL-Routing in Java definiert werden?
+                </p>
+                <ol>
+                    <li>
+                        Mit der Annotation <code>@WebServlet</code>
+                    </li>
+                    <li>
+                        Mit der Annotation <code>@UrlPatterns</code>
+                    </li>
+                    <li>
+                        Im Konstruktor eines Servlets
+                    </li>
+                    <li>
+                        In der Datei <tt>WEB-INF/web.xml</tt>
+                    </li>
+                </ol>
+
+                <p>
+                    3. Welchen Zweck erfüllen die Request Handler einer Webanwendung?
+                </p>
+                <ol>
+                    <li>
+                        Sie implementieren verschiedene Protokolle wie SFTP oder IMAP
+                    </li>
+                    <li>
+                        Sie nehmen HTTP-Anfragen entgegen und erzeugen eine HTTP-Antwort
+                    </li>
+                    <li>
+                        Sie verarbeiten die vom Server empfangene Daten mit JavaScript
+                    </li>
+                </ol>
+
+                <p>
+                    4. Welchen Zweck erfüllen Templates in einer Webanwendung
+                </p>
+                <ol>
+                    <li>
+                        Sie sollen die serverseitige Erzeugung von HTML-Code vereinfachen
+                    </li>
+                    <li>
+                        Sie sollen die Verarbeitung komplexer HTTP-Anfragen ermöglichen
+                    </li>
+                    <li>
+                        Sie dienen als Vorlage für neue Webanwendungen
+                    </li>
+                </ol>
+
+                <p>
+                    5. Was ist das Post/Redirect/Get-Pattern?
+                </p>
+                <ol>
+                    <li>
+                        Eine spezielles Kontaktformular auf einer Firmenwebseite
+                    </li>
+                    <li>
+                        Ein empfohlenes Vorgehen bei der Weiterentwicklung alter Servletklassen
+                    </li>
+                    <li>
+                        Ein Schema, wie Formulareingaben sinnvoll behandelt werden können
+                    </li>
+                </ol>
+
+                <p>
+                    6. Welche Aufgabe hat der Session Kontext
+                </p>
+                <ol>
+                    <li>
+                        Daten im Browser zwischenspeichern, um sie später an den Server zu schicken
+                    </li>
+                    <li>
+                        Serverseitig je Benutzer bestimmte Daten über mehrere Anfragen hinweg zwischenspeichern
+                    </li>
+                    <li>
+                        Serverseitig über alle Benutzer hinweg globale Daten zwischenspeichern
+                    </li>
+                </ol>
+
+                <h2>Aufgabe 1.2: Wichtige Methoden</h2>
+
+                <p>
+                    1. Wie heißt die Methode eines Servlets, die auf alle HTTP-Anfragen reagiert?
+                </p>
+                <ol>
+                    <li>
+                        <code>doAll()</code>
+                    </li>
+                    <li>
+                        <code>service()</code>
+                    </li>
+                    <li>
+                        <code>handle()</code>
+                    </li>
+                </ol>
+
+                <p>
+                    2. Welche beiden Parameter bekommen die <code>do…</code>-Methoden eines Servlets übergeben?
+                </p>
+                <ol>
+                    <li>
+                        Ein <code>HttpRequest</code>- und ein <code>HttpResponse</code>-Objekt
+                    </li>
+                    <li>
+                        Zwei Datenströme zum Lesen und Schreiben der HTTP-Anfrage bzw. Antwort
+                    </li>
+                    <li>
+                        Ein <code>HttpServletResponse</code>- und ein <code>HttpServletRequest</code>-Objekt
+                    </li>
+                    <li>
+                        Ein <code>HttpServletRequest</code>- und ein <code>HttpServletResponse</code>-Objekt
+                    </li>
+                </ol>
+
+                <p>
+                    3. Mit welcher Methode kann die angefragte URL ermittelt werden?
+                </p>
+                <ol>
+                    <li>
+                        <code>request.getRequestURI()</code>
+                    </li>
+                    <li>
+                        <code>response.getRequestURI()</code>
+                    </li>
+                    <li>
+                        <code>this.getRequest().getURI()</code>
+                    </li>
+                </ol>
+
+                <p>
+                    4. Mit welchen Methoden kann der Statuscode der HTTP-Antwort gesetzt werden?
+                </p>
+                <ol>
+                    <li>
+                        <code>response.setStatus()</code>
+                    </li>
+                    <li>
+                        <code>response.sendError()</code>
+                    </li>
+                    <li>
+                        <code>response.setStatusCode()</code>
+                    </li>
+                    <li>
+                        <code>response.getResponse().setStatus()</code>
+                    </li>
+                </ol>
+
+                <p>
+                    5. Mit welcher Methode erhält man einen Datenstrom zum Schreiben des HTTP Response Body?
+                </p>
+                <ol>
+                    <li>
+                        <code>request.response.getWriter()</code>
+                    </li>
+                    <li>
+                        <code>request.getInputStream()</code>
+                    </li>
+                    <li>
+                        <code>response.setOutputStream()</code>
+                    </li>
+                    <li>
+                        <code>response.getWriter()</code>
+                    </li>
+                    <li>
+                        <code>response.getBodyStream()</code>
+                    </li>
+                </ol>
+
+                <p>
+                    6. Mit welcher Methode kann bekommt man Zugriff auf den Session Kontext?
+                </p>
+                <ol>
+                    <li>
+                        <code>this.getSessionContext()</code>
+                    </li>
+                    <li>
+                        <code>this.getSession()</code>
+                    </li>
+                    <li>
+                        <code>request.getSession()</code>
+                    </li>
+                    <li>
+                        <code>request.session.get()</code>
+                    </li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> Aufgabe 1.1: 3, 1+4, 2, 1, 3, 2. Aufgabe 1.2: 2, 4, 1, 1+2, 4, 3.
+                    </small>
+                </p>
             </article>
             <aside>
                 <p>
-                    …
+                    Hast du dir bis hierhin alles gut merken können? Hier kommt Johny Kontrolletti,
+                    um das zu überprüfen. 📋
                 </p>
+                <span style="font-size: 700%">
+                    🕺🏿
+                </span>
             </aside>
         </section>
 
         <section>
             <h1>Weiterleitung an eine Java Server Page</h1>
             <article>
-                …
-            </article>
-            <aside>
-                <p>
-                    …
-                    <!-- (1) RequestDispatcher -->
-                    <!-- (2) Wenige wichtige JSP Tags und Expressions -->
-                </p>
-            </aside>
-        </section>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "jsp-einfach-netbeans-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#jsp-einfach-netbeans"
+                                role          = "tab"
+                                aria-controls = "jsp-einfach-netbeans"
+                                aria-expanded = "true"
+                            >
+                                Netbeans-Projekt
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "jsp-einfach-servlet-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#jsp-einfach-servlet"
+                                role          = "tab"
+                                aria-controls = "jsp-einfach-servlet"
+                                aria-expanded = "true"
+                            >
+                                Servlet
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "jsp-einfach-jsp-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#jsp-einfach-jsp"
+                                role          = "tab"
+                                aria-controls = "jsp-einfach-jsp"
+                            >
+                                Java Server Page
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "jsp-einfach-css-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#jsp-einfach-css"
+                                role          = "tab"
+                                aria-controls = "jsp-einfach-css"
+                            >
+                                Stylesheet
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "jsp-einfach-ergebnis-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#jsp-einfach-ergebnis"
+                                role          = "tab"
+                                aria-controls = "jsp-einfach-ergebnis"
+                            >
+                                Ergebnis
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Netbeans-Projekt -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "jsp-einfach-netbeans"
+                            role            = "tabpanel"
+                            aria-labelledby = "jsp-einfach-netbeans-tab"
+                        >
+                            <p>
+                                So sieht das Netbeans-Projekt aus. Wenn du es nachbauen willst, musst du
+                                exakt die Verzeichnisstruktur einhalten.
+                            </p>
+                            <img src="servlets_jsp_einfach_01.jpg" class="d-block" style="width: 100%" />
+                        </div>
+                        <!-- Servlet -->
+                        <div
+                            class           = "tab-pane fade show"
+                            id              = "jsp-einfach-servlet"
+                            role            = "tabpanel"
+                            aria-labelledby = "jsp-einfach-servlet-tab"
+                        >
+                            <p>
+                                Dies ist das Servlet, dass bei jeder <tt>GET</tt>- und <tt>POST</tt>-Anfrage durchlaufen wird.
+                            </p>
+                            <source-code language="java">
+                                import java.io.IOException;
+                                import java.text.DateFormat;
+                                import java.text.SimpleDateFormat;
+                                import java.util.Date;
+                                import javax.servlet.RequestDispatcher;
+                                import javax.servlet.ServletException;
+                                import javax.servlet.annotation.WebServlet;
+                                import javax.servlet.http.HttpServlet;
+                                import javax.servlet.http.HttpServletRequest;
+                                import javax.servlet.http.HttpServletResponse;
+                                import javax.servlet.http.HttpSession;
 
-        <section>
-            <h1>Beispiel: „Hallo Welt” gleich viel schöner</h1>
-            <article>
-                …
-            </article>
-            <aside>
-                <p>
-                    …
-                </p>
-            </aside>
-        </section>
+                                /**
+                                 * Dieses Servlet zeigt, wie die Erzeugung des HTML-Codes an eine Java Server
+                                 * Page ausgelagert werden kann.
+                                 */
+                                @WebServlet(urlPatterns = {"/index.html"})
+                                public class HalloServlet extends HttpServlet {
 
-        <section>
-            <h1>Die drei Kontexte im Detail</h1>
-            <article>
-                …
+                                    @Override
+                                    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                                    throws IOException, ServletException {
+                                        // Zwischenspeichern eines Wertes, den wir in der JSP anzeigen wollen
+                                        // Die letzte Zeile ist die wichtige Zeile hier
+                                        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+                                        Date date = new Date();
+                                        String tagesdatum = dateFormat.format(date);
+
+                                        request.setAttribute("tagesdatum", tagesdatum);
+
+                                        // Anfrage an eine JSP weiterleiten, um damit den HTML-Code
+                                        // der Seite zu generieren
+                                        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/hallo.jsp");
+                                        dispatcher.forward(request, response);
+
+                                        // Werte im Session Kontext entfernen, damit wir beim nächsten mal
+                                        // wieder von vorne anfangen
+                                        HttpSession session = request.getSession();
+                                        session.removeAttribute("vorname");
+                                        session.removeAttribute("nachname");
+                                    }
+
+                                    @Override
+                                    public void doPost(HttpServletRequest request, HttpServletResponse response)
+                                    throws IOException, ServletException {
+                                        // Eingegebene Werte auslesen
+                                        String vorname = request.getParameter("vorname");
+                                        String nachname = request.getParameter("nachname");
+
+                                        // Werte im Session Kontext ablegen
+                                        HttpSession session = request.getSession();
+                                        session.setAttribute("vorname", vorname);
+                                        session.setAttribute("nachname", nachname);
+
+                                        // Und die Seite nochmal laden lassen
+                                        response.sendRedirect(request.getRequestURI());
+                                    }
+
+                                }
+                            </source-code>
+                        </div>
+                        <!-- Java Server Page -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "jsp-einfach-jsp"
+                            role            = "tabpanel"
+                            aria-labelledby = "jsp-einfach-jsp-tab"
+                        >
+                            <p>
+                                Innerhalb des Servlets wird nun kein HTML-Code mehr erzeugt. Das macht die folgende JSP für uns. Die Datei muss <tt>WEB-INF/hallo.jsp</tt> heißen!
+                            </p>
+                            <source-code language="html">
+                                &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+                                &lt;%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%&gt;
+                                &lt;%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%&gt;
+
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Hallo, Welt!&lt;/title&gt;
+                                        &lt;link rel="stylesheet" href="style.css" /&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;div class="container"&gt;
+                                            &lt;!-- Eingabefelder, nur vor dem Abschicken anzeigen --&gt;
+                                            &lt;c:if test="${vorname == null}"&gt;
+                                                &lt;h1&gt;Wie heißt du?&lt;/h1&gt;
+
+                                                &lt;form method="POST"&gt;
+                                                    &lt;input name="vorname" type="text" placeholder="Vorname" /&gt;
+                                                    &lt;input name="nachname" type="text" placeholder="Nachname" /&gt;
+                                                    &lt;input type="submit" value="Abschicken" /&gt;
+                                                &lt;/form&gt;
+                                            &lt;/c:if&gt;
+
+                                            &lt;!-- Begrüßung, nur nach dem Abschicken anzeigen --&gt;
+                                            &lt;c:if test="${vorname != null}"&gt;
+                                                &lt;h1&gt;Hallo, ${vorname} ${nachname}!&lt;/h2&gt;
+                                                &lt;h2&gt;Sei gegrüßt!&lt;/h2&gt;
+
+                                                &lt;a href=""&gt;Nochmal&lt;/a&gt;
+                                            &lt;/c:if&gt;
+
+                                            &lt;!-- Aktuelles Datum immer anzeigen --&gt;
+                                            &lt;p&gt;
+                                                &lt;small&gt;
+                                                    Heute ist der ${tagesdatum}.
+                                                &lt;/small&gt;
+                                            &lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Stylesheet -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "jsp-einfach-css"
+                            role            = "tabpanel"
+                            aria-labelledby = "jsp-einfach-css-tab"
+                        >
+                        <p>
+                            Dieses mal gönnen wir uns auch ein Stylesheet, damit es ordentlich aussieht. Die Datei muss <tt>style.css</tt> heißen.
+                        </p>
+                        <source-code language="css">
+                            html, body {
+                                font-family: sans-serif;
+                                font-size: 12pt;
+                                height: 100%;
+
+                                margin: 0;
+                                padding: 0;
+                            }
+
+                            html {
+                                background-image: url(https://picsum.photos/1024/?image=1067);
+                                background-repeat: no-repeat;
+                                background-position: center center;
+                                background-size: cover;
+                            }
+
+                            body {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+
+                            .container {
+                                background: rgba(255,255,255,0.8);
+                                border-radius: 0.5em;
+                                padding: 1em;
+                                margin: 2em;
+                            }
+
+                            h1, h2 {
+                                color: crimson;
+                                text-shadow: 0 0 1px rgba(0,0,0,0.5);
+                                margin: 0 0 0.5em 0;
+                            }
+
+                            h2 {
+                                color: deepskyblue;
+                            }
+
+                            input[type="text"] {
+                                display: block;
+                                width: 25em;
+                                box-sizing: border-box;
+                                border: 1px solid grey;
+                                margin-bottom: 0.5em;
+                            }
+                        </source-code>
+                        </div>
+                        <!-- Ergebnis -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "jsp-einfach-ergebnis"
+                            role            = "tabpanel"
+                            aria-labelledby = "jsp-einfach-ergebnis-tab"
+                        >
+                            <p>
+                                Und so sieht die Anwendung aus, wenn sie fertig ist.
+                            </p>
+                            <img src="servlets_jsp_einfach_02.jpg" class="d-block" style="width: 100%; margin-bottom: 0.5em;" />
+                            <img src="servlets_jsp_einfach_03.jpg" class="d-block" style="width: 100%;" />
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
+                <h2>Änderungen am Servlet</h2>
                 <p>
-                    …
+                    Aufbauend auf dem vorherigen Beispiel siehst du hier, wie die Erzeugung des
+                    HTML-Codes an eine Java Server Page ausgelagert werden kann. Am Servlet
+                    ändert sich hierfür nicht viel. Lediglich die ganzen Zeilen zum Senden des
+                    HTML-Codes sind nun verschwunden und wurden doch folgenden Zweizeiler ersetzt:
+                </p>
+                <source-code language="java">
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/hallo.jsp");
+                    dispatcher.forward(request, response);
+                </source-code>
+                <p>
+                    Die Java Server Page liegt dabei im Verzeichnis <tt>/WEB-INF/</tt>, damit sie nicht
+                    direkt im Browser aufgerufen werden kann. Denn sonst könnte der Anwender einfach die
+                    URL <tt>/meine_app/hello.jsp</tt> eingeben und die Datei direkt aufrufen. Das wollen
+                    wir hier aber nicht. Die JSP soll nur aus dem Servlet heraus aufrufbar sein. 🤸🏽
+                </p>
+                <p>
+                    Der Rest ist im Prinzip gleich geblieben. Okay, außer dass es jetzt zwei Eingabefelder
+                    sind. Aber das sollte dir ja keine Probleme machen. 🤓 Ach, und außerdem legen wir in
+                    <code>doGet()</code> einen Wert in den <b>Request Kontext</b>, um ihn später in der JSP
+                    (unserem Template) anzeigen zu können:
+                </p>
+                <source-code language="java">
+                    String tagesdatum = …
+                    request.setAttribute("tagesdatum", tagesdatum);
+                </source-code>
+                <p>
+                    Der Unterschied vom Request Kontext zum Session Kontext ist dabei lediglich, dass die Daten
+                    nur für die Dauer der Anfrage selbst aufgehoben werden. Danach verschwinden sie einfach wieder. 🗑️
+                    Bitte unterliege dabei nicht dem Irrglauben, du könntest nur Strings im Request oder Session
+                    Kontext ablegen. Tatsächlich kannst du jedes beliebige Objekt hinein schreiben. Also auch Arrays,
+                    Listen, Maps und sonst alles, was Java so zu bieten hat.
+                </p>
+
+                <h2>Unsere neue Java Server Page</h2>
+                <p>
+                    Die Datei <tt>/WEB-INF/hallo.jsp</tt> übernimmt hier die Aufgabe unseres HTML-Templates.
+                    Deshalb sieht sie überwiegend auch wie ganz normales HTML aus. Ein paar ungewöhnliche Zeilen
+                    stechen dir dann aber sicher doch ins Auge. Zum Beispiel:
+                </p>
+                <source-code language="html">
+                    &lt;%@page contentType="text/html" pageEncoding="UTF-8"%&gt;
+                    &lt;%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%&gt;
+                    &lt;%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%&gt;
+                </source-code>
+                <p>
+                    Die erste Zeile hast du im letzten Kapitel schon mal gesehen. Sie legt fest, dass wir hier
+                    HTML-Code mit dem Zeichensatz <tt>UTF-8</tt> generieren. Die anderen beiden Zeilen sind neu.
+                    Sie binden zwei sogenannte <b>Tag Libraries</b> ein, wodurch uns unter Anderem das neue Element
+                    <code>&lt;c:if&gt;</code> zur Verfügung steht. Dadurch bleibt uns der lästige Javacode in der
+                    JSP erspart! 💰
+                </p>
+                <p>
+                    Natürlich gibt es noch mehr neue Tags. Aber diese kannst du ja bei Bedarf einfach nachschlagen.
+                    Zum Beispiel <a href="http://openbook.rheinwerk-verlag.de/javainsel9/javainsel_23_007.htm" target="_blank">hier</a>
+                    oder <a href="https://www.javatpoint.com/jstl" target="_blank">hier</a>
+                    oder <a href="https://www.tutorialspoint.com/jsp/jsp_standard_tag_library.htm" target="_blank">hier</a>.
+                </p>
+                <p>
+                    Am Beispiel mit der <code>if</code>-Abfrage siehst du dann noch etwas anderes Interessantes:
+                    Die sogenannte <b>JSP Expression Language</b>. Es handelt sich dabei um all die Ausdrücke,
+                    die zwischen <code>${…}</code> stehen. Im einfachsten Fall werden damit nur die Werte aus dem
+                    Request oder Session Kontext ausgegeben. Zum Beispiel so:
+                </p>
+                <ul>
+                    <li>
+                        <src-code language="html">${tagesdatem}</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">${vorname}</src-code>
+                    </li>
+                    <li>
+                        <src-code language="html">${nachname}</src-code>
+                    </li>
+                </ul>
+                <p>
+                    Es können aber auch komplexe Berechnungen ober Prüfungen angestellt werden, wie eben beim <code>if</code>.
+                    Der Ausdruck <code>${vorname == null}</code> gibt deshalb wie erwartet ein Boolean zurück, dass wahr sein muss,
+                    um den Inhalt zwischen <src-code language="html">&lt;c:if&gt;</src-code> und <src-code language="html">&lt;/c:if&gt;</src-code>
+                    auszuführen.
+                </p>
+
+                <h2>Was noch alles geht</h2>
+                <p>
+                    Dies soll uns hier für einen ersten Einstieg in Servlets und JSP genügen. Immerhin hast du jetzt ein vollständiges Beispiel
+                    zu dem Ablauf aus <a href="#2">Folie 2</a> gesehen.
+                </p>
+                <p>
+                    Erinnerst du dich jetzt aber an das vorherige Kapitel zurück, fällt dir sicher ein, dass wir dort schon gezeigt haben,
+                    wie der <a href="../http/#10" target="_blank">allgemeine HTML-Code in eine eigene JSP verlagert werden kann</a>. Diese
+                    Möglichlkeit besteht hier natürlich weiterhin. Wir wollten das Beispiel aber nicht noch komplizierter machen. 👺
                 </p>
             </aside>
         </section>
 
         <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 2: Eine klitzekleine Webanwendung</h1>
+            <h1>Aufgabe 3: Formularprüfungen ergänzen</h1>
             <article>
-                <!-- Mini TODO-Liste: Ein <input /> und ein <ol> auf einer Seite -->
-                …
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe3-beschreibung-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe3-beschreibung"
+                                role          = "tab"
+                                aria-controls = "aufgabe3-beschreibung"
+                                aria-expanded = "true"
+                            >
+                                Beschreibung
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe3-loesung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe3-loesung"
+                                role          = "tab"
+                                aria-controls = "aufgabe3-loesung"
+                            >
+                                Lösung
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Beschreibung -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "aufgabe3-beschreibung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe3-beschreibung-tab"
+                        >
+                            <h2>Aufgabe</h2>
+                            <p>
+                                Kopiere den Quellcode aus der vorherigen Folie in ein neues Netbeansprojekt und
+                                nimm folgende Änderungen daran vor:
+                            </p>
+                            <ul>
+                                <li>
+                                    Wie immer, lösche die von Netbeans automatisch erzeugte Datei <tt>index.html</tt>.
+                                </li>
+                                <li>
+                                    Zunächst soll in <code>doPost()</code> geprüft werden, ob beide Felder ausgefüllt wurden.
+                                </li>
+                                <li>
+                                    Sind die Eingaben okay, soll die bekannte Bestätigungsseite angezeigt werden.
+                                </li>
+                                <li>
+                                    Fehlt eines der beiden Felder, soll das Formular mit einer Fehlermeldung stehen bleiben.
+                                </li>
+                                <li>
+                                    Achte dabei darauf, dass die bisherigen Eingaben nicht verloren gehen!
+                                </li>
+                                <li>
+                                    Eine Prüfung mit JavaScript soll nicht erfolgen. Diese sparen wir uns hier. 🙂
+                                </li>
+                            </ul>
+
+                            <div class="container-fluid" style="margin-bottom: 1em;">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="aufgabe3_01.jpg" class="d-block img-thumbnail" style="width: 100%" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="aufgabe3_02.jpg" class="d-block img-thumbnail" style="width: 100%" />
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="aufgabe3_03.jpg" class="d-block img-thumbnail" style="width: 100%" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h2>Hinweise</h2>
+                            <ul>
+                                <li>
+                                    Du musst ein Kennzeichen im Session Kontext ablegen, ob die Prüfung erfolgreich war.
+                                </li>
+                                <li>
+                                    Wird ein Wert nicht gefunden, liefert die Expression Language immer <code>null</code> zurück.
+                                </li>
+                                <li>
+                                    <p>
+                                        Wenn du eine Liste mit Fehlermeldungen im Session Kontext hast, kannst du sie wie folgt ausgeben:
+                                    </p>
+                                    <source-code language="html">
+                                        &lt;c:forEach items="${fehlermeldungen}" var="fehlermeldung"&gt;
+                                            ${fehlermeldung}
+                                        &lt;/c:forEach&gt;
+                                    </source-code>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Lösung -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe3-loesung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe3-loesung-tab"
+                        >
+                            <h2>doPost()-Methode im Servlet</h2>
+                            <p>
+                                Die neue <code>doPost()</code>-Methode sieht wie folgt aus. Neu hinzugekommen sind die
+                                beiden Attribute <tt>fehlermeldungen</tt> und <tt>ergebnisAnzeigen</tt> im Session Kontext.
+                            </p>
+                            <source-code language="java">
+                                @Override
+                                public void doPost(HttpServletRequest request, HttpServletResponse response)
+                                throws IOException, ServletException {
+                                    // Eingegebene Werte auslesen
+                                    List&lt;String&gt; fehlermeldungen = new ArrayList&lt;&gt;();
+
+                                    String vorname = request.getParameter("vorname");
+                                    String nachname = request.getParameter("nachname");
+
+                                    if (vorname == null || vorname.isEmpty()) {
+                                        fehlermeldungen.add("Gib erst einen Vornamen ein");
+                                    }
+
+                                    if (nachname == null || nachname.isEmpty()) {
+                                        fehlermeldungen.add("Gib erst einen Nachnamen ein");
+                                    }
+
+                                    // Werte im Session Kontext ablegen
+                                    HttpSession session = request.getSession();
+                                    session.setAttribute("vorname", vorname);
+                                    session.setAttribute("nachname", nachname);
+                                    session.setAttribute("fehlermeldungen", fehlermeldungen);
+                                    session.setAttribute("ergebnisAnzeigen", fehlermeldungen.isEmpty());
+
+                                    // Und die Seite nochmal laden lassen
+                                    response.sendRedirect(request.getRequestURI());
+                                }
+                            </source-code>
+
+                            <h2>Java Server Page</h2>
+                            <p>
+                                Die Java Server Page muss wie folgt angepasst werden:
+                            </p>
+                            <source-code language="html">
+                                &lt;!-- Eingabefelder, nur vor dem Abschicken anzeigen --&gt;
+                                &lt;c:if test="${ergebnisAnzeigen != true}"&gt;
+                                    &lt;h1&gt;Wie heißt du?&lt;/h1&gt;
+
+                                    &lt;form method="POST"&gt;
+                                        &lt;input name="vorname" type="text" placeholder="Vorname" value="${vorname}" /&gt;
+                                        &lt;input name="nachname" type="text" placeholder="Nachname" value="${nachname}" /&gt;
+                                        &lt;input type="submit" value="Abschicken" /&gt;
+                                    &lt;/form&gt;
+
+                                    &lt;ul class="error"&gt;
+                                        &lt;c:forEach items="${fehlermeldungen}" var="fehlermeldung"&gt;
+                                            &lt;li&gt;${fehlermeldung}&lt;/li&gt;
+                                        &lt;/c:forEach&gt;
+                                    &lt;/ul&gt;
+                                &lt;/c:if&gt;
+
+                                &lt;!-- Begrüßung, nur nach dem Abschicken anzeigen --&gt;
+                                &lt;c:if test="${ergebnisAnzeigen == true}"&gt;
+                                    …
+                                &lt;/c:if&gt;
+                            </source-code>
+
+                            <h2>Stylesheet</h2>
+                            <p>
+                                Im Stylesheet muss eine neue Klasse für Fehlermeldungen definiert werden:
+                            </p>
+                            <source-code language="css">
+                                .error {
+                                    color: red;
+                                    font-weight: bold;
+                                }
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 <p>
-                    …
+                    Zum Abschluss das Kapitels gibt es hier nochmal eine kleine Knobelaufgabe für dich.
+                    Es geht darum, das eben gezeigte Beispiel um eine Eingabeprüfung zu erweitern. 📨
                 </p>
                 <img src="../../github_atom.png" class="img-fluid d-block"/>
                 <p>
