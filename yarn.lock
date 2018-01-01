@@ -931,6 +931,10 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+email-link.js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/email-link.js/-/email-link.js-1.0.1.tgz#957ce50d240f417f7cd861b85bd1b0b12b02a048"
+
 emojis-list@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
