@@ -54,5 +54,8 @@
         "watch-run": "^1.2.5",
         "webpack": "^3.5.5",
         "webpack-dev-server": "^2.7.1"
+    },
+    "dependencies": {
+        "yarn": "^1.9.4"
     }
 }
