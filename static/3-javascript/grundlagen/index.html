@@ -909,7 +909,10 @@
                                 du also wirklich aufpassen, damit es nicht zu diffizilen, schwer zu findenden
                                 Fehlern kommt. Älterer Code nutzt noch <tt>var</tt>, neuer Code sollte
                                 stattdessen aber immer <tt>let</tt> verwenden, <a href="https://davidwalsh.name/for-and-against-let" target="_blank">
-                                da es die Gültigkeit der Variablen noch mehr eingrenzt</a>.
+                                da es die Gültigkeit der Variablen noch mehr eingrenzt</a>. Mit <tt>const</tt>
+                                kannst du im Gegensatz zu <tt>let</tt> Konstanten definieren. Eine Variable,
+                                deren Wert nicht neu zugewiesen wird, sollte als Konstante definiert werden. 
+                                Kann der Wert überschriben werden, verwende <tt>let</tt>.
                             </p>
                             <source-code language="javascript">
                                 let fisch = "Wanda The Fish";
