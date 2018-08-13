@@ -901,15 +901,18 @@
                             <source-code language="javascript">
                                 meinName = "Arthur Dent";
                                 let meinAlter = 31;
-                                var telefonnummer = "+49 721 12345";
+                                const telefonnummer = "+49 721 12345";
                             </source-code>
                             <p>
                                 Etwas ungewöhnlich ist, dass Variablen automatisch globale Variablen sind,
-                                wenn man ihnen nicht <tt>var</tt> oder <tt>let</tt> voranstellt. Hier musst
+                                wenn man ihnen nicht <tt>const</tt> oder <tt>let</tt> voranstellt. Hier musst
                                 du also wirklich aufpassen, damit es nicht zu diffizilen, schwer zu findenden
                                 Fehlern kommt. Älterer Code nutzt noch <tt>var</tt>, neuer Code sollte
                                 stattdessen aber immer <tt>let</tt> verwenden, <a href="https://davidwalsh.name/for-and-against-let" target="_blank">
-                                da es die Gültigkeit der Variablen noch mehr eingrenzt</a>.
+                                da es die Gültigkeit der Variablen noch mehr eingrenzt</a>. Mit <tt>const</tt>
+                                kannst du im Gegensatz zu <tt>let</tt> Konstanten definieren. Eine Variable,
+                                deren Wert nicht neu zugewiesen wird, sollte als Konstante definiert werden. 
+                                Kann der Wert überschriben werden, verwende <tt>let</tt>.
                             </p>
                             <source-code language="javascript">
                                 let fisch = "Wanda The Fish";
@@ -1881,7 +1884,7 @@
                             <p>
                                 c) In der Funktion muss <src-code language="javascript">ergebnis = 0</src-code>
                                 durch <src-code language="javascript">let ergebnis = 0</src-code> oder
-                                <src-code language="javascript">var ergebnis = 0</src-code> ersetzt werden:
+                                <src-code language="javascript">const ergebnis = 0</src-code> ersetzt werden:
                             </p>
                             <source-code language="javascript">
                                 let fibonacci = n => {
@@ -2330,7 +2333,7 @@
                                 feste Reihenfolge.
                             </p>
                             <source-code language="javascript">
-                                var mulder = {
+                                const mulder = {
                                     vorname: "Fox",
                                     nachname: "Mulder",
                                     beruf: "Special Agent FBI",
