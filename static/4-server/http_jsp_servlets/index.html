@@ -1619,64 +1619,55 @@
                 <p>
                     Alle Webseiten, die wir bisher erstellt haben, brauchen keinen besonderen Webserver.
                     Ein einfacher Webserver, der einfach nur die von uns erstellten Dateien bereitstellen
-                    kann, reicht völlig aus. Denn bisher haben wir uns ja nur mit den Techniken des Browsers
-                    und damit der clientseitigen Webentwicklung beschäftigt. Doch das Frontend, wie eine
-                    Browser App in diesem Zusammenhang oft genannt wird, ist tatsächlich nur die eine Seite
-                    der Medaille. 🥇 Die andere Seite ist der Server bzw. das Backend.
+                    kann, reicht völlig aus. Denn bisher haben wir uns ja nur mit dem Browser beschäftigt
+                    und dabei die Serverseite völlig außer Acht gelassen. Das wollen wir an dieser Stelle
+                    daher ändern und uns im Folgenden mit der Entwicklung serverseitiger Webanwendungen
+                    mit Java beschäftigen. Wir wollen hier also das genaue Gegenteil tun und dadurch den
+                    Browser links liegen lassen, damit wir uns voll und ganz auf den Server konzentrieren
+                    können.
                 </p>
                 <p>
-                    Serverseitig gibt es eine schier unermessliche Auswahl an Programmiersprachen und Frameworks.
-                    Da ist wirklich für jeden Geschmack etwas dabei. 🍕 An der DHBW machen wir es uns jedoch
-                    einfach und verwenden Java. 🍵 Denn unabhängig von der Programmiersprache ist das Prinzip
-                    eigentlich immer dasselbe: Anstatt als Antwort einfach den statischen Inhalt einer Datei zu
-                    liefern führt der Server ein Stückchen Programmcode aus, um die Antwort auf eine HTTP-Anfrage
-                    zu generieren. Der einzige Unterschied besteht dann eigentlich nur darin, wie der Code aufgebaut
-                    sein muss. 🏗️
+                    Natürlich gibt es auch für den Serverteil einer Webanwendung eine große Anzahl an
+                    verfügbaren Programmiersprachen, Vorgehensweisen und schlüsselfertigen Frameworks.
+                    Das eine universelle Framework auszuwählen ist daher fast unmöglich. In unserem
+                    Fall liegt es jedoch nahe, tatsächlich Java zu verwenden, da diese Sprache durch
+                    jedem bekannt ist und wir dann im nächsten Semester in Verteilte Syteme wieder
+                    darauf zurückkommen können. Die hier vorgestellten Prinzipien lassen sich aber
+                    ohne Weiteres auch auf die meisten anderen Sprachen und Frameworks übertragen.
                 </p>
                 <p>
-                    Java unterscheidet hier zwischen <b>Servlets</b> und <b>Java Server Pages</b>. Servlets sind
-                    dabei einfache Javaklassen, die eine Anfrage empfangen und eine Antwort generieren. Beispielsweise
-                    eine HTML-Seite oder ein PDF-Dokument. Und Java Server Pages sind bereits fertige HTML-Dateien
-                    (bzw. einfache Textdateien), in denen immer mal wieder kleine Schnippsel Javacode vorkommen,
-                    um Teile der Seite dynamisch zu erzeugen.
-                </p>
-                <p>
-                    In diesem Kapitel schauen wir uns nur Java Server Pages an. Zu Servlets kommen wir ein andermal.
+                    In allen Fällen läuft es immer darauf hinaus, dass der Server eine Möglichkeit haben muss,
+                    die HTML-Seite, die er an den Browser schickt, entweder komplett erst zur Laufzeit zu
+                    generieren oder diese zumindest um dynamische Inhalte zu erweitern. Java verwendet hierfür
+                    so genannte <b>Servlets</b> zur komplett dynamischen Generierung einer Antwort sowie
+                    <b>Java Server Pages</b> als HTML-Schablonen mit dynamischen Inhalten. Beide Techniken
+                    und auch ihr sinnvolles Zusammenspiel schauen wir uns auf den folgenden Folien daher an.
                 </p>
 
                 <h2>Auf die Verpackung kommt es an</h2>
                 <p>
-                    Historisch bedingt werden Webanwendungen oft so entwickelt, dass sie in einem bereits vorgefertigten
-                    Webserver zum Laufen gebracht werden. Man installiert also einen Webserver auf seiner Maschine und
-                    richten ihn so ein, dass er die Quellcodes der Webanwendung finden und ausführen kann. Dieser Ansatz
-                    kommt auch in Java zum Einsatz. Im Gegensatz zu den meisten anderen Programmiersprachen lässt sich
-                    Java aber nicht mit jedem Webserver nutzen. Im Javaumfeld gibt es stattdessen spezielle Webserver, die
-                    sogenannten <b>Webcontainer</b> oder auch <b>Applikationsserver</b>, die besonders darauf ausgelegt sind,
-                    javabasierte Webanwendungen auszuführen. Sie sind selbst auch in Java geschrieben und bringen bereits
-                    alles mit, um eine oder mehrere Webanwendungen laufen zu lassen.
+                    Historisch bedingt werden Webanwendungen oft so entwickelt, dass sie in einem bereits
+                    vorgefertigten Webserver zum Laufen gebracht werden. Man installiert also einen Webserver
+                    auf seiner Maschine und richtet ihn so ein, dass er die Quellcodes der Webanwendung
+                    und ausführen kann. Dieser Ansatz kommt auch in Java zum Einsatz. Im Gegensatz zu anderen
+                    Sprachen wird hierfür jedoch ein spezieller Webserver benötigt, der für die Ausführung
+                    von Javacode vorbereitet ist und daher in der Regel selbst in Java geschrieben wurde.
+                    In der Fachsprache haben sich die beiden Begriffe <b>Webcontainer</b> und <b>Applikationsserver</b>
+                    dafür durchgesetzt.
                 </p>
                 <p>
-                    Der Nachteil an den Webcontainern ist, dass sie groß, schwer und ressourcenhungrig sind. In den letzten
-                    Jahren hat sich das zwar immer mehr gebessert, mit den kleinen, schlanken Webservern anderer Programmiersprachen
-                    können sie aber immer noch nicht mithalten. Webcontainer kommen daher oft im Unternehmensumfeld bei
-                    der Entwicklung von Unternehmensanwendungen oder Kundenportalen zum Einsatz. Eben dort wo Zeit und Geld
-                    im Überfluss vorhanden sind 💸 oder man sich zumindest performante Hardware leisten kann. 💪
-                </p>
-                <p>
-                    Eine moderne Alternative dazu sind <a href="https://jaxenter.de/was-sind-microservices-40571" target="_blank">Microservices</a>
-                    oder auch <a href="https://12factor.net/de/" target="_blank">12-Faktor-Apps</a>, wie sie nicht zuletzt auch
-                    durch die Programmierung in der Cloud (PaaS) beliebt geworden sind. 🌥️ Hier sagt man sich „Bring Your Own
-                    Webserver” und schreibt einfach ganz normale Javaprogramme, die zufälligerweise einen eigen Webserver
-                    beinhalten. Dadurch hat man den Vorteil, dass die Anwendungen insgesamt viel schlanker werden und in der
-                    Regel auch einfacher in Betrieb zu nehmen sind. Anstatt also jede Anwendung aufwändig zu einem sogenannten
-                    <b>Webarchiv</b> zu verpacken und dieses im Webcontainer zu deployen, reicht es einfach, das Programm zu starten.
-                    So wie man eben ein Javaprogramm startet. 🤓
-                </p>
-                <p>
-                    Auch wenn Microservices der deutlich moderne Ansatz sind, beschäftigen wir uns hier weiterhin mit den
-                    klassischen Webcontainern. Einerseits, weil sie nach wie vor ihre Einsatzgebiete haben und andererseits,
-                    weil wir uns so auf das Wesentliche konzentrieren können. Nämlich die Behandlung von HTTP-Anfragen, ohne
-                    hierfür ein eigenes Rahmenprogramm entwickeln zu müssen. 🦄
+                    Webcontainer sind allerdings tendenziell ressourcenhungrige Programme auch der Umstand, dass
+                    sie erst konfiguriert werden müssen und die Konfiguration auch getrennt von der eigentlichen
+                    Webanwendung erfolgt, sind häufig Argumente, die gegen ihren Einsatz sprechen. Moderne Frameworks
+                    gehen daher häufig einen anderen Weg, den man auch mit „Bring Your Own Webserver” umschreiben
+                    könnte. Anstatt die Webanwendung irgendwie besonders zu verpacken und in einem separaten Server
+                    zum Laufen zu bringen, lässt man die Anwendung einfach ihren eigenen Webserver mitbringen.
+                    Die Webanwendung ist dann nicht viel mehr als ein ganz normales Javaprogramm, das wie gewohnt
+                    auf der Konsole gestartet wird, einen TCP/IP-Port zum Empfang von HTTP-Anfragen öffnet und diese
+                    verarbeitet. Die Inbetriebnahme wird dadurch deutlich vereinfacht und auch der Resourcenverbrauch
+                    ist in der Regel viel niedriger. In der Vorlesung werden wir uns damit allerdings nicht weiter
+                    beschäftigen, da der andere Weg in Java weniger Programmierung erfordert. Umgebungen wie
+                    <a href="https://nodejs.org/" target="_blank">node.js</a> kennen jedoch nur diese Vorgehensweise.
                 </p>
             </aside>
         </section>
@@ -1833,14 +1824,74 @@
             </article>
             <aside>
                 <p>
-                    Zugegeben: Dieses Beispiel ist nicht sehr beeindruckend. 💤🛌 Aber es zeigt trotzdem,
-                    wie Java Server Pages funktionieren. Wie du siehst, handelt es sich um einfache
-                    HTML-Dateien (oder jede beliebige Art von Textdatei), deren Inhalt nahezu unverändert
-                    an den Aufrufer geschickt wird. Zwischen den Zeilen gibt es aber immer mal wieder
-                    gekennzeichnete Bereiche mit Javacode, der bereits auf dem Server ausgeführt wird.
+                    Schon früh, bereits Mitte der 1990er-Jahre, beschäftigten sich Webentwickler mit dem
+                    Problem, dynamische Webseiten zu schreiben, die mehr als nur den blosen Inhalt einer
+                    HTML-Datei darstellen können. Denn schnell hat man gemerkt, dass beispielsweise die
+                    Veröffentlichung eines Warenkatalogs im World Wide Web im Grunde genommen aus nichts
+                    weiter bestand, als eine Vielzahl gleich aufgebauter HTML-Dateien mit fast gleichen
+                    Inhalten zu erstellen. Das war sehr zeitaufwändig und – wen wundert es? – sehr
+                    fehleranfällig. 🤬 Von nachträglichen Anpassungen an Inhalt und Aufbau der Seiten ganz
+                    zu schweigen.
+
+                    Eine Trennung von Inhalt und Darstellung musste also her, was in den Anfangstagen zunächst
+                    mit statischen Webseitengenratoren erreicht werden konnte. Denn dadurch konnte man immerhin
+                    anhand einer HTML-Vorlage (heute würde man dazu Template sagen) und davon unabhängigen
+                    Inhaltsdateien alle benötigten HTML-Dateien automatisch erstellen lassen.¹
                 </p>
                 <p>
-                    Der Javacode ist durch folgende Elemente gekennzeichnet:
+                    ¹
+                    <small>
+                        Programme wie
+                        <a href="https://blog.getpelican.com/" target="_blank">Pelican</a>,
+                        <a href="https://gohugo.io/" target="_blank">Hugo</a>,
+                        <a href="https://www.mkdocs.org/" target="_blank">mkdocs</a> oder
+                        <a href="http://www.sphinx-doc.org/en/master/" target="_blank">Sphinx</a>
+                        arbeiten auch heute noch nach diesem Prinzip. Man könnte sagen, dass statische
+                        Webseitengeneratoren wieder modern geworden sind. Es kommt halt doch alles wieder!
+                    </small>
+                </p>
+                <p>
+                    Schnell wurde jedoch klar, dass das alleine noch nicht reichte und stattdessen der Server
+                    eine aktivere Rolle spielen musste. Es musste irgendwie möglich sein, die finalen HTML-Dateien
+                    erst im Moment ihrer Auslieferung durch den Server generieren zu lassen, so dass auch sich
+                    ständig ändernde Daten, wie zum Beispiel die Inhalte einer SQL-Datenbank, im Web dargestellt
+                    werden konnten. Dabei kam man dann relativ schnell darauf, dass es im Grunde genommen zwei
+                    Möglichkeiten gibt, dies zu erreichen: Entweder man ersetzt die HTML-Dateien komplett durch
+                    serverseitig ausgeführten Quellcode, der eine HTTP-Anfrage empfängt und dann irgendwie daraus
+                    eine HTTP-Antwort ableitet, oder – und das schauen wir uns auf dieser Folie an – man bleibt
+                    bei den HTML-Dateien, baut aber kleine Code-Inseln darin ein, die es dem Server ermöglichen,
+                    einzelne Inhalte nachträglich zu ergänzen. Heute nennen wir diese Art von „HTML-Dateien mit
+                    serverseitigen Code-Inseln” <b>aktive Serverseiten</b>, in Anlehnung an all die Frameworks
+                    und Produkte, die diese Technologie implementieren:
+                </p>
+                <ul>
+                    <li>
+                        <b>PHP:</b> Der Vorreiter aller aktiven Serverseiten und das einzige Produkt, dessen
+                        Abkürzung keine „Server Pages“ enthält. PHP stand ursprünglich für „Personal Homepage
+                        Processor”.
+                    </li>
+                    <li>
+                        <b>JSP:</b> Java Server Pages, also die Javavariante aktiver Serverseiten.
+                    </li>
+                    <li>
+                        <b>ASP:</b> Active Server Pages, oder was Java kann, kann Microsoft schon lange.
+                        Unter dem Namen ASP.net lebt die Technologie in der .NET-Plattform weiter.
+                    </li>
+                    <li>
+                        <b>BSP:</b> Wenig überraschend dreht sich bei SAP alles ums Geschäft, weshalb BSP
+                        hier auch für „Business Server Pages” steht. Die Technologie wird allerdings
+                        schon lange nicht mehr für neue Entwicklungen genutzt.
+                    </li>
+                </ul>
+                <p>
+                    Auf der Folie siehst du nun, wie eine einfache Java Server Page aussehen kann.
+                    Das Beispiel ist nicht sehr beeindruckend. 💤🛌 Es zeigt aber trotzdem, wie
+                    Java Server Pages funktionieren und wie ihre Syntax grob aufgebaut ist. Wenn
+                    du genau hinsiehst, erkennst du, dass es sich um altbekannte HTML-Dateien
+                    (oder besser gesagt um beliebige Textdateien) handelt, deren Inhalte nahezu
+                    unverändert an den Browser geschickt wird. Zwischen den Zeilen gibt es aber
+                    immer mal wieder gekennzeichnete Bereiche mit Javacode, der bereits auf dem
+                    Server ausgeführt wird. Er wird folgende Elemente gekennzeichnet:
                 </p>
                 <dl>
                     <dt>
@@ -1877,7 +1928,7 @@
                         einer Datenbanktabelle übernommen wird.
                     </dd>
 
-                    <!-- <dt>
+                    <dt>
                         <src-code language="html">
                             &lt;%-- … --%&gt;
                         </src-code>
@@ -1885,7 +1936,7 @@
                     <dd>
                         Kennzeichnet einen Kommentar. Im Gegensatz zu einfachen HTML-Kommentaren werden diese
                         Kommentare schon vom Server ausgefiltert und gar nicht erst an den Browser geschickt,.
-                    </dd> -->
+                    </dd>
                 </dl>
 
                 <p>
@@ -1971,13 +2022,15 @@
                         </div>
                         <div class="carousel-item img-thumbnail">
                             <p>
-                                Die vorgefertigte <tt>index.html</tt> brauchen wir allerdings nicht. Deshalb weg damit (rechte Maustaste).
+                                Ob die vorgefertige <tt>index.html</tt> benötigt wird, hängt von deinem Projekt ab.
+                                Hier brauchen wir sie nicht und können sie daher löschen (rechte Maustaste).
                             </p>
                             <img class="active d-block w-100" src="netbeans_05.jpg" />
                         </div>
                         <div class="carousel-item img-thumbnail">
                             <p>
-                                Stattdessen musst du im Ordner <tt>Web Pages</tt> eine neue Java Server Page anlegen.
+                                Stattdessen kannst du im Ordner <tt>Web Pages</tt> eine neue Java Server Page anlegen,
+                                da diese auch serverseitige Logik enthalten darf.
                             </p>
                             <img class="active d-block w-100" src="netbeans_06.jpg" />
                         </div>
@@ -1989,7 +2042,7 @@
                         </div>
                         <div class="carousel-item img-thumbnail">
                             <p>
-                                Den Quellcode kannst du dabei aus der vorherigen Folie übernehmen.
+                                Den Quellcode kannst du aus der vorherigen Folie kopieren.
                             </p>
                             <img class="active d-block w-100" src="netbeans_08.jpg" />
                         </div>
@@ -2034,11 +2087,12 @@
                 <p>
                     Da unsere Webanwendungen von nun an immer auch einen Serverteil haben werden,
                     steigen wir ab hier auf Netbeans um. Zwar kannst du Java Server Pages auch
-                    mit Atom oder irgend einem anderen Editor programmieren. Dazu bräuchtest du
+                    mit Atom oder einem beliebgen anderen Editor programmieren. Dazu bräuchtest du
                     dann aber ein ausgewachsenes <a href="https://jaxenter.de/8-build-tools-im-vergleich-ant-buildr-maven-bazel-buck-gradle-pants-sbt-41627"
                     target="_blank">Buildsystem</a> wie <a href="http://ant.apache.org/" target="_blank">
                     Ant</a> oder <a href="https://maven.apache.org/" target="_blank">Maven</a>,
-                    um die Erstellung der Webarchive zu automatisieren. 🏗️
+                    um die Erstellung der Webarchive zu automatisieren. 🏗️ Netbeans dagegen nimmt
+                    uns diese Arbeit komplett ab.
                 </p>
             </aside>
         </section>
@@ -2345,8 +2399,8 @@
                             <p>
                                 Der tatsächliche Inhalt, der in das Template eingefügt wird, kommt aus einer
                                 anderen Datei. Es handelt sich dabei um die eigentliche HTML/JSP-Datei, die
-                                der Anwender gerade abrufen will. 🔄 Sie beinhaltet einen Verweis auf das
-                                zu verwendende Template, so dass der Server weiß, dass er erst beide Dateien
+                                der Anwender gerade abrufen will. Sie beinhaltet einen Verweis auf das zu
+                                verwendende Template, so dass der Server weiß, dass er erst beide Dateien
                                 „übereinanderlegen” muss, um die fertige Seite zu erzeugen. 📄📑
                             </p>
                             <source-code language="html">
@@ -2422,34 +2476,31 @@
             </article>
             <aside>
                 <p>
-                    Zum Abschluss des Kapitels schauen wir uns hier noch ein Praxisbeispiel an,
-                    wie Java Server Pages ein echtes Alltagsproblem lösen können. 🤕 Bei unseren
-                    bisherigen Webseiten haben wir den gesamten Inhalt in eine einzige HTML-Datei
-                    gepackt. Unter anderem auch deshalb, weil es echt mühselig ist, ein Projekt
-                    mit vielen einzelnen HTML-Dateien zu verwalten, so dass alle HTML-Seiten immer
-                    denselben Aufbau besitzen. 🤤
-                </p>
-                <p>
-                    Wie sich herausstellt kann uns der Server hier ganz einfach weiterhelfen.
-                    Denn so gut wie jedes Webframework (egal ob Java, Ruby, Python, PHP oder
-                    wie auch immer) kennt <b>Templates</b> in der ein oder anderen Form, wobei
-                    das Wort „Template” bzw. auf deutsch „Vorlage” hier wörtlich zu nehmen ist.
-                    Denn ein Template ist tatsächlich nichts anderes als eine Vorlage für viele
-                    HTML-Dateien, die alle gleich aufgebaut sein sollen. 🏡 🏡 🏡 🏡
+                    Zum Abschluss dieses Teilkapitels schauen wir uns hier noch ein Praxisbeispiel
+                    an, wie Java Server Pages ein echtes Alltagsproblem lösen können. 🤕 Bei unseren
+                    bisherigen Webseiten haben wir den gesamten Inhalt immer nur in eine einzige
+                    HTML-Datei gepackt. Unter anderem auch deshalb, weil es echt mühselig ist, ein
+                    Projekt mit vielen einzelnen HTML-Dateien zu verwalten, so dass alle HTML-Seiten
+                    immer denselben Aufbau besitzen. 🤤
+
+                    Zwar lässt sich das Problem durch die Entwicklung so genannter „Single Page Apps”
+                    recht elegant umgehen, wie sich herausstellt können wir dasselbe Ziel mit nur
+                    ein klein wenig Hilfe vom Server viel einfacher erreichen. Denn so gut wie jedes
+                    Webframework (egal ob Java, Ruby, Python, PHP oder wie auch immer) kennt <b>Templates</b>,
+                    bei denen es sich tatsählich um eine Art Vorlage für viele gleichartige HTML-Dateien
+                    handelt. 🏡 🏡 🏡 🏡
                 </p>
                 <p>
                     Im zweiten Tabreiter auf der Folie siehst du, wie ein solches Template in
                     Java aussehen kann. 📄 Wie du siehst, beinhaltet das Template den kompletten
                     Quellcode einer fertigen HTML-Seite jedoch ohne die veränderlichen Inhalte.
                     An ihrer Stelle enthält es Platzhalter, die mit verschiedenen Inhalten
-                    ausgefüllt werden können. 🕳️
-                </p>
-                <p>
-                    Welches Template eine Seite benutzt, bleibt dem Anwender im Endeffekt vollkommen
-                    verborgen. Denn dieser ruft wie gewohnt einfach nur Seiten vom Server ab. Jedoch
-                    beinhalten die Seiten keinen kompletten HTML-Code sondern nur einen Verweis auf
-                    ein Template sowie die in das Template einzufügenden Inhalte. Beim Abruf der
-                    Seite setzt der Server dann beides zusammen, bevor er seine Antwort verschickt.
+                    ausgefüllt werden können.
+                    Welches Template eine Seite benutzt, bleibt dem Anwender dabei vollkommen
+                    verborgen. Denn der ruft wie gewohnt einfach nur Seiten vom Server ab, die
+                    jetzt aber gar keinen kompletten HTML-Code mehr sondern nur einen Verweis auf
+                    ein Template sowie den darin einzufügenden Inhalt enthalten. Beim Abruf der
+                    Seite setzt der Server dann beides zusammen, um die fertige Seite zu generieren.
                 </p>
                 <p>
                     Beispielsweise kann es sein, dass der Anwender die Seite <tt>impressum.jsp</tt> mit
@@ -2504,7 +2555,7 @@
                 <p>
                     Okay, zugegeben! Die Syntax, wie Templates mit Java Server Pages realisiert werden,
                     ist schon ziemlich gewöhnungsbedürftig. 🤶🏼 Das Prinzip ist aber genau dasselbe wie in
-                    vielen anderen, modernen Webframeworks. 🖖🏼
+                    vielen anderen, modernen Webframeworks.
                 </p>
             </aside>
         </section>
@@ -3115,23 +3166,37 @@
             </article>
             <aside>
                 <p>
-                    Die folgende Abbildung zeigt den typischen Ablauf, wie die meisten Webframeworks eingehende HTTP-Anfragen
-                    auf dem Server bearbeiten. Natürlich besitzt jedes Framework etwas andere Begrifflichkeiten und auch die
-                    Programmierung unterscheidet sich teilweise deutlich. Im Wesentlichen machen sie aber immer die folgenden
-                    drei Dinge:
+                    Im gerade abgeschlossenen Teilkapitel, in dem wir unsere ersten Gehversuche mit Java
+                    auf dem Server unternahmen, haben wir eigentlich etwas wichtiges ausgelassen und dadurch
+                    einen Programmierstil genutzt, der heute eigentlich gar nicht mehr praktiziert wird:
+                    Wir haben HTML- und Javacode in einer Datei vermischt! Das hat uns zwar vom Server
+                    generierte, dynamische Inhalte ermöglicht, ist deshalb aber trotzdem kein besonders
+                    guter Stil sondern schon bei mittleren Projekten einfach nur noch unübersichtlich.
+                    Natürlich brauchen wir serverseitig ausgeführten Code, wenn wir dynamische Inhalte
+                    erzeugen wollen und wir wollen unsere HTML-Seiten auch tatsächlich als HTML-Seiten
+                    ausprogrammieren. Java- und HTML-Code sollen jedoch in getrennten Dateien leben,
+                    wo sie sich nicht in die Quere kommen können.
+                </p>
+                <p>
+                    In nahezu allen Webframeworks aller Programmiersprachen hat sich daher ein universeller
+                    Ablauf herausgebildet, der (von kleinen Variationen abgeshen) immer aus den selben drei
+                    Schritten besteht, die der Server beim Empfang einer HTTP-Anfrage abarbeitet. Man könnte
+                    sie auch die heilige Dreieinigkeit der Webentwicklung nennen, da sie so universell und
+                    allgegewärtig sind. Grund genug also, sich alle drei heute genauer anzuschauen:
+                </p>
+                <ol>
+                    <li>URL-Routing</li>
+                    <li>Request Handling</li>
+                    <li>HTML Templating</li>
+                </ol>
+                <p>
+                    Wie schon bei den statischen Webseiten von früher beginnt es auch hier immer mit der Frage,
+                    welche URL aufgerufen wurd und wer für die vorliegende HTTP-Anfrage überhaupt zuständig ist.
+                    Beim Entwickeln müssen wir daher so gennante <b>URL-Routen</b> definieren, bei denen es sich
+                    im Grunde genommen um einfache Suchmuster handelt, mit denen die URL verglichen wird. Wie zum
+                    Beispiel im folgenden Beispiel für einen einfachen Blog: 📖
                 </p>
 
-                <h2>Wohin mit der Anfrage?</h2>
-                <p>
-                    Im ersten Schritt wird die in der Anfrage enthaltene URL ausgewertet. Dabei geht es vor allem darum
-                    herauszufinden, welcher Teil der Webanwendung für die Anfrage zuständig ist. Dieser Schritt wird daher
-                    auch <b>Routing</b> genannt, da die Anfrage anhand ihrer URL serverintern an die richtige Stelle
-                    weitergeleitet wird. Die meisten Frameworks erlauben es dementsprechend, Routingregeln für die URLs
-                    zu definieren.
-                </p>
-                <p>
-                    Ein einfaches Beispiel für einen Blog 📖 könnte dabei wie folgt aussehen:
-                </p>
                 <table style="margin-bottom: 1.5em;">
                     <tr>
                         <td>
@@ -3179,31 +3244,41 @@
                     </tr>
                 </table>
 
-                <h2>Der Request Handler ist dran</h2>
                 <p>
-                    Durch das Routing wird die Anfrage an einen sogenannten <b>Request Handler</b> weitergeleitet. Je
-                    nach Programmiersprache und Framework handelt es sich dabei um eine Klasse, Methode oder eine Funktion,
-                    in jedem Fall also um Programmcode, der zur Bearbeitung der Anfrage ausgeführt wird. Er bekommt alle
-                    Daten der HTTP-Anfrage übergegeben und kann auch eine Antwort generieren.
+                    Jeder Aufruf führt zur Auswahl von genau einer URL-Route, die wiederum den so genannten
+                    <b>Request Handler</b> benennt, der die Anfrage übergeben bekommt. Je nach Programmiersprache
+                    und Framework handelt es sich dabei entweder um eine Klasse (wie in Java, wo diese Klasse
+                    <b>Servlet</b> genannt wird), eine Methode oder eine Funktionen (wie z.B. in
+                    <a href="https://www.djangoproject.com/" target="_blank">Django</a> für die Programmiersprache
+                    Python, bevor auch hier „klassenbasierte Views“ eingeführt wurden).
                 </p>
                 <p>
-                    Hier liegt daher die Anwendungslogik des Servers, wo zum Beispiel Datensätze aus einer Datenbank gelesen
-                    oder neue Einträge gespeichert werden können. 💾
-                </p>
-
-                <h2>Erzeugung des HTML-Codes</h2>
-                <p>
-                    Nachdem die gewünschte Aktion vom Request Handler ausgeführt wurde (zum Beispiel einen neuen Blogeintrag
-                    speichern oder einen Eintrag aus der Datenbank lesen), wird die Anfrage in aller Regel
-                    an ein <b>HTML-Template</b> weitergereicht, um daraus die anzuzeigende Seite zu generieren. Dabei kommt
-                    dann wieder das Prinzip mit den Platzhaltern zum Tragen, wobei das Template verschiedene Platzhalter
-                    enthält, die vom Request Handler mit Inhalten ausgefüllt werden. Die hierfür benötigten Daten werden deshalb
-                    in einen sogenannten <b>Kontext</b> (eine Name/Wert-Liste) geschrieben, den das Template auslesen kann.
+                    Innerhalb des Request Handlers können dann alle Schritte ausgeführt werden, die zur Generierung
+                    der HTTP-Antwort notwendig sind. Jedoch trennt man hier nochmal zwischen der Beschaffung der
+                    anzuzeigenden Daten und der tatsächlichen Generierung des zurückgeschickten HTML-Codes. Beides
+                    erfolgt in einer eigenen Datei, die auf die jeweiligen Besonderheiten vorbereitet ist. So kümmert
+                    sich der Request Handler (unsere Servletklasse) wirklich nur darum, die anzuzeigenden Daten zum
+                    Beispiel aus einer Datenbank zu lesen und diese dann an eine Java Server Page zur Anzeige zu
+                    übergeben. Dadurch kann die Java Server Page auf das absolut wesentliche reduziert und vom gesamten
+                    Javacode befreit werden. Lediglich einzelne <code>if</code>-Abfragen oder mal eine kleine Schleife
+                    über sich wiederholenden Inhalte bleiben in einer HTML-artigen Syntax erhatlen.
                 </p>
                 <p>
-                    Alternativ kann der Request Handler auch einfach direkt eine HTTP-Antwort erzeugen, wenn zum Beispiel
-                    ein Format wie PDF oder JSON als Antwort erwartet wird. In diesem Fall entfällt denn der zusätzliche
-                    Schritt mit dem Template.
+                    Alternativ dazu kann der Request Handler natürlich auch direkt eine HTTP-Antwort erzeugen, wenn
+                    ein Format wie PDF oder JSON als Antwort erwartet wird, das sich mit einfachen Templates nur
+                    schwer generieren lässt. In diesem Fall entfällt dann einfach der zusätzliche Schritt mit dem
+                    Template.
+                    Das ganze Programmiermodell ist sehr elegant, da es eine saubere Trennung der Verantwortlichkeiten
+                    (bezogen auf die zu erstellenden Quellcodedateien) und somit auch eine klare Strukturierung des
+                    Codes begünstigt. Kaum ein Framework erlaubt sich daher heute noch, davon abzuweichen.¹
+                </p>
+                <p>
+                    ¹
+                    <small>
+                        Höchstens so genannte Micro-Frameworks tanzen hier noch aus der Reihe, allerdings nicht, weil deren
+                        Erfinder ein komplett anderes Modell favorisieren, sondern weil sie ihren Nutzern maximale Freiheit
+                        bei der Ausgestaltung und damit auch bei der Auswahl der Komponenten lasswen wollen.
+                    </small>
                 </p>
             </aside>
         </section>
