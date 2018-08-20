@@ -2,21 +2,2957 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>DOM-Manipulation mit JavaScript</title>
+        <title>Grundlagen JavaScript</title>
 
         <link rel="shortcut icon" href="../../favicon.svg" />
         <link rel="stylesheet" href="../../style.css" />
         <script src="../../learning-slides.bundle.js"></script>
     </head>
-    <body class="slides invisible" data-title="DOM-Manipulation mit JavaScript" tabindex="0">
+    <body class="slides invisible" data-title="Grundlagen JavaScript" tabindex="0">
         <header>
             <h2>Inhaltsverzeichnis</h2>
             <p>
-                Na, hat dir die letzte Einheit zu JavaScript Lust auf mehr gemacht?
-                Dann werden dir diese Folien gefallen. Denn hier erfährst du, wie
-                du JavaScript in deinen HTML-Seiten verwenden kannst.
+                Nachdem du nun HTML und CSS kennst, lernst du hier die Programmiersprache
+                JavaScript kennen. Neben einer kurzen Einführung, was man damit alles
+                machen kann, lernst du hier wichtige Grundlagen zur Sprache selbst und
+                wie du sie einsetzen kannst.
             </p>
         </header>
+
+        <!--
+            ========================
+            LERNZIELE DIESER EINHEIT
+            ========================
+        -->
+        <section data-chapter data-background-color="rgb(210,190,210)">
+            <h1>Lernziele dieser Einheit</h1>
+            <article>
+                <h3>Nach Abschluss dieser Einheit kannst du …</h3>
+                <ul>
+                    <li>
+                        den Begriff <span class="dhbw-lightblue font-weight-bold">verteiltes System</span>
+                        erklären und von ähnlichen Begriffen abgrenzen.
+                    </li>
+                </ul>
+                <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
+            </article>
+            <aside>
+                <p>
+                    …
+                </p>
+            </aside>
+        </section>
+
+        <!--
+            =================================
+            GRUNDLAGEN DER SPRACHE JAVASCRIPT
+            =================================
+        -->
+        <section data-chapter data-background-image="../../trennfolie.jpg">
+            <h1>Grundlagen der Sprache JavaSscript</h1>
+            <article>
+                <small>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://pixabay.com/en/adult-break-business-caucasian-2398561/" target="_blank">Pixabay: rawpixel</a>
+                    </small>
+                </small>
+            </article>
+        </section>
+
+        <section>
+            <h1>JavaScript im Wandel der Zeit</h1>
+            <article>
+                <ul>
+                    <li>
+                        <b>1995:</b> Netscape und Sun entwickeln JavaScript als browserseitige Scriptsprache
+                    </li>
+                    <li>
+                        <b>1996:</b> Microsoft integriert JavaScript in den Internet Explorer
+                    </li>
+                    <li>
+                        <b>1998:</b> JavaScript wird als ECMAscript¹ herstellerunabhängig standardisiert
+                    </li>
+                    <li>
+                        <b>2009:</b> <a href="https://nodejs.org/" target="_blank">node.js</a> bringt JavaScript auf den Server
+                    </li>
+                    <li>
+                        <b>2009:</b> Mit <a href="https://www.phonegap.com" target="_blank">PhoneGap</a> (bzw. <a href="https://cordova.apache.org/" target="_blank">Apache Cordova</a>) lassen sich mobile Apps entwickeln
+                    </li>
+                    <li>
+                        <b>2011:</b> Weite Teile des <a href="https://www.gnome.org/" target="_blank">GNOME-Desktop</a> basieren auf JavaScript
+                    </li>
+                    <li>
+                        <b>2012:</b> Die Windows Runtime (heute Universal Windows Platform) unterstützt JavaScript
+                    </li>
+                    <li>
+                        <b>2013:</b> <a href="https://tessel.io/" target="_blank">Tessel</a> und <a href="https://www.espruino.com/" target="_blank">Espruino</a>
+                        bringen JavaScript auf kleine <a href="https://de.wikipedia.org/wiki/Mikrocontroller" target="_blank">Microcontroller</a>
+                    </li>
+                    <li>
+                        <b>2014:</b> Viele HTML5-Funktionen lassen sich nur zusammen mit JavaScript nutzen
+                    </li>
+                </ul>
+                <p>
+                    <small>
+                        <small>
+                            ¹ European Computer Manufacturers Association
+                        </small>
+                    </small>
+                </p>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md">
+                            <img src="js_html.jpg" class="d-block img-thumbnail" style="width: 100%; "/>
+                        </div>
+                        <div class="col-md">
+                            <img src="js_nodejs.jpg" class="d-block img-thumbnail" style="width: 100%; "/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <img src="js_cordova.jpg" class="d-block img-thumbnail" style="width: 100%; "/>
+                        </div>
+                        <div class="col-md">
+                            <img src="js_gnome.jpg" class="d-block img-thumbnail" style="width: 100%; "/>
+                        </div>
+                        <div class="col-md">
+                            <img src="js_windows.jpg" class="d-block img-thumbnail" style="width: 100%; "/>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweise:
+                            <a href="https://pixabay.com/en/google-search-engine-browser-search-76517/" target="_blank">Pixabay: Simon</a>,
+                            <a href="https://pixabay.com/en/technology-servers-server-1587673/" target="_blank">Pixabay: heladodementa</a>,
+                            <a href="https://pixabay.com/en/smartphone-handheld-cell-phone-147656/" target="_blank">Pixabay: OpenClipart-Vectors</a>,
+                            <a href="https://www.gnome.org/" target="_blank">GNOME</a>,
+                            <a href="https://pixabay.com/en/windows-8-internet-online-display-528467/" target="_blank">Pixabay: PIX1861</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Mehr als alle anderen Bestandteile des Web hat JavaScript eine bewegte
+                    Geschichte hinter sich. Häufig für seine eigenwilligen Besonderheiten
+                    in der Kritik 💢, aber doch so beliebt 🌟, dass heutzutage längst nicht mehr
+                    nur Webseiten damit erstellt werden. Stattdessen werden heute ganze
+                    Anwendungen auf unterschiedlichen Plattformen in JavaScript geschrieben.
+                    Egal ob Webanwendungen, Mobile Apps, <a href="https://12factor.net/de/" target="_blank">Microservices</a>,
+                    Webserver, <a href="https://de.wikipedia.org/wiki/Eingebettetes_System" target="_blank">eingebettete Anwendungen</a>
+                    oder Programme für Linux und Windows. JavaScript ist nahezu überall daheim. 🎪
+                </p>
+                <p>
+                    Die Jahreszahlen auf der Folie verdeutlichen diesen Siegeszug von JavaScript. ⚔🏆
+                    Dort siehst du, wie JavaScript nach und nach in neue Umgebungen vorgedrungen ist. 🐎
+                </p>
+
+                <h2>Vorsicht, Falle!</h2>
+                <img src="javascript-java.jpg" class="b-block" style="width: 100%" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://coderanch.com/t/456377/Java-JavaScript-ham-hamster" target="_blank">coderanch.com</a>
+                        </small>
+                    </small>
+                </p>
+                <p>
+                    An dieser Stelle noch eine kleine Warnung. JavaScript klingt vom Namen her
+                    zwar ähnlich wie Java, tatsächlich sind es aber zwei eigenständige Sprachen.
+                    An manchen Stellen ist die Syntax fast identisch, wie du auf <a href="#5">Folie 5</a>
+                    sehen wirst. Die meisten anderen Dinge sind dann aber doch unterschiedlich.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Das Web als Anwendungsplattform</h1>
+            <article>
+                <img src="html5-apis.svg" class="d-block" style="width: 100%" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://commons.wikimedia.org/wiki/File:HTML5_APIs_and_related_technologies_taxonomy_and_status.svg" target="_blank">Wikimedia Commons</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Vor der Verabschiedung von HTML 5 waren HTML und JavaScript noch ziemlich
+                    getrennt. Zwar gab es von Anfang an die Möglichkeit, die Elemente einer
+                    Webseite mit JavaScript über das Document Object Model zu beeinflussen,
+                    mehr Integration war aber nicht vorgesehen. Ein Grund dafür war sicher,
+                    dass die vorherige HTML-Version schon 1999 zur einer Zeit verabschiedet
+                    wurde, als das Web tatsächlich fast nur aus einfachen Webseiten bestand. 📜
+                </p>
+                <p>
+                    Innerhalb der folgenden 15 Jahre 📆 hatten sich die Art der Webseiten und der
+                    Umfang der Webanwendungen jedoch grundlegend verändert. Und wie
+                    du auf der vorherigen Folie gesehen hast, hat JavaScript auch immer mehr
+                    Anwendung außerhalb des Browsers gefunden. Deshalb hat es mit HTML 5 dann auch
+                    so lange gedauert. HTML, CSS und JavaScript waren plötzlich nicht mehr im Browser
+                    gefangen und das musste natürlich irgendwie berücksichtigt werden. 🤔
+                </p>
+                <p>
+                    Im Vergleich zu seinen Vorgängern ist HTML 5 daher eine komplette Neuorientierung.
+                    Neben den üblichen Definitionen verschiedener HTML-Elemente umfasst der Standard
+                    nun auch eine Vielzahl von JavaScript-Klassen und APIs für ganz unterschiedliche
+                    Aufgaben. 📑 Und viele Funktionen, wie zum Beispiel das <src-code language="html">&lt;video&gt;</src-code>
+                    oder <src-code language="html">&lt;canvas&gt;</src-code>-Element, lassen sich ohne
+                    JavaScript nur sehr eingeschränkt nutzen.
+                </p>
+                <p>
+                    Damit einher geht auch ein neues Verständnis für das Web. Anstelle eines einfachen
+                    Informationssystems zum Abruf textlastiger Webseiten wird es heute immer mehr als
+                    vollwertige Anwendungsplattform verstanden, deren Bestandteile zur Entwicklung
+                    vieler verschiedener Anwendungen genutzt werden können. Auf der Folie siehst du daher
+                    eine Übersicht aller HTML 5-APIs. Für weitere Details empfehlen wir dir zusätzlich
+                    noch folgende Seiten. Insbesondere auch, weil die Browser noch mehr APIs unterstützen,
+                    als derzeit offiziell verabschiedet wurden.
+                </p>
+                <ul>
+                    <li>
+                        <a href="http://html5index.org/" target="_blank">The HTML 5 JavaScript API Index</a>
+                    </li>
+                    <li>
+                        <a href="https://whatwebcando.today/" target="_blank">What Web Can Do Today</a>
+                    </li>
+                </ul>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Vorhang auf für JavaScript</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "vorhang-vorschau-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#vorhang-vorschau"
+                                role          = "tab"
+                                aria-controls = "vorhang-vorschau"
+                                aria-expanded = "true"
+                            >
+                                Vorschau
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "vorhang-html-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#vorhang-html"
+                                role          = "tab"
+                                aria-controls = "vorhang-html"
+                            >
+                                HTML
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "vorhang-stylesheet-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#vorhang-stylesheet"
+                                role          = "tab"
+                                aria-controls = "vorhang-stylesheet"
+                            >
+                                Stylesheet
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "vorhang-javascript-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#vorhang-javascript"
+                                role          = "tab"
+                                aria-controls = "vorhang-javascript"
+                            >
+                                JavaScript
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Vorschau -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "vorhang-vorschau"
+                            role            = "tabpanel"
+                            aria-labelledby = "vorhang-vorschau-tab"
+                        >
+                            <style>
+                                #vorhang-vorschau > .theater {
+                                    padding-top: 63%;
+                                    position: relative;
+                                    overflow: hidden;
+                                    cursor: pointer;
+                                }
+
+                                #vorhang-vorschau > .theater > .buehne {
+                                    position: absolute;
+                                    width: 100%;
+                                    top: 0;
+                                    left: 0;
+                                }
+
+                                #vorhang-vorschau > .theater > .links {
+                                    position: absolute;
+                                    width: 50%;
+                                    top: 0;
+                                    left: 0;
+
+                                    transition: left 2s;
+                                }
+                                #vorhang-vorschau > .theater > .links.offen {
+                                    left: -50%;
+                                }
+
+                                #vorhang-vorschau > .theater > .rechts {
+                                    position: absolute;
+                                    width: 50%;
+                                    top: 0;
+                                    right: 0;
+
+                                    transition: right 2s;
+                                }
+                                #vorhang-vorschau > .theater > .rechts.offen {
+                                    right: -50%;
+                                }
+
+                                #vorhang-vorschau > .theater > .publikum {
+                                    position: absolute;
+                                    width: 100%;
+                                    bottom: 0;
+                                    left: 0;
+                                }
+
+                                #vorhang-vorschau > .theater > .hinweis {
+                                    position: absolute;
+                                    top: 1em;
+                                    left: 1em;
+
+                                    background: rgba(0,0,0,0.75);
+                                    color: white;
+                                    padding: 0.25em;
+                                }
+                            </style>
+                            <script>
+                                vorhangIstOffen = false;
+                                buehnenbilder = ["vorhang_buehne1.jpg", "vorhang_buehne2.jpg", "vorhang_buehne3.jpg"];
+                                aktuellesBild = 0;
+
+                                applaus1 = new Audio("vorhang_auf.ogg");
+                                applaus2 = new Audio("vorhang_zu.ogg");
+
+                                function vorhangAufZu() {
+                                    let buehne = document.querySelector("#vorhang-vorschau > .theater > .buehne");
+                                    let vorhangLinks = document.querySelector("#vorhang-vorschau > .theater > .links");
+                                    let vorhangRechts = document.querySelector("#vorhang-vorschau > .theater > .rechts");
+
+                                    if (!vorhangIstOffen) {
+                                        vorhangIstOffen = true;
+
+                                        applaus1.currentTime = 0;
+                                        applaus1.play();
+
+                                        vorhangLinks.classList.add("offen");
+                                        vorhangRechts.classList.add("offen");
+                                    } else {
+                                        vorhangIstOffen = false;
+
+                                        applaus2.currentTime = 0;
+                                        applaus2.play();
+
+                                        vorhangLinks.classList.remove("offen");
+                                        vorhangRechts.classList.remove("offen");
+
+                                        aktuellesBild++;
+                                        if (aktuellesBild >= buehnenbilder.length) aktuellesBild = 0;
+
+                                        window.setTimeout(() => buehne.src = buehnenbilder[aktuellesBild], 2100);
+                                    }
+                                }
+                            </script>
+
+                            <div class="theater" onclick="vorhangAufZu()">
+                                <img src="vorhang_buehne1.jpg" class="buehne" />
+                                <img src="vorhang_links.jpg" class="links" />
+                                <img src="vorhang_rechts.jpg" class="rechts" />
+                                <img src="vorhang_publikum.png" class="publikum" />
+
+                                <div class="hinweis">
+                                    Klicke auf das Bild! 🖱
+                                </div>
+                            </div>
+                        </div>
+                        <!-- HTML -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "vorhang-html"
+                            role            = "tabpanel"
+                            aria-labelledby = "vorhang-html-tab"
+                        >
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Vorhang auf für JavaScript&lt;/title&gt;
+
+                                        &lt;link rel="stylesheet" href="style.css" /&gt;
+                                        &lt;script src="script.js"&gt;&lt;/script&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;div id="theater" onclick="vorhangAufZu()"&gt;
+                                            &lt;img src="vorhang_buehne1.jpg" class="buehne" /&gt;
+                                            &lt;img src="vorhang_links.jpg" class="links" /&gt;
+                                            &lt;img src="vorhang_rechts.jpg" class="rechts" /&gt;
+                                            &lt;img src="vorhang_publikum.png" class="publikum" /&gt;
+
+                                            &lt;div class="hinweis"&gt;
+                                                Klicke auf das Bild! 🖱
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                        <!-- Stylesheet -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "vorhang-stylesheet"
+                            role            = "tabpanel"
+                            aria-labelledby = "vorhang-stylesheet-tab"
+                        >
+                            <source-code language="css">
+                                #theater {
+                                    padding-top: 63%;
+                                    position: relative;
+                                    overflow: hidden;
+                                    cursor: pointer;
+                                }
+
+                                #theater &gt; .buehne {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                }
+
+                                #theater &gt; .links {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 50%;
+
+                                    transition: left 2s;
+                                }
+                                #theater &gt; .links.offen {
+                                    left: -50%;
+                                }
+
+                                #theater &gt; .rechts {
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    width: 50%;
+
+                                    transition: right 2s;
+                                }
+                                #theater &gt; .rechts.offen {
+                                    right: -50%;
+                                }
+
+                                #theater &gt; .publikum {
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                }
+
+                                #theater &gt; .hinweis {
+                                    position: absolute;
+                                    top: 1em;
+                                    left: 1em;
+
+                                    background: rgba(0,0,0,0.75);
+                                    color: white;
+                                    padding: 0.25em;
+                                }
+                            </source-code>
+                        </div>
+                        <!-- JavaScript -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "vorhang-javascript"
+                            role            = "tabpanel"
+                            aria-labelledby = "vorhang-javascript-tab"
+                        >
+                            <source-code language="javascript">
+                                vorhangIstOffen = false;
+                                buehnenbilder = ["vorhang_buehne1.jpg", "vorhang_buehne2.jpg", "vorhang_buehne3.jpg"];
+                                aktuellesBild = 0;
+
+                                applaus1 = new Audio("vorhang_auf.ogg");
+                                applaus2 = new Audio("vorhang_zu.ogg");
+
+                                function vorhangAufZu() {
+                                    let buehne = document.querySelector("#theater &gt; .buehne");
+                                    let vorhangLinks = document.querySelector("#theater &gt; .links");
+                                    let vorhangRechts = document.querySelector("#theater &gt; .rechts");
+
+                                    if (!vorhangIstOffen) {
+                                        vorhangIstOffen = true;
+
+                                        applaus1.currentTime = 0;
+                                        applaus1.play();
+
+                                        vorhangLinks.classList.add("offen");
+                                        vorhangRechts.classList.add("offen");
+                                    } else {
+                                        vorhangIstOffen = false;
+
+                                        applaus2.currentTime = 0;
+                                        applaus2.play();
+
+                                        vorhangLinks.classList.remove("offen");
+                                        vorhangRechts.classList.remove("offen");
+
+                                        aktuellesBild++;
+                                        if (aktuellesBild &gt;= buehnenbilder.length) aktuellesBild = 0;
+                                        window.setTimeout(() =&gt; buehne.src = buehnenbilder[aktuellesBild], 2100);
+                                    }
+                                }
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweise:
+                            <a href="https://pixabay.com/en/person-men-theater-curtain-stage-695656/" target="_blank">Pixabay: Geralt</a>,
+                            <a href="https://pixabay.com/en/curtain-scene-theater-2106522/" target="_blank">Pixabay: cezary_p</a>,
+                            <a href="https://pixabay.com/en/ballet-production-performance-545291/" target="_blank">Pixabay: skeeze</a>,
+                            <a href="https://pixabay.com/en/theatre-aysen-chorus-2206583/" target="_blank">Pixabay: sandrocisternas</a>,
+                            <a href="https://pixabay.com/en/maldives-sunset-wedding-bride-698501/" target="_blank">Pixabay: StockSnap</a>
+                            <br />
+                            Audionachweise:
+                            <a href="https://freesound.org/people/RHumphries/sounds/1922/" target="_blank">Freesound: RHumphries</a>,
+                            <a href="https://freesound.org/people/misjoc/sounds/400590/" target="_blank">Freesound: misjoc</a>
+                        </small>
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Ziemlich cooles Beispiel, nicht? 😎 Wenn du noch nie mit JavaScript zu tun
+                    hattest, wirst du sicher nicht gleich jede Zeile verstehen. Aber sehr
+                    kompliziert sieht der Quellcode dann doch nicht aus. Zumindest sieht er
+                    ziemlich ähnlich zu dem Java aus, dass wir alle kennen und lieben. 💟
+                    Also schauen wir uns doch mal an, was hier passiert.
+                </p>
+
+                <h2>HTML-Code</h2>
+                <p>
+                    Eigentlich steckt der meiste Zauber im HTML- und CSS-Code 💫, da dort das
+                    komplette Aussehen der Seite und auch die Animationen zum Öffnen und
+                    Schließen des Vorhangs definiert sind. Das Einzige, was wir hier mit
+                    JavaScript machen, ist auf einen Mausklick zu warten, um daraufhin die
+                    Animationen zu starten und ein Geräusch abzuspielen. Hierfür werden am
+                    Anfang des HTML-Dokuments ein Stylesheet und eine JavaScript-Datei eingebunden:
+                </p>
+                <source-code language="html">
+                    &lt;link rel="stylesheet" href="style.css" /&gt;
+                    &lt;script src="script.js"&gt;&lt;/script&gt;
+                </source-code>
+                <p>
+                    Im <src-code language="html">&lt;body&gt;</src-code> befindet sich dann ein
+                    übergeordnetes <src-code language="html">&lt;div&gt;</src-code> mit dem Attribut
+                    <src-code language="html">onclick="vorhangAufZu()"</src-code>. Das Attribut wird
+                    dabei auch Event Handler genannt, da es festlegt, was bei Eintreten eines bestimmten
+                    Ereignisses passieren soll. In unserem Fall soll bei einem Mausklick die Funktion
+                    <tt>vorhangAufZu()</tt> aufgerufen werden.
+                </p>
+                <p>
+                    Der Rest ist ziemlich langweilig. 💤 Das <src-code language="html">&lt;div&gt;</src-code>
+                    beinhaltet lediglich ein paar Bilder sowie ein weiteres <src-code language="html">&lt;div&gt;</src-code>
+                    mit dem Hinweis, dass der Anwender das Bild anklicken soll. Durch die Reihenfolge
+                    der Elemente ist dabei bereits sichergestellt, dass das Bühnenbild hinter dem Vorhang
+                    und dieser hinter dem Publikum erscheint:
+                </p>
+                <source-code language="html">
+                    &lt;div id="theater" onclick="vorhangAufZu()"&gt;
+                        &lt;img src="vorhang_buehne1.jpg" class="buehne" /&gt;
+                        &lt;img src="vorhang_links.jpg" class="links" /&gt;
+                        &lt;img src="vorhang_rechts.jpg" class="rechts" /&gt;
+                        &lt;img src="vorhang_publikum.png" class="publikum" /&gt;
+
+                        &lt;div class="hinweis"&gt;
+                            Klicke auf das Bild! 🖱
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                </source-code>
+
+                <h2>Stylesheet</h2>
+                <p>
+                    Das Stylesheet sollte eigentlich weitgehend selbsterklärend sein. Zur Sicherheit
+                    wollen wir hier aber nochmal die wichtigsten Dinge zusammenfassen. Nämlich, warum
+                    die Bilder alle genau an der richtigen Stelle erscheinen und wie die Vorhanganimation
+                    realisiert wurde. Ein eigener kleiner Mikrokosmos 🌌 ist dabei folgender Block:
+                </p>
+                <source-code language="css">
+                    #theater {
+                        padding-top: 63%;
+                        position: relative;
+                        overflow: hidden;
+                        cursor: pointer;
+                    }
+                </source-code>
+                <p>
+                    Diese Zeilen bewirken folgendes:
+                </p>
+                <ol>
+                    <li>
+                        <tt>padding-top: 63%</tt>: Dadurch werden die Höhe und das Seitenverhältnis des Bildes
+                        gesetzt. Wie du weißt, ist ein <src-code language="html">&lt;div&gt;</src-code>
+                        ein Blockelement, das immer 100% der Breite seines Elternelements einnimmt.
+                        Hier legen wir fest, dass seine Höhe 63% seiner Breite entsprechen soll.¹
+                    </li>
+                    <li>
+                        <tt>position: relative</tt>: Dadurch legen wir den Bezugspunkt fest, auf den sich
+                        die Positionsangaben der untergeordneten Bilder beziehen. Damit dies funktioniert,
+                        muss den Bildern die Anweisung <src-code language="css">position: absolute</src-code>
+                        gegeben und die Position dann mit <code>top</code>, <code>right</code>,
+                        <code>bottom</code> und <code>left</code> bestimmt werden.
+                    </li>
+                    <li>
+                        <tt>overflow: hidden</tt>: Ganz wichtig! Jeglicher Inhalt, der aus dem Element
+                        herausragt, zum Beispiel weil die Bilder zu groß sind oder weil der Vorhang aus
+                        dem Bild hinaus geschoben wird, soll nicht sichtbar sein.
+                    </li>
+                    <li>
+                        <tt>cursor: pointer</tt>: Dadurch ändert sich der Mauszeiger, wenn er über das
+                        Bild fährt. Wir geben dem Anwender damit ein kleines, visuelles Feedback, dass
+                        das Bild angeklickt werden kann. 🐾
+                    </li>
+                </ol>
+                <p>
+                    <small>
+                        ¹ Warum wir hierfür nicht <src-code language="css">height</src-code> verwenden? Nun,
+                        das ist etwas kompliziert. Aus irgend einem Grund erlaubt CSS nur dann die Höhe eines
+                        Elements zu ändern, wenn man auch die Höhe aller seiner übergeordneten Elternelemente
+                        setzt. Also nur, wenn man bei <src-code language="html">&lt;html&gt;</src-code> anfängt
+                        und allen untergeordneten Elementen bis zu dem, dessen Höhe man setzen will, eine
+                        explizite Höhe gibt, funktioniert die CSS-Anweisung <src-code language="css">height</src-code>
+                        wie gewollt. Klingt komisch, ist aber so. 🐭
+                    </small>
+                </p>
+                <p>
+                    Die einzelnen Bilder werden mit <src-code language="css">position: absolute</src-code>
+                    und den CSS-Anweisungen <code>top</code>, <code>left</code>, <code>bottom</code> und
+                    <code>right</code> in Position gebracht. 🐈🐶🐗🐒 Würde man dabei alle vier Elemente verwenden,
+                    könnte man genau die vier Eckpunkte festlegen. Hier machen wir es aber ein wenig anders: Wir
+                    legen nur einen der Eckpunkte fest und geben den Bildern zusätzlich eine Breite. Die passende
+                    Höhe berechnet der Browser dann nämlich von alleine. Zum Beispiel so:
+                </p>
+                <source-code language="css">
+                    #theater > .rechts {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 50%;
+                    }
+                </source-code>
+                <p>
+                    Die Animationen entstehen dann durch folgende Anweisungen (hier am Beispiel des
+                    linken Vorhangs):
+                </p>
+                <source-code langauge="css">
+                    #theater > .links {
+                        position: absolute;
+                        left: 0;
+                        …
+                        transition: left 2s;
+                    }
+                    #theater > .links.offen {
+                        left: -50%;
+                    }
+                </source-code>
+                <p>
+                    Die Anweisung <src-code language="css">transition: left 2s;</src-code> sagt, dass jede
+                    Veränderung der Eigenschaft <code>left</code> als zwei Sekunden dauernde Animation
+                    abgespielt werden soll. Anfangs ist der Wert <tt>0</tt>, da dies mit <src-code language="css">left: 0</src-code>
+                    so festgelegt wird. Um den Vorhang zu öffnen, wird ihm zusätzlich noch die Klasse
+                    <tt>offen</tt> hinzugefügt, wodurch sich der Wert auf <tt>-50%</tt> ändert. Dementsprechend
+                    wird die Klasse <tt>offen</tt> einfach wieder entfernt, um den Vorhang zu schließen,
+                    da der Wert dann auf <tt>0</tt> zurück geht.
+                </p>
+
+                <h2>JavaScript</h2>
+                <p>
+                    Wenn du bis hierhin folgen konntest, ist dir sicher klar, warum der JavaScript-Code
+                    fast nichts mehr tun muss. Er muss eigentlich nur dafür sorgen, dass den beiden
+                    Vorhangbildern die Klasse <tt>offen</tt> gegeben wird, um den Vorhang zu öffnen
+                    und die Klasse wieder entfernt wird, um den Vorhang zu schließen. Als kleiner Bonus
+                    wird dann noch das Bühnenbild ausgetauscht und ein passendes Geräusch abgespielt.
+                    Fertig ist ein perfekter Theaterabend. 💐
+                </p>
+                <p>
+                    Hangeln wir uns hier mal Stück für Stück durch den Quellcode und fangen mit den
+                    ersten sechs Zeilen an:
+                </p>
+                <source-code language="javascript">
+                    vorhangIstOffen = false;
+                    buehnenbilder = ["vorhang_buehne1.jpg", "…", "…"];
+                    aktuellesBild = 0;
+
+                    applaus1 = new Audio("vorhang_auf.ogg");
+                    applaus2 = new Audio("vorhang_zu.ogg");
+                </source-code>
+                <p>
+                    Hierbei handelt es sich um globale Variablen² mit folgenden Werten:
+                </p>
+                <ol>
+                    <li>
+                        Ein Boolean, ob der Vorhang offen oder geschlossen ist
+                    </li>
+                    <li>
+                        Eine Liste mit drei Dateinamen für die einzelnen Hintergrundbilder
+                    </li>
+                    <li>
+                        Der Index des aktuell sichtbaren Hintergrundbilds, beginnend bei <tt>0</tt>
+                    </li>
+                    <li>
+                        Zwei Objekte für die beiden Geräusche
+                    </li>
+                </ol>
+                <p>
+                    <small>
+                        ² Globale Variablen sind im gesamten JavaScript-Code gültig. Das Gegenteil davon sind
+                        lokale Variablen, die nur innerhalb einer einzelnen Funktion (siehe unten) existieren.
+                    </small>
+                </p>
+                <p>
+                    Hm, sieht eigentlich ziemlich ähnlich zu Java aus, nur dass vor den Variablennamen
+                    nichts steht. 🤔 Doch ab da, wird es dann doch ein wenig anders:
+                </p>
+                <source-code language="javascript">
+                    function vorhangAufZu() {
+                        …
+                    }
+                </source-code>
+                <p>
+                    Das ist eine Funktion, also dass, was man in Java eine Methode nennen würde. Dabei ist dir
+                    aber sicher schon aufgefallen, dass gar keine Klasse um die Funktion herum steht, und dass
+                    der Aufruf über das <code>onclick</code>-Attribut im HTML-Dokument erfolgt.
+                </p>
+                <p>
+                    Die ersten drei Zeilen innerhalb der Funktion greifen auf das <b>Document Object Model</b>
+                    zu und besorgen sich jeweils eine Referenz auf das Bühnenbild, den linken Vorhang und
+                    den rechten Vorhang:
+                </p>
+                <source-code language="javascript">
+                    let buehne = document.querySelector("#theater &gt; .buehne");
+                    let vorhangLinks = document.querySelector("#theater &gt; .links");
+                    let vorhangRechts = document.querySelector("#theater &gt; .rechts");
+                </source-code>
+                <p>
+                    Die Syntax für <code>document.querySelector</code> ist dabei dieselbe Syntax, die du auch
+                    schon von CSS her kennst. Das Ergebnis wird jeweils ein eine lokale Variable gespeichert,
+                    was du am vorangestellten <code>let</code> erkennen kannst. Darauf folgt dann eine Prüfung,
+                    ob der Vorhang offen oder geschlossen ist:
+                </p>
+                <source-code language="javascript">
+                    if (!vorhangIstOffen) {
+                        // Der Vorhang ist geschlossen (beachte das Ausrufezeichen!)
+                    } else {
+                        // Der Vorhang ist offen
+                    }
+                </source-code>
+                <p>
+                    In beiden Fällen passiert fast dasselbe. Zunächst wenn der Vorhang geschlossen ist:
+                </p>
+                <source-code language="javascript">
+                    if (!vorhangIstOffen) {
+                        // Merke dir, dass der Vorhang von nun an offen ist
+                        vorhangIstOffen = true;
+
+                        // Spiele des erste Applaus-Geräusch ab
+                        applaus1.currentTime = 0;
+                        applaus1.play();
+
+                        // Füge den HTML-Elementen mit den Vorhangbildern die Klasse
+                        // (Attribut class) "offen" hinzu, um sie aus dem Bild zu schieben
+                        vorhangLinks.classList.add("offen");
+                        vorhangRechts.classList.add("offen");
+                    }
+                </source-code>
+                <p>
+                    Und wenn er geschlossen ist:
+                </p>
+                <source-code language="javascript">
+                    else {
+                        // Merke dir, dass der Vorhang von nun an wieder zu ist
+                        vorhangIstOffen = false;
+
+                        // Spiele das zweite Applaus-Geräsuch ab
+                        applaus2.currentTime = 0;
+                        applaus2.play();
+
+                        // Entfernte die Klasse "offen", um die Vorhänge wieder ins Bild
+                        // zu schieben
+                        vorhangLinks.classList.remove("offen");
+                        vorhangRechts.classList.remove("offen");
+
+                        // Erhöhe den Zähler mit dem aktuellen Hintergrundbild
+                        aktuellesBild++;
+                        if (aktuellesBild &gt;= buehnenbilder.length) aktuellesBild = 0;
+
+                        // Setze einen Timer, der nach 2,1 Sekunden (also kurz nachdem
+                        // die Animation zu Ende gelaufen ist), das Bild wechselt
+                        window.setTimeout(
+                            () =&gt; buehne.src = buehnenbilder[aktuellesBild],
+                            2100
+                        );
+                    }
+                </source-code>
+                <p>
+                    Wie du siehst, ist das gar kein besonders komplizierter Quellcode.
+                    Lediglich der letzte Befehl hat es etwas in sich. Um ihn zu verstehen,
+                    musst du wissen, wie die Methode <src-code language=javascript>window.setTimeout()</src-code>
+                    definiert ist:
+                </p>
+                <source-code language=javascript>
+                    window.setTimeout(funktion, milisekunden);
+                </source-code>
+                <p>
+                    Sie bekommt im ersten Parameter eine Funktion übergeben, die nach Ablauf
+                    der festgestzten Zeit aufgerufen wird. Das funktioniert, weil Funktionen in
+                    JavaScript anders als in Java ganz normale Objekte sind, die man zum Beispiel
+                    in einer Variable ablegen oder eben auch einer anderen Funktion als Parameter
+                    übergeben kann. Und <src-code language=javascript>() =&gt; …</src-code> ist in
+                    JavaScript die Schreibweise für eine anonyme Funktion ohne Namen. Also das, was
+                    in Java eine Lambda-Funktion ist. Etwas leserlicher hätten wir deshalb auch schreiben
+                    können:
+                </p>
+                <source-code language=javascript>
+                    function bildWechseln() {
+                        buehne.src = buehnenbilder[aktuellesBild];
+                    }
+                    window.setTimeout(bildWechseln, 2100);
+                </source-code>
+                <p>
+                    Oder, was man bis 2016 immer gesehen hat:
+                </p>
+                <source-code language="javascript">
+                    window.setTimeout(function() {
+                        buehne.src = buehnenbilder[aktuellesBild];
+                    }, 2100);
+                </source-code>
+            </aside>
+        </section>
+
+        <section>
+            <h1>JavaScript zum Anfassen</h1>
+            <article>
+                <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch – Interaktiver JavaScript-Editor</a>
+                <img src="js.scratch.png" class="d-block img-thumbnail" style="width: 100%" />
+            </article>
+            <aside>
+                <p>
+                    Eine neue Programmiersprache lernt man am besten, indem man sie ausprobiert.
+                    Die meisten Quellcodebeispiele kannst du daher in <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a>,
+                    unserem interaktiven JavaScript-Editor, direkt ausprobieren. 🙌 Alles, was
+                    du hierfür tun must, ist den Quellcode einzutippen und dann auf <i>Ausführen</i>
+                    zu klicken. Schon siehst du unten drunter das Ergebnis.
+                </p>
+                <p>
+                    Gibst du zum Beispiel <src-code language="javascript">38 + 4</src-code> ein,
+                    erscheint als Antwort <code>number 42</code>. Damit ist gemeint, dass das
+                    Ergebnis der Berechnung die Zahl 42 ist, wobei <code>number</code> einer der
+                    Datentypen von JavaScript ist. Und 42 ist ja ohnehin die Antwort auf alles. 😂
+                </p>
+                <div class="embed-responsive embed-responsive-16by9" style="margin-bottom: 1em">
+                    <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/J0Wc99luWxc?rel=0" allowfullscreen></iframe>
+                </div>
+                <p>
+                    So einfach ist das. Wir empfehlen dir, möglichst viel mit dem Editor auszuprobieren.
+                    Denn, was soll schon passieren? 😎💣💥
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Das ist ja gar nicht so anders</h1>
+            <article>
+                <h2>Variablen deklarieren</h2>
+
+                <div style="margin-bottom: 1em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "vergleich-variablen-javascript-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#vergleich-variablen-javascript"
+                                role          = "tab"
+                                aria-controls = "vergleich-variablen-javascript"
+                                aria-expanded = "true"
+                            >
+                                JavaScript
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "vergleich-variablen-java-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#vergleich-variablen-java"
+                                role          = "tab"
+                                aria-controls = "vergleich-variablen-java"
+                            >
+                                Java
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- JavaScript -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "vergleich-variablen-javascript"
+                            role            = "tabpanel"
+                            aria-labelledby = "vergleich-variablen-javascript-tab"
+                        >
+                            <p>
+                                Variablen werden in JavaScript nicht wirklich deklariert. Sie entstehen
+                                einfach, sobald man ihnen einen Wert zuweist. Nicht vorhandene Variablen
+                                führen auch nicht zu einem Fehler, sondern liefern immer den Wert
+                                <tt>undefined</tt>.
+                            </p>
+                            <source-code language="javascript">
+                                meinName = "Arthur Dent";
+                                let meinAlter = 31;
+                                const telefonnummer = "+49 721 12345";
+                            </source-code>
+                            <p>
+                                Etwas ungewöhnlich ist, dass Variablen automatisch globale Variablen sind,
+                                wenn man ihnen nicht <tt>const</tt> oder <tt>let</tt> voranstellt. Hier musst
+                                du also wirklich aufpassen, damit es nicht zu diffizilen, schwer zu findenden
+                                Fehlern kommt. Älterer Code nutzt noch <tt>var</tt>, neuer Code sollte
+                                stattdessen aber immer <tt>let</tt> verwenden, <a href="https://davidwalsh.name/for-and-against-let" target="_blank">
+                                da es die Gültigkeit der Variablen noch mehr eingrenzt</a>. Mit <tt>const</tt>
+                                kannst du im Gegensatz zu <tt>let</tt> Konstanten definieren. Eine Variable,
+                                deren Wert nicht neu zugewiesen wird, sollte als Konstante definiert werden.
+                                Kann der Wert überschriben werden, verwende <tt>let</tt>.
+                            </p>
+                            <source-code language="javascript">
+                                let fisch = "Wanda The Fish";
+                                fisch = 27;
+                            </source-code>
+                            <p>
+                                Da JavaScript keine wirkliche Deklaration von Variablen kennt, wird auch ihr
+                                Typ nicht fest vorgegeben. Stattdessen hängt es immer davon ab, was man gerade
+                                in eine Variable reinschreibt. Im obigen Beispiel handelt es sich bei der Variable
+                                erst um einen String und dann um eine Zahl. Das ist zwar nicht schön, aber durchaus
+                                erlaubt.
+                            </p>
+                        </div>
+                        <!-- Java -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "vergleich-variablen-java"
+                            role            = "tabpanel"
+                            aria-labelledby = "vergleich-variablen-java-tab"
+                        >
+                            <source-code language="java">
+                                String meinName = "Arthur Dent";
+                                int meinAlter = 31;
+                                String telefonnummer = "+49 721 12345";
+                            </source-code>
+                            <p>
+                                Java kennt keine globalen Variablen. Jede Variable gilt nur innerhalb der
+                                Klasse oder Methode, in der sie definiert wurde. Dafür müssen Variablen
+                                immer erst deklariert werden, bevor sie verwendet werden können. Üblicherweise
+                                wird den Variablen bei der Deklaration allerdings gleich ein Wert zugewiesen.
+                                Der obige Quellcode hätte daher auch so geschrieben werden können:
+                            </p>
+                            <source-code language="java">
+                                String meinName, telefonnummer;
+                                int meinAlter;
+
+                                meinName = "Arthur Dent";
+                                meinAlter = 31;
+                                telefonnummer = "+49 721 12345";
+                            </source-code>
+                            <p>
+                                Im Gegensatz zu JavaScript wird der Typ einer Variable durch ihre Deklaration
+                                bestimmt. In JavaScript hingegen ergibt sich der Typ aus dem Inhalt der Variable
+                                und kann sich jederzeit ändern. Für das zweite JavaScript-Beispiel gibt es daher
+                                keine wirkliche Entsprechung in Java. Nur eine weit hergeholte Version mit den
+                                so genannten Boxed Types:
+                            </p>
+                            <source-code language="java">
+                                Object fisch = new String("Wanda The Fish");
+                                fisch = new Integer(31);
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Funktionen und Methoden aufrufen</h2>
+
+                <div style="margin-bottom: 1em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "vergleich-funktionen-javascript-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#vergleich-funktionen-javascript"
+                                role          = "tab"
+                                aria-controls = "vergleich-funktionen-javascript"
+                                aria-expanded = "true"
+                            >
+                                JavaScript
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "vergleich-funktionen-java-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#vergleich-funktionen-java"
+                                role          = "tab"
+                                aria-controls = "vergleich-funktionen-java"
+                            >
+                                Java
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- JavaScript -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "vergleich-funktionen-javascript"
+                            role            = "tabpanel"
+                            aria-labelledby = "vergleich-funktionen-javascript-tab"
+                        >
+                            <p>
+                                Funktionen und Methoden werden in JavaScript genauso aufgerufen wie in Java.
+                                Nur mit dem einen Unterschied, dass Java keine Funktionen (Methoden ohne Klassen)
+                                kennt.
+                            </p>
+                            <source-code language="javascript">
+                                let startButton = document.getElementById("start");
+                                showGameOverScreen("Game Over", "Nochmal versuchen", true);
+                            </source-code>
+                        </div>
+                        <!-- Java -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "vergleich-funktionen-java"
+                            role            = "tabpanel"
+                            aria-labelledby = "vergleich-funktionen-java-tab"
+                        >
+                            <source-code language="java">
+                                DOMNode startButton = document.getElementById("start");
+                                this.showGameOverScreen("Game Over", "Nochmal versuchen", true);
+                            </source-code>
+                            <p>
+                                Das sieht fast gleich wie bei JavaScript aus. Nur, dass der Variable
+                                <tt>startButton</tt> ein expliziter Typ mitgegeben werden muss und dass
+                                Java keine Methoden ohne Klassen kennt. Zwar wäre die folgende Zeile
+                                durchaus zulässig:
+                            </p>
+                            <source-code language="java">
+                                showGameOverScreen("Game Over", "Nochmal versuchen", true);
+                            </source-code>
+                            <p>
+                                Sie ist aber nichts anderes als folgende Zeile:
+                            </p>
+                            <source-code language="java">
+                                this.showGameOverScreen("Game Over", "Nochmal versuchen", true);
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Fallunterscheidungen</h2>
+
+                <div style="margin-bottom: 1em">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "vergleich-unterscheidungen-javascript-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#vergleich-unterscheidungen-javascript"
+                                role          = "tab"
+                                aria-controls = "vergleich-unterscheidungen-javascript"
+                                aria-expanded = "true"
+                            >
+                                JavaScript
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "vergleich-unterscheidungen-java-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#vergleich-unterscheidungen-java"
+                                role          = "tab"
+                                aria-controls = "vergleich-unterscheidungen-java"
+                            >
+                                Java
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- JavaScript -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "vergleich-unterscheidungen-javascript"
+                            role            = "tabpanel"
+                            aria-labelledby = "vergleich-unterscheidungen-javascript-tab"
+                        >
+                            <source-code language="javascript">
+                                if (alter &lt; 18) {
+                                    …
+                                } else if (alter &lt; 60) {
+                                    …
+                                } else {
+                                    …
+                                }
+                            </source-code>
+                            <p>
+                                Hier gibt es fast gar keine Unterschiede zu Java. Lediglich
+                                den Operator <tt>===</tt> kennt Java nicht: Er prüft nicht nur, ob
+                                zwei Variablen inhaltlich gleich sind, sondern auch ob sie denselben
+                                Typ haben:
+                            </p>
+                            <source-code language="javascript">
+                                if (42 == "42") {
+                                    // Trifft tatsächlich zu
+                                }
+
+                                if (42 === "42") {
+                                    // Trifft nicht zu
+                                }
+                            </source-code>
+                            <p>
+                                An diesem Beispiel siehst du auch, dass JavaScript Strings direkt
+                                vergleichen kann. Eine <code>equals()</code>-Methode brauchen
+                                wir hierfür nicht:
+                            </p>
+                            <source-code language="javascript">
+                                let person1 = "Willy";
+                                let person2 = "Alf";
+
+                                if (person1 === person2) {
+                                    …
+                                } else if (person1 != person2) {
+                                    …
+                                }
+                            </source-code>
+                            <p>
+                                Das <code>switch</code>-Statement hingegen sieht genau wie in Java aus:
+                            </p>
+                            <source-code language="javascript">
+                                switch (event.type) {
+                                    case "keydown":
+                                        …
+                                        break;
+                                    case "click":
+                                        …
+                                        break;
+                                    default;
+                                        …
+                                }
+                            </source-code>
+                        </div>
+                        <!-- Java -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "vergleich-unterscheidungen-java"
+                            role            = "tabpanel"
+                            aria-labelledby = "vergleich-unterscheidungen-java-tab"
+                        >
+                            <source-code language="java">
+                                if (alter &lt; 18) {
+                                    …
+                                } else if (alter &lt; 60) {
+                                    …
+                                } else {
+                                    …
+                                }
+                            </source-code>
+                            <p>
+                                <code>if</code>-Abfragen sehen genau wie in JavaScript aus, nur dass es
+                                den <tt>===</tt>-Operator nicht gibt und dass zwei Strings über ihre
+                                <code>equals()</code>- bzw. <code>equalsIgnoreCase()</code>-Methoden
+                                verglichen werden müssen.
+                            </p>
+                            <source-code language="java">
+                                if (42 == "42") {
+                                    // Kann nie zutruffen
+                                }
+
+                                String person1 = "Willy";
+                                String person2 = "Alf";
+
+                                if (person1.equals(person2)) {
+                                    …
+                                } else if (!person1.equals(person2)) {
+                                    …
+                                }
+                            </source-code>
+                            <p>
+                                <code>switch</code>/<code>case</code> sieht genau gleich aus:
+                            </p>
+                            <source-code language="java">
+                                switch (event.type) {
+                                    case "keydown":
+                                        …
+                                        break;
+                                    case "click":
+                                        …
+                                        break;
+                                    default;
+                                        …
+                                }
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Schleifen</h2>
+
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "vergleich-schleifen-javascript-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#vergleich-schleifen-javascript"
+                                role          = "tab"
+                                aria-controls = "vergleich-schleifen-javascript"
+                                aria-expanded = "true"
+                            >
+                                JavaScript
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "vergleich-schleifen-java-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#vergleich-schleifen-java"
+                                role          = "tab"
+                                aria-controls = "vergleich-schleifen-java"
+                            >
+                                Java
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- JavaScript -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "vergleich-schleifen-javascript"
+                            role            = "tabpanel"
+                            aria-labelledby = "vergleich-schleifen-javascript-tab"
+                        >
+                            <source-code language="javascript">
+                                while (i > 0) {
+                                    …
+                                    i--;
+                                }
+
+                                do {
+                                    …
+                                    i--;
+                                } while (i > 0);
+
+                                for (let i = 0; i &lt; 100; i++) {
+                                    …
+                                }
+                            </source-code>
+                            <p>
+                                <code>while</code>,- <code>do</code>- und <code>for</code>-Schleifen
+                                sehen alle wie in Java aus. For-Each-Schleifen funktionieren jedoch
+                                anders:
+                            </p>
+                            <source-code language="javascript">
+                                let kontakte = ["Bernd", "Michael", "Stéphane", "Luis"];
+
+                                for (let i in kontakte) {
+                                    let kontakt = kontakte[i];
+                                    …
+                                }
+                            </source-code>
+                            <p>
+                                Noch moderner geht es mit einer Lambda-Funktion, was Java inzwischen auch kann:
+                            </p>
+                            <source-code language="javascript">
+                                kontakte.forEach(kontakt => {
+                                    …
+                                });
+                            </source-code>
+                        </div>
+                        <!-- Java -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "vergleich-schleifen-java"
+                            role            = "tabpanel"
+                            aria-labelledby = "vergleich-schleifen-java-tab"
+                        >
+                            <source-code language="java">
+                                while (i > 0) {
+                                    …
+                                    i--;
+                                }
+
+                                do {
+                                    …
+                                    i--;
+                                } while (i > 0);
+
+                                for (int i = 0; i &lt; 100; i++) {
+                                    …
+                                }
+                            </source-code>
+                            <p>
+                                Bis hierhin alles beim Alten. Lediglich innerhalb der <code>for</code>-Schleife
+                                wurde das <code>let</code> durch <code>int</code> ersetzt. For-Each-Schleifen
+                                sehen in Java hingegen so aus:
+                            </p>
+                            <source-code language="java">
+                                String kontakte[] = {"Bernd", "Michael", "Stéphane", "Luis"};
+
+                                for (String kontakt : kontakte) {
+                                    …
+                                }
+                            </source-code>
+                            <p>
+                                Das andere Konstrukt mit der <code>forEach()</code>-Methode gibt es seit Java 8 auch:
+                            </p>
+                            <source-code language="java">
+                                import java.util.Arrays;
+
+                                Arrays.stream(kontakte).forEach((kontakt) -> {
+                                    …
+                                });
+                            </source-code>
+                            <p>
+                                Noch schöner ist es allerdings, wenn die Daten von Anfang an als Collection vorliegen.
+                                Dann spart man sich die Umwandlung des Arrays in einen Stream:
+                            </p>
+                            <source-code language="java">
+                                import java.util.ArrayList;
+                                import java.util.List;
+
+                                List&lt;String&gt; kontakte = new ArrayList&lt;&gt;();
+                                kontakte.put("Bernd");
+                                kontakte.put("Michael");
+                                kontakte.put("Stéphane");
+                                kontakte.put("Luis");
+
+                                kontakte.forEach((kontakt) -> {
+                                    …
+                                });
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Java und JavaScript haben in vielen Dingen eine ähnliche Syntax. Kein Wunder,
+                    gehören sie doch beide zu den so genannten
+                    <a href="https://en.wikipedia.org/wiki/List_of_C-family_programming_languages" target="_blank">
+                    C-ähnlichen Sprachen</a>. Beide Sprachen haben sozusagen vom selben Nachbarn
+                    abgeschrieben. Auch ohne tiefe Kenntnisse solltest du JavaScript-Code daher
+                    relativ einfach lesen können. 📕
+                </p>
+                <p>
+                    Für einen tieferen Einstieg in JavaScript empfehlen wir dir
+                    die <a href="https://developer.mozilla.org/de/docs/Web/JavaScript" target="_blank">
+                    JavaScript-Übersicht</a> im Mozilla Developer Network.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Mehr über Variablen und Funktionen</h1>
+            <article>
+                <h2>Datentypen in JavaScript</h2>
+                <ul>
+                    <li>
+                        <b>Boolean:</b> Einfache Flags, die nur <code>true</code>
+                        oder <code>false</code> sein können.
+                    </li>
+                    <li>
+                        <b>Null:</b> Kennt nur den Wert <code>null</code>.
+                    </li>
+                    <li>
+                        <b>Undefined:</b> Standardwert, den alle nicht vorhandenen
+                        Variablen zurückliefern.
+                    </li>
+                    <li>
+                        <b>Number:</b> Der einzige Zahlentyp in JavaScript. Entspricht
+                        einer 64-bit Fließkommazahl.
+                    </li>
+                    <li>
+                        <b>String:</b> Zeichenketten, genau wie in Java auch.
+                    </li>
+                    <li>
+                        <b>Object:</b> Zusammengesetzte Datentypen ähnlich den
+                        Objekten in Java.
+                    </li>
+                    <li>
+                        <b>Symbol:</b> Besonderer Datentyp, mit dem das fehlende
+                        <code>private</code>-Schlüsselwort in JavaScript emuliert
+                        werden kann.
+                    </li>
+                </ul>
+                <p style="margin-bottom: 1em">
+                    <span class="dhbw-lightblue">🎓 Merke:</span> JavaScript ist eine
+                    <u>schwach typisierte</u>, <u>dynamische</u> Sprache.
+                    <br />
+                    <span class="dhbw-lightblue">🎓 Und merke:</span> Globale Variablen
+                    hängen am <tt>window</tt>-Objekt.
+                </p>
+
+                <h2>Definition einfacher Funktionen</h2>
+                <p>
+                    Alte Syntax mit dem Schlüsselwort <code>function</code>:
+                </p>
+                <source-code language="javascript">
+                    function halloWelt(name, alter) {
+                        return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                    }
+                </source-code>
+                <p>
+                    Für neuen Code empfohlene Schreibweise:
+                </p>
+                <source-code language="javascript">
+                    let halloWelt = (name, alter) => {
+                        return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                    };
+                </source-code>
+                <p>
+                    Oder noch kürzer:
+                </p>
+                <source-code language="javascript">
+                    let halloWelt = (name, alter) => return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                </source-code>
+                <p>
+                    Oder am kürzesten:
+                </p>
+                <source-code language="javascript">
+                    let halloWelt = (name, alter) => `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                </source-code>
+            </article>
+            <aside>
+                <h2>Dynamische, schwache Typisierung</h2>
+                <p>
+                    Wie du in der vorherigen Folie gesehen hast, lassen sich Variablen in
+                    JavaScript viel einfacher verwenden als in Java. Man muss sie nicht
+                    wirklich deklarieren und ihr Datentyp ergibt sich einfach aus ihrem Inhalt.
+                    Streng genommen ist es sogar so, dass Variablen in JavaScript gar keinen
+                    Typ haben, sondern nur ihr Inhalt. Deshalb kann sich der Typ auch jederzeit
+                    ändern, da man in eine Variable ja jederzeit einen neuen Wert schreiben kann.
+                </p>
+                <p>
+                    Das ist anders als in Java, wo man den Typ einer Variable von Anfang an
+                    festlegen muss und sich dieser dann auch nicht mehr ändern kann. Java
+                    nennt man daher <b>statisch typisiert</b>, 🐻 während JavaScript
+                    <b>dynamisch typisiert</b> ist. 🐀
+                </p>
+                <p>
+                    Dennoch gibt es natürlich Datentypen in JavaScript. Allerdings gar nicht
+                    so viele. Genauer gesagt sind es sogar erstaunlich wenige, gerade mal
+                    sieben Stück. Und viele davon verwendet man auch nicht so oft. Für
+                    Variablen benötigt man in der Regel eigentlich nur die folgenden Typen:
+                </p>
+                <ul>
+                    <li>
+                        <b>Boolean:</b> Kennst du aus Java. Ein Boolean kann nur <code>true</code>
+                        oder <code>false</code> sein.
+                    </li>
+                    <li>
+                        <b>String:</b> Kennst du ebenfalls aus Java. Ein String ist eine Zeichenkette,
+                        in der Unicode-Zeichen gespeichert werden.
+                    </li>
+                    <li>
+                        <b>Number:</b> JavaScript hat tatsächlich nur diesen einen nummerischen Datentyp.
+                        Er entspricht dem <code>double</code> aus Java, da es sich um eine 64-bit
+                        Fließkommazahl handelt. Neben den üblichen Zahlen kann er noch die Werte
+                        <code>+infinity</code>, <code>-infinity</code> und <code>NaN</code> beinhalten.
+                    </li>
+                    <li>
+                        <b>Object:</b> Das sind im Prinzip Objekte, wie du sie aus Java kennst. Jedoch
+                        werden sie anders erzeugt und gerade die Objektorientierung ist in JavaScript
+                        in gewisser Weiße speziell.
+                    </li>
+                </ul>
+                <p>
+                    Das war's dann schon. Die anderen Typen benutzt man nur in ganz besonderen
+                    Ausnahmefällen, zum Beispiel um zu prüfen, ob eine Variable überhaupt
+                    definiert ist. Aus diesem Grund nennt man JavaScript auch eine <b>schwach
+                    typisierte</b> Sprache. 🚶 Java hingegen – du denkst es dir sicher schon –
+                    ist eine <b>stark typisierte</b> Sprache. 💪
+                </p>
+
+                <h2>Der Gültigkeitsbereich einer Variable</h2>
+                <p>
+                    Hier schleppt JavaScript den meisten Ballast mit sich rum. 🗿 Denn ursprünglich
+                    waren alle Variablen in JavaScript globale Variablen. Eine einmal verwendete
+                    Variable ist daher im gesamten JavaScript-Code gültig. Selbst wenn sie innerhalb
+                    einer Funktion steht, wie das folgende Beispiel zeigt:
+                </p>
+                <source-code language="javascript">
+                    let random = () {
+                        zufallszahl = 4;    // Durch Würfeln ermittelt
+                                            // Ist daher garantiert zufällig
+                                            // Vgl. https://xkcd.com/221/
+                        return zufallszahl;
+                    }
+
+                    let zeigeZufallszahl = () {
+                        console.log(zufallszahl);
+                    }
+
+                    random();
+                    zeigeZufallszahl();
+                </source-code>
+                <p>
+                    Dieser Quellcode gibt tatsächlich die Zahl <tt>4</tt> aus, da die Variable
+                    <tt>zufallszahl</tt> nach dem Aufruf von <src-code language="javascript">random();</src-code>
+                    erhalten bleibt. Würde man stattdessen erst <src-code language="javascript">zeigeZufallszahl();</src-code>
+                    und dann <src-code language="javascript">random();</src-code> ausführen, wäre
+                    das Ergebnis <tt>undefined</tt>.
+                </p>
+                <p>
+                    Technisch gesehen sind globale Variablen so realisiert, dass sie einfach am
+                    <tt>window</tt>-Objekt hängen. Die folgenden zwei Zeilen sind daher identisch:
+                </p>
+                <source-code language="javascript">
+                    meinName = "Hugo Boss";
+                    window.meinName = "Hugo Boss";
+                </source-code>
+                <p>
+                    Du siehst, mit Variablen musst du höllisch aufpassen. 👹 Gewöhne dir daher
+                    am besten gleich an, vor jede Variable <code>let</code> zu schreiben.
+                    Steht die Variable außerhalb einer Funktion, macht es kaum einen Unterschied.
+                    Aber steht sie innerhalb einer Funktion, kannst du dir sicher sein, dass es
+                    nicht so solchen Fehlern wie eben beschrieben kommt.
+                </p>
+                <p>
+                    In altem JavaScript-Code (älter als 2016) findet man stattdessen auch noch
+                    das Schlüsselwort <code>var</code>. Es bewirkt im Prinzip dasselbe wie
+                    <code>let</code>, schränkt aber den Gültigkeitsbereich einer Variable nur
+                    auf die gesamte Funktion ein. <code>let</code> hingegen begrenzt die Variable
+                    auf den aktuellen Code-Block. An einem Beispiel wird der Unterschied schnell
+                    klar:
+                </p>
+                <source-code language="javascript">
+                    function lonestar() {
+                        // Variable mit var, gibt "10" aus
+                        for (var i = 0; i &lt; 10; i++) { … }
+                        console.log(i);
+
+                        // Variable mit let, wirft einen ReferenceError// Variable mit let, wirft einen ReferenceError
+                        for (let j = 0; j &lt; 10; j++) { … }
+                        console.log(j);
+                    }
+                </source-code>
+                <p>
+                    Die Variable <tt>i</tt> bleibt nach der <code>for</code>-Schleife erhalten und beinhaltet
+                    den letzten Wert kurz vor Abbruch der Schleife. <code>j</code> hingegen ist nur auf die Schleife
+                    selbst begrenzt. Nach Verlassen des Schleifenkörpers wird die Variable wieder gelöscht.
+                </p>
+
+                <h2>Funktionen gestern, heute, morgen</h2>
+                <p>
+                    Funktionen wurden in JavaScript die längste Zeit mit dem <code>function</code>-Schlüsselwort
+                    definiert. Zum Beispiel so:
+                </p>
+                <source-code language="javascript">
+                    function addiere(a, b) {
+                        return a + b;
+                    }
+                </source-code>
+                <p>
+                    Das sieht zwar relativ ähnlich zu Java aus, hat aber doch ein paar gravierende
+                    Unterschiede:
+                </p>
+                <ul>
+                    <li>
+                        Java kennt Funktionen überhaupt nicht. In Java gibt es nur Methoden, die
+                        per Definition in einer Klasse stehen müssen.
+                    </li>
+                    <li>
+                        Funktionen haben keine Zusätze wie <code>public</code>, <code>static</code>
+                        oder <code>final</code>.
+                    </li>
+                    <li>
+                        Wenn eine Funktion einen Wert zurückliefert, wird dies nirgendwo
+                        kenntlich gemacht. Denn eine Funktion, in der die <code>return</code>-Anweisung
+                        nicht vorkommt, gibt automatisch den Wert <code>undefined</code> zurück.
+                    </li>
+                    <li>
+                        Bei den Parametern wird ebenfalls nur der Name ohne Typ angegeben. Das passt
+                        natürlich in das allgemeine Bild, dass sich der Typ einer Variable jederzeit
+                        ändern kann und daher nicht angegeben wird.
+                    </li>
+                </ul>
+
+                <p>
+                    Im Großen und Ganzen ist die alte Schreibwiese schon okay. Historisch bedingt
+                    verhalten sich die so deklarierten Funktionen aber in verschiedenen Fällen
+                    sehr umständlich. 2016 wurde daher eine neue Schreibweise eingeführt:
+                </p>
+                <source-code language="javascript">
+                    let addiere = (a, b) => {
+                        return a + b;
+                    };
+                </source-code>
+                <p>
+                    Das Besondere ist dabei gar nicht mal die Schreibweise. Obwohl die neue
+                    Form den netten Vorteil hat, das sich einzielige Funktionen sehr kompakt
+                    schreiben lassen:
+                </p>
+                <source-code language="javascript">
+                    // Ohne geschweifte Klammern aber mit return-Anweisung
+                    let addiere_mittel = (a, b) => return a + b;
+
+                    // Ohne geschweifte Klammern und ohne return-Anweisung
+                    let addiere_kurz = (a, b) => a + b;
+                </source-code>
+                <p>
+                    Das Besondere daran ist, dass sich die so deklarierten Funktionen in
+                    manchen Fällen anders verhalten. Im Moment macht das noch keinen Unterschied
+                    für uns. Sobald wir aber anfangen, objektorientiert zu programmieren, solltest
+                    du dich an die neue Schreibweise gewöhnen. Denn gerade die <code>this</code>-Variable
+                    verhält sich in den neuen Funktionen viel mehr so, wie du es von Java her kennst.
+                    In den folgenden Folien verwenden daher nur noch die neue Form.
+                </p>
+                <p>
+                    Eine Kleinigkeit sei hier noch gezeigt. Nämlich wie mit der neuen Schreibweise
+                    eine Funktion ohne Parameter definiert wird:
+                </p>
+                <source-code language="javascript">
+                    // Alte Schreibweise
+                    function sagHallo() {
+                        return "Hallo, Welt"!
+                    }
+
+                    // Neue Schreibweise
+                    let sagHallo = () => "Hallo, Welt!";
+                </source-code>
+                <p>
+                    Hat die Funktion genau einen Parameter, können die runden Klammern entfallen:
+                </p>
+                <source-code language="javascript">
+                    let sagHallo = name => `Hallo ${name}!`;
+                </source-code>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 1: Berechnung der Fakultät</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe1-aufgabe-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe1-aufgabe"
+                                role          = "tab"
+                                aria-controls = "aufgabe1-aufgabe"
+                                aria-expanded = "true"
+                            >
+                                Aufgabe
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe1-loesung1-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe1-loesung1"
+                                role          = "tab"
+                                aria-controls = "aufgabe1-loesung1"
+                            >
+                                Lösung 1
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe1-loesung2-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe1-loesung2"
+                                role          = "tab"
+                                aria-controls = "aufgabe1-loesung2"
+                            >
+                                Lösung 2
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Aufgabe -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "aufgabe1-aufgabe"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe1-aufgabe-tab"
+                        >
+                            <p>
+                                Aus dem Mathematikunterricht kennst du sicher noch die <a href="https://de.wikipedia.org/wiki/Fakult%C3%A4t_(Mathematik)" target="_blank">Fakultätfunktion</a>.
+                                Sie ist so definiert, dass sie einer natürlichen Zahl <tt>𝑛 &gt; 0</tt> das
+                                Produkt aller natürlichen Zahlen von <tt>𝑛 … 1</tt> zuordnet. Am einfachsten
+                                lässt sich das an einem Beispiel zeigen:
+                            </p>
+                            <p>
+                                <tt>5! = 5 × 4 × 3 × 2 × 1 = 120</tt> <br />
+                                <tt>10! = 10 × 9 × 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 = 3.628.800</tt>
+                            </p>
+                            <p>
+                                Alles klar? Deine Aufgabe lautet, eine JavaScript-Funktion zu schreiben,
+                                mit der die Fakultät einer beliebigen Zahl berechnet werden kann. Du
+                                kannst die Funktion dabei entweder rekursiv durch Aufruf von sich selbst
+                                oder iterativ mit einer Schleife programmieren. In jedem Fall solltest
+                                du aber prüfen, ob die übergebene Zahl größer <tt>0</tt> ist und den Wert
+                                <tt>NaN</tt>¹ zurück liefern, falls nicht.
+                            </p>
+                            <p>
+                                Zum Ausprobieren, kannst du die Funktion direkt in <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a>
+                                aufrufen. um Beispiel so:
+                            </p>
+                            <source-code language="javascript">
+                                let faktultaet = n => {
+                                    return …
+                                };
+                            </source-code>
+                            <pre>fakultaet(5);<br /><b>number 120</b></pre>
+                            <p>
+                                <small>
+                                    ¹ <tt>NaN</tt> steht für „Not A Number”.
+                                </small>
+                            </p>
+                        </div>
+                        <!-- Lösung 1 -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe1-loesung1"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe1-loesung1-tab"
+                        >
+                            <source-code language="javascript">
+                                let fakultaet = n => {
+                                    if (n &lt; 1) {
+                                        return NaN;
+                                    } else if (n == 1) {
+                                        return 1;
+                                    } else {
+                                        return n * fakultaet(n-1);
+                                    }
+                                };
+                            </source-code>
+
+                            <p>
+                                <b>Vorsicht:</b> Diese Lösung nutzt Rekursion und kann daher nur für relativ
+                                kleine Zahlen verwendet werden. Ist die Zahl <tt>𝑛</tt> zu groß, kommt es
+                                möglicherweiße zu einem Abbruch.
+                            </p>
+                        </div>
+                        <!-- Lösung 2 -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe1-loesung2"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe1-loesung2-tab"
+                        >
+                            <source-code language="javascript">
+                                let fakultaet = n => {
+                                    if (n &lt; 1) {
+                                        return NaN;
+                                    }
+
+                                    let ergebnis = 1;
+
+                                    for (let i = 1; i &lt;= n; i++) {
+                                        ergebnis *= i;
+                                    }
+
+                                    return ergebnis;
+                                };
+                            </source-code>
+                            <p>
+                                Diese Lösung nutzt anstelle der Rekursion eine Schleife und funktioniert daher
+                                mit allen Zahlen.
+                            </p>
+                            <p>
+                                <b>Hinweis:</b> <src-code language="javascript">ergebnis *= i</src-code>
+                                ist dasselbe wie <src-code language="javascript">ergebnis = ergebnis * i</src-code>.
+                                Analog dazu gibt es noch <code>+=</code>, <code>-=</code> und <code>/=</code>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Aah, endlich. Genug der schönen Worte und her mit dem
+                    JavaScript-Editor. Rufe die Seite von <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a>
+                    auf und probiere, die folgende Aufgabe zu lösen. Wie wünschen
+                    dir viel Erfolg dabei! 🐞
+                </p>
+                <img src="../js.scratch.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Screenshot: <a href="https://www.wikiberd.de/hg/dennis/js_scratch" target="_blank">JS.Scratch</a>
+                    </small>
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 2: Lokale und globale Variablen</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-aufgabe-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-aufgabe"
+                                role          = "tab"
+                                aria-controls = "aufgabe2-aufgabe"
+                                aria-expanded = "true"
+                            >
+                                Aufgabe
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe2-loesung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe2-loesung"
+                                role          = "tab"
+                                aria-controls = "aufgabe2-loesung"
+                            >
+                                Lösung
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Aufgabe -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "aufgabe2-aufgabe"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-aufgabe-tab"
+                        >
+                            <p>
+                                Schaue dir den folgenden JavaScript-Code und lasse ihn auch mal in
+                                <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a> laufen.
+                                Anschließend beantworte die folgenden Fragen:
+                            </p>
+                            <source-code language="javascript">
+                                let fibonacci = n => {
+                                    if (n &lt; 1) return NaN;
+                                    ergebnis = 0;
+
+                                    for (let i = n; i &gt;= 1; i--) {
+                                        ergebnis += i;
+                                    }
+
+                                    return ergebnis;
+                                };
+
+                                ergebnis = fibonacci(10);
+                                ergebnis1 = fibonacci(20);
+                            </source-code>
+                            <p>
+                                a) Welchen Wert hat die Variable <tt>ergebnis</tt> nach Aufruf der Funktion
+                                <src-code language="javascript">fibonacci(10)</src-code>?
+                            </p>
+                            <p>
+                                b) Welchen Wert hat die Variable <tt>ergebnis</tt> nach Aufruf der Funktion
+                                <src-code language="javascript">fibonacci(20)</src-code>?
+                            </p>
+                            <p>
+                                c) Wie lässt sich dieser Fehler korrigieren?
+                            </p>
+                            <p>
+                                d) Wie lässt sich innerhalb einer Funktion kenntlich machen, dass eine
+                                globale Variable angesprochen werden soll?
+                            </p>
+                        </div>
+                        <!-- Lösung -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe2-loesung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe2-loesung-tab"
+                        >
+                            <p>
+                                a) Wie erwartet bekommt die Variable den Wert <tt>55</tt> zugewiesen.
+                            </p>
+                            <p>
+                                b) Die Variablen <tt>ergebnis</tt> und <tt>ergebnis1</tt> haben beide den
+                                Wert <tt>210</tt>. Das war so nicht gewollt, da das Ergebnis nur in
+                                <tt>ergebnis1</tt> gespeichert werden sollte.
+                            </p>
+                            <p>
+                                c) In der Funktion muss <src-code language="javascript">ergebnis = 0</src-code>
+                                durch <src-code language="javascript">let ergebnis = 0</src-code> oder
+                                <src-code language="javascript">const ergebnis = 0</src-code> ersetzt werden:
+                            </p>
+                            <source-code language="javascript">
+                                let fibonacci = n => {
+                                    if (n &lt; 1) return NaN;
+                                    let ergebnis = 0;
+
+                                    for (let i = n; i &gt;= 1; i--) {
+                                        ergebnis += i;
+                                    }
+
+                                    return ergebnis;
+                                };
+                            </source-code>
+                            <p>
+                                d) Durch Zugriff auf das <tt>window</tt>-Objekt, zum Beispiel so:
+                                <src-code language="javascript">window.ergebnis = 55;</src-code>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Na, das war ja gar nicht so schwer, oder? Dann machen wir hier gleich
+                    weiter und haben auch schon die nächste Aufgabe für dich. Dieses mal
+                    geht es um den Unterschied von lokalen und globalen Variablen. 🌍
+                </p>
+                <img src="../js.scratch.png" class="img-fluid d-block"/>
+                <p>
+                    <small>
+                        Screenshot: <a href="https://www.wikiberd.de/hg/dennis/js_scratch" target="_blank">JS.Scratch</a>
+                    </small>
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 3: Ein kleines JavaScript-Quiz</h1>
+            <article>
+                <h2>Was bewirken die folgenden Quellcode-Schnippsel?</h2>
+
+                <p>a) <src-code language="javascript">let ergebnis = 42;</src-code></p>
+                <ol>
+                    <li>Deklaration einer globalen Variable mit dem Wert <tt>42</tt> (überall sichtbar)</li>
+                    <li>Deklaration einer lokalen Variable mit dem Wert <tt>42</tt> (nur in der aktuellen Funktion sichtbar)</li>
+                    <li>Prüfung, ob die Variable <tt>ergebnis</tt> den Wert <tt>42</tt> enthält</li>
+                </ol>
+
+                <p>b) <src-code language="javascript">ergebnis = 42;</src-code></p>
+                <ol>
+                    <li>Deklaration einer globalen Variable mit dem Wert <tt>42</tt> (überall sichtbar)</li>
+                    <li>Deklaration einer lokalen Variable mit dem Wert <tt>42</tt> (nur in der aktuellen Funktion sichtbar)</li>
+                    <li>Prüfung, ob die Variable <tt>ergebnis</tt> den Wert <tt>42</tt> enthält</li>
+                </ol>
+
+                <p>c) <src-code language="javascript">multiply = (a, b) => a * b;</src-code></p>
+                <ol>
+                    <li>Deklaration der beiden Variablen <tt>a</tt> und <tt>b</tt> und anschließende Multiplikation der beiden Werte</li>
+                    <li>Definition einer Liste mit den Werten <tt>a</tt> und <tt>b</tt> mit anschließender Multiplikation der beiden Werte</li>
+                    <li>Definition einer Funktion, die zwei Zahlen miteinander multipliziert</li>
+                </ol>
+
+                <p>
+                    d) <src-code language="javascript">ergebnis = 42; ergebnis = "zweiundvierzig";</src-code>
+                </p>
+                <ol>
+                    <li>Die Variable <tt>ergebnis</tt> ist erst ein Integer, dann ein String</li>
+                    <li>Umwandlung des Werts in der Variablen <tt>ergebnis</tt> von einem String in einen Integer</li>
+                    <li>Syntaxfehler: Das ist in JavaScript so nicht erlaubt</li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> 2, 1, 3, 1
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Und weiter geht es mit den Aufgaben. Dieses mal aber nur zum
+                    Nachdenken. 🤔 Schaffst du es, die richtigen Lösungen zu finden ❓❔❓
+                </p>
+
+            </aside>
+        </section>
+
+        <section>
+            <h1>Funktionen – Nichts Besonderes</h1>
+            <article>
+                <h2>Anatomie einer Funktionsdefinition</h2>
+                <img src="funktionsdefinition.svg" class="b-block img-respnsive" style="margin-bottom: 2em;" />
+
+                <h2>Rückruffunktionen für Events</h2>
+                <p>
+                    Häufig erwartet eine Funktion eine andere Funktion als Parameter, um
+                    diese bei Eintreten eines Ereignisses aufrufen zu können. Die aufgerufene
+                    Funktion nennt man Rürckruffunktion oder auch Callback:
+                </p>
+                <source-code language="javascript">
+                    let callback = () => { … };
+                    let div = document.getElementById("theater");
+                    div.addEventListener("click", callback);
+                </source-code>
+                <p>
+                    Lässt sich verkürzen zu:
+                </p>
+                <div style="margin-bottom: 2em">
+                    <source-code language="javascript">
+                        let div = document.getElementById("theater");
+                        div.addEventListener("click", () => { … });
+                    </source-code>
+                </div>
+
+                <h2>Funktionen höherer Ordnung</h2>
+                <p>
+                    Funktionen höherer Ordnung sind Funktionen, die als Rückgabewert eine
+                    neue Funktion liefern:
+                </p>
+                <source-code language="javascript">
+                    let erzeugeFunktion = name => {
+                        return () => `Hello, ${name}!`;
+                    }
+
+                    let begruesseKitty = erzeugeFunktion("Kitty");
+                    console.log(begruesseKitty());
+                </source-code>
+                <p>
+                    Gibt auf der Konsole <tt>Hello, Kitty!</tt> aus.
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Schaust du dir die neue Schreibweise für Funktionen in JavaScript
+                    genauer an, wirst du feststellen, dass sie eigentlich aus zwei
+                    Teilen besteht: Einer Variablen links vom Gleichheitszeichen und
+                    der eigentlichen Funktion rechts davon:
+                </p>
+                <source-code language="javascript">
+                    let getBegruessung = () => {
+                        let texte = [
+                            "Hallo Welt!",
+                            "Sei gegrüßt, Welt!",
+                            "Willkommen auf der Welt!",
+                            "Hi!"
+                        ];
+
+                        let nr = Math.floor(Math.random() * texte.length);
+                        return texte[nr];
+                    }
+                </source-code>
+                <p>
+                    Das ist auch durchaus so beabsichtigt. Denn anders als in Java waren
+                    Funktionen in JavaScript schon immer „Bürger erster Klasse” („first-class
+                    citizen” auf englisch). Damit ist gemeint, dass Funktionen ganz normale
+                    Objekte sind, die man einer Variable zuweisen oder einer anderen Funktion
+                    als Parameter übergeben kann. In Java ist das nicht so. Da haben Klassen
+                    und Methoden quasi einen Sonderstatus, so dass du sie zwar über ihren Namen
+                    ansprechen sonst aber nichts damit machen kannst.
+                </p>
+                <p>
+                    Will man in Java beispielsweise eine Methode aufrufen, deren Namen man
+                    erst zur Laufzeit erfährt, muss man sich hierfür mit der „Reflection API”
+                    herumschlagen. 😣 In JavaScript ist es hingegen ganz easy: 😎
+                </p>
+                <source-code language="javascript">
+                    let meinObjekt = …
+                    let nameDerMethode = input("Welche Methode willst du aufrufen?");
+                    meinObjekt[nameDerMethode]();
+                </source-code>
+
+                <h2>Übergabe einer Rückruffunktion</h2>
+                <p>
+                    Ein häufiges Muster in JavaScript ist, dass eine Funktion eine andere
+                    Funktion als Parameter übergeben bekommt, um diese bei Eintreten eines
+                    Ereignisses automatisch aufrufen zu können. Erinnere dich hierfür
+                    zum Beispiel an den Timer aus dem <a href="#3">Vorhang-Beispiel</a>:
+                </p>
+                <source-code language="javascript">
+                    window.setTimeout(
+                        () => buehne.src = buehnenbilder[aktuellesBild],
+                        2100
+                    );
+                </source-code>
+                <p>
+                    Der Methode <code>window.setTimeout</code> wird im ersten Parameter
+                    eine Funktion übergeben, die nach Ablauf der Zeit automatisch aufgerufen
+                    wird. Doch auch bei der Verarbeitung anderer Ereignisse kommen solche
+                    Rückruffunktionen (englisch „Callbacks”) zum Einsatz:
+                </p>
+                <source-code language="javascript">
+                    let image = document.getElementById("clown-image");
+                    image.addEventListener("mouseover", () => image.src = "clown2.jpg");
+                    image.addEventListener("mouseout", () => image.src = "clown1.jpg");
+                </source-code>
+                <img
+                    src         = "clown1.jpg"
+                    class       = "d-block img-responsive img-thumbnail"
+                    style       = "margin: 1em 0 1em 0;"
+                    onMouseOver = "event.target.src = 'clown2.jpg'"
+                    onMouseOut  = "event.target.src = 'clown1.jpg'"
+                />
+                <p>
+                    Hier wird in der ersten Zeile ein <src-code language="html">&lt;img&gt;</src-code>-Element
+                    im Document Object Modul gesucht. Anschließend werden zwei Event Handler für die Ereignisse
+                    <tt>mouseover</tt> (Maus fährt in das Bild hinein) und <tt>mouseout</tt> (Maus verlässt das
+                    Bild wieder) registriert. Bei den Event Handlern handelt es sich dabei um an Ort und
+                    Stelle definierte, namenlose Funktionen (alles ab <code>() => …</code>), die einfach den
+                    Dateinamen des Bilds austauschen. So kann zum Beispiel ein Effekt realisiert werden, bei dem
+                    ein weinender Clown bei Berührung zu einem lachenden Clown wird und umgekehrt. 🎭
+                </p>
+
+                <h2>Funktionen höherer Ordnung</h2>
+                <p>
+                    Funktionen können noch viel mehr. Denn JavaScript ist in seinen Grundzügen
+                    nicht nur objekt-orientiert sondern auch eine richtige <a href="https://de.wikipedia.org/wiki/Funktionale_Programmierung" target="_blank">
+                    funktionale Programmiersprache</a>. Als solche kennt es auch Funktionen höherer
+                    Ordnung, also Funktionen, die als Ergebnis eine neue Funktion zurückliefern.
+                    Viele fortgeschrittene Konzepte von JavaScript basieren auf dieser Idee.
+                    Zum besseren Verständnis hier ein relativ einfaches Beispiel:
+                </p>
+                <source-code language="javascript">
+                    let erzeugeFunktion = (n) => {
+                        return (m) => n * m;
+                    }
+
+                    let verdoppeln = erzeugeFunktion(2);
+                    let verdreifachen = erzeugeFunktion(3);
+
+                    console.log(verdoppeln(21));
+                    console.log(verdreifachen(11));
+                </source-code>
+                <p>
+                    Als Ergebnis gibt das Programm erst <tt>42</tt> und dann <tt>33</tt> aus.
+                    Denn die Funktion <tt>erzeugeFunktion</tt> nimmt einen Paremter <tt>n</tt>
+                    entgegen und erzeugt daraus eine neue Funktion, die selbst den Parameter
+                    <tt>m</tt> erwartet und als Ergebnis <tt>n * m</tt> zurückliefert.
+                </p>
+                <p>
+                    Dir saust der Kopf? 😱 Du findest das ziemlich kompliziert? Du hältst es
+                    vielleicht sogar für höhere Magie? 🔮 Mach dir nichts daraus. Wir wollten
+                    es nur mal erwähnen. Wenn dich das Thema mehr interessiert, lies dir auf
+                    Wikipedia den Artikel über <a href="https://de.wikipedia.org/wiki/Closure_(Funktion)" target="_blank">
+                    Closures</a> durch.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Von Arrays und Wörterbüchern</h1>
+            <article>
+                <h2>Arrays (bzw. Listen)</h2>
+
+                <div style="margin-bottom: 1em;">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "komplex-listen-javascript-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#komplex-listen-javascript"
+                                role          = "tab"
+                                aria-controls = "komplex-listen-javascript"
+                                aria-expanded = "true"
+                            >
+                                JavaScript
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "komplex-listen-java-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#komplex-listen-java"
+                                role          = "tab"
+                                aria-controls = "komplex-listen-java"
+                            >
+                                Java
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- JavaScript -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "komplex-listen-javascript"
+                            role            = "tabpanel"
+                            aria-labelledby = "komplex-listen-javascript-tab"
+                        >
+                            <p>
+                                Arrays in JavaScript beinhalten einfach eine beliebige Anzahl von Einträgen.
+                                Üblicherweise haben alle Einträge denselben Datentyp, dies ist aber kein Muss.
+                                Um einen Eintrag anzusprechen, muss man seinen Index kennen, der genau wie in
+                                Java bei <tt>0</tt> beginnt.
+                            </p>
+                            <source-code language="javascript">
+                                let einkaufsliste = ["Brot", "Milch", "Kaffee", "Nutella",];
+                                let lottozahlen = [3, 12, 24, 28, 31,];
+                            </source-code>
+                            <p>
+                                Im folgenden Beispiel sieht man, dass ein Array wie wild alle möglichen Datentypen
+                                mischen kann. Das Array beinhaltet zum Beispiel die Namen zweier Spieler sowie drei
+                                weitere Arrays, die zusammen ein Tic-Tac-Toe-Spielfeld simulieren, und ein Boolean.
+                            </p>
+                            <source-code language="javascript">
+                                let ticTacToe = [
+                                    "Spieler 1",
+                                    "Spieler 2",
+                                    [2,0,1],
+                                    [2,1,0],
+                                    [1,0,0],
+                                    false,
+                                ];
+                            </source-code>
+                            <p>
+                                Um einen Eintrag aus einem Array zu holen, benötigt man seinen Index. Zum Beispiel
+                                <src-code language="javascript">einkaufsliste[1]</src-code>. Mit einer einfachen
+                                <code>for</code>-Schleife oder der <code>forEach</code>-Methode kann man alle
+                                Einträge eines Arrays abarbeiten.
+                            </p>
+                            <source-code language="javascript">
+                                for (let i = 0; i &lt; einkaufsliste.length; i++) {
+                                    console.log(einkaufsliste[i]);
+                                }
+
+                                lottozahlen.forEach(zahl => {
+                                    console.log(zahl);
+                                })
+                            </source-code>
+                        </div>
+                        <!-- Java -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "komplex-listen-java"
+                            role            = "tabpanel"
+                            aria-labelledby = "komplex-listen-java-tab"
+                        >
+                            <p>
+                                Arrays in Java beinhalten ebenfalls eine beliebige Anzahl von Einträgen, die über
+                                ihren Index angesprochen werden. Jedoch müssen alle Inhalte denselben Datentyp
+                                besitzen. Man kann zum Beispiel nicht ohne weiteres Strings und Integer in einem
+                                Array mischen. Außerdem ist auch die Syntax viel komplizierter.
+                            </p>
+                            <source-code language="java">
+                                String[] einkaufsliste = {"Brot", "Milch", "Kaffee", "Nutella",};
+                                int[] lotozahlen = {3, 12, 24, 28, 31};
+
+                                int[][] ticTacToeSpielfeld = {
+                                    new int[] {2, 0, 1},
+                                    new int[] {2, 1, 0},
+                                    new int[] {1, 0, 0},
+                                }
+                            </source-code>
+                            <p>
+                                Der Zugriff erfolgt entweder per Index oder über eine For-Each-Schleife:
+                            </p>
+                            <source-code language="java">
+                                for (int i = 0; i &lt; einkaufsliste.length; i++) {
+                                    System.println(einkfaufsliste[i]);
+                                }
+
+                                for (String eintrag : einkaufsliste) {
+                                    System.println(eintrag);
+                                }
+                            </source-code>
+                            <p>
+                                Seit Java 8 kann man auch eine Lambda-Funktion nutzen:
+                            </p>
+                            <source-code language="java">
+                                import java.util.Arrays;
+
+                                Arrays.stream(einkaufsliste).forEach((eintrag) -> {
+                                    System.println(eintrag);
+                                })
+                            </source-code>
+                            <p>
+                                Die direkte Verwendung von Arrays ist in Java allerdings schon lange eher
+                                unerwünscht. Stattdessen sollte man eine der verschiedenen Collection-Klassen
+                                verwenden, zum Beispiel eine Linked List:
+                            </p>
+                            <source-code>
+                                import java.util.LinkedList;
+                                import java.util.List;
+
+                                List&lt;String&gt; einkaufsliste = new LinkedList&lt;&gt;();
+                                einkaufsliste.add("Brot");
+                                einkaufsliste.add("Milch");
+                                einkaufsliste.add("Kaffee");
+                                einkaufsliste.add("Nutella");
+
+                                for (String eintrag : einkaufsliste) {
+                                    System.out.println(eintrag);
+                                }
+
+                                einkaufsliste.forEach((eintrag) -> {
+                                    System.out.println(eintrag);
+                                });
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Dictionaries (bzw. Objekte)</h2>
+
+                <div style="margin-bottom: 1em;">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "komplex-dicts-javascript-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#komplex-dicts-javascript"
+                                role          = "tab"
+                                aria-controls = "komplex-dicts-javascript"
+                                aria-expanded = "true"
+                            >
+                                JavaScript
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "komplex-dicts-java-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#komplex-dicts-java"
+                                role          = "tab"
+                                aria-controls = "komplex-dicts-java"
+                            >
+                                Java
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- JavaScript -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "komplex-dicts-javascript"
+                            role            = "tabpanel"
+                            aria-labelledby = "komplex-dicts-javascript-tab"
+                        >
+                            <p>
+                                Objekte in JavaScript werden auch Dictionaries genannt. Sie dienen einfach der
+                                Gruppierung mehrerer Werte zu einem Datensatz. Die Einträge eins Dictionaries
+                                werden daher über einen frei wählbaren Namen angesprochen und haben auch keine
+                                feste Reihenfolge.
+                            </p>
+                            <source-code language="javascript">
+                                const mulder = {
+                                    vorname: "Fox",
+                                    nachname: "Mulder",
+                                    beruf: "Special Agent FBI",
+                                    vorgesetzter: "Walter Skinner",
+                                    partner: "Dana Scully",
+                                };
+                            </source-code>
+                            <p>
+                                Die Syntax, um einen einzelnen Wert auszulesen ist dieselbe wie bei einer Liste,
+                                nur mit einem Namen anstelle des Index:
+                            </p>
+                            <source-code language="javascript">
+                                let vorname = mulder["vorname"];
+                                mulder["vorgesetzter"] = "Assistant Director Walter Skinner";
+                            </source-code>
+                            <p>
+                                Da Dictionaries und Objekte exakt dasselbe sind, kann man anstelle der eckigen
+                                Klammern auch einfach einen Punkt verwenden:
+                            </p>
+                            <source-code language="javascript">
+                                let vollerName = `${mulder.vorname} ${mulder.nachname}`
+                                mulder.partner = "Dana Katherine Scully";
+                            </source-code>
+                            <p>
+                                Auch über die Einträge eines Dictionaries kann man iterieren. Der <code>in</code>-Operator
+                                liefert hierfür die Namen aller Einträge zurück:
+                            </p>
+                            <source-code language="javascript">
+                                for (let key in mulder) {
+                                    console.log(mulder[key]);
+                                }
+                            </source-code>
+                        </div>
+                        <!-- Java -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "komplex-dicts-java"
+                            role            = "tabpanel"
+                            aria-labelledby = "komplex-dicts-java-tab"
+                        >
+                            <p>
+                                Objekte lassen sich in Java nicht direkt definieren. Man muss immer erst
+                                eine Klasse schreiben und diese dann instantiieren:
+                            </p>
+                            <source-code language="java">
+                                public class Person {
+                                    public String vorname = "";
+                                    public String nachname = "";
+                                    public String beruf = "";
+                                    public String vorgesetzter = "";
+                                    public String partner = "";
+                                }
+
+                                Person mulder = new Person();
+                                mulder.vorname = "Fox";
+                                mulder.nachname = "Mulder";
+                                mulder.beruf = "Special Agent FBI";
+                                mulder.vorgesetzter = "Walter Skinner";
+                                mulder.partner = "Dana Scully";
+                            </source-code>
+                            <p>
+                                Allerdings gibt es mit der <code>Map</code> etwas ähnliches wie Dictionaries.
+                                Denn eine <code>Map</code> bildet einen beliebigen Schlüsselwert auf ein beliebiges
+                                Objekt ab. Dictionaries entsprechen daher am ehestem folgendem Konstrukt in Java:
+                            </p>
+                            <source-code language="java">
+                                import java.Util.HashMap;
+                                import java.util.Map;
+
+                                Map&lt;String, Object&gt; mulder = new HashMap&lt;&gt;();
+                                mulder.put("vorname", "Fox");
+                                mulder.put("nachname", "Mulder");
+                                mulder.put("beruf", "Special Agent FBI");
+                                …
+                            </source-code>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Komplexe Strukturen mit Arrays und Dictionaries</h2>
+
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "komplex-beides-javascript-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#komplex-beides-javascript"
+                                role          = "tab"
+                                aria-controls = "komplex-beides-javascript"
+                                aria-expanded = "true"
+                            >
+                                JavaScript
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "komplex-beides-java-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#komplex-beides-java"
+                                role          = "tab"
+                                aria-controls = "komplex-beides-java"
+                            >
+                                Java
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- JavaScript -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "komplex-beides-javascript"
+                            role            = "tabpanel"
+                            aria-labelledby = "komplex-beides-javascript-tab"
+                        >
+                            <p>
+                                Indem man Arrays und Dictionaries kombiniert, kann man beliebig komplexe
+                                Datenstrukturen zusammensetzen. Das Format ist dabei so beliebt, dass es
+                                auch unter dem Namen <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation" target="_blank">
+                                JSON</a>¹ als eigenständiges Datenformat existiert und unter anderem zum
+                                Datenaustausch mit dem Server genutzt werden kann. Hier ein Beispiel mit
+                                einem <a href="https://www.youtube.com/watch?v=dzByEbMfDmc" target="_blank">
+                                alten Disney-Klassiker</a>: 🦁
+                            </p>
+
+                            <source-code language="javascript">
+                                let dieTollkuehneHexe = {
+                                    titel: "Die Tollkühne Hexe in ihrem fliegenden Bett",
+                                    originalTitel: "Bedknobs and Broomsticks",
+                                    land: "USA",
+                                    originalSprache: "englisch",
+                                    jahr: 1971,
+                                    darsteller: [
+                                        "Angela Lansbury",
+                                        "David Tomlinson",
+                                        "Roddy McDowall",
+                                        "Sam Jaffe",
+                                        "John Ericson",
+                                        "Bruce Forsyth",
+                                        "Cindy O’Callaghan",
+                                        "Roy Snart",
+                                        "Ian Weighill",
+                                        "Tessie O’Shea",
+                                        "Arthur Gould-Porter",
+                                        "Reginald Owen",
+                                        "Ben Wrigley",
+                                        "Cyril Delevantiv",
+                                    ],
+                                };
+                            </source-code>
+                            <p>
+                                Will man nun den Namen von Angela Lansbury auslesen, kann man mit folgenden
+                                Ausdrücken darauf zugreifen:
+                            </p>
+                            <ul>
+                                <li>
+                                    <src-code language="javascript">dieTollkuehneHexe["darsteller"][0]</src-code>
+                                </li>
+                                <li>
+                                    <src-code language="javascript">dieTollkuehneHexe.darsteller[0]</src-code>
+                                </li>
+                            </ul>
+                            <p>
+                                Natürlich kann man auch ein Array mit Dictionaries drin definieren:
+                            </p>
+                            <source-code language="javascript">
+                                let filme = [
+                                    {
+                                        titel: "Die tollkühne Hexe in ihrem fliegenden Bett",
+                                        land: "USA",
+                                        jahr: 1971,
+                                        darsteller: [
+                                            "Angela Lansbury",
+                                            "David Tomlinson",
+                                            "Roddy McDowall",
+                                            …
+                                        ]
+                                    },
+                                    {
+                                        titel: "Spaceballs",
+                                        land: "USA",
+                                        jahr: 1987,
+                                        darsteller: [
+                                            "Mel Brooks",
+                                            "John Candy",
+                                            "Rick Moranis",
+                                            …
+                                        ]
+                                    },
+                                    {
+                                        titel: "M - Eine Stadt sucht einen Mörder",
+                                        land: "Deutschland",
+                                        jahr: 1931,
+                                        darsteller: [
+                                            "Peter Lorre",
+                                            "Inge Landgut",
+                                            "Ellen Widmann",
+                                            …
+                                        ]
+                                    }
+                                ];
+                            </source-code>
+                            <p>
+                                Du siehst, das ganze ist wahnsinnig flexibel und auch noch einfach zu schreiben. 👍
+                            </p>
+
+                            <p>
+                                <small>
+                                    ¹ JavaScript Object Notation
+                                </small>
+                            </p>
+                        </div>
+                        <!-- Java -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "komplex-beides-java"
+                            role            = "tabpanel"
+                            aria-labelledby = "komplex-beides-java-tab"
+                        >
+                            <p>
+                                Vergiss es. Ohne Klassen läuft in Java nichts. 😛 Diese müssen wir erst einmal
+                                definieren. Zum Glück speichern wir bei den Darstellern nur die Namen. Denn sonst
+                                hätten wir dafür auch nochmal eine Klasse gebraucht. Will man es besonders schön
+                                machen, muss man sogar für jedes Attribut eine Setter- und eine Getter-Methode
+                                anlegen.
+                            </p>
+                            <source-code language="java">
+                                import java.util.ArrayList;
+                                import java.util.List;
+
+                                public class Film {
+                                    private String titel = "";
+                                    private String originalTitel = "";
+                                    private String land = "";
+                                    private String originalSprache = "";
+                                    private int jahr = 0
+                                    private List&lt;String&gt; darsteller = new ArrayList&lt;&gt;();
+
+                                    public void setTitel(String titel) {
+                                        this.titel = titel;
+                                    }
+
+                                    public String getTitel() {
+                                        return this.titel;
+                                    }
+
+                                    … gefühlte 1000 Zeilen später …
+                                }
+                            </source-code>
+                            <p>
+                                Dann können wir endlich ein Objekt erzeugen:
+                            </p>
+                            <source-code>
+                                Film dieTollkuehneHexe = new Film();
+                                dieTollkuehneHexe.setTitel("Die tollkühne Hexe in ihrem fliegenden Bett");
+                                dieTollkuehneHexe.setOriginalTitel("Beknobs and Broomsticks");
+                                dieTollkuehneHexe.setLand("USA");
+                                dieTollkuehneHexe.setOriginalSprache("Englisch");
+                                dieTollkuehneHexe.setJahr(1971);
+                                dieTollkuehneHexe.darsteller.add("Angela Lansbury");
+                                dieTollkuehneHexe.darsteller.add("David Tomlinson");
+                                dieTollkuehneHexe.darsteller.add("Roddy McDowall");
+                                dieTollkuehneHexe.darsteller.add("Sam Jaffe");
+                                …
+                            </source-code>
+                            <p>
+                                Natürlich hätten wir noch ein paar Sachen vereinfachen können. Zum Beispiel indem
+                                wir der Klasse einen gescheiten Konstruktor und ein paar Hilfsmethoden spendiert
+                                hätten. Weniger Quellcode wäre es deshalb natürlich nicht geworden. Die Klasse
+                                <tt>Film</tt> wäre aber angenehmer zu verwenden gewesen (worauf man immer achten
+                                sollte 😌).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Ab hier kannst du dich freuen. Wir sind mit unserer Rundschau zu
+                    JavaScript am Ende angekommen. Neben ein paar kleineren Aufgaben
+                    schauen wir uns nur noch Arrays und Dictionaries an:
+                </p>
+                <p>
+                    Neben den einfachen Datentypen wie zum Beispiel Strings und Zahlen
+                    kennt JavaScript zwei komplexe Datentypen, mit denen sich beliebig
+                    große Datenstrukturen abbilden lassen: Genau, Arrays und Dictionaries.
+                    Wie sie funktionieren und was du damit machen kannst, siehst du auf
+                    dieser Folie.
+                </p>
+                <p>
+                    Keine Panik, wenn das jetzt alles ein wenig abstrakt und kompliziert
+                    ist. 😳 Ganz am Ende der Folie sind ein paar Beispiele, die eigentlich
+                    alles Wesentliche zeigen und schnell zu verstehen sind. ☺ Wenn wir
+                    dann später mal Daten mit dem Server austauschen, wirst du sehen, dass
+                    das <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation" target="_blank">
+                    JSON-Format</a>, wie es auch genannt wird, ziemlich nützlich sein kann.
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 4: Verstehst du das?</h1>
+            <article>
+                <h2>Welches Ergebnis liefert der folgende Quellcode?</h2>
+
+                <div class="img-thumbnail">
+                    <source-code language="javascript">
+                        caesar = [
+                            () =&gt; "Veni, Vidi, Vici",   // Ich kam, sah und siegte
+                            () =&gt; "Alea iacta est",     // Die Würfel sind gefallen
+                            () =&gt; "Cras legam",         // Morgen werde ich es lesen
+                        ];
+
+                        zusammenfuegen = (string, callback) =&gt; {
+                            return string + ": " + callback();
+                        }
+
+                        ergebnis = zusammenfuegen("Cäsar", caesar[1]);
+                    </source-code>
+                </div>
+
+                <hr />
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> „Cäsar: Alea iacta est” 🎲🎲
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Hier ist nochmal dein Intellekt gefordert. Schaue dir das Quellcode-Beispiel
+                    an und versuche herauszufinden, welches Ergebnis es liefert. Natürlich kannst
+                    du den Code dazu auch laufen lassen. Mehr Spaß macht es jedoch, wenn du es erst
+                    so probierst. 🎓
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 5: Ein kleines JSON-Quiz</h1>
+            <article>
+                <h2>Was bewirken die folgenden Quellcode-Schnippsel?</h2>
+
+                <p>a) <src-code language="javascript">let movie = {id: 1, name: "Moon", year: 2009};</src-code></p>
+                <ol>
+                    <li>Definition einer Liste mit drei Werten</li>
+                    <li>Definition eines Dictionaries mit drei Werten</li>
+                    <li>Definition dreier Variablen</li>
+                </ol>
+
+                <p>b) <src-code language="javascript">let favorites = ["Toy Story", "Anchorman", "Gravity", "The Founder"];</src-code></p>
+                <ol>
+                    <li>Definition eines Dictionaries mit vier Werten</li>
+                    <li>Definition einer Liste mit vier Werten</li>
+                    <li>Definition einer Methode mit vier Parametern</li>
+                </ol>
+
+                <p>c) <src-code language="javascript">let cds = [{name: "Tracker", year: 2015}, {name: "Privateering", year: 2013}];</src-code></p>
+                <ol>
+                    <li>Definition einer Liste mit zwei Dictionaries</li>
+                    <li>Definition eines Dictionaries mit zwei Listen</li>
+                    <li>Definition von vier Variablen</li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> 2, 2, 1
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Wenn du die Folien sorgfältig durchgelesen hast, sollte diese Aufgabe
+                    ein Kinderspiel für dich sein. 👫 Zur Sicherheit prüfen wir es aber
+                    lieber nochmal nach. 👯
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 6: Talk JSON to me</h1>
+            <article>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe6-aufgabe-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe6-aufgabe"
+                                role          = "tab"
+                                aria-controls = "aufgabe6-aufgabe"
+                                aria-expanded = "true"
+                            >
+                                Aufgabe
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "aufgabe6-loesung-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#aufgabe6-loesung"
+                                role          = "tab"
+                                aria-controls = "aufgabe6-loesung"
+                            >
+                                Lösung
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Aufgabe -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "aufgabe6-aufgabe"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe6-aufgabe-tab"
+                        >
+                            <p>
+                                Angenommen du hast eine Datenbank mit folgenden Tabellen. Wie können
+                                dieselben Daten in JavaScript beschrieben werden?
+                            </p>
+
+                            <h2>Alben</h2>
+                            <table style="margin-bottom: 2em;">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Albumtitel</th>
+                                        <th>Künstler</th>
+                                        <th>Jahr</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Tracker</td>
+                                        <td>Mark Knopfler</td>
+                                        <td>2015</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>X</td>
+                                        <td>Ed Sheran</td>
+                                        <td>2014</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Liquid Spirit</td>
+                                        <td>Gregory Porter</td>
+                                        <td>2013</td>
+                                    </tr>
+                                </thead>
+                            </table>
+
+                            <h2>Titel</h2>
+                            <table style="margin-bottom: 2em;">
+                                <thead>
+                                    <tr>
+                                        <th>Album ID</th>
+                                        <th>Track</th>
+                                        <th>Songtitel</th>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>Laughs And Jokes And Drinks And Smokes</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>Basil</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>1</td>
+                                        <td>One</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>2</td>
+                                        <td>I'm A Mess</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>1</td>
+                                        <td>No Love Dying</td>
+                                    </tr>
+                                    <tr>
+                                        <td>…</td>
+                                        <td>…</td>
+                                        <td>…</td>
+                                    </tr>
+                                </thead>
+                            </table>
+
+                            <p>
+                                a) Schreibe eine JavaScript/JSON-Datei, die exakt dieselben Daten enthält.
+                                Anstelle von zwei Listen solltest du jedoch nur eine Liste haben, in der
+                                sowohl die Alben als auch ihre Titel enthalten sind.
+                            </p>
+                            <p>
+                                b) Wie kann anschließend auf den Songtitel „Basil” zugegriffen werden?
+                            </p>
+                        </div>
+                        <!-- Lösung -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "aufgabe6-loesung"
+                            role            = "tabpanel"
+                            aria-labelledby = "aufgabe6-loesung-tab"
+                        >
+                            <p>
+                                a) <b>Anmerkung:</b> Das ist nur eine mögliche Lösung. Statt des Arrays auf oberster Ebene
+                                wäre auch ein Dictionary denkbar, bei dem die Album-ID als Schlüsselwert benutzt wird.
+                                Die Songtitel sollten sinnvollerweise auf jeden Fall in einem Array gespeichert werden.
+                                Das Array könnte aber anstatt der Strings auch Dictionaries enthalten, so dass zu jedem
+                                Songtitel noch weitere Daten gespeichert werden könnten.
+                            </p>
+                            <source-code language="javascript">
+                                let alben = [
+                                    {
+                                        id: 1,
+                                        albumtitel: "Tracker",
+                                        kuenstler: "Mark Knopfler",
+                                        jahr: 2015,
+                                        songtitel: ["Laughs And Jokes And Drinks And Smokes", "Basil", …],
+                                    },
+                                    {
+                                        id: 2,
+                                        albumtitel: "X",
+                                        kuenstler: "Ed Shearn",
+                                        jahr: 2014,
+                                        songtitel: ["One", "I'm A Mess", … ],
+                                    },
+                                    {
+                                        id: 3,
+                                        albumtitel: "Liquid Spirit",
+                                        kuenstler: "Gergory Porter",
+                                        jahr: 2013,
+                                        songtitel: ["No Love Dying",  … ],
+                                    },
+                                ];
+                            </source-code>
+                            <p>
+                                b) Auf den Titel „Basil” kann mit <src-code language="javascript">alben[0]["songtitel"][1]</src-code>
+                                zugegriffen werden.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                Um später AJAX-Aufrufe an den Server schicken zu können, solltest du
+                sattelfest in JSON sein. Hier kannst du daher gleich ausprobieren, ob
+                du auch komplexe Daten im JavaScript/JSON-Format beschreiben kannst. 📄
+            </aside>
+        </section>
+
+        <!--
+            ===============================
+            DOM-MANIPULATION MIT JAVASCRIPT
+            ===============================
+        -->
+        <section data-chapter data-background-image="../../trennfolie.jpg">
+            <h1>DOM-Manipulation mit JavaScript</h1>
+            <article>
+                <small>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://pixabay.com/en/adult-break-business-caucasian-2398561/" target="_blank">Pixabay: rawpixel</a>
+                    </small>
+                </small>
+            </article>
+        </section>
 
         <section>
             <h1>JavaScript in HTML einbinden</h1>
@@ -631,7 +3567,7 @@
         </section>
 
         <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 1: Finde den Fehler</h1>
+            <h1>Aufgabe 7: Finde den Fehler</h1>
             <article>
                 <div>
                     <ul class="nav nav-tabs" role="tablist">
@@ -4298,9 +7234,9 @@
         </section>
 
         <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 2: Ein kleines DOM-Quiz</h1>
+            <h1>Aufgabe 8: Ein kleines DOM-Quiz</h1>
             <article>
-                <h2>HTML-Elemente auslesen</h2>
+                <h2>Aufgabe 8.1: HTML-Elemente auslesen</h2>
                 <p>
                     a) Welche Methode liefert alle Elemente mit derselben Klasse?
                 </p>
@@ -4372,7 +7308,7 @@
                     </li>
                 </ol>
 
-                <h2>Inhalte verändern und erzeugen</h2>
+                <h2>Aufgabe 8.2: Inhalte verändern und erzeugen</h2>
 
                 <p>
                     a) Wie kann die CSS-Eigenschaft „border-bottom-width” eines HTML-Elements mit
@@ -4457,7 +7393,7 @@
                     </li>
                 </ol>
 
-                <h2>Arbeiten mit DOM-Struktur</h2>
+                <h2>Aufgabe 8.3: Arbeiten mit DOM-Struktur</h2>
 
                 <p>
                     a) Mit welchem Attribut kann auf das Elternelement eines HTML-Elements zugegriffen werden?
@@ -4535,7 +7471,8 @@
 
                 <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
                     <small>
-                        <b>Lösung:</b> 1, 1+3, 3, 2 und 4+5, 2, 3, 1 und 3, 4, 1, 4
+                        <b>Lösung:</b>
+                        Aufgabe 8.1: 1, 1+3, 3, 2; Aufgabe 8.2: 4+5, 2, 3, 1; Aufgabe 8.3:  3, 4, 1, 4
                     </small>
                 </p>
             </article>
@@ -4549,7 +7486,7 @@
         </section>
 
         <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 3: Formularprüfung</h1>
+            <h1>Aufgabe 9: Formularprüfung</h1>
             <article>
                 <div>
                     <ul class="nav nav-tabs" role="tablist">
@@ -4776,7 +7713,7 @@
         </section>
 
         <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 4: TODO-Liste</h1>
+            <h1>Aufgabe 10: TODO-Liste</h1>
             <article>
                 <div>
                     <ul class="nav nav-tabs" role="tablist">
@@ -4910,6 +7847,49 @@
                     <small>
                         Bildnachweis:
                         <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+                    </small>
+                </p>
+            </aside>
+        </section>
+
+        <!--
+            ====================
+            HINWEISE ZUM SCHLUSS
+            ====================
+        -->
+        <section data-chapter data-background-image="../../trennfolie.jpg">
+            <h1>Hinweise zum Schluss</h1>
+            <article>
+                <small>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://pixabay.com/en/adult-break-business-caucasian-2398561/" target="_blank">Pixabay: rawpixel</a>
+                    </small>
+                </small>
+            </article>
+        </section>
+
+        <section data-background-color="rgb(153, 190, 137)">
+            <h1>Do &amp; Don't</h1>
+            <article>
+                <h4>Darauf solltest du achten</h4>
+                <ul>
+                    <li>
+                        …
+                    </li>
+                </ul>
+            </article>
+            <aside>
+                <p>
+                    Dies sind sie: Die berühmten letzten Worte. 📄 Auf dieser Folie haben wir ein paar allgemeine
+                    Tipps zusammengestellt, worauf du bei …
+                    achten solltest.
+                </p>
+                <img src="../../do-dont.svg" class="d-block" style="width: 20em; max-width: 100%; margin-bottom: 0.5em;" />
+                <p>
+                    <small>
+                        Bildnachweis:
+                        <a href="https://pixabay.com/en/dialog-tip-advice-hint-speaking-148815/" target="_blank" style="color: rgb(25, 68, 49);">Pixabay: OpenClipart-Vectors</a>
                     </small>
                 </p>
             </aside>
