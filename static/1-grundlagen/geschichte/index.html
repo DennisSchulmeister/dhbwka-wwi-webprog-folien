@@ -59,10 +59,10 @@
                 <p>
                     Dieses Selbststudium ist im Vergleich zu den nachfolgenden nicht sehr groß. Dennoch gehen wir
                     hier auf die beiden Begriffe <b>Internet</b> und <b>World Wide Web</b> ein und zeigen dir,
-                    warum das eine zwar nicht ohne das andere kann, es aber trotzdem zwei ganz eigene Dinge sind.
+                    warum das eine zwar nicht ohne das andere kann, es aber trotzdem zwei eigene Dinge sind.
                     Hierfür gehen wir zunächst auf die <b>Geschichte des Internets</b> ein und zeigen dir die
                     wesentlichen Meilensteine, die es während seiner Entwicklung gab. Einer davon wird dann auch
-                    das WWW sein, auf dessen Entwicklung wird dann auch nochmal eingehen werden. ABschließen werden
+                    das WWW sein, auf dessen Entwicklung wir dann separat eingehen werden. Abschließen werden
                     wir die Einheit dann mit einem kurzen Überblick über die <b>Bestandteile des WWW</b>, also all
                     jenen Technologien, deren Summe das World Wide Web ergibt und mit denen wir uns daher im Laufe
                     der Vorlesung beschäftigen werden.
@@ -718,14 +718,14 @@
 
                                 // Instantiate all plugins
                                 let pluginClasses = [
-                                    I18nPlugin, // Must be the first plugin
+                                    I18nPlugin,
                                     BreadcrumbPlugin,
                                     IconLinkPlugin,
                                     ToastPlugin,
                                     SyntaxHighlightPlugin,
                                     RedirectHomePlugin,
                                     The500ScreenPlugin,
-                                    The404ScreenPlugin, // Must be the last screen
+                                    The404ScreenPlugin,
                                     RouterPlugin,
                                     VideoPlayer,
                                 ];
@@ -745,8 +745,8 @@
                         </div>
                         <div class="carousel-item img-thumbnail">
                             <p>
-                                Der JavaScript-Code sorgt unter anderem dafür, dass das Video vom Server geladen wird,
-                                und generell dafür, dass die Seite bedienbar ist.
+                                Sie alle werden vom Browser ausgeführt, wodurch die Seite auf
+                                dem Bildschirm erscheint.
                             </p>
                             <img class="active d-block w-100" src="youtube-1684601.svg" />
                             <p>
@@ -759,7 +759,7 @@
                         </div>
                         <div class="carousel-item img-thumbnail">
                             <p>
-                                Die Ablenkung hat echt gut getan. Mit frischem Schwung gehst du nun an deine Hausaufgaben.
+                                Die Ablenkung hat echt gut getan. 🐕 Mit frischem Schwung gehst du nun an deine Hausaufgaben.
                             </p>
                             <img class="active d-block w-25 m-auto" src="../../finish.svg" />
                             <p>
@@ -775,9 +775,9 @@
             </article>
             <aside>
                 <p>
-                    Erst die Sumem aus URLs, HTTP, HTML, CSS und JavaScript macht das WWW zu dem, was es heute ist.
+                    Erst die Summe aus URLs, HTTP, HTML, CSS und JavaScript macht das WWW zu dem, was es heute ist.
                     Indem all jene Technologien hervorragend aufeinander abgestimmt sind und daher stets Hand in Hand
-                    zsuammenarbeiten, lässt sich damit jede auch noch so große Webseite realisieren. Zum Beispiel
+                    zusammenarbeiten, lässt sich damit jede auch noch so große Webseite realisieren. Zum Beispiel
                     wie bei YouTube oder anderen bekannten, großen Webportalen. 🎥
                 </p>
 
@@ -789,16 +789,16 @@
                     Der Abruf der Daten wird immer durch den Browser initiiert und erfolgt durch Senden einer
                     <b>HTTP-Anfrage</b> an den Server. Der Server nimmt die Anfrage daraufhin entgegen und
                     verarbeitet sie, indem er beispielsweise verschiedene Daten in einer angeschlossenen
-                    Datenbanksucht und diese schließlich in Form eine <b>HTML-Seite</b> an den Brwoser
-                    zurück schickt. Die HTML-Seite wird hierfür in den Datenteil der <b>HTTP-Antwort</b>
+                    Datenbanksucht und diese schließlich in Form einer <b>HTML-Seite</b> an den Brwoser
+                    zurücksendet. Die HTML-Seite wird hierfür in den Datenteil der <b>HTTP-Antwort</b>
                     gepackt und verschickt.
                 </p>
                 <p>
                     Allerdings reicht der HTML-Code alleine noch nicht aus, um die Seite darstellen und
-                    ausführen zu können. Innerhalb des HTML-Codes befinden sich stattdessen noch Verweise
+                    ausführen zu können. Innerhalb des HTML-Codes befinden sich deshalb noch Verweise
                     auf verschiedene Stylesheets und JavaScript-Dateien, die der Browser est noch vom
                     Server anfordern muss. Auch hierfür werden HTTP-Nachrichten ausgetauscht. Die Aufgabe
-                    der abgerufenen Daten ist dabei klar:
+                    der all dieser Dateien ist dabei folgender:
                 </p>
                 <ul>
                     <li>
@@ -812,10 +812,10 @@
                     </li>
                 </ul>
                 <p>
-                    Alle zusammen werden sie vom Browser ausgeführt, solange die Seite sichtbar ist.
-                    In den kommenden Stunden werden wir sie uns daher alle genau anschauen, damit du
-                    schon bald deine eigenen Webanwendungen schreiben kannst. Auch werden wir uns dann
-                    noch mit der Programmierung der Serverseite beschäftigen.
+                    Sie werden alle zusammen vom Browser ausgeführt, solange die Seite sichtbar ist.
+                    In den kommenden Stunden werden wir uns jede einzelne daher genau anschauen, damit
+                    du schon bald eigene Web Apps schreiben kannst. Auch werden wir uns dann
+                    noch mit der Serverseite und den Eigenheiten von HTTP beschäftigen.
                 </p>
             </aside>
         </section>
@@ -827,14 +827,24 @@
                     <div class="row">
                         <div class="col-md">
                             <img src="linux.png" class="img-thumbnail d-block" style="width: 100%" />
-                            1991: Der Linux Kernel
+                            1991: Der Linux-Kernel
                         </div>
                         <div class="col-md">
                             <img src="palm.png" class="img-thumbnail d-block" style="width: 100%" />
                             1992: Personal Digital Assistants
                         </div>
                     </div>
+
                     <div class="row">
+                        <div class="col-md">
+                            <img src="amazon.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1994: Der Onlinebuchhändler Amazon
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://pixabay.com/de/buchladen-b%C3%BCcher-kaufen-bibliothek-2495148/" target="_blank">Pixabay: Reisefreiheit_eu</a>
+                                </small>
+                            </p>
+                        </div>
                         <div class="col-md">
                             <img src="windows95.jpg" class="img-thumbnail d-block" style="width: 100%" />
                             1995: Taskleiste, Startmenü, Desktop und
@@ -845,12 +855,61 @@
                                 </small>
                             </p>
                         </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-md">
-                            <img src="dvd.png" class="img-thumbnail d-block" style="width: 100%" />
+                            <img src="ebay.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1995: AuctionWeb, später bekannt als eBay
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://pixabay.com/de/hammer-b%C3%BCcher-gesetz-gericht-620011/" target="_blank">Pixabay: succo</a>
+                                </small>
+                            </p>
+                        </div>
+                        <div class="col-md">
+                            <img src="google.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1997: BackRub heißt jetzt Google
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://pixabay.com/de/internet-suchmaschine-laptop-netbook-1519471/" target="_blank">Pixabay: PhotoMIX-Company</a>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <img src="netflix.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1997: Netflix verleiht noch Videokassetten
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://pixabay.com/de/alte-tv-aufzeichnungen-vhs-kassetten-1149416/" target="_blank">Pixabay: Free-Photos</a>
+                                </small>
+                            </p>
+                        </div>
+                        <div class="col-md">
+                            <img src="IPv6.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            1998: <a href="https://tools.ietf.org/html/rfc2460" target="_blank">RFC 2460</a> zu IPv6
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <img src="dvd.jpg" class="img-thumbnail d-block" style="width: 100%" />
                             1999: Filme auf DVD
                             <p class="dhbw-fontsize-tiny">
                                 <small>
-                                    Bildnachweis: <a href="https://de.wikipedia.org/wiki/DVD#/media/File:DVD.png" target="_blank">Wikipedia</a>
+                                    Bildnachweis: <a href="https://pixabay.com/de/comics-lesen-bild-abdeckung-buch-2589659/" target="_blank">Pixabay: StockSnap</a>
+                                </small>
+                            </p>
+                        </div>
+                        <div class="col-md">
+                            <img src="macOS.png" class="img-thumbnail d-block" style="width: 100%" />
+                            1999: Mac OS X, heute bekannt als macOS
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://virtualboxes.org/screenshots/#jp-carousel-315" target="_blank">virtualboxes.org</a>
                                 </small>
                             </p>
                         </div>
@@ -867,8 +926,8 @@
                 </p>
                 <ul>
                     <li>
-                        <b>1991:</b> Linux Torvalds kündigt im Usenet den
-                        <a href="https://de.wikipedia.org/wiki/Linux" target="_blank">Linux Kernel</a>
+                        <b>1991:</b> Der finnische Student Linus Torvalds kündigt im Usenet den
+                        <a href="https://de.wikipedia.org/wiki/Linux" target="_blank">Linux-Kernel</a>
                         an. Heute läuft die Mehrheit aller Webseiten auf einem
                         <a href="https://httpd.apache.org" target="_blank">Apache-Server</a>
                         unter Linux.
@@ -880,6 +939,13 @@
                         bekannt werden, als Apple das iPhone vorstellte.
                     </li>
                     <li>
+                        <b>1994:</b> Der US-Amerikanische Informatiker Jeff Bezos gründet
+                        den Onlinebuchhändler Amazon. Nach einer längeren Testphase wird
+                        der Webshop ein Jahr später unter amazon.com der breiten
+                        Öffentlichkeit zugänglich gemacht. Seit 1998 ist Amazon auch
+                        in Deutschland am Markt.
+                    </li>
+                    <li>
                         <b>1995:</b> Microsoft veröffentlicht mit Windows 95
                         die erste Windows-Version mit den bekannten drei Buttons
                         in der Titelzeile eines Fensters, einem Desktop, auf dem
@@ -888,9 +954,51 @@
                         Startmenü.
                     </li>
                     <li>
-                        <b>1999:</b> Die ersten DVDs kommen auf den Markt.
+                        <b>1995:</b> Im kalifornischen San José wird die Onlineplattform
+                        AuctionWeb, später bekannt als eBay, gegründet.
+                    </li>
+                    <li>
+                        <b>1997:</b> Larry Page und Sergey Brin nennen ihre 1996 online
+                        gestellte Suchmaschine BackRub in Google um. Benannt ist sie nach
+                        der Zahl „Googol”, die einer Eins mit hundert Nullen enspricht und
+                        somit die Fülle der verarbeiteten Informationen wiederspiegelt.
+                    </li>
+                    <li>
+                        <b>1997:</b> In den USA wird die Firma Netflix gegründet.
+                        Bis 2007 bestand das Geschäftsfeld allerdings noch ausschließlich
+                        aus dem Onlineverleih von Videokasetten und DVDs. Das Streaming
+                        von Filmen kam erst später dazu.
+                    </li>
+                    <li>
+                        <b>1998:</b> Im Dezember 1998 wird der
+                        <a href="https://tools.ietf.org/html/rfc2460" target="_blank">RFC 2460</a>,
+                        in dem das neue IPv6 beschrieben wird, veröffentlicht. Die Arbeiten an dem
+                        neuen Protokoll dauern zu dieser Zeit bereits drei Jahre an, obwohl der
+                        IPv4-Adressvorrat noch bis 2011 reichen soll.
+                    </li>
+                    <li>
+                        <b>1999:</b> Die ersten DVDs kommen auf den Markt. Es handelt sich um das
+                        erste erfolgreiche Heimvideo-Medium nach Einführung der Videokassetten
+                        Ende der 1970er. Frühere Versuche, wie zum Beispiel die
+                        <a href="https://de.wikipedia.org/wiki/Laserdisc" target="_blank">LaserDisc</a>,
+                        konnten sich hingegen nicht durchsetzen.
+                    </li>
+                    <li>
+                        <b>1999:</b> Nach der Übernahme von Steve Jobs Firma
+                        <a href="https://de.wikipedia.org/wiki/NeXT" target="_blank">NeXT Inc.</a>
+                        drei Jahre zuvor entwickelt Apple das Betriebssystem
+                        <a href="https://de.wikipedia.org/wiki/OPENSTEP" target="_blank">OPENSTEP</a>
+                        zu
+                        <a href="https://de.wikipedia.org/wiki/MacOS#Geschichte" target="_blank">Mac OS X</a>,
+                        dem heutigen macOS, weiter.
                     </li>
                 </ul>
+                <p>
+                    Viele dieser Erfindungen wurden im
+                    <a href="https://de.wikipedia.org/wiki/Silicon_Valley" target="_blank">Silicon Valley</a>
+                    gemacht, einer Region südlich von San Francisco, USA.
+                </p>
+                <img src="google-banner.jpg" class="img-thumbnail d-block" style="width: 100%;"/>
             </aside>
         </section>
 
