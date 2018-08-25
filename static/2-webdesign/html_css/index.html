@@ -30,15 +30,79 @@
                 <h3>Nach Abschluss dieser Einheit kannst du …</h3>
                 <ul>
                     <li>
-                        den Begriff <span class="dhbw-lightblue font-weight-bold">verteiltes System</span>
-                        erklären und von ähnlichen Begriffen abgrenzen.
+                        die Einsatzgebiete von <span class="dhbw-lightblue font-weight-bold">HTML als UI-Technologie</span> bewerten.
+                    </li>
+                    <li>
+                        das <span class="dhbw-lightblue font-weight-bold">Zusammenspiel von HTML, CSS und
+                        JavaScript</span> in der UI-Entwicklung verstehen.
+                    </li>
+                    <li>
+                        eigene HTML-Dateien erstellen und dabei die wichtigsten
+                        <span class="dhbw-lightblue font-weight-bold">HTML-Elemente</span> verwenden.
+                    </li>
+                    <li>
+                        strukturgebende HTML-Elemente zur
+                        <span class="dhbw-lightblue font-weight-bold">semantischen Gliederung</span>
+                        einer Webseite einsetzen.
+                    </li>
+                    <li>
+                        eigene <span class="dhbw-lightblue font-weight-bold">CSS-Layouts</span>
+                        erstellen und dabei die wichtigsten
+                        <span class="dhbw-lightblue font-weight-bold">CSS-Eigenschaften</span> verwenden.
+                    </li>
+                    <li>
+                        erklären, was das <span class="dhbw-lightblue font-weight-bold">Document
+                        Object Model</span> ist und welche Aufgabe es für HTML und CSS hat.
+                    </li>
+                    <li>
+                        Grafiken und Bilder so aufbereiten, dass sie schnell geladen werden und
+                        dennoch gut aussehen.
+                    </li>
+                    <li>
+                        kleine <span class="dhbw-lightblue font-weight-bold">Animationen und Übergänge
+                        mit CSS</span> erstellen.
                     </li>
                 </ul>
                 <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
             </article>
             <aside>
                 <p>
-                    …
+                    Spätestens seit der letzten Lerneinheit weißt du, was das World Wide Web ist und
+                    welche Techniken es nutzt. Die wichtiste Technik ist dabei sicher HTML, da es ohne
+                    HTML keine Webseiten gäbe. Besteht doch jede Webseite aus einer oder mehrerer
+                    HTML-Dateien, die ihren Inhalt beschreiben. In diesem Kapitel wollen wir daher
+                    ohne Umwege in die wunderbare Welt von HTML und CSS eintauschen, so dass du schon
+                    bald eigene Webseiten erstellen kannst. 🗐
+                </p>
+                <p>
+                    Nach einer kurzen Einführung, wo HTML inzwischen alles zum Einsatz kommt, geht es
+                    auch schon direkt los und wir lernen das kleine Einmaleins von HTML: Die <b>Syntax</b>,
+                    die wir beim Erstellen von HTML-Dateien beachten müssen. Gleichzeitig lernen wir
+                    dabei auch schon die grundlegende Struktur kennen, nach der jede HTML-Datei aufgebaut
+                    sein muss. Ist dies dann klar, schauen wir uns <b>die wichtigsten HTML-Elemente</b> an,
+                    die für die inhaltliche Strukturierung zum Einsatz kommen. Abschließen werden wir das
+                    Teilkapitel dann mit einer Übersicht weiterer <b>strukturgebender Elemente</b>,
+                    die vom Browser zwar nicht direkt dargestellt werden, die aber die <b>semantische Gliederung</b>
+                    einer Webseite und damit auch die Layoutgestaltung unterstützen.
+                </p>
+                <p>
+                    Layout ist dann auch genau das richtige Zauberwort. 🧙 Zwar reicht eine einzelne
+                    HTML-Datei schon aus, damit wir etwas auf dem Bildschirm sehen. Die eingebauten
+                    Layoutregeln des Browsers sind aber sehr schlicht, so dass das Ergebnis nicht
+                    wirklich umwerfend aussieht. Weiter geht es daher mit CSS, das uns umfassende
+                    Möglichkeiten zur <b>graphischen Gestaltung</b> unserer Webseiten bietet. Wir
+                    schauen uns daher auch hier die <b>Syntaxregeln von CSS</b> sowie eine ganze Reihe
+                    nützlicher <b>CSS-Eigenschaften</b> an. Dabei müssen wir uns allerdings auch
+                    mit den so genannten <b>CSS-Selektoren</b> und dem <b>Document Object Model</b>
+                    auseinander setzen, da wir dem Browser ja irgendwie sagen müssen, auf welche
+                    HTML-Elemente sich einzelne CSS-Eigenschaten auswirken sollen.
+                </p>
+                <p>
+                    Zum Schluss schauen wir uns dann noch ein paar <b>Tipps aus der Praxis</b> an,
+                    um die wir als angehende Webentwickler nicht herum kommen. Beispielsweise
+                    schauen wir uns an dieser Stelle an, wie Grafiken und Bilder sinnvoll für das
+                    Web aufbereitet werden können und wie wir sie als Hintergrundbilder einsetzen
+                    können.
                 </p>
             </aside>
         </section>
@@ -2437,19 +2501,25 @@
                 </p>
             </article>
             <aside>
-                <h2>Was sehen wir hier?</h2>
                 <p>
-                    Nach dem Studium des letzten Foliensatzes hast du dich sicher gewundert, wie
-                    aus dem bisschen HTML, das du da gesehen hast, jemals ein Webseiten-Layout
-                    entstehen soll. Ohne große Umschweife wollen wir dir das an dieser Stelle nun
-                    zeigen. Mach dir nichts daraus, wenn du den CSS-Quellcode nocht nicht komplett
-                    verstehst. Wenn du mit diesen Folien durch bist, kannst du ihn dir ja nochmal
-                    anschauen. 🙂
+                    Wie du ja schon weißt, wurde HTML ursprünglich als Markupsprache für Textdokumente
+                    entworfen, die über das Web auf dem Bildschirm aufrufbar sein sollten. Über die
+                    genaue Darstellung der Dokumente hat man sich dabei gar nicht so viele Gedanken
+                    gemacht. Es genügte, wenn jeder Browser umgefähr ähnliche Regeln anwendete, so
+                    dass eine Überschrift eben wie eine Überschrift und ein Absatz wie ein Absatz
+                    aussah. Heute haben die Browser solche Regeln immer noch fest eingebaut, das
+                    Ergebnis entspricht aber kaum modernen Anforderungen. Auch lassen sich mit den
+                    eingebauten Regeln nicht mal ansatzweise moderne Webanwendungen oder sonstige,
+                    anspruchsvolle User Interfaces realisieren.
                 </p>
                 <p>
-                    Doch was sehen wir da in der Folie? 🤔 Zunächst einmal siehst du das Grundgerüst
-                    einer einfachen Webseite. Schaue dir den HTML-Quellcode ruhig genauer an. Anhand
-                    der HTML-Elemente kannst du erkennen, dass es drei große Bereiche gibt:
+                    Hier kommt CSS ins Spiel, weil wir damit nicht nur die eingebauten Regeln des
+                    Browsers überschreiben, sondern auch ganz eigene Regeln definieren können.
+                    Auf diese Weise können wir dann all die wunderbaren Oberflächen erstellen, die
+                    wir von Web, Mobile & Co. heute gewohnt sind. Hierfür ist es allderings wirklich
+                    wichtig, die HTML-Dateien gut zu strukturierieren, da wir sonst keinen geeigneten
+                    Ansatzpunkt für unsere CSS-Regeln haben. Die HTML-Seite auf dieser Folie ist
+                    daher bereits im HTML-Code in die folgenden drei Bereiche eingeteilt:
                 </p>
                 <ol>
                     <li>Kopfbereich</li>
@@ -2463,49 +2533,42 @@
                     eigenartige Liste in einem <src-code language="html">&lt;nav&gt;</src-code>.
                 </p>
                 <p>
-                    Alles klar soweit? Kannst du dir ungefähr vorstellen, wie die Seite wohl aussehen
-                    soll? Wenn ja, dann klicke auf „Aussehen” und schaue nach, ob du recht hast.
+                    Schaust du dir zunächst auf dem Reiter „Aussehen” das Ergebnis ohne Stylesheet an,
+                    sieht die Seite noch ziemlich unfertig aus. Doch schon eine kleine Hand voll, gut
+                    ausgesuchter CSS-Regeln und derselbe HTML-Code verwandelt sich in die Version im
+                    Reiter „Neues Aussehen”. Am HTML sind hierfür, von der Einbindung des Stylesheets
+                    abgesehen, keine Anpassungen notwendig. Dabei gibt es sogar kleine, interaktive
+                    Spielereien, wie der Hover-Effekt der Bilder und Navigationslinks.
                 </p>
                 <p>
-                    Schon gemacht und nun wieder hier? Nun, okay. Vermutlich ist das doch noch nicht
-                    ganz, was du erwartet hattest, oder? 🙃 Irgendwie war es aber auch klar, denn der
-                    Browser kann ja keine Gedanken lesen. Er kann nur die Regeln anwenden, die wir dir
-                    im letzten Foliensatz gezeigt haben. Und die sind halt doch recht einfach …
-                </p>
-
-                <h2>Und nun bitte mit Stil</h2>
-                <p>
-                    An dieser Stelle kannst du ja mal auf „Neues Aussehen” klicken und schauen, wie die
-                    Seite mit etwas CSS aussehen könnte. Gleich viel besser, nicht? 😲 Das ist tatsächlich
-                    dieselbe Seite, nur dass sie jetzt eben noch ein Stylesheet besitzt. Hast du bemerkt,
-                    wie sich die Bilder und die Links im Fußbereich verhalten? Diese Stylesheets scheinen
-                    gar nicht so schlecht zu sein. 😎
-                </p>
-                <p>
-                    Im Reiter „Stylesheet einbinden” siehst du, dass wir nur eine kleine Zeile in das HTML
-                    einfügen müssen, um das Stylesheet zu laden. Diese befindet sich im
+                    Im Reiter „Stylesheet einbinden” siehst du, dass wir nur eine kleine Zeile in den
+                    HTML-Code einbauen müssen, um das Stylesheet zu laden. Diese befindet sich immer im
                     <src-code language="html">&lt;head&gt;</src-code> und lautet:
                 </p>
                 <source-code language="html">
                     &lt;link rel="stylesheet" href="style.css" /&gt;
                 </source-code>
                 <p>
-                    Das ist ja einfach. Und so wie du es inzwischen gewohnt bist, wird damit eine CSS-Datei
-                    angesprochen, die im selben Verzeichnis wie das HTML liegt. Sie könnte aber auch in einem
-                    anderen Verzeichnis oder auf einem anderen Server liegen. Wobei letzteres würde man in der
-                    Praxis eher nicht machen. Was aber durchaus vorkommt ist, dass ein HTML mehrere Stylesheets
-                    hat. Hierfür musst du nur mehrere solcher <src-code language="html">&lt;link&gt;</src-code>-Elemente
-                    einbauen.
+                    Die CSS-Datei haben wir hier <code>style.css</code> genannt, du kannst aber natürlich
+                    auch jeden anderen Dateinamen verwenden, so lange du Leer- und Sonderzeichen (sofern
+                    sie im Dateinamen überhaupt vorkommen) durch die richtige
+                    <a href="https://de.wikipedia.org/wiki/URL-Encoding" target="_blank">Ersatzschreibweise</a>
+                    ersetzt. Auch musst du natürlich auf den Ablageort des Stylesheets achten. So, wie es
+                    hier angegeben wurde, muss es im selben Verzeichnis wie die HTML-Datei liegen. Gerne
+                    kannst du dabei auch mehrere Stylesheets einbinden, indem du einfach mehrere
+                    <src-code language="html">&lt;style&gt;</src-code>-Elemente einbaust.
                 </p>
                 <p>
-                    Es gibt noch zwei andere Arten, wie man CSS-Anweisungen mit HTML kombinieren kann. Diese zeigen wir
-                    dir auf der <a href="#2">nächsten Folie</a>. Für den Moment solltest du hier aber erst weiter lesen. 🙂
+                    Es gibt noch zwei andere Arten, wie man CSS-Anweisungen mit HTML kombinieren kann.
+                    Diese zeigen wir dir auf der <a href="#16">nächsten Folie</a>. Für den Moment solltest
+                    du aber erst hier weiter lesen. 🙂
                 </p>
 
                 <h2>Die Stylesheet-Syntax</h2>
                 <p>
-                    An dem Beispiel siehst auch schön die Syntax eines CSS-Stylesheets. Sie ist nicht wirklich kompliziert,
-                    man muss nur ein paar einfache Grundregeln kennen. Eigentlich unterscheidet man nur drei Dinge:
+                    Auf der Folie siehst auch schön die Syntax eines CSS-Stylesheets. Sie ist nicht wirklich
+                    kompliziert, man muss nur ein paar einfache Grundregeln kennen. Zum Beispiel, dass jedes
+                    Stylesheet immer die folgenden Dinge enthält:
                 </p>
                 <ul>
                     <li>
@@ -2513,37 +2576,36 @@
                         HTML-Elemente ausgewählt, die man gestalten will.
                     </li>
                     <li>
-                        <b>Die geschweiften Klammern:</b> Sie fassen immer mehrere CSS-Anweisungen zusammen, die
-                        nach einem Selektor stehen. Deshalb darf man sie nie weglassen, auch wenn man nur eine
-                        CSS-Anweisungen zuordnen will.
+                        <b>Die geschweiften Klammern:</b> Sie fassen die CSS-Eigenschaften zusammen, die auf
+                        die ausgewählten HTML-Elemente angewendet werden sollen. Anders als bei Java darf man
+                        die geschweiften Klammern allerdings nie weglassen, auch wenn man nur eine einzelne
+                        CSS-Eigenschaft definieren will.
                     </li>
                     <li>
-                        <b>Anweisungen</b>: Innerhalb der geschweiften Klammern stehen dann die eigentlichen
-                        CSS-Anweisungen. Der Name einer Anweisung steht vor dem Doppelpunkt, ihr Wert danach.
-                        Jede Anweisung endet mit einem Strichpunkt.
+                        <b>Die CSS-Eigenschaften</b>: Innerhalb der geschweiften Klammern stehen dann die
+                        Eigenschaften mit dem Aussehen der HTML-Elemente. Die Syntax ist dabei immer
+                        Eigenschaft, Doppelpunkt, Wert, Strichpunkt.
                     </li>
                 </ul>
                 <p>
                     Im Beispiel nicht sichtbar sind Kommentare. Sie werden ähnlich wie in Java mit
-                    <src-code language="css">/* ... */</src-code> gekennzeichnet. Die aus Java bekannte Kurzform
-                    mit <code>//</code> am Anfang einer Zeile ist allerdings nicht erlaubt. 😳
-                </p>
-                <p>
-                    Welche Selektoren es gibt und was die einzelnen Anweisungen bewirken, erklären wir die auf
-                    den nächsten Folien. Hier brauchst du dir darum noch keinen Kopf machen. 🤗
+                    <src-code language="css">/* ... */</src-code> gekennzeichnet. Die aus Java bekannte
+                    Kurzform mit <code>//</code> am Anfang einer Zeile ist allerdings nicht erlaubt. 😳
+                    Welche Selektoren es gibt und was die einzelnen Anweisungen bewirken, siehst du auf
+                    den nächsten Folien. Doch zuvor, noch ein kurzer Hinweis zu den verwendeten HTML-Elementen.
                 </p>
 
                 <h2>Aber ist das auch das richtige HTML?</h2>
                 <p>
-                    Bis hierhin mag ja alles noch ganz klar sein. Aber vielleicht hast du dir beim Anschauen auch
-                    die Frage gestellt, ob das HTML so überhaupt in Ordnung ist. Also ob es zum Beispiel okay ist,
-                    eine Liste mit <src-code language="html">&lt;ul&gt;</src-code> zu definieren, obwohl die Einträge
+                    Möglicherweise hast du dir beim Betrachten des HTML-Codes die Frage gestellt, ob das
+                    HTML so überhaupt in Ordnung ist. Also ob es zum Beispiel okay ist, eine Liste mit
+                    <src-code language="html">&lt;ul&gt;</src-code> zu definieren, obwohl die Einträge
                     eigentlich gar nicht wie eine Aufzählung aussehen sollen.
                 </p>
                 <p>
                     Und tatsächlich, das HTML ist absolut in Ordnung. Nicht, dass man jetzt einfach irgendwelchen
-                    Schweinecode schreiben kann, den man halt mit einem Stylesheet in Form bringt 🐷🤣, sondern der
-                    Code ist aus einem ganz anderen Grund okay: Es handelt sich um sogenannten „semantischen HTML-Code”.
+                    Schweinecode schreiben kann, den man mit einem Stylesheet in Form bringt 🐷, sondern der
+                    Code ist aus einem ganz anderen Grund okay: Es handelt sich um <b>semantischen HTML-Code</b>.
                     Das heißt, es wurden wirklich nur so viele HTML-Anweisungen verwendet, wie zur Gestaltung der
                     Seite absolut notwendig sind, kein Element ist zu viel. Und jedes Element drückt durch seinen Namen
                     (oder da, wo es kein passendes HTML-Element gibt, durch das <src-code language="html">class</src-code>-Attribut)
@@ -2552,23 +2614,22 @@
                 </p>
                 <p>
                     Deshalb ist es auch okay, die Navigationselemente der Fußzeile in eine ungeordnete Liste zu
-                    packen. Denn um genau das handelt es sich ja: Um eine Liste. Nur dass die Einträge eben nicht
-                    untereinander sondern nebeneinander stehen und keine Aufzählungszeichen beinhalten sollen.
-                    Trotzdem ist es eine Aufzählung. Du könntest jetzt natürlich einwenden, dass es am Ende
-                    vom Tag eigentlich völlig egal ist, ob die Navigation als Liste oder durch irgend ein anderes
-                    HTML-Element definiert wird, so lange es hinterher so aussieht, wie es soll. Im Prinzip hast du
-                    damit auch recht, allerdings nur so lange, wie jemand die Seite wirklich auf dem Bildschirm anschaut.
+                    packen. Denn um genau das handelt es sich ja: Um eine Aufzählung. Nur dass die Einträge nicht
+                    untereinander sondern nebeneinander stehen sollen. Trotzdem ist es eine Aufzählung. Zwar ist
+                    es im Grunde genommen egal, welches HTML-Element du verwendest, so lange das Ergebnis hinterher
+                    so aussieht, wie es soll. Wenn du nicht aufpasst, kann es allerdings sein, dass deine Webseite
+                    nur auf visuellen Bildschirmen gut aussieht.
                 </p>
                 <p>
-                    Wie bitte?! Wie kann denn jemand die Seite nicht auf dem Bildschirm anschauen? 😲 Ja, das geht.
+                    Äh, Moment mal! Wie kann denn jemand die Seite nicht auf einem Bildschirm anschauen? 😲 Ja, das geht.
                     Viele Menschen sind auf Screenreader und andere Geräte wie
                     <a href="https://de.wikipedia.org/wiki/Braillezeile" target="_blank">Brailezeilen</a> angewiesen,
                     um mit dem Computer umgehen zu können. Wenn deine Navigation nur aus geschachtelten
                     <src-code language="html">&lt;div&gt;</src-code>s besteht, können diese Geräte nichts damit anfangen
-                    und lesen die Navigation als Fließtext zusammen mit dem Rest der Seite vor. Handelt es sich aber um
-                    eine in einem <src-code language="html">&lt;nav&gt;</src-code> eingeschlossene Liste, wissen die Geräte,
-                    dass es sich um eine Navigation mit mehreren Auswahlmöglichkeiten handelt. Dementsprechend können sie die
-                    Punkte dann auch vorlesen. Du siehst: Semantisches Markup ist sehr wichtig.
+                    und lesen die Navigation einfach als Fließtext vor. Handelt es sich aber um eine in einem
+                    <src-code language="html">&lt;nav&gt;</src-code> eingeschlossene Liste, wissen die Geräte,
+                    dass es sich um einen Navigationsbereich handelt, der anders oder nur bei Druck auf einen
+                    bestimmten Knopf vorgelesen werden muss. Du siehst: Semantisches Markup ist sehr wichtig.
                 </p>
             </aside>
         </section>
@@ -2624,10 +2685,9 @@
                     und CSS anlegen willst, kannst du beides auch in eine Datei packen.
                     Natürlich ist das dann nicht so schön, wie mit getrennten Dateien und
                     du hast nicht all die Vorteile, die die Trennung von HTML und CSS
-                    mit sich bringt. Manchmal braucht man das aber auch gar nicht. 😏
-                </p>
-                <p>
-                    HTML und CSS können auf zwei Arten miteinander „vermischt” werden:
+                    mit sich bringt. Manchmal braucht man das aber auch gar nicht.
+                    HTML und CSS können deshalb auf folgende zwei Arten in derselben
+                    Datei untergebracht werden:
                 </p>
                 <ul>
                     <li>
@@ -2693,9 +2753,9 @@
                         <src-code language="css">input[readonly]</src-code>
                     </dt>
                     <dd>
-                        Abfrage beliebiger HTML-Attribute: Suche alle
+                        Alle
                         <src-code language="html">&lt;input&gt;</src-code>, die ein
-                        Attribut namens <src-code language="html">readonly</src-code> haben
+                        Attribut namens <src-code language="html">readonly</src-code> besitzen
                     </dd>
                 </dl>
 
@@ -2721,7 +2781,7 @@
                         <src-code language="css">article .infobox</src-code>
                     </dt>
                     <dd>
-                        Eltern/Kind-Beziehung (transitiv, d.h. alle Nachfahren) bzw. Nachfahre-Beziehung: Suche alle Elemente mit
+                        Eltern/Kind-Beziehung (transitiv): Alle Elemente mit
                         <src-code language="html">class="infobox"</src-code>, die irgendwo
                         innerhalb eines <src-code language="html">&lt;article&gt;</src-code>-Elements
                         stehen
@@ -2731,9 +2791,9 @@
                         <src-code language="css">section &gt; h1</src-code>
                     </dt>
                     <dd>
-                        Eltern/Kind-Beziehung (nicht transitiv, d.h. nur direkte Nachfahren): Suche alle
+                        Eltern/Kind-Beziehung (nicht transitiv): Alle
                         <src-code language="html">&lt;h1&gt;</src-code>, deren direktes Elternelement
-                        ein <src-code language="html">&lt;section&gt;</src-code> ist
+                        eine <src-code language="html">&lt;section&gt;</src-code> ist
                     </dd>
 
 
@@ -2743,10 +2803,10 @@
                 <h2>Wie der Browser eine Seite sieht</h2>
                 <p>
                     Wir möchten dich an dieser Stelle nicht langweilen. 😴 Für der Verständnis von
-                    CSS und später auch JavaScript ist es aber gut zu wissen, wie der Browser eigentlich
-                    eine Webseite sieht. Also, welche Informationen er im Speicher hält, auf die du mit
-                    CSS und JavaScript zugreifen kannst, die die Darstellung der Seite beeinflussen.
-                    Gemeint ist das sogenannte <b>Document Object Model</b>.
+                    CSS und später auch JavaScript ist es aber gut zu wissen, wie der Browser eine
+                    Webseite sieht. Also, welche Informationen er im Speicher hält, auf die du mit
+                    CSS und JavaScript dann zugreifen kannst. Gemeint ist das so genannte
+                    <b>Document Object Model</b>.
                 </p>
                 <p>
                     Der Name verrät es schon: Es handelt sich um eine Sammlung von Objekten (im Sinne von
@@ -2759,8 +2819,8 @@
                 <p>
                     Wenn wir uns mit JavaScript beschäftigen, wirst du sehen, dass du die Struktur zur Laufzeit
                     verändern kannst und dass die Änderungen sofort auf dem Bildschirm sichtbar werden. Zum Beispiel
-                    kannst du einfach neue Objekte in den Baum einhängen, um weitere Inhalte auf der Seite anzuzeigen.
-                    Oder du kannst einzelne Elemente löschen, um sie von der Seite verschwinden zu lassen.
+                    kannst du einfach neue Objekte in den Baum einhängen, um weitere Inhalte auf dem Bildschirm
+                    anzuzeigen. Oder du kannst einzelne Elemente löschen, um sie verschwinden zu lassen.
                 </p>
                 <p>
                     CSS arbeitet auch mit dem Document Object Model. Und zwar durch die Selektoren, mit denen man
@@ -2774,8 +2834,7 @@
                 <p>
                     Auf der Folie siehst du verschiedene Beispiele für die wichtigsten Arten von CSS-Selektoren.
                     Genauer hingesehen erkennst du, dass es eigentlich nur ein paar wenige Grundformen gibt,
-                    die immer wieder miteinander kombiniert werden. Wenn doch nur andere Abfragesprachen wie
-                    SQL so einfach wären. 😉
+                    die immer wieder miteinander kombiniert werden.
                 </p>
                 <p>
                     Die einfachste Abfrage ist die Suche aller Elemente, die einen bestimmten Tag-Namen besitzen.
@@ -2851,9 +2910,9 @@
                 <h2>Praxisbeispiel</h2>
                 <p>
                     Dir raucht nach all den abstrakten Beispielen der Kopf? Kein Problem. Gehe zurück zu
-                    <a href="#1">Folie 1</a> und schaue dir den CSS-Quellcode nochmal an. Vergleiche ihn
+                    <a href="#15">Folie 15</a> und schaue dir den CSS-Quellcode nochmal an. Vergleiche ihn
                     mit dem HTML-Quellcode und überlege dir, welche Elemente jeweils ausgewählt werden.
-                    Die beste Übung ist aber sicher, CSS selbst zu schreiben. Das machen wir auch bald. 🎨
+                    Die beste Übung ist aber sicher, CSS selbst zu schreiben. Das machen wir darum bald. 🎨
                 </p>
             </aside>
         </section>
@@ -3794,31 +3853,30 @@
                 </p>
                 <ul>
                     <li>
-                        <b>Aboslute Einheiten:</b> Diese sind per Definition immer glieich
+                        <b>Aboslute Einheiten:</b> Diese sind per Definition immer gleich
                         groß. Ein Zentimeter ist ein Zentimeter ist ein Zentimeter.
                         Beispiele: <code>px</code>, <code>pt</code>, <code>cm</code>, <code>mm</code>, …
                     </li>
                     <li>
                         <b>Relative Einheiten:</b> Beziehen sich immer auf einen bestimmten
-                        Bezugswert. Häufig handelt es sich dabei um die Schritgröße oder um die
+                        Bezugswert. Häufig handelt es sich dabei um die Schriftgröße oder um die
                         Breite/Höhe eines anderen Elements. Beispiele: <code>em</code>, <code>rem</code>,
                         <code>%</code>, <code>vh</code>, …
                     </li>
                 </ul>
                 <p>
-                    Für die meisten Einheiten reicht die Kurzbeschreibung auf der Folie. Manche sind dann
-                    aber doch ein wenig komisch, so dass wir sie uns lieber nochmal anschauen sollten. Zum
-                    Beispiel, was bitte schön ist ein „virtueller Pixel”? Ist ein Pixel denn nicht einfach
-                    ein Pixel auf dem Bildschirm?
-                </p>
-                <p>
+                    Für die meisten Einheiten reicht die Kurzbeschreibung aus, um zu verstehen, was sie
+                    bedeuten. Manche sind dann aber doch ein wenig komisch, so dass wir sie uns lieber
+                    nochmal anschauen sollten. Zum Beispiel, was ist bitte schön ein „virtueller Pixel”?
+                    Ist ein Pixel denn nicht einfach ein Pixel auf dem Bildschirm?
+
                     Leider nein. Früher war das mal so. Doch seitdem hochauflösende Bildschirme Standard
                     geworden sind und es Smartphones mit höchst unterschiedlichen Displays gibt, ist es
                     etwas kompliziert geworden. Auslöser war das iPhone 1, das 2007 auf den Mark kam.
-                    Es hatte eine Auflösung von 320x480 Pixeln, für die viele Webseiten optimiert wurden.
-                    Im Laufe der Zeit kamen dann aber immer mehr Geräte mit derselben Größe aber mit
-                    hochauflösendern Displays auf den Markt, auf denen die iPhone-Webseiten viel zu klein
-                    aussahen. Deshalb haben sich die Browserhersteller einen Trick überlegt:
+                    Es hatte eine Auflösung von 320x480 Pixeln, auf die man sich als Webdesigner einstellen
+                    konnte. Im Laufe der Zeit kamen dann aber immer mehr Geräte mit derselben Größe aber mit
+                    ganz anderen Auflösungen auf den Markt, auf denen die iPhone-Webseiten plötzlich viel zu
+                    klein aussahen. Deshalb haben sich die Browserhersteller einen Trick überlegt:
                 </p>
                 <p>
                     <b>Der Browser lügt, was die Bildschirmauflösung angeht!</b> Ja richtig, der
@@ -3826,10 +3884,10 @@
                     Möglichkeit, die wahre Bildschirmauflösung abzufragen. Denn jeder Browser meldet
                     einfach eine – nach Ansicht des Herstellers – zum jeweiligen Gerät passende Auflösung
                     und rechnet die Pixelwerte entsprechend um. Dadurch wollte man die alten iPhone-Webseiten
-                    retten und den Webdesignern Arbeit ersparen. Tatsächlich erreicht hat man damit, dass du
-                    die Einheit <code>px</code> meiden solltest wie der Teufel das Weihwasser. 👹 Die Dicke eines
-                    Rahmens, die größe einer Schrift, das sind noch Dinge, die du in Pixeln angeben kannst. Für
-                    alles andere solltest du aber besser andere Einheiten verwenden.
+                    retten und den Webdesignern Arbeit ersparen. Tatsächlich erreicht hat man das Gegenteil.
+                    Die Einheit <code>px</code> solltest du daher, wenn überhaupt, nur für die Dicke eines
+                    Rahmens oder die größe einer Schrift verwenden. Für alles andere solltest du aber besser
+                    andere Einheiten verwenden.
                 </p>
                 <p>
                     Weitere interessante Einheiten sind <code>em</code>, <code>ex</code> und <code>rem</code>.
@@ -3842,7 +3900,7 @@
                     <src-code language="html">&lt;html&gt;</src-code>-Element zugewiesen wurde.
                 </p>
 
-                <h2>Was ist überhaupt eine Farbe?</h2>
+                <h2>Was ist eigentlich eine Farbe?</h2>
                 <p>
                     Über Farben, was sie sind, und woraus sie sich zusammen setzen könnte man ganze
                     Bücher schreiben. 📚 Und klar, natürlich gibt es auch Bücher, die nichts anderes
@@ -3863,7 +3921,7 @@
                     Byte und somit die Werte von 0 … 255 verwendet werden. Wie du auf der Folie siehst,
                     gibt es verschiedene Schreibweisen für die drei Farbanteile: Die hexadezimale Form,
                     die etwas kompakter ist, und die <code>rgb()</code>-Form, die einfacher zu verstehen
-                    ist. Welche du davon verwendest, ist Geschmackssache. 🍉 In älteren Stylesheets wirst
+                    ist. Welche du davon verwendest ist Geschmackssache. 🍉 In älteren Stylesheets wirst
                     du aber eher die Hex-Schreibweise vorfinden, da es sie schon länger gibt.
                 </p>
                 <p>
@@ -5255,18 +5313,91 @@
         <section data-background-color="rgb(153, 190, 137)">
             <h1>Do &amp; Don't</h1>
             <article>
-                <h4>Darauf solltest du achten</h4>
+                <h4>Allgemeine Hinweise</h4>
                 <ul>
                     <li>
-                        …
+                        Überlege dir eine sinnvolle Verzeichnisstruktur für deine Webseite.
+                    </li>
+                    <li>
+                        Lege zum Beispiel eigene Verzeichnisse für Bilder, Stylesheets und JavaScript-Dateien an.
+                    </li>
+                    <li>
+                        Achte bei Bildern darauf, dass sie nicht mehr aus ca. 300&nbsp;kB oder besser weniger belegen.
+                    </li>
+                    <li>
+                        Achte bei Bildern auf die Auflösung, so dass sie nicht verpixelt aussehen.
+                    </li>
+                    <li>
+                        Wähle generell das richtige Dateiformat für deine Bilder, je nach Art des Bilds.
+                    </li>
+                </ul>
+
+                <h4>Aufbau der HTML-Dateien</h4>
+                <ul>
+                    <li>
+                        Schreibe alle HTML-Elemente klein. <src-code language="html">&lt;GROSSSCHREIBUNG&gt;</src-code> war damals.
+                    </li>
+                    <li>
+                        Achte auf eine leserliche und vor allem einheitliche Formatierung deiner HTML-Dateien.
+                    </li>
+                    <li>
+                        Verwende semantische HTML-Elemente, die die Bedeutung ihres Inhaltes wiedergeben.
+                    </li>
+                    <li>
+                        Wenn es eine Alternative zum guten alten <src-code language="html">&lt;div&gt;</src-code> gibt, verwende sie.
+                    </li>
+                    <li>
+                        Verwende wirklich nur die HTML-Elemente, die du für die Darstellung benötigst.
+                    </li>
+                    <li>
+                        Strukturiere jede HTML-Seite so, dass ihre Reihenfolge auch ohne Stylesheets logisch ist.
+                    </li>
+                </ul>
+
+                <h4>Gestaltung mit CSS</h4>
+                <ul>
+                    <li>
+                        Lagere die CSS-Anweisungen immer in externe CSS-Dateien aus.
+                    </li>
+                    <li>
+                        Versuche das <code>style</code>-Attribut in HTML zu vermeiden.
+                    </li>
+                    <li>
+                        Teile größere Stylesheets in mehrere, logisch zusammenhängende Dateien auf.
+                    </li>
+                    <li>
+                        Teste die Darstellung immer auf möglichst vielen Endgeräten mit unterschiedlichen Formfaktoren.
+                    </li>
+                    <li>
+                        Erstelle immer auch ein Print-Stylesheet, so dass die Seite auch ausgedruckt gut aussieht.
+                    </li>
+                    <li>
+                        Übertreibe es mit den optischen Spielereien nicht. Nutze Effekte und Animationen sparsam.
+                    </li>
+                    <li>
+                        Insbesondere sollten die Formatierung und Animationen die Bedeutung eines Elements unterstreichen.
+                    </li>
+                    <li>
+                        Ein dezentes Layout sieht besser aus als ein verspieltes. Immer!
+                    </li>
+                    <li>
+                        Teste deine Webseite auch auf großen Bildschirmen und großen Auflösungen im Vollbildmodus.
+                    </li>
+                    <li>
+                        Achte zum Beispiel darauf, dass Absätze auf großen Bildschirmen nicht zu breit werden.
+                    </li>
+                    <li>
+                        Mache es nicht wie Wikipedia. Erhöhe stattdessen die Schriftgröße auf großen Bildschirmen.
+                    </li>
+                    <li>
+                        Vermeide Layouts mit fester Breite. Das ist einfach so von vorgestern.
                     </li>
                 </ul>
             </article>
             <aside>
                 <p>
-                    Dies sind sie: Die berühmten letzten Worte. 📄 Auf dieser Folie haben wir ein paar allgemeine
-                    Tipps zusammengestellt, worauf du bei …
-                    achten solltest.
+                    Hier ist er endlich: Der Monolog zum Schluss. 🎙️ Auf dieser Folie haben wir ein paar allgemeine
+                    Tipps zusammengestellt, worauf du bei der Erstellung von Webseiten achten solltest.
                 </p>
                 <img src="../../do-dont.svg" class="d-block" style="width: 20em; max-width: 100%; margin-bottom: 0.5em;" />
                 <p>
