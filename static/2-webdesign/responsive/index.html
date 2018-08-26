@@ -182,10 +182,8 @@
         </section>
 
         <section>
-            <h1>Der Browser dein Freund und Helfer</h1>
+            <h1>Die Entwicklungswerkzeuge des Browsers</h1>
             <article>
-                <h2>Entwicklungswerkzeuge</h2>
-
                 <ul class="dhbw-carousel-links">
                     <li>
                         <a href="#browser-devtools-carousel" role="button" data-slide="next">Nächstes Bild</a>
@@ -291,9 +289,112 @@
                         </div>
                     </div>
                 </div>
+            </article>
+            <aside>
+                <p>
+                    Mit dem Hammer in der Hand sieht alles aus wie ein Nagel. 🔨 Das hast du sicher
+                    schon mal gehört. Bei den Entwicklerwerkzeugen des Browsers ist das jedoch etwas
+                    anderes. Denn dabei handelt es sich eher um <a href="https://www.amazon.de/Wenger-Schweizer-Offiziersmesser-Messer-Schatulle/dp/B000R0JDSI"
+                    target="_blank" title="unbedingt auch die Bewertungen lesen">das ultimative Schweizer
+                    Taschenmesser</a>, dessen Funktionen du unbedingt kennen solltest. Der Aufruf erfolgt
+                    bei den meisten Browsern mit der <kbd>F12</kbd>-Taste, woraufhin sich in der Regel
+                    ein Panel mit unterschiedlichen Tabreitern öffnet.
+                </p>
+                <p>
+                    In den Screenshots auf der Folie siehst du die Entwicklerwerkzeuge von Firefox.
+                    Im Chrome, Internet Explorer und Edge sehen sie fast gleich aus, jedoch haben
+                    manche Werkzeuge andere Namen und der ein oder andere Button befindet sich an
+                    einer anderen Stelle. Davon abgesehen wirst du dich aber auch dort schnell
+                    zurechtfinden. Natürlich können wir hier nicht auf jeden einzelnen Reiter im
+                    Detail eingehen, zumal es auch noch ein paar versteckte Reiter gibt, die erst in
+                    den Einstellungen aktiviert werden wollen. Vier wesentliche Reiter werden uns
+                    von nun an aber immer wieder begleiten:
+                </p>
 
-                <h2>Responsive-Design-Modus</h2>
+                <h2>Quellcodeansicht</h2>
+                <p>
+                    <b>
+                        („Inspector” im Firefox, „Elements” in Chrome)
+                    </b>
+                </p>
+                <p>
+                    Hinter dieser Ansicht verbirgt sich ein wahres Multitalent. Hier siehst
+                    du nicht einfach nur den HTML-Quellcode deiner Seite. Du siehst das
+                    Document Object Model, so wie es tatsächlich im Speicher des Browsers
+                    vorliegt. Und das in Quellcode-Form. Klingt unspepktakulär? Spätestens,
+                    wenn wir mit JavaScript anfangen, wird das noch sehr nützlich sein,
+                    da wir an dieser Stelle nicht den Quellcode sehen, so wie er in der
+                    HTML-Datei steht, sondern so wie er nach allen Änderungen durch
+                    JavaScript tatsächlich dargestellt wird.
+                </p>
+                <p>
+                    Sehr praktisch ist dabei auch, dass dir zu jedem HTML-Element verschiedene
+                    Informationen angezeigt werden, wenn du es im Quellcode anklickst oder
+                    mit der Funktion „Element auf Seite wählen” (im Firefox links oben)
+                    mit der Maus drüber fährst. Dadurch wird das Element farbig hervorgehoben
+                    und es werden folgende Dinge angezeigt:
+                </p>
+                <ul>
+                    <li>
+                        Ober- oder Unterhalb des Elements stehen seine Art und Größe in Pixeln.
+                    </li>
+                    <li>
+                        Hilfslinien helfen dir, die Anordnung des Elements zu überprüfen.
+                    </li>
+                    <li>
+                        Rechts vom Quellcode werden die CSS-Eigenschaften des Elements angezeigt.
+                    </li>
+                </ul>
+                <p>
+                    Das Schöne an der Sache ist, dass du auch direkt Änderungen vornehmen kannst.
+                    Du kannst also ohne den Browser zu verlassen verschiedene HTML-Elemente und
+                    CSS-Eigenschaften ausprobieren, so lange bis dir die Darstellung gefällt.
+                    Hierfür kannst du neue Anweisungen einbauen oder bereits vorhandene Anweisungen
+                    mit einem Klick deaktivieren. Wenn dir das Ergebnis gefällt, weißt du dann gleich,
+                    was du im Quellcode ändern musst.
+                </p>
 
+                <h2>Konsole</h2>
+                <p>
+                    Diese schauen wir uns bei JavaScript nochmal näher an. Unter anderem siehst du
+                    hier Warnungen und Fehlermeldungen und kannst einzelne JavaScript-Befehle
+                    ausführen.
+                </p>
+
+                <h2>JavaScript-Debugger</h2>
+                <p>
+                    <b>
+                        („Debugger” im Firefox, „Sources” in Chrome)
+                    </b>
+                </p>
+                <p>
+                    Der Debugger wird ebenfalls erst interessant, sobald wir mit JavaScript unsere
+                    ersten Browser Apps schreiben. Hier kannst du Breakpoints setzen und den Ablauf
+                    des JavaScript-Codes kontrollieren.
+                </p>
+
+                <h2>Netzwerkanalyse</h2>
+                <p>
+                    Auch auf dieses Werkzeug werden wir später nochmal zurück kommen, wenn wir uns
+                    mit dem HTTP-Protokoll näher auseinander setzen. Trotzdem kannst du es dir ja
+                    schon einmal anschauen. Hier wird die Kommunikation zwischen Browser und Server
+                    aufgezeichnet, so dass du jede Anfrage und auch jede Antwort analysieren kannst.
+                    Um das auszuprobieren, starte einfach einen leeren Tabreiter und öffne darin die
+                    Netzwerkanalyse. Anschließend gib einfach irgend eine Webadresse ein und sieh
+                    zu, was beim Laden der Seite passiert.
+                </p>
+                <p>
+                    Google Chrome (bzw. Chromium) und Firefox gehen dabei sogar noch einen Schritt
+                    weiter und protokollieren nicht nur die Ladezeiten, sondern erlauben auch die
+                    Simulation langsamer Internetverbindungun. Damit kannst du dann auch gleich
+                    die Ladezeiten 🐢 unterwegs auf hoher See 🚢 überprüfen.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Der Responsive-Design-Modus</h1>
+            <article>
                 <ul class="dhbw-carousel-links">
                     <li>
                         <a href="#browser-resmode-carousel" role="button" data-slide="next">Nächstes Bild</a>
@@ -349,119 +450,6 @@
                 </p>
             </article>
             <aside>
-                <p>
-                    Bevor wir uns auf Media Queries, Mobile First und die anderen Techniken des
-                    Responsive Webdesign stürzen, wollen wir erst noch ein wenig Werbung für deinen
-                    Browser machen. 📣 Denn der hat so manche Tricks parat, die dir beim Entwickeln
-                    und Testen deiner Webseite helfen können.
-                </p>
-
-                <h2>Die Entwicklerwerkzeuge</h2>
-                <p>
-                    Mit dem Hammer in der Hand sieht alles aus wie ein Nagel. 🔨 Das hast du sicher
-                    schon mal gehört. Bei den Entwicklerwerkzeugen des Browsers ist das jedoch etwas
-                    anderes. Denn dabei handelt es sich eher um <a href="https://www.amazon.de/Wenger-Schweizer-Offiziersmesser-Messer-Schatulle/dp/B000R0JDSI"
-                    target="_blank" title="unbedingt auch die Bewertungen lesen">das ultimative Schweizer
-                    Taschenmesser</a>, dessen Funktionen du unbedingt kennen solltest. Der Aufruf erfolgt
-                    bei den meisten Browsern mit der <kbd>F12</kbd>-Taste, woraufhin sich in der Regel
-                    ein Panel mit unterschiedlichen Tabreitern öffnet.
-                </p>
-                <p>
-                    In den Screenshots auf der Folie siehst du die Entwicklerwerkzeuge von Firefox.
-                    Im Chrome, Internet Explorer und Edge sehen sie fast gleich aus, jedoch haben
-                    manche Werkzeuge andere Namen und der ein oder andere Button befindet sich an
-                    einer anderen Stelle. Davon abgesehen wirst du dich aber auch dort schnell
-                    zurechtfinden. Natürlich können wir hier nicht auf jeden einzelnen Reiter im
-                    Detail eingehen, zumal es auch noch ein paar versteckte Reiter gibt, die erst in
-                    den Einstellungen aktiviert werden wollen. Vier wesentliche Reiter werden uns
-                    von nun an aber immer wieder begleiten:
-                </p>
-                <dl>
-                    <dt>Quellcodeansicht („Inspector” im Firefox, „Elements” im Chrome)</dt>
-                    <dd>
-                        <p>
-                            Hinter dieser Ansicht verbirgt sich ein wahres Multitalent. Hier siehst
-                            du nicht einfach nur den HTML-Quellcode deiner Seite. Du siehst das
-                            Document Object Model, so wie es tatsächlich im Speicher des Browsers
-                            vorliegt. Und das in Quellcode-Form. Klingt unspepktakulär? Spätestens,
-                            wenn wir mit JavaScript anfangen, wird das noch sehr nützlich sein,
-                            da wir an dieser Stelle nicht den Quellcode sehen, so wie er in der
-                            HTML-Datei steht, sondern so wie er nach allen Änderungen durch
-                            JavaScript tatsächlich dargestellt wird.
-                        </p>
-                        <p>
-                            Sehr praktisch ist dabei auch, dass dir zu jedem HTML-Element verschiedene
-                            Informationen angezeigt werden, wenn du es im Quellcode anklickst oder
-                            mit der Funktion „Element auf Seite wählen” (im Firefox links oben)
-                            mit der Maus drüber fährst. Dadurch wird das Element farbig hervorgehoben
-                            und es werden folgende Dinge angezeigt:
-                        </p>
-                        <ul>
-                            <li>
-                                Ober- oder Unterhalb des Elements stehen seine Art und Größe in Pixeln.
-                            </li>
-                            <li>
-                                Hilfslinien helfen dir, die Anordnung des Elements zu überprüfen.
-                            </li>
-                            <li>
-                                Rechts vom Quellcode werden die CSS-Eigenschaften des Elements angezeigt.
-                            </li>
-                        </ul>
-                        <p>
-                            Das Schöne an der Sache ist, dass du auch direkt Änderungen vornehmen kannst.
-                            Du kannst also ohne den Browser zu verlassen verschiedene HTML-Elemente und
-                            CSS-Eigenschaften ausprobieren, so lange bis dir die Darstellung gefällt.
-                            Hierfür kannst du neue Anweisungen einbauen oder bereits vorhandene Anweisungen
-                            mit einem Klick deaktivieren. Wenn dir das Ergebnis gefällt, weißt du dann gleich,
-                            was du im Quellcode ändern musst.
-                        </p>
-                    </dd>
-
-                    <dt>
-                        Konsole
-                    </dt>
-                    <dd>
-                        <p>
-                            Diese schauen wir uns bei JavaScript nochmal näher an. Unter anderem siehst du
-                            hier Warnungen und Fehlermeldungen und kannst einzelne JavaScript-Befehle
-                            ausführen.
-                        </p>
-                    </dd>
-
-                    <dt>
-                        JavaScript-Debugger („Debugger” im Firefox, „Sources” im Chrome)
-                    </dt>
-                    <dd>
-                        <p>
-                            Der Debugger wird ebenfalls erst interessant, sobald wir mit JavaScript unsere
-                            ersten Browser Apps schreiben. Hier kannst du Breakpoints setzen und den Ablauf
-                            des JavaScript-Codes kontrollieren.
-                        </p>
-                    </dd>
-
-                    <dt>
-                        Netzwerkanalyse
-                    </dt>
-                    <dd>
-                        <p>
-                            Auch auf dieses Werkzeug werden wir später nochmal zurück kommen, wenn wir uns
-                            mit dem HTTP-Protokoll näher auseinander setzen. Trotzdem kannst du es dir ja
-                            schon einmal anschauen. Hier wird die Kommunikation zwischen Browser und Server
-                            aufgezeichnet, so dass du jede Anfrage und auch jede Antwort analysieren kannst.
-                            Um das auszuprobieren, starte einfach einen leeren Tabreiter und öffne darin die
-                            Netzwerkanalyse. Anschließend gib einfach irgend eine Webadresse ein und sieh
-                            zu, was beim Laden der Seite passiert.
-                        </p>
-                        <p>
-                            Google Chrome (bzw. Chromium) und Firefox gehen dabei sogar noch einen Schritt
-                            weiter und protokollieren nicht nur die Ladezeiten, sondern erlauben auch die
-                            Simulation langsamer Internetverbindungun. Damit kannst du dann auch gleich
-                            die Ladezeiten 🐢 unterwegs auf hoher See 🚢 überprüfen.
-                        </p>
-                    </dd>
-                </dl>
-
-                <h2>Der Responsive-Design-Modus</h2>
                 <p>
                     Ein weiteres Wunder der Technik ist der Responsive-Design-Modus, den du mit einem kurzen
                     Mausklick in den Entwicklerwerkzeugen aktivieren kannst. Oder klar, du kannst auch einfach
