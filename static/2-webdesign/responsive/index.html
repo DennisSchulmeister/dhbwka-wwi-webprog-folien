@@ -26,18 +26,69 @@
         <section data-chapter data-background-color="rgb(210,190,210)">
             <h1>Lernziele dieser Einheit</h1>
             <article>
-                <h3>Nach Abschluss dieser Einheit kannst du …</h3>
+                <h3>Nac h Abschluss dieser Einheit kannst du …</h3>
                 <ul>
                     <li>
-                        den Begriff <span class="dhbw-lightblue font-weight-bold">verteiltes System</span>
-                        erklären und von ähnlichen Begriffen abgrenzen.
+                        Die Entwicklungswerkzeuge sowie den
+                        <span class="dhbw-lightblue font-weight-bold">Responsive-Design-Modus</span>
+                        des Browsers zum Analyiseren deiner Layouts verwenden.
+                    </li>
+                    <li>
+                        erklären, was <span class="dhbw-lightblue font-weight-bold">Mobile First</span>
+                        bedeutet und warum es eine gute Idee ist.
+                    </li>
+                    <li>
+                        <span class="dhbw-lightblue font-weight-bold">Media Queries</span> verwenden,
+                        um geräeübergreifende Stylesheets zu erstellen.
+                    </li>
+                    <li>
+                        spezielle Stylesheets für einzelne Geräteklassen in den HTML-Code einbinden.
+                    </li>
+                    <li>
+                        <span class="dhbw-lightblue font-weight-bold">CSS-basierte Layout Grids</span>
+                        verwenden, um HTML-Elemente zu platzieren.
+                    </li>
+                    <li>
+                        Das <span class="dhbw-lightblue font-weight-bold">Bootstrap-Framework</span>
+                        in deine Projekten einbinden und verwenden.
                     </li>
                 </ul>
                 <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
             </article>
             <aside>
                 <p>
-                    …
+                    In diesem Kapitel dreht sich alles um das Layout. Zwar können wir dir keinen
+                    guten Geschmack beibringen (den musst du schon selbst mitbringen), wir können
+                    dir aber zeigen, worauf du beim Gestalten eine Webseite oder Web App achten
+                    musst, damit sie auf allen relevanten Geräteklassen gut aussieht. Denn heute
+                    kann man sicht nicht mehr darauf verlassen, dass der Anwender immer vor dem
+                    Computer sitzt und den Bildschirm auf eine ausreichend hohe Auflösung eingestellt
+                    hat. Stattdessen muss eine Webseite vom kleinsten Smartphone bis zum rieigen
+                    Fernseher und auf allen Geräten dazwischen gut zu erkennen und zu bedienen sein.
+                </p>
+                <p>
+                    Als erstes schauen wir uns daher die <b>Entwicklungswerkzeuge</b> deines Browsers
+                    und hier vor allem den <b>Responsive-Design-Mode</b> an, mit dem du deine Kreationen
+                    bereits während der Entwicklung auf unterschiedlichen Geräteklassen testen kannst.
+                    Anschließend betrachten wir ein Fallbeispiel, das ganz anschaulich zeigt, was passiert,
+                    wenn eine Webseite nur für Desktop Computer nicht aber für mobile Endgeärte optimiert
+                    wird. Dies dient dann als Grundlage, um sich mit dem Begriff <b>Mobile First</b>,
+                    also zunächst von kleinen Bildschirmen ausgehend eine Seite so zu entwickeln, dass sie
+                    mit jede Bildschrimgröße optimal ausnutzen kann.
+                </p>
+                <p>
+                    Auf der technischen Seite benötigen wir hierfür <b>Media Queries</b>, da wir damit
+                    geräteabhängige Fallunterscheidungen in unsere Stylesheets einbauen können. Auch
+                    können wir mit derselben Technik getrennte Stylesheets für unterschiedliche
+                    Geräterklassen (z.B. ein Bildschirm- und ein Druck-Stylesheet) erstellen. Während
+                    der Entwicklung haben wir dadurch maximale Handlungsfreiheit, wir müssen aber auch
+                    sehr viel testen und viele Unwegsamkeiten beachten. Abschließen werden wir das
+                    Kapitel daher mit einem Exkurs zu <b>CSS-basierten Layout Grids</b> und hier vor
+                    allem zum <b>Bootstrap-Framework</b>, welche uns viele Routinearbeiten abnehmen
+                    und so die häufigsten Layoutaufgaben zeimlich vereinfachen können.
+                </p>
+                <p>
+                    Du siehst: Wir haben mal wieder sehr viel vor. Also packen wir es an!
                 </p>
             </aside>
         </section>
@@ -74,48 +125,58 @@
             </article>
             <aside>
                 <p>
-                    Früher eine Webseite zu gestalten war einfach. Man ging einfach von irgend einer
-                    Bildschirmauflösung aus und setzte voraus, dass ein Besucher schon dieselbe Auflösung
-                    nutzen würde. Auf vielen Seiten stand daher irgendwo unten der dezente Hinweis
-                    „optimiert für 1024 x 768” oder so ähnlich. Auch wenn natürlich jedem klar war, dass
-                    kein Anwender jemals wirklich seine Auflösung deshalb ändern würde. 😉
+                    Früher war irgendwie alles einfacher. Selbst das Gestalten einer Webseite war
+                    überhaupt kein Problem. Ganz egal, welche Bildschirmauflösung man selbst hatte,
+                    man konnte einfach davon ausgehen, dass ein Besucher schon dieselbe Auflösung
+                    nutzen und den Browser immer in Maximalgröße öffnen würde. Zur Sicherheit hat
+                    man dann noch irgendwo ganz klein „optimiert für 1024 x 768 Pixel” hingeschrieben
+                    und die Welt war in Ordnung. 🌅 Auch wenn natürlich jedem klar war, dass kein
+                    Anwender wirkllich einen neuen Bildschirm kaufen oder seine Lieblingsauflösung
+                    wegen einem ändern würde.
                 </p>
                 <p>
-                    Als dann 2007 das iPhone 📱 auf den Markt kam, fingen die Leute zwar an, dieselben
-                    Webseiten auf viel kleineren Geräten anzuschauen, aber die Welt war irgendwie
-                    trotzdem noch in Ordnung. 🌅 Denn es gab ja nur das iPhone mit seiner Auflösung von
-                    320 x 240 Pixeln, auf die man sich als Webdesigner einstellen konnte. Üblicherweise
-                    gab es damals von einer Webseite einfach zwei Versionen: Eine für Computer und
-                    eine für Mobiltelefone. Und falls ein Anwender doch mal die falsche Version aufrief,
-                    lenkte man ihn einfach mit einer sogenannten <a href="https://de.wikipedia.org/wiki/Browserweiche"
-                    target="_blank">Browserweiche</a> von <a href="www.beispiel.de">www.beispiel.de</a> auf
-                    <a href="m.beispiel.de">m.beispiel.de</a> um oder umgekehrt.
+                    Als dann 2007 das iPhone auf den Markt kam, fingen die Leute zwar an, dieselben
+                    Webseiten auf viel kleineren Geräten anzuschauen, das war aber trotzdem noch kein
+                    wirkliches Problem. Denn es gab ja nur das iPhone mit seiner Auflösung von
+                    320 x 240 Pixeln, auf die man sich immer verlassen konnte. Auf dem Computer war
+                    man da zwar schon viel weiter, so dass eine Webseite entweder auf dem Computer
+                    oder auf dem iPhone gut aussah, dem begegnete man aber einfach mit zwei getrennten
+                    Webseiten für Mobile und Desktop. Und falls sich doch mal ein Anwender mit dem
+                    iPhone auf die Desktop-Seite verirren sollte,  lenkte man ihn einfach mit einer
+                    <a href="https://de.wikipedia.org/wiki/Browserweiche" target="_blank">Browserweiche</a>
+                    von <a href="www.beispiel.de">www.beispiel.de</a> auf
+                    <a href="m.beispiel.de">m.beispiel.de</a> um und alles war wieder so wie es sein sollte.
                 </p>
                 <p>
-                    Doch dann kamen Android und andere Mobilsysteme und mit ihnen eine unüberschaubare
-                    Anzahl an Geräten auf den Markt. Jedes mit seiner eigenen Bildschirmauflösung und
-                    jedes mit seinen ganz eigenen Besonderheiten. Und plötzlich war die Welt gar nicht
-                    mehr in Ordnung, denn eine Webseite, die auf dem einen Gerät gut aussah konnte auf
-                    dem anderen Gerät unbenutzbar sein ⁉. Plötzlich merkte man, dass nicht die Anzahl
-                    der Pixel eine Rolle spielt, sondern die Displaygröße und die Pixeldichte. Doch
-                    woher sollte man diese Zahlen wissen? Zwar konnte man auf dem Server mehr oder
+                    Doch diese goldenen Zeiten sollten schon bald vorbei sein. Kamen doch relativ bald
+                    Android und viele andere Mobilsysteme auf den Markt, von denen jedes auf anderen
+                    Geräten mit einer Vielzahl von Auflösungen und ganz besonderer Eigenheiten lief.
+                    Plötzlich war es vorbei mit der Harmonie, denn eine Webseite, die auf dem einen
+                    Gerät wirklich sehr gut aussah konnte auf dem nächsten Gerät schon völlig unbedienbar
+                    sein. Da merkte man dann, dass ja nicht nur die Anzahl der Pixel eine Rolle spielt,
+                    sondern noch viel mehr die Displaygröße und seine Pixeldichte.¹
+                    Doch woher sollte man diese Zahlen wissen? Zwar konnte man auf dem Server mehr oder
                     weniger zuverlässig erkennen, <a href="https://de.wikipedia.org/wiki/User_Agent#Aufbau_des_HTTP-User-Agent-Headers"
                     target="_blank">welches Gerät der Anwender nutzte</a>, darüber hinaus gab der Browser
-                    aber keine weiteren Informationen preis. 😒
+                    aber keine weiteren Informationen preis.
+                </p>
+                <p>
+                    ¹
+                    <small>
+                        Die Pixeldichte gibt an, wie viele Pixel in einem bestimmten Bereich liegen.
+                        Sie wird üblicher in „Pixel per Inch” also Pixel je Quadratzoll angegeben.
+                    </small>
                 </p>
                 <p>
                     2012 zeichnete sich dann endlich eine Lösung ab, als <b>Media Queries</b> in CSS
-                    eingeführt wurden. Denn sie erlauben es, ohne Zuhilfenahme des Servers und ohne fragewürdige
+                    EInzug hielten. Denn sie erlauben es, ohne Zuhilfenahme des Servers und ohne eigenwillige
                     Hacks ganz zuverlässig die Eigenschaften des Endgeräts abzufragen. Seither sind
                     dann auch die getrennten Webseiten für Mobilgeräte wieder aus der Mode gekommen.
-                    Denn letztlich war auch das nur eine Notlösung, die an vielen Stellen doppelte Arbeit
-                    machte.
-                </p>
-                <p>
-                    Heute ist es stattdessen üblich, eine Webseite gleich von Anfang an so zu bauen, dass sie
-                    vom kleinen Smartphone 📞 bis zur großen Kinoleinwand 📺 auf jedem Bildschirm gut aussieht.
-                    <b>Responsive Webdesign</b> nennt sich dieser Ansatz und im folgenden wollen wir dir
-                    zeigen, wie er funktioniert.
+                    Denn letztlich war auch das nur eine Notlösung, die meistens nur doppelte Arbeit
+                    verursachte. Heute ist es stattdessen üblich, eine Webseite gleich von Anfang an
+                    so zu bauen, dass sie vom kleinen Smartphone 📱 bis zur großen Kinoleinwand 📺
+                    auf jedem Bildschirm gut aussieht. <b>Responsive Webdesign</b> heißt das Zauberwort
+                    und im folgenden wollen wir dir zeigen, wie es funktioniert.
                 </p>
             </aside>
         </section>
@@ -303,10 +364,10 @@
                     target="_blank" title="unbedingt auch die Bewertungen lesen">das ultimative Schweizer
                     Taschenmesser</a>, dessen Funktionen du unbedingt kennen solltest. Der Aufruf erfolgt
                     bei den meisten Browsern mit der <kbd>F12</kbd>-Taste, woraufhin sich in der Regel
-                    unten ein Panel mit unterschiedlichen Tabreitern öffnet.
+                    ein Panel mit unterschiedlichen Tabreitern öffnet.
                 </p>
                 <p>
-                    In den Screenshots auf der Folie siehst du die Entwicklerwerkzeuge vom Firefox.
+                    In den Screenshots auf der Folie siehst du die Entwicklerwerkzeuge von Firefox.
                     Im Chrome, Internet Explorer und Edge sehen sie fast gleich aus, jedoch haben
                     manche Werkzeuge andere Namen und der ein oder andere Button befindet sich an
                     einer anderen Stelle. Davon abgesehen wirst du dich aber auch dort schnell
@@ -319,19 +380,20 @@
                     <dt>Quellcodeansicht („Inspector” im Firefox, „Elements” im Chrome)</dt>
                     <dd>
                         <p>
-                            Hinter dieser Ansicht verbirgt sich ein wahres Multitalent. Denn hier siehst
-                            du nicht einfach nur den HTML-Quellcode deiner Seite. Den kannst du dir auch
-                            im Texteditor anschauen. 🙂 Stattdessen siehst du das Document Object Model,
-                            so wie es tatsächlich im Speicher des Browsers vorliegt. Das mag am Anfang noch
-                            keinen Unterschied machen, sobald wird aber mit JavaScript anfangen, die
-                            sichtbaren Inhalte zur Laufzeit zu verändern, wirst du sehen, dass die
-                            Änderungen wie von Zauberhand auch in der Quellcodeansicht auftauchen.
+                            Hinter dieser Ansicht verbirgt sich ein wahres Multitalent. Hier siehst
+                            du nicht einfach nur den HTML-Quellcode deiner Seite. Du siehst das
+                            Document Object Model, so wie es tatsächlich im Speicher des Browsers
+                            vorliegt. Und das in Quellcode-Form. Klingt unspepktakulär? Spätestens,
+                            wenn wir mit JavaScript anfangen, wird das noch sehr nützlich sein,
+                            da wir an dieser Stelle nicht den Quellcode sehen, so wie er in der
+                            HTML-Datei steht, sondern so wie er nach allen Änderungen durch
+                            JavaScript tatsächlich dargestellt wird.
                         </p>
                         <p>
-                            Sehr praktisch ist dabei auch, dass du dir zu jedem HTML-Element verschiedene
-                            Informationen anzeigen lassen kannst. Du brauchst es nur im Quellcode anzuklicken
-                            oder mit der Funktion „Element auf Seite wählen” (im Firefox links oben) auf der
-                            Seite mit der Maus drüber fahren. Daraufhin wird das Element farbig hervorgehoben
+                            Sehr praktisch ist dabei auch, dass dir zu jedem HTML-Element verschiedene
+                            Informationen angezeigt werden, wenn du es im Quellcode anklickst oder
+                            mit der Funktion „Element auf Seite wählen” (im Firefox links oben)
+                            mit der Maus drüber fährst. Dadurch wird das Element farbig hervorgehoben
                             und es werden folgende Dinge angezeigt:
                         </p>
                         <ul>
@@ -346,18 +408,12 @@
                             </li>
                         </ul>
                         <p>
-                            Das Schöne an der Sache ist, dass du auch direkt Änderungen vornehmen kannst. 📝
+                            Das Schöne an der Sache ist, dass du auch direkt Änderungen vornehmen kannst.
                             Du kannst also ohne den Browser zu verlassen verschiedene HTML-Elemente und
-                            CSS-Anweisungen ausprobieren, so lange bis dir die Darstellung gefällt. Hierfür
-                            kannst du zum Beispiel einfach ein paar CSS-Anweisungen überschreiben oder neue
-                            einfügen. Per Klick auf eine Anweisung kannst du sie auch kurz deaktivieren, um
-                            zu prüfen, ob sie überhaupt eine Auswirkung hat.
-                        </p>
-                        <p>
-                            Zusätzlich kannst du mit einem einfachen Rechtsklick den HTML-Code der Seite
-                            modifizieren. Das Einzige, was du hier nicht kannst, ist deine Änderungen zu
-                            speichern. 💾 Hierfür musst du nach wie vor in deinem Lieblingseditor den
-                            Quellcode bearbeiten. ✎
+                            CSS-Eigenschaften ausprobieren, so lange bis dir die Darstellung gefällt.
+                            Hierfür kannst du neue Anweisungen einbauen oder bereits vorhandene Anweisungen
+                            mit einem Klick deaktivieren. Wenn dir das Ergebnis gefällt, weißt du dann gleich,
+                            was du im Quellcode ändern musst.
                         </p>
                     </dd>
 
@@ -366,8 +422,8 @@
                     </dt>
                     <dd>
                         <p>
-                            Diese schauen wir uns im JavaScript-Kapitel nochmal näher an. Unter anderem
-                            siehst du hier Warnungen und Fehlermeldungen und kannst einzelne JavaScript-Befehle
+                            Diese schauen wir uns bei JavaScript nochmal näher an. Unter anderem siehst du
+                            hier Warnungen und Fehlermeldungen und kannst einzelne JavaScript-Befehle
                             ausführen.
                         </p>
                     </dd>
@@ -377,10 +433,9 @@
                     </dt>
                     <dd>
                         <p>
-                            Der Debugger wird interessant, sobald wir anfangen, mit JavaScript unsere erste
-                            Browser App zu schreiben. An manchen Stellen wirst du dann richtig froh sein,
-                            im Debugger einfach mal ein paar Breakpoints setzen zu können, um zum Beispiel
-                            die Inhalte einiger Variablen zu überprüfen.
+                            Der Debugger wird ebenfalls erst interessant, sobald wir mit JavaScript unsere
+                            ersten Browser Apps schreiben. Hier kannst du Breakpoints setzen und den Ablauf
+                            des JavaScript-Codes kontrollieren.
                         </p>
                     </dd>
 
@@ -389,43 +444,44 @@
                     </dt>
                     <dd>
                         <p>
-                            Anfangs können wir mit der Netzwerkanalyse noch nicht so viel anfangen, da wir
-                            das HTTP-Protokoll noch nicht richtig besprochen haben. Trotzdem solltest du
-                            einfach mal anschauen, was die Netzwerkanalyse so macht, während du eine Webseite
-                            aufrufst. Starte hierfür zunächst in einem leeren Tabreiter die Netzwerkanalyse
-                            und rufe dann eine beliebige Webseite auf. Schnell wirst du sehen, warum zu viele
-                            schlecht optimierte Bilder auf einer Seite richtig „ins Geld gehen” können. 💰
+                            Auch auf dieses Werkzeug werden wir später nochmal zurück kommen, wenn wir uns
+                            mit dem HTTP-Protokoll näher auseinander setzen. Trotzdem kannst du es dir ja
+                            schon einmal anschauen. Hier wird die Kommunikation zwischen Browser und Server
+                            aufgezeichnet, so dass du jede Anfrage und auch jede Antwort analysieren kannst.
+                            Um das auszuprobieren, starte einfach einen leeren Tabreiter und öffne darin die
+                            Netzwerkanalyse. Anschließend gib einfach irgend eine Webadresse ein und sieh
+                            zu, was beim Laden der Seite passiert.
                         </p>
                         <p>
-                            Google Chrome (bzw. Chromium) geht dabei sogar noch einen Schritt weiter und
-                            protokolliert nicht nur die Ladezeiten, sondern erlaubt sogar die Simulation einer
-                            langsamen Internetverbindung. Damit kannst du dann auch gleich die Ladezeiten
-                            🐢 auf dem Smartphone unterwegs auf hoher See 🚢 überprüfen.
+                            Google Chrome (bzw. Chromium) und Firefox gehen dabei sogar noch einen Schritt
+                            weiter und protokollieren nicht nur die Ladezeiten, sondern erlauben auch die
+                            Simulation langsamer Internetverbindungun. Damit kannst du dann auch gleich
+                            die Ladezeiten 🐢 unterwegs auf hoher See 🚢 überprüfen.
                         </p>
                     </dd>
                 </dl>
 
                 <h2>Der Responsive-Design-Modus</h2>
                 <p>
-                    Eine weitere Wunderwafe 🎇 ist der Responsive-Design-Modus, den du mit einem kurzen
+                    Ein weiteres Wunder der Technik ist der Responsive-Design-Modus, den du mit einem kurzen
                     Mausklick in den Entwicklerwerkzeugen aktivieren kannst. Oder klar, du kannst auch einfach
                     die Tastenkombination <kbd>Shift</kbd>+<kbd>Strg</kbd>+<kbd>M</kbd> drücken. Das ist natürlich
                     viel professioneller. 😎
                 </p>
                 <img src="devtools_toolbar.png" class="d-block img-responsive" />
                 <p>
-                    So rum oder so rum wirst du sehen, dass sich die Anzeige im Browser dadurch deutlich
+                    So oder so wirst du sehen, dass sich die Anzeige im Browser dadurch deutlich
                     verändert. Denn im Responsive-Design-Modus simuliert der Browser die Anzeige eines
-                    Smartphones oder Tablets, wahlweise im Hochformat oder im Querformat. Über eine
-                    Dropdownliste am oberen Bildschirmrand kannst du dabei zwischen ein paar häufig
-                    vorkommenden Auflösungen auswählen. Du kannst aber auch einfach eine völlig eigene
+                    Smartphones oder Tablets, wahlweise im Hoch- oder im Querformat. Über eine
+                    Auswahl am oberen Bildschirmrand kannst du dabei zwischen häufig vorkommenden
+                    Auflösungen umschalten. Du kannst aber auch einfach eine völlig eigene
                     Auflösung eingeben oder den Sichtbereich mit der Maus verändern.
                 </p>
                 <p>
                     Damit deine Seite auf möglichst vielen Geräten gut aussieht, solltest du den
                     Responsive-Design-Modus so oft wie möglich verwenden und dabei möglichst viele
                     Auflösungen durchprobieren. Denn auch heute kann es sonst passieren, dass deine
-                    Seite bei bestimmten Auflösungen super aussieht 💃 und bei anderen eben nicht.
+                    Seite bei bestimmten Auflösungen super aussieht und bei anderen nicht.
                 </p>
             </aside>
         </section>
@@ -604,7 +660,7 @@
                     Das Stylesheet auf der Folie ist natürlich so nicht komplett und würde
                     daher auch nicht zu denselben Screenshots führen. Damit du aber besser sehen
                     kannst, wo die Probleme liegen, sind nur die besonders kritischen Stellen
-                    abgedruckt und alles andere, was sich nur um Farben, Rahmen, Hintergründe
+                    abgebildet und alles andere, was sich nur um Farben, Rahmen, Hintergründe
                     und so weiter dreht, wurde weggelassen.
                 </p>
 
@@ -613,16 +669,14 @@
                     Für die Schriftgröße wird hier eigentlich ein genialer Trick angewendet:
                     Sie wird nicht, wie sonst üblich, in <tt>pt</tt> oder <tt>px</tt> sondern
                     als relative Schriftgröße <tt>vmin</tt> angegeben. Wie du sicher noch
-                    weißt handelt es sich dabei um eine relative Größenangabe, die sich auf
-                    die Größe des Browserfensters bezieht.
-                </p>
-                <p>
+                    weißt handelt es sich dabei um eine relative Größenangabe, die auf der
+                    Größe des Browserfensters basiert.
                     Dadurch wird erreicht, dass die Schrift umso größer wird, je größer der
                     Bildschirm ist. Ziemlich genial, da die Schrift somit auch noch auf einem
-                    Flachbildfernseher gut erkannt werden kann, den man typischerweise ja nur
-                    aus einigen Metern Entfernung betrachtet. Doch umgekehrt funktioniert es
+                    groen Flachbildfernseher gut erkannt werden kann, den man typischerweise
+                    ja aus einigen Metern Entfernung betrachtet. Doch umgekehrt funktioniert es
                     leider auch: Je kleiner der Bildschirm ist, desto kleiner ist die Schrift.
-                    Als Folge daraus ist sie auf dem Smartphone nur schwer lesbar. 🔎
+                    Als Folge daraus ist sie auf dem Smartphone kaum erkennbar. 🔎
                 </p>
 
                 <h2>Die Sidebar</h2>
@@ -634,34 +688,29 @@
                     stehen soll. Damit die beiden nun aber nicht untereinander sondern nebeneinander
                     stehen, wird durch die Anweisung <src-code language="css">display: flex</src-code>
                     der <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">
-                    Flexbox-Algorithmus</a> aktiviert, wobei schon seine Voreinstellungen
-                    das gewünsche Ergebnis liefern. Weitere CSS-Anweisungen werden daher
-                    nicht benötigt.
+                    Flexbox-Algorithmus</a> aktiviert. Bereits seine Voreinstellungen liefern
+                    das gewünsche Ergebnis, so dass hier kein weiteres CSS gebraucht wird.
                 </p>
                 <p>
-                    Auf großen Bildschirmen sieht das ziemlich gut aus. Auf dem Smartphone
+                    Auf großen Bildschirmen sieht das alles ganz gut aus. Auf dem Smartphone
                     ist es jedoch eine mittlere Katastrophe. 💣 Denn die Sidebar verkleinert
-                    den ohnehin schon schmalen Bildschirm nochmal um kostbare 25%. Und dass
-                    ohne selbst gut bedienbar zu sein, da sie hierfür eigentlich viel zu
-                    „dünn” erscheint und noch viel breiter sein müsste.
+                    den ohnehin schon schmalen Bildschirm nochmal um kostbare 25%, ohne dabei
+                    gut bedienbar zu sein. Hierfür müsste sie eigentlich nicht neben dem Text
+                    sondern über dem Text stehen und die volle Bildschirmbreite einnehmen.
                 </p>
 
                 <h2>Die Bilder</h2>
                 <p>
-                    Ob die Bilder auf dem Smartphone zu klein erscheinen oder ihre Größe
-                    doch genau richtig ist, ist Ansichtssache. Soll die Seite mehr einen
-                    Überblick über viele Bilder geben, ist die Anordnung von zwei Bildern
-                    nebeneinander sicherlich praktisch, da dadurch automatisch eine
-                    gitterförmige Anordnung ähnlich einer Bildergallerie entsteht.
-                </p>
-                <p>
+                    Ob die Bilder auf dem Smartphone zu klein erscheinen oder nicht, ist
+                    im wahrsten Sinne des Wortes Ansichtssache. Soll die Seite mehr einen
+                    Überblick über viele Bilder geben, ist die Anordnung mit zwei Bildern
+                    nebeneinander ganz praktisch, da dadurch automatisch ein Gitte wie
+                    in einer Bildergallerie entsteht.
                     Umgekehrt kann man dadurch aber kaum noch Details erkennen, so dass man
-                    eigentlich gar nicht beurteilten kann, wie der in beschriebene Ort eigentlich
+                    eigentlich gar nicht beurteilten kann, wie der in beschriebene Ort wirklich
                     aussieht. In diesem Fall wäre es daher wohl besser, die Bilder untereinander
-                    und in voller Breite darzustellen, damit zumindest ein paar Details noch gut
-                    zu sehen sind. Und da die Bilder selbst im Querformat sind, würden sie sich
-                    bei einem hochkant gehaltenen Handy auch gut in das Seitenlayout einfügen
-                    und bei einer 90°-Drehung fast das gesamte Display ausfüllen.
+                    und in voller Breite darzustellen, damit zumindest noch ein paar Details
+                    sichtbar sind.
                 </p>
             </aside>
         </section>
@@ -835,10 +884,9 @@
                     natürlich nicht, aber die Smartphone-Ansicht ist nun richtig gelungen. ☺
                     Die Sidebar ist plötzlich zu einem Top-Menü geworden und man sieht schön,
                     wie die am Computer nebeneinander liegenden Bilder untereinander stehen
-                    und durch ihre Breite deutlich erkennbar sind. Das gesamte Layout entfaltet
-                    sich für Smartphones typisch schön von oben nach unten. Doch warum ist das
-                    so? Welche Quellcode-Anpassungen haben zu dieser deutlichen Veränderung
-                    geführt?
+                    und nu gut erkennbar sind. Das gesamte Layout entfaltet sich für Smartphones
+                    typisch schön von oben nach unten. Doch warum ist das so? Welche Änderungen
+                    haben zu dieser verbesserten Version geführt?
                 </p>
 
                 <h2>Anordnung der Sidebar</h2>
@@ -846,49 +894,62 @@
                     Am HTML-Code hat sich eigentlich gar nichts geändert. Lediglich das
                     <src-code language="html">&lt;nav&gt;</src-code>-Element mit der Sidebar
                     ist nun vor das <src-code language="html">&lt;main&gt;</src-code> gerutscht,
-                    damit es auf dem Smartphone ganz oben erscheint. Bei beiden Elementen handelt
-                    es sich ja um Blockelemente, die der Browser standardmäßig maximal breit sind
-                    und untereinander darstellt. Auf großen Bildschirmen wird stattdessen der
-                    Flexbox-Algorithmus eingeschaltet, so dass sie nebeneinander stehen.
+                    damit es auf dem Smartphone ganz oben erscheint. Dabei kommt uns zu Gute,
+                    dass beides Blockelemente sind, die der Browser ohnehin untereinander und
+                    in voller Breite anzeigt. Auf dem Smartphone sieht es daher automatisch
+                    gut aus, wohingegen wir bei großen Bildschirmen noch den Flexbox-Algorithmus
+                    einschalten müssen.
                 </p>
 
                 <h2>Media Queries und Mobile First</h2>
                 <p>
-                    Das Vorgehen mit der Sidebar ist keineswegs zufällig so gewählt. Vielleicht
-                    denkst du dir jetzt: „Ist doch egal, ob die Sidebar im HTML vor oder nach
-                    dem Hauptbereich steht. Es kommt doch 'eh auf das Stylesheet an, wo sie
-                    letztlich dargestellt wird.” Im Prinzip stimmt das sogar. Doch sieh es mal
-                    so: Für die Darstellung auf mobilen Geräten nutzen wir das Standardverhalten
-                    das Browsers und brauchen daher keine sonderlichen CSS-Anweisungen. Nur auf
-                    großen Bildschirmen, wo die Darstellung untereinander auch nicht gut aussehen
-                    würde, müssen wir etwas nachhelfen.
+                    Und da sind wir dann auch schon bei Mobile First und bei Media Queries.
+                    So, wie der HTML-Code nun aufgebaut ist, ist es genau richtig. Da Smartphones
+                    und mobile Endgeräte viel kleinere Displays haben, benötigen sie auch ein
+                    einfacheres Layout als am Computer. Meistens reichen dabei schon die
+                    Voreinstellungen des Browsers, wie zum Beispiel bei den Blockelementen.
+                    Nach und nach arbeiten wir uns dann zu immer größeren Displays vor,
+                    indem wir hier und da kleine Fallunterscheidungen in das Stylesheet
+                    einbauen und so manche Eigenschaften erst ab einer bestimmten Mindesgröße
+                    freischalten. Dieses Vorgehen nennen wir <b>Mobile First</b> und es ist
+                    eine der Grundregeln guten Webdesigns.
                 </p>
                 <p>
-                    Dieses Vorgehen wird auch <b>Mobile First</b> genannt und ist eine Grundregel
-                    modernen Webdesigns. Kleine Geräte benötigen ein einfacheres Layout als große
-                    Geräte. Also fängst du immer an, deine Webseite für kleine Bildschirme zu
-                    gestalten. Wenn das dann soweit geklappt hat, baust du Fallunterscheidungen
-                    (sogenannte <b>Media Queries</b>) in die Stylesheets ein, um einzelne Anweisungen
-                    zu übersteuern (wie die Schritgröße) oder zusätzliche Befehle auszuführen (wie die
-                    Umschaltung auf Flexbox).
-                </p>
-                <p>
-                    Im Beispiel auf der Folie beinhaltet das Stylesheet folgenden Media Query:
+                    Die Fallunterscheidungen, die wir in das Stylesheet einbauen müssen,
+                    nennen sich <b>Media Queries</b>, da sie die Eigenheiten des verwendeten
+                    Ausgabegeräts abfragen. Damit können wir dann zum Beispiel zwischen
+                    unterschiedlichen Schriftgrößen umschalten oder Elemente nebeneinander
+                    anordnen, wenn genügend Platz dafür vorhanden ist. Die Syntax hierfür
+                    sehen wir in der Folie anhand folgendem Beispiel:
                 </p>
                 <source-code language="css">
                     @media (min-width: 40em) {
-                        …
+                        html {
+                            …
+                        }
+
+                        section {
+                            …
+                        }
                     }
                 </source-code>
                 <p>
-                    Daran siehst du auch schon die grundlegende Syntax, wobei hier konkret abgefragt
-                    wird, ob der Bildschirm mindestens <tt>40em</tt> breit ist. Dies ist ein wenig
-                    unkonventionell, da die Bildschirmgröße in der Regel mit Pixelangaben geprüft wird.
-                    Die Einheit <tt>em</tt> bezieht sich hingegen auf die Schriftgröße und prüft daher,
-                    ob eine gewisse Mindestanzahl an Buchstaben auf den Bildschirm passt. Unsere
-                    persönliche Erfahrung ist, dass dies ein wenig stabiler funktioniert als eine
-                    Abfrage auf Pixel. Die meisten Webdesigner prüfen stattdessen aber trotzdem die
-                    Pixel.
+                    Jedes Media Query sieht genau so aus, nur dass sich der Inhalt zwischen den
+                    runden und geschweiften Klammern unterscheidet. Zwischen den runden Klammern
+                    steht die Bedingung, die das Ausgabegerät erfüllen muss und zwischen den
+                    Geschweiften Klammern die Anweisungen, die dann ausgeführt werden. Hier muss
+                    das Gerät mindestens <tt>40em</tt> breit sein¹, als ungefähr 40 Buchstaben
+                    in einer Zeile anzeigen können. Trifft dies zu, werden die in den geschweiften
+                    Klammern stehenden Regeln aktiviert.
+                </p>
+                <p>
+                    ¹
+                    <small>
+                        Die Prüfung auf <tt>em</tt> statt <tt>px</tt> ist zugegeben etwas unkonventionell.
+                        Prüfen doch die meisten Webdesigner eher gewohnte Pixelauflösungen ab. Durch diesen
+                        Trick wird die Prüfung aber etwas zuverlässiger, da sie die falschen Pixelangaben
+                        der mobilen Browser in Bezug auf die Bildschirmgröße ignoriert.
+                    </small>
                 </p>
             </aside>
         </section>
@@ -2602,18 +2663,79 @@
         <section data-background-color="rgb(153, 190, 137)">
             <h1>Do &amp; Don't</h1>
             <article>
-                <h4>Darauf solltest du achten</h4>
+                <h4>Responsive Webdesign</h4>
                 <ul>
                     <li>
-                        …
+                        Fange immer mit der mobilen Darsstellung an und arbeite dich schrittweise hoch.
+                    </li>
+                    <li>
+                        One size doesn't fit all! Versuche daher nicht, dasselbe Layout auf allen Geräteklassen umzusetzen.
+                    </li>
+                    <li>
+                        Nutze stattdessen Media Queries, um einzelne CSS-Eigescnahften nur für große Bildschirme zu aktivieren.
+                    </li>
+                    <li>
+                        Ordne auf kleinen Bidlschirmene eine Elemente untereinander und maximal breit an.
+                    </li>
+                    <li>
+                        Nutze den erhöhten, horizontalen Platz auf großen Geräten, um bestimmte Elemente nebeneinander anzuordnen.
+                    </li>
+                    <li>
+                        Wähle für jede Bildschirmgröße eine angenehm lesbare Schriftgröße.
+                    </li>
+                    <li>
+                        Vermeide allzu verspielte Schmuckschriften, da sie auf mobilen Geräten nur schwer lesbar sind.
+                    </li>
+                    <li>
+                        Versuche, immer den einfachsten Code zu schreiben, der dich zum Ziel bringt.
+                    </li>
+                    <li>
+                        Prüfe relevante Eigenschaften wie die Anzahl darstellbarer Zeichen anstelle absoluter Pixelgrößen.
+                    </li>
+                    <li>
+                        Blende alle überflüssigen Seitenleisten, Navigation, Fußziele und Hintergründe aus, wenn deine Seite gedruckt wird.
+                    </li>
+                </ul>
+
+                <h4>CSS-basierte Layout Grids</h4>
+                <ul>
+                    <li>
+                        Erlerne die Nutzung CSS-basierter Layout Grids, da sie dir eine Menge Arbeit ersparen.
+                    </li>
+                    <li>
+                        Gewöhne dir insbesondere an, sie in jedem Projekt konsequent einzusetzen.
+                    </li>
+                    <li>
+                        Prüfe aber dennoch, ob die Darstellung auf allen Geräteklassen deinen Vorstellungen entspricht.
+                    </li>
+                    <li>
+                        Insbesondere Abstände wie Padding und Margin müssen mit Media Queries weiterhin justiert werden.
+                    </li>
+                    <li>
+                        Wenn sich ein besonders komplexes Layout mit Grids nicht darstellen lässt, überlege dir ein einfacheres.
+                    </li>
+                </ul>
+
+                <h4>Sonstige Tipps und Tricks</h4>
+                <ul>
+                    <li>
+                        Schaue dir möglichst viele mobile Apps und gut gestaltete Webseiten an, um davon zu lernen.
+                    </li>
+                    <li>
+                        Mache dich auch mit anderen CSS Layout Modulen wie „Flexbox” oder „Grid” vertraut.
+                    </li>
+                    <li>
+                        Probiere ruhig unterschiedliche CSS-Frameworks aus und schieße dich nicht auf ein einzelnes ein.
+                    </li>
+                    <li>
+                        Wähle stattdessen für jedes Projekt ein passendes Framework aus. Es muss nicht immer Bootstrap sein.
                     </li>
                 </ul>
             </article>
             <aside>
                 <p>
-                    Dies sind sie: Die berühmten letzten Worte. 📄 Auf dieser Folie haben wir ein paar allgemeine
-                    Tipps zusammengestellt, worauf du bei …
-                    achten solltest.
+                    Hier nochmal das Wichtigste in aller Kürze. Auf dieser Folie haben wir wie immer ein
+                    paar allgemeine Tipps zusammengestellt, worauf du beim Webdesign achten solltest.
                 </p>
                 <img src="../../do-dont.svg" class="d-block" style="width: 20em; max-width: 100%; margin-bottom: 0.5em;" />
                 <p>
