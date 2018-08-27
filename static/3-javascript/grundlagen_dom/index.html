@@ -30,15 +30,81 @@
                 <h3>Nach Abschluss dieser Einheit kannst du …</h3>
                 <ul>
                     <li>
-                        den Begriff <span class="dhbw-lightblue font-weight-bold">verteiltes System</span>
-                        erklären und von ähnlichen Begriffen abgrenzen.
+                        die Einsatzgebiete von JavaScript innerhalb und außerhalb des World Wide Web beurteilen.
+                    </li>
+                    <li>
+                        JavaScript <span class="dhbw-lightblue font-weight-bold">direkt im Browser ausprobieren</span>,
+                        ohne einen lokalen Editor starten zu müssen.
+                    </li>
+                    <li>
+                        das Prinzip der <span class="dhbw-lightblue font-weight-bold">dynamischen, schwachen Typisierung</span>
+                        erklären und die Unterschiede zu Java aufzeigen.
+                    </li>
+                    <li>
+                        eigene Funktionen in JavaScript implementieren und darin lokale und globale Variablen verwenden.
+                    </li>
+                    <li>
+                        <span class="dhbw-lightblue font-weight-bold">Rückruffunktionen</span> und
+                        <span class="dhbw-lightblue font-weight-bold">Funktionen höherer Ordnung</span> schreiben.
+                    </li>
+                    <li>
+                        mit Array und Listen die wichtigsten <span class="dhbw-lightblue font-weight-bold">Datentypen von JavaScript</span>
+                        verwenden.
+                    </li>
+                    <li>
+                        eigene Daten im <span class="dhbw-lightblue font-weight-bold">JSON-Format</span> codieren.
+                    </li>
+                    <li>
+                        JavaScript-Code in deine eigenen HTML-Dateien einbinden und damit das
+                        <span class="dhbw-lightblue font-weight-bold">Document Object Model</span> manipulieren.
+                    </li>
+                    <li>
+                        JavaScript-Code <span class="dhbw-lightblue font-weight-bold">debuggen</span>
+                        und Fehler darin beheben.
                     </li>
                 </ul>
                 <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
             </article>
             <aside>
                 <p>
-                    …
+                    Eigentlich ist ja Java die Sprache der Wahl, wenn es um das Programmierenlernen an der DHBW geht.
+                    Doch im Web kommen wir an JavaScript nicht vorbei, da es von Anfang an Teil des WWW selbst ist
+                    und daher auch die einzige Sprache ist, die der Browser direkt ausführen kann.¹ Viele interessante
+                    Funktionen von HTML lassen sich darüber hinaus ohne JavaScript auch gar nicht nutzen. Vor diesem
+                    Hintergrund war JavaScript deshalb lange Zeit im Browser „gefangen”, seit einiger Zeit kann man damit
+                    aber auch alle anderen Arten von Anwendungen schreiben, sowohl innerhalb als auch außerhalb des
+                    Browsers. Dadurch wird es umso interessanter, sich mit dieser Sprache zu beschäftigen.
+                </p>
+                <p>
+                    ¹
+                    <small>
+                        Dank <a href="https://webassembly.org/" target="_blank">WebAssembly</a> können inzwischen
+                        auch andere Programmiersprachen innerhalb des Browsers ausgeführt werden. Ihre Programme
+                        müssen hierfür jedoch durch einen speziellen Compiler erst nach WASM compiliert werden.
+                        Außerdem benötigen Sie immer eine HTML-Seite und etwas JavaScript-Code, um geladen und
+                        gestartet zu werden.
+                    </small>
+                </p>
+                <p>
+                    Zum Glück kennst du mit Java bereits eine sehr weit verbreitete Programmiersprache. Und zum
+                    Glück haben Java und JavaScript viele Gemeinsamkeiten. Doch genauso groß sind auch die Unterschiede.
+                    Am Anfang werden wir uns daher zunächst mit der <b>Syntax von JavaScript</b> beschäftigen und
+                    dabei die wesentlichen <b>Gemeinsamkeiten und Unterschiede zu Java</b> aufzeigen. Insbesondere
+                    die Deklaration von <b>Funktionen</b> sowie das <b>Typsystem von JavaScript</b> werden uns
+                    dabei eine Weile beschäftigen. Darauf aufbauend erfährst du dann, was <b>JSON</b> ist und
+                    welche eingebauten <b>Datentypen</b> praktischerweise eingebaut hat. Die Objektorientierung
+                    lassen wir dabei allerdings außen vor, da sie gerade in JavaScript nochmal eine Welt für
+                    sich ist. Damit beschäftigen wir uns ein andermal.
+                </p>
+                <p>
+                    Im zweiten Teil gehen wir dann in die Paxis und zeigen dir, wie JavaScript und HTML im Browser
+                    zusammenspielen. Hier erfährst du dann, wie JavaScript-Code in HTML eingebunden werden kann
+                    und wie das <b>Document Object Model</b> mit JavaScript manipuliert werden kann. Dabei zeigen
+                    wir dir alle „klassischen” Methoden, die das DOM für JS-Entwickler bietet. Das ist dann zwar
+                    nicht so schön elegant, wie bei den modernen Komonentenframeworks für JavaScript, dennoch reicht
+                    es aber, um erste Browser Apps entwickeln zu können und zu verstehen, welche Arbeit die Frameworks
+                    dir später einmal abnehmen werden. Als kleine Übung darfst du am Ende des Kapitels daher auch
+                    eine echte JS-Anwendung <b>Debuggen</b>, um einen kleinen aber gemeinen Fehler darin zu beheben.
                 </p>
             </aside>
         </section>
@@ -140,7 +206,7 @@
                 <p>
                     Mehr als alle anderen Bestandteile des Web hat JavaScript eine bewegte
                     Geschichte hinter sich. Häufig für seine eigenwilligen Besonderheiten
-                    in der Kritik 💢, aber doch so beliebt 🌟, dass heutzutage längst nicht mehr
+                    in der Kritik, aber doch so beliebt, dass heutzutage längst nicht mehr
                     nur Webseiten damit erstellt werden. Stattdessen werden heute ganze
                     Anwendungen auf unterschiedlichen Plattformen in JavaScript geschrieben.
                     Egal ob Webanwendungen, Mobile Apps, <a href="https://12factor.net/de/" target="_blank">Microservices</a>,
@@ -164,7 +230,7 @@
                 <p>
                     An dieser Stelle noch eine kleine Warnung. JavaScript klingt vom Namen her
                     zwar ähnlich wie Java, tatsächlich sind es aber zwei eigenständige Sprachen.
-                    An manchen Stellen ist die Syntax fast identisch, wie du auf <a href="#5">Folie 5</a>
+                    An manchen Stellen ist die Syntax fast identisch, wie du auf <a href="#7">Folie 7</a>
                     sehen wirst. Die meisten anderen Dinge sind dann aber doch unterschiedlich.
                 </p>
             </aside>
@@ -184,41 +250,42 @@
             </article>
             <aside>
                 <p>
-                    Vor der Verabschiedung von HTML 5 waren HTML und JavaScript noch ziemlich
+                    Vor der Verabschiedung von HTML&nbsp;5 waren HTML und JavaScript noch ziemlich
                     getrennt. Zwar gab es von Anfang an die Möglichkeit, die Elemente einer
                     Webseite mit JavaScript über das Document Object Model zu beeinflussen,
                     mehr Integration war aber nicht vorgesehen. Ein Grund dafür war sicher,
                     dass die vorherige HTML-Version schon 1999 zur einer Zeit verabschiedet
-                    wurde, als das Web tatsächlich fast nur aus einfachen Webseiten bestand. 📜
+                    wurde, als das Web tatsächlich fast nur aus einfachen Webseiten bestand.
                 </p>
                 <p>
                     Innerhalb der folgenden 15 Jahre 📆 hatten sich die Art der Webseiten und der
-                    Umfang der Webanwendungen jedoch grundlegend verändert. Und wie
-                    du auf der vorherigen Folie gesehen hast, hat JavaScript auch immer mehr
-                    Anwendung außerhalb des Browsers gefunden. Deshalb hat es mit HTML 5 dann auch
-                    so lange gedauert. HTML, CSS und JavaScript waren plötzlich nicht mehr im Browser
-                    gefangen und das musste natürlich irgendwie berücksichtigt werden. 🤔
+                    Umfang der Webanwendungen jedoch grundlegend verändert. Und wie du auf der vorherigen
+                    Folie gesehen hast, hat JavaScript auch immer mehr Anwendung außerhalb des Browsers
+                    gefunden. Deshalb hat es mit HTML&nbsp;5 dann auch so lange gedauert. HTML, CSS und
+                    JavaScript waren plötzlich nicht mehr nur im Browser daheim und das musste natürlich
+                    irgendwie berücksichtigt werden.
                 </p>
                 <p>
-                    Im Vergleich zu seinen Vorgängern ist HTML 5 daher eine komplette Neuorientierung.
+                    Im Vergleich zu seinen Vorgängern ist HTML&nbsp;5 daher eine komplette Neuorientierung.
                     Neben den üblichen Definitionen verschiedener HTML-Elemente umfasst der Standard
-                    nun auch eine Vielzahl von JavaScript-Klassen und APIs für ganz unterschiedliche
-                    Aufgaben. 📑 Und viele Funktionen, wie zum Beispiel das <src-code language="html">&lt;video&gt;</src-code>
-                    oder <src-code language="html">&lt;canvas&gt;</src-code>-Element, lassen sich ohne
-                    JavaScript nur sehr eingeschränkt nutzen.
+                    auch eine Vielzahl von JavaScript-Klassen und APIs für ganz unterschiedliche
+                    Aufgaben, was so zuvor nicht gegeben hat. 📑 Viele Funktionen, wie zum Beispiel das
+                    <src-code language="html">&lt;video&gt;</src-code> oder
+                    <src-code language="html">&lt;canvas&gt;</src-code>-Element, lassen sich deshalb
+                    ohne JavaScript nur sehr sehr eingeschränkt nutzen.
                 </p>
                 <p>
                     Damit einher geht auch ein neues Verständnis für das Web. Anstelle eines einfachen
-                    Informationssystems zum Abruf textlastiger Webseiten wird es heute immer mehr als
-                    vollwertige Anwendungsplattform verstanden, deren Bestandteile zur Entwicklung
-                    vieler verschiedener Anwendungen genutzt werden können. Auf der Folie siehst du daher
-                    eine Übersicht aller HTML 5-APIs. Für weitere Details empfehlen wir dir zusätzlich
-                    noch folgende Seiten. Insbesondere auch, weil die Browser noch mehr APIs unterstützen,
-                    als derzeit offiziell verabschiedet wurden.
+                    Informationssystems zum Abruf textartiger Webseiten wird das WWW heute immer mehr als
+                    vollwertige Anwendungsplattform verstanden, deren Bestandteile zur Entwicklung fast
+                    beliebiger Anwendungen genutzt werden können (sofern diese im Browser laufen). Auf der
+                    Folie siehst du daher eine Übersicht aller HTML&nbsp;5-APIs. Für weitere Details empfehlen
+                    wir dir zusätzlich noch folgende Seiten. Insbesondere auch, weil die Browser noch mehr APIs
+                    unterstützen, als derzeit offiziell verabschiedet wurden.
                 </p>
                 <ul>
                     <li>
-                        <a href="http://html5index.org/" target="_blank">The HTML 5 JavaScript API Index</a>
+                        <a href="http://html5index.org/" target="_blank">The HTML&nbsp;5 JavaScript API Index</a>
                     </li>
                     <li>
                         <a href="https://whatwebcando.today/" target="_blank">What Web Can Do Today</a>
@@ -557,9 +624,9 @@
             <aside>
                 <p>
                     Ziemlich cooles Beispiel, nicht? 😎 Wenn du noch nie mit JavaScript zu tun
-                    hattest, wirst du sicher nicht gleich jede Zeile verstehen. Aber sehr
-                    kompliziert sieht der Quellcode dann doch nicht aus. Zumindest sieht er
-                    ziemlich ähnlich zu dem Java aus, dass wir alle kennen und lieben. 💟
+                    hattest, wirst du sicher nicht gleich jede Zeile verstehen. Aber allzu
+                    kompliziert ist der Quellcode dann doch wieder nicht. Zumindest sieht er
+                    ziemlich ähnlich zu dem Java aus, dass wir alle kennen und lieben.
                     Also schauen wir uns doch mal an, was hier passiert.
                 </p>
 
@@ -580,8 +647,8 @@
                     Im <src-code language="html">&lt;body&gt;</src-code> befindet sich dann ein
                     übergeordnetes <src-code language="html">&lt;div&gt;</src-code> mit dem Attribut
                     <src-code language="html">onclick="vorhangAufZu()"</src-code>. Das Attribut wird
-                    dabei auch Event Handler genannt, da es festlegt, was bei Eintreten eines bestimmten
-                    Ereignisses passieren soll. In unserem Fall soll bei einem Mausklick die Funktion
+                    dabei auch „Event Handler” genannt, da es festlegt, was bei Eintreten eines bestimmten
+                    Ereignisses passieren soll. In unserem Fall soll bei einem Mausklick die JS-Funktion
                     <tt>vorhangAufZu()</tt> aufgerufen werden.
                 </p>
                 <p>
@@ -644,16 +711,17 @@
                     <li>
                         <tt>cursor: pointer</tt>: Dadurch ändert sich der Mauszeiger, wenn er über das
                         Bild fährt. Wir geben dem Anwender damit ein kleines, visuelles Feedback, dass
-                        das Bild angeklickt werden kann. 🐾
+                        das Bild angeklickt werden kann.
                     </li>
                 </ol>
                 <p>
+                    ¹
                     <small>
-                        ¹ Warum wir hierfür nicht <src-code language="css">height</src-code> verwenden? Nun,
+                        Warum wir hierfür nicht <src-code language="css">height</src-code> verwenden? Nun,
                         das ist etwas kompliziert. Aus irgend einem Grund erlaubt CSS nur dann die Höhe eines
                         Elements zu ändern, wenn man auch die Höhe aller seiner übergeordneten Elternelemente
                         setzt. Also nur, wenn man bei <src-code language="html">&lt;html&gt;</src-code> anfängt
-                        und allen untergeordneten Elementen bis zu dem, dessen Höhe man setzen will, eine
+                        und allen untergeordneten Elementen bis zu dem Element, dessen Höhe man setzen will, eine
                         explizite Höhe gibt, funktioniert die CSS-Anweisung <src-code language="css">height</src-code>
                         wie gewollt. Klingt komisch, ist aber so. 🐭
                     </small>
@@ -664,7 +732,7 @@
                     <code>right</code> in Position gebracht. 🐈🐶🐗🐒 Würde man dabei alle vier Elemente verwenden,
                     könnte man genau die vier Eckpunkte festlegen. Hier machen wir es aber ein wenig anders: Wir
                     legen nur einen der Eckpunkte fest und geben den Bildern zusätzlich eine Breite. Die passende
-                    Höhe berechnet der Browser dann nämlich von alleine. Zum Beispiel so:
+                    Höhe berechnet der Browser dann ganz von alleine. Zum Beispiel so:
                 </p>
                 <source-code language="css">
                     #theater > .rechts {
@@ -675,8 +743,7 @@
                     }
                 </source-code>
                 <p>
-                    Die Animationen entstehen dann durch folgende Anweisungen (hier am Beispiel des
-                    linken Vorhangs):
+                    Die Animationen entstehen dann durch folgende Anweisungen (hier am Beispiel des linken Vorhangs):
                 </p>
                 <source-code langauge="css">
                     #theater > .links {
@@ -693,10 +760,10 @@
                     Die Anweisung <src-code language="css">transition: left 2s;</src-code> sagt, dass jede
                     Veränderung der Eigenschaft <code>left</code> als zwei Sekunden dauernde Animation
                     abgespielt werden soll. Anfangs ist der Wert <tt>0</tt>, da dies mit <src-code language="css">left: 0</src-code>
-                    so festgelegt wird. Um den Vorhang zu öffnen, wird ihm zusätzlich noch die Klasse
-                    <tt>offen</tt> hinzugefügt, wodurch sich der Wert auf <tt>-50%</tt> ändert. Dementsprechend
-                    wird die Klasse <tt>offen</tt> einfach wieder entfernt, um den Vorhang zu schließen,
-                    da der Wert dann auf <tt>0</tt> zurück geht.
+                    so festgelegt wird. Um den Vorhang zu öffnen, muss ihm nur die CSS-Klasse <tt>offen</tt>
+                    hinzugefügt werden, wodurch sich der Wert auf <tt>-50%</tt> ändert, was der Browser
+                    entsprechend animiert. Umgekehrt muss die Klasse <tt>offen</tt> einfach wieder entfernt
+                    werden, um den Vorhang zu schließen, da der Wert dann auf <tt>0</tt> zurück geht.
                 </p>
 
                 <h2>JavaScript</h2>
@@ -709,8 +776,7 @@
                     Fertig ist ein perfekter Theaterabend. 💐
                 </p>
                 <p>
-                    Hangeln wir uns hier mal Stück für Stück durch den Quellcode und fangen mit den
-                    ersten sechs Zeilen an:
+                    Hangeln wir uns Stück für Stück durch den Quellcode und fangen mit den ersten sechs Zeilen an:
                 </p>
                 <source-code language="javascript">
                     vorhangIstOffen = false;
@@ -738,14 +804,15 @@
                     </li>
                 </ol>
                 <p>
+                    ²
                     <small>
-                        ² Globale Variablen sind im gesamten JavaScript-Code gültig. Das Gegenteil davon sind
+                        Globale Variablen sind im gesamten JavaScript-Code gültig. Das Gegenteil davon sind
                         lokale Variablen, die nur innerhalb einer einzelnen Funktion (siehe unten) existieren.
                     </small>
                 </p>
                 <p>
                     Hm, sieht eigentlich ziemlich ähnlich zu Java aus, nur dass vor den Variablennamen
-                    nichts steht. 🤔 Doch ab da, wird es dann doch ein wenig anders:
+                    nichts steht. Doch ab da wird es dann doch ein wenig anders:
                 </p>
                 <source-code language="javascript">
                     function vorhangAufZu() {
@@ -768,8 +835,8 @@
                     let vorhangRechts = document.querySelector("#theater &gt; .rechts");
                 </source-code>
                 <p>
-                    Die Syntax für <code>document.querySelector</code> ist dabei dieselbe Syntax, die du auch
-                    schon von CSS her kennst. Das Ergebnis wird jeweils ein eine lokale Variable gespeichert,
+                    Die Syntax für den Parameter von <code>document.querySelector()</code> ist dabei dieselbe,
+                    die du auch von CSS her kennst. Das Ergebnis wird jeweils in eine lokale Variable gespeichert,
                     was du am vorangestellten <code>let</code> erkennen kannst. Darauf folgt dann eine Prüfung,
                     ob der Vorhang offen oder geschlossen ist:
                 </p>
@@ -828,7 +895,7 @@
                     }
                 </source-code>
                 <p>
-                    Wie du siehst, ist das gar kein besonders komplizierter Quellcode.
+                    Wie du siehst, ist das kein besonders komplizierter Quellcode.
                     Lediglich der letzte Befehl hat es etwas in sich. Um ihn zu verstehen,
                     musst du wissen, wie die Methode <src-code language=javascript>window.setTimeout()</src-code>
                     definiert ist:
@@ -842,9 +909,8 @@
                     JavaScript anders als in Java ganz normale Objekte sind, die man zum Beispiel
                     in einer Variable ablegen oder eben auch einer anderen Funktion als Parameter
                     übergeben kann. Und <src-code language=javascript>() =&gt; …</src-code> ist in
-                    JavaScript die Schreibweise für eine anonyme Funktion ohne Namen. Also das, was
-                    in Java eine Lambda-Funktion ist. Etwas leserlicher hätten wir deshalb auch schreiben
-                    können:
+                    JavaScript die Schreibweise für eine anonyme Lambda-Funktion. Also eine Funktion
+                    ohne Namen. Etwas leserlicher hätten wir deshalb auch schreiben können:
                 </p>
                 <source-code language=javascript>
                     function bildWechseln() {
@@ -872,8 +938,8 @@
             <aside>
                 <p>
                     Eine neue Programmiersprache lernt man am besten, indem man sie ausprobiert.
-                    Die meisten Quellcodebeispiele kannst du daher in <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a>,
-                    unserem interaktiven JavaScript-Editor, direkt ausprobieren. 🙌 Alles, was
+                    Die meisten Beispiele kannst du daher in <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a>,
+                    unserem interaktiven JavaScript-Editor, direkt ausprobieren. Alles, was
                     du hierfür tun must, ist den Quellcode einzutippen und dann auf <i>Ausführen</i>
                     zu klicken. Schon siehst du unten drunter das Ergebnis.
                 </p>
@@ -1384,11 +1450,8 @@
                     <a href="https://en.wikipedia.org/wiki/List_of_C-family_programming_languages" target="_blank">
                     C-ähnlichen Sprachen</a>. Beide Sprachen haben sozusagen vom selben Nachbarn
                     abgeschrieben. Auch ohne tiefe Kenntnisse solltest du JavaScript-Code daher
-                    relativ einfach lesen können. 📕
-                </p>
-                <p>
-                    Für einen tieferen Einstieg in JavaScript empfehlen wir dir
-                    die <a href="https://developer.mozilla.org/de/docs/Web/JavaScript" target="_blank">
+                    relativ einfach lesen können. 📕 Für einen tieferen Einstieg in JavaScript empfehlen
+                    wir dir die <a href="https://developer.mozilla.org/de/docs/Web/JavaScript" target="_blank">
                     JavaScript-Übersicht</a> im Mozilla Developer Network.
                 </p>
             </aside>
@@ -2167,7 +2230,7 @@
                     <tt>m</tt> erwartet und als Ergebnis <tt>n * m</tt> zurückliefert.
                 </p>
                 <p>
-                    Dir saust der Kopf? 😱 Du findest das ziemlich kompliziert? Du hältst es
+                    Dir saust der Kopf? Du findest das ziemlich kompliziert? Du hältst es
                     vielleicht sogar für höhere Magie? 🔮 Mach dir nichts daraus. Wir wollten
                     es nur mal erwähnen. Wenn dich das Thema mehr interessiert, lies dir auf
                     Wikipedia den Artikel über <a href="https://de.wikipedia.org/wiki/Closure_(Funktion)" target="_blank">
@@ -3276,23 +3339,21 @@
             </article>
             <aside>
                 <p>
-                    In diesem Foliensatz wollen wir uns mehr mit dem Zusammenspiel von HTML
+                    In diesem Teilkapitel wollen wir uns mehr mit dem Zusammenspiel von HTML
                     und JavaScript beschäftigen. Aus diesem Grund siehst du hier nochmal
-                    zwei Beispiele dafür, wie JavaScript in eine HTML-Datei eingebunden
-                    werden kann.
-                </p>
-                <p>
-                    Wie du siehst, ist es nicht anders, als mit CSS. Auch da hast du die Wahl,
-                    ob du den Code direkt in die HTML-Seite einbauen oder in eine eigene Datei
-                    auslagern willst. Doch im Gegensatz zu CSS gibt es für JavaScript keine zwei
-                    unterschiedlichen HTML-Tags. 🎎 Für beide Varianten wird stattdessen das
+                    Beispiele dafür, wie JavaScript in eine HTML-Datei eingebunden werden
+                    kann. Wie du siehst, ist es nicht anders, als mit CSS. Auch da hast
+                    du die Wahl, ob du den Code direkt in die HTML-Seite einbauen oder in
+                    eine eigene Datei auslagern willst. Doch im Gegensatz zu CSS gibt es
+                    für JavaScript keine zwei unterschiedlichen HTML-Tags. Für beide
+                    Varianten wird stattdessen das
                     <src-code language="html">&lt;script&gt;</src-code>-Tag verwendet.
                 </p>
 
                 <p>
-                    Willst du den JavaScript-Code direkt in die HTML-Datei schreiben, machst du
-                    das so. Das <src-code language="html">&lt;script&gt;</src-code>-Element darf
-                    dabei sowohl im <src-code language="html">&lt;head&gt;</src-code> als auch im
+                    Willst du den JavaScript-Code direkt in die HTML-Datei schreiben, machst du das
+                    wie unten gezeigt. Das <src-code language="html">&lt;script&gt;</src-code>-Element
+                    darf dabei sowohl im <src-code language="html">&lt;head&gt;</src-code> als auch im
                     <src-code language="html">&lt;body&gt;</src-code> stehen.
                 </p>
 
@@ -3312,8 +3373,8 @@
                     &lt;script src="script.js"&gt;&lt;/script&gt;
                 </source-code>
                 <p>
-                    Wichtig dabei ist, dass das <src-code language="html">&lt;script&gt;</src-code>-Tag
-                    sich nicht selbst schließen darf. Du brauchst also zwingend immer auch das schließende
+                    Dabei ist allerdings ganz wichtig, dass sich das <src-code language="html">&lt;script&gt;</src-code>-Tag
+                    nicht selbst schließen darf! Du brauchst also zwingend immer auch das schließende
                     <src-code language="html">&lt;/script&gt;</src-code>-Tag.
                     <src-code language="html">&lt;script … /&gt;</src-code> ist <b>nicht</b> erlaubt.
                 </p>
@@ -3321,9 +3382,9 @@
                 <h2>Hinweis zu den Beispielen</h2>
                 <p>
                     In den Beispielen siehst du bereits verschiedene Objekte und Methoden, die wir uns auf
-                    <a href="#3">Folie 3</a> noch genauer anschauen werden. Unter anderem siehst du hier,
+                    <a href="#21">Folie 21</a> noch genauer anschauen werden. Unter anderem siehst du hier,
                     wie du mit <src-code language="javascript">document.getElementById()</src-code> auf
-                    einzelne HTML-Elemente anhand ihrer ID zugreifen kannst. 🆔 Außerdem siehst du, wie du
+                    einzelne HTML-Elemente anhand ihrer ID zugreifen kannst. Außerdem siehst du, wie du
                     mit der <src-code language="javascript">addEventListener()</src-code>-Methode auf
                     bestimmte Ereignisse reagieren kannst. 🔔 Die Details dazu schauen wir uns aber gleich
                     nochmal genauer an.
@@ -3504,57 +3565,54 @@
                 <p>
                     Doch neben einfachen Konsolenausgaben kann die Konsole noch mehr. Unter
                     anderem siehst du hier auch Fehlermeldungen und Warnungen, die der Browser
-                    beim Anzeigen der Seite ausgibt. Diese kannst du mit den Filterknöpfen
+                    beim Ausführen der Seite ausgibt. Diese kannst du mit den Filterknöpfen
                     oberhalb der Konsole nach Belieben ein- und ausblenden.
                 </p>
                 <img src="filter_buttons.png" class="d-block" style="width: 100%" />
                 <p>
                     Darüber hinaus kannst du hier auch beliebigen JavaScript-Code ausführen.
-                    Hierfür ist die Eingabezeile ganz unten da. Dort kannst du einfach beliebige
-                    Anweisungen eingeben und diese mit <kbd>Enter</kbd> dann ausführen. Das
-                    Tolle daran ist, dass du auch einfach den Namen einer Variablen eingeben
+                    Hierfür ist die Eingabezeile ganz unten da. Dort kannst du beliebige
+                    Anweisungen eingeben und diese mit <kbd>Enter</kbd> ausführen. Das Tolle
+                    daran ist, dass du auch einfach mal eben den Namen einer Variablen eingeben
                     kannst, die du dir gerade ansehen willst. Der Inhalt der Variable wird dann
                     in der Konsole angezeigt und kann dort mit einem Mausklick weiter untersucht
-                    werden.
-                </p>
-                <p>
-                    Handelt es sich bei der Variable um einen komplexen Typ (also um ein Dictionary
-                    oder ein Array) wird ihr Inhalt nach dem Anklicken in einem separaten Bereich
-                    am rechten Rand angezeigt. Dort siehst du dann alle Inhalte des Objekts und
-                    kannst diese weiter untersuchen. Ziemlich cool, was die Konsole alles kann. 😎
+                    werden. Handelt es sich bei der Variable um einen komplexen Typ (also um ein
+                    Dictionary oder ein Array) wird ihr Inhalt nach dem Anklicken in einem separaten
+                    Bereich am rechten Rand angezeigt. Dort siehst du dann alle Inhalte des Objekts
+                    und kannst diese weiter untersuchen. Ziemlich cool, was die Konsole alles kann. 😎
                 </p>
 
                 <h2>Der Debugger</h2>
                 <p>
-                    Reicht dir die Konsole alleine nicht aus, herauszufinden, warum der JavaScript-Code
-                    nicht tut, was er soll, kannst du ihn mit dem Debugger untersuchen. 😷 Denn dort
+                    Reicht die Konsole alleine nicht aus, um herauszufinden, warum ein JavaScript-Code
+                    nicht das tut, was er soll, kannst du ihn mit dem Debugger untersuchen. 😷 Dort
                     siehst du den kompletten Quellcode deiner Seite und kannst mit einem einfachen Klick
                     am linken Rand einen Breakpoint setzen. Lädst du dann die Seite mit <kbd>F5</kbd> neu,
                     bleibt das Programm an genau dieser Stelle stehen. Vorausgesetzt natürlich, es kommt
                     an der Stelle überhaupt vorbei und die Entwicklerwerkzeuge sind geöffnet. Mit den
-                    entsprechenden Knöpfen am linken Rand kannst du dann Schritt für Schritt jede Anweisung
-                    einzeln ausführen oder das Programm weiterlaufen lassen.
+                    entsprechenden Knöpfen neben dem Code kannst du dann Schritt für Schritt durchsteppen
+                    oder das Programm weiterlaufen lassen.
                 </p>
                 <p>
                     Am rechten Rand siehst du dabei eine Liste aller Variablen, auf die das Programm
-                    an der aktuellen Stelle zugreifen kann. Der Aufbau der Liste ist am Anfang zwar
-                    etwas gewöhnungsbedürftig, man findet dann aber doch alle Variablen darin, die
+                    an der aktuellen Stelle zugreifen kann. Der Aufbau der Liste ist am Anfang etwas
+                    gewöhnungsbedürftig, nach einer Weile findet mann dort aber alle Variablen, die
                     man sucht. Denn der komische Aufbau kommt daher, dass die Ansicht in verschiedene
                     Bereiche für globale Variablen, lokale Variablen, die Eingangsparameter der
-                    aktuellen Funktion und so weiter aufgeteilt ist. 😕
+                    aktuellen Funktion und so weiter aufgeteilt ist.
                 </p>
                 <p>
                     Willst du übrigens in einer größeren Seite mit vielen JavaScript-Dateien nicht erst
                     die Quellcodestelle im Debugger suchen, um dort einen Breakpoint zu setzen, kannst du
                     stattdessen auch einfach die Anweisung <src-code language="javascript">debugger</src-code>
-                    in den Quellcode schreiben. Dies bewirkt dasselbe, wie ein mit der Maus gesetzter
+                    in den Quellcode einbauen. Dies bewirkt dasselbe, wie ein mit der Maus gesetzter
                     Breakpoint. Das Programm hält an der entsprechenden Stelle an, wenn die Entwicklerwerkzeuge
                     geöffnet sind.
                 </p>
                 <p>
                     Wechselst du, während das Programm gerade angehalten wird, in die Konsole, kannst
                     du dort JavaScript-Anweisungen eingegeben, die an der aktuellen Stelle des Programms
-                    ausgeführt wird. Das kann einerseits ganz hilfreich sein, um sich einzelne Werte
+                    ausgeführt werden. Das kann einerseits ganz hilfreich sein, um sich einzelne Werte
                     anzusehen, ohne sie in der Liste der Variablen suchen zu müssen. Viel interessanter
                     dabei ist aber, dass du dadurch den Ablauf des Programms ändern kannst, indem du
                     einfach zusätzliche Anweisungen eingibst, die so nicht im Quellcode stehen.
@@ -4746,7 +4804,7 @@
                 <p>
                     Probiere die Anwendung ruhig ein wenig aus, bevor du hier weiter liest. Wie du siehst,
                     handelt es sich um eine einfache Stoppuhr ⏰, die eine vorgegebene Anzahl an Sekunden
-                    runterzählt. Mit den Knöpfen <kbd>➕</kbd> und <kbd>➖</kbd> kannst du die Sekunden stellen
+                    runterzählt. Mit den Knöpfen <kbd>+</kbd> und <kbd>-</kbd> kannst du die Sekunden stellen
                     und mit <kbd>▶</kbd> lässt du die Uhr laufen oder hältst sie wieder an. Ob die Uhr läuft,
                     siehst du dabei oben rechts. Sobald die Uhr auf Null steht, bleibt sie automatisch stehen.
                 </p>
@@ -4791,7 +4849,7 @@
 
                 <h2>Das Stylesheet</h2>
                 <p>
-                    Das Stylehsset schauen wir uns nicht weiter an. 😏 Schließlich ist JavaScript hier
+                    Das Stylehsset schauen wir uns nicht weiter an. Schließlich ist JavaScript hier
                     der Star 🌟 und die meisten CSS-Anweisungen solltest du ganz gut nachvollziehen können.
                     Lediglich die Anweisung <src-code language="css">outline: 0</src-code> ist etwas
                     ungewöhnlich. Sie sorgt dafür, dass die Buttons in manchen Browsern keinen gestrichelten
@@ -4819,7 +4877,7 @@
                     entdeckt. Alle HTML-Elemente nach dem <src-code language="html">&lt;script&gt;</src-code>-Tag
                     hat der Browser zu diesem Zeitpunkt aber noch nicht gesehen und daher auch noch nicht in
                     den DOM-Baum eingefügt. Das <tt>load</tt>-Ereignis wird daher erst ausgelöst, wenn alle
-                    Elemete im DOM-Baum enthalten sind 🌴.
+                    Elemete im DOM-Baum 🌴 enthalten sind.
                 </p>
                 <p>
                     Am Anfang der Funktion werden daher erst einmal alle HTML-Elemente ermittelt, die für den
@@ -6341,7 +6399,7 @@
                 <p>
                     Nach all den vielen Detailinformationen und den total frei erfundenen Mini-Beispielen
                     freuen wir uns, dir hier nun ein absolut praxistaugliches Beispiel zeigen zu können,
-                    wofür JavaScript in einer echten Webseite 💰 genutzt werden kann: 🤓 Zum Ein- und Ausblenden
+                    wofür JavaScript in einer echten Webseite 💰 genutzt werden kann: Zum Ein- und Ausblenden
                     einzelner Inhalte, um somit Tabreiter zu realisieren. Denn, wie du sicher weißt, kennt
                     HTML zwar alle möglichen Elemente, aber eben keine Tabreiter. Und vor allem auch keine,
                     die so gut aussehen, wie in diesem Beispiel hier. 🤖
@@ -6358,15 +6416,16 @@
                     So, jetzt aber zurück zu unserem Beispiel. Wie immer, besteht der ganze Zauber aus dem
                     geschickten Zusammenspiel von HTML, CSS und JavaScript. Das CSS wollen wir an dieser
                     Stelle aber mal außen vor lassen und uns nur den HTML- und JavaScript-Code anschauen.
-                    Wenn du willst, kannst du die Stylesheets ja trotzdem studieren. 📘
+                    Wenn du willst, kannst du die Stylesheets ja trotzdem studieren.
                 </p>
 
                 <h2>Der HTML-Quellcode</h2>
                 <p>
                     Die HTML-Struktur besteht eigentlich aus zwei voneinander unabhängigen Teilen: Den anklickbaren
-                    Laschen (auch Reiter genannt) und den durch sie umgeschalteten Inhalten (den Seiten). Beide Teile
-                    werden im HTML-Code an unterschiedlichen Stellen definiert, da sie nicht wirklich ein großes,
-                    untrennbares Element bilden, wie du es vielleicht von anderen Programmen her kennst:
+                    Feldern (auch Reiter genannt, hier im Beispiel sind das die schwarzen und weißen „Kasten” mit den
+                    Namen darin) und den durch sie umgeschalteten Inhalten (den Seiten). Beide Teile werden im HTML-Code
+                    an unterschiedlichen Stellen definiert, da sie nicht wirklich ein großes, untrennbares Element bilden,
+                    wie du es vielleicht von anderen Programmen her kennst:
                 </p>
                 <img src="gtk_notebook.png" class="d-block" style="max-width: 100%;" />
                 <p>
@@ -6375,11 +6434,11 @@
                     </small>
                 </p>
                 <p>
-                    Stattdessen sind die Laschen einfach nur in der Nähe des Inhalts platziert, damit für den Betrachter
-                    der Eindruck entsteht, sie würden zusammengehören. Ein häufig genutzter Trick dabei ist, die aktive
-                    Lasche in derselben Farbe wie ihre Inhaltsseite darzustellen und die Laschen direkt oberhalb des
-                    Inhalts zu platzieren. So wie hier im Beispiel, wo die aktive Lasche weiß ist und durch ihre Position
-                    scheinbar mit dem Inhalt verschmilzt. 🤔
+                    Stattdessen sind die Umschaltknöpfe einfach nur in der Nähe des Inhalts platziert, damit für den Betrachter
+                    der Eindruck entsteht, sie würden zusammengehören. Ein häufig genutzter Trick dabei ist, den gerade aktiven
+                    Umschalter in derselben Farbe wie der Seite darzustellen und die Schalter direkt oberhalb des Inhalts zu
+                    platzieren. So wie hier im Beispiel, wo der aktive Reiter weiß ist und durch seine Position scheinbar mit
+                    dem Inhalt verschmilzt.
                 </p>
                 <p>
                     Die Definition der Reiter (hier innerhalb des Headers) sieht wie folgt aus:
@@ -6575,8 +6634,7 @@
                     }
                 </source-code>
                 <p>
-                    Das ist alles. Eigentlich gar nicht so kompliziert und wie gesagt eine schöne Vorlage
-                    für deine eigenen Seiten. 🤗
+                    Das ist alles. Eigentlich gar nicht so kompliziert. 🤗
                 </p>
             </aside>
         </section>
@@ -7096,10 +7154,11 @@
                 </p>
                 <p>
                     Eine Grundregel der Webentwicklung besagt zwar, dass der Server alle empfangenen
-                    Daten zwingend validieren muss, um Sicherheitslücken zu vermeiden. 🙈 Um die Seite
+                    Daten zwingend validieren muss, um Sicherheitslücken zu vermeiden. Um die Seite
                     aber für den Anwender so komfortabel wie möglich zu machen, sollte man die Eingaben
                     vor dem Abschicken auch clientseitig überprüfen. Somit kann der Anwender auf fehlende
-                    oder falsche Eingaben aufmerksam gemacht werden, bevor sie überhaupt versendet werden. 🔔
+                    oder falsche Eingaben aufmerksam gemacht werden, 🔔 bevor sie tatsächlich versendet
+                    werden.
                 </p>
 
                 <h2>Der HTML-Code</h2>
@@ -7872,18 +7931,116 @@
         <section data-background-color="rgb(153, 190, 137)">
             <h1>Do &amp; Don't</h1>
             <article>
-                <h4>Darauf solltest du achten</h4>
+                <h4>Grundregeln für guten JavaScript-Code</h4>
                 <ul>
                     <li>
-                        …
+                        Leserlicher, gut kommentierter Code ist auch in JavaScript King!
+                    </li>
+                    <li>
+                        Nutze <a href="http://es6-features.org/" target="_blank">modernes JavaScript</a> (ES6 oder neuer)
+                        anstelle veralteter Techniken.
+                    </li>
+                    <li>
+                        Ignoriere deshalb alle JavaScript-Tutorials von vor 2015. Sie sind alle veraltet.
+                    </li>
+                    <li>
+                        Nutze keine globalen Variablen, wenn es nicht absolut sein muss.
+                    </li>
+                    <li>
+                        Deklariere lokale Variablen immer mit <src-code language="javascript">let</src-code>
+                        oder <src-code language="javascript">var</src-code>.
+                    </li>
+                    <li>
+                        Verwende in neuem Code jedoch immer <src-code language="javascript">let</src-code>
+                        anstatt <src-code language="javascript">var</src-code>.
+                    </li>
+                    <li>
+                        Nutze die Pfeilsyntax für Funktionen anstelle von <src-code language="javascript">function</src-code>.
+                    </li>
+                    <li>
+                        Nutze <src-code language="javascript">function</src-code> nur für globale nicht-anonyme Funktionen.
+                    </li>
+                    <li>
+                        Vergleiche zwei Werte möglichst immer mit <code>===</code> anstatt mit <code>==</code>.
+                    </li>
+                    <li>
+                        Dadurch sind zweite Werte nur dann gleich, wenn sie auch denselben Typ besitzen.
+                    </li>
+                    <li>
+                        Beschäftige dich mit <a href="https://scotch.io/tutorials/javascript-promises-for-dummies" target="_blank">Promises</a>
+                        und nutze sie wo sinnvoll.
+                    </li>
+                    <li>
+                        Nutze <code>async</code> und <code>await</code>, um die Arbeit mit Promises
+                        <a href="https://javascript.info/async-await" target="_blank">zu vereinfachen</a>.
+                    </li>
+                    <li>
+                        Beschäftige dich wenigstens in Grundzügen mit der
+                        <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Klassen" target="_blank">Objektorientierung in JavaScript</a>.
+                    </li>
+                </ul>
+
+                <h4>DOM-Manipulation mit JavaScript</h4>
+                <ul>
+                    <li>
+                        Nutze <src-code language="javascript">querySelector()</src-code> und
+                        <src-code language="javascript">querySelectorAll()</src-code>, um
+                        komplizierte DOM-Zugriffe zu vereinfachen.
+                    </li>
+                    <li>
+                        Vermeide direkte Änderungen am <code>style</code>-Attribut eines DOM-Elements.
+                    </li>
+                    <li>
+                        Schalte stattdessen mit <src-code language="javascript">element.classList</src-code>
+                        einzelne Stylesheet-Regeln ein oder aus.
+                    </li>
+                    <li>
+                        Versuche, möglichst viele DOM-Manipulationen in einer zentralen Methode zu sammeln.
+                    </li>
+                    <li>
+                        Nimm DOM-Manipulationen keinesfalls wo du gehst und stehst überall im JS-Code vor.
+                    </li>
+                    <li>
+                        Nutze Frameworks wie <a href="http://jquery.com/" target="_blank">jQuery</a> nur,
+                        wenn du mit reinem JavaScript nicht weiter kommst.
+                    </li>
+                    <li>
+                        Die Standardklassen von JavaScript können mehr als du denkst oder die
+                        Frameworks zugeben.
+                    </li>
+                </ul>
+
+                <h4>Nützliche Werkzeuge</h4>
+                <ul>
+                    <li>
+                        Mache ausgiebigen Gebrauch von der JavaScript-Konsole und dem Debugger deines Browsers.
+                    </li>
+                    <li>
+                        Nutze das von node.js bekannte <a href="https://www.npmjs.com/" target="_blank">npm</a>,
+                        um die Abhängigkeiten in deinen Projekten zu verwalten.
+                    </li>
+                    <li>
+                        Andere Werkzeuge wie <a href="https://bower.io/" target="_blank">Bower</a> oder
+                        <a href="http://browserify.org/" target="_blank">Browserify</a> sind inzwischen
+                        schon nicht mehr modern.
+                    </li>
+                    <li>
+                        Nutze Packer wie <a href="https://webpack.js.org/" target="_blank">Webpack</a>
+                        oder <a href="https://parceljs.org/" target="_blank">Parceljs</a>, um die Ladezeiten
+                        deiner Seiten zu optimieren.
+                    </li>
+                    <li>
+                        Nutze sie außerdem, um deinen JavaScript-Code in sauber gekapselt Module zu teilen.
+                    </li>
+                    <li>
+                        Lerne aber erst die Sprache selbst und beschäftige dich erst dann mit den Werkzeugen!
                     </li>
                 </ul>
             </article>
             <aside>
                 <p>
-                    Dies sind sie: Die berühmten letzten Worte. 📄 Auf dieser Folie haben wir ein paar allgemeine
-                    Tipps zusammengestellt, worauf du bei …
-                    achten solltest.
+                    Hier ist er: Der Weisheit letzter Schluss. 🏁 Auf dieser Folie haben wir ein paar allgemeine
+                    Tipps zusammengestellt, worauf du beim Programmieren achten solltest.
                 </p>
                 <img src="../../do-dont.svg" class="d-block" style="width: 20em; max-width: 100%; margin-bottom: 0.5em;" />
                 <p>
@@ -7916,7 +8073,7 @@
 
                 <h4>Urheberrecht und Lizenzvereinbarung</h4>
                 <p>
-                    © 2017 Dennis Schulmeister-Zimolong <br/>
+                    © 2017 – 2018 Dennis Schulmeister-Zimolong <br/>
                     <a href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien" target="_blank">https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien</a>
                 </p>
                 <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons Lizenzvertrag" />
