@@ -30,18 +30,87 @@
             <article>
                 <h3>Nach Abschluss dieser Einheit kannst du …</h3>
                 <ul>
-                    <!--
                     <li>
-                        den Begriff <span class="dhbw-lightblue font-weight-bold">verteiltes System</span>
-                        erklären und von ähnlichen Begriffen abgrenzen.
+                        die Funktionsweise des <span class="dhbw-lightblue font-weight-bold">HTTP-Protokolls</span>
+                        mitsamt der wichtigsten Befehle und Statuscodes wiedergeben.
                     </li>
-                    -->
+                    <li>
+                        den Datenaustausch zwischen Browser und Server aufzeichnen und analysieren.
+                    </li>
+                    <li>
+                        die <span class="dhbw-lightblue font-weight-bold">drei Arten von Webanwendungen</span>
+                        erklären und voneinander abgrenzen.
+                    </li>
+                    <li>
+                        die Funktionsweise <span class="dhbw-lightblue font-weight-bold">serverseitigen Javacodes</span>
+                        in einem <span class="dhbw-lightblue font-weight-bold">Webcontainer</span> verstehen.
+                    </li>
+                    <li>
+                        <span class="dhbw-lightblue font-weight-bold">Java Server Pages</span> von anderen, ähnlich
+                        funktionierenden Technologien abgrenzen.
+                    </li>
+                    <li>
+                        eigene, kleine Java-Webanwendungen in Netbeans anlegen und testweise laufen lassen.
+                    </li>
+                    <li>
+                        <span class="dhbw-lightblue font-weight-bold">Java Server Pages</span> als Templatesprache
+                        für mehrere Seiten mit gleichem Layout verwenden.
+                    </li>
+                    <li>
+                        den typischen Ablauf eines serverseitigen MVC-Webframeworks verstehen.
+                    </li>
+                    <li>
+                        HTTP-Anfragen mit <span class="dhbw-lightblue font-weight-bold">Servlets</span>
+                        abfangen und eine Antwort darauf generieren.
+                    </li>
+                    <li>
+                        eine MVC-artige Aufgabenteilung mit Servlets und Java Server Pages realisieren.
+                    </li>
                 </ul>
                 <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
             </article>
             <aside>
                 <p>
-                    …
+                    Jetzt geht die Vorlesung schon so lange und wir haben uns die ganze Zeit nur mit
+                    dem Browser beschäftigt. Dass eine Webanwendung immer auch einen Webserver benötigt,
+                    haben wir zwar gewusst, angesichts der vielfältigen Möglichkeiten des Browsers aber
+                    nicht weiter vertieft. Aus diesem Grund haben wir es auch als gegeben angesehen,
+                    dass die von uns erstellen Code-Dateien irgendwie via HTTP vom Server an den Browser
+                    übertragen werden. Im Grunde genommen ist dagegen gar nichts einzuwenden, manche
+                    Dinge verstehen wir aber erst, wenn wir das <b>HTTP-Protokoll</b> kennenlernen und
+                    uns nun genauer anschauen.
+                </p>
+                <p>
+                    Lange bevor die Browser so leistungsfähig waren, war die einzige Möglichkeit,
+                    einer Webanwendung etwas Intelligenz beizubringen, diese auf dem Server
+                    auszuprogrammieren. Heutzutage hat sich das zwar ein gutes Stück weit relativiert,
+                    die wenigsten Anwendungen kommen aber vollständig ohne serverseitige Logik aus.
+                    Nachdem wir das HTTP-Protokoll deshalb hinter uns gelassen haben, schauen wir
+                    uns an, welche <b>drei Arten von Webanwendungen</b> es gibt und welche Vor-
+                    und Nachteile sie alle haben. Danach wechseln wir dann endgültig auf den Server
+                    und schauen uns die serverseitige <b>Webentwicklung mit Java</b> an.
+                </p>
+                <p>
+                    Bevor wir jedoch so richtig in Java abtauchen, lernen wir erst den typischen
+                    <b>MVC-Ablauf</b> kennen, den so gut wie jedes moderne, serverseitige Webframework
+                    implementiert. Denn einerseits hilft uns das, unseren eigenen Java-Code besser
+                    zu verstehen und zu strukturieren. Andererseits ist es aber auch genau dieses
+                    Hintergrundwissen, dass dir später helfen wird, wenn du mal mit einer anderen
+                    Programmiersprache unterwegs sein wirst.¹ Darauf aufbauend werden wir die
+                    kennengelernten Konzepte dann auf Java übertragen und sehen, wie diese mit
+                    <b>Servlets</b> und <b>Java Server Pages</b> elegant umgesetzt werden können.
+                </p>
+                <p>
+                    ¹
+                    <small>
+                        Was angesichts der weiten Verbreiten anderer Sprachen wie Python, Go, Ruby
+                        oder JavaScript sehr wahrscheinlich sein wird.
+                    </small>
+                </p>
+                <p>
+                    Es ist ein langer Weg. Bist du aber erst einmal am Ende angekommen, kannst du
+                    endgültig von dir behaupten, einen guten Überblick über das Gebiet der Webentwicklung
+                    zu haben.
                 </p>
             </aside>
         </section>
@@ -296,7 +365,7 @@
                     Das Meisten davon haben wir uns inzwischen genauer angeschaut, so dass
                     du heute sicher viel besser nachvollziehen kannst, warum diese Techniken
                     für das Web so wichtig sind. Aber halt, Moment mal. 🙋 Haben wir nicht
-                    etwas vergessen? Ach ja richtig: Der Server. 🤤 Den haben wir uns ja noch
+                    etwas vergessen? Ach ja richtig: Der Server! Den haben wir uns ja noch
                     gar nicht angeschaut. Und das, obwohl er für so viele Webanwendungen so
                     unheimlich wichtig ist. Zeit also, dass wir das hier nun nachholen.
                     Doch bevor wir das tun können, müssen wir erst eine ganz zentrale Frage
@@ -309,7 +378,7 @@
                     </i>
                 </p>
                 <p>
-                    Die Antwort darauf siehst du auf dieser Folie. 🎟️
+                    Die Antwort darauf siehst du auf dieser Folie.
                 </p>
                 <p>
                     <small>
@@ -787,12 +856,10 @@
 
                 <h2>Alles beginnt mit einer Anfrage</h2>
                 <p>
-                    HTTP ist wirklich ein simples Protokoll. Oder zumindest war es das einmal, als es erfunden wurde. Im Laufe der
-                    Zeit wurde es natürlich immer mehr erweitert. In seinen Grundzügen ist es aber immer noch relativ einfach:
-                    Der Browser stellt eine Verbindung zum Server her, sendet eine Anfrage und bekommt eine Antwort. Ende. 👸🏼
-                </p>
-                <p>
-                    Die Anfrage beinhaltet dabei stets folgende Daten:
+                    HTTP ist wirklich ein simples Protokoll. Oder zumindest war es das einmal, als es erfunden wurde. Denn im
+                    Laufe der Zeit wurde es natürlich immer mehr erweitert. In seinen Grundzügen ist es aber immer noch relativ
+                    einfach: Der Browser stellt eine Verbindung zum Server her, sendet eine Anfrage und alle leben Glücklich
+                    bis an ihr Lebensende. Die Anfrage beinhaltet dabei stets folgende Daten:
                 </p>
                 <ul>
                     <li>
@@ -802,7 +869,7 @@
                     <li>
                         <b>Pfad:</b> Der Dateipfad, auf den sich die Anfrage bezieht. Oft handelt es sich einfach um eine
                         Datei, die der Server zurückschicken soll. Das muss aber nicht so sein, wie wir später noch sehen
-                        werden. 😮
+                        werden.
                     </li>
                     <li>
                         <b>HTTP-Version:</b> In HTTP/1 dient dies hauptsächlich dazu, die Anfrage von der Antwort zu unterscheiden.
@@ -827,9 +894,9 @@
 
                 <h2>Und endet mit einer Antwort</h2>
                 <p>
-                    Die Antwort des Servers sieht im Prinzip genauso aus, wie eine Anfrage. Anstelle von Verb und Pfad beinhaltet
-                    sie jedoch einen Statuscode, der darüber Auskunft gibt, ob die angeforderte Aktion ausgeführt werden konnte.
-                    Jede Antwort beinhaltet daher folgende Daten:
+                    Die Antwort des Servers sieht im Prinzip genauso aus. Anstelle von Verb und Pfad beinhaltet sie jedoch einen
+                    Statuscode, der darüber Auskunft gibt, ob die angeforderte Aktion ausgeführt werden konnte. Jede Antwort
+                    beinhaltet daher folgende Daten:
                 </p>
                 <ul>
                     <li>
@@ -954,7 +1021,7 @@
                 </p>
 
                 <div class="embed-responsive embed-responsive-16by9" style="margin-bottom: 1em">
-                    <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/xEd-SEzgkF4?rel=0?rel=0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/Dgwyo6JNTDA?rel=0" allowfullscreen></iframe>
                 </div>
             </aside>
         </section>
@@ -3421,8 +3488,9 @@
                     um eine vollständige, serverseitige Webanwendung, wie die beiden Screenshots auf der Folie zeigen.¹ 📷
                 </p>
                 <p>
+                    ¹
                     <small>
-                        ¹ Die Ordner <tt>META-INF</tt> und <tt>WEB-INF</tt> generiert Netbeans automatisch. Du solltest sie auch nicht löschen.
+                        Die Ordner <tt>META-INF</tt> und <tt>WEB-INF</tt> generiert Netbeans automatisch. Du solltest sie auch nicht löschen.
                     </small>
                 </p>
 
@@ -3473,8 +3541,9 @@
                     Webcontainer ausgeführt wird, der ja beliebig viele Webanwendungen beherbergen kann.
                 </p>
                 <p>
+                    ²
                     <small>
-                        ² Verwechsle die geschweiften Klammern hier nicht mit JavaScript. Es handelt sich tatsächlich um eine Liste und nicht um
+                        Verwechsle die geschweiften Klammern hier nicht mit JavaScript. Es handelt sich tatsächlich um eine Liste und nicht um
                         ein Dictionary.
                     </small> 🤔
                 </p>
@@ -3536,7 +3605,7 @@
                 <h2>Wie geht es nun weiter?</h2>
                 <p>
                     Natürlich ist das noch nicht wirklich schöner Quellcode. Denn wer will schon HTML-Seiten auf diese Weise
-                    zusammenbauen? 🤤 In <a href="#8">Folie 8</a> zeigen wir dir daher, wie die Bearbeitung an eine Java Server
+                    zusammenbauen? 🤤 In <a href="#23">Folie 23</a> zeigen wir dir daher, wie die Bearbeitung an eine Java Server
                     Page weitergegeben werden kann.
                 </p>
             </aside>
@@ -4194,7 +4263,7 @@
             </article>
             <aside>
                 <p>
-                    Erinnerst du dich noch an das <a href="../../3-javascript/dom/#8" target="_blank">Kontaktformular</a> aus dem JavaScript
+                    Erinnerst du dich noch an das <a href="../../3-javascript/grundlagen_dom/#25" target="_blank">Kontaktformular</a> aus dem JavaScript
                     DOM-Kapitel? 📰 Hier zeigen wir dir, wie Browser und Server in modernen Webanwendungen zusammenspielen, um die Inhalte
                     eines Formulars auszuwerten. Im Prinzip passiert dabei folgendes:
                 </p>
@@ -4235,7 +4304,7 @@
                 <p>
                     In der <code>doGet()</code>-Methode senden wir eine einfache HTML-Seite mit einem kleinen Formular an den Browser.
                     Der Code ist zugegeben nicht sehr schön. Aber noch wissen wir nicht, wie wir das HTML in eine Java Server Page
-                    auslagern können. 😕
+                    auslagern können.
                 </p>
                 <source-code language="java">
                     // Hier nun das eigentliche Formular
@@ -5152,17 +5221,119 @@
         <section data-background-color="rgb(153, 190, 137)">
             <h1>Do &amp; Don't</h1>
             <article>
-                <h4>Darauf solltest du achten</h4>
+                <h4>Allgemeine Hinweise</h4>
                 <ul>
                     <li>
-                        …
+                        Nimm dir die Zeit, die wichtigsten HTTP-Befehle und Statuscodes zu lernen. Du brauchst sie immer wieder.
+                    </li>
+                    <li>
+                        Nutze die Netzwerkanalyse deines Browsers, um lange Ladezeiten zu untersuchen und zu optimieren.
+                    </li>
+                    <li>
+                        Simuliere dabei auch den Seitenaufbau über eine sehr langsame Internetverbindung.
+                    </li>
+                    <li>
+                        Lerne den Umgang mit kommandozeilenbasierten HTTP-Clients wie
+                        <a href="https://www.gnu.org/software/wget/" target="_blank">wget</a>,
+                        <a href="https://curl.haxx.se/" target="_blank">curl</a> oder
+                        <a href="https://httpie.org/" target="_blank">httpie</a>.
+                    </li>
+                    <li>
+                        Nutze Benchmarking-Tools wie <a href="https://locust.io/" target="_blank">Locust</a>,
+                        um die Leistung deines Servers zu überwachen.
+                    </li>
+                    <li>
+                        Schreibe möglichst viele Unit Tests und lasse sie auf einem
+                        <a href="https://en.wikipedia.org/wiki/Continuous_integration" target="_blank">CI-Server</a>
+                        automatisch nach jedem Commit laufen.
+                    </li>
+                    <li>
+                        Wenn du noch keine Versionsverwaltung wie
+                        <a href="https://git-scm.com/" target="_blank">git</a> oder
+                        <a href="https://www.mercurial-scm.org/" target="_blank">mercurial</a> nutzt,
+                        ist jetzt ein guter Zeitpunkt, damit anzufangen.
+                    </li>
+                </ul>
+
+                <h4>Java gegen den Rest der Welt</h4>
+                <ul>
+                    <li>
+                        Schaue dich nach Alternativen um, wenn du keine Cloud oder keinen leistungsstarken Server zur Verfügug hast.
+                    </li>
+                    <li>
+                        <a href="https://www.djangoproject.com/" target="_blank">Django</a> (Python),
+                        <a href="http://flask.pocoo.org/" target="_blank">Flask</a> (Python),
+                        <a href="http://expressjs.com/de/" target="_blank">express.js</a> (node.js) oder
+                        <a href="https://rubyonrails.org/" target="_blank">Ruby-on-Rails</a>
+                        benötigen viel weniger Leistung.
+                    </li>
+                    <li>
+                        Jeder versteht unter MVC etwas anderes, am Ende vom Tag meinen sie aber alle dasselbe.
+                    </li>
+                    <li>
+                        Strukturiere den serverseitigen Code daher immer nach dem MVC-Prinzip wie hier gezeigt.
+                    </li>
+                </ul>
+
+                <h4>Besonderheiten von Java</h4>
+                <ul>
+                    <li>
+                        In Java wirst du um
+                        <a href="https://www.wpvs.de/vertsys/2-javaee/ejb/" target="_blank">Enterprise Java Beans</a>
+                        und die
+                        <a href="https://www.wpvs.de/vertsys/2-javaee/jpa/" target="_blank">Java Persistence API</a>
+                        nicht herum kommen.
+                    </li>
+                    <li>
+                        Verschiebe alle JSP-Dateien in das <tt>WEB-INF</tt>-Verzeichnis, um sie vor fremden Zugriffen zu schützen.
+                    </li>
+                    <li>
+                        Generiere niemals HTML-Code direkt aus einem Servlet heraus. Rufe immer ein Template hierfür auf.
+                    </li>
+                    <li>
+                        Lass deine Servlets aber gerne andere Datenformate wie CSV, JSON oder PDF generieren und zurückgeben.
+                    </li>
+                    <li>
+                        Nutze die Möglichkeiten von Java Server Pages, um Templates für ein einheitliches Seitenlayout zu realisieren.
+                    </li>
+                    <li>
+                        Nutze <a href="https://de.wikipedia.org/wiki/JavaServer_Faces" target="_blank">Java Server Faces</a>,
+                        oder ein anderes Java-Framework, wenn dir Servlets und JSP zu old-school sind.
+                    </li>
+                    <li>
+                        Viele Entwickler schwören auf
+                        <a href="https://spring.io/" target="_blank">Spring</a> und
+                        <a href="https://spring.io/projects/spring-boot" target="_blank">Spring Boot</a>.
+                        Das ist aber letztlich Geschmackssache.
+                    </li>
+                    <li>
+                        Benutze niemals interne APIs deines Applikationsservers, wenn es nicht unbedingt erforderlich ist.
+                    </li>
+                    <li>
+                        Nutze Werkzeuge wie
+                        <a href="https://maven.apache.org/" target="_blank">Maven</a> oder
+                        <a href="http://ant.apache.org/" target="_blank">Ant</a> und
+                        <a href="http://ant.apache.org/ivy/" target="_blank">Ivy</a>,
+                        um Abhängigkeiten zu verwealten und den Build zu automatisieren.
+                    </li>
+                    <li>
+                        <a href="https://www.eclipse.org/jetty/" target="_blank">Jetty</a>
+                        eignet sich hervorragend als eingebetteter Webcontainer.
+                    </li>
+                    <li>
+                        Nutze die Werkzeuge deiner IDE. Sie kann mehr, als auf den ersten Blick ersichtlich ist.
+                    </li>
+                    <li>
+                        Unserer Erfahrung nach ist der Einstieg mit
+                        <a href="https://netbeans.apache.org/" target="_blank">Netbeans</a>
+                        am einfachsten, da bereits alles vorkonfiguriert ist.
                     </li>
                 </ul>
             </article>
             <aside>
                 <p>
                     Hier ist er: Der Stein der Weisen. 💎 Auf dieser Folie haben wir ein paar allgemeine
-                    Tipps gesammelt, die sich in der Praxis bewährt haben.
+                    Tipps gesammelt, die sich in der Praxis immer wieder bewährt haben.
                 </p>
                 <img src="../../do-dont.svg" class="d-block" style="width: 20em; max-width: 100%; margin-bottom: 0.5em;" />
                 <p>
