@@ -30,18 +30,76 @@
             <article>
                 <h3>Nach Abschluss dieser Einheit kannst du …</h3>
                 <ul>
-                    <!--
                     <li>
-                        den Begriff <span class="dhbw-lightblue font-weight-bold">verteiltes System</span>
-                        erklären und von ähnlichen Begriffen abgrenzen.
+                        verstehen, warum JavaScript keine „klassische”
+                        <span class="dhbw-lightblue font-weight-bold">Objektorientierung</span>
+                        unterstützt.
                     </li>
-                    -->
+                    <li>
+                        verstehen, warum JavaScript aber dennoch eine objektorientierte Sprache ist.
+                    </li>
+                    <li>
+                        eigene Objekte <span class="dhbw-lightblue font-weight-bold">deklarieren</span>,
+                        <span class="dhbw-lightblue font-weight-bold">kopieren</span> und
+                        <span class="dhbw-lightblue font-weight-bold">vererben</span>.
+                    </li>
+                    <li>
+                        alten JavaScript-Code aus der Zeit warten, als es noch keine Klassen gab.
+                    </li>
+                    <li>
+                        neuen JavaScript-Code mit <span class="dhbw-lightblue font-weight-bold">Klassen</span>,
+                        <span class="dhbw-lightblue font-weight-bold">Methoden</span> und
+                        <span class="dhbw-lightblue font-weight-bold">Settern und Gettern</span> schreiben.
+                    </li>
+                    <li>
+                        den Code einer <span class="dhbw-lightblue font-weight-bold">Browser App</span>
+                        ein saube getrennte Einheiten gliedern.
+                    </li>
+                    <li>
+                        das <span class="dhbw-lightblue font-weight-bold">JavaScript-Modulsystem</span>
+                        mit seinen Vor- und Nachteilen erklären.
+                    </li>
+                    <li>
+                        die Vorteile von <span class="dhbw-lightblue font-weight-bold">Data Binding</span>
+                        erkennen und dir ein passendes Framework hierfür aussuchen.
+                    </li>
+                    <li>
+                        die Funktionsweise gängiger Werkzeuge zur professionellen JavaScript-Entwicklung
+                        nachvollziehen.
+                    </li>
                 </ul>
                 <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
             </article>
             <aside>
                 <p>
-                    …
+                    Bereits seit dem letzten Kapitel kennst du die wichtigsten Eigenheiten von
+                    JavaScript und kannst eigene kleine Browser Apps damit entwickeln. Doch
+                    obwohl das Kapitel ziemlich umfangreich war, gibt es noch vieles, was wir
+                    noch nicht besprochen haben, worüber du aber immer wieder stolpern wirst.
+                    Alllen voran haben wir uns noch nicht mit der <b>Objektorientierung in JavaScript</b>
+                    auseinandergesetzt. Doch gerade die hat es in sich, da JavaScript seit ein
+                    paar Jahren zwar Klassen kennt, diese historisch bedingt aber nicht viel
+                    mit den altbekannten Klassen aus Java gemeinsam haben.
+                </p>
+                <p>
+                    Zu Anfang des Kapitels werden wir daher einen genaueren Blick auf die
+                    eigenwilligen OOP-Konzepte von JavaScript werfen und dabei lernen, dass
+                    jedes Objekt ein Dictionary ist und umgekehrt. Die praktische Konsequenz
+                    daraus wird dann sein, dass wir direkt im Quellcode Objektinstanzen
+                    deklarieren können, ohne hierfür eine Klasse zu benötigen. Mithilfe von
+                    <b>Prototypen</b> werden wir dabei sogar <b>Vererbung</b> anwenden,
+                    immer noch, ohne eine Klasse hierfür zu programmieren.
+                </p>
+                <p>
+                    Allerdings kommt auch modernes JavaScript nicht mehr ohne Klasse aus.
+                    In den folgenden Folien werden wir die Funktionsweise von Klassen daher
+                    ganz genau analyisieren, indem wir erst zeigen, wie „Klassen” in JavaScript
+                    früher definiert wurden, als es das <code>class</code>-Schlüsselwort noch
+                    nicht gab und wie dasselbe dann mit <code>class</code> deutlich vereinfacht
+                    wird. Dies dient uns dann als Grundlage für einen kleinen Ausflug in die
+                    Entwicklung größerer Browser Apps und weiterer Anwendungen, die wir anhand
+                    der objektorientierten Prinzipien und unter Zuhilfename des <b>Modulsystems
+                    von JavaScript</b> sauber gliedern werden.
                 </p>
             </aside>
         </section>
@@ -97,6 +155,19 @@
         </section>
 
         <section>
+            <h1>Konstruktorfunktionen als Ersatz für echte Klassen</h1>
+            <article>
+                .
+            </article>
+            <aside>
+                .
+                <!-- Funktionen statt Klassen -->
+                <!-- Funktion, Attribute, Methoden, Prototyp -->
+                <!-- Vererbung??? -->
+            </aside>
+        </section>
+
+        <section>
             <h1>Modernes JavaScript hat Klasse!</h1>
             <article>
                 .
@@ -117,7 +188,7 @@
         </section>
 
         <section>
-            <h1>Exkurs: Private Objektattribute</h1>
+            <h1>Setter- und Getter-Methoden</h1>
             <article>
                 .
             </article>
@@ -127,12 +198,59 @@
         </section>
 
         <section>
-            <h1>Exkurs: Bevor es Klassen gab</h1>
+            <h1>Private Objektattribute</h1>
             <article>
                 .
             </article>
             <aside>
                 .
+            </aside>
+        </section>
+
+        <section>
+            <h1>Pfeilfunktionen und die bind-Methode</h1>
+            <article>
+                .
+            </article>
+            <aside>
+                .
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 3: Ein kleines OOP-Quiz</h1>
+            <article>
+                <h2>Aufgabe 1.1: …</h2>
+
+                <p>
+                    a) Irgend eine Frage?
+                </p>
+                <ol>
+                    <li>
+                        …
+                    </li>
+                    <li>
+                        …
+                    </li>
+                    <li>
+                        …
+                    </li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> Aufgabe 1.1: …
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Das war ja ziemlich interessant. Aber auch ziemlich verwirrend, wenn
+                    du bisher nur mit Java gearbeitet hast. Hier kannst du daher prüfen,
+                    ob du die wichtigsten Dinge verstanden hast. 🦍
+                </p>
             </aside>
         </section>
 
@@ -154,7 +272,37 @@
         </section>
 
         <section>
-            <h1>Strukturierung einer kompletten Browser App</h1>
+            <h1>Strukturierung einer größeren App</h1>
+            <article>
+                .
+            </article>
+            <aside>
+                <!--
+                Nachfolgende Beispiele beziehen sich auf die Entwicklung von Browser Apps.
+                Die meisten Tipps gelten aber ganz allgemein für JS auch außerhalb des Browsers.
+                Durch die nachfolgenden Tipps verschwimmen die Unterschiede ohnehin zusehends.
+                -->
+                .
+            </aside>
+        </section>
+
+        <section>
+            <h1>Das JavaScript-Modulsystem</h1>
+            <article>
+                .
+            </article>
+            <aside>
+                <!--
+                export und import
+                keine globalen Variablen mehr nötig
+                allerdings derzeit nicht ohne Transpiler oder Packer nutzbar
+                -->
+                .
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 4: Grundgerüst einer Browser App</h1>
             <article>
                 .
             </article>
@@ -164,35 +312,39 @@
         </section>
 
         <section>
-            <h1>Exkurs: Data Binding</h1>
+            <h1>Den Code mit Data Binding vereinfachen</h1>
             <article>
                 .
             </article>
             <aside>
                 <!--
-                Problem: Ein im UI sochtbarer Wert wird an mehreren Stellen geschrieben.
+                Problem: Ein im UI sichtbarer Wert wird an mehreren Stellen geschrieben.
                 Einfache Lösung: An allen Stellen das DOM-Update einbauen.
                 Ist aber nicht so schön, da doppelter Quellcode und schwer zu pflegen, wenn sich die HTML-Struktur ändert.
                 Bessere Lösung: Eine Funktion/Methode definieren, die den Wert setzt und das DOM aktualisiert
-                Diese Lösung lässt sich mit einer DataBinding-Klasse verallgemeinern
-                Hinweis auf Angular.js / Knockout.js, die u.a. two-way-binding bieten, dafür aber vorschrieben, wie der Code strukturiert sein muss.
+                Diese Lösung lässt sich mit einer selbstgeschriebene DataBinding-Klasse verallgemeinern
                 -->
                 .
             </aside>
         </section>
 
-        <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 3: Grundgerüst einer Browser App</h1>
+        <section>
+            <h1>Web-Component-Frameworks und Data Binding</h1>
             <article>
                 .
             </article>
             <aside>
+                <!--
+                Hinweis auf Angular.js / Knockout.js, die u.a. two-way-binding bieten, dafür aber vorschrieben, wie der Code strukturiert sein muss.
+                Hinweis auf den modernen Web Component Standard
+                Mini-Beispiel für eine Komponente mit Data Binding
+                -->
                 .
             </aside>
         </section>
 
         <section data-background-color="rgb(153, 190, 137)">
-            <h1>Professionelle JavaScript-Entwicklung</h1>
+            <h1>Moderne Entwicklungswerkzeuge</h1>
             <article>
                 <p>
                     . package manager, minifier, transpiler, webpack, nodejs, js module, ...
@@ -223,6 +375,43 @@
             </aside>
         </section>
 
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 5: Ein kleines App-Entwicklungs-Quiz</h1>
+            <article>
+                <h2>Aufgabe 5.1: …</h2>
+
+                <p>
+                    a) Irgend eine Frage?
+                </p>
+                <ol>
+                    <li>
+                        …
+                    </li>
+                    <li>
+                        …
+                    </li>
+                    <li>
+                        …
+                    </li>
+                </ol>
+
+                <hr />
+
+                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+                    <small>
+                        <b>Lösung:</b> Aufgabe 5.1: …
+                    </small>
+                </p>
+            </article>
+            <aside>
+                <p>
+                    Wie immer darf das kleine Quiz zum Schluss nicht fehlen. Hier kannst du
+                    gleich mal überprüfen, ob du noch weißt, was du da gerade gelesen hast. 📚
+                    Viel Erfolg!
+                </p>
+            </aside>
+        </section>
+
         <!--
             ====================
             HINWEISE ZUM SCHLUSS
@@ -243,10 +432,47 @@
         <section data-background-color="rgb(153, 190, 137)">
             <h1>Do &amp; Don't</h1>
             <article>
-                <h4>Darauf solltest du achten</h4>
+                <h4>Objektorientierung in der Praxis</h4>
                 <ul>
                     <li>
-                        …
+                        Definiere einfache Datentransferobjekte direkt als Dictionaries ohne Klassen.
+                    </li>
+                    <li>
+                        Ziehe in neuen Quellcodes stets Klassen den alten Konstrukturfunktionen vor.
+                    </li>
+                    <li>
+                        Überlege dir, alte Quellcodes umzuschreiben, wenn sie noch aktiv gepflegt werden müssen.
+                    </li>
+                    <li>
+                        Nutze Techniken wie Vererbung und private Attribute dort, wo sie einen Mehrwert bieten.
+                    </li>
+                    <li>
+                        Aber übertreibe es damit nicht. JavaScript ist weiterhin eine schwach-typisierte Sprache.
+                    </li>
+                    <li>
+                        Schreibe Funktionen und Methoden immer mit der Pfeilsyntax, um
+                        <src-code language="javascript">bind()</src-code>-Aufrufe zu sparen.
+                    </li>
+                    <li>
+                        Schreibe echter Setter- und Getter-Funktionen mit
+                        <src-code language="javascript">set attiribut(a) { … }</src-code> und
+                        <src-code language="javascript">get attribut() { … }</src-code>.
+                    </li>
+                </ul>
+
+                <h4>Strukturierung größerer Quellcodes</h4>
+                <ul>
+                    <li>
+                        Gliedere große Quellcodes immer in geschlossene Klassen und Module.
+                    </li>
+                    <li>
+                        Nutze das JavaScript-Modulsystem, wenn es deine Werkzeuge unterstützen.
+                    </li>
+                    <li>
+                        Nutze ein Framework für Data Binding oder Web Components anstelle direkter DOM-Manipulation.
+                    </li>
+                    <li>
+                        Wenn du kein Framework nutzt, implementiere wenigstens selbst ein einfaches Data Binding.
                     </li>
                 </ul>
             </article>
