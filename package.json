@@ -42,7 +42,7 @@
         "file-loader": "^0.11.2",
         "html-loader": "^0.5.1",
         "http-server": "^0.10.0",
-        "lecture-slides.js": "^1.0.3",
+        "lecture-slides.js": "^1.0.6",
         "less": "^2.7.2",
         "less-loader": "^4.0.5",
         "ls-plugin-highlight.js": "^1.0.1",
@@ -54,8 +54,5 @@
         "watch-run": "^1.2.5",
         "webpack": "^3.5.5",
         "webpack-dev-server": "^2.7.1"
-    },
-    "dependencies": {
-        "yarn": "^1.9.4"
     }
 }
