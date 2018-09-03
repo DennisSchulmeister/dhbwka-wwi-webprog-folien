@@ -7,6 +7,12 @@
         <link rel="shortcut icon" href="../../favicon.svg" />
         <link rel="stylesheet" href="../../style.css" />
         <script src="../../learning-slides.bundle.js"></script>
+
+        <style>
+            .ls-slide-background {
+                background-position: right top !important;
+            }
+        </style>
     </head>
     <body class="slides invisible" data-title="Einführung in die Vorlesung" tabindex="0">
         <header>
@@ -17,158 +23,18 @@
             </p>
         </header>
 
-        <section>
-            <h1>Was kommt da auf uns zu?</h1>
-            <article>
-                <dl>
-                    <dt class="dhbw-lightblue">3. Semester: Webprogrammierung</dt>
-                    <dd>
-                        <p>
-                            <small>
-                                Von der Erstellung der ersten Webseite bis zur eigenen
-                                Browser App und Client/Server-Webanwendung mit asynchronem
-                                Datenaustausch
-                            </small>
-                        </p>
-                        <ul>
-                            <li>Grundlagen des Webs</li>
-                            <li>Webdesign mit HTML und CSS</li>
-                            <li>Entwicklung von Browser Apps mit JavaScript</li>
-                            <li>Das HTTP-Übertragunsprotokoll im Detail</li>
-                            <li>Webserver-Programmierung mit Java</li>
-                            <li>AJAX und WebSockets</li>
-                        </ul>
-                    </dd>
-
-                    <dt class="dhbw-lightblue">4. Semester: Verteilte Systeme</dt>
-                    <dd>
-                        <p>
-                            <small>
-                                Konzeptionelle Vertiefung der Netzwerkprogrammierung im
-                                weiteren Sinne: Von datenbankgestützten Webanwendungen
-                                bis Internet of Things und alles dazwischen
-                            </small>
-                        </p>
-                        <ul>
-                            <li>Programmieren mit und ohne Middleware</li>
-                            <li>Direkte Netzwerkprogrammierung mit Sockets</li>
-                            <li>Entfernte Methoden- und Prozeduraufrufe</li>
-                            <li>Heterogene M2M-Kommunikation mit SOAP- und REST-Webservices</li>
-                            <li>Asynchroner Datenaustausch über einen Message Broker</li>
-                            <li>Datenbankgestützte Serveranwendungen mit Java EE</li>
-                        </ul>
-                    </dd>
-                </dl>
-            </article>
-            <aside>
-                <p>
-                    Das Modul „Entwicklung verteilter Systeme” besteht aus den
-                    beiden Vorlesungen „Webprogrammierung” im dritten Semester
-                    und „Verteilte Systeme” im vierten Semester, die du dir als
-                    Fortführung der Programmierkurse aus den Semestern davor
-                    vorstellen kannst. Bisher hast du in den Vorlesungen lauter
-                    Grundlagen gelernt, so dass du jetzt schon ein wenig programmieren
-                    kannst. Ab dem dritten Semester schauen wir uns daher immer
-                    mehr fortgeschrittene Themen an, um dir einen richtigen
-                    Einstieg in die Praxis zu geben.
-                </p>
-                <p>
-                    Auf der Folie siehst du eine Übersicht der wichtigsten
-                    Themen, die wir in „Entwicklung verteilter Systeme” behandeln
-                    werden. Schauen wir uns diese mal etwas genauer an:
-                </p>
-
-                <h4>3. Semester: Webprogrammierung</h4>
-                <p>
-                    Wie der Name schon sagt, geht es hier hauptsächlich um
-                    Webentwicklung. Java wird daher erst später in Erscheinung
-                    treten. Anfangen werden wir nach ein paar allgemeinen
-                    Grundlagen ganz einfach mit der Gestaltung von Webseiten
-                    mit HTML und CSS. Da lernst du dann, wie der Quellcode einer
-                    Webseite aussieht und was du benötigst, um deine erste eigene
-                    Seite zu erstellen. Neben den wichtigsten HTML und CSS-Anweisungen
-                    lernst du dabei auch was „Responsive Webdesign” ist und
-                    wie du deine Seiten so gestalten kannst, dass sie vom Smartphone
-                    bis zum Großbildfernseher auf allen Bildschirmen gut aussieht.
-                </p>
-                <p>
-                    Danach schauen wir uns JavaScript an und lernen, wie HTML,
-                    CSS und JavaScript bei der Entwicklung browserbasierter
-                    Anwendungen zusammenspielen. Mit diesem Wissen ausgestattet
-                    kannst du eigene Clientanwendungen schreiben, die entweder
-                    komplett im Browser oder mit den richtigen Werkzeugen gar
-                    als echte Smartphone App laufen.
-                </p>
-                <p>
-                    Bis hierhin ist dann rund die Hälfte der Vorlesung vorbei
-                    und wir schauen uns dann an, welche Aufgaben ein Webserver
-                    hat und wie wir ihn mit Java programmieren können. Zwar
-                    mag die Verwendung von Java hier nicht jedermanns Sache
-                    sein, die Prinzipien, die du hier lernst, sind aber dieselben
-                    wie in den den meisten anderen Webframeworks. Du lernst
-                    hier wichtige Konzepte, auf die du bei der Webentwicklung
-                    immer wieder zurückgreifen wirst.
-                </p>
-                <p>
-                    Den Abschluss der Vorlesung bilden zwei Teilkapitel über
-                    AJAX und WebSockets. Mach dir nichts daraus, wenn du jetzt
-                    noch nicht weißt, was das ist. Wenn wir soweit sind, wirst
-                    du sehen, warum es manchmal ganz sinnvoll sein kann, eine
-                    Webanwendung damit auszustatten, vor allem dann, wenn es um
-                    eine flüssige Bedienung und den Datenaustausch zwischen
-                    mehreren Anwendern geht.
-                </p>
-
-                <h4>4. Verteilte Systeme</h4>
-                <p>
-                    Über „Verteilte Systeme” möchten wir hier noch nicht so
-                    viele Worte verlieren. Wie du an den Stichpunkten aber
-                    sehen kannst, lösen wir uns dort wieder etwas von der
-                    Webprogrammierung und lernen noch weitere Konzepte kennen,
-                    die für die Entwicklung großer, verteilter Anwendungen
-                    mit hunderten von Anwendern und Endgeräten benötigt werden.
-                </p>
-            </aside>
+        <section data-title="Wir gehen jetzt online" data-background-image="online.jpg">
         </section>
 
         <section>
-            <h1>Was kommt da auf uns zu?</h1>
-            <article>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md">
-                            <img src="spaceballs1.jpg" style="100%" class="img-thumbnail d-block" />
-                            Die böse Seite der Macht: Die Betriebswirtschaft
-                        </div>
-                        <div class="col-md">
-                            <img src="spaceballs2.jpg" style="100%" class="img-thumbnail d-block" />
-                            Am Ende gewinnt zum Glück immer das Gute: Die Informatik
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <aside>
-                <p>
-                    Du wirst sehen, dass jetzt noch weitere eher programmierlastige
-                    Vorlesungen auf dich zukommen. Stehst du eher auf der guten
-                    Seite der Macht (der Informatik), kannst du dich freuen.
-                    Gehörst du der dunklen Seite an (der Betriebswirtschaft),
-                    dann kommen jetzt schwere Zeiten auf dich zu und du musst
-                    einsehen, dass es doch nicht so ist, wie Lord Helmchen aus
-                    Spaceballs behauptet: Am Ende gewinnt eben doch immer das Gute.
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>Deine neuen Kompetenzen nach dieser Vorlesung</h1>
+            <h1>Kompetenzziele der Vorlesung</h1>
             <article>
                 <h2>Sachkompetenz</h2>
                 <p>
                     <small>Welches neue Wissen eigne ich mir an?</small>
                 </p>
                 <p>
-                    Siehe <a href="#1">erste Folie</a> 😏
+                    Siehe <a href="#3">nächste Folie</a> 😏
                 </p>
 
                 <h2>Selbstkompetenz</h2>
@@ -176,13 +42,13 @@
                     <small>Was kann ich damit wirklich machen?</small>
                 </p>
                 <ul>
+                    <li>Webanwendungen von der Anforderung bis zur Umsetzung konzipieren</li>
+                    <li>Moderne Entwicklungswerkzeuge wie IDEs, Debugger oder git bedienen</li>
+                    <li>Werkzeuge und Frameworks auswählen und beurteilen</li>
                     <li>Mit HTML und CSS eigene Webseiten erstellen</li>
-                    <li>Moderne Entwicklungswerkzeuge wie IDEs und Debugger bedienen</li>
                     <li>Mit JavaScript browserbasierte Apps entwickeln</li>
                     <li>Mit Java den Serverteil einer Webanwendung implementieren</li>
-                    <li>Webanwendungen schreiben, die via AJAX Daten austauschen</li>
-                    <li>Webanwendungen schreiben, die über WebSockets Daten austauschen</li>
-                    <li>Vorhandene HTML/CSS/JavaScript/Java Webanwendungen analysieren und weiterentwickeln</li>
+                    <li>Vorhandene Webanwendungen analysieren und weiterentwickeln</li>
                 </ul>
 
                 <h2>Übergreifende Handlungskompetenz</h2>
@@ -231,10 +97,133 @@
             </aside>
         </section>
 
-        <section data-title="Wir gehen jetzt online">
+        <section>
+            <h1>Theorieinhalte der Vorlesung</h1>
             <article>
-                <img src="online.jpg" class="img-fluid img-thumbnail mx-auto d-block" />
+                <dl>
+                    <dt class="dhbw-lightblue">3. Semester: Webprogrammierung</dt>
+                    <dd>
+                        <p>
+                            <small>
+                                Von der Erstellung der ersten Webseite bis zur eigenen
+                                Browser App und Client/Server-Webanwendung mit asynchronem
+                                Datenaustausch
+                            </small>
+                        </p>
+                        <ul>
+                            <li>Grundlagen des Webs</li>
+                            <li>Webdesign mit HTML und CSS</li>
+                            <li>Responsive Webdesign</li>
+                            <li>Entwicklung von Browser Apps mit JavaScript</li>
+                            <li>Das HTTP-Übertragunsprotokoll im Detail</li>
+                            <li>Webserver-Programmierung mit Java</li>
+                            <!-- <li>AJAX und WebSockets</li> -->
+                        </ul>
+                    </dd>
+
+                    <dt class="dhbw-lightblue">4. Semester: Verteilte Systeme</dt>
+                    <dd>
+                        <p>
+                            <small>
+                                Konzeptionelle Vertiefung der Netzwerkprogrammierung im
+                                weiteren Sinne: Von datenbankgestützten Webanwendungen
+                                bis Internet of Things und alles dazwischen
+                            </small>
+                        </p>
+                        <ul>
+                            <li>Architekturmuster für verteilte Anwendungen</li>
+                            <li>Webbassierte Datenbankanwendungen mit Jakarta&nbsp;EE</li>
+                            <li>Asynchrone Kommunikation zwischen Server und Browser mit AJAX</li>
+                            <li>Entfernte Methodenaufrufe mit SOAP- und REST-Webservices</li>
+                            <li>Asynchrone Message Broker am Beispiel von MQTT</li>
+                        </ul>
+                    </dd>
+                </dl>
             </article>
+            <aside>
+                <p>
+                    Das Modul „Entwicklung verteilter Systeme” besteht aus den
+                    beiden Vorlesungen „Webprogrammierung” im dritten Semester
+                    und „Verteilte Systeme” im vierten Semester, die du dir als
+                    Fortführung der Programmierkurse aus den Semestern davor
+                    vorstellen kannst. Bisher hast du in den Vorlesungen lauter
+                    Grundlagen gelernt, so dass du jetzt schon ein wenig programmieren
+                    kannst. Ab dem dritten Semester schauen wir uns daher immer
+                    mehr fortgeschrittene Themen an, um dir einen richtigen
+                    Einstieg in die Praxis zu geben.
+                </p>
+                <p>
+                    Auf der Folie siehst du eine Übersicht der wichtigsten
+                    Themen, die wir in „Entwicklung verteilter Systeme” behandeln
+                    werden. Schauen wir uns diese mal etwas genauer an:
+                </p>
+
+                <h4>3. Semester: Webprogrammierung</h4>
+                <p>
+                    Wie der Name schon sagt, geht es hier hauptsächlich um
+                    Webentwicklung. Java wird daher erst später in Erscheinung
+                    treten. Anfangen werden wir nach ein paar allgemeinen
+                    Grundlagen ganz einfach mit der Gestaltung von Webseiten
+                    mit HTML und CSS. Da lernst du dann, wie der Quellcode einer
+                    Webseite aussieht und was du benötigst, um deine erste eigene
+                    Seite zu erstellen. Neben den wichtigsten HTML und CSS-Anweisungen
+                    lernst du dabei auch was „Responsive Webdesign” ist und
+                    wie du deine Seiten so gestalten kannst, dass sie vom Smartphone
+                    bis zum Großbildfernseher auf allen Bildschirmen gut aussieht.
+                </p>
+                <p>
+                    Danach schauen wir uns JavaScript an und lernen, wie HTML,
+                    CSS und JavaScript bei der Entwicklung browserbasierter
+                    Anwendungen zusammenspielen. Mit diesem Wissen ausgestattet
+                    kannst du eigene Clientanwendungen schreiben, die entweder
+                    komplett im Browser oder mit den richtigen Werkzeugen gar
+                    als echte Smartphone App laufen.
+                </p>
+                <p>
+                    An dieser Stelle haben wir dann ungefähr Dreiviertel des
+                    Inhalts geschafft. Allerdings fehlt uns dann noch die andere
+                    Seite der Webentwicklung, nämlich der Server. Hier werden
+                    wir uns daher erst das HTTP-Protokoll im Detail anschauen
+                    und dann darauf aufbauend Gedanken darüber machen, wie
+                    es die Programmierung auf dem Server beeinflusst. Die
+                    daraus gewonnenen Einsichten sind im Grunde genommen auf
+                    jede Programmiersprache übertragbar, aus praktischen
+                    Gründen werden wir jedoch Java nutzen, damit wir nächstes
+                    Semester in Verteilte Systeme direkt an dieser Stelle
+                    anknüpfen können.
+                </p>
+                <!--
+                <p>
+                    Den Abschluss der Vorlesung bilden zwei Teilkapitel über
+                    AJAX und WebSockets. Mach dir nichts daraus, wenn du jetzt
+                    noch nicht weißt, was das ist. Wenn wir soweit sind, wirst
+                    du sehen, warum es manchmal ganz sinnvoll sein kann, eine
+                    Webanwendung damit auszustatten, vor allem dann, wenn es um
+                    eine flüssige Bedienung und den Datenaustausch zwischen
+                    mehreren Anwendern geht.
+                </p>
+                -->
+
+                <h4>4. Verteilte Systeme</h4>
+                <p>
+                    Über „Verteilte Systeme” möchten wir hier noch nicht so
+                    viele Worte verlieren. Wie du an den Stichpunkten aber
+                    sehen kannst, werden wir direkt dort anknüpfen, wo wir
+                    in Webprogrammierung aufhören. Nach einer kurzen Übersicht
+                    über die verschiedenen Möglichkeiten zur Gestaltung und
+                    Implementierung verteilter Anwendungen werden wir unsere
+                    Wissen über die serverseitige Webentwicklung vervollständigen
+                    in mit Jakarta&nbps;EE (ehemals „Java Enterprise Edition”)
+                    richtige, webbasierte Datenbankanwendungen schreiben.
+                    Erst dann lösen wir uns wieder von der Webprogrammierung
+                    und schauen uns noch weitere Konzepte wie entfernte
+                    Methodenaufrufe oder asynchrone Message Broker an.
+                </p>
+                <p>
+                    Für heute soll das mal genügen. Im vierten Semester
+                    kommen wir nochmal darauf zurück. 😎
+                </p>
+            </aside>
         </section>
 
         <section>
@@ -315,7 +304,36 @@
                 </p>
                 <p>
                     Und eben, klar, alles was mit Netzwerken und dem Internet zu
-                    tun hat. Auch dazu gab es mal eine Vorlesung. 😊
+                    tun hat. Auch dazu gab es mal eine Vorlesung.&nbsp;😊
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Auf welcher Seite der Macht stehst du?</h1>
+            <article>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md">
+                            <img src="spaceballs1.jpg" style="100%" class="img-thumbnail d-block" />
+                            Die böse Seite der Macht: Die Betriebswirtschaft
+                        </div>
+                        <div class="col-md">
+                            <img src="spaceballs2.jpg" style="100%" class="img-thumbnail d-block" />
+                            Am Ende gewinnt zum Glück immer das Gute: Die Informatik
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <aside>
+                <p>
+                    Du wirst sehen, dass jetzt noch weitere eher programmierlastige
+                    Vorlesungen auf dich zukommen. Stehst du eher auf der guten
+                    Seite der Macht (der Informatik), kannst du dich freuen.
+                    Gehörst du der dunklen Seite an (der Betriebswirtschaft),
+                    dann kommen jetzt schwere Zeiten auf dich zu und du musst
+                    einsehen, dass es doch nicht so ist, wie Lord Helmchen aus
+                    Spaceballs behauptet: Am Ende gewinnt eben doch immer das Gute.
                 </p>
             </aside>
         </section>
@@ -325,19 +343,54 @@
             <article>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6">
-                            <iframe class="d-block img-thumbnail" style="width: 100%" src="https://www.youtube-nocookie.com/embed/Y7aEiVwBAdk?rel=0&amp;showinfo=0" allowfullscreen></iframe>
-                            Ein guter Quellcode-Editor ist nie verkehrt. Github Atom ist sehr zu empfehlen.
+                        <div class="col-md">
+                            <h2 style="margin: 0;">Clientseitige Webentwicklung</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 0;">
+                        <div class="col-md-4">
+                            <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
+                                <iframe class="d-block img-thumbnail" style="width: 100%" src="https://www.youtube-nocookie.com/embed/Y7aEiVwBAdk?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="git-logo.svg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </div>
+                        <div class="col-md-4">
+                            <img src="node.js-logo.svg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md">
-                            <img src="netbeans.jpg" class="img-thumbnail d-block" style="width: 100%" />
-                            Netbeans IDE: Unbedingt darauf achten, die Java EE-Version herunterzuladen
+                        <div class="col-md-4">
+                            Github Atom, einer der besten Webeditoren
                         </div>
+                        <div class="col-md-4">
+                            git für die Versionsverwaltung
+                        </div>
+                        <div class="col-md-4">
+                            node.js und npm als Buildwerkzeuge
+                        </div>
+                    </div>
+
+                    <div class="row">
                         <div class="col-md">
+                            <h2 style="margin: 0;">Serverseitige Webentwicklung</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 0;">
+                        <div class="col-md-4">
+                            <img src="netbeans.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                        </div>
+                        <div class="col-md-4">
                             <img src="glassfish.jpg" class="img-thumbnail d-block" style="width: 100%" />
-                            Glassfish Webserver: Ist in der Installation von Netbeans für Java EE enthalten
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            Netbeans IDE für die Java-Entwicklung
+                        </div>
+                        <div class="col-md-4">
+                            Glassfish Applikationsserver
                         </div>
                     </div>
                 </div>
@@ -352,51 +405,105 @@
                     haben wir uns daher auf folgende Werkzeuge festgelegt:
                 </p>
                 <dl>
+                    <dt>Atom Editor von Github</dt>
+                    <dd>
+                        <p>
+                            Atom ist einer der besten Editoren, die du dir für die
+                            Webentwicklung aussuchen kannst. Gerade am Anfang der
+                            Vorlesung, wenn Java noch gar kein Thema für uns ist,
+                            ist Atom die beste Wahl. Wenn du ihn noch nicht kennst,
+                            installiere ihn dir gleich. Du wirst es nicht bereuen.
+                        </p>
+                        <p>
+                            <a href="https://atom.io/" target="_blank">https://atom.io/</a>
+                        </p>
+                    </dd>
+
+                    <dt>git</dt>
+                    <dd>
+                        <p>
+                            Kaum ein professionelles Softwareprojekt kommt heutzutage
+                            ohne eine gute Versionsverwaltung aus. Historisch gesehen
+                            gibt es viele gute Werkzeuge hierfür, das mit Abstand
+                            beliebteste ist jedoch git. git ermöglicht es dir, nicht
+                            nur sämtliche Änderungen an deinem Quellcode sauber zu
+                            dokumentieren und jederzeit nachzuvollziehen, es bietet
+                            auch hervorragende Möglichkeiten zum Teamwork. Genau das
+                            richtige für unsere Portfolioprüfung.&nbsp;😃
+                        </p>
+                        <p>
+                            <a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a>
+                        </p>
+                    </dd>
+
+                    <dt>node.js und npm</dt>
+                    <dd>
+                        <p>
+                            Leider werden wir uns nicht sehr ausführlich mit node.js
+                            beschäftigen, auch wenn das wirklich lohnenswert wäre, da
+                            Java für die serverseitige Webentwicklung an der DHBW einfach
+                            gesetzt ist. node.js und allen voran das darin enthaltene
+                            Programm npm können aber trotzdem nützlich für uns sein.
+                            Nämlich beim Dependency Management, also der Verwaltung
+                            abhängiger Tools, Frameworks und Libraries, die wir bei
+                            der Umsetzung unserer Webanwendungen benötigen. Und falls
+                            du dich doch ein wenig mehr mit node.js beschäftigen willst,
+                            haben wir auf Moodle auch ein Bonuskapitel dazu für dich
+                            hochgeladen.
+                        </p>
+                        <p>
+                            <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a>
+                        </p>
+                    </dd>
+
                     <dt>Netbeans IDE</dt>
                     <dd>
                         <p>
-                            Zum Schreiben des Quellcodes werden wir die meiste Zeit
-                            die Netbeans IDE verwenden. Sie ist genau so leistungsfähig
-                            wie Eclipse, aber etwas einfacher zu bedienen und (hier
-                            spricht die langhährige Erfahrung) deutlich weniger
-                            fehleranfällig! 👺 <span style="color: red"> Bitte unbedingt
-                            darauf achten, Netbeans für Java EE herunterzuladen und zu
-                            installieren. </span>
+                            Netbeans ist die IDE unserer Wahl, wenn wir gegen Ende der
+                            Vorlesung auf Java umschwenken. Im Vergleich zu Eclipse
+                            oder InteliJ bietet es nämlich den Vorteil, dass Jakarte&nbps;EE,
+                            wie Java auf dem Server heißt, besonders einfach einzurichten
+                            und zu nutzen ist. Und auch funktionial steht Netbeans den
+                            anderen IDEs in nichts nach. Höchstens in der Anzahl der Abstürze
+                            und Bugs, da hat Eclipse wesentlich mehr davon zu bieten.&nbsp;👺
+                        </p>
+                        <p>
+                            <a href="http://netbeans.apache.org/" target="_blank">http://netbeans.apache.org/</a>
                         </p>
                     </dd>
 
                     <dt>Glassfish Webserver</dt>
                     <dd>
-                        In der Mitte der Vorlesung, wenn wir uns mit dem Webserver
-                        beschäftigen, werden wir den Glassfish-Server für die
-                        Ausführung unserer Webanwendungen benutzen. Das Gute an ihm
-                        ist, dass er bei der Installation von Netbeans für Java EE
-                        gleich mitinstalliert wird. Du brauchst ihn also nicht
-                        separat herunterzuladen.
-                    </dd>
-
-                    <dt>Atom Editor von Github</dt>
-                    <dd>
-                        Streng genommen brauchst du ihn nicht für die Vorlesung.
-                        Doch gerade am Anfang bei deinen ersten Gehversuchen ist
-                        Netbeans eigentlich noch zu groß dimensioniert. Und darüber
-                        hinaus ist Atom ein genialer Code-Editor, der insbesondere
-                        für Webprojekte hervorragend geeignet ist.
+                        <p>
+                            Glassfish ist ein so genannter Applikationsserver, der uns die
+                            Entwicklung serverseitiger Webanwendungen mit Java ermöglicht.
+                            Er wird unseren Javacode ausführen. Alternativ könnten wir zwar
+                            auch einen Webserver in ein normales Javaprogramm integrieren,
+                            das ist aber eher ein fortgeschritteneres Thema. Außerdem können
+                            wir den Server dann gleich für Verteilte Systeme nächstes Jahr
+                            weiternutzen.
+                        </p>
+                        <p>
+                            <a href="https://javaee.github.io/glassfish/" target="_blank">https://javaee.github.io/glassfish/</a>
+                        </p>
                     </dd>
                 </dl>
-
-                <h2>Hinweis</h2>
-                <p>
-                    Eine ausführliche Anleitung zur Installation von Java, Netbeans
-                    und Glassfish findest du auf Moodle.
-                </p>
             </aside>
         </section>
 
         <section>
             <h1>Didaktisches Modell der Vorlesung</h1>
             <article>
-                <img src="didaktisches_modell.svg" style="width: 100%" />
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md">
+                            <img src="vorlesungsplanung1.svg" class="img-thumbnail d-block dhbw-box-shadow" style="width: 100%;" />
+                        </div>
+                        <div class="col-md">
+                            <img src="vorlesungsplanung2.svg" class="img-thumbnail d-block dhbw-box-shadow" style="width: 100%;" />
+                        </div>
+                    </div>
+                </div>
             </article>
             <aside>
                 <h2>Schon wieder Vorlesung: Gähn!</h2>
@@ -404,8 +511,8 @@
                     Wenn alles schläft und einer spricht, dann nennt man das
                     Unterricht. Nichts ist schlimmer als langezogene
                     Vorlesungen, in denen der Dozent mit monotoner Stimme
-                    eine Folie nach der anderen durch jagt. Folienkino nennt
-                    man das auch, und wir haben das alle schon mal erlebt.
+                    eine Folie nach der anderen durch jagt. Folienkino 🎦 nennt
+                    man das, und wir haben das alle schon mal erlebt.
                     Oder als Dozent auch schon mal gemacht.
                 </p>
                 <p>
@@ -436,11 +543,10 @@
                     ein Folienvortrag des Dozenten eigentlich Zeitverschwendung
                     ist. Denn Folien lesen kann jeder selbst. Außerdem hat man
                     dabei immer das Problem, dass jeder Student ein anderes Vorwissen
-                    oder (Gott bewahre) ein unterschiedlich starkes Interesse an den
-                    Themen hat. Bei einem Vortrag ist es daher immer so, dass
-                    manche gut folgen können, während andere schon bei der
-                    ersten Folie ausgestiegen sind. Kurz um: Ein Vortrag bringt
-                    eigentlich gar nichts.
+                    oder ein unterschiedlich starkes Interesse an den Themen hat.
+                    Bei einem Vortrag ist es daher immer so, dass manche gut folgen
+                    können, während andere schon bei der ersten Folie ausgestiegen
+                    sind. Kurz um: Ein langer Vortrag bringt nicht viel.
                 </p>
                 <p>
                     Aus diesem Grund wird das reine „Wissen ins Hirn Laden” in
@@ -448,74 +554,67 @@
                     damit jeder in seinem eigenen Tempo und gemäß eigener Vorlieben
                     lernen kann. Üblicherweiße werden hierfür eine Menge Videos
                     online gestellt, die man sich dann anschauen muss. Das hatten
-                    wir auch eine Zeit lang, war dann aber doch nicht so toll.
-                    Denn naja, was sieht und hört man in so einem Video? Ja genau:
-                    Den Dozenten, wie er seine Folien vorträgt. Ganz großes Kino!
+                    wir in Webprogrammierung auch eine Zeit lang, war dann aber doch
+                    nicht so toll. Denn naja, was sieht und hört man in so einem Video?
+                    Hm, richtig: Den Dozenten, wie er seine Folien vorträgt.
+                    Ganz großes Kino!
                 </p>
                 <p>
                     Deshalb verzichten wir für „Entwicklung verteilter Systeme”
                     inzwischen komplett auf Videos und stellen dir dieses Folienskript
                     zur Verfügung. Hier hast du zwar auch Folien, gleichzeitig ist
                     aber auch ein ausführliches Skript dabei, mit dem sich viel besser
-                    lernen lässt.
-                </p>
-                <p>
-                    Zusätzlich findest du in Moodle Vorwissensabfragen,
+                    lernen lässt. Zusätzlich findest du in Moodle Vorwissensabfragen,
                     Selbsttests und Feedback-Formulare, damit du jederzeit deinen
                     Lernfortschritt kontrollieren kannst.
                 </p>
 
-                <h2>Und wie soll ich das ganze bearbeiten?</h2>
+                <h2>Ablauf der Vorlesung</h2>
                 <p>
-                    Gut das du fragst: Ziemlich einfach. Die Materialien in
-                    Moodle sind immer in einer festen Reihenfolge hinterlegt:
+                    Die Vorlesung selbst ist dann in drei große Abschnitte eingeteilt:
                 </p>
                 <ol>
                     <li>
-                        <b>Vorwissensabfrage:</b> Am Anfang steht immer ein kleiner
-                        Test zur Selbsteinschätzung. Mit ihm sollst du herausfinden,
-                        ob du vielleicht schon ein paar Dinge weißt und deshalb nicht
-                        so viel Zeit in das Selbststudium stecken musst.
+                        Einführung
                     </li>
                     <li>
-                        <b>Folienskripte:</b> Das ist das hier. Diese ästhetisch und
-                        modern gestalteten Folien, die du direkt im Browser lesen
-                        kannst, zusammen mit didaktisch sehr hochwertigen Erklärungen
-                        zu jeder Folie. Funktioniert auch auf dem Smartphone oder
-                        Tablet unterwegs. Wir haben es ausprobiert. 😉
+                        Lernphase
                     </li>
                     <li>
-                        <b>Lernkontrolle:</b> Nachdem du dann das Skript bearbeitet hast,
-                        kommt wieder ein Test, der jetzt natürlich etwas umfangreicher
-                        und schwieriger ist. Hier fragen wir die wesentlichen Inhalte des
-                        Skripts ab, damit du deinen Lernerfolg kontrollieren kannst.
-                        Das Ergebnis des Tests fließt nicht in deine Note ein (nur ob
-                        du ihn gemacht hast).
-                    </li>
-                    <li>
-                        <b>Feedback:</b> Ganz wichtig. Denn auf das Selbststudium folgt
-                        eine Vorlesung und wir möchten natürlich wissen, wie es dir
-                        ergangen ist. Nimm der deshalb bitte unbedingt die paar Minuten
-                        Zeit, das Feedback auszufüllen. Du hilfst deinem Dozenten damit,
-                        eine gute Stunde vorzubereiten.
+                        Projektphase
                     </li>
                 </ol>
-
-                <h2>Und was machen wir dann in der Vorlesung?</h2>
                 <p>
-                    Ist doch klar: Eis essen. 🍦 Nein, Spaß beiseite. In der Vorlesung
-                    kann dein Dozent nun zeigen, was er wirklich drauf hat. Denn hier
-                    vertiefen wir die Inhalte aus dem Selbststudium, zeigen dir tolle
-                    Tricks aus der Praxis und machen ganz viele Übungen. Auch das ist
-                    besser, als bei einer normalen Vorlesung, wo du die Übungen in der
-                    Regel daheim machen musst. Wenn du nicht weiter kommst, ist dein
-                    Dozent für dich da, um dir zu helfen.
+                    Die <b>Einführung</b> findet nur in der ersten Stunde statt. Hier stellen
+                    wir sicher, dass du Zugang zum richtigen Moodleraum hast und erklären
+                    dir, worum es in der Vorlesung geht. Unter Anderem durch Vorstellung
+                    dieser Folien hier. Zusätzlich beschäftigen wir uns auch gleich mit
+                    ein paar wichtigen Grundlagen, auf die wir im Laufe der Vorlesung
+                    immer wieder zurückgreifen werden.
                 </p>
                 <p>
-                    Das Ganze wiederholt sich je Kapitel in der Regel zwei mal. Die
-                    Übung aus der zweiten Vorlesungseinheit machst du aber in Gruppenarbeit,
-                    da sie benotet wird und in dein Portfolio einfließt. Doch dazu
-                    gleich mehr.
+                    Als nächstes folgt die <b>Lernphase</b> mit den Onlinefolien zum
+                    Durcharbeiten. Je nach Vorlesungsplanung geht diese Phase ungefähr
+                    vier Wochen. Hier folgt Schlag auf Schlag ein Selbststudium auf das
+                    andere, damit du alle wesentlichen Grundlagen zur Webprogrammierung
+                    aus theoretischer Sicht lernst. Aber keine Angst, wir machen
+                    natürlich Übungen in den Stunden, um das Gelernte auch anzuwenden.
+                </p>
+                <p>
+                    Ab der zweiten Hälfte des Semsters startet dann die <b>Projektphase</b>.
+                    Die stressigen Lerneinheiten sind dann vorbei. Stattdessen entwickeln
+                    wir gemeinsam eine kleine Webanwendung, um praxisnah alle Schritte von
+                    der ersten Idee bis zur fertigen Anwendung durchzugehen. Dies wird in der
+                    Regel zwei Vorlesungstermine in Anspruch nehmen. Den Rest des Semsters
+                    teilt ihr euch dann in Gruppen auf und entwerft eine komplett eigene
+                    Webanwendung, die dann auch benotet wird.
+                </p>
+                <p>
+                    Wie du siehst, haben wir viel vor. Auf diese Weise werden wir duch aber in
+                    kürzester Zeit (denn die Semester sind an der DHBW leider nicht sehr lang)
+                    von Null auf Hundert in die Lage versetzen, eigene Web Apps zu konzipieren
+                    und zu entwickeln. Viel mehr, als das mit einer einfachen Folienvorlesung
+                    machbar wäre.
                 </p>
             </aside>
         </section>
@@ -537,39 +636,65 @@
                     Materialien bearbeitet werden müssen.
                 </p>
                 <dl>
-                    <dt>Lernziele</dt>
-                    <dd>
-                        Hier findest du die Lernziele des Kapitels, logisch. 🙂
-                        Da die Lernziele so wie dieses Skript in ganzen Sätzen
-                        formuliert sind, nehmen sie in manchmal etwas viel Platz
-                        ein. Deshalb musst du sie erst mit einem Klick auf die
-                        Überschrift aufklappen.
-                    </dd>
-
                     <dt>Selbststudium</dt>
                     <dd>
-                        Unter dieser Überschrift befindet sich immer eine
-                        komplette Selbststudiumseinheit. Das heißt, du findest
-                        hier alle Unterlagen, die bis zur darauf folgenden
-                        Vorlesungsstunde zu bearbeiten sind. Wenn du genau
-                        hin siehst, erkennst du, dass die Anordnung der
-                        Links genau unserem didaktischen Modell entspricht.
+                        <p>
+                            Unter dieser Überschrift befindet sich immer eine
+                            komplette Selbststudiumseinheit. Das heißt, du findest
+                            hier alle Unterlagen, die bis zur darauf folgenden
+                            Vorlesungsstunde zu bearbeiten sind.
+                        </p>
+                        <ol>
+                            <li>
+                                <b>Vorwissensabfrage:</b> Jedes Selbststudium beginnt
+                                mit einer kleinen Vorwissensabfrage, um dich auf das
+                                Thema einzustimmen. Außerdem bekommst du dadurch ein
+                                Gefühl dafür, ob du schon ein klein wenig über das
+                                Thema weißt.
+                            </li>
+                            <li>
+                                <b>Onlinefolien:</b> Das eigentliche Selbststudium
+                                erfolgt dann, indem du die Onlinefolien durcharbeitest.
+                                Sie wurden mit viel Liebe 💓 gestaltet und beinhalten
+                                neben den Folien selbst auch ausführliche Erklärungen
+                                und Übungsaufgaben. Stelle sicher, die Aufgaben alle
+                                komplett zu bearbeiten, um ein optimales Lernergebnis
+                                zu erzielen.
+                            </li>
+                            <li>
+                                <b>Lernkontrolle:</b> Nachdem du mit den Folien durch
+                                bist, füllst du vor der nächsten Vorlesungsstunde noch
+                                die Lernkontrolle aus. Allerdings gibt es nur einen
+                                Versuch und die Zeit ist begrenzt. Denn das Ergebnis
+                                der Lernkontrolle fließt in deine spätere Note ein.
+                            </li>
+                            <li>
+                                <b>Feedback:</b> Ganz wichtig. Denn auf das Selbststudium folgt
+                                eine Vorlesung und wir möchten natürlich wissen, wie es dir
+                                ergangen ist. Nimm der deshalb bitte unbedingt die paar Minuten
+                                Zeit, das Feedback auszufüllen. Du hilfst deinem Dozenten damit,
+                                eine gute Stunde vorzubereiten.
+                            </li>
+                            <li>
+                                <b>Quellcodes:</b> Zu manchen Einheiten findest du
+                                nach der Lernkontrolle noch zusätzliche Quellcodes,
+                                die überwiegend in den Folien besprochen wurden.
+                                Beinhalten die Folien zum Beispiel kleinere
+                                Beispielanwendungen, kannst du dir hier den kompletten
+                                Quellcode dazu herunterladen.
+                            </li>
+                        </ol>
                     </dd>
 
                     <dt>Vorlesung</dt>
                     <dd>
                         Auf jedes Selbststudium folgt eine Vorlesung, in der
                         wir die gelernten Inhalte anwenden und vertiefen werden.
-                        Unter dieser Überschrift finden sich deshalb (bald)
-                        die Aufgaben, Beispiele und sonstigen Unterlagen, die
-                        wir dafür benötigen.
-                    </dd>
-
-                    <dt>Portfolio-Aufgabe</dt>
-                    <dd>
-                        Diese Überschrift ist immer dunkelblau, damit sie sich
-                        etwas abhebt. Hier findest du (auch bald) die Aufgabenstellungen
-                        für die Portfolioprüfung (siehe nächste Folie).
+                        Unter dieser Überschrift finden sich deshalb alle
+                        Aufgaben, Beispiele und sonstigen Unterlagen, die
+                        wir dafür benötigen. Im Laufe der Vorlesung werden
+                        wir dich darauf aufmerksam machen, wenn hier neue
+                        Materialien hinzukommen.
                     </dd>
                 </dl>
             </aside>
@@ -582,43 +707,125 @@
                     <b>Zuerst die gute Nachricht:</b> Es gibt keine Klausur. 😅 <br />
                     <b>Dann die Ernüchterung:</b> Trotzdem gibt es eine Note. 😰
                 </p>
-
-                <h2>Ablauf der Portfolioprüfung</h2>
                 <ul>
-                    <li>Erstreckt sich über das dritte und vierte Semester</li>
-                    <li>Besteht zu 55% aus in der Vorlesung bearbeiten Programmieraufgaben</li>
-                    <li>Die Bearbeitung der Aufgaben erfolgt in Dreiergruppen statt alleine</li>
-                    <li>Die restlichen 45% werden individuell verdient</li>
+                    <li>
+                        Die Prüfung erfolgt im Rahmen einer Portfolioprüfung.
+                    </li>
+                    <li>
+                        Einen Teil des Portfolios werdet ihr in Dreiergruppen bearbeiten.
+                    </li>
+                    <li>
+                        Den Rest muss jeder selbst beisteuern, da es keine Gruppennoten gibt.
+                    </li>
                 </ul>
 
                 <h2>Zusammensetzung des Portfolios</h2>
-                <ul>
-                    <li>55% Programmieraufgaben (Gruppenleistung)</li>
-                    <li>
-                        45% Individueller Eigenanteil
-                        <ul>
-                            <li>5% Einleitung und Reflexionsbericht (je eine Seite)</li>
-                            <li>10% Teilnahme am Selbststudium (Lernkontrollen und Feedbacks)</li>
-                            <li>10% Bewertung der Gruppenarbeit durch die Gruppenmitglieder</li>
-                            <li>20% Benoteter Onlinetest zu HTML, CSS und JavaScript</li>
-                        </ul>
-                    </li>
-                </ul>
-                <div style="margin-bottom: 1em"></div>
-
+                <table class="dhbw-table-border" style="width: 100%; margin-bottom: 1em; font-size: 90%;">
+                    <thead>
+                        <tr>
+                            <th>I/G</th>
+                            <th>P/S</th>
+                            <th>Artefakt</th>
+                            <th>Schwierigkeit</th>
+                            <th>Abgabefrist</th>
+                            <th>Gewichtung</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>I</td>
+                        <td>S</td>
+                        <td><b>Einleitungsbericht</b></td>
+                        <td>Beurteilen</td>
+                        <td>Ende der zweiten Vorlesungswoche</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>I</td>
+                        <td>S</td>
+                        <td><b>Lernkontrollen und Feedbacks</b></td>
+                        <td>Erinnern</td>
+                        <td>Vor der jeweiligen Vorlesung</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>G</td>
+                        <td>P</td>
+                        <td><b>Fachkonzept der Webanwendung</b></td>
+                        <td>Analysieren, Beurteilen</td>
+                        <td>Ende der ersten Realisierungswoche</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>G</td>
+                        <td>P</td>
+                        <td><b>Quellcode der Webanwendung</b></td>
+                        <td>Anwenden</td>
+                        <td>Eine Woche nach der letzten Vorlesung</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>I</td>
+                        <td>P</td>
+                        <td><b>Commit-Nachrichten aus git</b></td>
+                        <td>Verstehen</td>
+                        <td>Eine Woche nach der letzten Vorlesung</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>G</td>
+                        <td>P</td>
+                        <td><b>Testdokumentation der Webanwendung</b></td>
+                        <td>Analysieren</td>
+                        <td>Eine Woche nach der letzten Vorlesung</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>I</td>
+                        <td>S</td>
+                        <td><b>Onlinetest während der letzten Vorlesung</b></td>
+                        <td>Anwenden, Analysieren, Beurteilen</td>
+                        <td>Ende der Vorlesungsstunde</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>I</td>
+                        <td>S</td>
+                        <td><b>Reflexionsbericht</b></td>
+                        <td>Beurteilen</td>
+                        <td>Ende der letzten Klausurwoche</td>
+                        <td>3</td>
+                    </tr>
+                </table>
                 <p>
-                    ➥ Bewertungsformular auf Moodle
+                    <b>I/G:</b> I = Individualleitung, G = Gruppenleistung <br />
+                    <b>P/S:</b> P = Programmierprojekt, S = Studieninhalte <br />
+                    <b>Schwierigkeit:</b> Erinnern &lt; Verstehen &lt; Anwenden &lt; Analysieren &lt; Beurteilen
+                </p>
+
+                <h2>Berechnung der Endnote</h2>
+                <p>
+                    <table>
+                        <tr style="padding: 0; border: 0px solid black; border-bottom-width: 1px;">
+                            <td>
+                                Σ (Einzelnote × Gewichtung)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Σ (Gewichtung)
+                            </td>
+                        </tr>
+                    </table>
                 </p>
             </article>
             <aside>
+                <h2>Nachteile einer Klausur</h2>
                 <p>
                     Die gute Nachricht immer zuerst: Wir schreiben keine Klausur.
                     Ja richtig gelesen, keine Klausur. Stattdessen machen wir eine
                     Portfolioprüfung, die es dir ermöglicht, viel praxisrelevanter
                     zu einer Note zu gelangen. Denn, du hast es dir sicher schon
                     gedacht, was sind die Nachteile einer Klausur?
-                </p>
-                <p>
                     Du machst „Programmieren auf Papier”, aber das ist ja nicht
                     wirklich praxisgerecht. Oder wann musstest du das letzte mal
                     in deiner Firma ein Programm auf Papier abgeben? 😉 Dann ist
@@ -638,80 +845,65 @@
                     abprüfen, ob du auch eigene Ideen entwickeln kannst? Hierfür
                     gibt es natürlich geeignete Aufgabentypen, meistens reicht
                     aber die Zeit gar nicht und kaum einer bearbeitet die dann.
-                </p>
-                <p>
                     Also langer Rede kurzer Sinn: Eine neue Prüfungsform muss
-                    her. Und diese ist mit der Portfolioprüfung zum Glück
-                    inzwischen möglich.
+                    her – die Portfolioprüfung.
                 </p>
 
-                <h4>Ablauf und Inhalt der Portfolioprüfung</h4>
+                <h2>Inhalt des Prüfungsportfolios</h2>
                 <p>
-                    Das Schöne an der Portfolioprüfung ist, dass sie so flexibel
-                    ist. Als Dozent hat man sehr große Freiheit, welche Art von
-                    Aufgaben man stellen will. Einzige Bedingung: Das Portfolio
-                    muss deinen individuellen Lernweg dokumentieren und zeigen,
-                    wie du dich im Verlauf der Vorlesung weiterentwickelt hast.
-                    Deshalb haben wir uns folgende Form der Portfolioprüfung
-                    für dich ausgedacht:
+                    Anliegen der Portfolioprüfung ist es, den individuellen
+                    Lernweg zu dokumentieren und zu benoten, den jede/r Student/in
+                    während der Vorlesung einschlägt. Das Portfolio wird daher
+                    begleitend zur Vorlesung das ganze Semester über erstellt
+                    und muss am Ende in Papierform im Sekretariat abgegeben werden.
+                    Da du in der Softwareentwicklung aber nicht nur alleine sondern
+                    oft auch im Team entwickelst, werden wir auch eine Gruppenaufgabe
+                    aufnehmen. Und keine Angst, du musst keine Quellcodes ausdrucken. 🖨️
+                    Dafür haben wir auch eine Lösung.
                 </p>
                 <p>
-                    Den größten Teil deines Portfolios (immerhin 55%) machen die
-                    Programmierübungen aus, die wir innerhalb der Vorlesung bearbeiten.
-                    Naja, also nicht alle Übungen, sondern nur drei Stück davon, die wir
-                    speziell als solche gekennzeichnet haben. Aber diese darfst du dann
-                    während der festgesetzten Vorlesungsstunden bearbeiten und gleich abgeben.
-                    Du musst sie also nicht Zuhause bearbeiten. Gleichzeitig machst du
-                    die Übungen auch nicht alleine, sondern arbeitest mit zwei anderen
-                    Studierenden zusammen. Dadurch haben wir weniger Aufwand beim
-                    Korrigieren und ihr könnt euch gegenseitig beim Lernen und Lösen
-                    der Aufgaben helfen.
-                </p>
-                <p>
-                    Da ein Portfolio immer auch einen individuellen Anteil haben muss,
-                    machen die restlichen 45% eben genau diesen aus. Und da hätten wir:
+                    Wenn du dir die Zusammensetzung des Portfolios auf der Folie
+                    anschaust, wirkt das sicher erst einmal sehr umfangreich. Und
+                    im Grunde genommen ist es das auch, weil wir ja den kompletten
+                    Prozess zur Entstehung einer Webanwendung abdecken wollen.
+                    Damit es aber auch neben den anderen Vorlesungen des Semesters
+                    machbar ist, werden wir einige Teile des Portfolios kurz und
+                    schmerzlos sehr effizient online erledigen:
                 </p>
                 <ul>
-                    <li>5% für die Einleitung und Reflexionsbericht (jeweils eine Seite)</li>
-                    <li>10% für Teilnahme am Selbststudium (bewertet als Anzahl eingereichter Lernkontrollen und <u>sinnvoll ausgefüllter</u> Feedbacks)</li>
-                    <li>10% für die Bewertung deiner Gruppenarbeit durch die Gruppenmitglieder</li>
-                    <li>20% für einen benoteten Onlinetest zu HTML, CSS und JavaScript in der Mitte der Vorlesung</li>
+                    <li>
+                        Einleitungsbericht
+                    </li>
+                    <li>
+                        Lehrkontrollen und Feedbacks
+                    </li>
+                    <li>
+                        Reflexionsbericht
+                    </li>
                 </ul>
                 <p>
-                    Einleitung und Reflexion musst du ohnehin schreiben. Das schreibt
-                    die Prüfungsordnung vor. Aber zwei Seiten sind ja nicht wirklich viel
-                    und wir geben dir die Leitfragen hierfür vor. Am Selbststudium
-                    solltest du eigentlich auch teilnehmen, sonst macht ja die ganze
-                    Vorlesung keinen Sinn. Also auch diese 10% sind eigentlich geschenkt.
-                    Weitere 10% kannst du dir verdienen, indem du beim Programmieren
-                    ordentlich mitmachst. Auch das solltest du sowieso tun, tust du es
-                    aber nicht, können dir die anderen Gruppenmitglieder einen kleinen
-                    Punktabzug dafür geben.
+                    Diese Unterlagen wirst durch Bearbeiten der zugeordneten
+                    Moodle-Aktivitäten erledigen. Sie werden nur wenige Minuten
+                    oder im Falle der beiden Berichte nicht mehr als ungefähr
+                    eine Stunde in Anspruch nehmen. Den Onlinetest ganz am Ende
+                    werden wir dann ebenso schmerzlos über die Bühne bringen:
+                    Du füllst ihn während der letzten Vorlesungsstunde aus.
+                    Dann bleibt nur noch die Webanwendung selbst, die allerdings
+                    sowieso in eine Zeit fällt, in der wir keine Hausaufgaben
+                    mehr geplant haben und immerhin bekommt ihr auch vier ganze
+                    Vorlesungstermine zur Verfügung gestellt.
+                    Alles in Allem wird es also gut machbar sein, wenn du dich
+                    an die Vorlesungsplanung hältst.&nbsp;🗓️
                 </p>
+
+                <h2>Berechnung der Note</h2>
                 <p>
-                    Bleiben also nur noch 20%, die du dir wirklich verdienen musst.
-                    Aber auch das ist gar nicht so schlimm, wie es klingt. In der
-                    Mitte des Studiums gibt es einen Abschnitt, indem du kein echtes
-                    Selbststudium hast sondern du nur den Onlinetest bearbeiten kannst.
-                    Diesen findest du in Moodle und du kannst dir bis zur nächsten
-                    Vorlesung beliebig lange Zeit lassen, um den Test zu bearbeiten.
-                    Und da wir es ja 'eh nicht kontrollieren können, kannst du dabei
-                    natürlich auch in die Vorlesungsunterlagen schauen. 😇
-                </p>
-                <p>
-                    Also du siehst: Eigentlich gar nicht so schlecht, diese
-                    Portfolioprüfung. Nächstes Semester machen wir das daher
-                    gleich nochmal. <!--¹
-                </p>
-                <p>
-                    <small>
-                        ¹ Okay und weil die Prüfungsordnung es vorschreibt. 😛
-                        Da „Webprogrammierung” und „Verteilte Systeme” ein Modul
-                        sind, dürfen wir nur eine Prüfung über beide Vorlesungen
-                        machen. Die offizielle Benotung erfolgt daher erst nach
-                        „Verteilte Systeme” im vierten Semester.
-                    </small>
-                --> <!-- Erst ab der StuPro 2018 -->
+                    Die Benotung ist eigentlich relativ einfach. Jedes Artefakt
+                    in deinem Portfolio bekommt eine Einzelnote. Anschließend
+                    wird einfach anhand der verschiedenen Gewichtungen eine
+                    Durchschnittsnote gebildet. Die Formel dazu (solltest du
+                    dich wirklich nicht mehr daran erinnern 🐕), findest du
+                    auf der Folie.
                 </p>
             </aside>
         </section>
@@ -753,13 +945,31 @@
                     brauchst du sie nicht.
                 </p>
                 <ul>
-                    <li><b>Grundkurs Programmieren in Java</b> (Ratz, Scheffler, Seese, Wiesenberger), Hanser-Verlag</li>
-                    <li><b>Flexible Boxes – Ein Einführung in moderne Websites</b> (Müller), Rheinwerk Verlag</li>
-                    <li><b>Einstieg in JavaScript</b> (Theis), Rheinwerk Verlag</li>
-                    <li><b>Servlets und JSP von Kopf bis Fuß</b> (Basham, Sierra, Bates),  O'Reilly</li>
-                    <li><b>Java EE 6: Einstieg für Anspruchsvolle</b> (Stark), Addison-Wesley</li>
+                    <li>
+                        <b>Grundkurs Programmieren in Java</b> (Ratz, Schulmeister-Zimolong, Seese, Wiesenberger), Hanser-Verlag¹
+                    </li>
+                    <li>
+                        <b>Flexible Boxes – Ein Einführung in moderne Websites</b> (Müller), Rheinwerk Verlag
+                    </li>
+                    <li>
+                        <b>Einstieg in JavaScript</b> (Theis), Rheinwerk Verlag
+                    </li>
+                    <li>
+                        <b>Servlets und JSP von Kopf bis Fuß</b> (Basham, Sierra, Bates),  O'Reilly
+                    </li>
+                    <li>
+                        <b>Java EE 6: Einstieg für Anspruchsvolle</b> (Stark), Addison-Wesley
+                    </li>
                 </ul>
-
+                <p>
+                    ¹
+                    <small>
+                        Warte noch bis November 2018, wenn die achte Auflage das Buchs erscheint,
+                        bevor du es kaufst. Dann ist unsere Vorlesung zwar schon vorbei (falls du
+                        diese Folien 2018 liest), das macht aber nichts. Es ist ja ein Java-Lehrbuch
+                        und kein Buch direkt über Webprogrammierung.
+                    </small>
+                </p>
             </aside>
         </section>
 

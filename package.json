@@ -3,7 +3,7 @@
     "version": "1.0.1",
     "description": "lecture-slides.js presentation template",
     "author": "Dennis Schulmeister-Zimolong",
-    "license": "BSD-3-Clause",
+    "license": "CC-BY",
     "homepage": "https://github.com/DennisSchulmeister/ls-presentation-template#readme",
     "bugs": {
         "url": "https://github.com/DennisSchulmeister/ls-presentation-template/issues"
@@ -42,7 +42,7 @@
         "file-loader": "^0.11.2",
         "html-loader": "^0.5.1",
         "http-server": "^0.10.0",
-        "lecture-slides.js": "^1.0.6",
+        "lecture-slides.js": "^1.0.7",
         "less": "^2.7.2",
         "less-loader": "^4.0.5",
         "ls-plugin-highlight.js": "^1.0.1",
