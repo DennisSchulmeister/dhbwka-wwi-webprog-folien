@@ -1507,7 +1507,7 @@
                     <li>SVG</li>
                     <li>JPEG</li>
                 </ol>
-                
+
                 <p>
                     <b>Tipp:</b> Auf <a href="#23">Folie 23</a> kannst du die Bildformate nachlesen.
                 </p>
@@ -4926,27 +4926,31 @@
                                     background-repeat: no-repeat;
                                     background-position: center center;
                                     background-size: cover;
-                                    background-attachment: fixed;
                                 }
 
                                 #ebene1 {
                                     background-image: url(bild1.jpg);
+                                    background-attachment: fixed;
                                 }
 
-                                #ebene1 {
+                                #ebene2 {
                                     background-image: url(bild2.jpg);
                                 }
 
                                 #ebene3 {
                                     background-image: url(bild3.jpg);
+                                    background-attachment: fixed;
                                 }
                             </source-code>
                             <p>
                                 Ordnet man die Hintergrundbilder nicht der gesamten Seite sondern einzelnen
                                 untereinander stehenden Elementen zu und verwendet man dabei noch die Anweisung
                                 <src-code language="css">background-attachment: fixed;</src-code>, entsteht ein
-                                interessanter Effekt. Beim Scrollen bleibt ein Teil des Hintergrunds stehen und
-                                ein anderer Teil schiebt sich quasi darüber.
+                                interessanter Effekt. Beim Scrollen bleibt der Hintergrunds stehen und nur der
+                                Inhalt der jeweiligen Elemente scrollt weiter. Wechselt man dabei immer ein
+                                Element mit <src-code language="css">background-attachment: fixed;</src-code>
+                                ab mit einem Element ohne diese Anweisung, entsteht ein interessanter Effekt,
+                                durch den sich ein Bild quasi über das andere schiebt.
                             </p>
                             <p>
                                 Dieser Effekt, der ebenfalls seit ca. 2010 sehr beliebt ist, nennt sich „Parallax
