@@ -1,6 +1,6 @@
 /*
- * ls-presentation-template (https://www.buzzlms.de)
- * © 2017  Dennis Schulmeister-Zimolong <dennis@pingu-mail.de>
+ * ls-presentation-template (https://github.com/DennisSchulmeister/ls-presentation-template)
+ * © 2017 – 2019 Dennis Schulmeister-Zimolong <dennis@pingu-mail.de>
  * License of this file: 3-clause BSD
  */
 "use strict";
@@ -30,7 +30,13 @@ let webpackConfig = {
             test: /\.css$/,
             use: extractCSS.extract({
                 use: [
-                    "css-loader?localIdentName=[name]__[local]___[hash:base64:5]",
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: "global",
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                        },
+                    },
                 ],
                 fallback: "style-loader",
             }),
@@ -38,7 +44,13 @@ let webpackConfig = {
             test: /\.less$/,
             use: extractCSS.extract({
                 use: [
-                    "css-loader?localIdentName=[name]__[local]___[hash:base64:5]",
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: "global",
+                            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                        },
+                    },
                     "less-loader",
                 ],
                 fallback: "style-loader",
@@ -51,6 +63,7 @@ let webpackConfig = {
             use: "html-loader",
         },],
     },
+
     plugins: [
         extractCSS,
 
