@@ -98,11 +98,11 @@
                     sich ist. Damit beschäftigen wir uns ein andermal.
                 </p>
                 <p>
-                    Im zweiten Teil gehen wir dann in die Paxis und zeigen dir, wie JavaScript und HTML im Browser
+                    Im zweiten Teil gehen wir dann in die Praxis und zeigen dir, wie JavaScript und HTML im Browser
                     zusammenspielen. Hier erfährst du dann, wie JavaScript-Code in HTML eingebunden werden kann
                     und wie das <b>Document Object Model</b> mit JavaScript manipuliert werden kann. Dabei zeigen
                     wir dir alle „klassischen” Methoden, die das DOM für JS-Entwickler bietet. Das ist dann zwar
-                    nicht so schön elegant, wie bei den modernen Komonentenframeworks für JavaScript, dennoch reicht
+                    nicht so schön elegant, wie bei den modernen Komponentenframeworks für JavaScript, dennoch reicht
                     es aber, um erste Browser Apps entwickeln zu können und zu verstehen, welche Arbeit die Frameworks
                     dir später einmal abnehmen werden. Als kleine Übung darfst du am Ende des Kapitels daher auch
                     eine echte JS-Anwendung <b>Debuggen</b>, um einen kleinen aber gemeinen Fehler darin zu beheben.
@@ -933,15 +933,15 @@
         <section>
             <h1>JavaScript zum Anfassen</h1>
             <article>
-                <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch – Interaktiver JavaScript-Editor</a>
+                <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch – Interaktiver JavaScript-Editor</a>
                 <img src="js.scratch.png" class="d-block img-thumbnail" style="width: 100%" />
             </article>
             <aside>
                 <p>
                     Eine neue Programmiersprache lernt man am besten, indem man sie ausprobiert.
-                    Die meisten Beispiele kannst du daher in <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a>,
+                    Die meisten Beispiele kannst du daher in <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a>,
                     unserem interaktiven JavaScript-Editor, direkt ausprobieren. Alles, was
-                    du hierfür tun must, ist den Quellcode einzutippen und dann auf <i>Ausführen</i>
+                    du hierfür tun musst, ist den Quellcode einzutippen und dann auf <i>Ausführen</i>
                     zu klicken. Schon siehst du unten drunter das Ergebnis.
                 </p>
                 <p>
@@ -1696,7 +1696,7 @@
                 </source-code>
                 <p>
                     Das Besondere ist dabei gar nicht mal die Schreibweise. Obwohl die neue
-                    Form den netten Vorteil hat, das sich einzielige Funktionen sehr kompakt
+                    Form den netten Vorteil hat, das sich einzeilige Funktionen sehr kompakt
                     schreiben lassen:
                 </p>
                 <source-code language="javascript">
@@ -1806,7 +1806,7 @@
                                 <tt>NaN</tt>¹ zurück liefern, falls nicht.
                             </p>
                             <p>
-                                Zum Ausprobieren, kannst du die Funktion direkt in <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a>
+                                Zum Ausprobieren, kannst du die Funktion direkt in <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a>
                                 aufrufen. um Beispiel so:
                             </p>
                             <source-code language="javascript">
@@ -1843,7 +1843,7 @@
                             <p>
                                 <b>Vorsicht:</b> Diese Lösung nutzt Rekursion und kann daher nur für relativ
                                 kleine Zahlen verwendet werden. Ist die Zahl <tt>𝑛</tt> zu groß, kommt es
-                                möglicherweiße zu einem Abbruch.
+                                möglicherweise zu einem Abbruch.
                             </p>
                         </div>
                         <!-- Lösung 2 -->
@@ -1884,7 +1884,7 @@
             <aside>
                 <p>
                     Aah, endlich. Genug der schönen Worte und her mit dem
-                    JavaScript-Editor. Rufe die Seite von <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a>
+                    JavaScript-Editor. Rufe die Seite von <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a>
                     auf und probiere, die folgende Aufgabe zu lösen. Wie wünschen
                     dir viel Erfolg dabei! 🐞
                 </p>
@@ -1938,7 +1938,7 @@
                         >
                             <p>
                                 Schaue dir den folgenden JavaScript-Code und lasse ihn auch mal in
-                                <a href="https://www.wpvs.de/js/" target="_blank">JS.Scratch</a> laufen.
+                                <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a> laufen.
                                 Anschließend beantworte die folgenden Fragen:
                             </p>
                             <source-code language="javascript">
@@ -2089,7 +2089,7 @@
                 <p>
                     Häufig erwartet eine Funktion eine andere Funktion als Parameter, um
                     diese bei Eintreten eines Ereignisses aufrufen zu können. Die aufgerufene
-                    Funktion nennt man Rürckruffunktion oder auch Callback:
+                    Funktion nennt man Rückruffunktion oder auch Callback:
                 </p>
                 <source-code language="javascript">
                     let callback = () => { … };
@@ -3597,7 +3597,7 @@
                 <p>
                     Am rechten Rand siehst du dabei eine Liste aller Variablen, auf die das Programm
                     an der aktuellen Stelle zugreifen kann. Der Aufbau der Liste ist am Anfang etwas
-                    gewöhnungsbedürftig, nach einer Weile findet mann dort aber alle Variablen, die
+                    gewöhnungsbedürftig, nach einer Weile findet man dort aber alle Variablen, die
                     man sucht. Denn der komische Aufbau kommt daher, dass die Ansicht in verschiedene
                     Bereiche für globale Variablen, lokale Variablen, die Eingangsparameter der
                     aktuellen Funktion und so weiter aufgeteilt ist.
@@ -4161,13 +4161,6 @@
                             role            = "tabpanel"
                             aria-labelledby = "dom-auslesen-ereignisse-uebersicht-tab"
                         >
-                            <!--
-                                Kurzer Hinweis auf Single-Thread-Modell von JavaScript
-                                element.addEventListener(event), event.target
-                                Beiepiele: click, mouseover, mouseout, keydown, keyup
-                                Übersicht: https://developer.mozilla.org/de/docs/Web/Events
-                                Besonderes Ereignis: window->load, wenn DOM geladen ist
-                            -->
                             <dl>
                                 <dt>
                                     <src-code language="javascript">saveButton.addEventListener("click", …);</src-code>
@@ -5089,7 +5082,7 @@
                                         Im Zusammenhang mit einem guten CSS-Stylesheet ist diese Variante der direkten Manipulation
                                         des <code>style</code>-Attributs vorzuziehen. Denn nach jeder Änderung der <code>classList</code>
                                         wertet der Browser die Stylesheets neu aus und macht sich ergebende Änderungen an der Darstellung
-                                        sofort sichtbar. Auf wunsch sogar animiert, wenn das Stylesheet die <code>transition</code>-
+                                        sofort sichtbar. Auf Wunsch sogar animiert, wenn das Stylesheet die <code>transition</code>-
                                         oder <code>animation</code>-Anweisung enthält.
                                     </p>
                                 </dd>
@@ -7189,7 +7182,7 @@
                         <p>
                             Hiermit werden die Feldbezeichner definiert. Durch das <code>for</code>-Attribut
                             wird dabei festgelegt, auf welches Feld sich der Bezeichner bezieht. Dies
-                            macht zwar keinen Unterschied in der Darstellung, ist aber für Screen Reader
+                            macht zwar keinen Unterschied in der Darstellung, ist aber für Screenreader
                             und andere Ausgabegeräte eine wichtige Information.
                         </p>
                     </dd>
@@ -7435,11 +7428,11 @@
 
                 <p>
                     d) Was passiert, wenn man dem Attribut <code>textContent</code> einen String mit
-                    Text und HTML-Elementen übergibgt?
+                    Text und HTML-Elementen übergibt?
                 </p>
                 <ol style="margin-bottom: 2em;">
                     <li>
-                        Der Text wird genau so angezeigt, wie er übergeben wurde. Die sptizen Klammern
+                        Der Text wird genau so angezeigt, wie er übergeben wurde. Die spitzen Klammern
                         werden auf dem Bildschirm angezeigt.
                     </li>
                     <li>
