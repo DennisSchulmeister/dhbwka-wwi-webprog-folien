@@ -25,6 +25,13 @@
         </header>
 
         <section data-title="Wir gehen jetzt online" data-background-image="online.jpg">
+            <article>
+                <small>
+                    <small>
+                        (C) Uli Stein
+                    </small>
+                </small>
+            </article>
         </section>
 
         <section>
@@ -38,7 +45,7 @@
                     Siehe <a href="#3">nächste Folie</a> 😏
                 </p>
 
-                <h2>Selbstkompetenz</h2>
+                <h2>Methodenkompetenz</h2>
                 <p>
                     <small>Was kann ich damit wirklich machen?</small>
                 </p>
@@ -52,15 +59,27 @@
                     <li>Vorhandene Webanwendungen analysieren und weiterentwickeln</li>
                 </ul>
 
-                <h2>Übergreifende Handlungskompetenz</h2>
+                <h2>Personale und soziale Kompetenz</h2>
                 <p>
-                    <small>Wie kann ich mich damit in die Gesellschaft integrieren?</small>
+                    <small>
+                        Wie kann ich mich damit beruflich und gesellschaftlich engagieren?
+                    </small>
                 </p>
                 <ul>
                     <li>Aktuelle Konzepte der Webentwicklung kennen und diskutieren können</li>
+                    <li>Eigene Entwürfe verständlich kommunizieren und argumentieren</li>
+                    <li>Eventuelle Programmfehler erkennen und deren Behebung erklären können</li>
+                </ul>
+
+                <h2>Übergreifende Handlungskompetenz</h2>
+                <p>
+                    <small>Wie bringt mich das neue Wissen insgesamt weiter?</small>
+                </p>
+                <ul>
                     <li>Trends und Entwicklungen im Bereich Webentwicklung bewerten</li>
                     <li>Insbesondere kalten Kaffee von modernen Zukunftsthemen unterscheiden</li>
                     <li>Sich in Diskussionen einbringen und Lösungsvorschläge unterbreiten</li>
+                    <li>Sich eigenständig in neue Themengebiete der Webentwicklung einarbeiten</li>
                 </ul>
             </article>
             <aside>
@@ -77,12 +96,20 @@
                         und Technologien verteilter Systeme und Anwendungen sowie die gängigen Methoden,
                         Werkzeuge, Frameworks und Entwurfsmuster für die Entwicklung verteilter Anwendungen.
                     </p>
-                    <h5>Selbstkompetenz</h5>
+                    <h5>Methodenkompetenz</h5>
                     <p>
-                        Die Studierenden sind in der Lage, unter Einsatz aktueller Technologien und Werkzeuge
-                        komponentenbasierte verteilte Anwendungen und Web-Anwendungen zu entwerfen und unter
-                        Einsatz einer objektorientierten Programmiersprache und einem gegebenen Framework
-                        zu implementieren.
+                        Die Studierenden können die Konzepte, Werkzeuge und Methoden der Web-Programmierung
+                        anwenden und autonom Web-Anwendungen entwerfen, implementieren und testen. Die Studierenden
+                        können die Konzepte, Werkzeuge und Methoden der verteilten Systementwicklung anwenden und
+                        unter Einsatz von Frameworks und Entwurfsmustern einfache verteilte Anwendungen entwerfen,
+                        implementieren und testen.
+                    </p>
+                    <h5>Personale und soziale Kompetenz</h5>
+                    <p>
+                        Die Studierenden können eigenständig verteilte Anwendungsarchitekturen erarbeiten.
+                        Sie können stichhaltig und sachangemessen über Konzepte, eigene Entwürfe und deren
+                        Implementierungen sowie die damit verbundenen Probleme argumentieren, eigene Umsetzungen
+                        plausibel darstellen und eventuelle Fehler nachvollziehbar gegenüber anderen begründen.
                     </p>
                     <h5>Übergreifende Handlungskompetenz</h5>
                     <p>
@@ -113,11 +140,11 @@
                         </p>
                         <ul>
                             <li>Grundlagen des Webs</li>
+                            <li>Das HTTP-Übertragungsprotokoll im Detail</li>
                             <li>Webdesign mit HTML und CSS</li>
                             <li>Responsive Webdesign</li>
                             <li>Entwicklung von Browser Apps mit JavaScript</li>
-                            <li>Das HTTP-Übertragungsprotokoll im Detail</li>
-                            <li>Webserver-Programmierung mit Java</li>
+                            <li>Webserver-Programmierung mit node.js</li>
                             <!-- <li>AJAX und WebSockets</li> -->
                         </ul>
                     </dd>
@@ -133,10 +160,10 @@
                         </p>
                         <ul>
                             <li>Architekturmuster für verteilte Anwendungen</li>
-                            <li>Webbassierte Datenbankanwendungen mit Jakarta&nbsp;EE</li>
-                            <li>Asynchrone Kommunikation zwischen Server und Browser mit AJAX</li>
-                            <li>Entfernte Methodenaufrufe mit SOAP- und REST-Webservices</li>
-                            <li>Asynchrone Message Broker am Beispiel von MQTT</li>
+                            <!-- <li>Webbassierte Datenbankanwendungen mit Jakarta&nbsp;EE</li> -->
+                            <li>Kapselung der serverseitigen Anwendungslogik mit REST-Webservices</li>
+                            <li>Entwicklung hybrider Webanwendungen nach dem AJAX-Prinzip</li>
+                            <li>Entwurf großer, verteilter Anwendungen auf Basis von MQTT</li>
                         </ul>
                     </dd>
                 </dl>
@@ -162,12 +189,16 @@
                 <h4>3. Semester: Webprogrammierung</h4>
                 <p>
                     Wie der Name schon sagt, geht es hier hauptsächlich um
-                    Webentwicklung. Java wird daher erst später in Erscheinung
+                    Webentwicklung. Java wird daher nur ganz am Rande in Erscheinung
                     treten. Anfangen werden wir nach ein paar allgemeinen
-                    Grundlagen ganz einfach mit der Gestaltung von Webseiten
-                    mit HTML und CSS. Da lernst du dann, wie der Quellcode einer
-                    Webseite aussieht und was du benötigst, um deine erste eigene
-                    Seite zu erstellen. Neben den wichtigsten HTML und CSS-Anweisungen
+                    Grundlagen mit dem HTTP-Protokoll, das die Grundlage für
+                    fast die gesamte Kommunikation zwischen Browser und Server
+                    im World Wide Web bildet. Danach schauen wir uns an, was für
+                    Daten der Server uns schickt und lernen, dass es sich dabei
+                    fast immer um HTML- und CSS-Code der darzustellenden Seite
+                    handelt. Da lernst du dann, wie der Quellcode einer Webseite
+                    im Detail aussieht und was du benötigst, um deine eigenen
+                    Webseite zu erstellen. Neben den wichtigsten HTML und CSS-Anweisungen
                     lernst du dabei auch was „Responsive Webdesign” ist und
                     wie du deine Seiten so gestalten kannst, dass sie vom Smartphone
                     bis zum Großbildfernseher auf allen Bildschirmen gut aussieht.
@@ -181,17 +212,17 @@
                     als echte Smartphone App laufen.
                 </p>
                 <p>
-                    An dieser Stelle haben wir dann ungefähr Dreiviertel des
-                    Inhalts geschafft. Allerdings fehlt uns dann noch die andere
-                    Seite der Webentwicklung, nämlich der Server. Hier werden
-                    wir uns daher erst das HTTP-Protokoll im Detail anschauen
-                    und dann darauf aufbauend Gedanken darüber machen, wie
-                    es die Programmierung auf dem Server beeinflusst. Die
-                    daraus gewonnenen Einsichten sind im Grunde genommen auf
-                    jede Programmiersprache übertragbar, aus praktischen
-                    Gründen werden wir jedoch Java nutzen, damit wir nächstes
-                    Semester in Verteilte Systeme direkt an dieser Stelle
-                    anknüpfen können.
+                    Auf dieser Grundlage starten wir dann ein Entwicklungsprojekt
+                    bei dem du das bis hierhin erworbene Grundlagenwissen nochmal
+                    so richtig vertiefst. Du lernst dabei die modernsten Methoden
+                    der Webentwicklung kennen und lernst, wie du unter Zuhilfenahme
+                    verschiedener Bibliotheken so genannte Single Page Apps
+                    entwickeln kannst. Abschließen werden wir das Semester dann mit
+                    einem Einstieg in die serverseitige Programmierung, da diese
+                    bis vor Kurzem noch das dominierende Modell zur Realisierung
+                    webbasierter Anwendungen war. Damit kannst du dann beruhigt
+                    in die Praxisphase starten, bevor es nächstes Jahr mit
+                    „Verteilte Systeme” weiter geht.
                 </p>
                 <!--
                 <p>
@@ -213,15 +244,21 @@
                     in Webprogrammierung aufhören. Nach einer kurzen Übersicht
                     über die verschiedenen Möglichkeiten zur Gestaltung und
                     Implementierung verteilter Anwendungen werden wir unser
-                    Wissen über die serverseitige Webentwicklung vervollständigen
-                    und mit Jakarta&nbsp;EE (ehemals „Java Enterprise Edition”)
-                    richtige, webbasierte Datenbankanwendungen schreiben.
-                    Erst dann lösen wir uns wieder von der Webprogrammierung
-                    und schauen uns noch weitere Konzepte wie entfernte
-                    Methodenaufrufe oder asynchrone Message Broker an.
+                    Wissen über Webentwicklung vervollständigen, indem wir
+                    unsere Single Page Apps mit einem ordentlichen REST-Backend
+                    versehen. Dieses sprechen wir dann mit so genannten AJAX-Aufrufen
+                    an, wenn wir eine Aktion auf dem Server auslösen oder neue
+                    Daten anfordern wollen, ohne dabei gleich die ganze Seite
+                    neuzuladen. Gegen Ende der Vorlesung lernen wir dann auch
+                    MQTT und das asynchrone Kommunikationsmodell eines Message
+                    Brokers kennen. Denn dieses ermöglicht es uns, nahezu
+                    unbegrenzt große, verteilte Systeme mit hunderten oder
+                    tausenden, lose gekoppelten, zeitlich und räumlich verteilten
+                    Komponenten, wie so häufig im IoT-Umfeld anzutreffen sind,
+                    umzusetzen.
                 </p>
                 <p>
-                    Für heute soll das mal genügen. Im vierten Semester
+                    Für heute soll das erst einmal genügen. Im vierten Semester
                     kommen wir nochmal darauf zurück. 😎
                 </p>
             </aside>
@@ -311,92 +348,176 @@
         </section>
 
         <section>
-            <h1>Auf welcher Seite der Macht stehst du?</h1>
-            <article>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md">
-                            <img src="spaceballs1.jpg" style="100%" class="img-thumbnail d-block" />
-                            Die böse Seite der Macht: Die Betriebswirtschaft
-                        </div>
-                        <div class="col-md">
-                            <img src="spaceballs2.jpg" style="100%" class="img-thumbnail d-block" />
-                            Am Ende gewinnt zum Glück immer das Gute: Die Informatik
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <aside>
-                <p>
-                    Du wirst sehen, dass jetzt noch weitere eher programmierlastige
-                    Vorlesungen auf dich zukommen. Stehst du eher auf der guten
-                    Seite der Macht (der Informatik), kannst du dich freuen.
-                    Gehörst du der dunklen Seite an (der Betriebswirtschaft),
-                    dann kommen jetzt schwere Zeiten auf dich zu und du musst
-                    einsehen, dass es doch nicht so ist, wie Lord Helmchen aus
-                    Spaceballs behauptet: Am Ende gewinnt eben doch immer das Gute.
-                </p>
-            </aside>
-        </section>
-
-        <section>
             <h1>Benötigte Software</h1>
             <article>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md">
-                            <a href="../../../software/" target="_blank">Installationsanleitung</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md">
-                            <h2 style="margin: 0;">Clientseitige Webentwicklung</h2>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-bottom: 0;">
-                        <div class="col-md-4">
-                            <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
-                                <iframe class="d-block img-thumbnail" style="width: 100%" src="https://www.youtube-nocookie.com/embed/Y7aEiVwBAdk?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                <p>
+                    <a href="https://www.wpvs.de/repo/webprog/software/" target="_blank">Installationsanleitung</a>
+                </p>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a
+                                id            = "software-atom-tab"
+                                class         = "nav-link active"
+                                data-toggle   = "tab"
+                                href          = "#software-atom"
+                                role          = "tab"
+                                aria-controls = "software-atom"
+                                aria-expanded = "true"
+                            >
+                                Atom.io
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "software-git-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#software-git"
+                                role          = "tab"
+                                aria-controls = "software-git"
+                            >
+                                Git
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                id            = "software-nodejs-tab"
+                                class         = "nav-link"
+                                data-toggle   = "tab"
+                                href          = "#software-nodejs"
+                                role          = "tab"
+                                aria-controls = "software-nodejs"
+                            >
+                                node.js
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                        <!-- Atom.io -->
+                        <div
+                            class           = "tab-pane fade show active"
+                            id              = "software-atom"
+                            role            = "tabpanel"
+                            aria-labelledby = "software-atom-tab"
+                        >
+                            <div class="container-fluid">
+                                <div class="row" style="margin-bottom: 0;">
+                                    <div class="col-md">
+                                        <h2>Entwicklungsumgebung: Atom.io</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <img src="atom-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                                    </div>
+                                    <div class="col-md" style="min-height: 5em;">
+                                        <div class="img-thumbnail embed-responsive" style="width: 100%; height: 100%;">
+                                            <iframe class="d-block img-thumbnail" style="width: 100%" src="https://www.youtube-nocookie.com/embed/Y7aEiVwBAdk?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <ul>
+                                            <li>
+                                                Einer der besten Editoren für die Webentwicklung
+                                            </li>
+                                            <li>
+                                                Geschrieben in HTML und JavaScript (basierend auf der Chrome Webengine)
+                                            </li>
+                                            <li>
+                                                Open-Source von den Machern von GitHub
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <img src="git-logo.svg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        <!-- Git -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "software-git"
+                            role            = "tabpanel"
+                            aria-labelledby = "software-git-tab"
+                        >
+                            <div class="container-fluid">
+                                <div class="row" style="margin-bottom: 0;">
+                                    <div class="col-md">
+                                        <h2>Versionsverwaltung: Git</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <img src="git-logo.svg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                                    </div>
+                                    <div class="col-md">
+                                        <img src="git-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md">
+                                        <ul>
+                                            <li>
+                                                Verteilte Versionsverwaltung zur gemeinsamen Arbeit im Projekt
+                                            </li>
+                                            <li>
+                                                Zeichnet eine komplette Historie aller Änderungen an unseren Quellcodes auf
+                                            </li>
+                                            <li>
+                                                Ermöglicht es, beliebig vielen Personen zeitgleich an denselben Quellcodes zu arbeiten
+                                            </li>
+                                            <li>
+                                                Bietet zusammen mit GitHub eine komfortable Möglichkeit, Quellcode zu teilen und zu bearbeiten
+                                            </li>
+                                            <li>
+                                                Macht das Leben auch so in allen Belangen einfacher 👍
+                                            </li>
+                                            <li>
+                                                Open-Source von den Machern von Linux 🐧
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            <img src="node.js-logo.svg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        <!-- node.js -->
+                        <div
+                            class           = "tab-pane fade"
+                            id              = "software-nodejs"
+                            role            = "tabpanel"
+                            aria-labelledby = "software-nodejs-tab"
+                        >
+                        <div class="container-fluid">
+                            <div class="row" style="margin-bottom: 0;">
+                                <div class="col-md">
+                                    <h2>Paketverwaltung, Buildwerkzeug, Applikationsserver, …: node.js</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <img src="node.js-logo.svg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                                </div>
+                                <div class="col-md">
+                                    <img src="node.js-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <ul>
+                                        <li>
+                                            Beinhaltet den Node Package Manager zur einfachen Installation aller für ein Projekt benötigten Bibliotheken
+                                        </li>
+                                        <li>
+                                            Liefert uns alle Build- und Testwerkzeuge, die wir während der Entwicklung benötigen
+                                        </li>
+                                        <li>
+                                            Beinhaltet eine komplette JavaScript-Laufzeitumgebung für die serverseitige Programmierung
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            Github Atom, einer der besten Webeditoren
-                        </div>
-                        <div class="col-md-4">
-                            git für die Versionsverwaltung
-                        </div>
-                        <div class="col-md-4">
-                            node.js und npm als Buildwerkzeuge
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md">
-                            <h2 style="margin: 0;">Serverseitige Webentwicklung</h2>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-bottom: 0;">
-                        <div class="col-md-4">
-                            <img src="netbeans.jpg" class="img-thumbnail d-block" style="width: 100%" />
-                        </div>
-                        <div class="col-md-4">
-                            <img src="glassfish.jpg" class="img-thumbnail d-block" style="width: 100%" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            NetBeans IDE für die Java-Entwicklung
-                        </div>
-                        <div class="col-md-4">
-                            Glassfish Applikationsserver
                         </div>
                     </div>
                 </div>
@@ -411,7 +532,7 @@
                     haben wir uns daher auf folgende Werkzeuge festgelegt.
                     Eine ausführliche Anleitung zur Installation aller Programme
                     findest du
-                    <a href="../../../software/" target="_blank">hier</a>.
+                    <a href="https://www.wpvs.de/repo/webprog/software/" target="_blank">hier</a>.
                 </p>
                 <dl>
                     <dt>Atom Editor von Github</dt>
@@ -462,38 +583,6 @@
                         </p>
                         <p>
                             <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a>
-                        </p>
-                    </dd>
-
-                    <dt>NetBeans IDE</dt>
-                    <dd>
-                        <p>
-                            NetBeans ist die IDE unserer Wahl, wenn wir gegen Ende der
-                            Vorlesung auf Java umschwenken. Im Vergleich zu Eclipse
-                            oder IntelliJ bietet es nämlich den Vorteil, dass Jakarta&nbps;EE,
-                            wie Java auf dem Server heißt, besonders einfach einzurichten
-                            und zu nutzen ist. Und auch funktional steht NetBeans den
-                            anderen IDEs in nichts nach. Höchstens in der Anzahl der Abstürze
-                            und Bugs, da hat Eclipse wesentlich mehr davon zu bieten.&nbsp;👺
-                        </p>
-                        <p>
-                            <a href="http://netbeans.apache.org/" target="_blank">http://netbeans.apache.org/</a>
-                        </p>
-                    </dd>
-
-                    <dt>Glassfish Webserver</dt>
-                    <dd>
-                        <p>
-                            Glassfish ist ein so genannter Applikationsserver, der uns die
-                            Entwicklung serverseitiger Webanwendungen mit Java ermöglicht.
-                            Er wird unseren Javacode ausführen. Alternativ könnten wir zwar
-                            auch einen Webserver in ein normales Javaprogramm integrieren,
-                            das ist aber eher ein fortgeschritteneres Thema. Außerdem können
-                            wir den Server dann gleich für Verteilte Systeme nächstes Jahr
-                            weiter nutzen.
-                        </p>
-                        <p>
-                            <a href="https://javaee.github.io/glassfish/" target="_blank">https://javaee.github.io/glassfish/</a>
                         </p>
                     </dd>
                 </dl>
@@ -710,18 +799,18 @@
             <h1>Prüfungsform der Vorlesung</h1>
             <article>
                 <p style="margin-bottom: 1em">
-                    <b>Zuerst die gute Nachricht:</b> Es gibt keine Klausur. 😅 <br />
-                    <b>Dann die Ernüchterung:</b> Trotzdem gibt es eine Note. 😰
+                    <b>Zuerst die gute Nachricht:</b> Es gibt keine Klausur. 🎉 <br />
+                    <b>Dann die Ernüchterung:</b> Trotzdem gibt es eine Note. 🤔
                 </p>
                 <ul>
                     <li>
-                        Die Prüfung erfolgt im Rahmen einer Portfolioprüfung.
+                        Eure Note verdient ihr mit einer Portfolioprüfung über „Webprogrammierung” und „Verteilte Systeme”.
                     </li>
                     <li>
-                        Einen Teil des Portfolios werdet ihr in Dreiergruppen bearbeiten.
+                        Dieses Semester werdet ihr hierfür weitgehend in Dreiergruppen ein Projekt bearbeiten.
                     </li>
                     <li>
-                        Den Rest muss jeder selbst beisteuern, da es keine Gruppennoten gibt.
+                        Nächstes Semester kommen dann noch in Einzelleistung zu erbringende Arbeitspakete hinzu.
                     </li>
                 </ul>
 
@@ -730,81 +819,76 @@
                     <thead>
                         <tr>
                             <th>I/G</th>
-                            <th>P/S</th>
+                            <th>Semster</th>
                             <th>Artefakt</th>
                             <th>Schwierigkeit</th>
                             <th>Abgabefrist</th>
                             <th>Gewichtung</th>
                         </tr>
                     </thead>
+
+                    <!-- Drittes Semester -->
                     <tr>
                         <td>I</td>
-                        <td>S</td>
-                        <td><b>Einleitungsbericht</b></td>
+                        <td>3</td>
+                        <td><b>Einleitung (1 Seite)</b></td>
                         <td>Beurteilen</td>
-                        <td>Ende der zweiten Vorlesungswoche</td>
-                        <td>3</td>
+                        <td>Ende des dritten Semesters</td>
+                        <td>1</td>
                     </tr>
                     <tr>
                         <td>I</td>
-                        <td>S</td>
-                        <td><b>Lernkontrollen und Feedbacks</b></td>
-                        <td>Erinnern</td>
+                        <td>3</td>
+                        <td><b>Lernkontrollen zu „Webprogrammierung”</b></td>
+                        <td>Erinnern, Verstehen</td>
                         <td>Vor der jeweiligen Vorlesung</td>
-                        <td>4</td>
+                        <td>1</td>
                     </tr>
                     <tr>
                         <td>G</td>
-                        <td>P</td>
-                        <td><b>Fachkonzept der Webanwendung</b></td>
-                        <td>Analysieren, Beurteilen</td>
-                        <td>Ende der ersten Realisierungswoche</td>
                         <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>G</td>
-                        <td>P</td>
-                        <td><b>Quellcode der Webanwendung</b></td>
+                        <td><b>Quellcode der realisierten Browser App</b></td>
                         <td>Anwenden</td>
-                        <td>Eine Woche nach der letzten Vorlesung</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>I</td>
-                        <td>P</td>
-                        <td><b>Commit-Nachrichten aus git</b></td>
-                        <td>Verstehen</td>
-                        <td>Eine Woche nach der letzten Vorlesung</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>G</td>
-                        <td>P</td>
-                        <td><b>Testdokumentation der Webanwendung</b></td>
-                        <td>Analysieren</td>
-                        <td>Eine Woche nach der letzten Vorlesung</td>
+                        <td>Ende des dritten Semesters</td>
                         <td>2</td>
                     </tr>
                     <tr>
-                        <td>I</td>
-                        <td>S</td>
-                        <td><b>Onlinetest während der letzten Vorlesung</b></td>
-                        <td>Anwenden, Analysieren, Beurteilen</td>
-                        <td>Ende der Vorlesungsstunde</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>I</td>
-                        <td>S</td>
-                        <td><b>Reflexionsbericht</b></td>
-                        <td>Beurteilen</td>
-                        <td>Ende der letzten Klausurwoche</td>
+                        <td>G</td>
                         <td>3</td>
+                        <td><b>Essay zur serverseitigen Webentwicklung (3 Seiten)</b></td>
+                        <td>Analysieren, Beurteilen</td>
+                        <td>Ende des dritten Semesters</td>
+                        <td>2</td>
+                    </tr>
+
+                    <!-- Viertes Semester -->
+                    <tr style="background-color: #eaeaea;">
+                        <td>I</td>
+                        <td>4</td>
+                        <td><b>Lernkontrollen zu „Verteilte Systeme”</b></td>
+                        <td>Erinnern, Verstehen</td>
+                        <td>Vor der jeweiligen Vorlesung</td>
+                        <td>1</td>
+                    </tr>
+                    <tr style="background-color: #eaeaea;">
+                        <td>I</td>
+                        <td>4</td>
+                        <td><b>Vertiefende Aufgaben zu den einzelnen Kapiteln</b></td>
+                        <td>Anwenden, Analysieren, Beurteilen</td>
+                        <td>Ende des vierten Semesters</td>
+                        <td>4</td>
+                    </tr>
+                    <tr style="background-color: #eaeaea;">
+                        <td>I</td>
+                        <td>4</td>
+                        <td><b>Reflexion (1 Seite)</b></td>
+                        <td>Beurteilen</td>
+                        <td>Ende des vierten Semesters</td>
+                        <td>1</td>
                     </tr>
                 </table>
                 <p>
                     <b>I/G:</b> I = Individualleitung, G = Gruppenleistung <br />
-                    <b>P/S:</b> P = Programmierprojekt, S = Studieninhalte <br />
                     <b>Schwierigkeit:</b> Erinnern &lt; Verstehen &lt; Anwenden &lt; Analysieren &lt; Beurteilen
                 </p>
 
@@ -827,14 +911,14 @@
             <aside>
                 <h2>Nachteile einer Klausur</h2>
                 <p>
-                    Die gute Nachricht immer zuerst: Wir schreiben keine Klausur.
+                    Die gute Nachricht immer zuerst: Wir schreiben keine Klausur. 🎉
                     Ja richtig gelesen, keine Klausur. Stattdessen machen wir eine
                     Portfolioprüfung, die es dir ermöglicht, viel praxisrelevanter
                     zu einer Note zu gelangen. Denn, du hast es dir sicher schon
                     gedacht, was sind die Nachteile einer Klausur?
-                    Du machst „Programmieren auf Papier”, aber das ist ja nicht
+                    Du machst „Programmieren auf Papier”, 📃 aber das ist ja nicht
                     wirklich praxisgerecht. Oder wann musstest du das letzte mal
-                    in deiner Firma ein Programm auf Papier abgeben? 😉 Dann ist
+                    in deiner Firma ein Programm auf Papier abgeben? 🐒 Dann ist
                     es auch so, dass du in einer Klausur nur eine Stunde Zeit
                     hast, in der du alles auswendig wissen musst. Nachschlagen
                     im Skript ist alleine schon wegen der Zeit gar nicht erlaubt.
@@ -860,46 +944,26 @@
                     Anliegen der Portfolioprüfung ist es, den individuellen
                     Lernweg zu dokumentieren und zu benoten, den jede/r Student/in
                     während der Vorlesung einschlägt. Das Portfolio wird daher
-                    begleitend zur Vorlesung das ganze Semester über erstellt
-                    und muss am Ende in Papierform im Sekretariat abgegeben werden.
-                    Da du in der Softwareentwicklung aber nicht nur alleine sondern
-                    oft auch im Team entwickelst, werden wir auch eine Gruppenaufgabe
-                    aufnehmen. Und keine Angst, du musst keine Quellcodes ausdrucken. 🖨️
-                    Dafür haben wir auch eine Lösung.
+                    während des gesamten Moduls (bestehend aus zwei Vorlesungen)
+                    vorlesungsbegleitend erstellt. Hierfür sammeln wir verschiedene
+                    Artefakte 🏺 ein, die teilweise in Gruppenarbeit und teilweise in
+                    Einzelleistung zu erstellen sind. 📝
                 </p>
                 <p>
                     Wenn du dir die Zusammensetzung des Portfolios auf der Folie
                     anschaust, wirkt das sicher erst einmal sehr umfangreich. Und
-                    im Grunde genommen ist es das auch, weil wir ja den kompletten
-                    Prozess zur Entstehung einer Webanwendung abdecken wollen.
-                    Damit es aber auch neben den anderen Vorlesungen des Semesters
-                    machbar ist, werden wir einige Teile des Portfolios kurz und
-                    schmerzlos sehr effizient online erledigen:
-                </p>
-                <ul>
-                    <li>
-                        Einleitungsbericht
-                    </li>
-                    <li>
-                        Lehrkontrollen und Feedbacks
-                    </li>
-                    <li>
-                        Reflexionsbericht
-                    </li>
-                </ul>
-                <p>
-                    Diese Unterlagen wirst durch Bearbeiten der zugeordneten
-                    Moodle-Aktivitäten erledigen. Sie werden nur wenige Minuten
-                    oder im Falle der beiden Berichte nicht mehr als ungefähr
-                    eine Stunde in Anspruch nehmen. Den Onlinetest ganz am Ende
-                    werden wir dann ebenso schmerzlos über die Bühne bringen:
-                    Du füllst ihn während der letzten Vorlesungsstunde aus.
-                    Dann bleibt nur noch die Webanwendung selbst, die allerdings
-                    sowieso in eine Zeit fällt, in der wir keine Hausaufgaben
-                    mehr geplant haben und immerhin bekommt ihr auch vier ganze
-                    Vorlesungstermine zur Verfügung gestellt.
-                    Alles in Allem wird es also gut machbar sein, wenn du dich
-                    an die Vorlesungsplanung hältst.&nbsp;🗓️
+                    im Grunde genommen ist es das auch, weil wir ja die kompletten
+                    Vorlesungsinhalte prüfen müssen. Allerdings werden wir Einleitung
+                    und Reflexion relativ kurz halten und uns stattdessen mehr auf
+                    die anderen Artefakte konzentrieren. Und die Lernkontrollen machst
+                    du auch direkt im Anschluss an das jeweilige Selbststudium, so
+                    dass hierfür keine Extrazeit eingeplant werden muss. Damit bleiben
+                    dann nur noch das Programmierprojekt und anderen Aufgabentypen.
+                    Diese wirst du zumindest teilweise in Eigenarbeit zwischen den
+                    Vorlesungen erledigen müssen, dafür gibt es in dieser Zeit aber
+                    keine Selbststudien mehr und wir werden mit den Aufgaben auch
+                    bereits in der Vorlesung beginnen. Alles in Allem wird es also gut
+                    machbar sein, wenn du dich an die Vorlesungsplanung hältst.&nbsp;🗓️
                 </p>
 
                 <h2>Berechnung der Note</h2>
