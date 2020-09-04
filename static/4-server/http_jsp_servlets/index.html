@@ -448,7 +448,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Anfrage -->
                         <div
                             class           = "tab-pane fade show active"
@@ -634,7 +634,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Verben -->
                         <div
                             class           = "tab-pane fade show active"
@@ -938,64 +938,64 @@
         <section>
             <h1>Zeit für eine Demonstration</h1>
             <article>
-                <ul class="dhbw-carousel-links">
+                <ul class="nav nav-tabs" role="tablist">
                     <li>
-                        <a href="#http-demo-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                        <a href="#http-demo-carousel" class="nav-link" data-slide="next">Nächstes Bild</a>
                     </li>
                     <li>
-                        <a href="#http-demo-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                        <a href="#http-demo-carousel" class="nav-link" data-slide="prev">Vorheriges Bild</a>
                     </li>
                     <li>
-                        <a href="#http-demo-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                        <a href="#http-demo-carousel" class="nav-link" data-slide-to="0">Nochmal von vorne</a>
                     </li>
                 </ul>
                 <div id="http-demo-carousel" class="carousel" data-interval="false">
                     <div class="carousel-inner">
-                        <div class="carousel-item img-thumbnail active">
+                        <div class="carousel-item active">
                             <p>
                                 Wir starten mit einer leeren Konsole. Du kennst doch die Konsole deines Betriebssystems, oder? 🐒
                             </p>
                             <img class="active d-block w-100" src="http_demo_01.gif" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Mit <tt>telnet</tt> stellen wir eine <a href="https://de.wikipedia.org/wiki/Socket_(Software)"
                                 target="_blank">TCP/IP-Verbindung</a> zum Webserver her.
                             </p>
                             <img class="active d-block w-100" src="http_demo_02.gif" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Daraufhin meldet <tt>telnet</tt>, dass die Verbindung erfolgreich aufgebaut wurde und der Server wartet
                                 auf Eingaben.
                             </p>
                             <img class="active d-block w-100" src="http_demo_03.gif" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Wir schicken eine <tt>GET</tt>-Anfrage zum Abruf der Datei <tt>/webprog/hallo-http.txt</tt>.
                             </p>
                             <img class="active d-block w-100" src="http_demo_04.gif" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Als nächstes folgt das Header Field <tt>Host</tt>, da es mehrere Domains mit derselben IP-Adresse gibt.
                             </p>
                             <img class="active d-block w-100" src="http_demo_05.gif" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Das war es dann auch schon mit den Header Fields. Zum Abschluss folgt deshalb eine Leerzeile.
                             </p>
                             <img class="active d-block w-100" src="http_demo_06.gif" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Und schon schickt uns der Server die Antwort und trennt die Verbindung.
                             </p>
                             <img class="active d-block w-100" src="http_demo_07.gif" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 So einfach ist das. 👍🏻 Allerdings nur mit HTTP/1, denn HTTP/2 kodiert die Nachrichten in einer kompakteren
                                 Binärform.
@@ -1021,73 +1021,71 @@
                     eine Konsole. Denn: Wo eine Konsole ist, ist ein Weg. 🏜️
                 </p>
 
-                <div class="embed-responsive embed-responsive-16by9" style="margin-bottom: 1em">
-                    <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/Dgwyo6JNTDA?rel=0" allowfullscreen></iframe>
-                </div>
+                <lsx-youtube video="Dgwyo6JNTDA"></lsx-youtube>
             </aside>
         </section>
 
         <section>
             <h1>Aufzeichnung der HTTP-Kommunikation im Browser</h1>
             <article>
-                <ul class="dhbw-carousel-links">
+                <ul class="nav nav-tabs" role="tablist">
                     <li>
-                        <a href="#devtool-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                        <a href="#devtool-carousel" class="nav-link" data-slide="next">Nächstes Bild</a>
                     </li>
                     <li>
-                        <a href="#devtool-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                        <a href="#devtool-carousel" class="nav-link" data-slide="prev">Vorheriges Bild</a>
                     </li>
                     <li>
-                        <a href="#devtool-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                        <a href="#devtool-carousel" class="nav-link" data-slide-to="0">Nochmal von vorne</a>
                     </li>
                 </ul>
                 <div id="devtool-carousel" class="carousel slide" data-interval="false">
                     <div class="carousel-inner">
-                        <div class="carousel-item img-thumbnail active">
+                        <div class="carousel-item active">
                             <p>
                                 Wir starten mit den geöffneten Entwicklerwerkzeugen. <kbd>F12</kbd> und schon sind sie da.
                             </p>
                             <img class="active d-block w-100" src="devtool_01.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Dann rufen wir die Webseite auf, deren Ladezeiten wir untersuchen wollen.
                             </p>
                             <img class="active d-block w-100" src="devtool_02.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Der Browser zeichnet daraufhin die Kommunikation auf und zeigt folgende Übersicht an.
                                 Jede Zeile entspricht einer abgerufenen Datei.
                             </p>
                             <img class="active d-block w-100" src="devtool_03.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Jede Zeile kann angeklickt werden, um sie näher zu untersuchen. Rechts sieht man
                                 dann unter anderem die Header Fields der HTTP-Nachrichten.
                             </p>
                             <img class="active d-block w-100" src="devtool_04.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Der Inhalt der untersuchten Datei kann natürlich auch angezeigt werden.
                             </p>
                             <img class="active d-block w-100" src="devtool_05.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Ebenso wie eine Detailübersicht, wie viel Zeit wofür verwendet wurde.
                             </p>
                             <img class="active d-block w-100" src="devtool_06.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Unten links versteckt sich im Firefox die „Performanceanalyse”.
                             </p>
                             <img class="active d-block w-100" src="devtool_07.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Sie zeigt, wie lange die einzelnen Teile der Seite laden. Einmal wenn der
                                 Browser die Dateien bereits kennt <i>(Primed Cache)</i> und einmal für
@@ -1095,7 +1093,7 @@
                             </p>
                             <img class="active d-block w-100" src="devtool_08.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Hier endet unsere kleine Rundreise. Die Netzwerkanalyse des Browsers ist ein
                                 äußerst nützliches Werkzeug.
@@ -1312,7 +1310,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Komplett im Browser -->
                         <div
                             class           = "tab-pane fade show active"
@@ -1545,7 +1543,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Statische Dateien -->
                         <div
                             class           = "tab-pane fade show active"
@@ -1622,7 +1620,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Externer Webcontainer -->
                         <div
                             class           = "tab-pane fade show active"
@@ -1785,7 +1783,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Quellcode -->
                         <div
                             class           = "tab-pane fade show active"
@@ -2053,88 +2051,88 @@
         <section>
             <h1>Wir steigen auf NetBeans um</h1>
             <article>
-                <ul class="dhbw-carousel-links">
+                <ul class="nav nav-tabs" role="tablist">
                     <li>
-                        <a href="#netbeans-carousel" role="button" data-slide="next">Nächstes Bild</a>
+                        <a href="#netbeans-carousel" class="nav-link" data-slide="next">Nächstes Bild</a>
                     </li>
                     <li>
-                        <a href="#netbeans-carousel" role="button" data-slide="prev">Vorheriges Bild</a>
+                        <a href="#netbeans-carousel" class="nav-link" data-slide="prev">Vorheriges Bild</a>
                     </li>
                     <li>
-                        <a href="#netbeans-carousel" role="button" data-slide-to="0">Nochmal von vorne</a>
+                        <a href="#netbeans-carousel" class="nav-link" data-slide-to="0">Nochmal von vorne</a>
                     </li>
                 </ul>
                 <div id="netbeans-carousel" class="carousel slide" data-interval="false">
                     <div class="carousel-inner">
-                        <div class="carousel-item img-thumbnail active">
+                        <div class="carousel-item active">
                             <p>
                                 Starte NetBeans und wähle im <tt>File</tt>-Menü den Eintrag <tt>New Project…</tt> aus.
                             </p>
                             <img class="active d-block w-100" src="netbeans_01.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Als Projekttyp suche <tt>Web Application</tt> in der Kategorie <tt>Java Web</tt>.
                             </p>
                             <img class="active d-block w-100" src="netbeans_02.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Im nächsten Fenster musst du den Namen und Speicherort des Projekts eingeben.
                             </p>
                             <img class="active d-block w-100" src="netbeans_03.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Die darauf folgenden Servereinstellungen kannst du einfach übernehmen. GlassFish passt.
                             </p>
                             <img class="active d-block w-100" src="netbeans_04.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Ob die vorgefertige <tt>index.html</tt> benötigt wird, hängt von deinem Projekt ab.
                                 Hier brauchen wir sie nicht und können sie daher löschen (rechte Maustaste).
                             </p>
                             <img class="active d-block w-100" src="netbeans_05.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Stattdessen kannst du im Ordner <tt>Web Pages</tt> eine neue Java Server Page anlegen,
                                 da diese auch serverseitige Logik enthalten darf.
                             </p>
                             <img class="active d-block w-100" src="netbeans_06.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Die Datei soll den Namen <tt>index</tt> haben, damit sie als Startseite aufgerufen wird.
                             </p>
                             <img class="active d-block w-100" src="netbeans_07.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Den Quellcode kannst du aus der vorherigen Folie kopieren.
                             </p>
                             <img class="active d-block w-100" src="netbeans_08.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Dann noch schnell geschaut, ob der richtige Browser voreingestellt ist.
                             </p>
                             <img class="active d-block w-100" src="netbeans_09.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Und das Projekt laufen lassen. Unten siehst du, wie der GlassFish Applikationsserver nun startet.
                             </p>
                             <img class="active d-block w-100" src="netbeans_10.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Wenn alles gut geht, sollte sich nach einer Weile dein Browser mit der neuen Seite öffnen.
                             </p>
                             <img class="active d-block w-100" src="netbeans_11.jpg" />
                         </div>
-                        <div class="carousel-item img-thumbnail">
+                        <div class="carousel-item">
                             <p>
                                 Das war es auch schon. 🤗 <br />
                                 Natürlich musst du die <tt>index.html</tt> nicht löschen, wenn du nicht willst. <br />
@@ -2198,7 +2196,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Aufgabe -->
                         <div
                             class           = "tab-pane fade show active"
@@ -2360,7 +2358,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Das wollen wir erreichen -->
                         <div
                             class           = "tab-pane fade show active"
@@ -2697,7 +2695,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Aufgabe -->
                         <div
                             class           = "tab-pane fade show active"
@@ -3397,7 +3395,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Quellcode -->
                         <div
                             class           = "tab-pane fade show active"
@@ -3684,7 +3682,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Bearbeitung von HTTP-Anfragen -->
                         <div
                             class           = "tab-pane fade show active"
@@ -3804,7 +3802,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Werte aus der HTTP-Anfrage lesen -->
                         <div
                             class           = "tab-pane fade show active"
@@ -3956,7 +3954,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Werte in die Antwort schreiben -->
                         <div
                             class           = "tab-pane fade show active"
@@ -4100,7 +4098,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Quellcode -->
                         <div
                             class           = "tab-pane fade show active"
@@ -4692,7 +4690,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- NetBeans-Projekt -->
                         <div
                             class           = "tab-pane fade show active"
@@ -5035,7 +5033,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Beschreibung -->
                         <div
                             class           = "tab-pane fade show active"

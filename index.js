@@ -40,6 +40,8 @@ import emailLinkJs from "email-link.js";
 import SlideshowPlayer from "lecture-slides.js";
 import "./style/style.less";
 
+import LsPluginExtraTags from "ls-plugin-extra-tags";
+
 import LsPluginHighlightJs from "ls-plugin-highlight.js";
 import "highlight.js/styles/atom-one-light.css";
 
@@ -62,6 +64,14 @@ window.addEventListener("load", () => {
         mode: "overview",
         linkMode: "slideshow",
         plugins: {
+            ExtraTags: new LsPluginExtraTags({
+                labelCarouselNext: "Nächstes Bild",
+                labelCarouselPrev: "Vorheriges Bild",
+                labelCarouselReset: "Nochmal von vorne",
+                labelQuizPoints: "{1} von {2}",
+                labelQuizEvaluate: "Bewerten",
+                labelQuizNewTry: "Neuer Versuch",
+            }),
             HighlightJs: new LsPluginHighlightJs(),
         }
     });

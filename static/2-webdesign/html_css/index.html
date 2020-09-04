@@ -272,21 +272,21 @@
             <h1>Sprachen und Formate rund um HTML</h1>
             <article>
 
-                    <h4 class="dhbw-lightblue">HTML (HyperText Markup Language)</h4>
+                    <h4>HTML (HyperText Markup Language)</h4>
                     <ul>
                         <li>Auszeichnungssprache zur Definition der darzustellenden Inhalte</li>
                         <li>Beschreibt nur den Inhalt und seine Bedeutung, nicht aber das Aussehen</li>
                         <li>Überschriften, Absätze, Aufzählungen, Tabellen, Bilder, …</li>
                     </ul>
 
-                    <h4 class="dhbw-lightblue">CSS (Cascading StyleSheets)</h4>
+                    <h4>CSS (Cascading StyleSheets)</h4>
                     <ul>
                         <li>Sprache zur Definition der Layout- und Darstellungsoptionen einer HTML-Seite</li>
                         <li>Bezieht sich auf die Inhalte eines HTML-Dokuments und legt ihre Darstellung fest</li>
                         <li>Farben, Hintergründe, Umrandungen, Positionierung, Transparenz, Schatten, …</li>
                     </ul>
 
-                    <h4 class="dhbw-lightblue">SVG (Scalable Vector Graphics)</h4>
+                    <h4>SVG (Scalable Vector Graphics)</h4>
                     <ul>
                         <li>XML-basiertes Grafikformat für skalierbare <a href="https://de.wikipedia.org/wiki/Vektorgrafik" target="_blank">Vektorgrafiken</a></li>
                         <li>Kann mit CSS und JavaScript umfangreich zur Laufzeit angepasst werden</li>
@@ -294,7 +294,7 @@
                         <li>Rechtecke, Kreise, Linien, Kurven, Flächen, Füllungen, …</li>
                     </ul>
 
-                    <h4 class="dhbw-lightblue">JavaScript</h4>
+                    <h4>JavaScript</h4>
                     <ul>
                         <li>Programmiersprache, die innerhalb des Browsers ausgeführt wird</li>
                         <li>Ermöglicht es, auf Ereignisse wie Mausklicks zu reagieren</li>
@@ -314,9 +314,7 @@
                     Freunde geht es dann aber doch nicht. 😎
                 </p>
 
-                <div class="embed-responsive embed-responsive-16by9" style="margin-bottom: 1em">
-                    <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/ZdfQ-fruMdg?rel=0" allowfullscreen></iframe>
-                </div>
+                <lsx-youtube video="ZdfQ-fruMdg"></lsx-youtube>
 
                 <p>
                     Jede HTML-Webanwendung besteht daher aus einer Kombination der
@@ -561,29 +559,41 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 1: Deine erste HTML-Datei</h1>
             <article>
-                <ol>
-                    <li>Kopiere den Quellcode der vorangegangenen Folie in einen Texteditor deiner Wahl.</li>
-                    <li>Speichere die Datei mit der Endung <tt>.html</tt> ab und öffne sie im Browser.</li>
-                    <li>Ändere ein paar Inhalte in der Datei und schaue dir das Ergebnis an.</li>
-                </ol>
                 <p>
-                    <b>Hinweis:</b> Achte auf den richtigen Zeichensatz der Datei. Das Tag
+                    Führe die folgenden Schritte zur Erstellung einer einfachen Webseite aus:
+                </p>
+                <ol>
+                    <li>
+                        Kopiere den Quellcode der vorangegangenen Folie in einen Texteditor deiner Wahl.
+                    </li>
+                    <li>
+                        Speichere die Datei mit der Endung <tt>.html</tt> ab und öffne sie im Browser.
+                    </li>
+                    <li>
+                        Ändere ein paar Inhalte in der Datei und schaue dir das Ergebnis an.
+                    </li>
+                    <li>
+                        Lege eine zweite HTML-Datei an und baue jeweils einen Link von der einen auf die andere ein.
+                    </li>
+                </ol>
+                <div class="info-box">
+                    Achte auf den richtigen Zeichensatz der Datei. Das Tag
                     <src-code language="html">&lt;meta charset="utf-8" /&gt;</src-code> weist den Browser
                     an, die Datei als UTF-8-Datei zu lesen. Sonst werden die Umlaute und Sonderzeichen
                     nicht richtig dargestellt.
-                </p>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md">
+                </div>
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="md">
                             <img src="aufgabe1_editor.png" class="img-thumbnail d-block" style="width: 100%" />
                             Quellcode im Editor
-                        </div>
-                        <div class="col-md">
+                        </lsx-col>
+                        <lsx-col size="md">
                             <img src="aufgabe1_browser.png" class="img-thumbnail d-block" style="width: 100%" />
                             Darstellung im Browser
-                        </div>
-                    </div>
-                </div>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </article>
             <aside>
                 <p>
@@ -615,41 +625,9 @@
         <section>
             <h1>„Unsichtbare” HTML-Elemente</h1>
             <article>
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a
-                            id            = "unsichtbar-uebersicht-tab"
-                            class         = "nav-link active"
-                            data-toggle   = "tab"
-                            href          = "#unsichtbar-uebersicht"
-                            role          = "tab"
-                            aria-controls = "unsichtbar-uebersicht"
-                            aria-expanded = "true"
-                        >
-                            Übersicht
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a
-                            id            = "unsichtbar-beispiel-tab"
-                            class         = "nav-link"
-                            data-toggle   = "tab"
-                            href          = "#unsichtbar-beispiel"
-                            role          = "tab"
-                            aria-controls = "unsichtbar-beispiel"
-                        >
-                            Beispiel
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="tab-content border border-top-0" style="padding: 1em;">
-                    <div
-                        class           = "tab-pane fade show active"
-                        id              = "unsichtbar-uebersicht"
-                        role            = "tabpanel"
-                        aria-labelledby = "unsichtbar-uebersicht-tab"
-                    >
+                <lsx-tab-pages id="tabs-unsichtbar">
+                    <!-- Übersicht -->
+                    <lsx-tab-page title="Übersicht">
                         <h2>Grundstruktur eines HTML-Dokuments</h2>
 
                         <source-code language="html">
@@ -707,14 +685,10 @@
                                 Ordnet der Seite ein Icon zu, das neben ihrem Titel angezeigt wird.
                             </dd>
                         </dl>
-                    </div>
+                    </lsx-tab-page>
 
-                    <div
-                        class           = "tab-pane fade"
-                        id              = "unsichtbar-beispiel"
-                        role            = "tabpanel"
-                        aria-labelledby = "unsichtbar-beispiel-tab"
-                    >
+                    <!-- Beispiel -->
+                    <lsx-tab-page title="Beispiel">
                         <source-code language="html">
                             &lt;!DOCTYPE html&gt;
                             &lt;html&gt;
@@ -728,8 +702,8 @@
                                 &lt;/body&gt;
                             &lt;/html&gt;
                         </source-code>
-                    </div>
-                </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
             </article>
             <aside>
                 <p>
@@ -795,7 +769,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Überschriften und Absätze: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -837,19 +811,27 @@
                             aria-labelledby = "sichtbar-ueberschriften-beispiel-tab"
                         >
                             <source-code language="html">
-                                &lt;h1&gt;Per Anhalter durch die Galaxis&lt;/h1&gt;
-                                &lt;h2&gt;Die fünfteilige Trilogie&lt;/h2&gt;
-                                &lt;p&gt;
-                                    Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
-                                    Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
-                                    verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
-                                    fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
-                                    nach seinem Tod die Fortsetzung „Und übrigens noch was …” von Eoin Colfer.
-                                &lt;/p&gt;
-                                &lt;p&gt;
-                                    Die Serie umfasst daher folgende Titel:
-                                &lt;/p&gt;
-                                ...
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        ...
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;h1&gt;Per Anhalter durch die Galaxis&lt;/h1&gt;
+                                        &lt;h2&gt;Die fünfteilige Trilogie&lt;/h2&gt;
+                                        &lt;p&gt;
+                                            Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
+                                            Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
+                                            verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
+                                            fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
+                                            nach seinem Tod die Fortsetzung „Und übrigens noch was …” von Eoin Colfer.
+                                        &lt;/p&gt;
+                                        &lt;p&gt;
+                                            Die Serie umfasst daher folgende Titel:
+                                        &lt;/p&gt;
+                                        ...
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
                             </source-code>
                         </div>
                         <!-- Überschriften und Absätze: Aussehen -->
@@ -919,7 +901,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Textformatierung: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -952,24 +934,32 @@
                             aria-labelledby = "sichtbar-textformatierung-beispiel-tab"
                         >
                             <source-code language="html">
-                                &lt;p&gt;
-                                    &lt;b&gt;Wichtiger Hinweis:&lt;/b&gt; Lese immer das Kleingedruckte eines
-                                    Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
-                                    und kaum verstehen kann. &lt;i&gt;Im Kleingedruckten stecken oft viele
-                                    ungeahnte Fallen!&lt;/i&gt;
-                                &lt;/p&gt;
-                                &lt;p&gt;
-                                    &lt;u&gt;Hier ein Beispiel:&lt;/u&gt;
-                                &lt;/p&gt;
-                                &lt;p&gt;
-                                    &lt;small&gt;
-                                        &lt;small&gt;
-                                            Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
-                                            Wir garantieren für nichts und erstatten auch kein Geld zurück.
-                                            Wer bei uns kauft, ist selbst schuld.
-                                        &lt;/small&gt;
-                                    &lt;/small&gt;
-                                &lt;/p&gt;
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        ...
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;p&gt;
+                                            &lt;b&gt;Wichtiger Hinweis:&lt;/b&gt; Lese immer das Kleingedruckte eines
+                                            Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
+                                            und kaum verstehen kann. &lt;i&gt;Im Kleingedruckten stecken oft viele
+                                            ungeahnte Fallen!&lt;/i&gt;
+                                        &lt;/p&gt;
+                                        &lt;p&gt;
+                                            &lt;u&gt;Hier ein Beispiel:&lt;/u&gt;
+                                        &lt;/p&gt;
+                                        &lt;p&gt;
+                                            &lt;small&gt;
+                                                &lt;small&gt;
+                                                    Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
+                                                    Wir garantieren für nichts und erstatten auch kein Geld zurück.
+                                                    Wer bei uns kauft, ist selbst schuld.
+                                                &lt;/small&gt;
+                                            &lt;/small&gt;
+                                        &lt;/p&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
                             </source-code>
                         </div>
                         <!-- Textformatierung: Aussehen -->
@@ -1044,7 +1034,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Zeilenumbrüche und Trennlinien: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -1081,15 +1071,23 @@
                             aria-labelledby = "sichtbar-umbrueche-beispiel-tab"
                         >
                             <source-code language="html">
-                                &lt;b&gt;Alice Wunderland&lt;/b&gt; &lt;br /&gt;
-                                Hinter dem Haus 7 &lt;br /&gt;
-                                76185 Karlsruhe-Märchendorf
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        ...
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;b&gt;Alice Wunderland&lt;/b&gt; &lt;br /&gt;
+                                        Hinter dem Haus 7 &lt;br /&gt;
+                                        76185 Karlsruhe-Märchendorf
 
-                                &lt;hr /&gt;
+                                        &lt;hr /&gt;
 
-                                &lt;b&gt;Grinsender Kater&lt;/b&gt; &lt;br /&gt;
-                                Im Garten 9 &lt;br /&gt;
-                                76185 Karlsruhe-Märchendorf
+                                        &lt;b&gt;Grinsender Kater&lt;/b&gt; &lt;br /&gt;
+                                        Im Garten 9 &lt;br /&gt;
+                                        76185 Karlsruhe-Märchendorf
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
                             </source-code>
                         </div>
                         <!-- Zeilenumbrüche und Trennlinien: Aussehen -->
@@ -1155,7 +1153,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Bilder und Links: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -1207,9 +1205,17 @@
                             aria-labelledby = "sichtbar-links-beispiel-tab"
                         >
                             <source-code language="html">
-                                &lt;h4&gt;JS.Scratch: Interaktiver JavaScript-Editor&lt;/h4&gt;
-                                &lt;img src="screenshot.png" alt="Screenshot von JS.Scratch" /&gt; &lt;br /&gt;
-                                &lt;a href="https://www.wpvs.de/repo/js.scratch/app/"&gt;Editor starten&lt;/a&gt;
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        ...
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;h4&gt;JS.Scratch: Interaktiver JavaScript-Editor&lt;/h4&gt;
+                                        &lt;img src="screenshot.png" alt="Screenshot von JS.Scratch" /&gt; &lt;br /&gt;
+                                        &lt;a href="https://www.wpvs.de/repo/js.scratch/app/"&gt;Editor starten&lt;/a&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
                             </source-code>
                         </div>
                         <!-- Bilder und Links: Aussehen -->
@@ -1270,7 +1276,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Aufzählungen und Listen: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -1317,33 +1323,41 @@
                             aria-labelledby = "sichtbar-listen-beispiel-tab"
                         >
                             <source-code language="html">
-                                &lt;h2&gt;Meine Lieblinugsbücher als ich jung war&lt;/h2&gt;
-                                &lt;ul&gt;
-                                    &lt;li&gt;
-                                        &lt;p&gt;
-                                            Garfield-Comics
-                                        &lt;/p&gt;
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        ...
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;h2&gt;Meine Lieblinugsbücher als ich jung war&lt;/h2&gt;
                                         &lt;ul&gt;
-                                            &lt;li&gt;Garfield langt zu&lt;/li&gt;
-                                            &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
-                                            &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
-                                            &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
-                                            &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
+                                            &lt;li&gt;
+                                                &lt;p&gt;
+                                                    Garfield-Comics
+                                                &lt;/p&gt;
+                                                &lt;ul&gt;
+                                                    &lt;li&gt;Garfield langt zu&lt;/li&gt;
+                                                    &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
+                                                    &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
+                                                    &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
+                                                    &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
+                                                &lt;/ul&gt;
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                &lt;p&gt;
+                                                    Anhalter-Romane
+                                                &lt;/p&gt;
+                                                &lt;ol&gt;
+                                                    &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
+                                                    &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
+                                                    &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
+                                                    &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
+                                                    &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
+                                                &lt;/ol&gt;
+                                            &lt;/li&gt;
                                         &lt;/ul&gt;
-                                    &lt;/li&gt;
-                                    &lt;li&gt;
-                                        &lt;p&gt;
-                                            Anhalter-Romane
-                                        &lt;/p&gt;
-                                        &lt;ol&gt;
-                                            &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
-                                            &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
-                                            &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
-                                            &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
-                                            &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
-                                        &lt;/ol&gt;
-                                    &lt;/li&gt;
-                                &lt;/ul&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
                             </source-code>
                         </div>
                         <!-- Aufzählungen und Listen: Aussehen -->
@@ -1409,9 +1423,37 @@
         </section>
 
         <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 2: Ein kleines HTML-Quiz</h1>
+            <h1>Aufgabe 2: Verschiedene HTML-Elemente anwenden</h1>
             <article>
-                <h2>Aufgabe 2.1: Mit welchem HTML-Tag kann man …</h2>
+                <p>
+                    Lege eine neue HTML-Datei an und probiere die gelernten HTML-Tags aus:
+                </p>
+                <ol>
+                    <li>Definiere mehrere Absätze mit Überschriften und Unterüberschriften.</li>
+                    <li>Verwende mindestens eine geordnete oder ungeordnete Aufzählungsliste.</li>
+                    <li>Baue ein/zwei Bilder in die Seite ein. Achte darauf, dass sie nicht zu groß sind!</li>
+                    <li>Füge der Seite einen Link auf einen Wikipedia-Artikel deiner Wahl hinzu.</li>
+                </ol>
+                <p>
+                    So könnte die Seite zum Beispiel aussehen:
+                </p>
+                <img src="aufgabe2.png" class="img-fluid img-thumbnail d-block" />
+            </article>
+            <aside>
+                <p>
+                    Jetzt kennst du ja schon einige HTML-Elemente. Dann wollen wir sie doch
+                    gleich mal verwenden. Lege daher schnell eine neue HTML-Datei an und fülle
+                    sie wie in der Folie beschrieben. Spiele dabei ruhig ein wenig herum und
+                    probiere aus was geht. Wenn du willst, kannst du im Internet auch noch
+                    weitere HTML-Elemente recherchieren.
+                </p>
+            </aside>
+        </section>
+
+        <section data-background-color="rgb(231, 221, 141)">
+            <h1>Aufgabe 3: Ein kleines HTML-Quiz</h1>
+            <article>
+                <h2>Aufgabe 3.1: Mit welchem HTML-Tag kann man …</h2>
 
                 <p>a) … den Hauptteil einer Webseite deklarieren?</p>
                 <ol>
@@ -1483,7 +1525,7 @@
                     </li>
                 </ol>
 
-                <h2>Aufgabe 2.2: Mit welchem Grafikformat kann man …</h2>
+                <h2>Aufgabe 3.2: Mit welchem Grafikformat kann man …</h2>
 
                 <p>a) … durchsichtige Bilder in eine Seite einbinden?</p>
                 <ol>
@@ -1517,41 +1559,15 @@
 
                 <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
                     <small>
-                        <b>Lösung:</b> Aufgabe 2.1: 2, 3, 1, 2; Aufgabe 2.2: 1 und 2, 2, 4
+                        <b>Lösung:</b> <br />
+                        Aufgabe 3.1: 2, 3, 1, 2; <br />
+                        Aufgabe 3.2: 1 und 2, 2, 4
                     </small>
                 </p>
             </article>
             <aside>
                 Hast du auch gut aufgepasst? Klar, sicher. Zur Kontrolle haben wir
                 hier ein kleines Quiz für dich. 📑
-            </aside>
-        </section>
-
-        <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 3: Verschiedene HTML-Elemente anwenden</h1>
-            <article>
-                <p>
-                    Lege eine neue HTML-Datei an und probiere die gelernten HTML-Tags aus:
-                </p>
-                <ol>
-                    <li>Definiere mehrere Absätze mit Überschriften und Unterüberschriften.</li>
-                    <li>Verwende mindestens eine geordnete oder ungeordnete Aufzählungsliste.</li>
-                    <li>Baue ein/zwei Bilder in die Seite ein. Achte darauf, dass sie nicht zu groß sind!</li>
-                    <li>Füge der Seite einen Link auf einen Wikipedia-Artikel deiner Wahl hinzu.</li>
-                </ol>
-                <p>
-                    So könnte die Seite zum Beispiel aussehen:
-                </p>
-                <img src="aufgabe3.png" class="img-fluid img-thumbnail d-block" />
-            </article>
-            <aside>
-                <p>
-                    Jetzt kennst du ja schon einige HTML-Elemente. Dann wollen wir sie doch
-                    gleich mal verwenden. Lege daher schnell eine neue HTML-Datei an und fülle
-                    sie wie in der Folie beschrieben. Spiele dabei ruhig ein wenig herum und
-                    probiere aus was geht. Wenn du willst, kannst du im Internet auch noch
-                    weitere HTML-Elemente recherchieren.
-                </p>
             </aside>
         </section>
 
@@ -1744,7 +1760,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Screenshot -->
                         <div
                             class           = "tab-pane fade show active"
@@ -1889,7 +1905,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Screenshot -->
                         <div
                             class           = "tab-pane fade show active"
@@ -2174,7 +2190,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- HTML-Quellcode -->
                         <div
                             class           = "tab-pane fade show active"
@@ -2713,12 +2729,10 @@
                     auskommt.
                 </p>
 
-                <hr />
-
-                <p>
-                    <b>Achtung:</b> Mische HTML und CSS nur, wenn du gute Gründe dafür hast.
+                <lsx-info-box type="critical">
+                    Mische HTML und CSS nur, wenn du gute Gründe dafür hast.
                     Faulheit sollte nicht dazu gehören. 😉
-                </p>
+                </lsx-info-box>
             </aside>
         </section>
 
@@ -2968,7 +2982,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Textformatierung: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -3109,7 +3123,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Hintergrundfarben und Bilder: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -3260,7 +3274,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Anzeigeart und Größe: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -3416,7 +3430,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Innenabstand und Außenabstand: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -3431,9 +3445,19 @@
                                     </src-code>
                                 </dt>
                                 <dd style="margin-bottom: 0.75em">
-                                    Sorgt dafür, dass ein gleichmäßiger Abstand von 1em um die betroffenen
-                                    Elemente frei bleibt. <b>Achtung:</b> Die <src-code language="css">margin</src-code>s
-                                    zweier benachbarter Elemente addieren sich auf (siehe Skizze).
+                                    <p>
+                                        Sorgt dafür, dass ein gleichmäßiger Abstand von 1em um die betroffenen
+                                        Elemente frei bleibt.
+                                    </p>
+                                    <div class="info-box warning">
+                                        <div class="info-box-title">
+                                            Achtung
+                                        </div>
+                                        <div class="info-box-content">
+                                            Die <src-code language="css">margin</src-code>s
+                                            zweier benachbarter Elemente addieren sich auf (siehe Skizze).
+                                        </div>
+                                    </div>
                                 </dd>
 
                                 <dt>
@@ -3577,7 +3601,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Rund um den Rahmen: Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -4147,7 +4171,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- HTML-Quellcode -->
                         <div
                             class           = "tab-pane fade show active"
@@ -4835,7 +4859,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Gekachelter Hintergrund -->
                         <div
                             class           = "tab-pane fade show active"
@@ -4960,13 +4984,13 @@
                                 den Effekt mit JavaScript perfektioniert und auf die Spitze getrieben. Das Grundgerüst
                                 ist aber ziemlich einfach.
                             </p>
-                            <p>
-                                <b>Hinweis:</b> Auf mobilen Geräten funktioniert der Effekt ziemlich schlecht,
-                                da diese, um Akku zu sparen, verschiedene Optimierungen beim Scrollen anwenden,
-                                die mit <src-code language="css">background-attachment: fixed;</src-code> nicht
+                            <div class="info-box">
+                                Auf mobilen Geräten funktioniert der Effekt ziemlich schlecht, da diese, um Akku
+                                zu sparen, verschiedene Optimierungen beim Scrollen anwenden, die mit
+                                <src-code language="css">background-attachment: fixed;</src-code> nicht
                                 harmonieren. Man sollte den Effekt daher durch ein „Media Query” auf nicht-mobile
                                 Geräte beschränken.
-                            </p>
+                            </div>
                             <p>
                                 <a href="parallax.html" target="_blank">Beispiel ansehen</a>
                             </p>
@@ -4978,15 +5002,14 @@
                 <p>
                     Wenn du dich ein wenig tiefer mit CSS beschäftigen willst, siehst du hier
                     verschiedene Möglichkeiten, wie man eine Seite mit Hintergrundbildern
-                    aufwerten kann. Wenn dir von den vorangegangenen Folien nur noch schwindelig
-                    ist, gehe gleich weiter zu <a href="#10">Folie 10</a>.
+                    aufwerten kann.
                 </p>
-                <p>
-                    <b>Achtung:</b> Denke daran, dass zu viele Hintergrundbilder die Ladezeit deiner
+                <div class="info-box">
+                    Denke aber daran, dass zu viele Hintergrundbilder die Ladezeit deiner
                     Seite erhöhen. Du solltest es daher gerade mit dem Parallax-Effekt nicht übertreiben
                     und wie in den HTML-Folien gezeigt, die Dateigröße der Bilder so gut wie möglich
                     optimieren. 🤓
-                </p>
+                </div>
             </aside>
         </section>
 
@@ -5034,7 +5057,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="tab-content border border-top-0 bg-white" style="padding: 1em;">
+                    <div class="tab-content">
                         <!-- Übersicht -->
                         <div
                             class           = "tab-pane fade show active"
@@ -5292,13 +5315,11 @@
                     </li>
                 </ul>
 
-                <hr />
-
-                <p>
-                    <b>Achtung:</b> Verwechsle das Grid-Layoutmodul nicht mit CSS-basierten Grids,
+                <div class="info-box">
+                    Verwechsle das Grid-Layoutmodul nicht mit CSS-basierten Grids,
                     die du im nächsten Kapitel kennenlernen wirst. Die Grundidee ist zwar ähnlich,
                     es sind aber dennoch unterschiedliche Ansätze mit unterschiedlichen Zielen.
-                </p>
+                </div>
             </aside>
         </section>
 
