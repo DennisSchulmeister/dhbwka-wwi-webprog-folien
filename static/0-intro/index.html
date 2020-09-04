@@ -55,45 +55,286 @@
         <section>
             <h1>Vorlesungsinhalte</h1>
             <article>
-                <dl>
-                    <dt class="dhbw-lightblue">3. Semester: Webprogrammierung</dt>
-                    <dd>
-                        <p>
-                            <small>
-                                Von der Erstellung der ersten Webseite bis zur eigenen
-                                Browser App und Client/Server-Webanwendung mit asynchronem
-                                Datenaustausch
-                            </small>
-                        </p>
-                        <ul>
-                            <li>Grundlagen des Webs</li>
-                            <li>Das HTTP-Übertragungsprotokoll im Detail</li>
-                            <li>Webdesign mit HTML und CSS</li>
-                            <li>Responsive Webdesign</li>
-                            <li>Entwicklung von Browser Apps mit JavaScript</li>
-                            <li>Webserver-Programmierung mit node.js</li>
-                            <!-- <li>AJAX und WebSockets</li> -->
-                        </ul>
-                    </dd>
+                <!-- 3. Semester: Webprogrammierung -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>3. Semester: Webprogrammierung</h3>
+                        <small>
+                            Von der Erstellung der ersten Webseite bis zur eigenen Browser App
+                        </small>
+                    </div>
+                    <div
+                        id    = "kapitel-webprog"
+                        class = "accordion p-3"
+                    >
+                        <a
+                            id            = "kapitel-webprog-grundlagen-title"
+                            class         = "d-block"
+                            data-toggle   = "collapse"
+                            aria-expanded = "false"
+                            aria-controls = "kapitel-webprog-grundlagen-content"
+                            href          = "#kapitel-webprog-grundlagen-content"
+                        >
+                            Grundlagen des Web
+                        </a>
+                        <div
+                            id              = "kapitel-webprog-grundlagen-content"
+                            class           = "collapse container-fluid text-left"
+                            aria-labelledby = "kapitel-webprog-grundlagen-title"
+                            data-parent     = "#kapitel-webprog"
+                        >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="p-3">
+                                        <li>
+                                            Geschichtliche Entwicklung des Internets
+                                        </li>
+                                        <li>
+                                            Erfindung des World Wide Web
+                                        </li>
+                                        <li>
+                                            Essenzielle Bestandteile des World Wide Web
+                                        </li>
+                                        <li>
+                                            Das HTTP-Protokoll im Detail
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="www.jpg" class="img-fluid mx-auto d-block" />
+                                    <p>
+                                        <small>
+                                            <small>
+                                                Bildnachweis:
+                                                <a href="https://pixabay.com/illustrations/webdesign-design-web-website-3411373/" target="_blank">Pixabay: kreatikar</a>
+                                            </small>
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <dt class="dhbw-lightblue">4. Semester: Verteilte Systeme</dt>
-                    <dd>
-                        <p>
-                            <small>
-                                Konzeptionelle Vertiefung der Netzwerkprogrammierung im
-                                weiteren Sinne: Von datenbankgestützten Webanwendungen
-                                bis Internet of Things und alles dazwischen
-                            </small>
-                        </p>
-                        <ul>
-                            <li>Architekturmuster für verteilte Anwendungen</li>
-                            <!-- <li>Webbassierte Datenbankanwendungen mit Jakarta&nbsp;EE</li> -->
-                            <li>Kapselung der serverseitigen Anwendungslogik mit REST-Webservices</li>
-                            <li>Entwicklung hybrider Webanwendungen nach dem AJAX-Prinzip</li>
-                            <li>Entwurf großer, verteilter Anwendungen auf Basis von MQTT</li>
-                        </ul>
-                    </dd>
-                </dl>
+                        <a
+                            id            = "kapitel-webprog-webdesign-title"
+                            class         = "d-block"
+                            data-toggle   = "collapse"
+                            aria-expanded = "false"
+                            aria-controls = "kapitel-webprog-webdesign-content"
+                            href          = "#kapitel-webprog-webdesign-content"
+                        >
+                            Webdesign mit HTML und CSS
+                        </a>
+                        <div
+                            id              = "kapitel-webprog-webdesign-content"
+                            class           = "collapse container-fluid text-left"
+                            aria-labelledby = "kapitel-webprog-webdesign-title"
+                            data-parent     = "#kapitel-webprog"
+                        >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="p-3">
+                                        <li>
+                                            Anwendungsgebiete von HTML in der UI-Entwicklung
+                                        </li>
+                                        <li>
+                                            Grundlegende Syntax von HTML und Struktur einer Webseite
+                                        </li>
+                                        <li>
+                                            Die wichtigsten HTML-Elemente im Überblick
+                                        </li>
+                                        <li>
+                                            Semantische Gliederung von HTML-Code
+                                        </li>
+                                        <li>
+                                            Layoutregeln des Browsers
+                                        </li>
+                                        <li>
+                                            Gestaltung von Webseiten mit CSS
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="webdesign.jpg" class="img-fluid mx-auto d-block" />
+                                    <p>
+                                        <small>
+                                            <small>
+                                                Bildnachweis:
+                                                <a href="https://pixabay.com/illustrations/web-web-design-internet-button-947271/" target="_blank">Pixabay: kalhh</a>
+                                            </small>
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            id            = "kapitel-webprog-responsive-title"
+                            class         = "d-block"
+                            data-toggle   = "collapse"
+                            aria-expanded = "false"
+                            aria-controls = "kapitel-webprog-responsive-content"
+                            href          = "#kapitel-webprog-responsive-content"
+                        >
+                            Responsive Webdesign
+                        </a>
+                        <div
+                            id              = "kapitel-webprog-responsive-content"
+                            class           = "collapse container-fluid text-left"
+                            aria-labelledby = "kapitel-webprog-responsive-title"
+                            data-parent     = "#kapitel-webprog"
+                        >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="p-3">
+                                        <li>
+                                            Fallbeispiel zur Entwicklung nach dem Mobile-First-Prinzip
+                                        </li>
+                                        <li>
+                                            Nutzung des responsive Modes im Browser während der Entwicklung
+                                        </li>
+                                        <li>
+                                            Definition gerätespezifischer Stylesheets
+                                        </li>
+                                        <li>
+                                            Prüfung von Geräteeigenschaften mit Media Queries
+                                        </li>
+                                        <li>
+                                            Automatisch responsive Layouts mit einem CSS Grid Framework.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="responsive-webdesign.png" class="img-fluid mx-auto d-block" />
+                                    <p>
+                                        <small>
+                                            <small>
+                                                Bildnachweis:
+                                                <a href="https://pixabay.com/illustrations/seo-responsive-design-web-websites-2078785/" target="_blank">Pixabay: Templune</a>
+                                            </small>
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            id            = "kapitel-webprog-js1-title"
+                            class         = "d-block"
+                            data-toggle   = "collapse"
+                            aria-expanded = "false"
+                            aria-controls = "kapitel-webprog-js1-content"
+                            href          = "#kapitel-webprog-js1-content"
+                        >
+                            JavaScript im Browser
+                        </a>
+                        <div
+                            id              = "kapitel-webprog-js1-content"
+                            class           = "collapse container-fluid text-left"
+                            aria-labelledby = "kapitel-webprog-js1-title"
+                            data-parent     = "#kapitel-webprog"
+                        >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="p-3">
+                                        <li>
+                                            Herkunft und Bedeutung von JavaScript für das Web
+                                        </li>
+                                        <li>
+                                            Einführung in die Programmiersprache JavaScript
+                                        </li>
+                                        <li>
+                                            Besonderheiten von JavaScript im Vergleich zu Java
+                                        </li>
+                                        <li>
+                                            Integration von JavaScript in eine HTML-Seite
+                                        </li>
+                                        <li>
+                                            UI-Programmierung unter Verwendung des Document Object Models.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="matrix.jpg" class="img-fluid mx-auto d-block" />
+                                    <p>
+                                        <small>
+                                            <small>
+                                                Bildnachweis:
+                                                <a href="https://pixabay.com/illustrations/matrix-technology-tech-data-3109378/" target="_blank">Pixabay: designwebjae2</a>
+                                            </small>
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a
+                            id            = "kapitel-webprog-js2-title"
+                            class         = "d-block"
+                            data-toggle   = "collapse"
+                            aria-expanded = "false"
+                            aria-controls = "kapitel-webprog-js2-content"
+                            href          = "#kapitel-webprog-js2-content"
+                        >
+                            Vertiefung zu JavaScript
+                        </a>
+                        <div
+                            id              = "kapitel-webprog-js2-content"
+                            class           = "collapse container-fluid text-left"
+                            aria-labelledby = "kapitel-webprog-js2-title"
+                            data-parent     = "#kapitel-webprog"
+                        >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="p-3">
+                                        <li>
+                                            Objektorientierung in JavaScript früher und heute
+                                        </li>
+                                        <li>
+                                            Hintergründe zur neuen Pfeilsyntes für Funktionen und Methoden
+                                        </li>
+                                        <li>
+                                            Entwicklung serverseitiger Webanwendungen mit node.js
+                                        </li>
+                                        <li>
+                                            Eintwicklung größerer Single-Page-Apps mit JavaScript
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="js-vertiefung.png" class="img-fluid mx-auto d-block" />
+                                    <p>
+                                        <small>
+                                            <small>
+                                                Bildnachweis:
+                                                <a href="https://pixabay.com/illustrations/web-design-mockup-web-developer-2188728/" target="_blank">Pixabay: JanBaby</a>
+                                            </small>
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card p-3 mt-3">
+                    <img src="vorlesungsinhalte.png" alt="" class="d-block" style="width: 100%;" />
+                </div>
+
+                <!-- 4. Semester: Verteilte Systeme -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h3>3. Semester: Webprogrammierung</h3>
+                        <small>
+                            Von REST APIs über cloudbasierte Microservices bis zum Internet of Things.
+                        </small>
+                    </div>
+                    <div class="p-3">
+                        Grundlagen verteilter Systeme<br />
+                        REST API-Entwicklung<br />
+                        Entwicklung von Cloud-Anwendungen<br />
+                    </div>
+                </div>
+
             </article>
             <aside>
                 <p>
@@ -115,53 +356,17 @@
 
                 <h4>3. Semester: Webprogrammierung</h4>
                 <p>
-                    Wie der Name schon sagt, geht es hier hauptsächlich um
-                    Webentwicklung. Java wird daher nur ganz am Rande in Erscheinung
-                    treten. Anfangen werden wir nach ein paar allgemeinen
-                    Grundlagen mit dem HTTP-Protokoll, das die Grundlage für
-                    fast die gesamte Kommunikation zwischen Browser und Server
-                    im World Wide Web bildet. Danach schauen wir uns an, was für
-                    Daten der Server uns schickt und lernen, dass es sich dabei
-                    fast immer um HTML- und CSS-Code der darzustellenden Seite
-                    handelt. Da lernst du dann, wie der Quellcode einer Webseite
-                    im Detail aussieht und was du benötigst, um deine eigenen
-                    Webseite zu erstellen. Neben den wichtigsten HTML und CSS-Anweisungen
-                    lernst du dabei auch was „Responsive Webdesign” ist und
-                    wie du deine Seiten so gestalten kannst, dass sie vom Smartphone
-                    bis zum Großbildfernseher auf allen Bildschirmen gut aussieht.
+                    Das World Wide Web ist die größte jemals von Menschen geschaffene
+                    verteilte Anwendung. Angefangen als einfaches Werkzeug zur
+                    Publikation wissenschaftlicher Arbeiten auf einem eigenen Server,
+                    hat es sich inzwischen zu einer ubiquitären Anwendungsplattform
+                    für grafische Anwendungen aller Art entwickelt. Wir lernen im
+                    dritten Semester daher das Web im Detail kennen und erfahren,
+                    durch welche Techniken es unter der Haube angetrieben wird. Diese
+                    schauen wir uns danach sehr ausführlich an, um am Ende des Semesters
+                    sowohl einfache Webseiten als auch ausgewachsene, mobilfreundliche
+                    Anwendungen programmieren zu können.
                 </p>
-                <p>
-                    Danach schauen wir uns JavaScript an und lernen, wie HTML,
-                    CSS und JavaScript bei der Entwicklung browserbasierter
-                    Anwendungen zusammenspielen. Mit diesem Wissen ausgestattet
-                    kannst du eigene Clientanwendungen schreiben, die entweder
-                    komplett im Browser oder mit den richtigen Werkzeugen gar
-                    als echte Smartphone App laufen.
-                </p>
-                <p>
-                    Auf dieser Grundlage starten wir dann ein Entwicklungsprojekt
-                    bei dem du das bis hierhin erworbene Grundlagenwissen nochmal
-                    so richtig vertiefst. Du lernst dabei die modernsten Methoden
-                    der Webentwicklung kennen und lernst, wie du unter Zuhilfenahme
-                    verschiedener Bibliotheken so genannte Single Page Apps
-                    entwickeln kannst. Abschließen werden wir das Semester dann mit
-                    einem Einstieg in die serverseitige Programmierung, da diese
-                    bis vor Kurzem noch das dominierende Modell zur Realisierung
-                    webbasierter Anwendungen war. Damit kannst du dann beruhigt
-                    in die Praxisphase starten, bevor es nächstes Jahr mit
-                    „Verteilte Systeme” weiter geht.
-                </p>
-                <!--
-                <p>
-                    Den Abschluss der Vorlesung bilden zwei Teilkapitel über
-                    AJAX und WebSockets. Mach dir nichts daraus, wenn du jetzt
-                    noch nicht weißt, was das ist. Wenn wir soweit sind, wirst
-                    du sehen, warum es manchmal ganz sinnvoll sein kann, eine
-                    Webanwendung damit auszustatten, vor allem dann, wenn es um
-                    eine flüssige Bedienung und den Datenaustausch zwischen
-                    mehreren Anwendern geht.
-                </p>
-                -->
 
                 <h4>4. Semester: Verteilte Systeme</h4>
                 <p>
@@ -172,17 +377,13 @@
                     über die verschiedenen Möglichkeiten zur Gestaltung und
                     Implementierung verteilter Anwendungen werden wir unser
                     Wissen über Webentwicklung vervollständigen, indem wir
-                    unsere Single Page Apps mit einem ordentlichen REST-Backend
-                    versehen. Dieses sprechen wir dann mit so genannten AJAX-Aufrufen
-                    an, wenn wir eine Aktion auf dem Server auslösen oder neue
-                    Daten anfordern wollen, ohne dabei gleich die ganze Seite
-                    neuzuladen. Gegen Ende der Vorlesung lernen wir dann auch
-                    MQTT und das asynchrone Kommunikationsmodell eines Message
-                    Brokers kennen. Denn dieses ermöglicht es uns, nahezu
-                    unbegrenzt große, verteilte Systeme mit hunderten oder
-                    tausenden, lose gekoppelten, zeitlich und räumlich verteilten
-                    Komponenten, wie so häufig im IoT-Umfeld anzutreffen sind,
-                    umzusetzen.
+                    unsere aus dem vorherigen Semester bekannten „Single Page Apps”
+                    mit einem ordentlichen REST-Backend versehen. Dieses sprechen
+                    wir dann mit so genannten AJAX-Aufrufen an, wenn eine Aktion
+                    auf dem Server ausgelöst oder neue Daten abgerufen werden
+                    sollen. Dies bildet dann die Grundlage für das eigentliche
+                    Hauptthema der Vorlesung: Die Entwicklung vollwertiger
+                    über das Web aufrufbarer Cloudanwendungen.
                 </p>
                 <p>
                     Für heute soll das erst einmal genügen. Im vierten Semester
@@ -194,32 +395,35 @@
         <section>
             <h1>Kompetenzziele</h1>
             <article>
-                <h2>Sachkompetenz</h2>
+                <h2>Fachkompetenz</h2>
                 <p>
                     <small>Welches neue Wissen eigne ich mir an?</small>
                 </p>
-                <p>
-                    Siehe <a href="#3">nächste Folie</a> 😏
-                </p>
+                <ul>
+                    <li>Technische Grundlagen des World Wide Web</li>
+                    <li>Funktionsweise von HTTP als universelles Transportprotokoll</li>
+                    <li>Umsetzung eigener Entwurfsideen mit HTML und CSS</li>
+                    <li>Berücksichtigung gerätespezifischer Besonderheiten bei der Entwicklung</li>
+                    <li>Vertiefung in JavaScript z.B. zur Objektorientierung</li>
+                </ul>
 
                 <h2>Methodenkompetenz</h2>
                 <p>
-                    <small>Was kann ich damit wirklich machen?</small>
+                    <small>Welche neuen Werkzeuge und Methoden kann ich anwenden?</small>
                 </p>
                 <ul>
                     <li>Webanwendungen von der Anforderung bis zur Umsetzung konzipieren</li>
                     <li>Moderne Entwicklungswerkzeuge wie IDEs, Debugger oder git bedienen</li>
-                    <li>Werkzeuge und Frameworks auswählen und beurteilen</li>
                     <li>Mit HTML und CSS eigene Webseiten erstellen</li>
                     <li>Mit JavaScript browserbasierte Apps entwickeln</li>
-                    <li>Mit Java den Serverteil einer Webanwendung implementieren</li>
+                    <li>Mit JavaScript serverbasierte Apps entwickeln</li>
                     <li>Vorhandene Webanwendungen analysieren und weiterentwickeln</li>
                 </ul>
 
                 <h2>Personale und soziale Kompetenz</h2>
                 <p>
                     <small>
-                        Wie kann ich mich damit beruflich und gesellschaftlich engagieren?
+                        Wie entwickele ich mich nicht nur fachlich sondern auch persönlich weiter?
                     </small>
                 </p>
                 <ul>
@@ -230,7 +434,9 @@
 
                 <h2>Übergreifende Handlungskompetenz</h2>
                 <p>
-                    <small>Wie bringt mich das neue Wissen insgesamt weiter?</small>
+                    <small>
+                        Welche allgemeinen Fähigkeiten erwerbe ich durch diese Vorlesung?
+                    </small>
                 </p>
                 <ul>
                     <li>Trends und Entwicklungen im Bereich Webentwicklung bewerten</li>
@@ -244,7 +450,7 @@
                     Die DHBW drückt es in der Modulbeschreibung wie folgt aus:
                 </p>
                 <div style="font-size:85%">
-                    <h5>Sachkompetenz</h5>
+                    <h5>Fachkompetenz</h5>
                     <p>
                         Die Studierenden kennen die grundlegenden Kernkonzepte der Nebenläufigkeit
                         und Internet-Kommunikation und die darauf aufbauenden aktuellen Technologien
@@ -709,10 +915,10 @@
                         Eure Note verdient ihr mit einer Portfolioprüfung über „Webprogrammierung” und „Verteilte Systeme”.
                     </li>
                     <li>
-                        Dieses Semester werdet ihr hierfür weitgehend in Dreiergruppen ein Projekt bearbeiten.
+                        Neben den Formalia beinhaltet dieses über jedes Semester eine Reihe von online zu erbringender Lernkontrollen,
                     </li>
                     <li>
-                        Nächstes Semester kommen dann noch in Einzelleistung zu erbringende Arbeitspakete hinzu.
+                        sowie hauptsächlich die Lösungen zu einer großen, semesterbegleitenden Aufgabenstellung.
                     </li>
                 </ul>
 
@@ -720,7 +926,6 @@
                 <table class="dhbw-table-border" style="width: 100%; margin-bottom: 1em; font-size: 90%;">
                     <thead>
                         <tr>
-                            <th>I/G</th>
                             <th>Semster</th>
                             <th>Artefakt</th>
                             <th>Schwierigkeit</th>
@@ -730,152 +935,105 @@
                     </thead>
 
                     <!-- Drittes Semester -->
-                    <tr>
-                        <td>I</td>
-                        <td>3</td>
-                        <td><b>Einleitung (1 Seite)</b></td>
-                        <td>Beurteilen</td>
-                        <td>Ende des dritten Semesters</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>I</td>
+                    <tr style="background-color: #eaeaea;">
                         <td>3</td>
                         <td><b>Lernkontrollen zu „Webprogrammierung”</b></td>
                         <td>Erinnern, Verstehen</td>
                         <td>Vor der jeweiligen Vorlesung</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>G</td>
-                        <td>3</td>
-                        <td><b>Quellcode der realisierten Browser App</b></td>
-                        <td>Anwenden</td>
-                        <td>Ende des dritten Semesters</td>
                         <td>2</td>
                     </tr>
-                    <tr>
-                        <td>G</td>
+                    <tr style="background-color: #eaeaea;">
                         <td>3</td>
-                        <td><b>Essay zur serverseitigen Webentwicklung (3 Seiten)</b></td>
-                        <td>Analysieren, Beurteilen</td>
+                        <td><b>Vertiefende Aufgaben zu den einzelnen Kapiteln</b></td>
+                        <td>Anwenden, Analysieren, Beurteilen</td>
                         <td>Ende des dritten Semesters</td>
-                        <td>2</td>
+                        <td>4</td>
                     </tr>
 
                     <!-- Viertes Semester -->
-                    <tr style="background-color: #eaeaea;">
-                        <td>I</td>
+                    <tr>
                         <td>4</td>
                         <td><b>Lernkontrollen zu „Verteilte Systeme”</b></td>
                         <td>Erinnern, Verstehen</td>
                         <td>Vor der jeweiligen Vorlesung</td>
                         <td>1</td>
                     </tr>
-                    <tr style="background-color: #eaeaea;">
-                        <td>I</td>
+                    <tr>
                         <td>4</td>
                         <td><b>Vertiefende Aufgaben zu den einzelnen Kapiteln</b></td>
                         <td>Anwenden, Analysieren, Beurteilen</td>
                         <td>Ende des vierten Semesters</td>
-                        <td>4</td>
+                        <td>3</td>
+                    </tr>
+
+                    <!-- Übergreifend -->
+                    <tr style="background-color: #eaeaea;">
+                        <td>–</td>
+                        <td><b>Einleitung (0,5 Seiten)</b></td>
+                        <td>Beurteilen</td>
+                        <td>Ende des vierten Semesters</td>
+                        <td>0</td>
                     </tr>
                     <tr style="background-color: #eaeaea;">
-                        <td>I</td>
-                        <td>4</td>
-                        <td><b>Reflexion (1 Seite)</b></td>
+                        <td>–</td>
+                        <td><b>Reflexion (1,5 Seiten)</b></td>
                         <td>Beurteilen</td>
                         <td>Ende des vierten Semesters</td>
                         <td>1</td>
                     </tr>
                 </table>
                 <p>
-                    <b>I/G:</b> I = Individualleitung, G = Gruppenleistung <br />
                     <b>Schwierigkeit:</b> Erinnern &lt; Verstehen &lt; Anwenden &lt; Analysieren &lt; Beurteilen
                 </p>
 
-                <h2>Berechnung der Endnote</h2>
-                <p>
-                    <table>
-                        <tr style="padding: 0; border: 0px solid black; border-bottom-width: 1px;">
-                            <td>
-                                Σ (Einzelnote × Gewichtung)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Σ (Gewichtung)
-                            </td>
-                        </tr>
-                    </table>
-                </p>
+                <lsx-info-box>
+                    Die Gewichtung ist nur als Richtwert für den Einfluss des jeweiligen
+                    Artefakts auf die Gesamtnote zu verstehen. Die genaue Punkteverteilung
+                    wird anhand dieser Vorgaben erstellt, sobald das Aufgabenblatt mit den
+                    semesterbegleitenden, vertiefenden Fragen zur Verfügung steht.
+                </lsx-info-box>
             </article>
             <aside>
-                <h2>Nachteile einer Klausur</h2>
+                <h2>Vor- und Nachteile einer Klausur</h2>
                 <p>
                     Die gute Nachricht immer zuerst: Wir schreiben keine Klausur. 🎉
-                    Ja richtig gelesen, keine Klausur. Stattdessen machen wir eine
-                    Portfolioprüfung, die es dir ermöglicht, viel praxisrelevanter
-                    zu einer Note zu gelangen. Denn, du hast es dir sicher schon
-                    gedacht, was sind die Nachteile einer Klausur?
-                    Du machst „Programmieren auf Papier”, 📃 aber das ist ja nicht
-                    wirklich praxisgerecht. Oder wann musstest du das letzte mal
-                    in deiner Firma ein Programm auf Papier abgeben? 🐒 Dann ist
-                    es auch so, dass du in einer Klausur nur eine Stunde Zeit
-                    hast, in der du alles auswendig wissen musst. Nachschlagen
-                    im Skript ist alleine schon wegen der Zeit gar nicht erlaubt.
-                    In dieser Stunde geht es deshalb für dich um alles. Wissen oder
-                    nicht wissen, sein oder nicht sein, hop oder top, top oder flopp.
+                    Wobei, so besonders ist das inzwischen ja gar nicht mehr. Waren
+                    vor ein paar Jahren noch die meisten Prüfungsleistungen schriftliche
+                    Prüfungen auf Papier, wurden moderne Prüfungsformen inzwischen ja
+                    in einem Großteil der Vorlesungen verankert. Für den Workload im
+                    Selbststudium ist das nicht immer gut, aber wenigstens machen wir
+                    kein „Programmieren auf Papier” mehr, so wie es bei den Klausuren
+                    früher immer der Fall war
                 </p>
                 <p>
-                    Aber auch aus Dozentensicht ist eine Klausur eher unglücklich.
-                    Denn auch wir müssen mit der einen Stunde zurecht kommen.
-                    Eigentlich lernst du hier ja ganz viele interessante Dinge,
-                    und eignest dir neue Kompetenzen an. Doch wie prüft man diese
-                    auf Papier? Wie kann man abprüfen, ob du etwas nur auswendig
-                    gelernt oder auch wirklich verstanden hast? Wie kann man
-                    abprüfen, ob du auch eigene Ideen entwickeln kannst? Hierfür
-                    gibt es natürlich geeignete Aufgabentypen, meistens reicht
-                    aber die Zeit gar nicht und kaum einer bearbeitet die dann.
-                    Also langer Rede kurzer Sinn: Eine neue Prüfungsform muss
-                    her – die Portfolioprüfung.
+                    Im Gegenzug sind die Prüfungsaufgaben natürlich anspruchsvoller
+                    als in einer Klausur, da ja wesentlich mehr Zeit zur Verfügung
+                    steht (nämlich das komplette Semester) und da sämtliche
+                    Hilfsmittel zur Verfügung stehen. Auf diese Weise wirst du dich
+                    aber auch wesentlich intensiver mit den Vorlesungsinhalten
+                    beschäftigen und diese dadurch viel mehr verinnerlichen.
                 </p>
 
                 <h2>Inhalt des Prüfungsportfolios</h2>
                 <p>
-                    Anliegen der Portfolioprüfung ist es, den individuellen
-                    Lernweg zu dokumentieren und zu benoten, den jede/r Student/in
-                    während der Vorlesung einschlägt. Das Portfolio wird daher
-                    während des gesamten Moduls (bestehend aus zwei Vorlesungen)
-                    vorlesungsbegleitend erstellt. Hierfür sammeln wir verschiedene
-                    Artefakte 🏺 ein, die teilweise in Gruppenarbeit und teilweise in
-                    Einzelleistung zu erstellen sind. 📝
-                </p>
-                <p>
-                    Wenn du dir die Zusammensetzung des Portfolios auf der Folie
-                    anschaust, wirkt das sicher erst einmal sehr umfangreich. Und
-                    im Grunde genommen ist es das auch, weil wir ja die kompletten
-                    Vorlesungsinhalte prüfen müssen. Allerdings werden wir Einleitung
-                    und Reflexion relativ kurz halten und uns stattdessen mehr auf
-                    die anderen Artefakte konzentrieren. Und die Lernkontrollen machst
-                    du auch direkt im Anschluss an das jeweilige Selbststudium, so
-                    dass hierfür keine Extrazeit eingeplant werden muss. Damit bleiben
-                    dann nur noch das Programmierprojekt und anderen Aufgabentypen.
-                    Diese wirst du zumindest teilweise in Eigenarbeit zwischen den
-                    Vorlesungen erledigen müssen, dafür gibt es in dieser Zeit aber
-                    keine Selbststudien mehr und wir werden mit den Aufgaben auch
-                    bereits in der Vorlesung beginnen. Alles in Allem wird es also gut
-                    machbar sein, wenn du dich an die Vorlesungsplanung hältst.&nbsp;🗓️
+                    Wie in jeder Vorlesung beinhaltet des Prüfungsportfolio eine Reihe
+                    von Formalia (insb. Einleitung und Reflexion) sowie eine Reihe von
+                    Prüfungsartefakten, die deinen individuellen Lernweg dokumentieren
+                    sollen. Zu jedem Semester wird es daher Lernkontrollen online geben,
+                    die als Prüfungsleistung rechtzeitig bearbeitet werden müssen.
+                    Ebenso liegt für jedes Semester ein semesterbegleitendes Aufgabenblatt
+                    vor. Dieses muss unter dem Semester zu bestimmten Stichpunkten
+                    bearbeitet werden und wird am Semesterenede dann ebenfalls als
+                    Prüfungsartefakt eingereicht.
                 </p>
 
                 <h2>Berechnung der Note</h2>
                 <p>
-                    Die Benotung ist eigentlich relativ einfach. Jedes Artefakt
-                    in deinem Portfolio bekommt eine Einzelnote. Anschließend
-                    wird einfach anhand der verschiedenen Gewichtungen eine
-                    Durchschnittsnote gebildet. Die Formel dazu (solltest du
-                    dich wirklich nicht mehr daran erinnern 🐕), findest du
-                    auf der Folie.
+                    Die Benotung funktioniert eigentlich wie in einer Klausur. Jedes
+                    Artefakt ist mit einer maximale Punktzahl versehen, die durch seine
+                    Abgabe erreicht werden kann. Am Ende werden einfach alle Punkte
+                    zusammengezählt, ihr prpzentualer Anteil zur Maximalpunktzahl
+                    ermittelt und diese anhand der Notenliste in eine Note überführt.
                 </p>
             </aside>
         </section>
