@@ -68,9 +68,12 @@ window.addEventListener("load", () => {
                 labelCarouselNext: "Nächstes Bild",
                 labelCarouselPrev: "Vorheriges Bild",
                 labelCarouselReset: "Nochmal von vorne",
+                labelGithubEditOnline: "Online-IDE starten",
+                labelGithubEditDownload: "Quellcode herunterladen",
                 labelQuizPoints: "{1} von {2}",
                 labelQuizEvaluate: "Bewerten",
                 labelQuizNewTry: "Neuer Versuch",
+                githubEditUrlPrefix: "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/",
             }),
             HighlightJs: new LsPluginHighlightJs(),
         }
