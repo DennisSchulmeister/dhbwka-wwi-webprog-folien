@@ -1658,11 +1658,11 @@
                 <p>
                     Was wir bis hierher gemacht haben, war ja schon alles ganz schön. Aber so
                     wirklich modern hat es noch nicht ausgesehen. 🙄 Wie bekommen wir denn jetzt
-                    die ganzen tollen Layouts hin, die auf <a href="#1">Folie 1</a> die Vielfalt
+                    die ganzen tollen Layouts hin, die am Anfang des Kapitels die Vielfalt
                     von HTML zur Schau stellen? Mit Absätzen und Aufzählungen scheint es ja
                     nicht so recht hinzuhauen. 😕
-                </p>
-                <p>
+                <!-- </p>
+                <p> -->
                     Tatsächlich brauchen wir gar nicht mehr so viel. Eigentlich müssen wir uns nur
                     noch anschauen, was man mit Stylesheets so alles machen kann und welche etwas
                     allgemeineren HTML-Elemente es gibt, die ganz einfach nur einen Bereich mit
@@ -1677,8 +1677,8 @@
                     ganz einfach: Da HTML-Seiten ursprünglich ja nur aus formatiertem Text bestanden,
                     geht der Browser zeilenweise von oben nach unten, von links nach rechts vor.
                     Eben genauso, wie wir in der westlichen Welt schreiben und lesen.
-                </p>
-                <p>
+                <!-- </p>
+                <p> -->
                     Dabei unterscheidet der Browser bei jedem Element, ob es sich um ein <b>Blockelement</b>
                     oder um eine <b>Inlineelement</b> handelt. Blockelemente stehen nämlich immer in einer
                     eigenen Zeile und sind immer so breit wie möglich. Vor und nach einem Blockelement fügt
@@ -1706,31 +1706,16 @@
                     <li>Kursive Bereiche</li>
                     <li>…</li>
                 </ul>
-                <p>
-                    Auf der Folie siehst du zusätzlich noch einen Sonderfall. Ganz unten ist
-                    ein Bild, dem das Attribut <src-code language="html">style="float: right"</src-code>
-                    zugewiesen wurde. Dies ist eine CSS-Anweisung, die dafür sorgt, dass das Bild ganz an den
-                    rechten Rand rutscht. Solche Elemente werden vom Browser immer etwas speziell behandelt,
-                    weshalb man die Anweisung heutzutage nicht mehr so oft benutzt. Denn, wenn du dir die
-                    Abbildung genau anschaust, sieht du, dass das Bild quasi in den nächsten Absatz hinein
-                    fällt. Der Browser tut bei der Anordnung der Blockelemente (des folgenden Absatzes)
-                    einfach so, als gäbe es das Bild gar nicht. Bei der Anordnung der Inlineelemente (der
-                    Buchstaben innerhalb des Absatzes) wird es dann aber wieder berücksichtigt. Komplizierte
-                    Sache, nicht? 🐰
-                </p>
 
                 <h2>Allgemeingültige HTML-Elemente</h2>
                 <p>
                     Natürlich kann man damit jetzt noch nicht so wirklich komplizierte Layouts gestalten.
                     Denn dafür funktioniert das Ganze noch viel zu sehr wie eine alte Schreibmaschine.
-                    Mit Stylesheets kann man das Verhalten des Browsers jedoch sehr flexibel übersteuern
-                    und man kann für jedes Element festlegen, wie es aussehen soll und wo es angezeigt
-                    werden soll. Das schauen wir uns im nächsten Foliensatz dann auch an.
-                </p>
-                <p>
-                    Wichtig ist an dieser Stelle aber, dass es verschiedene HTML-Elemente gibt, die eigentlich
-                    keine wirkliche Bedeutung besitzen, sondern nur dafür da sind, die Bereiche zu definieren,
-                    die im Stylesheet angesprochen werden. Die wichtigsten beiden davon sind
+                    Eben weil die meisten HTML-Elemente von sich aus kein Aussehen besitzen, sondern einfach
+                    nur ihren Inhalt auf dem Bildschirm platzieren. Neben der Anordnung auf dem Bildschirm
+                    sind sie aber trotzdem für die Gestaltung einer Seite wichtig, da ihr Aussehen in
+                    so genannten Stylesheets sehr flexibel definiert werden kann. Die zwei wichtigsten
+                    Vertreter dieser Art sind die Elemente
                     <src-code language="html">&lt;div&gt;</src-code> und <src-code language="html">&lt;span&gt;</src-code>:
                 </p>
                 <ul>
@@ -1776,8 +1761,7 @@
                     </li>
                 </ul>
                 <p>
-                    Damit lässt sich eine Seite beliebig unterteilen, um zusammen mit CSS ihr Layout zu definieren.
-                    Schauen wir uns hierfür auf der nächsten Folie gleich ein Beispiel an. 👍
+                    Damit lässt sich eine Seite beliebig unterteilen, um zusammen mit CSS ihr Layout zu definieren. 👍
                 </p>
             </aside>
         </section>
@@ -3693,8 +3677,8 @@
 
                         <lsx-question type="multiple-choice">
                             <lsx-question-text>
-                                d) … alle Elemente der Klasse „active” aus, die sich innerhalb eines
-                                <src-code language="html">&lt;nav&gt;</src-code>-Elements befinden?
+                                d) … alle Elemente der Klasse „active” innerhalb eines
+                                <src-code language="html">&lt;nav&gt;</src-code>-Elements (zwei Varianten)?
                             </lsx-question-text>
                             <lsx-answer correct>
                                 <src-code language="css">nav .active</src-code>
@@ -3752,10 +3736,10 @@
                             type = "single-choice"
                             text = "c) … den Innenabstand vom Rahmen eines Elements zu seinem Inhalt definieren?"
                         >
-                            <lsx-answer>
+                            <lsx-answer correct>
                                 <src-code language="css">padding</src-code>
                             </lsx-answer>
-                            <lsx-answer correct>
+                            <lsx-answer>
                                 <src-code language="css">margin</src-code>
                             </lsx-answer>
                             <lsx-answer>
