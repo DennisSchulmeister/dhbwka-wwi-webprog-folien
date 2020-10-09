@@ -1713,159 +1713,108 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 1: Berechnung der Fakultät</h1>
             <article>
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe1-aufgabe-tab"
-                                class         = "nav-link active"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe1-aufgabe"
-                                role          = "tab"
-                                aria-controls = "aufgabe1-aufgabe"
-                                aria-expanded = "true"
-                            >
-                                Aufgabe
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe1-loesung1-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe1-loesung1"
-                                role          = "tab"
-                                aria-controls = "aufgabe1-loesung1"
-                            >
-                                Lösung 1
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe1-loesung2-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe1-loesung2"
-                                role          = "tab"
-                                aria-controls = "aufgabe1-loesung2"
-                            >
-                                Lösung 2
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <!-- Aufgabe -->
-                        <div
-                            class           = "tab-pane fade show active"
-                            id              = "aufgabe1-aufgabe"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe1-aufgabe-tab"
-                        >
-                            <p>
-                                Aus dem Mathematikunterricht kennst du sicher noch die <a href="https://de.wikipedia.org/wiki/Fakult%C3%A4t_(Mathematik)" target="_blank">Fakultätfunktion</a>.
-                                Sie ist so definiert, dass sie einer natürlichen Zahl <tt>𝑛 &gt; 0</tt> das
-                                Produkt aller natürlichen Zahlen von <tt>𝑛 … 1</tt> zuordnet. Am einfachsten
-                                lässt sich das an einem Beispiel zeigen:
-                            </p>
-                            <p>
-                                <tt>5! = 5 × 4 × 3 × 2 × 1 = 120</tt> <br />
-                                <tt>10! = 10 × 9 × 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 = 3.628.800</tt>
-                            </p>
-                            <p>
-                                Alles klar? Deine Aufgabe lautet, eine JavaScript-Funktion zu schreiben,
-                                mit der die Fakultät einer beliebigen Zahl berechnet werden kann. Du
-                                kannst die Funktion dabei entweder rekursiv durch Aufruf von sich selbst
-                                oder iterativ mit einer Schleife programmieren. In jedem Fall solltest
-                                du aber prüfen, ob die übergebene Zahl größer <tt>0</tt> ist und den Wert
-                                <tt>NaN</tt>¹ zurück liefern, falls nicht.
-                            </p>
-                            <p>
-                                Zum Ausprobieren, kannst du die Funktion direkt in <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a>
-                                aufrufen. um Beispiel so:
-                            </p>
-                            <source-code language="javascript">
-                                let faktultaet = n => {
-                                    return …
-                                };
-                            </source-code>
-                            <pre>fakultaet(5);<br /><b>number 120</b></pre>
-                            <p>
-                                <small>
-                                    ¹ <tt>NaN</tt> steht für „Not A Number”.
-                                </small>
-                            </p>
-                        </div>
-                        <!-- Lösung 1 -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "aufgabe1-loesung1"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe1-loesung1-tab"
-                        >
-                            <source-code language="javascript">
-                                let fakultaet = n => {
-                                    if (n &lt; 1) {
-                                        return NaN;
-                                    } else if (n == 1) {
-                                        return 1;
-                                    } else {
-                                        return n * fakultaet(n-1);
-                                    }
-                                };
-                            </source-code>
-
-                            <p>
-                                <b>Vorsicht:</b> Diese Lösung nutzt Rekursion und kann daher nur für relativ
-                                kleine Zahlen verwendet werden. Ist die Zahl <tt>𝑛</tt> zu groß, kommt es
-                                möglicherweise zu einem Abbruch.
-                            </p>
-                        </div>
-                        <!-- Lösung 2 -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "aufgabe1-loesung2"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe1-loesung2-tab"
-                        >
-                            <source-code language="javascript">
-                                let fakultaet = n => {
-                                    if (n &lt; 1) {
-                                        return NaN;
-                                    }
-
-                                    let ergebnis = 1;
-
-                                    for (let i = 1; i &lt;= n; i++) {
-                                        ergebnis *= i;
-                                    }
-
-                                    return ergebnis;
-                                };
-                            </source-code>
-                            <p>
-                                Diese Lösung nutzt anstelle der Rekursion eine Schleife und funktioniert daher
-                                mit allen Zahlen.
-                            </p>
-                            <p>
-                                <b>Hinweis:</b> <src-code language="javascript">ergebnis *= i</src-code>
-                                ist dasselbe wie <src-code language="javascript">ergebnis = ergebnis * i</src-code>.
-                                Analog dazu gibt es noch <code>+=</code>, <code>-=</code> und <code>/=</code>.
-                            </p>
-                        </div>
-                    </div>
+                <div class="mb-3">
+                    <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">
+                        <button class="btn btn-dark">
+                            JS.Scratch
+                        </button>
+                    </a>
                 </div>
+
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Aufgabe">
+                        <p>
+                            Aus dem Mathematikunterricht kennst du sicher noch die <a href="https://de.wikipedia.org/wiki/Fakult%C3%A4t_(Mathematik)" target="_blank">Fakultätfunktion</a>.
+                            Sie ist so definiert, dass sie einer natürlichen Zahl <tt>𝑛 &gt; 0</tt> das
+                            Produkt aller natürlichen Zahlen von <tt>𝑛 … 1</tt> zuordnet. Am einfachsten
+                            lässt sich das an einem Beispiel zeigen:
+                        </p>
+                        <p>
+                            <tt>5! = 5 × 4 × 3 × 2 × 1 = 120</tt> <br />
+                            <tt>10! = 10 × 9 × 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 = 3.628.800</tt>
+                        </p>
+                        <p>
+                            Alles klar? Deine Aufgabe lautet, eine JavaScript-Funktion zu schreiben,
+                            mit der die Fakultät einer beliebigen Zahl berechnet werden kann. Du
+                            kannst die Funktion dabei entweder rekursiv durch Aufruf von sich selbst
+                            oder iterativ mit einer Schleife programmieren. In jedem Fall solltest
+                            du aber prüfen, ob die übergebene Zahl größer <tt>0</tt> ist und den Wert
+                            <tt>NaN</tt>¹ zurück liefern, falls nicht.
+                        </p>
+                        <p>
+                            Zum Ausprobieren, kannst du die Funktion direkt in <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a>
+                            aufrufen. um Beispiel so:
+                        </p>
+                        <source-code language="javascript">
+                            let faktultaet = n => {
+                                return …
+                            };
+                        </source-code>
+                        <pre>fakultaet(5);<br /><b>number 120</b></pre>
+                        <p>
+                            <small>
+                                ¹ <tt>NaN</tt> steht für „Not A Number”.
+                            </small>
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Lösung 1">
+                        <source-code language="javascript">
+                            let fakultaet = n => {
+                                if (n &lt; 1) {
+                                    return NaN;
+                                } else if (n == 1) {
+                                    return 1;
+                                } else {
+                                    return n * fakultaet(n-1);
+                                }
+                            };
+                        </source-code>
+
+                        <p>
+                            <b>Vorsicht:</b> Diese Lösung nutzt Rekursion und kann daher nur für relativ
+                            kleine Zahlen verwendet werden. Ist die Zahl <tt>𝑛</tt> zu groß, kommt es
+                            möglicherweise zu einem Abbruch.
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Lösung 2">
+                        <source-code language="javascript">
+                            let fakultaet = n => {
+                                if (n &lt; 1) {
+                                    return NaN;
+                                }
+
+                                let ergebnis = 1;
+
+                                for (let i = 1; i &lt;= n; i++) {
+                                    ergebnis *= i;
+                                }
+
+                                return ergebnis;
+                            };
+                        </source-code>
+                        <p>
+                            Diese Lösung nutzt anstelle der Rekursion eine Schleife und funktioniert daher
+                            mit allen Zahlen.
+                        </p>
+                        <p>
+                            <b>Hinweis:</b> <src-code language="javascript">ergebnis *= i</src-code>
+                            ist dasselbe wie <src-code language="javascript">ergebnis = ergebnis * i</src-code>.
+                            Analog dazu gibt es noch <code>+=</code>, <code>-=</code> und <code>/=</code>.
+                        </p>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
             </article>
             <aside>
                 <p>
-                    Aah, endlich. Genug der schönen Worte und her mit dem
-                    JavaScript-Editor. Rufe die Seite von <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a>
-                    auf und probiere, die folgende Aufgabe zu lösen. Wie wünschen
-                    dir viel Erfolg dabei! 🐞
+                    Aah, endlich. Genug der schönen Worte und her mit dem JavaScript-Editor. Rufe JS.Scratch auf
+                    und probiere, die folgende Aufgabe zu lösen. Wie wünschen dir viel Erfolg dabei! 🐞
                 </p>
                 <img src="../js.scratch.png" class="img-fluid d-block"/>
                 <p>
                     <small>
-                        Screenshot: <a href="https://www.wikiberd.de/hg/dennis/js_scratch" target="_blank">JS.Scratch</a>
+                        Screenshot: <a href="https://github.com/DennisSchulmeister/js.scratch" target="_blank">JS.Scratch</a>
                     </small>
                 </p>
             </aside>
@@ -1874,117 +1823,85 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 2: Lokale und globale Variablen</h1>
             <article>
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe2-aufgabe-tab"
-                                class         = "nav-link active"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe2-aufgabe"
-                                role          = "tab"
-                                aria-controls = "aufgabe2-aufgabe"
-                                aria-expanded = "true"
-                            >
-                                Aufgabe
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe2-loesung-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe2-loesung"
-                                role          = "tab"
-                                aria-controls = "aufgabe2-loesung"
-                            >
-                                Lösung
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <!-- Aufgabe -->
-                        <div
-                            class           = "tab-pane fade show active"
-                            id              = "aufgabe2-aufgabe"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe2-aufgabe-tab"
-                        >
-                            <p>
-                                Schaue dir den folgenden JavaScript-Code und lasse ihn auch mal in
-                                <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a> laufen.
-                                Anschließend beantworte die folgenden Fragen:
-                            </p>
-                            <source-code language="javascript">
-                                let fibonacci = n => {
-                                    if (n &lt; 1) return NaN;
-                                    ergebnis = 0;
-
-                                    for (let i = n; i &gt;= 1; i--) {
-                                        ergebnis += i;
-                                    }
-
-                                    return ergebnis;
-                                };
-
-                                ergebnis = fibonacci(10);
-                                ergebnis1 = fibonacci(20);
-                            </source-code>
-                            <p>
-                                a) Welchen Wert hat die Variable <tt>ergebnis</tt> nach Aufruf der Funktion
-                                <src-code language="javascript">fibonacci(10)</src-code>?
-                            </p>
-                            <p>
-                                b) Welchen Wert hat die Variable <tt>ergebnis</tt> nach Aufruf der Funktion
-                                <src-code language="javascript">fibonacci(20)</src-code>?
-                            </p>
-                            <p>
-                                c) Wie lässt sich dieser Fehler korrigieren?
-                            </p>
-                            <p>
-                                d) Wie lässt sich innerhalb einer Funktion kenntlich machen, dass eine
-                                globale Variable angesprochen werden soll?
-                            </p>
-                        </div>
-                        <!-- Lösung -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "aufgabe2-loesung"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe2-loesung-tab"
-                        >
-                            <p>
-                                a) Wie erwartet bekommt die Variable den Wert <tt>55</tt> zugewiesen.
-                            </p>
-                            <p>
-                                b) Die Variablen <tt>ergebnis</tt> und <tt>ergebnis1</tt> haben beide den
-                                Wert <tt>210</tt>. Das war so nicht gewollt, da das Ergebnis nur in
-                                <tt>ergebnis1</tt> gespeichert werden sollte.
-                            </p>
-                            <p>
-                                c) In der Funktion muss <src-code language="javascript">ergebnis = 0</src-code>
-                                durch <src-code language="javascript">let ergebnis = 0</src-code> oder
-                                <src-code language="javascript">const ergebnis = 0</src-code> ersetzt werden:
-                            </p>
-                            <source-code language="javascript">
-                                let fibonacci = n => {
-                                    if (n &lt; 1) return NaN;
-                                    let ergebnis = 0;
-
-                                    for (let i = n; i &gt;= 1; i--) {
-                                        ergebnis += i;
-                                    }
-
-                                    return ergebnis;
-                                };
-                            </source-code>
-                            <p>
-                                d) Durch Zugriff auf das <tt>window</tt>-Objekt, zum Beispiel so:
-                                <src-code language="javascript">window.ergebnis = 55;</src-code>
-                            </p>
-                        </div>
-                    </div>
+                <div class="mb-3">
+                    <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">
+                        <button class="btn btn-dark">
+                            JS.Scratch
+                        </button>
+                    </a>
                 </div>
+
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Aufgabe">
+                        <p>
+                            Schaue dir den folgenden JavaScript-Code und lasse ihn auch mal in
+                            <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a> laufen.
+                            Anschließend beantworte die folgenden Fragen:
+                        </p>
+                        <source-code language="javascript">
+                            let fibonacci = n => {
+                                if (n &lt; 1) return NaN;
+                                ergebnis = 0;
+
+                                for (let i = n; i &gt;= 1; i--) {
+                                    ergebnis += i;
+                                }
+
+                                return ergebnis;
+                            };
+
+                            ergebnis = fibonacci(10);
+                            ergebnis1 = fibonacci(20);
+                        </source-code>
+                        <p>
+                            a) Welchen Wert hat die Variable <tt>ergebnis</tt> nach Aufruf der Funktion
+                            <src-code language="javascript">fibonacci(10)</src-code>?
+                        </p>
+                        <p>
+                            b) Welchen Wert hat die Variable <tt>ergebnis</tt> nach Aufruf der Funktion
+                            <src-code language="javascript">fibonacci(20)</src-code>?
+                        </p>
+                        <p>
+                            c) Wie lässt sich dieser Fehler korrigieren?
+                        </p>
+                        <p>
+                            d) Wie lässt sich innerhalb einer Funktion kenntlich machen, dass eine
+                            globale Variable angesprochen werden soll?
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Lösung">
+                        <p>
+                            a) Wie erwartet bekommt die Variable den Wert <src-code language="javascript">55</src-code> zugewiesen.
+                        </p>
+                        <p>
+                            b) Die Variablen <code>ergebnis</code> und <code>ergebnis1</code> haben beide den
+                            Wert <src-code language="javascript">210</src-code>. Das war so nicht gewollt, da
+                            das Ergebnis nur in <code>ergebnis1</code> gespeichert werden sollte.
+                        </p>
+                        <p>
+                            c) In der Funktion muss <src-code language="javascript">ergebnis = 0</src-code>
+                            durch <src-code language="javascript">let ergebnis = 0</src-code> oder
+                            <src-code language="javascript">const ergebnis = 0</src-code> ersetzt werden:
+                        </p>
+                        <source-code language="javascript">
+                            let fibonacci = n => {
+                                if (n &lt; 1) return NaN;
+                                let ergebnis = 0;
+
+                                for (let i = n; i &gt;= 1; i--) {
+                                    ergebnis += i;
+                                }
+
+                                return ergebnis;
+                            };
+                        </source-code>
+                        <p>
+                            d) Durch Zugriff auf das <tt>window</tt>-Objekt, zum Beispiel so:
+                            <src-code language="javascript">window.ergebnis = 55;</src-code>
+                        </p>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
             </article>
             <aside>
                 <p>
@@ -2004,45 +1921,49 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 3: Ein kleines JavaScript-Quiz</h1>
             <article>
-                <h2>Was bewirken die folgenden Quellcode-Schnippsel?</h2>
+                <lsx-quiz>
+                    <lsx-exercise title="Was bewirken die folgenden Quellcode-Schnippsel?">
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                a) <src-code language="javascript">let ergebnis = 42;</src-code>
+                            </lsx-question-text>
 
-                <p>a) <src-code language="javascript">let ergebnis = 42;</src-code></p>
-                <ol>
-                    <li>Deklaration einer globalen Variable mit dem Wert <tt>42</tt> (überall sichtbar)</li>
-                    <li>Deklaration einer lokalen Variable mit dem Wert <tt>42</tt> (nur in der aktuellen Funktion sichtbar)</li>
-                    <li>Prüfung, ob die Variable <tt>ergebnis</tt> den Wert <tt>42</tt> enthält</li>
-                </ol>
+                            <lsx-answer>Deklaration einer globalen Variable mit dem Wert <code>42</code> (überall sichtbar)</lsx-answer>
+                            <lsx-answer correct>Deklaration einer lokalen Variable mit dem Wert <code>42</code> (nur in der aktuellen Funktion sichtbar)</lsx-answer>
+                            <lsx-answer>Prüfung, ob die Variable <code>ergebnis</code> den Wert <code>42</code> enthält</lsx-answer>
+                        </lsx-question>
 
-                <p>b) <src-code language="javascript">ergebnis = 42;</src-code></p>
-                <ol>
-                    <li>Deklaration einer globalen Variable mit dem Wert <tt>42</tt> (überall sichtbar)</li>
-                    <li>Deklaration einer lokalen Variable mit dem Wert <tt>42</tt> (nur in der aktuellen Funktion sichtbar)</li>
-                    <li>Prüfung, ob die Variable <tt>ergebnis</tt> den Wert <tt>42</tt> enthält</li>
-                </ol>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                b) <src-code language="javascript">ergebnis = 42;</src-code>
+                            </lsx-question-text>
 
-                <p>c) <src-code language="javascript">multiply = (a, b) => a * b;</src-code></p>
-                <ol>
-                    <li>Deklaration der beiden Variablen <tt>a</tt> und <tt>b</tt> und anschließende Multiplikation der beiden Werte</li>
-                    <li>Definition einer Liste mit den Werten <tt>a</tt> und <tt>b</tt> mit anschließender Multiplikation der beiden Werte</li>
-                    <li>Definition einer Funktion, die zwei Zahlen miteinander multipliziert</li>
-                </ol>
+                            <lsx-answer correct>Deklaration einer globalen Variable mit dem Wert <code>42</code> (überall sichtbar)</lsx-answer>
+                            <lsx-answer>Deklaration einer lokalen Variable mit dem Wert <code>42</code> (nur in der aktuellen Funktion sichtbar)</lsx-answer>
+                            <lsx-answer>Prüfung, ob die Variable <code>ergebnis</code> den Wert <code>42</code> enthält</lsx-answer>
+                        </lsx-question>
 
-                <p>
-                    d) <src-code language="javascript">ergebnis = 42; ergebnis = "zweiundvierzig";</src-code>
-                </p>
-                <ol>
-                    <li>Die Variable <tt>ergebnis</tt> ist erst ein Integer, dann ein String</li>
-                    <li>Umwandlung des Werts in der Variablen <tt>ergebnis</tt> von einem String in einen Integer</li>
-                    <li>Syntaxfehler: Das ist in JavaScript so nicht erlaubt</li>
-                </ol>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                c) <src-code language="javascript">multiply = (a, b) => a * b;</src-code>
+                            </lsx-question-text>
 
-                <hr />
+                            <lsx-answer>Deklaration der beiden Variablen <code>a</code> und <code>b</code> und anschließende Multiplikation der beiden Werte</lsx-answer>
+                            <lsx-answer>Definition einer Liste mit den Werten <code>a</code> und <code>b</code> mit anschließender Multiplikation der beiden Werte</lsx-answer>
+                            <lsx-answer correct>Definition einer Funktion, die zwei Zahlen miteinander multipliziert</lsx-answer>
+                        </lsx-question>
 
-                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
-                    <small>
-                        <b>Lösung:</b> 2, 1, 3, 1
-                    </small>
-                </p>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                d) <src-code language="javascript">ergebnis = 42; ergebnis = "zweiundvierzig";</src-code>
+                            </lsx-question-text>
+
+                            <lsx-answer correct>Die Variable <code>ergebnis</code> ist erst ein Integer, dann ein String</lsx-answer>
+                            <lsx-answer>Umwandlung des Werts in der Variablen <code>ergebnis</code> von einem String in einen Integer</lsx-answer>
+                            <lsx-answer>Syntaxfehler: Das ist in JavaScript so nicht erlaubt</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
             </article>
             <aside>
                 <p>
@@ -3635,97 +3556,59 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 7: Finde den Fehler</h1>
             <article>
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe1-beschreibung-tab"
-                                class         = "nav-link active"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe1-beschreibung"
-                                role          = "tab"
-                                aria-controls = "aufgabe1-beschreibung"
-                                aria-expanded = "true"
-                            >
-                                Aufgabe
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe1-loesung-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe1-loesung"
-                                role          = "tab"
-                                aria-controls = "aufgabe1-loesung"
-                            >
-                                Lösung
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <!-- Aufgabe -->
-                        <div
-                            class           = "tab-pane fade show active"
-                            id              = "aufgabe1-beschreibung"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe1-beschreibung-tab"
-                        >
-                            <p>
-                                Lade dir den <a href="Finde%20den%20Fehler.zip" target="_blank">Quellcode
-                                zu dieser Aufgabe</a> herunter und schaue dir die HTML-Datei aus dem
-                                Verzeichnis <tt>Aufgabe</tt> im Browser an. Es handelt sich um ein einfaches
-                                Memoryspiel.
-                            </p>
-                            <p>
-                                Doch leider läuft das Spiel noch nicht richtig. Wenn man eine Karte anklickt,
-                                passiert noch nichts, obwohl in der Datei <tt>script.js</tt> in Zeile 67 ein
-                                entsprechender Event Listener registriert wird. Um diesen Fehler zu finden,
-                                solltest du die Funktionen <code>onCardClicked</code> und <code>startGame</code>
-                                debuggen. Der Fehler ist dann ziemlich offensichtlich. 😰
-                            </p>
-                            <p>
-                                Wenn das Umdrehen der Karten klappt, wirst du feststellen, dass das Spiel
-                                immer noch nicht läuft. Eigentlich sollte beim Aufklappen der zweiten Karte
-                                geprüft werden, ob die beiden Karten übereinstimmen und nur, wenn das der Fall
-                                ist, sollten die Karten offen liegen bleiben. Stattdessen bleiben die Karten
-                                aber einfach immer offen, auch wenn sie nicht identisch sind. Auch hier wirst
-                                du wohl debuggen müssen. Aber keine Angst, die Korrektur ist ziemlich einfach. 🙈
-                            </p>
-                            <img src="aufgabe1.jpg" class="d-block img-thumbnail" style="width: 100%" />
-                            <p>
-                                <small>
-                                    Das sieht noch nicht ganz richtig aus …
-                                </small>
-                            </p>
-                        </div>
-                        <!-- Lösung -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "aufgabe1-loesung"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe1-loesung-tab"
-                        >
-                            <p>
-                                Oh je! Wenn du hier schauen musst, hast du die beiden Fehler nicht gefunden. 😔
-                                Na gut, dann wollen wir dir mal weiter helfen:
-                            </p>
-                            <ol>
-                                <li>
-                                    In Zeile 51 fehlt ein <tt>s</tt>. Es muss <src-code language="javascript">"#cards &gt; img"</src-code> statt
-                                    <src-code language="javascript">"#card &gt; img"</src-code> heißen.
-                                </li>
-                                <li>
-                                    Die Aufrufe in den Zeilen 103 und 104 sind vertauscht. Es muss erst die
-                                    Funktion <src-code language="javascript">flipCard(card)</src-code>
-                                    aufgerufen werden, um die angeklickte Karte umzudrehen. Erst dann können
-                                    die Karten mit <src-code language="javascript">compareCards(card)</src-code>
-                                    verglichen werden.
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
+                <lsx-github-edit
+                    class    = "mb-3"
+                    url      = "3%20JavaScript/Aufgaben/Finde%20den%20Fehler/Aufgabe"
+                    download = "3%20JavaScript/Aufgaben/Finde%20den%20Fehler"
+                ></lsx-github-edit>
+
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Aufgabe">
+                        <p>
+                            Lade dir den Quellcode zu dieser Aufgabe herunter und schaue dir die HTML-Datei
+                            aus dem Verzeichnis <tt>Aufgabe</tt> im Browser an. Es handelt sich um ein einfaches
+                            Memoryspiel. Leider läuft das Spiel noch nicht richtig. Wenn man eine Karte anklickt,
+                            passiert noch nichts, obwohl in der Datei <tt>script.js</tt> in Zeile 67 ein
+                            entsprechender Event Listener registriert wird. Um diesen Fehler zu finden,
+                            solltest du die Funktionen <code>onCardClicked</code> und <code>startGame</code>
+                            debuggen. Der Fehler ist dann ziemlich offensichtlich.
+                        </p>
+                        <p>
+                            Wenn das Umdrehen der Karten klappt, wirst du feststellen, dass das Spiel
+                            immer noch nicht läuft. Eigentlich sollte beim Aufklappen der zweiten Karte
+                            geprüft werden, ob die beiden Karten übereinstimmen und nur, wenn das der Fall
+                            ist, sollten die Karten offen liegen bleiben. Stattdessen bleiben die Karten
+                            aber einfach immer offen, auch wenn sie nicht identisch sind. Auch hier wirst
+                            du wohl debuggen müssen. Aber keine Angst, die Korrektur ist ziemlich einfach.
+                        </p>
+                        <img src="aufgabe1.jpg" class="d-block img-thumbnail" style="width: 100%" />
+                        <p>
+                            <small>
+                                Das sieht noch nicht ganz richtig aus …
+                            </small>
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Lösung">
+                        <p>
+                            Oh je! Wenn du hier schauen musst, hast du die beiden Fehler nicht gefunden. 😔
+                            Na gut, dann wollen wir dir mal weiter helfen:
+                        </p>
+                        <ol>
+                            <li>
+                                In Zeile 51 fehlt ein <tt>s</tt>. Es muss <src-code language="javascript">"#cards &gt; img"</src-code> statt
+                                <src-code language="javascript">"#card &gt; img"</src-code> heißen.
+                            </li>
+                            <li>
+                                Die Aufrufe in den Zeilen 103 und 104 sind vertauscht. Es muss erst die
+                                Funktion <src-code language="javascript">flipCard(card)</src-code>
+                                aufgerufen werden, um die angeklickte Karte umzudrehen. Erst dann können
+                                die Karten mit <src-code language="javascript">compareCards(card)</src-code>
+                                verglichen werden.
+                            </li>
+                        </ol>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
             </article>
             <aside>
                 <p>
@@ -7346,13 +7229,13 @@
                             </lsx-question-text>
 
                             <lsx-answer>
-                                <tt>false</tt>
+                                <src-code language="javascript">false</src-code>
                             </lsx-answer>
                             <lsx-answer>
-                                <tt>undefined</tt>
+                                <src-code language="javascript">undefined</src-code>
                             </lsx-answer correct>
                             <lsx-answer>
-                                <tt>null</tt>
+                                <src-code language="javascript">null</src-code>
                             </lsx-answer>
                         </lxs-question>
 
@@ -7366,13 +7249,13 @@
                                 Nichts
                             </lsx-answer>
                             <lsx-answer correct>
-                                Eine leere Menge mit 0 Einträgen
+                                Eine leere Menge mit null Einträgen
                             </lsx-answer>
                             <lsx-answer>
-                                Den Wert <tt>false</tt>
+                                Den Wert <src-code language="javascript">false</src-code>
                             </lsx-answer>
                             <lsx-answer>
-                                Die Zahl <tt>0</tt>
+                                Die Zahl <src-code language="javascript">0</src-code>
                             </lsx-answer>
                         </lxs-question>
                     </lsx-exercise>
@@ -7561,213 +7444,179 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 9: Formularprüfung</h1>
             <article>
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe3-beschreibung-tab"
-                                class         = "nav-link active"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe3-beschreibung"
-                                role          = "tab"
-                                aria-controls = "aufgabe3-beschreibung"
-                                aria-expanded = "true"
-                            >
-                                Beschreibung
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe3-loesung-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe3-loesung"
-                                role          = "tab"
-                                aria-controls = "aufgabe3-loesung"
-                            >
-                                Lösung
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <!-- Beschreibung -->
-                        <div
-                            class           = "tab-pane fade show active"
-                            id              = "aufgabe3-beschreibung"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe3-beschreibung-tab"
-                        >
-                            <p>
-                                Lade dir den <a href="Erfassungsformular.zip">Quellcode zu dieser Aufgabe</a> herunter
-                                und passe das in der Seite enthaltene Formular wie folgt an:
-                            </p>
-                            <ol>
-                                <li>
-                                    Alle mit einem roten Stern markierten Felder sind Pflichtfelder. Das Formular soll
-                                    sich nicht abschicken lassen, so lange eines dieser Felder leer oder fehlerhaft ist.
-                                </li>
-                                <li>
-                                    Die Daten für den zweiten Reisenden sollen nur geprüft werden, wenn entweder sein
-                                    Vor- oder sein Nachname eingegeben wurde.
-                                </li>
-                                <li>
-                                    Das Anreisedatum und das Abreisedatum sollen ebenfalls Pflichtfelder sein.
-                                </li>
-                                <li>
-                                    Jede E-Mailadresse muss mindestens ein <tt>@</tt>-Zeichen enthalten.
-                                </li>
-                            </ol>
-                            <p>
-                                Das Ergebnis der Prüfung soll unterhalb des Formulars angezeigt werden. Bei Erfolg, soll
-                                die Schrift grün und bei Fehlern soll sie rot sein.
-                            </p>
-                            <img src="aufgabe3.png" class="d-block" style="width: 100%;" />
-                        </div>
-                        <!-- Lösung -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "aufgabe3-loesung"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe3-loesung-tab"
-                        >
-                            <h2>Anpassungen am HTML-Quellcode</h2>
-                            <p>
-                                Im <src-code language="html">&lt;head&gt;</src-code> muss eine neue JavaScript-Datei
-                                eingebunden werden:
-                            </p>
-                            <source-code language="html">
-                                &lt;head&gt;
-                                    &lt;meta charset="utf-8" /&gt;
-                                    &lt;title&gt;Hotelreservierung buchen&lt;/title&gt;
+                <lsx-github-edit
+                    class    = "mb-3"
+                    url      = "3%20JavaScript/Aufgaben/Erfassungsformular/Aufgabe"
+                    download = "3%20JavaScript/Aufgaben/Erfassungsformular"
+                ></lsx-github-edit>
 
-                                    &lt;link rel="stylesheet" href="style.css" /&gt;
-                                    &lt;script src="script.js"&gt;&lt;/script&gt;
-                                &lt;/head&gt;
-                            </source-code>
-                            <p>
-                                Das Formular muss um einen <tt>onsubmit</tt>-Handler erweitert werden:
-                            </p>
-                            <source-code language="html">
-                                &lt;form
-                                    onsubmit = "validateForm(event)"
-                                    action   = "hotel-booking.php"
-                                    method   = "POST"
-                                &gt;
-                                    …
-                                &lt;/form&gt;
-                            </source-code>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Beschreibung">
+                        <p>
+                            Lade dir den Quellcode zu dieser Aufgabe herunter und passe das in der Seite enthaltene
+                            Formular wie folgt an:
+                        </p>
+                        <ol>
+                            <li>
+                                Alle mit einem roten Stern markierten Felder sind Pflichtfelder. Das Formular soll
+                                sich nicht abschicken lassen, so lange eines dieser Felder leer oder fehlerhaft ist.
+                            </li>
+                            <li>
+                                Die Daten für den zweiten Reisenden sollen nur geprüft werden, wenn entweder sein
+                                Vor- oder sein Nachname eingegeben wurde.
+                            </li>
+                            <li>
+                                Das Anreisedatum und das Abreisedatum sollen ebenfalls Pflichtfelder sein.
+                            </li>
+                            <li>
+                                Jede E-Mailadresse muss mindestens ein <tt>@</tt>-Zeichen enthalten.
+                            </li>
+                        </ol>
+                        <p>
+                            Das Ergebnis der Prüfung soll unterhalb des Formulars angezeigt werden. Bei Erfolg, soll
+                            die Schrift grün und bei Fehlern soll sie rot sein.
+                        </p>
+                        <img src="aufgabe-erfassungsformular.png" class="d-block" style="width: 100%;" />
+                    </lsx-tab-page>
 
-                            <h2>JavaScript-Code</h2>
-                            <p>
-                                In der neuen JavaScript-Datei wird folgender Quellcode benötigt:
-                            </p>
-                            <source-code language="javascript">
-                                /**
-                                 * Funktion zur Überprüfung des Kontaktformulars. Wird beim Abschicken des
-                                 * Formulars aufgerufen.
-                                 */
-                                let validateForm = event =&gt; {
-                                    // Variablen für das Prüfergebnis
-                                    let form = event.target;
-                                    let okay = true;
-                                    let message = "";
+                    <lsx-tab-page title="Lösung: HTML">
+                        <p>
+                            Im <src-code language="html">&lt;head&gt;</src-code> muss eine neue JavaScript-Datei
+                            eingebunden werden:
+                        </p>
+                        <source-code language="html">
+                            &lt;head&gt;
+                                &lt;meta charset="utf-8" /&gt;
+                                &lt;title&gt;Hotelreservierung buchen&lt;/title&gt;
 
-                                    // Erster Reisender
-                                    if (form.first_firstname.value == "") {
+                                &lt;link rel="stylesheet" href="style.css" /&gt;
+                                &lt;script src="script.js"&gt;&lt;/script&gt;
+                            &lt;/head&gt;
+                        </source-code>
+                        <p>
+                            Das Formular muss um einen <tt>onsubmit</tt>-Handler erweitert werden:
+                        </p>
+                        <source-code language="html">
+                            &lt;form
+                                onsubmit = "validateForm(event)"
+                                action   = "hotel-booking.php"
+                                method   = "POST"
+                            &gt;
+                                …
+                            &lt;/form&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Lösung: JavaScript">
+                        <p>
+                            In der neuen JavaScript-Datei wird folgender Quellcode benötigt:
+                        </p>
+                        <source-code language="javascript">
+                            /**
+                             * Funktion zur Überprüfung des Kontaktformulars. Wird beim Abschicken des
+                             * Formulars aufgerufen.
+                             */
+                            let validateForm = event =&gt; {
+                                // Variablen für das Prüfergebnis
+                                let form = event.target;
+                                let okay = true;
+                                let message = "";
+
+                                // Erster Reisender
+                                if (form.first_firstname.value == "") {
+                                    okay = false;
+                                    message += "Geben Sie bitte den Vornamen des ersten Reisenden ein. &lt;br /&gt;";
+                                }
+
+                                if (form.first_lastname.value == "") {
+                                    okay = false;
+                                    message += "Geben Sie bitte den Nachnamen des ersten Reisenden ein. &lt;br /&gt;";
+                                }
+
+                                if (form.first_zip.value == "") {
+                                    okay = false;
+                                    message += "Geben Sie bitte die Postleitzahl des ersten Reisenden ein. &lt;br /&gt;";
+                                }
+
+                                if (form.first_city.value == "") {
+                                    okay = false;
+                                    message += "Geben Sie bitte den Ort des ersten Reisenden ein. &lt;br /&gt;";
+                                }
+
+                                if (form.first_country.value == "") {
+                                    okay = false;
+                                    message += "Geben Sie bitte das Land des ersten Reisenden ein. &lt;br /&gt;";
+                                }
+
+                                if (form.first_email.value == "" || !form.first_email.value.includes("@")) {
+                                    okay = false;
+                                    message += "Geben Sie bitte eine gültige E-Mailadresse ein. &lt;br /&gt;";
+                                }
+
+                                // Zweiter Reisender
+                                if (form.second_firstname.value != "" || form.second_lastname.value != "") {
+                                    if (form.second_firstname.value == "") {
                                         okay = false;
-                                        message += "Geben Sie bitte den Vornamen des ersten Reisenden ein. &lt;br /&gt;";
+                                        message += "Geben Sie bitte den Vornamen des zweiten Reisenden ein. &lt;br /&gt;";
                                     }
 
-                                    if (form.first_lastname.value == "") {
+                                    if (form.second_lastname.value == "") {
                                         okay = false;
-                                        message += "Geben Sie bitte den Nachnamen des ersten Reisenden ein. &lt;br /&gt;";
+                                        message += "Geben Sie bitte den Nachnamen des zweiten Reisenden ein. &lt;br /&gt;";
                                     }
 
-                                    if (form.first_zip.value == "") {
+                                    if (form.second_zip.value == "") {
                                         okay = false;
-                                        message += "Geben Sie bitte die Postleitzahl des ersten Reisenden ein. &lt;br /&gt;";
+                                        message += "Geben Sie bitte die Postleitzahl des zweiten Reisenden ein. &lt;br /&gt;";
                                     }
 
-                                    if (form.first_city.value == "") {
+                                    if (form.second_city.value == "") {
                                         okay = false;
-                                        message += "Geben Sie bitte den Ort des ersten Reisenden ein. &lt;br /&gt;";
+                                        message += "Geben Sie bitte den Ort des zweiten Reisenden ein. &lt;br /&gt;";
                                     }
 
-                                    if (form.first_country.value == "") {
+                                    if (form.second_country.value == "") {
                                         okay = false;
-                                        message += "Geben Sie bitte das Land des ersten Reisenden ein. &lt;br /&gt;";
+                                        message += "Geben Sie bitte das Land des zweiten Reisenden ein. &lt;br /&gt;";
                                     }
 
-                                    if (form.first_email.value == "" || !form.first_email.value.includes("@")) {
+                                    if (form.second_email.value != "" &amp;&amp; !form.second_email.value.includes("@")) {
                                         okay = false;
                                         message += "Geben Sie bitte eine gültige E-Mailadresse ein. &lt;br /&gt;";
                                     }
-
-                                    // Zweiter Reisender
-                                    if (form.second_firstname.value != "" || form.second_lastname.value != "") {
-                                        if (form.second_firstname.value == "") {
-                                            okay = false;
-                                            message += "Geben Sie bitte den Vornamen des zweiten Reisenden ein. &lt;br /&gt;";
-                                        }
-
-                                        if (form.second_lastname.value == "") {
-                                            okay = false;
-                                            message += "Geben Sie bitte den Nachnamen des zweiten Reisenden ein. &lt;br /&gt;";
-                                        }
-
-                                        if (form.second_zip.value == "") {
-                                            okay = false;
-                                            message += "Geben Sie bitte die Postleitzahl des zweiten Reisenden ein. &lt;br /&gt;";
-                                        }
-
-                                        if (form.second_city.value == "") {
-                                            okay = false;
-                                            message += "Geben Sie bitte den Ort des zweiten Reisenden ein. &lt;br /&gt;";
-                                        }
-
-                                        if (form.second_country.value == "") {
-                                            okay = false;
-                                            message += "Geben Sie bitte das Land des zweiten Reisenden ein. &lt;br /&gt;";
-                                        }
-
-                                        if (form.second_email.value != "" &amp;&amp; !form.second_email.value.includes("@")) {
-                                            okay = false;
-                                            message += "Geben Sie bitte eine gültige E-Mailadresse ein. &lt;br /&gt;";
-                                        }
-                                    }
-
-                                    // Ankunft und Abreise
-                                    if (form.arrival.value == "") {
-                                        okay = false;
-                                        message += "Geben Sie bitte das Ankunftsdatum ein. &lt;br /&gt;";
-                                    }
-
-                                    if (form.departure.value == "") {
-                                        okay = false;
-                                        message += "Geben Sie bitte das Abreisedatum ein. &lt;br /&gt;";
-                                    }
-
-                                    // Ergebnis anzeigen
-                                    let resultElement = document.getElementById("result");
-
-                                    if (okay) {
-                                        message = "Vielen Dank für Ihre Nachricht!";
-                                        resultElement.classList.add("okay");
-                                    } else {
-                                        resultElement.classList.remove("okay");
-                                    }
-
-                                    resultElement.innerHTML = message;
-
-                                    // Formular nicht abschicken
-                                    //if (!okay) {
-                                    event.preventDefault();
-                                    //}
                                 }
-                            </source-code>
-                        </div>
-                    </div>
-                </div>
+
+                                // Ankunft und Abreise
+                                if (form.arrival.value == "") {
+                                    okay = false;
+                                    message += "Geben Sie bitte das Ankunftsdatum ein. &lt;br /&gt;";
+                                }
+
+                                if (form.departure.value == "") {
+                                    okay = false;
+                                    message += "Geben Sie bitte das Abreisedatum ein. &lt;br /&gt;";
+                                }
+
+                                // Ergebnis anzeigen
+                                let resultElement = document.getElementById("result");
+
+                                if (okay) {
+                                    message = "Vielen Dank für Ihre Nachricht!";
+                                    resultElement.classList.add("okay");
+                                } else {
+                                    resultElement.classList.remove("okay");
+                                }
+
+                                resultElement.innerHTML = message;
+
+                                // Formular nicht abschicken
+                                //if (!okay) {
+                                event.preventDefault();
+                                //}
+                            }
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
             </article>
             <aside>
                 <p>
@@ -7788,126 +7637,91 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 10: TODO-Liste</h1>
             <article>
-                <div>
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe4-beschreibung-tab"
-                                class         = "nav-link active"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe4-beschreibung"
-                                role          = "tab"
-                                aria-controls = "aufgabe4-beschreibung"
-                                aria-expanded = "true"
-                            >
-                                Beschreibung
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                id            = "aufgabe4-loesung-tab"
-                                class         = "nav-link"
-                                data-toggle   = "tab"
-                                href          = "#aufgabe4-loesung"
-                                role          = "tab"
-                                aria-controls = "aufgabe4-loesung"
-                            >
-                                Lösung
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <!-- Beschreibung -->
-                        <div
-                            class           = "tab-pane fade show active"
-                            id              = "aufgabe4-beschreibung"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe4-beschreibung-tab"
-                        >
-                            <p>
-                                Lade dir den <a href="Einfache%20TODO-Liste.zip">Quellcode zu dieser Aufgabe</a> herunter
-                                und schaue ihn dir an. Es handelt sich dabei um eine einfache TODO-Liste mit nur zwei
-                                Funktionen: Einträge hinzufügen und Einträge löschen. Der Quellcode ist auch schon fast
-                                fertig. Es fehlen nur noch ein paar Kleinigkeiten:
-                            </p>
-                            <ol>
-                                <li>
-                                    Im HTML-Code findest du zwischen den Kommentaren ein Beispiel für eine Notiz. Das
-                                    Beispiel soll dir als Vorlage für den JavaScript-Code dienen, muss aus dem HTML aber
-                                    ausgebaut werden.
-                                </li>
-                                <li>
-                                    Im JavaScript-Code musst du stattdessen die <code>insertMemo</code>-Funktion so
-                                    ausprogrammieren, dass sie die Seite nach dem vorgegebenen Beispiel erweitert, um
-                                    ein neues Memo anzuzeigen.
-                                </li>
-                                <li>
-                                    Jedes Memo soll einen Link zum Entfernen des Memos besitzen.
-                                </li>
-                                <li>
-                                    Beim Start der Anwendung soll automatisch ein Beispielmemo angelegt werden.
-                                </li>
-                            </ol>
-                            <img src="aufgabe4.jpg" class="d-block" style="width: 100%;" />
-                        </div>
-                        <!-- Lösung -->
-                        <div
-                            class           = "tab-pane fade"
-                            id              = "aufgabe4-loesung"
-                            role            = "tabpanel"
-                            aria-labelledby = "aufgabe4-loesung-tab"
-                        >
-                            <h2>Anpassungen am HTML-Code</h2>
-                            <p>
-                                Im HTML-Code muss lediglich die Beispielnotiz entfernt werden. Der <src-code language="html">
-                                &lt;body&gt;</src-code> sieht danach daher so aus:
-                            </p>
-                            <source-code language="html">
-                                &lt;body&gt;
-                                    &lt;div id="toolbar"&gt;
-                                        &lt;button id="button-new"&gt;
-                                            Neue Notiz anlegen
-                                        &lt;/button&gt;
-                                    &lt;/div&gt;
+                <lsx-github-edit
+                    class    = "mb-3"
+                    url      = "3%20JavaScript/Aufgaben/Einfache%20TODO-Liste/Aufgabe"
+                    download = "3%20JavaScript/Aufgaben/Einfache%20TODO-Liste"
+                ></lsx-github-edit>
 
-                                    &lt;main&gt;
-                                        &lt;ul&gt;&lt;/ul&gt;
-                                    &lt;/main&gt;
-                                &lt;/body&gt;
-                            </source-code>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Beschreibung">
+                        <p>
+                            Lade dir den Quellcode zu dieser Aufgabe herunter und schaue ihn dir an. Es handelt sich
+                            dabei um eine einfache TODO-Liste mit nur zwei Funktionen: Einträge hinzufügen und Einträge
+                            löschen. Der Quellcode ist auch schon fast fertig. Es fehlen nur noch ein paar Kleinigkeiten:
+                        </p>
+                        <ol>
+                            <li>
+                                Im HTML-Code findest du zwischen den Kommentaren ein Beispiel für eine Notiz. Das
+                                Beispiel soll dir als Vorlage für den JavaScript-Code dienen, muss aus dem HTML aber
+                                ausgebaut werden.
+                            </li>
+                            <li>
+                                Im JavaScript-Code musst du stattdessen die <code>insertMemo</code>-Funktion so
+                                ausprogrammieren, dass sie die Seite nach dem vorgegebenen Beispiel erweitert, um
+                                ein neues Memo anzuzeigen.
+                            </li>
+                            <li>
+                                Jedes Memo soll einen Link zum Entfernen des Memos besitzen.
+                            </li>
+                            <li>
+                                Beim Start der Anwendung soll automatisch ein Beispielmemo angelegt werden.
+                            </li>
+                        </ol>
+                        <img src="aufgabe-todo-liste.jpg" class="d-block" style="width: 100%;" />
+                    </lsx-tab-page>
 
-                            <h2>Anpassungen am JavaScript-Code</h2>
-                            <p>
-                                Die <code>insertMemo</code>-Funktion muss wie folgt ausprogrammiert werden:
-                            </p>
-                            <source-code language="javascript">
-                                let insertMemo = text =&gt; {
-                                    let liElement = document.createElement("li");
-                                    memoList.appendChild(liElement);
+                    <lsx-tab-page title="Lösung: HTML">
+                        <p>
+                            Im HTML-Code muss lediglich die Beispielnotiz entfernt werden. Der <src-code language="html">
+                            &lt;body&gt;</src-code> sieht danach daher so aus:
+                        </p>
+                        <source-code language="html">
+                            &lt;body&gt;
+                                &lt;div id="toolbar"&gt;
+                                    &lt;button id="button-new"&gt;
+                                        Neue Notiz anlegen
+                                    &lt;/button&gt;
+                                &lt;/div&gt;
 
-                                    let memoTextElement = document.createElement("p");
-                                    memoTextElement.textContent = text;
-                                    liElement.appendChild(memoTextElement);
+                                &lt;main&gt;
+                                    &lt;ul&gt;&lt;/ul&gt;
+                                &lt;/main&gt;
+                            &lt;/body&gt;
+                        </source-code>
+                    </lsx-tab-page>
 
-                                    let deleteElement = document.createElement("a");
-                                    deleteElement.textContent = "Löschen";
-                                    deleteElement.classList.add("delete");
-                                    liElement.appendChild(deleteElement);
+                    <lsx-tab-page title="Lösung: JavaScript">
+                        <p>
+                            Die <code>insertMemo</code>-Funktion muss wie folgt ausprogrammiert werden:
+                        </p>
+                        <source-code language="javascript">
+                            let insertMemo = text =&gt; {
+                                let liElement = document.createElement("li");
+                                memoList.appendChild(liElement);
 
-                                    deleteElement.addEventListener("click", () =&gt; {
-                                        liElement.parentNode.removeChild(liElement);
-                                    });
-                                };
-                            </source-code>
-                            <p>
-                                Eine neue Beispielnotiz lässt sich mit folgendem Aufruf erzeugen:
-                            </p>
-                            <source-code language="javascript">
-                                insertMemo("Klicke auf „Neue Notiz”, um eine neue Notiz anzulegen …");
-                            </source-code>
-                        </div>
-                    </div>
-                </div>
+                                let memoTextElement = document.createElement("p");
+                                memoTextElement.textContent = text;
+                                liElement.appendChild(memoTextElement);
+
+                                let deleteElement = document.createElement("a");
+                                deleteElement.textContent = "Löschen";
+                                deleteElement.classList.add("delete");
+                                liElement.appendChild(deleteElement);
+
+                                deleteElement.addEventListener("click", () =&gt; {
+                                    liElement.parentNode.removeChild(liElement);
+                                });
+                            };
+                        </source-code>
+                        <p>
+                            Eine neue Beispielnotiz lässt sich mit folgendem Aufruf erzeugen:
+                        </p>
+                        <source-code language="javascript">
+                            insertMemo("Klicke auf „Neue Notiz”, um eine neue Notiz anzulegen …");
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
             </article>
             <aside>
                 <p>
