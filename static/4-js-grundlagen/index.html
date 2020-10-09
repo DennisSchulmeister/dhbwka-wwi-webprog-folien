@@ -1406,87 +1406,102 @@
         <section>
             <h1>Mehr über Variablen und Funktionen</h1>
             <article>
-                <lsx-tab-pages>
-                    <lsx-tab-page title="Zusammenfassung">
-                        <h2>Datentypen in JavaScript</h2>
-                        <ul>
-                            <li>
-                                <b>Boolean:</b> Einfache Flags, die nur <code>true</code>
-                                oder <code>false</code> sein können.
-                            </li>
-                            <li>
-                                <b>Null:</b> Kennt nur den Wert <code>null</code>.
-                            </li>
-                            <li>
-                                <b>Undefined:</b> Standardwert, den alle nicht vorhandenen
-                                Variablen zurückliefern.
-                            </li>
-                            <li>
-                                <b>Number:</b> Der einzige Zahlentyp in JavaScript. Entspricht
-                                einer 64-bit Fließkommazahl.
-                            </li>
-                            <li>
-                                <b>String:</b> Zeichenketten, genau wie in Java auch.
-                            </li>
-                            <li>
-                                <b>Object:</b> Zusammengesetzte Datentypen ähnlich den
-                                Objekten in Java.
-                            </li>
-                            <li>
-                                <b>Symbol:</b> Besonderer Datentyp, mit dem das fehlende
-                                <code>private</code>-Schlüsselwort in JavaScript emuliert
-                                werden kann.
-                            </li>
-                        </ul>
-                        <div class="info-box">
-                            JavaScript ist eine <b>schwach typisierte</b> sowie <b>dynamisch typisierte</b> Sprache.
-                            Es gibt daher nur wenige, eingebaute Datentypen und der Typ einer Variable
-                            kann sich durch Zuweisung eines neuen Werts jederzeit ändern.
-                        </div>
-                        <div class="info-box warning">
-                            Globale Variablen sind in Wahrheit Attribute des <src-code>window</src-code>-Objekts.
-                        </div>
+                <p>
+                    Im Vergleich zu anderen Programmiersprachen besitzt JavaScript nur eine sehr
+                    begrenzte Anzahl an Datentypen und auch die neue Syntax zur Definition einer
+                    Funktion ist sicher etwas gewöhnungsbedürftig. Im Vergleich zu anderen
+                    Programmierprachen ist JavaScript deshalb aber nicht weniger flexibel, wie
+                    insbesondere das Video zeigt.
+                </p>
+                <lsx-accordion class="mb-4">
+                    <lsx-accordion-page>
+                        <lsx-accordion-title>
+                            <b>Datentypen in JavaScript</b>
+                        </lsx-accordion-title>
+                        <lsx-accordion-content>
+                            <ul>
+                                <li>
+                                    <b>Boolean:</b> Einfache Flags, die nur <code>true</code>
+                                    oder <code>false</code> sein können.
+                                </li>
+                                <li>
+                                    <b>Null:</b> Kennt nur den Wert <code>null</code>.
+                                </li>
+                                <li>
+                                    <b>Undefined:</b> Standardwert, den alle nicht vorhandenen
+                                    Variablen zurückliefern.
+                                </li>
+                                <li>
+                                    <b>Number:</b> Der einzige Zahlentyp in JavaScript. Entspricht
+                                    einer 64-bit Fließkommazahl.
+                                </li>
+                                <li>
+                                    <b>String:</b> Zeichenketten, genau wie in Java auch.
+                                </li>
+                                <li>
+                                    <b>Object:</b> Zusammengesetzte Datentypen ähnlich den
+                                    Objekten in Java.
+                                </li>
+                                <li>
+                                    <b>Symbol:</b> Besonderer Datentyp, mit dem das fehlende
+                                    <code>private</code>-Schlüsselwort in JavaScript emuliert
+                                    werden kann.
+                                </li>
+                            </ul>
+                            <div class="info-box">
+                                JavaScript ist eine <b>schwach typisierte</b> sowie <b>dynamisch typisierte</b> Sprache.
+                                Es gibt daher nur wenige, eingebaute Datentypen und der Typ einer Variable
+                                kann sich durch Zuweisung eines neuen Werts jederzeit ändern.
+                            </div>
+                            <div class="info-box warning">
+                                Globale Variablen sind in Wahrheit Attribute des <src-code>window</src-code>-Objekts.
+                            </div>
+                        </lsx-accordion-content>
+                    </lsx-accordion-page>
 
-                        <h2 style="margin-top: 1.5em;">Definition einfacher Funktionen</h2>
-                        <p>
-                            Alte Syntax mit dem Schlüsselwort <code>function</code>:
-                        </p>
-                        <source-code language="javascript">
-                            function halloWelt(name, alter) {
-                                return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
-                            }
-                        </source-code>
-                        <p>
-                            Für neuen Code empfohlene Schreibweise:
-                        </p>
-                        <source-code language="javascript">
-                            let halloWelt = (name, alter) => {
-                                return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
-                            };
-                        </source-code>
-                        <p>
-                            Oder noch kürzer:
-                        </p>
-                        <source-code language="javascript">
-                            let halloWelt = (name, alter) => return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
-                        </source-code>
-                        <p>
-                            Oder am kürzesten:
-                        </p>
-                        <source-code language="javascript">
-                            let halloWelt = (name, alter) => `Hallo ${name}. Du bist ${alter} Jahre alt.`;
-                        </source-code>
-                    </lsx-tab-page>
+                    <lsx-accordion-page>
+                        <lsx-accordion-title>
+                            <b>Definition einfacher Funktionen</b>
+                        </lsx-accordion-title>
+                        <lsx-accordion-content>
+                            <p>
+                                Alte Syntax mit dem Schlüsselwort <code>function</code>:
+                            </p>
+                            <source-code language="javascript">
+                                function halloWelt(name, alter) {
+                                    return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                                }
+                            </source-code>
+                            <p>
+                                Für neuen Code empfohlene Schreibweise:
+                            </p>
+                            <source-code language="javascript">
+                                let halloWelt = (name, alter) => {
+                                    return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                                };
+                            </source-code>
+                            <p>
+                                Oder noch kürzer:
+                            </p>
+                            <source-code language="javascript">
+                                let halloWelt = (name, alter) => return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                            </source-code>
+                            <p>
+                                Oder am kürzesten:
+                            </p>
+                            <source-code language="javascript">
+                                let halloWelt = (name, alter) => `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                            </source-code>
+                        </lsx-accordion-content>
+                    </lsx-accordion-page>
+                </lsx-accordion>
 
-                    <lsx-tab-page title="Erklärung">
-                        <lsx-youtube video="Ex8QwHLfwjY"></lsx-youtube>
-                        <lsx-info-box>
-                            Das Video erklärt die Besonderheiten, die bei der Definition und Verwendung von
-                            Variablen in JavaScript zu beachten sind. Darüber hinaus erklärt es die unterschiedlichen
-                            Syntaxen zur Definition von Funktionen im Detail.
-                        </lsx-info-box>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                <lsx-youtube video="Ex8QwHLfwjY"></lsx-youtube>
+                <lsx-info-box>
+                    Das Video erklärt die Besonderheiten, die bei der Definition und Verwendung von
+                    Variablen in JavaScript zu beachten sind. Darüber hinaus erklärt es die unterschiedlichen
+                    Syntaxen zur Definition von Funktionen im Detail.
+                </lsx-info-box>
             </article>
             <aside>
                 <h2>Dynamische, schwache Typisierung</h2>
@@ -2047,60 +2062,85 @@
         <section>
             <h1>Funktionen – Nichts Besonderes</h1>
             <article>
-                <lsx-tab-pages>
-                    <lsx-tab-page title="Zusammenfassung">
-                        <h2>Anatomie einer Funktionsdefinition</h2>
-                        <img src="funktionsdefinition.svg" class="b-block img-respnsive" style="margin-bottom: 2em;" />
+                <p>
+                    Verglichen mit anderen Programmiersprachen sind Funktionen in JavaScript sehr mächtig.
+                    Die Möglichkeit, eine Funktion als Referenz an eine andere Funktion zu übergeben, oder
+                    Funktionen zu schreiben, die neue Funktionen als Ergebnis zurückliefern, prägen die
+                    Programmierung in JavaScript nachhaltig.
+                </p>
+                <lsx-accordion class="mb-4">
+                    <lsx-accordion-page>
+                        <lsx-accordion-title>
+                            <b>Anatomie einer Funktionsdefinition</b>
+                        </lsx-accordion-title>
+                        <lsx-accordion-content>
+                            <img src="funktionsdefinition.svg" class="b-block img-respnsive" style="margin-bottom: 2em;" />
+                        </lsx-accordion-content>
+                    </lsx-accordion-page>
 
-                        <h2>Rückruffunktionen für Events</h2>
-                        <p>
-                            Häufig erwartet eine Funktion eine andere Funktion als Parameter, um
-                            diese bei Eintreten eines Ereignisses aufrufen zu können. Die aufgerufene
-                            Funktion nennt man Rückruffunktion oder auch Callback:
-                        </p>
-                        <source-code language="javascript">
-                            let callback = () => { … };
-                            let div = document.getElementById("theater");
-                            div.addEventListener("click", callback);
-                        </source-code>
-                        <p>
-                            Lässt sich verkürzen zu:
-                        </p>
-                        <div style="margin-bottom: 2em">
+                    <lsx-accordion-page>
+                        <lsx-accordion-title>
+                            <b>Rückruffunktionen für Events</b>
+                        </lsx-accordion-title>
+                        <lsx-accordion-content>
+                            <p>
+                                Häufig erwartet eine Funktion eine andere Funktion als Parameter, um
+                                diese bei Eintreten eines Ereignisses aufrufen zu können. Die aufgerufene
+                                Funktion nennt man Rückruffunktion oder auch Callback:
+                            </p>
                             <source-code language="javascript">
+                                let callback = () => { … };
                                 let div = document.getElementById("theater");
-                                div.addEventListener("click", () => { … });
+                                div.addEventListener("click", callback);
                             </source-code>
-                        </div>
+                            <p>
+                                Wichtig zu verstehen ist hier, dass die Funktion <code>callback</code> in Zeile
+                                drei nicht direkt aufgrufen, sondern als Referenz an die Methode <code>addEventListener</code>
+                                übergeben wird. Dadurch kann die Funktion zu einem späteren Zeitpunkt – wenn das überwachte
+                                Ereignis eintritt – asynchron aufgerufen werden. Da Funktionen sehr oft als Parameter an andere
+                                Funktionen übergeben oder als Event Handler eingesetzt werden müssen, lässt sich die Schreibweise
+                                noch weiter verkürzen:
+                            </p>
+                            <div style="margin-bottom: 2em">
+                                <source-code language="javascript">
+                                    let div = document.getElementById("theater");
+                                    div.addEventListener("click", () => { … });
+                                </source-code>
+                            </div>
+                        </lsx-accordion-content>
+                    </lsx-accordion-page>
 
-                        <h2>Funktionen höherer Ordnung</h2>
-                        <p>
-                            Funktionen höherer Ordnung sind Funktionen, die als Rückgabewert eine
-                            neue Funktion liefern:
-                        </p>
-                        <source-code language="javascript">
-                            let erzeugeFunktion = name => {
-                                return () => `Hello, ${name}!`;
-                            }
+                    <lsx-accordion-page>
+                        <lsx-accordion-title>
+                            <b>Funktionen höherer Ordnung</b>
+                        </lsx-accordion-title>
+                        <lsx-accordion-content>
+                            <p>
+                                Funktionen höherer Ordnung sind Funktionen, die als Rückgabewert eine
+                                neue Funktion liefern:
+                            </p>
+                            <source-code language="javascript">
+                                let erzeugeFunktion = name => {
+                                    return () => `Hello, ${name}!`;
+                                }
 
-                            let begruesseKitty = erzeugeFunktion("Kitty");
-                            console.log(begruesseKitty());
-                        </source-code>
-                        <p>
-                            Gibt auf der Konsole <tt>Hello, Kitty!</tt> aus.
-                        </p>
-                    </lsx-tab-page>
+                                let begruesseKitty = erzeugeFunktion("Kitty");
+                                console.log(begruesseKitty());
+                            </source-code>
+                            <p>
+                                Gibt auf der Konsole <tt>Hello, Kitty!</tt> aus.
+                            </p>
+                        </lsx-accordion-content>
+                    </lsx-accordion-page>
+                </lsx-accordion>
 
-                    <lsx-tab-page title="Erklärung">
-                        <lsx-youtube video="pVnwoewvFLU"></lsx-youtube>
-                        <lsx-info-box>
-                            Das Video zeigt, warum Funktionen in JavaScript gewöhnliche Objekte sind und welche
-                            weitreichenden Konsequenzen dies auf das gesamte Sprachdesign hat. Dies wird am Beispiel
-                            von Rückruffunktionen (sog. Callbacks) für HTML-Events sowie der Definition höherer
-                            Funktionen demonstriert.
-                        </lsx-info-box>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                <lsx-youtube video="pVnwoewvFLU"></lsx-youtube>
+                <lsx-info-box>
+                    Das Video zeigt, warum Funktionen in JavaScript gewöhnliche Objekte sind und welche
+                    weitreichenden Konsequenzen dies auf das gesamte Sprachdesign hat. Dies wird am Beispiel
+                    von Rückruffunktionen (sog. Callbacks) für HTML-Events sowie der Definition höherer
+                    Funktionen demonstriert.
+                </lsx-info-box>
             </article>
             <aside>
                 <p>
@@ -2767,36 +2807,39 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 5: Ein kleines JSON-Quiz</h1>
             <article>
-                <h2>Was bewirken die folgenden Quellcode-Schnippsel?</h2>
+                <lsx-quiz>
+                    <lsx-exercise title="Was bewirken die folgenden Quellcode-Schnippsel?">
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                a) <src-code language="javascript">let movie = {id: 1, name: "Moon", year: 2009};</src-code>
+                            </lsx-question-text>
 
-                <p>a) <src-code language="javascript">let movie = {id: 1, name: "Moon", year: 2009};</src-code></p>
-                <ol>
-                    <li>Definition einer Liste mit drei Werten</li>
-                    <li>Definition eines Dictionaries mit drei Werten</li>
-                    <li>Definition dreier Variablen</li>
-                </ol>
+                            <lsx-answer>Definition einer Liste mit drei Werten</lsx-answer>
+                            <lsx-answer correct>Definition eines Dictionaries mit drei Werten</lsx-answer>
+                            <lsx-answer>Definition dreier Variablen</lsx-answer>
+                        </lsx-question>
 
-                <p>b) <src-code language="javascript">let favorites = ["Toy Story", "Anchorman", "Gravity", "The Founder"];</src-code></p>
-                <ol>
-                    <li>Definition eines Dictionaries mit vier Werten</li>
-                    <li>Definition einer Liste mit vier Werten</li>
-                    <li>Definition einer Methode mit vier Parametern</li>
-                </ol>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                b) <src-code language="javascript">let favorites = ["Toy Story", "Anchorman", "Gravity", "The Founder"];</src-code>
+                            </lsx-question-text>
 
-                <p>c) <src-code language="javascript">let cds = [{name: "Tracker", year: 2015}, {name: "Privateering", year: 2013}];</src-code></p>
-                <ol>
-                    <li>Definition einer Liste mit zwei Dictionaries</li>
-                    <li>Definition eines Dictionaries mit zwei Listen</li>
-                    <li>Definition von vier Variablen</li>
-                </ol>
+                            <lsx-answer>Definition eines Dictionaries mit vier Werten</lsx-answer>
+                            <lsx-answer correct>Definition einer Liste mit vier Werten</lsx-answer>
+                            <lsx-answer>Definition einer Methode mit vier Parametern</lsx-answer>
+                        </lsx-question>
 
-                <hr />
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                c) <src-code language="javascript">let cds = [{name: "Tracker", year: 2015}, {name: "Privateering", year: 2013}];</src-code>
+                            </lsx-question-text>
 
-                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
-                    <small>
-                        <b>Lösung:</b> 2, 2, 1
-                    </small>
-                </p>
+                            <lsx-answer correct>Definition einer Liste mit zwei Dictionaries</lsx-answer>
+                            <lsx-answer>Definition eines Dictionaries mit zwei Listen</lsx-answer>
+                            <lsx-answer>Definition von vier Variablen</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
             </article>
             <aside>
                 <p>
@@ -7258,245 +7301,246 @@
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 8: Ein kleines DOM-Quiz</h1>
             <article>
-                <h2>Aufgabe 8.1: HTML-Elemente auslesen</h2>
-                <p>
-                    a) Welche Methode liefert alle Elemente mit derselben Klasse?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        <src-code language="javascript">document.getElementsByName("…")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.getElementsByClassName("…")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.getElementById("…")</src-code>
-                    </li>
-                </ol>
+                <lsx-quiz prefix="Aufgabe 8.#:">
+                    <lsx-exercise title="HTML-Elemente auslesen">
+                        <lsx-question
+                            type = "single-choice"
+                            text = "a) Welche Methode liefert alle Elemente mit derselben Klasse?"
+                        >
+                            <lsx-answer>
+                                <src-code language="javascript">document.getElementsByName("…")</src-code>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <src-code language="javascript">document.getElementsByClassName("…")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">document.getElementById("…")</src-code>
+                            </lsx-answer>
+                        </lxs-question>
 
-                <p>
-                    b) Welche Methoden liefern das Element mit der ID „toolbar” zurück?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        <src-code language="javascript">document.getElementById("toolbar")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.querySelector("toolbar")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.querySelector("#toolbar")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.querySelectorAll("toolbar")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.querySelectorAll("#toolbar")</src-code>
-                    </li>
-                </ol>
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "b) Welche Methoden liefern das Element mit der ID „toolbar” zurück?"
+                        >
+                            <lsx-answer correct>
+                                <src-code language="javascript">document.getElementById("toolbar")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">document.querySelector("toolbar")</src-code>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <src-code language="javascript">document.querySelector("#toolbar")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">document.querySelectorAll("toolbar")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">document.querySelectorAll("#toolbar")</src-code>
+                            </lsx-answer>
+                        </lxs-question>
 
-                <p>
-                    c) Was liefert die Methode <src-code language="javascript">document.getElementById</src-code>
-                    als Ergebnis, wenn das gesuchte Element nicht gefunden wurde?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        <tt>false</tt>
-                    </li>
-                    <li>
-                        <tt>undefined</tt>
-                    </li>
-                    <li>
-                        <tt>null</tt>
-                    </li>
-                </ol>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                c) Was liefert die Methode <src-code language="javascript">document.getElementById</src-code>
+                                als Ergebnis, wenn das gesuchte Element nicht gefunden wurde?
+                            </lsx-question-text>
 
-                <p>
-                    d) Was liefert die Methode <src-code language="javascript">document.querySelectorAll</src-code>
-                    als Ergebnis, wenn die gesuchten Elemente nicht gefunden wurden?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        Nichts
-                    </li>
-                    <li>
-                        Eine leere Menge mit 0 Einträgen
-                    </li>
-                    <li>
-                        Den Wert <tt>false</tt>
-                    </li>
-                    <li>
-                        Die Zahl <tt>0</tt>
-                    </li>
-                </ol>
+                            <lsx-answer>
+                                <tt>false</tt>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <tt>undefined</tt>
+                            </lsx-answer correct>
+                            <lsx-answer>
+                                <tt>null</tt>
+                            </lsx-answer>
+                        </lxs-question>
 
-                <h2>Aufgabe 8.2: Inhalte verändern und erzeugen</h2>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                d) Was liefert die Methode <src-code language="javascript">document.querySelectorAll</src-code>
+                                als Ergebnis, wenn die gesuchten Elemente nicht gefunden wurden?
+                            </lsx-question-text>
 
-                <p>
-                    a) Wie kann die CSS-Eigenschaft „border-bottom-width” eines HTML-Elements mit
-                    JavaScript verändert werden?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        <src-code language="javascript">element.style.set("border-bottom-widht", "1px")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.style.border-bottom-width = "1px"</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.style.border_bottom_width = "1px"</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.style.borderBottomWidth = "1px"</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.style["borderBottomWidth"] = "1px"</src-code>
-                    </li>
-                </ol>
+                            <lsx-answer>
+                                Nichts
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                Eine leere Menge mit 0 Einträgen
+                            </lsx-answer>
+                            <lsx-answer>
+                                Den Wert <tt>false</tt>
+                            </lsx-answer>
+                            <lsx-answer>
+                                Die Zahl <tt>0</tt>
+                            </lsx-answer>
+                        </lxs-question>
+                    </lsx-exercise>
 
-                <p>
-                    b) Wie kann einem HTML-Element die Klasse „invisible” hinzugefügt werden?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        <src-code language="javascript">document.classListAdd("invisible")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.classList.add("invisible")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.classList.invisible = true</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.styleList.add("invisible")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.style.invisible = true</src-code>
-                    </li>
-                </ol>
+                    <lsx-exercise title="Inhalte verändern und erzeugen">
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "a) Wie kann die CSS-Eigenschaft „border-bottom-width” eines HTML-Elements mit JavaScript verändert werden?"
+                        >
+                            <lsx-answer>
+                                <src-code language="javascript">element.style.set("border-bottom-widht", "1px")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element.style.border-bottom-width = "1px"</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element.style.border_bottom_width = "1px"</src-code>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <src-code language="javascript">element.style.borderBottomWidth = "1px"</src-code>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <src-code language="javascript">element.style["borderBottomWidth"] = "1px"</src-code>
+                            </lsx-answer>
+                        </lxs-question>
 
-                <p>
-                    c) Was passiert, wenn man dem Attribut <code>innerHTML</code> einen String mit
-                    Text und HTML-Elementen übergibgt?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        Der Text wird genau so angezeigt, wie er übergeben wurde. Die sptizen Klammern
-                        werden auf dem Bildschirm angezeigt.
-                    </li>
-                    <li>
-                        Der Text wird genau so angezeigt, wie er übergeben wurde, jedoch werden alle
-                        spitzen Klammern entfernt.
-                    </li>
-                    <li>
-                        Der Text wird als HTML-Code interpretiert. Auf dem Bildschirm sieht man daher
-                        das Ergebnis der HTML-Elemente. Ganz so, als wären sie von Anfang an im Quellcode
-                        der Seite gestanden.
-                    </li>
-                </ol>
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Wie kann einem HTML-Element die Klasse „invisible” hinzugefügt werden?"
+                        >
+                            <lsx-answer>
+                                <src-code language="javascript">document.classListAdd("invisible")</src-code>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <src-code language="javascript">element.classList.add("invisible")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element.classList.invisible = true</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element.styleList.add("invisible")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element.style.invisible = true</src-code>
+                            </lsx-answer>
+                        </lxs-question>
 
-                <p>
-                    d) Was passiert, wenn man dem Attribut <code>textContent</code> einen String mit
-                    Text und HTML-Elementen übergibt?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        Der Text wird genau so angezeigt, wie er übergeben wurde. Die spitzen Klammern
-                        werden auf dem Bildschirm angezeigt.
-                    </li>
-                    <li>
-                        Der Text wird genau so angezeigt, wie er übergeben wurde, jedoch werden alle
-                        spitzen Klammern entfernt.
-                    </li>
-                    <li>
-                        Der Text wird als HTML-Code interpretiert. Auf dem Bildschirm sieht man daher
-                        das Ergebnis der HTML-Elemente. Ganz so, als wären sie von Anfang an im Quellcode
-                        der Seite gestanden.
-                    </li>
-                </ol>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                c) Was passiert, wenn man dem Attribut <code>innerHTML</code> einen String mit
+                                Text und HTML-Elemente
+                            </lsx-question-text>
 
-                <h2>Aufgabe 8.3: Arbeiten mit der DOM-Struktur</h2>
+                            <lsx-answer>
+                                Der Text wird genau so angezeigt, wie er übergeben wurde. Die sptizen Klammern
+                                werden auf dem Bildschirm angezeigt.
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                Der Text wird genau so angezeigt, wie er übergeben wurde, jedoch werden alle
+                                spitzen Klammern entfernt.
+                            </lsx-answer>
+                            <lsx-answer>
+                                Der Text wird als HTML-Code interpretiert. Auf dem Bildschirm sieht man daher
+                                das Ergebnis der HTML-Elemente. Ganz so, als wären sie von Anfang an im Quellcode
+                                der Seite gestanden.
+                            </lsx-answer>
+                        </lxs-question>
 
-                <p>
-                    a) Mit welchem Attribut kann auf das Elternelement eines HTML-Elements zugegriffen werden?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        <src-code language="javascript">element.p</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.parent</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.parentNode</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.parentNodes</src-code>
-                    </li>
-                </ol>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                d) Was passiert, wenn man dem Attribut <code>textContent</code> einen String mit
+                                Text und HTML-Elementen übergibt?
+                            </lsx-question-text>
 
-                <p>
-                    b) Wie kann ein Element aus dem DOM-Baum entfernt werden?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        <src-code language="javascript">element.remove()</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.discard()</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.parentNode.removeChild()</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element.parentNode.removeChild(element)</src-code>
-                    </li>
-                </ol>
+                            <lsx-answer correct>
+                                Der Text wird genau so angezeigt, wie er übergeben wurde. Die spitzen Klammern
+                                werden auf dem Bildschirm angezeigt.
+                            </lsx-answer>
+                            <lsx-answer>
+                                Der Text wird genau so angezeigt, wie er übergeben wurde, jedoch werden alle
+                                spitzen Klammern entfernt.
+                            </lsx-answer>
+                            <lsx-answer>
+                                Der Text wird als HTML-Code interpretiert. Auf dem Bildschirm sieht man daher
+                                das Ergebnis der HTML-Elemente. Ganz so, als wären sie von Anfang an im Quellcode
+                                der Seite gestanden.
+                            </lsx-answer>
+                        </lxs-question>
+                    </lsx-exercise>
 
-                <p>
-                    c) Welcher Aufruf erzeugt ein neues <src-code language="html">&lt;div&gt;</src-code>-Element?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        <src-code language="javascript">document.createElement("div")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.createElement("&lt;div&gt;")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.createHtml("&lt;div&gt;")</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.createTextNode("div")</src-code>
-                    </li>
-                </ol>
+                    <lsx-exercise title="Arbeiten mit der DOM-Struktur">
+                        <lsx-question
+                            type = "single-choice"
+                            text = "a) Mit welchem Attribut kann auf das Elternelement eines HTML-Elements zugegriffen werden?"
+                        >
+                            <lsx-answer>
+                                <src-code language="javascript">element.p</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element.parent</src-code>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <src-code language="javascript">element.parentNode</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element.parentNodes</src-code>
+                            </lsx-answer>
+                        </lxs-question>
 
-                <p>
-                    d) Welcher Aufruf fügt ein neues Element in den DOM-Baum ein?
-                </p>
-                <ol style="margin-bottom: 2em;">
-                    <li>
-                        <src-code language="javascript">document.insert(element)</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">document.append(element)</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element1.insertChild(element1, element2)</src-code>
-                    </li>
-                    <li>
-                        <src-code language="javascript">element1.appendChild(element2)</src-code>
-                    </li>
-                </ol>
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "b) Wie kann ein Element aus dem DOM-Baum entfernt werden?"
+                        >
+                            <lsx-answer>
+                                <src-code language="javascript">element.remove()</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element.discard()</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element.parentNode.removeChild()</src-code>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <src-code language="javascript">element.parentNode.removeChild(element)</src-code>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <src-code language="javascript">element.remove()</src-code>
+                            </lsx-answer>
+                        </lxs-question>
 
-                <hr />
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                c) Welcher Aufruf erzeugt ein neues <src-code language="html">&lt;div&gt;</src-code>-Element?
+                            </lsx-question-text>
 
-                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
-                    <small>
-                        <b>Lösung:</b>
-                        Aufgabe 8.1: 1, 1+3, 3, 2; Aufgabe 8.2: 4+5, 2, 3, 1; Aufgabe 8.3:  3, 4, 1, 4
-                    </small>
-                </p>
+                            <lsx-answer correct>
+                                <src-code language="javascript">document.createElement("div")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">document.createElement("&lt;div&gt;")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">document.createHtml("&lt;div&gt;")</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">document.createTextNode("div")</src-code>
+                            </lsx-answer>
+                        </lxs-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "d) Welcher Aufruf fügt ein neues Element in den DOM-Baum ein?"
+                        >
+                            <lsx-answer>
+                                <src-code language="javascript">document.insert(element)</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">document.append(element)</src-code>
+                            </lsx-answer>
+                            <lsx-answer correct>
+                                <src-code language="javascript">element1.insertChild(element1, element2)</src-code>
+                            </lsx-answer>
+                            <lsx-answer>
+                                <src-code language="javascript">element1.appendChild(element2)</src-code>
+                            </lsx-answer>
+                        </lxs-question>
+                    </lsx-exercise>
+                </lsx-quiz>
             </article>
             <aside>
                 <p>
