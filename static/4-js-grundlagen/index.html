@@ -3251,12 +3251,12 @@
                                                 }
 
                                                 querySelectorClicked1 = () =&gt; {
-                                                    let heading = document.querySelector("h1")
+                                                    let heading = document.querySelector("h1");
                                                     alert(heading.outerHTML);
                                                 }
 
                                                 querySelectorClicked2 = () =&gt; {
-                                                    let heading = document.querySelector("h2")
+                                                    let heading = document.querySelector("h2");
                                                     // heading ist null !!
                                                     alert(heading);
                                                 }
@@ -3267,31 +3267,33 @@
                             </lsx-tab-page>
 
                             <lsx-tab-page title="Ergebnis">
-                                <h1>Einzelne DOM-Elemente auslesen</h1>
-                                <p id="dom-auslesen-einzeln-ergebnis-hinweis">
-                                    Klicke einen der beiden Knöpfe.
-                                </p>
+                                <div id="dom-auslesen-einzeln-ergebnis">
+                                    <h1>Einzelne DOM-Elemente auslesen</h1>
+                                    <p id="dom-auslesen-einzeln-ergebnis-hinweis">
+                                        Klicke einen der beiden Knöpfe.
+                                    </p>
 
-                                <button onclick="dom_auslesen_einzeln_getElementByIdClicked()">Element mit ID „hinweis”</button>
-                                <button onclick="dom_auslesen_einzeln_querySelectorClicked1()">Das erste &lt;h1&gt;</button>
-                                <button onclick="dom_auslesen_einzeln_querySelectorClicked2()">Das erste &lt;h2&gt;</button>
+                                    <button onclick="dom_auslesen_einzeln_getElementByIdClicked()">Element mit ID „hinweis”</button>
+                                    <button onclick="dom_auslesen_einzeln_querySelectorClicked1()">Das erste &lt;h1&gt;</button>
+                                    <button onclick="dom_auslesen_einzeln_querySelectorClicked2()">Das erste &lt;h2&gt;</button>
 
-                                <script>
-                                    dom_auslesen_einzeln_getElementByIdClicked = () => {
-                                        let hinweis = document.getElementById("dom-auslesen-einzeln-ergebnis-hinweis");
-                                        alert(hinweis.outerHTML.replace("dom-auslesen-einzeln-ergebnis-hinweis", "hinweis"));
-                                    }
+                                    <script>
+                                        dom_auslesen_einzeln_getElementByIdClicked = () => {
+                                            let hinweis = document.getElementById("dom-auslesen-einzeln-ergebnis-hinweis");
+                                            alert(hinweis.outerHTML.replace("dom-auslesen-einzeln-ergebnis-hinweis", "hinweis"));
+                                        }
 
-                                    dom_auslesen_einzeln_querySelectorClicked1 = () => {
-                                        let heading = document.querySelector("#dom-auslesen-einzeln-ergebnis h1")
-                                        alert(heading.outerHTML);
-                                    }
+                                        dom_auslesen_einzeln_querySelectorClicked1 = () => {
+                                            let heading = document.querySelector("#dom-auslesen-einzeln-ergebnis h1");
+                                            alert(heading.outerHTML);
+                                        }
 
-                                    dom_auslesen_einzeln_querySelectorClicked2 = () => {
-                                        let heading = document.querySelector("#dom-auslesen-einzeln-ergebnis h2")
-                                        alert(heading);
-                                    }
-                                </script>
+                                        dom_auslesen_einzeln_querySelectorClicked2 = () => {
+                                            let heading = document.querySelector("#dom-auslesen-einzeln-ergebnis h2");
+                                            alert(heading);
+                                        }
+                                    </script>
+                                </div>
                             </lsx-tab-page>
                         </lsx-tab-pages>
                     </lsx-accordion-page>
@@ -3401,56 +3403,58 @@
                             </lsx-tab-page>
 
                             <lsx-tab-page title="Ergebnis">
-                                <h1>Mehrere DOM-Elemente auslesen</h1>
-                                <ol>
-                                    <li class="erledigt">
-                                        Einführung in die Vorlesung
-                                    </li>
-                                    <li class="erledigt">
-                                        Grundlagen des Web
-                                    </li>
-                                    <li class="erledigt">
-                                        Einstieg in HTML
-                                    </li>
-                                    <li class="in-arbeit">
-                                        Layouts erstellen mit CSS
-                                    </li>
-                                    <li class="in-arbeit">
-                                        Responsive Webdesign
-                                    </li>
-                                </ol>
+                                <div id="dom-auslesen-mehrere-ergebnis">
+                                    <h1>Mehrere DOM-Elemente auslesen</h1>
+                                    <ol>
+                                        <li class="erledigt">
+                                            Einführung in die Vorlesung
+                                        </li>
+                                        <li class="erledigt">
+                                            Grundlagen des Web
+                                        </li>
+                                        <li class="erledigt">
+                                            Einstieg in HTML
+                                        </li>
+                                        <li class="in-arbeit">
+                                            Layouts erstellen mit CSS
+                                        </li>
+                                        <li class="in-arbeit">
+                                            Responsive Webdesign
+                                        </li>
+                                    </ol>
 
-                                <button onclick="dom_auslesen_mehrere_getElementsByClassNameClicked()">Alle mit Klasse „erledigt”</button>
-                                <button onclick="dom_auslesen_mehrere_querySelectorAllClicked1()">Alle li.in-arbeit</button>
-                                <button onclick="dom_auslesen_mehrere_querySelectorAllClicked2()">Alle li.nicht-in-arbeit</button>
+                                    <button onclick="dom_auslesen_mehrere_getElementsByClassNameClicked()">Alle mit Klasse „erledigt”</button>
+                                    <button onclick="dom_auslesen_mehrere_querySelectorAllClicked1()">Alle li.in-arbeit</button>
+                                    <button onclick="dom_auslesen_mehrere_querySelectorAllClicked2()">Alle li.nicht-in-arbeit</button>
 
-                                <script>
-                                    dom_auslesen_mehrere_getElementsByClassNameClicked = () => {
-                                        let result = document.querySelectorAll("#dom-auslesen-mehrere-ergebnis .erledigt");
-                                        dom_auslesen_mehrere_showResult(result);
-                                    }
-
-                                    dom_auslesen_mehrere_querySelectorAllClicked1 = () => {
-                                        let result = document.querySelectorAll("#dom-auslesen-mehrere-ergebnis li.in-arbeit");
-                                        dom_auslesen_mehrere_showResult(result);
-                                    }
-
-                                    dom_auslesen_mehrere_querySelectorAllClicked2 = () => {
-                                        let result = document.querySelectorAll("#dom-auslesen-mehrere-ergebnis li.nicht-in-arbeit");
-                                        dom_auslesen_mehrere_showResult(result);
-                                    }
-
-                                    dom_auslesen_mehrere_showResult = domNodes => {
-                                        console.log(domNodes);
-                                        let text = `Anzahl gefunden: ${domNodes.length}\n\n`;
-
-                                        for (let i = 0; i < domNodes.length; i++) {
-                                            text += domNodes.item(i).outerHTML + "\n\n";
+                                    <script>
+                                        dom_auslesen_mehrere_getElementsByClassNameClicked = () => {
+                                            let result = document.querySelectorAll("#dom-auslesen-mehrere-ergebnis .erledigt");
+                                            dom_auslesen_mehrere_showResult(result);
                                         }
 
-                                        alert(text)
-                                    }
-                                </script>
+                                        dom_auslesen_mehrere_querySelectorAllClicked1 = () => {
+                                            let result = document.querySelectorAll("#dom-auslesen-mehrere-ergebnis li.in-arbeit");
+                                            dom_auslesen_mehrere_showResult(result);
+                                        }
+
+                                        dom_auslesen_mehrere_querySelectorAllClicked2 = () => {
+                                            let result = document.querySelectorAll("#dom-auslesen-mehrere-ergebnis li.nicht-in-arbeit");
+                                            dom_auslesen_mehrere_showResult(result);
+                                        }
+
+                                        dom_auslesen_mehrere_showResult = domNodes => {
+                                            console.log(domNodes);
+                                            let text = `Anzahl gefunden: ${domNodes.length}\n\n`;
+
+                                            for (let i = 0; i < domNodes.length; i++) {
+                                                text += domNodes.item(i).outerHTML + "\n\n";
+                                            }
+
+                                            alert(text)
+                                        }
+                                    </script>
+                                </div>
                             </lsx-tab-page>
                         </lsx-tab-pages>
                     </lsx-accordion-page>
