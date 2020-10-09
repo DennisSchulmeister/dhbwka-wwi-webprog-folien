@@ -11,6 +11,13 @@
 
         <!-- Für das Beispiel unter „Strukturgebende Elemente” -->
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+        <!-- Titel der Akkordeons fettgedruckt -->
+        <style>
+            .card-header {
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body class="slides invisible" data-title="Einstieg in HTML und CSS" tabindex="0">
         <header>
@@ -405,21 +412,21 @@
 
                     <lsx-tab-page title="Aufbau einer Webseite">
                         <lsx-youtube video="Kkimbj_cvo4"></lsx-youtube>
-                        <p>
+                        <lsx-info-box>
                             Das Video zeigt den grundlegenden Aufbau einer Webseite und wie beim Anlegen eines neuen
                             Webprojekts vorgegangen werden muss.
-                        </p>
+                        </lsx-info-box>
                     </lsx-tab-page>
 
                     <lsx-tab-page title="Webseiten lokal testen">
                         <lsx-youtube video="FijXwFMqrVc"></lsx-youtube>
-                        <p>
+                        <lsx-info-box>
                             Dieses Video zeigt, wie Webseiten mit einem lokalen Webserver getestet werden können.
                             Denn spätestens bei der Programmierung mit JavaScript lassen sich bestimmte Funktionen
                             nur nutzen, wenn die Seiteb tatsächlich über einen Server abgerufen und nicht einfach
                             per Doppelklick als Datei aufgerufen werden.
-                        </p>
-                    </lsx-tab-page>>
+                        </lsx-info-box>
+                    </lsx-tab-page>
                 </lsx-tab-pages>
             </article>
             <aside>
@@ -731,392 +738,389 @@
         <section>
             <h1>Tatsächlich angezeigte HTML-Elemente</h1>
             <article>
-                <!-- Überschriften und Absätze -->
-                <h2>Überschriften und Absätze</h2>
-
-                <lsx-tab-pages style="margin-bottom: 2em">
-                    <lsx-tab-page title="Übersicht">
-                        <source-code language="html">
-                            &lt;h1&gt;Per Anhalter durch die Galaxis&lt;/h1&gt;
-                            &lt;h2&gt;Die fünfteilige Trilogie&lt;/h2&gt;
-                            &lt;h3&gt;Entstehung des ersten Buchs&lt;/h3&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            Die Elemente <src-code language="html">&lt;h1&gt;</src-code> bis
-                            <src-code language="html">&lt;h6&gt;</src-code> definieren Überschriften
-                            verschiedener Arten. <src-code language="html">&lt;h1&gt;</src-code> ist
-                            dabei eine Hauptüberschrift, <src-code language="html">&lt;h2&gt;</src-code>
-                            eine Unterüberschrift, <src-code language="html">&lt;h3&gt;</src-code>
-                            eine Unterunterüberschrift und so weiter.
-                        </p>
-
-                        <source-code language="html">
-                            &lt;p&gt;
-                                Dies ist ein Absatz, wie er unter einer Überschrift stehen könnte.
-                            &lt;p&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            Absätze werden mit dem <src-code language="html">&lt;p&gt;</src-code>-Element
-                            definiert. Das „p” steht dabei für „Paragraph”. Absätze sollten in der Regel
-                            nicht geschachtelt werden. Überschriften sollten ebenfalls oberhalb und nicht
-                            innerhalb der Absätze stehen.
-                        </p>
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Beispiel">
-                        <source-code language="html">
-                            &lt;!DOCTYPE html&gt;
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    ...
-                                &lt;/head&gt;
-                                &lt;body&gt;
+                <lsx-accordion>
+                    <lsx-accordion-page title="Überschriften und Absätze" active>
+                        <lsx-tab-pages style="margin-bottom: 2em">
+                            <lsx-tab-page title="Übersicht">
+                                <source-code language="html">
                                     &lt;h1&gt;Per Anhalter durch die Galaxis&lt;/h1&gt;
                                     &lt;h2&gt;Die fünfteilige Trilogie&lt;/h2&gt;
+                                    &lt;h3&gt;Entstehung des ersten Buchs&lt;/h3&gt;
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    Die Elemente <src-code language="html">&lt;h1&gt;</src-code> bis
+                                    <src-code language="html">&lt;h6&gt;</src-code> definieren Überschriften
+                                    verschiedener Arten. <src-code language="html">&lt;h1&gt;</src-code> ist
+                                    dabei eine Hauptüberschrift, <src-code language="html">&lt;h2&gt;</src-code>
+                                    eine Unterüberschrift, <src-code language="html">&lt;h3&gt;</src-code>
+                                    eine Unterunterüberschrift und so weiter.
+                                </p>
+
+                                <source-code language="html">
                                     &lt;p&gt;
-                                        Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
-                                        Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
-                                        verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
-                                        fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
-                                        nach seinem Tod die Fortsetzung „Und übrigens noch was …” von Eoin Colfer.
-                                    &lt;/p&gt;
+                                        Dies ist ein Absatz, wie er unter einer Überschrift stehen könnte.
                                     &lt;p&gt;
-                                        Die Serie umfasst daher folgende Titel:
-                                    &lt;/p&gt;
-                                    ...
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    Absätze werden mit dem <src-code language="html">&lt;p&gt;</src-code>-Element
+                                    definiert. Das „p” steht dabei für „Paragraph”. Absätze sollten in der Regel
+                                    nicht geschachtelt werden. Überschriften sollten ebenfalls oberhalb und nicht
+                                    innerhalb der Absätze stehen.
+                                </p>
+                            </lsx-tab-page>
 
-                    <lsx-tab-page title="Aussehen">
-                        <h3>Per Anhalter durch die Galaxis</h3>
-                        <h4>Die fünfteilige Trilogie</h4>
-                        <p>
-                            Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
-                            Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
-                            verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
-                            fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
-                            nach seinem Tod die Fortsetzung „Und übrigens noch was …” von Eoin Colfer.
-                        </p>
-                        <p>
-                            Die Serie umfasst daher folgende Titel:
-                        </p>
-                        ...
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                            <lsx-tab-page title="Beispiel">
+                                <source-code language="html">
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            ...
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;h1&gt;Per Anhalter durch die Galaxis&lt;/h1&gt;
+                                            &lt;h2&gt;Die fünfteilige Trilogie&lt;/h2&gt;
+                                            &lt;p&gt;
+                                                Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
+                                                Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
+                                                verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
+                                                fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
+                                                nach seinem Tod die Fortsetzung „Und übrigens noch was …” von Eoin Colfer.
+                                            &lt;/p&gt;
+                                            &lt;p&gt;
+                                                Die Serie umfasst daher folgende Titel:
+                                            &lt;/p&gt;
+                                            ...
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
 
-                <!-- Textformatierung -->
-                <h2>Textformatierung</h2>
+                            <lsx-tab-page title="Aussehen">
+                                <h3>Per Anhalter durch die Galaxis</h3>
+                                <h4>Die fünfteilige Trilogie</h4>
+                                <p>
+                                    Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
+                                    Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
+                                    verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
+                                    fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
+                                    nach seinem Tod die Fortsetzung „Und übrigens noch was …” von Eoin Colfer.
+                                </p>
+                                <p>
+                                    Die Serie umfasst daher folgende Titel:
+                                </p>
+                                ...
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
 
-                <lsx-tab-pages style="margin-bottom: 2em">
-                    <lsx-tab-page title="Übersicht">
-                        <source-code language="html">
-                            &lt;b&gt;Fett&lt;/b&gt;
-                            &lt;i&gt;Kursiv&lt;/i&gt;
-                            &lt;u&gt;Unterstrichen&lt;/u&gt;
-                            &lt;tt&gt;Schreibmaschine&lt;/tt&gt;
-                            &lt;small&gt;Kleine Schriftgröße&lt;/small&gt;
-                            &lt;large&gt;Große Schriftgröße&lt;/large&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            Einzelne Wörter oder Teile eines Satzes können mit den hier gezeigten
-                            Elementen direkt formatiert werden. Es handelt sich um die einzigen
-                            HTML-Elemente, die direkt das Aussehen ihres Inhalts verändern. Lange
-                            Zeit war ihre Verwendung nicht gern gesehen. Seitdem man den Elementen
-                            aber eine semantische Bedeutung gegeben und dann festgelegt hat, wie
-                            diese dargestellt werden soll, geht die Verwendung wieder in Ordnung. 🙃
-                        </p>
-                    </lsx-tab-page>
+                    <lsx-accordion-page title="Textformatierung">
+                        <lsx-tab-pages style="margin-bottom: 2em">
+                            <lsx-tab-page title="Übersicht">
+                                <source-code language="html">
+                                    &lt;b&gt;Fett&lt;/b&gt;
+                                    &lt;i&gt;Kursiv&lt;/i&gt;
+                                    &lt;u&gt;Unterstrichen&lt;/u&gt;
+                                    &lt;tt&gt;Schreibmaschine&lt;/tt&gt;
+                                    &lt;small&gt;Kleine Schriftgröße&lt;/small&gt;
+                                    &lt;large&gt;Große Schriftgröße&lt;/large&gt;
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    Einzelne Wörter oder Teile eines Satzes können mit den hier gezeigten
+                                    Elementen direkt formatiert werden. Es handelt sich um die einzigen
+                                    HTML-Elemente, die direkt das Aussehen ihres Inhalts verändern. Lange
+                                    Zeit war ihre Verwendung nicht gern gesehen. Seitdem man den Elementen
+                                    aber eine semantische Bedeutung gegeben und dann festgelegt hat, wie
+                                    diese dargestellt werden soll, geht die Verwendung wieder in Ordnung. 🙃
+                                </p>
+                            </lsx-tab-page>
 
-                    <lsx-tab-page title="Beispiel">
-                        <source-code language="html">
-                            &lt;!DOCTYPE html&gt;
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    ...
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;p&gt;
-                                        &lt;b&gt;Wichtiger Hinweis:&lt;/b&gt; Lese immer das Kleingedruckte eines
-                                        Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
-                                        und kaum verstehen kann. &lt;i&gt;Im Kleingedruckten stecken oft viele
-                                        ungeahnte Fallen!&lt;/i&gt;
-                                    &lt;/p&gt;
-                                    &lt;p&gt;
-                                        &lt;u&gt;Hier ein Beispiel:&lt;/u&gt;
-                                    &lt;/p&gt;
-                                    &lt;p&gt;
-                                        &lt;small&gt;
-                                            &lt;small&gt;
-                                                Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
-                                                Wir garantieren für nichts und erstatten auch kein Geld zurück.
-                                                Wer bei uns kauft, ist selbst schuld.
-                                            &lt;/small&gt;
-                                        &lt;/small&gt;
-                                    &lt;/p&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
+                            <lsx-tab-page title="Beispiel">
+                                <source-code language="html">
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            ...
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;p&gt;
+                                                &lt;b&gt;Wichtiger Hinweis:&lt;/b&gt; Lese immer das Kleingedruckte eines
+                                                Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
+                                                und kaum verstehen kann. &lt;i&gt;Im Kleingedruckten stecken oft viele
+                                                ungeahnte Fallen!&lt;/i&gt;
+                                            &lt;/p&gt;
+                                            &lt;p&gt;
+                                                &lt;u&gt;Hier ein Beispiel:&lt;/u&gt;
+                                            &lt;/p&gt;
+                                            &lt;p&gt;
+                                                &lt;small&gt;
+                                                    &lt;small&gt;
+                                                        Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
+                                                        Wir garantieren für nichts und erstatten auch kein Geld zurück.
+                                                        Wer bei uns kauft, ist selbst schuld.
+                                                    &lt;/small&gt;
+                                                &lt;/small&gt;
+                                            &lt;/p&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
 
-                    <lsx-tab-page title="Aussehen">
-                        <p>
-                            <b>Wichtiger Hinweis:</b> Lese immer das Kleingedruckte eines
-                            Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
-                            und kaum verstehen kann. <i>Im Kleingedruckten stecken oft viele
-                            ungeahnte Fallen!</i>
-                        </p>
-                        <p>
-                            <u>Hier ein Beispiel:</u>
-                        </p>
-                        <p>
-                            <small>
-                                <small>
-                                    Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
-                                    Wir garantieren für nichts und erstatten auch kein Geld zurück.
-                                    Wer bei uns kauft, ist selbst schuld.
-                                </small>
-                            </small>
-                        </p>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <p>
+                                    <b>Wichtiger Hinweis:</b> Lese immer das Kleingedruckte eines
+                                    Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
+                                    und kaum verstehen kann. <i>Im Kleingedruckten stecken oft viele
+                                    ungeahnte Fallen!</i>
+                                </p>
+                                <p>
+                                    <u>Hier ein Beispiel:</u>
+                                </p>
+                                <p>
+                                    <small>
+                                        <small>
+                                            Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
+                                            Wir garantieren für nichts und erstatten auch kein Geld zurück.
+                                            Wer bei uns kauft, ist selbst schuld.
+                                        </small>
+                                    </small>
+                                </p>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
 
-                <!-- Zeilenumbrüche und Trennlinien -->
-                <h2>Zeilenumbrüche und Trennlinien</h2>
+                    <lsx-accordion-page title="Zeilenumbrüche und Trennlinien">
+                        <lsx-tab-pages style="margin-bottom: 2em">
+                            <lsx-tab-page title="Übersicht">
+                                <source-code language="html">
+                                    &lt;br /&gt;
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    Definiert einen Zeilenumbruch, ohne einen neuen Absatz zu beginnen.
+                                    Manchmal kann das ganz nützlich sein, um auf die Schnelle ein paar
+                                    Elemente untereinander anzuordnen. <src-code language="html">&lt;br /&gt;</src-code>
+                                    sollte aber sparsam verwendet werden, da die Umbrüche auf kleineren
+                                    Bildschirmen oftmals unschön aussehen.
+                                </p>
 
-                <lsx-tab-pages style="margin-bottom: 2em">
-                    <lsx-tab-page title="Übersicht">
-                        <source-code language="html">
-                            &lt;br /&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            Definiert einen Zeilenumbruch, ohne einen neuen Absatz zu beginnen.
-                            Manchmal kann das ganz nützlich sein, um auf die Schnelle ein paar
-                            Elemente untereinander anzuordnen. <src-code language="html">&lt;br /&gt;</src-code>
-                            sollte aber sparsam verwendet werden, da die Umbrüche auf kleineren
-                            Bildschirmen oftmals unschön aussehen.
-                        </p>
-
-                        <source-code language="html">
-                            &lt;hr /&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            „hr” steht für „Horizontal Ruler” und fügt eine waagerechte Trennlinie
-                            ein. Heutzutage sieht man das Element nicht mehr so oft. Braucht man
-                            aber nur eine kleine Trennlinie, ist es oft einfacher, als sich mit den
-                            Rahmenlinien eines Absatzes herumzuschlagen.
-                        </p>
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Beispiel">
-                        <source-code language="html">
-                            &lt;!DOCTYPE html&gt;
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    ...
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;b&gt;Alice Wunderland&lt;/b&gt; &lt;br /&gt;
-                                    Hinter dem Haus 7 &lt;br /&gt;
-                                    76185 Karlsruhe-Märchendorf
-
+                                <source-code language="html">
                                     &lt;hr /&gt;
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    „hr” steht für „Horizontal Ruler” und fügt eine waagerechte Trennlinie
+                                    ein. Heutzutage sieht man das Element nicht mehr so oft. Braucht man
+                                    aber nur eine kleine Trennlinie, ist es oft einfacher, als sich mit den
+                                    Rahmenlinien eines Absatzes herumzuschlagen.
+                                </p>
+                            </lsx-tab-page>
 
-                                    &lt;b&gt;Grinsender Kater&lt;/b&gt; &lt;br /&gt;
-                                    Im Garten 9 &lt;br /&gt;
-                                    76185 Karlsruhe-Märchendorf
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
+                            <lsx-tab-page title="Beispiel">
+                                <source-code language="html">
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            ...
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;b&gt;Alice Wunderland&lt;/b&gt; &lt;br /&gt;
+                                            Hinter dem Haus 7 &lt;br /&gt;
+                                            76185 Karlsruhe-Märchendorf
 
-                    <lsx-tab-page title="Aussehen">
-                        <b>Alice Wunderland</b> <br />
-                        Hinter dem Haus 7 <br />
-                        76185 Karlsruhe-Märchendorf
+                                            &lt;hr /&gt;
 
-                        <hr />
+                                            &lt;b&gt;Grinsender Kater&lt;/b&gt; &lt;br /&gt;
+                                            Im Garten 9 &lt;br /&gt;
+                                            76185 Karlsruhe-Märchendorf
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
 
-                        <b>Grinsender Kater</b> <br />
-                        Im Garten 9 <br />
-                        76185 Karlsruhe-Märchendorf
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <b>Alice Wunderland</b> <br />
+                                Hinter dem Haus 7 <br />
+                                76185 Karlsruhe-Märchendorf
 
-                <!-- Bilder und Links -->
-                <h2>Bilder und Links</h2>
+                                <hr />
 
-                <lsx-tab-pages style="margin-bottom: 2em">
-                    <lsx-tab-page title="Übersicht">
-                        <source-code language="html">
-                            &lt;img src="familie.jpg" alt="Meine Familie und der Hund" /&gt;
-                            &lt;img src="../fotos/feuerstein.jpg" alt="Fred Feuerstein" /&gt;
-                            &lt;img src="www.beispiel.de/album/geroellheimer.jpg" alt="Barnie Geröllheimer" /&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            Mit diesem Tag wird ein Bild in die Seite eingefügt. Das Attribut
-                            <code>src</code> beinhaltet dabei die URL des Bildes, wobei das Bild
-                            entweder im selben Verzeichnis, in einem anderen Verzeichnis oder sogar
-                            auf einem anderen Server liegen kann. <code>alt</code> ist der Alternativtext,
-                            der zum Beispiel von Screenreadern vorgelesen wird. Deshalb sollte dieses
-                            Attribut immer mitgegeben werden, wenn das Bild wesentliche Informationen
-                            beinhaltet.
-                        </p>
+                                <b>Grinsender Kater</b> <br />
+                                Im Garten 9 <br />
+                                76185 Karlsruhe-Märchendorf
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
 
-                        <source-code language="html">
-                            &lt;a href="http://www.wpvs.de/js/"&gt;JS.Scratch&lt;/a&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            Dies ist ein Link bzw. Verweis auf eine andere Seite. „a” steht dabei für
-                            „Anchor”. Bei einem Link muss es sich nicht, wie hier gezeigt, um einfachen
-                            Text handeln. Zwischen dem öffnenden und dem schließenden Tag dürfen
-                            beliebige HTML-Elemente stehen, um sie anklickbar zu machen.
-                        </p>
+                    <lsx-accordion-page title="Bilder und Links">
+                        <lsx-tab-pages style="margin-bottom: 2em">
+                            <lsx-tab-page title="Übersicht">
+                                <source-code language="html">
+                                    &lt;img src="familie.jpg" alt="Meine Familie und der Hund" /&gt;
+                                    &lt;img src="../fotos/feuerstein.jpg" alt="Fred Feuerstein" /&gt;
+                                    &lt;img src="www.beispiel.de/album/geroellheimer.jpg" alt="Barnie Geröllheimer" /&gt;
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    Mit diesem Tag wird ein Bild in die Seite eingefügt. Das Attribut
+                                    <code>src</code> beinhaltet dabei die URL des Bildes, wobei das Bild
+                                    entweder im selben Verzeichnis, in einem anderen Verzeichnis oder sogar
+                                    auf einem anderen Server liegen kann. <code>alt</code> ist der Alternativtext,
+                                    der zum Beispiel von Screenreadern vorgelesen wird. Deshalb sollte dieses
+                                    Attribut immer mitgegeben werden, wenn das Bild wesentliche Informationen
+                                    beinhaltet.
+                                </p>
 
-                        <source-code language="html">
-                            &lt;a id="uebersicht" /&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            Dies ist kein Link auf eine andere Seite sondern ein Anker innerhalb derselben
-                            Seite. Das Tag wird daher vom Browser nicht dargestellt. Durch Anhängen von
-                            <code>#uebersicht</code> an die aktuelle URL kann beim Aufruf der Seite aber
-                            direkt an die Stelle des Ankers gesprungen werden. Wenn du genau hinsiehst, ist
-                            dir das sicher schon mal bei Wikipedia und anderen Seiten aufgefallen,
-                        </p>
-                    </lsx-tab-page>
+                                <source-code language="html">
+                                    &lt;a href="http://www.wpvs.de/js/"&gt;JS.Scratch&lt;/a&gt;
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    Dies ist ein Link bzw. Verweis auf eine andere Seite. „a” steht dabei für
+                                    „Anchor”. Bei einem Link muss es sich nicht, wie hier gezeigt, um einfachen
+                                    Text handeln. Zwischen dem öffnenden und dem schließenden Tag dürfen
+                                    beliebige HTML-Elemente stehen, um sie anklickbar zu machen.
+                                </p>
 
-                    <lsx-tab-page title="Beispiel">
-                        <source-code language="html">
-                            &lt;!DOCTYPE html&gt;
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    ...
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;h4&gt;JS.Scratch: Interaktiver JavaScript-Editor&lt;/h4&gt;
-                                    &lt;img src="screenshot.png" alt="Screenshot von JS.Scratch" /&gt; &lt;br /&gt;
-                                    &lt;a href="https://www.wpvs.de/repo/js.scratch/app/"&gt;Editor starten&lt;/a&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
+                                <source-code language="html">
+                                    &lt;a id="uebersicht" /&gt;
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    Dies ist kein Link auf eine andere Seite sondern ein Anker innerhalb derselben
+                                    Seite. Das Tag wird daher vom Browser nicht dargestellt. Durch Anhängen von
+                                    <code>#uebersicht</code> an die aktuelle URL kann beim Aufruf der Seite aber
+                                    direkt an die Stelle des Ankers gesprungen werden. Wenn du genau hinsiehst, ist
+                                    dir das sicher schon mal bei Wikipedia und anderen Seiten aufgefallen,
+                                </p>
+                            </lsx-tab-page>
 
-                    <lsx-tab-page title="Aussehen">
-                        <h4>JS.Scratch: Interaktiver JavaScript-Editor</h4>
-                        <img src="screenshot.png" class="img-fluid" alt="Screenshot von JS.Scratch" />
-                        <br />
-                        <a href="https://www.wpvs.de/repo/js.scratch/app/">Editor starten</a>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                            <lsx-tab-page title="Beispiel">
+                                <source-code language="html">
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            ...
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;h4&gt;JS.Scratch: Interaktiver JavaScript-Editor&lt;/h4&gt;
+                                            &lt;img src="screenshot.png" alt="Screenshot von JS.Scratch" /&gt; &lt;br /&gt;
+                                            &lt;a href="https://www.wpvs.de/repo/js.scratch/app/"&gt;Editor starten&lt;/a&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
 
-                <!-- Aufzählungen und Listen -->
-                <h2>Aufzählungen und Listen</h2>
+                            <lsx-tab-page title="Aussehen">
+                                <h4>JS.Scratch: Interaktiver JavaScript-Editor</h4>
+                                <img src="screenshot.png" class="img-fluid" alt="Screenshot von JS.Scratch" />
+                                <br />
+                                <a href="https://www.wpvs.de/repo/js.scratch/app/">Editor starten</a>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
 
-                <lsx-tab-pages>
-                    <lsx-tab-page title="Übersicht">
-                        <source-code language="html">
-                            &lt;ul&gt;
-                                &lt;li&gt;Garfield langt zu&lt;/li&gt;
-                                &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
-                                &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
-                                &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
-                                &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
-                            &lt;/ul&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            „ul” steht für „Unordered List” und beschreibt eine unsortierte Liste,
-                            also eine einfache Liste ohne Nummerierung. Dementsprechend sind die
-                            <src-code language="html">&lt;li&gt;</src-code>-Elemente die „List Items”.
-                            Die Listenelemente können beliebigen weiteren HTML-Quellcode wie Absätze
-                            oder untergeordnete Listen enthalten.
-                        </p>
-
-                        <source-code language="html">
-                            &lt;ol&gt;
-                                &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
-                                &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
-                                &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
-                                &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
-                                &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
-                            &lt;/ol&gt;
-                        </source-code>
-                        <p style="margin-top: -0.5em">
-                            Das ist eigentlich dasselbe wie <src-code language="html">&lt;ul&gt;</src-code>,
-                            nur dass es sich um eine „Ordered List” also eine Liste mit Aufzählungszeichen handelt.
-                        </p>
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Beispiel">
-                        <source-code language="html">
-                            &lt;!DOCTYPE html&gt;
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    ...
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;h2&gt;Meine Lieblinugsbücher als ich jung war&lt;/h2&gt;
+                    <lsx-accordion-page title="Aufzählungen und Listen">
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Übersicht">
+                                <source-code language="html">
                                     &lt;ul&gt;
-                                        &lt;li&gt;
-                                            &lt;p&gt;
-                                                Garfield-Comics
-                                            &lt;/p&gt;
-                                            &lt;ul&gt;
-                                                &lt;li&gt;Garfield langt zu&lt;/li&gt;
-                                                &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
-                                                &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
-                                                &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
-                                                &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
-                                            &lt;/ul&gt;
-                                        &lt;/li&gt;
-                                        &lt;li&gt;
-                                            &lt;p&gt;
-                                                Anhalter-Romane
-                                            &lt;/p&gt;
-                                            &lt;ol&gt;
-                                                &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
-                                                &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
-                                                &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
-                                                &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
-                                                &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
-                                            &lt;/ol&gt;
-                                        &lt;/li&gt;
+                                        &lt;li&gt;Garfield langt zu&lt;/li&gt;
+                                        &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
+                                        &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
+                                        &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
+                                        &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
                                     &lt;/ul&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    „ul” steht für „Unordered List” und beschreibt eine unsortierte Liste,
+                                    also eine einfache Liste ohne Nummerierung. Dementsprechend sind die
+                                    <src-code language="html">&lt;li&gt;</src-code>-Elemente die „List Items”.
+                                    Die Listenelemente können beliebigen weiteren HTML-Quellcode wie Absätze
+                                    oder untergeordnete Listen enthalten.
+                                </p>
 
-                    <lsx-tab-page title="Aussehen">
-                        <h4>Meine Lieblinugsbücher als ich jung war</h4>
-                        <ul>
-                            <li>
-                                <p>
-                                    Garfield-Comics
+                                <source-code language="html">
+                                    &lt;ol&gt;
+                                        &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
+                                        &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
+                                        &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
+                                        &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
+                                        &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
+                                    &lt;/ol&gt;
+                                </source-code>
+                                <p style="margin-top: -0.5em">
+                                    Das ist eigentlich dasselbe wie <src-code language="html">&lt;ul&gt;</src-code>,
+                                    nur dass es sich um eine „Ordered List” also eine Liste mit Aufzählungszeichen handelt.
                                 </p>
-                                <ul style="margin-bottom: 1em">
-                                    <li>Garfield langt zu</li>
-                                    <li>Garfield schläft sich durch</li>
-                                    <li>Garfield überlebensgroß</li>
-                                    <li>Garfield breitet sich aus</li>
-                                    <li>Garfield sahnt ab</li>
+                            </lsx-tab-page>
+
+                            <lsx-tab-page title="Beispiel">
+                                <source-code language="html">
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            ...
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;h2&gt;Meine Lieblinugsbücher als ich jung war&lt;/h2&gt;
+                                            &lt;ul&gt;
+                                                &lt;li&gt;
+                                                    &lt;p&gt;
+                                                        Garfield-Comics
+                                                    &lt;/p&gt;
+                                                    &lt;ul&gt;
+                                                        &lt;li&gt;Garfield langt zu&lt;/li&gt;
+                                                        &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
+                                                        &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
+                                                        &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
+                                                        &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
+                                                    &lt;/ul&gt;
+                                                &lt;/li&gt;
+                                                &lt;li&gt;
+                                                    &lt;p&gt;
+                                                        Anhalter-Romane
+                                                    &lt;/p&gt;
+                                                    &lt;ol&gt;
+                                                        &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
+                                                        &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
+                                                        &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
+                                                        &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
+                                                        &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
+                                                    &lt;/ol&gt;
+                                                &lt;/li&gt;
+                                            &lt;/ul&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
+
+                            <lsx-tab-page title="Aussehen">
+                                <h4>Meine Lieblinugsbücher als ich jung war</h4>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Garfield-Comics
+                                        </p>
+                                        <ul style="margin-bottom: 1em">
+                                            <li>Garfield langt zu</li>
+                                            <li>Garfield schläft sich durch</li>
+                                            <li>Garfield überlebensgroß</li>
+                                            <li>Garfield breitet sich aus</li>
+                                            <li>Garfield sahnt ab</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Anhalter-Romane
+                                        </p>
+                                        <ol>
+                                            <li>Per Anhalter durch die Galaxis</li>
+                                            <li>Das Restaurant am Ende des Universums</li>
+                                            <li>Das Leben, das Universum und der ganze Rest</li>
+                                            <li>Macht's gut und danke für den Fisch</li>
+                                            <li>Einmal Rupert und zurück</li>
+                                        </ol>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li>
-                                <p>
-                                    Anhalter-Romane
-                                </p>
-                                <ol>
-                                    <li>Per Anhalter durch die Galaxis</li>
-                                    <li>Das Restaurant am Ende des Universums</li>
-                                    <li>Das Leben, das Universum und der ganze Rest</li>
-                                    <li>Macht's gut und danke für den Fisch</li>
-                                    <li>Einmal Rupert und zurück</li>
-                                </ol>
-                            </li>
-                        </ul>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+                </lsx-accordion>
             </article>
             <aside>
                 <blockquote>
@@ -1656,10 +1660,10 @@
 
                     <lsx-tab-page title="Erklärung">
                         <lsx-youtube video="OE6yR7qzsYc"></lsx-youtube>
-                        <p>
+                        <lsx-info-box>
                             Im Video werden der Unterschied zwischen Block- und Inlineelementen sowie der
                             Quellcode des Beispiels besprochen.
-                        </p>
+                        </lsx-info-box>
                     </lsx-tab-page>
                 </lsx-tab-pages>
             </article>
@@ -2560,84 +2564,86 @@
         <section>
             <h1>CSS-Selektoren und das Document Object Model</h1>
             <article>
-                <h2>Das Document Object Model</h2>
+                <h3>Das Document Object Model</h3>
                 <img src="dom_baum.svg" class="img-fluid d-block" style="margin-bottom: 2em" />
 
-                <h2>Einfache CSS-Selektoren</h2>
-                <dl style="margin-bottom: 2em">
-                    <dt>
-                        <src-code language="css">html</src-code> <br />
-                        <src-code language="css">body</src-code> <br />
-                        <src-code language="css">h1</src-code> <br />
-                        <src-code language="css">p</src-code>
-                    </dt>
-                    <dd>
-                        Auswahl von Elementen nach ihrem Tag-Namen
-                    </dd>
+                <lsx-accordion>
+                    <lsx-accordion-page title="Einfache CSS-Selektoren">
+                        <dl style="margin-bottom: 2em">
+                            <dt>
+                                <src-code language="css">html</src-code> <br />
+                                <src-code language="css">body</src-code> <br />
+                                <src-code language="css">h1</src-code> <br />
+                                <src-code language="css">p</src-code>
+                            </dt>
+                            <dd>
+                                Auswahl von Elementen nach ihrem Tag-Namen
+                            </dd>
 
-                    <dt>
-                        <src-code language="css">#logo</src-code>
-                    </dt>
-                    <dd>
-                        Das Element mit <src-code language="html">id="logo"</src-code>
-                    </dd>
+                            <dt>
+                                <src-code language="css">#logo</src-code>
+                            </dt>
+                            <dd>
+                                Das Element mit <src-code language="html">id="logo"</src-code>
+                            </dd>
 
-                    <dt>
-                        <src-code language="css">.card</src-code>
-                    </dt>
-                    <dd>
-                        Alle Elemente mit <src-code language="html">class="card"</src-code>
-                    </dd>
+                            <dt>
+                                <src-code language="css">.card</src-code>
+                            </dt>
+                            <dd>
+                                Alle Elemente mit <src-code language="html">class="card"</src-code>
+                            </dd>
 
-                    <dt>
-                        <src-code language="css">input[readonly]</src-code>
-                    </dt>
-                    <dd>
-                        Alle
-                        <src-code language="html">&lt;input&gt;</src-code>, die ein
-                        Attribut namens <src-code language="html">readonly</src-code> besitzen
-                    </dd>
-                </dl>
+                            <dt>
+                                <src-code language="css">input[readonly]</src-code>
+                            </dt>
+                            <dd>
+                                Alle
+                                <src-code language="html">&lt;input&gt;</src-code>, die ein
+                                Attribut namens <src-code language="html">readonly</src-code> besitzen
+                            </dd>
+                        </dl>
+                    </lsx-accordion-page>
 
-                <h2>Zusammengesetzte CSS-Selektoren</h2>
-                <dl>
-                    <dt>
-                        <src-code language="css">h1, h2, h3</src-code>
-                    </dt>
-                    <dd>
-                        ODER-Verknüpfung bzw. Vereinigungsmenge mehrerer Selektoren
-                    </dd>
+                    <lsx-accordion-page title="Zusammengesetzte CSS-Selektoren">
+                        <dl>
+                            <dt>
+                                <src-code language="css">h1, h2, h3</src-code>
+                            </dt>
+                            <dd>
+                                ODER-Verknüpfung bzw. Vereinigungsmenge mehrerer Selektoren
+                            </dd>
 
-                    <dt>
-                        <src-code language="css">section.warning</src-code>
-                    </dt>
-                    <dd>
-                        UND-Verknüpfung zweier Selektoren:
-                        Alle <src-code language="html">&lt;section&gt;</src-code> mit
-                        <src-code language="html">class="warning"</src-code>
-                    </dd>
+                            <dt>
+                                <src-code language="css">section.warning</src-code>
+                            </dt>
+                            <dd>
+                                UND-Verknüpfung zweier Selektoren:
+                                Alle <src-code language="html">&lt;section&gt;</src-code> mit
+                                <src-code language="html">class="warning"</src-code>
+                            </dd>
 
-                    <dt>
-                        <src-code language="css">article .infobox</src-code>
-                    </dt>
-                    <dd>
-                        Eltern/Kind-Beziehung (transitiv): Alle Elemente mit
-                        <src-code language="html">class="infobox"</src-code>, die irgendwo
-                        innerhalb eines <src-code language="html">&lt;article&gt;</src-code>-Elements
-                        stehen
-                    </dd>
+                            <dt>
+                                <src-code language="css">article .infobox</src-code>
+                            </dt>
+                            <dd>
+                                Eltern/Kind-Beziehung (transitiv): Alle Elemente mit
+                                <src-code language="html">class="infobox"</src-code>, die irgendwo
+                                innerhalb eines <src-code language="html">&lt;article&gt;</src-code>-Elements
+                                stehen
+                            </dd>
 
-                    <dt>
-                        <src-code language="css">section &gt; h1</src-code>
-                    </dt>
-                    <dd>
-                        Eltern/Kind-Beziehung (nicht transitiv): Alle
-                        <src-code language="html">&lt;h1&gt;</src-code>, deren direktes Elternelement
-                        eine <src-code language="html">&lt;section&gt;</src-code> ist
-                    </dd>
-
-
-                </dl>
+                            <dt>
+                                <src-code language="css">section &gt; h1</src-code>
+                            </dt>
+                            <dd>
+                                Eltern/Kind-Beziehung (nicht transitiv): Alle
+                                <src-code language="html">&lt;h1&gt;</src-code>, deren direktes Elternelement
+                                eine <src-code language="html">&lt;section&gt;</src-code> ist
+                            </dd>
+                        </dl>
+                    </lsx-accordion-page>
+                </lsx-accordion>
             </article>
             <aside>
                 <h2>Wie der Browser eine Seite sieht</h2>
@@ -2760,658 +2766,655 @@
         <section>
             <h1>Häufig benötigte CSS-Anweisungen</h1>
             <article>
-                <!-- Textformatierung -->
-                <h2>Textformatierung</h2>
+                <lsx-accordion>
+                    <lsx-accordion-page title="Textformatierung" active>
+                        <lsx-tab-pages style="margin-bottom: 2em">
+                            <lsx-tab-page title="Übersicht">
+                                <dl>
+                                    <dt>
+                                        <src-code language="css">
+                                            font-family: Liberation Sans, Arial, sans-serif;
+                                        </src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Legt die Schriftart für ein Element und seine Unterelemente fest.
+                                        Werden mehrere Schriftarten angegeben, wird die erste gefundene verwendet.
+                                        Immer vorhandene Schriften sind: <code>serif</code>, <code>sans-serif</code>,
+                                        <code>monospace</code>, <code>fantasy</code>.
+                                    </dd>
 
-                <lsx-tab-pages style="margin-bottom: 2em">
-                    <lsx-tab-page title="Übersicht">
-                        <dl>
-                            <dt>
-                                <src-code language="css">
-                                    font-family: Liberation Sans, Arial, sans-serif;
-                                </src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Legt die Schriftart für ein Element und seine Unterelemente fest.
-                                Werden mehrere Schriftarten angegeben, wird die erste gefundene verwendet.
-                                Immer vorhandene Schriften sind: <code>serif</code>, <code>sans-serif</code>,
-                                <code>monospace</code>, <code>fantasy</code>.
-                            </dd>
+                                    <dt>
+                                        <src-code language="css">
+                                            font-size: 12pt;
+                                        </src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Legt die Schriftgröße eines Elements fest. Erlaubt sind entweder numerische Werte oder
+                                        folgende Konstanten: <code>small</code>, <code>x-small</code>, <code>large</code>,
+                                        <code>x-large</code>, …
+                                    </dd>
 
-                            <dt>
-                                <src-code language="css">
-                                    font-size: 12pt;
-                                </src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Legt die Schriftgröße eines Elements fest. Erlaubt sind entweder numerische Werte oder
-                                folgende Konstanten: <code>small</code>, <code>x-small</code>, <code>large</code>,
-                                <code>x-large</code>, …
-                            </dd>
+                                    <dt>
+                                        <src-code language="css">
+                                            font-weight: bold;
+                                        </src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Legt fest, wie kräftig die Schrift erscheint. <code>bold</code> ist der normale Fettdruck.
+                                        Es gibt aber auch <code>normal</code>, <code>bolder</code> und <code>lighter</code>.
+                                    </dd>
 
-                            <dt>
-                                <src-code language="css">
-                                    font-weight: bold;
-                                </src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Legt fest, wie kräftig die Schrift erscheint. <code>bold</code> ist der normale Fettdruck.
-                                Es gibt aber auch <code>normal</code>, <code>bolder</code> und <code>lighter</code>.
-                            </dd>
+                                    <dt>
+                                        <src-code language="css">
+                                            color: crimson;
+                                        </src-code>
+                                    </dt>
+                                    <dd>
+                                        Ändert die Schriftfarbe des aktuellen Elements. Erlaubt sind alle Farbwerte, wie
+                                        auf der nächsten Folie beschrieben.
+                                    </dd>
+                                </dl>
+                            </lsx-tab-page>
 
-                            <dt>
-                                <src-code language="css">
-                                    color: crimson;
-                                </src-code>
-                            </dt>
-                            <dd>
-                                Ändert die Schriftfarbe des aktuellen Elements. Erlaubt sind alle Farbwerte, wie
-                                auf der nächsten Folie beschrieben.
-                            </dd>
-                        </dl>
-                    </lsx-tab-page>
+                            <lsx-tab-page title="Beispiel">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    html {
+                                        font-family: Liberation Serif, serif;
+                                        font-size: 12pt;
+                                    }
 
-                    <lsx-tab-page title="Beispiel">
-                        <h5>Stylesheet</h5>
-                        <source-code language="css">
-                            html {
-                                font-family: Liberation Serif, serif;
-                                font-size: 12pt;
-                            }
+                                    h1 {
+                                        color: crimson;
+                                        font-weight: bold;
+                                    }
+                                </source-code>
 
-                            h1 {
-                                color: crimson;
-                                font-weight: bold;
-                            }
-                        </source-code>
+                                <hr />
 
-                        <hr />
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;h1&gt;Dies ist eine Überschrift 1&lt;/h1&gt;
+                                            &lt;p&gt;
+                                                Und dies ist ein kleiner Absatz.
+                                            &lt;/p&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
 
-                        <h5>HTML-Code</h5>
-                        <source-code language="html">
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    &lt;meta charset="utf-8" /&gt;
-                                    &lt;link rel="stylesheet" href="style.css" /&gt;
-                                    &lt;title&gt;Beispiel&lt;/title&gt;
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;h1&gt;Dies ist eine Überschrift 1&lt;/h1&gt;
-                                    &lt;p&gt;
+                            <lsx-tab-page title="Aussehen">
+                                <div id="css-text-screenshot">
+                                    <style>
+                                        #css-text-screenshot {
+                                            font-family: Liberation Serif, serif;
+                                            font-size: 12pt;
+                                        }
+
+                                        #css-text-screenshot h3 {
+                                            color: crimson;
+                                            font-weight: bold;
+                                        }
+                                    </style>
+                                    <h3>Dies ist eine Überschrift 1</h3>
+                                    <p>
                                         Und dies ist ein kleiner Absatz.
-                                    &lt;/p&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
+                                    </p>
+                                </div>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
 
-                    <lsx-tab-page title="Aussehen">
-                        <div id="css-text-screenshot">
-                            <style>
-                                #css-text-screenshot {
-                                    font-family: Liberation Serif, serif;
-                                    font-size: 12pt;
-                                }
+                    <lsx-accordion-page title="Hintergrundfarben und Bilder">
+                        <lsx-tab-pages style="margin-bottom: 2em">
+                            <lsx-tab-page title="Übersicht">
+                                <dl>
+                                    <dt>
+                                        <src-code language="css">
+                                            background-color: rgba(244, 186, 110, 0.9);
+                                        </src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Ändert die Hintergrundfarbe eines Elements. Erlaubt sind natürlich
+                                        alle Farbwerte aus der nächsten Folie. Mit <code>rgba()</code> lassen
+                                        sich damit auch halbdurchsichtige Hintergründe definieren.
+                                    </dd>
 
-                                #css-text-screenshot h3 {
-                                    color: crimson;
-                                    font-weight: bold;
-                                }
-                            </style>
-                            <h3>Dies ist eine Überschrift 1</h3>
-                            <p>
-                                Und dies ist ein kleiner Absatz.
-                            </p>
-                        </div>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                                    <dt>
+                                        <src-code language="css">
+                                            background-image: url(bg.jpg);
+                                        </src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Legt ein Hintergrundbild fest, das standardmäßig so oft wiederholt
+                                        wird, bis das Element komplett damit bedeckt ist. Siehe <a href="#8">Folie 8</a>
+                                        für weitere Möglichkeiten.
+                                    </dd>
+                                </dl>
+                            </lsx-tab-page>
 
-                <!-- Hintergrundfarben und Bilder -->
-                <h2>Hintergrundfarben und Bilder</h2>
+                            <lsx-tab-page title="Beispiel">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    html {
+                                        background-color: #F0F0F0;
+                                    }
 
-                <lsx-tab-pages style="margin-bottom: 2em">
-                    <lsx-tab-page title="Übersicht">
-                        <dl>
-                            <dt>
-                                <src-code language="css">
-                                    background-color: rgba(244, 186, 110, 0.9);
-                                </src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Ändert die Hintergrundfarbe eines Elements. Erlaubt sind natürlich
-                                alle Farbwerte aus der nächsten Folie. Mit <code>rgba()</code> lassen
-                                sich damit auch halbdurchsichtige Hintergründe definieren.
-                            </dd>
+                                    header > #company-name {
+                                        background-color: rgb(4, 192, 242);
+                                    }
 
-                            <dt>
-                                <src-code language="css">
-                                    background-image: url(bg.jpg);
-                                </src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Legt ein Hintergrundbild fest, das standardmäßig so oft wiederholt
-                                wird, bis das Element komplett damit bedeckt ist. Siehe <a href="#8">Folie 8</a>
-                                für weitere Möglichkeiten.
-                            </dd>
-                        </dl>
-                    </lsx-tab-page>
+                                    .black {
+                                        background-image: url(black_pattern.jpg);
+                                    }
+                                </source-code>
 
-                    <lsx-tab-page title="Beispiel">
-                        <h5>Stylesheet</h5>
-                        <source-code language="css">
-                            html {
-                                background-color: #F0F0F0;
-                            }
+                                <hr />
 
-                            header > #company-name {
-                                background-color: rgb(4, 192, 242);
-                            }
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;header&gt;
+                                                &lt;div id="company-name"&gt;
+                                                    Geldsack AG - Finanzdienstleistungen
+                                                &lt;/div&gt;
+                                            &lt;/header&gt;
+                                            &lt;div class="main"&gt;
+                                                Hier kommt auch irgend ein Text hin …
+                                            &lt;/div&gt;
+                                            &lt;footer class="black"&gt;
+                                                Alle Rechte vorbehalten
+                                            &lt;/footer&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
 
-                            .black {
-                                background-image: url(black_pattern.jpg);
-                            }
-                        </source-code>
+                            <lsx-tab-page title="Aussehen">
+                                <div id="css-hintergrund-screenshot">
+                                    <style>
+                                        #css-hintergrund-screenshot * {
+                                            margin: 0;
+                                        }
 
-                        <hr />
+                                        #css-hintergrund-screenshot {
+                                            background-color: #F0F0F0;
+                                        }
 
-                        <h5>HTML-Code</h5>
-                        <source-code language="html">
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    &lt;meta charset="utf-8" /&gt;
-                                    &lt;link rel="stylesheet" href="style.css" /&gt;
-                                    &lt;title&gt;Beispiel&lt;/title&gt;
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;header&gt;
-                                        &lt;div id="company-name"&gt;
+                                        #css-hintergrund-screenshot header > nav {
+                                            background-color: rgb(4, 192, 242);
+                                            color: white;
+                                            font-weight: bold;
+                                            min-height: 3em;
+                                            padding: 0.5em;
+                                        }
+
+                                        #css-hintergrund-screenshot .black {
+                                            background-image: url(black_pattern.jpg);
+                                            color: white;
+                                        }
+
+                                        #css-hintergrund-screenshot .main {
+                                            min-height: 10em;
+                                            padding: 0.5em;
+                                        }
+
+                                        #css-hintergrund-screenshot footer {
+                                            min-height: 4em;
+                                            padding: 0.5em;
+                                        }
+                                    </style>
+                                    <header>
+                                        <nav>
                                             Geldsack AG - Finanzdienstleistungen
-                                        &lt;/div&gt;
-                                    &lt;/header&gt;
-                                    &lt;div class="main"&gt;
+                                        </nav>
+                                    </header>
+                                    <div class="main">
                                         Hier kommt auch irgend ein Text hin …
-                                    &lt;/div&gt;
-                                    &lt;footer class="black"&gt;
-                                        Alle Rechte vorbehalten
-                                    &lt;/footer&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Aussehen">
-                        <div id="css-hintergrund-screenshot">
-                            <style>
-                                #css-hintergrund-screenshot * {
-                                    margin: 0;
-                                }
-
-                                #css-hintergrund-screenshot {
-                                    background-color: #F0F0F0;
-                                }
-
-                                #css-hintergrund-screenshot header > nav {
-                                    background-color: rgb(4, 192, 242);
-                                    color: white;
-                                    font-weight: bold;
-                                    min-height: 3em;
-                                    padding: 0.5em;
-                                }
-
-                                #css-hintergrund-screenshot .black {
-                                    background-image: url(black_pattern.jpg);
-                                    color: white;
-                                }
-
-                                #css-hintergrund-screenshot .main {
-                                    min-height: 10em;
-                                    padding: 0.5em;
-                                }
-
-                                #css-hintergrund-screenshot footer {
-                                    min-height: 4em;
-                                    padding: 0.5em;
-                                }
-                            </style>
-                            <header>
-                                <nav>
-                                    Geldsack AG - Finanzdienstleistungen
-                                </nav>
-                            </header>
-                            <div class="main">
-                                Hier kommt auch irgend ein Text hin …
-                            </div>
-                            <footer class="black">
-                                Alle Rechte vorbehalten
-                            </footer>
-                        </div>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
-
-                <!-- Anzeigeart und Größe -->
-                <h2>Anzeigeart und Größe</h2>
-
-                <lsx-tab-pages style="margin-bottom: 2em">
-                    <lsx-tab-page title="Übersicht">
-                        <dl>
-                            <dt>
-                                <src-code language="css">display: block;</src-code> <br />
-                                <src-code language="css">display: inline;</src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Dies sind die bekannten Voreinstellungen des Browsers, so wie sie im
-                                HTML-Folienatz erklärt wurden.
-                            </dd>
-
-                            <dt>
-                                <src-code language="css">
-                                    display: inline-block;
-                                </src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Eine Mischung aus Inline- und Blockelement. Im Prinzip handelt es sich
-                                beim betroffenen Element weiterhin um ein Blockelement, das sich in Teilen
-                                aber wie ein Inline verhält. Unter anderem passen sich Breite und Höhe komplett
-                                dem Inhalt an und es kann in derselben Zeile stehen wie weitere
-                                <src-code language="css">inline-block</src-code>-Elemente
-                            </dd>
-
-                            <dt>
-                                <src-code language="css">width: 75%;</src-code> <br />
-                                <src-code language="css">min-width: 45%;</src-code> <br />
-                                <src-code language="css">height: 10em;</src-code>
-                                <src-code language="css">min-height: 10em;</src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Legen die Breite und Höhe der ausgewählten Elemente fest. <src-code language="css">width</src-code>
-                                und <src-code language="css">height</src-code> legen eine fixe Größe fest und können daher dazu führen,
-                                dass zu viel Inhalt aus den Elementen herausragt.
-                                <src-code language="css">min-width</src-code> und <src-code language="css">min-height</src-code>
-                                erlauben dem Element hingegen, mit seinem Inhalt zu wachsen.
-                            </dd>
-
-                            <dt>
-                                <src-code language="css">
-                                    overflow: hidden;
-                                </src-code>
-                            </dt>
-                            <dd>
-                                Sorgt dafür, dass zu großer Inhalt nicht aus dem Element herausläuft, sondern abgeschnitten wird.
-                            </dd>
-                        </dl>
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Beispiel">
-                        <h5>Stylesheet</h5>
-                        <source-code language="css">
-                            div.card {
-                                display: inline-block;
-                                min-width: 7em;
-                                height: 3em;
-
-                                margin: 0.25em;
-                                padding: 0.5em;
-
-                                border: 1px solid black;
-                                border-radius: 0.3em;
-                                background-color: rgb(215, 215, 215);
-                                color: rgb(50, 50, 50);
-
-                                box-shadow: 1px 1px 2px rgba(0,0,0, 0.25);
-                            }
-                        </source-code>
-
-                        <hr />
-
-                        <h5>HTML-Code</h5>
-                        <source-code language="html">
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    &lt;meta charset="utf-8" /&gt;
-                                    &lt;link rel="stylesheet" href="style.css" /&gt;
-                                    &lt;title&gt;Beispiel&lt;/title&gt;
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;div class="card"&gt;
-                                        Dies sind Karten.
-                                    &lt;/div&gt;
-                                    &lt;div class="card"&gt;
-                                        Dank „inline-block” stehen sie
-                                    &lt;/div&gt;
-                                    &lt;div class="card"&gt;
-                                        nebeneinander!
-                                    &lt;/div&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Aussehen">
-                        <div id="css-groesse-screenshot">
-                            <style>
-                                #css-groesse-screenshot .card {
-                                    display: inline-block;
-                                    min-width: 7em;
-                                    height: 3em;
-
-                                    margin: 0.25em;
-                                    padding: 0.5em;
-
-                                    border: 1px solid black;
-                                    border-radius: 0.3em;
-                                    background-color: rgb(215, 215, 215);
-                                    color: rgb(50, 50, 50);
-
-                                    box-shadow: 1px 1px 2px rgba(0,0,0, 0.25);
-                                }
-                            </style>
-                            <div class="card">
-                                Dies sind Karten.
-                            </div>
-                            <div class="card">
-                                Dank „inline-block” stehen sie
-                            </div>
-                            <div class="card">
-                                nebeneinander!
-                            </div>
-                        </div>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
-
-                <!-- Innenabstand und Außenabstand -->
-                <h2>Innen- und Außenabstand</h2>
-
-                <lsx-tab-pages style="margin-bottom: 2em">
-                    <lsx-tab-page title="Übersicht">
-                        <dl>
-                            <dt>
-                                <src-code language="css">
-                                    margin: 1em;
-                                </src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                <p>
-                                    Sorgt dafür, dass ein gleichmäßiger Abstand von 1em um die betroffenen
-                                    Elemente frei bleibt.
-                                </p>
-                                <div class="info-box warning">
-                                    <div class="info-box-title">
-                                        Achtung
                                     </div>
-                                    <div class="info-box-content">
-                                        Die <src-code language="css">margin</src-code>s
-                                        zweier benachbarter Elemente addieren sich auf (siehe Skizze).
+                                    <footer class="black">
+                                        Alle Rechte vorbehalten
+                                    </footer>
+                                </div>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Anzeigeart und Größe">
+                        <lsx-tab-pages style="margin-bottom: 2em">
+                            <lsx-tab-page title="Übersicht">
+                                <dl>
+                                    <dt>
+                                        <src-code language="css">display: block;</src-code> <br />
+                                        <src-code language="css">display: inline;</src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Dies sind die bekannten Voreinstellungen des Browsers, so wie sie im
+                                        HTML-Folienatz erklärt wurden.
+                                    </dd>
+
+                                    <dt>
+                                        <src-code language="css">
+                                            display: inline-block;
+                                        </src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Eine Mischung aus Inline- und Blockelement. Im Prinzip handelt es sich
+                                        beim betroffenen Element weiterhin um ein Blockelement, das sich in Teilen
+                                        aber wie ein Inline verhält. Unter anderem passen sich Breite und Höhe komplett
+                                        dem Inhalt an und es kann in derselben Zeile stehen wie weitere
+                                        <src-code language="css">inline-block</src-code>-Elemente
+                                    </dd>
+
+                                    <dt>
+                                        <src-code language="css">width: 75%;</src-code> <br />
+                                        <src-code language="css">min-width: 45%;</src-code> <br />
+                                        <src-code language="css">height: 10em;</src-code>
+                                        <src-code language="css">min-height: 10em;</src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Legen die Breite und Höhe der ausgewählten Elemente fest. <src-code language="css">width</src-code>
+                                        und <src-code language="css">height</src-code> legen eine fixe Größe fest und können daher dazu führen,
+                                        dass zu viel Inhalt aus den Elementen herausragt.
+                                        <src-code language="css">min-width</src-code> und <src-code language="css">min-height</src-code>
+                                        erlauben dem Element hingegen, mit seinem Inhalt zu wachsen.
+                                    </dd>
+
+                                    <dt>
+                                        <src-code language="css">
+                                            overflow: hidden;
+                                        </src-code>
+                                    </dt>
+                                    <dd>
+                                        Sorgt dafür, dass zu großer Inhalt nicht aus dem Element herausläuft, sondern abgeschnitten wird.
+                                    </dd>
+                                </dl>
+                            </lsx-tab-page>
+
+                            <lsx-tab-page title="Beispiel">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    div.card {
+                                        display: inline-block;
+                                        min-width: 7em;
+                                        height: 3em;
+
+                                        margin: 0.25em;
+                                        padding: 0.5em;
+
+                                        border: 1px solid black;
+                                        border-radius: 0.3em;
+                                        background-color: rgb(215, 215, 215);
+                                        color: rgb(50, 50, 50);
+
+                                        box-shadow: 1px 1px 2px rgba(0,0,0, 0.25);
+                                    }
+                                </source-code>
+
+                                <hr />
+
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;div class="card"&gt;
+                                                Dies sind Karten.
+                                            &lt;/div&gt;
+                                            &lt;div class="card"&gt;
+                                                Dank „inline-block” stehen sie
+                                            &lt;/div&gt;
+                                            &lt;div class="card"&gt;
+                                                nebeneinander!
+                                            &lt;/div&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
+
+                            <lsx-tab-page title="Aussehen">
+                                <div id="css-groesse-screenshot">
+                                    <style>
+                                        #css-groesse-screenshot .card {
+                                            display: inline-block;
+                                            min-width: 7em;
+                                            height: 3em;
+
+                                            margin: 0.25em;
+                                            padding: 0.5em;
+
+                                            border: 1px solid black;
+                                            border-radius: 0.3em;
+                                            background-color: rgb(215, 215, 215);
+                                            color: rgb(50, 50, 50);
+
+                                            box-shadow: 1px 1px 2px rgba(0,0,0, 0.25);
+                                        }
+                                    </style>
+                                    <div class="card">
+                                        Dies sind Karten.
+                                    </div>
+                                    <div class="card">
+                                        Dank „inline-block” stehen sie
+                                    </div>
+                                    <div class="card">
+                                        nebeneinander!
                                     </div>
                                 </div>
-                            </dd>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
 
-                            <dt>
-                                <src-code language="css">margin: 1em 0 2em 0;</src-code> <br />
-                                <src-code language="css">margin-top: 1em;</src-code> <br />
-                                <src-code language="css">margin-right: 0;</src-code> <br />
-                                <src-code language="css">margin-bottom: 2em;</src-code> <br />
-                                <src-code language="css">margin-left: 0;</src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Erlaubt es, die vier Abstände um ein Element herum einzeln zu definieren.
-                                Die Kurzform in der ersten Zeile wird im Uhrzeigersinn gelesen: Oben, rechts, unten, links.
-                            </dd>
+                    <lsx-accordion-page title="Innen- und Außenabstand">
+                        <lsx-tab-pages style="margin-bottom: 2em">
+                            <lsx-tab-page title="Übersicht">
+                                <dl>
+                                    <dt>
+                                        <src-code language="css">
+                                            margin: 1em;
+                                        </src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        <p>
+                                            Sorgt dafür, dass ein gleichmäßiger Abstand von 1em um die betroffenen
+                                            Elemente frei bleibt.
+                                        </p>
+                                        <div class="info-box warning">
+                                            <div class="info-box-title">
+                                                Achtung
+                                            </div>
+                                            <div class="info-box-content">
+                                                Die <src-code language="css">margin</src-code>s
+                                                zweier benachbarter Elemente addieren sich auf (siehe Skizze).
+                                            </div>
+                                        </div>
+                                    </dd>
 
-                            <dt>
-                                <src-code language="css">padding: 1em;</src-code> <br />
-                                <src-code language="css">padding: 1em 0 2em 0;</src-code> <br />
-                                <src-code language="css">padding-top: 1em;</src-code> <br />
-                                <src-code language="css">padding-right: 0;</src-code> <br />
-                                <src-code language="css">padding-bottom: 2em;</src-code> <br />
-                                <src-code language="css">padding-left: 0;</src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Im Prinzip dasselbe wie <src-code language="css">margin</src-code>, nur dass
-                                es nicht um den Platz um das Element herum geht, sondern um den <u>inneren</u>
-                                Abstand vom Rand des Elements zu seinem Inhalt.
-                            </dd>
-                        </dl>
+                                    <dt>
+                                        <src-code language="css">margin: 1em 0 2em 0;</src-code> <br />
+                                        <src-code language="css">margin-top: 1em;</src-code> <br />
+                                        <src-code language="css">margin-right: 0;</src-code> <br />
+                                        <src-code language="css">margin-bottom: 2em;</src-code> <br />
+                                        <src-code language="css">margin-left: 0;</src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Erlaubt es, die vier Abstände um ein Element herum einzeln zu definieren.
+                                        Die Kurzform in der ersten Zeile wird im Uhrzeigersinn gelesen: Oben, rechts, unten, links.
+                                    </dd>
 
-                        <img src="margin_padding.svg" class="d-block img-fluid" />
-                    </lsx-tab-page>
+                                    <dt>
+                                        <src-code language="css">padding: 1em;</src-code> <br />
+                                        <src-code language="css">padding: 1em 0 2em 0;</src-code> <br />
+                                        <src-code language="css">padding-top: 1em;</src-code> <br />
+                                        <src-code language="css">padding-right: 0;</src-code> <br />
+                                        <src-code language="css">padding-bottom: 2em;</src-code> <br />
+                                        <src-code language="css">padding-left: 0;</src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Im Prinzip dasselbe wie <src-code language="css">margin</src-code>, nur dass
+                                        es nicht um den Platz um das Element herum geht, sondern um den <u>inneren</u>
+                                        Abstand vom Rand des Elements zu seinem Inhalt.
+                                    </dd>
+                                </dl>
 
-                    <lsx-tab-page title="Beispiel">
-                        <h5>Stylesheet</h5>
-                        <source-code language="css">
-                            .gross {
-                                display: inline-block;
+                                <img src="margin_padding.svg" class="d-block img-fluid" />
+                            </lsx-tab-page>
 
-                                font-size: 130%;
-                                padding: 3em;
-                                margin: 1rem;
+                            <lsx-tab-page title="Beispiel">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    .gross {
+                                        display: inline-block;
 
-                                background-color: rgb(7, 88, 97);
-                                color: white;
-                            }
+                                        font-size: 130%;
+                                        padding: 3em;
+                                        margin: 1rem;
 
-                            .klein {
-                                display: inline-block;
+                                        background-color: rgb(7, 88, 97);
+                                        color: white;
+                                    }
 
-                                padding: 0.75em;
-                                margin: 1rem;
+                                    .klein {
+                                        display: inline-block;
 
-                                background-color: rgb(138, 54, 172);
-                                color: white;
-                            }
-                        </source-code>
+                                        padding: 0.75em;
+                                        margin: 1rem;
 
-                        <hr />
+                                        background-color: rgb(138, 54, 172);
+                                        color: white;
+                                    }
+                                </source-code>
 
-                        <h5>HTML-Code</h5>
-                        <source-code language="html">
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    &lt;meta charset="utf-8" /&gt;
-                                    &lt;link rel="stylesheet" href="style.css" /&gt;
-                                    &lt;title&gt;Beispiel&lt;/title&gt;
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;div class="gross"&gt;
+                                <hr />
+
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;div class="gross"&gt;
+                                                Großer Bereich
+                                            &lt;/div&gt;
+                                            &lt;div class="klein"&gt;
+                                                Kleiner Bereich
+                                            &lt;/div&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
+
+                            <lsx-tab-page title="Aussehen">
+                                <div id="css-abstand-screenshot">
+                                    <style>
+                                        #css-abstand-screenshot .gross {
+                                            display: inline-block;
+
+                                            font-size: 130%;
+                                            padding: 3em;
+                                            margin: 1rem;
+
+                                            background-color: rgb(7, 88, 97);
+                                            color: white;
+                                        }
+
+                                        #css-abstand-screenshot .klein {
+                                            display: inline-block;
+
+                                            padding: 0.75em;
+                                            margin: 1rem;
+
+                                            background-color: rgb(138, 54, 172);
+                                            color: white;
+                                        }
+                                    </style>
+                                    <div class="gross">
                                         Großer Bereich
-                                    &lt;/div&gt;
-                                    &lt;div class="klein"&gt;
+                                    </div>
+                                    <div class="klein">
                                         Kleiner Bereich
-                                    &lt;/div&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
+                                    </div>
+                                </div>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
 
-                    <lsx-tab-page title="Aussehen">
-                        <div id="css-abstand-screenshot">
-                            <style>
-                                #css-abstand-screenshot .gross {
-                                    display: inline-block;
+                    <lsx-accordion-page title="Rund um den Rahmen">
+                        <lsx-tab-pages style="margin-bottom: 2em">
+                            <lsx-tab-page title="Übersicht">
+                                <dl>
+                                    <dt>
+                                        <src-code language="css">border: 1px solid black;</src-code> <br />
+                                        <src-code language="css">border-width: 1px;</src-code> <br />
+                                        <src-code language="css">border-style: solid;</src-code> <br />
+                                        <src-code language="css">border-color: black;</src-code> <br />
+                                        <src-code language="css">border-bottom-width: 0;</src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Verschiedene Optionen zur Definition der Rahmendicke, Rahmenart und Rahmenfarbe.
+                                        <src-code language="css">border-width</src-code>, <src-code language="css">border-style</src-code>
+                                        und <src-code language="css">border-color</src-code> können alle vier oder nur eine Seite beeinflussen.
+                                        Für letzteres muss nach <src-code language="css">border-</src-code> eine der vier Richtungen angegeben
+                                        werden: <src-code language="css">top</src-code>; <src-code language="css">right</src-code>,
+                                        <src-code language="css">bottom</src-code>, <src-code language="css">left</src-code>.
+                                    </dd>
 
-                                    font-size: 130%;
-                                    padding: 3em;
-                                    margin: 1rem;
+                                    <dt>
+                                        <src-code language="css">border-radius: 0.5em;</src-code> <br/>
+                                        <src-code language="css">border-top-left-radius: 4px;</src-code> <br/>
+                                        <src-code language="css">border-top-right-radius: 50%;</src-code> <br/>
+                                        <src-code language="css">border-bottom-left-radius: 1rem;</src-code> <br/>
+                                        <src-code language="css">border-bottom-right-radius: 0.75vh;</src-code> <br/>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Früher waren alle HTML-Elemente eckig wie Toastbrot. 🍞 Heute können sie auch
+                                        abgerundete Ecken besitzen.
+                                    </dd>
 
-                                    background-color: rgb(7, 88, 97);
-                                    color: white;
-                                }
+                                    <dt>
+                                        <src-code language="css">
+                                            box-shadow: 2px 2px 4px rgba(0,0,0, 0.5);
+                                        </src-code>
+                                    </dt>
+                                    <dd style="margin-bottom: 0.75em">
+                                        Zeichnet einen weichen Schatten um das Element herum. Diese Anweisung ist
+                                        der Schlüssel zum Google Material-Design. Die vier Werte bedeuten: X-Richtung,
+                                        Y-Richtung, Weichzeichnung und Farbe.
+                                    </dd>
+                                </dl>
+                            </lsx-tab-page>
 
-                                #css-abstand-screenshot .klein {
-                                    display: inline-block;
+                            <lsx-tab-page title="Beispiel">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    .rect1, .rect2, .rect3, .rect4 {
+                                        display: inline-block;
+                                        padding: 0.5em;
+                                        font-size: 160%;
+                                        min-width: 3.5em;
 
-                                    padding: 0.75em;
-                                    margin: 1rem;
+                                        box-shadow: 1px 1px 2px rgba(0,0,0, 0.5);
+                                    }
 
-                                    background-color: rgb(138, 54, 172);
-                                    color: white;
-                                }
-                            </style>
-                            <div class="gross">
-                                Großer Bereich
-                            </div>
-                            <div class="klein">
-                                Kleiner Bereich
-                            </div>
-                        </div>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                                    .rect1 {
+                                        border: 2px solid black;
+                                        border-radius: 0.3em;
+                                        background: rgb(107, 159, 103);
+                                    }
 
-                <!-- Rund um den Rahmen -->
-                <h2>Rund um den Rahmen</h2>
+                                    .rect2 {
+                                        border: 2px solid black;
+                                        border-top-left-radius: 0.3em;
+                                        border-top-right-radius: 0.3em;
+                                        background: rgb(17, 189, 207);
+                                    }
 
-                <lsx-tab-pages style="margin-bottom: 2em">
-                    <lsx-tab-page title="Übersicht">
-                        <dl>
-                            <dt>
-                                <src-code language="css">border: 1px solid black;</src-code> <br />
-                                <src-code language="css">border-width: 1px;</src-code> <br />
-                                <src-code language="css">border-style: solid;</src-code> <br />
-                                <src-code language="css">border-color: black;</src-code> <br />
-                                <src-code language="css">border-bottom-width: 0;</src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Verschiedene Optionen zur Definition der Rahmendicke, Rahmenart und Rahmenfarbe.
-                                <src-code language="css">border-width</src-code>, <src-code language="css">border-style</src-code>
-                                und <src-code language="css">border-color</src-code> können alle vier oder nur eine Seite beeinflussen.
-                                Für letzteres muss nach <src-code language="css">border-</src-code> eine der vier Richtungen angegeben
-                                werden: <src-code language="css">top</src-code>; <src-code language="css">right</src-code>,
-                                <src-code language="css">bottom</src-code>, <src-code language="css">left</src-code>.
-                            </dd>
+                                    .rect3 {
+                                        border: 2px solid black;
+                                        border-top-left-radius: 0.3em;
+                                        border-bottom-right-radius: 0.3em;
+                                        background: rgb(58, 159, 80);
+                                    }
 
-                            <dt>
-                                <src-code language="css">border-radius: 0.5em;</src-code> <br/>
-                                <src-code language="css">border-top-left-radius: 4px;</src-code> <br/>
-                                <src-code language="css">border-top-right-radius: 50%;</src-code> <br/>
-                                <src-code language="css">border-bottom-left-radius: 1rem;</src-code> <br/>
-                                <src-code language="css">border-bottom-right-radius: 0.75vh;</src-code> <br/>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Früher waren alle HTML-Elemente eckig wie Toastbrot. 🍞 Heute können sie auch
-                                abgerundete Ecken besitzen.
-                            </dd>
+                                    .rect4 {
+                                        border: 2px solid black;
+                                        border-top-right-radius: 50%;
+                                        border-bottom-right-radius: 50%;
+                                        background: rgb(194, 194, 93);
+                                    }
+                                </source-code>
 
-                            <dt>
-                                <src-code language="css">
-                                    box-shadow: 2px 2px 4px rgba(0,0,0, 0.5);
-                                </src-code>
-                            </dt>
-                            <dd style="margin-bottom: 0.75em">
-                                Zeichnet einen weichen Schatten um das Element herum. Diese Anweisung ist
-                                der Schlüssel zum Google Material-Design. Die vier Werte bedeuten: X-Richtung,
-                                Y-Richtung, Weichzeichnung und Farbe.
-                            </dd>
-                        </dl>
-                    </lsx-tab-page>
+                                <hr />
 
-                    <lsx-tab-page title="Beispiel">
-                        <h5>Stylesheet</h5>
-                        <source-code language="css">
-                            .rect1, .rect2, .rect3, .rect4 {
-                                display: inline-block;
-                                padding: 0.5em;
-                                font-size: 160%;
-                                min-width: 3.5em;
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;div class="rect1"&gt;1&lt;/div&gt;
+                                            &lt;div class="rect2"&gt;2&lt;/div&gt;
+                                            &lt;div class="rect3"&gt;3&lt;/div&gt;
+                                            &lt;div class="rect4"&gt;4&lt;/div&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
 
-                                box-shadow: 1px 1px 2px rgba(0,0,0, 0.5);
-                            }
+                            <lsx-tab-page title="Aussehen">
+                                <div id="css-rahmen-screenshot">
+                                    <style>
+                                        #css-rahmen-screenshot .rect1,
+                                        #css-rahmen-screenshot .rect2,
+                                        #css-rahmen-screenshot .rect3,
+                                        #css-rahmen-screenshot .rect4 {
+                                            display: inline-block;
+                                            padding: 0.5em;
+                                            font-size: 160%;
+                                            min-width: 3.5em;
 
-                            .rect1 {
-                                border: 2px solid black;
-                                border-radius: 0.3em;
-                                background: rgb(107, 159, 103);
-                            }
+                                            box-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+                                        }
 
-                            .rect2 {
-                                border: 2px solid black;
-                                border-top-left-radius: 0.3em;
-                                border-top-right-radius: 0.3em;
-                                background: rgb(17, 189, 207);
-                            }
+                                        #css-rahmen-screenshot .rect1 {
+                                            border: 2px solid black;
+                                            border-radius: 0.3em;
+                                            background: rgb(112, 213, 104);
+                                        }
 
-                            .rect3 {
-                                border: 2px solid black;
-                                border-top-left-radius: 0.3em;
-                                border-bottom-right-radius: 0.3em;
-                                background: rgb(58, 159, 80);
-                            }
+                                        #css-rahmen-screenshot .rect2 {
+                                            border: 2px solid black;
+                                            border-top-left-radius: 0.3em;
+                                            border-top-right-radius: 0.3em;
+                                            background: rgb(63, 236, 254);
+                                        }
 
-                            .rect4 {
-                                border: 2px solid black;
-                                border-top-right-radius: 50%;
-                                border-bottom-right-radius: 50%;
-                                background: rgb(194, 194, 93);
-                            }
-                        </source-code>
+                                        #css-rahmen-screenshot .rect3 {
+                                            border: 2px solid black;
+                                            border-top-left-radius: 0.3em;
+                                            border-bottom-right-radius: 0.3em;
+                                            background: rgb(179, 54, 54);
+                                        }
 
-                        <hr />
-
-                        <h5>HTML-Code</h5>
-                        <source-code language="html">
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    &lt;meta charset="utf-8" /&gt;
-                                    &lt;link rel="stylesheet" href="style.css" /&gt;
-                                    &lt;title&gt;Beispiel&lt;/title&gt;
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;div class="rect1"&gt;1&lt;/div&gt;
-                                    &lt;div class="rect2"&gt;2&lt;/div&gt;
-                                    &lt;div class="rect3"&gt;3&lt;/div&gt;
-                                    &lt;div class="rect4"&gt;4&lt;/div&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Aussehen">
-                        <div id="css-rahmen-screenshot">
-                            <style>
-                                #css-rahmen-screenshot .rect1,
-                                #css-rahmen-screenshot .rect2,
-                                #css-rahmen-screenshot .rect3,
-                                #css-rahmen-screenshot .rect4 {
-                                    display: inline-block;
-                                    padding: 0.5em;
-                                    font-size: 160%;
-                                    min-width: 3.5em;
-
-                                    box-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
-                                }
-
-                                #css-rahmen-screenshot .rect1 {
-                                    border: 2px solid black;
-                                    border-radius: 0.3em;
-                                    background: rgb(112, 213, 104);
-                                }
-
-                                #css-rahmen-screenshot .rect2 {
-                                    border: 2px solid black;
-                                    border-top-left-radius: 0.3em;
-                                    border-top-right-radius: 0.3em;
-                                    background: rgb(63, 236, 254);
-                                }
-
-                                #css-rahmen-screenshot .rect3 {
-                                    border: 2px solid black;
-                                    border-top-left-radius: 0.3em;
-                                    border-bottom-right-radius: 0.3em;
-                                    background: rgb(179, 54, 54);
-                                }
-
-                                #css-rahmen-screenshot .rect4 {
-                                    border: 2px solid black;
-                                    border-top-right-radius: 100%;
-                                    border-bottom-right-radius: 100%;
-                                    background: rgb(231, 231, 58);
-                                }
-                            </style>
-                            <div class="rect1">1</div>
-                            <div class="rect2">2</div>
-                            <div class="rect3">3</div>
-                            <div class="rect4">4</div>
-                        </div>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
+                                        #css-rahmen-screenshot .rect4 {
+                                            border: 2px solid black;
+                                            border-top-right-radius: 100%;
+                                            border-bottom-right-radius: 100%;
+                                            background: rgb(231, 231, 58);
+                                        }
+                                    </style>
+                                    <div class="rect1">1</div>
+                                    <div class="rect2">2</div>
+                                    <div class="rect3">3</div>
+                                    <div class="rect4">4</div>
+                                </div>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+                </lsx-accordion>
             </article>
             <aside>
                 <p>
@@ -3430,102 +3433,105 @@
         <section>
             <h1>Maßeinheiten und Farben in CSS</h1>
             <article>
-                <!-- Maßeinheinte und Farben -->
-                <h2>Maßeinheiten</h2>
-                <table style="margin-bottom: 2em">
-                    <thead>
-                        <tr>
-                            <th>Einheit</th>
-                            <th>Beschreibung</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td><code>px</code></td>
-                        <td>
-                            Ein „virtueller” Pixel auf den Bildschirm
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>pt</code></td>
-                        <td>
-                            1 Punkt = 0,376 Millimeter, üblich für Schriftgrößen
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>em</code></td>
-                        <td>
-                            Ungefähr die Breite eines großen M („Geviert”)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>ex</code></td>
-                        <td>
-                            Höhe eines kleinen X
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>rem</code></td>
-                        <td>
-                            Wie <code>em</code> nur mit der Schriftgröße des Wurzelelements
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>%</code></td>
-                        <td>
-                            Ein Prozent der Höhe oder Breite des Elternelements, je nach Verwendung
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>vw</code></td>
-                        <td>
-                            Ein Prozent der Breite des Browserfensters (Viewport Width)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>vh</code></td>
-                        <td>
-                            Ein Prozent der Höhe des Browserfensters (Viewport Height)
-                        </td>
-                    </tr>
-                </table>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Maßeinheiten">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Einheit</th>
+                                    <th>Beschreibung</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td><code>px</code></td>
+                                <td>
+                                    Ein „virtueller” Pixel auf den Bildschirm
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>pt</code></td>
+                                <td>
+                                    1 Punkt = 0,376 Millimeter, üblich für Schriftgrößen
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>em</code></td>
+                                <td>
+                                    Ungefähr die Breite eines großen M („Geviert”)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>ex</code></td>
+                                <td>
+                                    Höhe eines kleinen X
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>rem</code></td>
+                                <td>
+                                    Wie <code>em</code> nur mit der Schriftgröße des Wurzelelements
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>%</code></td>
+                                <td>
+                                    Ein Prozent der Höhe oder Breite des Elternelements, je nach Verwendung
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>vw</code></td>
+                                <td>
+                                    Ein Prozent der Breite des Browserfensters (Viewport Width)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code>vh</code></td>
+                                <td>
+                                    Ein Prozent der Höhe des Browserfensters (Viewport Height)
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
 
-                <h2>Farben in CSS</h2>
-                <dl>
-                    <dt>Eingebaute Namen</dt>
-                    <dd>
-                        <ul>
-                            <li><code>red</code></li>
-                            <li><code>lightblue</code></li>
-                            <li><code>darkseagreen</code></li>
-                            <li>
-                                <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">W3Schools: HTML Color Names</a>
-                            </li>
-                        </ul>
-                    </dd>
+                    <lsx-tab-page title="Farben in CSS">
+                        <dl>
+                            <dt>Eingebaute Namen</dt>
+                            <dd>
+                                <ul>
+                                    <li><code>red</code></li>
+                                    <li><code>lightblue</code></li>
+                                    <li><code>darkseagreen</code></li>
+                                    <li>
+                                        <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">W3Schools: HTML Color Names</a>
+                                    </li>
+                                </ul>
+                            </dd>
 
-                    <dt>Hexadezimalcode</dt>
-                    <dd>
-                        <ul>
-                            <li><code>#FF0000</code></li>
-                            <li><code>#FFFF00</code></li>
-                            <li><code>#ADD8E6</code></li>
-                        </ul>
-                    <dt>RGB-Tupel</dt>
-                    <dd>
-                        <ul>
-                            <li><code>rgb(255, 255, 0)</code></li>
-                            <li><code>rgb(173, 216, 230)</code></li>
-                        </ul>
-                    </dd>
+                            <dt>Hexadezimalcode</dt>
+                            <dd>
+                                <ul>
+                                    <li><code>#FF0000</code></li>
+                                    <li><code>#FFFF00</code></li>
+                                    <li><code>#ADD8E6</code></li>
+                                </ul>
+                            <dt>RGB-Tupel</dt>
+                            <dd>
+                                <ul>
+                                    <li><code>rgb(255, 255, 0)</code></li>
+                                    <li><code>rgb(173, 216, 230)</code></li>
+                                </ul>
+                            </dd>
 
-                    <dt>RGBA-Tupel</dt>
-                    <dd>
-                        <ul>
-                            <li><code>rgba(100, 100, 100, 0.75)</code></li>
-                            <li><code>rgba(173, 216, 230, 0.85)</code></li>
-                        </ul>
-                    </dd>
-                </dl>
+                            <dt>RGBA-Tupel</dt>
+                            <dd>
+                                <ul>
+                                    <li><code>rgba(100, 100, 100, 0.75)</code></li>
+                                    <li><code>rgba(173, 216, 230, 0.85)</code></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
             </article>
             <aside>
                 <p>
