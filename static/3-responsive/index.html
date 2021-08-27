@@ -286,6 +286,18 @@
             </article>
         </section>
 
+        <!--
+        <section>
+            <h1>Geräteneutrale Gestaltung früher und heute</h1>
+            <article>
+                ... TODO ...
+            </article>
+            <aside>
+                ... TODO ...
+            </aside>
+        </section>
+        -->
+
         <section>
             <h1>Die Entwicklungswerkzeuge des Browsers</h1>
             <article>
@@ -874,63 +886,6 @@
         </section>
 
         <section>
-            <h1>Vorgehen bei der Entwicklung</h1>
-            <article>
-                <lsx-youtube video="B-FGa6XzKc8"></lsx-youtube>
-                <lsx-info-box>
-                    Das Video zeigt, wie eine einfache Webanwendung nach dem Mobile-First-Prinzip entwickelt
-                    wird. Dabei entsteht zunächst die Smartphone-Ansicht, die anschließend in wenigen Schritten
-                    zur Desktop-Ansicht ausgebaut wird.
-                </lsx-info-box>
-            </article>
-            <aside>
-                <p>
-                    Die Gestaltung einer Webseite oder Webanwendung wirklich konsequent nach dem Mobile-First-Prinzip
-                    zu realisieren, erfordert einiges an Erfahung und auch viel Disziplin. Zu groß ist doch die
-                    Verlockung, erst das Desktop-Layout zu gestalten, wenn man doch ohnehin beim Programmieren
-                    an einem großen Bildschirm sitzt. Richtig umgesetzt, ist natürlich auch dies kein Problem.
-                    Man rennt jedoch viel eher in schwer lösbare Probleme, wenn sich ein liebevoll optimiertes
-                    Layout nur mit großen Verrenkungen auch kleine Bildschirme runterbrechen lässt. Gängige Praxis
-                    ist inzwischen daher folgendes, vollkommen gegensätzliches Vorgehen:
-                </p>
-                <ol>
-                    <li>
-                        Nutzung des Responsive-Design-Mode des Browsers, um erst das Smartphone-Layout zu erstellen.
-                    </li>
-                    <li>
-                        Dabei auf eine auch auf kleinen Bildschirmen gut lesbare Schriftgröße wie zum Beispiel <code>11pt</code>
-                        achten.
-                    </li>
-                    <li>
-                        Möglichst wenig dekorative Elemente verwenden und seltener benötigte Inhalte hinter einem
-                        Hamburger-Menü verstecken.
-                    </li>
-                    <li>
-                        Das Hambuger-Menü im einfachsten Fall als bildschirmfüllend oder als Seitenmenü analog
-                        Android gestalten.
-                    </li>
-                    <li>
-                        Alle anderen Elemente möglichst einfach als maximal breite Blockelemente untereinander platzieren.
-                    </li>
-                    <li>
-                        Erst danach schrittweise die betrachtete Bildschirmgröße erhöhen und das Layout mit Media
-                        Queries entsprechend justieren, beispielsweise indem immer mehr Elemente nebeneinander
-                        platziert und die Schriftgröße vergrößert werden.
-                    </li>
-                    <li>
-                        Testes, testen, testen! Und zwar mit unterschiedlichen Browsern in unterschiedlichen Versionen
-                        auf unterschiedlichen Endgeräten. Je mehr, desto besser.
-                    </li>
-                </ol>
-                <p>
-                    Ein leicht nachvollziehbares Beispiel, wie dieses Vorgehen von der ersten Idee bis zur fertigen App
-                    umgesetzt werden kann, zeigt das Video anhand eines selbst-entwickelten Media Players. <b>Nimm dir
-                    die Zeit. Es lohnt sich!</b>
-                </p>
-            </aside>
-        </section>
-
-        <section>
             <h1>Mehr über Media Queries</h1>
             <article>
                 <p>
@@ -1304,6 +1259,63 @@
                     In den Folien ist darüber hinaus noch eine Variante dargestellt, bei der
                     mit <code>@import</code> geräteabhängig weitere Stylesheets importiert
                     werden können.
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Vorgehen bei der Entwicklung</h1>
+            <article>
+                <lsx-youtube video="B-FGa6XzKc8"></lsx-youtube>
+                <lsx-info-box>
+                    Das Video zeigt, wie eine einfache Webanwendung nach dem Mobile-First-Prinzip entwickelt
+                    wird. Dabei entsteht zunächst die Smartphone-Ansicht, die anschließend in wenigen Schritten
+                    zur Desktop-Ansicht ausgebaut wird.
+                </lsx-info-box>
+            </article>
+            <aside>
+                <p>
+                    Die Gestaltung einer Webseite oder Webanwendung wirklich konsequent nach dem Mobile-First-Prinzip
+                    zu realisieren, erfordert einiges an Erfahung und auch viel Disziplin. Zu groß ist doch die
+                    Verlockung, erst das Desktop-Layout zu gestalten, wenn man doch ohnehin beim Programmieren
+                    an einem großen Bildschirm sitzt. Richtig umgesetzt, ist natürlich auch dies kein Problem.
+                    Man rennt jedoch viel eher in schwer lösbare Probleme, wenn sich ein liebevoll optimiertes
+                    Layout nur mit großen Verrenkungen auch kleine Bildschirme runterbrechen lässt. Gängige Praxis
+                    ist inzwischen daher folgendes, vollkommen gegensätzliches Vorgehen:
+                </p>
+                <ol>
+                    <li>
+                        Nutzung des Responsive-Design-Mode des Browsers, um erst das Smartphone-Layout zu erstellen.
+                    </li>
+                    <li>
+                        Dabei auf eine auch auf kleinen Bildschirmen gut lesbare Schriftgröße wie zum Beispiel <code>11pt</code>
+                        achten.
+                    </li>
+                    <li>
+                        Möglichst wenig dekorative Elemente verwenden und seltener benötigte Inhalte hinter einem
+                        Hamburger-Menü verstecken.
+                    </li>
+                    <li>
+                        Das Hambuger-Menü im einfachsten Fall als bildschirmfüllend oder als Seitenmenü analog
+                        Android gestalten.
+                    </li>
+                    <li>
+                        Alle anderen Elemente möglichst einfach als maximal breite Blockelemente untereinander platzieren.
+                    </li>
+                    <li>
+                        Erst danach schrittweise die betrachtete Bildschirmgröße erhöhen und das Layout mit Media
+                        Queries entsprechend justieren, beispielsweise indem immer mehr Elemente nebeneinander
+                        platziert und die Schriftgröße vergrößert werden.
+                    </li>
+                    <li>
+                        Testes, testen, testen! Und zwar mit unterschiedlichen Browsern in unterschiedlichen Versionen
+                        auf unterschiedlichen Endgeräten. Je mehr, desto besser.
+                    </li>
+                </ol>
+                <p>
+                    Ein leicht nachvollziehbares Beispiel, wie dieses Vorgehen von der ersten Idee bis zur fertigen App
+                    umgesetzt werden kann, zeigt das Video anhand eines selbst-entwickelten Media Players. <b>Nimm dir
+                    die Zeit. Es lohnt sich!</b>
                 </p>
             </aside>
         </section>
