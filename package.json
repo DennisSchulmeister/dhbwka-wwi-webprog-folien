@@ -43,7 +43,7 @@
         "html-loader": "^0.5.1",
         "http-server": "^0.12.3",
         "lecture-slides.js": "^1.5.2",
-        "less": "^3.12.2",
+        "less": "^3.13.1",
         "less-loader": "^4.0.5",
         "ls-plugin-extra-tags": "^1.4.2",
         "ls-plugin-highlight.js": "^1.0.1",
@@ -55,8 +55,8 @@
         "uglifyjs-webpack-plugin": "^2.2.0",
         "url-loader": "^1.1.2",
         "watch-run": "^1.2.5",
-        "webpack": "^4.44.1",
+        "webpack": "^4.46.0",
         "webpack-cli": "^3.3.12",
-        "webpack-dev-server": "^3.11.0"
+        "webpack-dev-server": "^3.11.2"
     }
 }
