@@ -140,63 +140,66 @@
             </article>
             <aside>
                 <p>
-                    Das Internet und das World Wide Web begleiten uns heute überall. Was noch vor
-                    ein paar Jahrzehnten visionäre Wunschvorstellung war, ist heute längst Realität:
-                    Mit unseren Smartphones sind wir immer und überall online und auch zuhause oder
-                    bei der Arbeit nutzen wir Tablets, Laptops, Desktop-Computer oder Smart TVs mit
-                    permanenter Internetanbindung. Längst vorbei sind die Zeiten, in denen es nur
-                    einen Computer je Haushalt gab und dieser meist für nur wenige Minuten am Tag
-                    per teurer Einwahlverbindung mit dem Internet¹ verbunden war.
+                    Das Internet und das World Wide Web begleiten uns heute überall. Was füher noch
+                    visionäre Wunschvorstellung war, ist inzwischen längst Realität: Mit dem Smartphone
+                    sind wir immer und überall online. Egal ob zuhause, bei der Arbeit oder unterwegs.
+                    Smartphones, Tablets, Desktop-Computer und selbst Fernseher sind dauerhaft mit dem
+                    Internet verbunden, so dass wir uns ein Leben wie früher gar nicht mehr vorstellen
+                    können. Früher, als es höchstens einen Computer je Haushalt gab und dieser (wenn
+                    überhaupt) nur für wenige Minuten am Tag per teurer Einwahlverbindung mit dem
+                    Internet verbunden war.¹
                 </p>
                 <p>
                     Dementsprechend hat sich auch unsere Erwartungshaltung an das World Wide Web
-                    geändert. War es früher noch üblich, eine Webseite wenn überhaupt nur für eine
+                    geändert. War es früher noch üblich, eine Webseite für eine genau definierte
                     Bildschirmauflösung zu optimieren (meistens 1024✕768) und dabei pixelgenaue
-                    Größenangaben zu verwenden, funktioniert dies spätestens seit Erfindung der
-                    Smartphones heute nicht mehr. Zwar war es nach dem Jahr 2007, als Apple das erste
-                    iPhone vorstellte, noch lange üblich, getrennte Versionen einer Seite für mobile
-                    und stationäre Endgeräte zu entwickeln. Die einseitige Fokusierung der
-                    Webentwickler*innen auf die begrenzte Auflösung des iPhones von 480✕320 Pixeln
-                    führte jedoch schnell zu Problemen, als rund um Android ein immer größer werdener
-                    Zoo an Endgeräten auf den Markt kam.
+                    Größenangaben zu verwenden, funktioniert dies spätestens seit Erfindung des
+                    Smartphones nicht mehr. Zwar war es bis weit in die 2000er-Jahre noch üblich,
+                    getrennte Seiten für mobile und stationäre Endgeräte zu entwerfen. Die einseitige
+                    Fokusierung das iPhone (erschienen 2007) führte jedoch schnell zu Problemen,
+                    als rund um Android ein immer größerer Gerätezoo auf den Markt kam. 🐘
+                    Für das iPhone optimierte Webseiten sahen auf anderen Geräten meist viel zu klein
+                    oder viel zu groß aus, da keine zwei Geräte dieselbe Bildschirmauflösung besaßen.
                 </p>
                 <p>
-                    Für das iPhone optimierte Webseiten sahen je nach Auflösung auf anderen Geräten daher
-                    entweder viel zu klein oder viel zu groß aus. Dies wiederum führte zu einer Redefinition
-                    der Maßeinheit <code>px</code>, mit der bisher pixelgenaue Größen definiert wurden, um
-                    die einmal für iPhone entwickelten Seiten auch auf anderen Geräten gut aussehen zu lassen.
-                    Da aber jeder Browser eine andere virtuelle Bildschirmauflösung (und damit Pixeldichte)
-                    meldet, ging dieser Versuch gründlich daneben und führte im besten Fall nur dazu, dass
-                    Pixelangaben damals wie heute für alle Geräteklassen schwer zu handhaben sind.
+                    Die Maßeinheit <code>px</code> wurde daraufhin so abgewandelt, dass seitdem nicht
+                    mehr physische Pixel sondern <b>CSS-Pixel</b> genannte Vielfache von 1/96tel-Zoll
+                    damit beschrieben werden. Was anfangs wie eine gute Idee klingt (immerhin werden die
+                    Layouts dadurch auf allen Geräten gleich groß dargestellt), löst leider das zugrunde
+                    liegende Problem nicht. Denn auch die Bildschirmform, oder genauer gesagt das
+                    Seitenverhältnis aus Displaybreite und Höhe, unterscheidet sich von Gerät zu Gerät,
+                    wodurch Layouts mit festen Größenangaben oft zu schmal oder zu breit erscheinen.
+                    Wenig später sollte das Problem deshalb richtig gelöst werden, als im Jahr 2012
+                    <b>Media Queries</b> spezifiziert wurden. Seither ist es möglich, die Eigenschaften
+                    des verwendeten Ausgabegeräts abzufragen, um das Layout an dessen Gegebenheiten
+                    anzupassen. <b>Responsive Webdesign</b> lautet das Zauberwort, da Webseiten und
+                    Anwendungen seitdem so gestaltet werden, dass sie sich an jeden Bildschirm anpassen,
+                    selbst wenn sich die Parameter zur Laufzeit ändern (beispielsweise wenn ein Smartphone
+                    vom Hoch- ins Querformat wechselt).
                 </p>
                 <p>
-                    Wenig später sollte das Problem dann aber ohnehin richtig gelöst werden, als im Jahr
-                    2012 Media Queries in die CSS-Spezifikation aufgenommen wurden. Seither ist es möglich,
-                    die Eigenschaften des verwendeten Ausgabegeräts in HTML und CSS abzufragen, so dass
-                    sich ein und dieselbe Webseite automatisch an dessen Gegebenheiten anpassen kann.
-                    Responsive Webdesign lautet das Zauberwort, da Webseiten und Anwendungen von nun an
-                    so gestaltet werden sollten, dass sie auf jede Umgebung dynamisch reagieren, selbst
-                    wenn sich diese während der Anzeige ändert (beispielsweise wenn sich die Größe
-                    des Browserfensters ändert, oder ein Smartphone vom Hoch- ins Querformat wechselt).
-                </p>
-                <p>
-                    Konsequent zu Ende gedacht, mündet dies in einem Mobile First genannten Entwicklungsansatz,
-                    bei dem eine Webseite immer vom kleinsten Bildschirm ausgehend entworfen und dann
-                    durch kleine Fallunterscheidungen für immer größere Bildschirme adaptiert wird. Denn diese
-                    Richtung ist in der Regel wesentlich einfacher, als umgekehrt. Außerdem wird dadurch
-                    auch einem veränderten Nutzungsverhalten Rechnung getragen: Anstatt erst umständlich den
-                    Computer einzuschalten, um etwas im Internet zu suchen, greifen viele Anwender*innen heute
-                    immer öfter zum Smartphone oder Tablet und Erkunden das Web damit jederzeit auch unterwegs.
-                    Resposnive Webdesign und Mobile First sind deshalb längst nicht mehr nice-to-have, sondern
-                    entscheiden ganz direkt, ob eine Webseite überhaupt besucht wird oder eben nicht.
+                    Responsive Webdesign bedeutet allerdings nur, dass sich das Layout einer Seite dynamisch
+                    an die Eigenschaften des Ausgabegeräte anpasst und somit für alle Bildschirmtypen
+                    gut funktioniert. Die Erfahrung zeigt jedoch, dass dies nicht für jedes Layout einfach
+                    umsetzbar ist. Insbesondere komplexe Designs lassen sich nachträglich nur schwer auf
+                    kleine Bildschirme herunterbrechen. <b>Mobile First</b> ist daher eine Entwicklungsmethode,
+                    bei der zunächst eine möglichst einfache Darstellung für mobile Endgeräte entworfen und
+                    diese durch zusätzliche Fallunterscheidungen an immer größere Bildschirme adaptiert wird.
+                    Der Quellcode wird dadurch automatisch einfacher strukturiert und leichter zu verstehen,
+                    während gleichzeitig einem veränderten Nutzungsverhalten Rechnung getragen wird: Anstatt
+                    umständlich erst den Computer einzuschalten nehmen wir immer öfters nur Smartphone oder
+                    Tablet zur Hand, um etwas nachzuschlagen. Responsive Webdesign und Mobile First entscheiden
+                    somit ganz direkt, ob eine Webseite überhaupt besucht wird oder eben nicht.
                 </p>
                 <p>
                     ¹
                     <small>
                         Vor der breiten Verfügbarkeit von Internetzugängen war auch die Einwahl in so genannte
                         <a href="https://de.wikipedia.org/wiki/Mailbox_(Computer)" target="_blank">Mailboxen</a>
-                        (englisch „Bulletin Board System” bzw. BBS) üblich.
+                        (englisch „Bulletin Board System” bzw. BBS) üblich. Und welcher computerbegeisterte Teenager
+                        bekam damals keinen Ärger, wenn am Monatsende die Telefonrechnung kam?
                     </small>
+                    💸
                 </p>
             </aside>
         </section>
@@ -242,18 +245,19 @@
                     zu kaufen: Eine gute Lage ist eine gute Lage ist eine gute Lage. 🏡 Doch was
                     bedeutet das überhaupt und woher soll man wissen, wie die Elemente anzuordnen
                     sind, wenn doch jedes Endgerät völlig andere Eigenheiten aufweist? Wäre es da
-                    nicht doch einfacher, so wie früher wieder getrennte Webseiten für unterschiedliche
-                    Ausgabgegeräte zu erstellen? Mitnichten, wie wir im heutigen Kapitel sehen werden!
-                    Ein paar wenige Handgriffe und durchdachtes Vorgehen reichen schon aus. Schon
-                    funktioniert eine Webseite vom kleinen Smartphone bis zum großen Smart TV.
+                    nicht einfacher, so wie früher getrennte Webseiten für unterschiedliche Geräte
+                    zu erstellen? Mitnichten, wie wir im heutigen Kapitel sehen werden! Ein paar
+                    Handgriffe und durchdachtes Vorgehen reichen schon aus und schon funktioniert
+                    ein Layout vom kleinen Smartphone bis zum großen Smart TV.
                 </p>
                 <p>
-                    Als erstes schauen wir uns daher die <b>Entwicklungswerkzeuge</b> des Browsers
+                    Als erstes schauen wir uns die <b>Entwicklungswerkzeuge</b> des Browsers
                     und hier vor allem den <b>Responsive-Design-Mode</b> an, mit dem ein Layout
                     bereits während der Entwicklung auf unterschiedlichen Geräteklassen getestet
-                    werden kann. Anschließend betrachten wir zwei Fallbeispiele, die ganz anschaulich
-                    zeigen, was passiert, wenn eine Webseite nur für Desktop-Computer optimiert wird
-                    und wie man es mit dem <b>Mobile-First</b>-Ansatz richtig macht.
+                    werden kann. Anschließend betrachten wir verschiedene Fallbeispiele, die
+                    anschaulich zeigen, was passiert, wenn eine Webseite gar nicht oder nur
+                    teilweise für mobile Endgeräte optimiert wird und wie man es mit <b>Mobile-First</b>
+                    richtig macht.
                 </p>
                 <p>
                     Auf der technischen Seite werden hierfür <b>Media Queries</b> benötigt, da damit
@@ -395,6 +399,11 @@
                 </lsx-carousel>
             </article>
             <aside>
+                <lsx-youtube video="R_2MxFEVz90"></lsx-youtube>
+                <lsx-info-box>
+                    Das Video vemittelt praktische Tipps zur Nutzung der Entwicklungswerkzeuge des Browsers.
+                </lsx-info-box>
+
                 <p>
                     Mit dem Hammer in der Hand sieht alles aus wie ein Nagel. 🔨 Das hast du sicher
                     schon mal gehört. Bei den Entwicklerwerkzeugen des Browsers ist das jedoch etwas
@@ -562,6 +571,12 @@
                     Auflösungen durchprobieren. Denn auch heute kann es sonst passieren, dass deine
                     Seite bei bestimmten Auflösungen super aussieht und bei anderen nicht.
                 </p>
+
+                <lsx-youtube video="S6BUceg7UZo"></lsx-youtube>
+                <lsx-info-box>
+                    Das Video zeigt, wie unterschiedliche Bildschirmgrößen und Netzgeschwindigkeiten
+                    im Responsive-Design-Modus simuliert werden können.
+                </lsx-info-box>
             </aside>
         </section>
 
