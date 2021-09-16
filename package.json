@@ -26,7 +26,8 @@
         "build": "npm run build:static; npm run build:webpack",
         "watch": "npm run build:static; watch-run -p 'static/**' npm run build:static",
         "devserver": "npm run watch & webpack-dev-server --content-base build/ --mode development",
-        "staticserver": "npm run build; http-server ./build"
+        "staticserver": "npm run build; http-server ./build",
+        "publish": "scripts/publish.sh"
     },
     "config": {
         "src_dir": "src",
