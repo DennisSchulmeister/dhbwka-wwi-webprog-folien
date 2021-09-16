@@ -8,6 +8,69 @@
         <link rel="shortcut icon" href="../favicon.svg" />
         <link rel="stylesheet" href="../style.css" />
         <script src="../learning-slides.bundle.js"></script>
+
+        <style>
+            .my-responsive-preview {
+                margin-bottom: 1em;
+            }
+
+            .my-responsive-preview .my-rp-background {
+                width: 100%;
+                padding-bottom: 55%;
+
+                background-size: cover;
+                background-position: center;
+
+                position: relative;
+            }
+
+            .my-responsive-preview .my-rp-content {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .my-responsive-preview iframe {
+                background-color: white;
+                border: none;
+                box-shadow: 0px 0px 4px rgba(0,0,0, 0.5);
+            }
+
+            .my-responsive-preview .my-rp-size-screen {
+                width: 95%;
+                height: 92%;
+            }
+
+            .my-responsive-preview .my-rp-size-tablet {
+                width: 85%;
+                height: 80%;
+            }
+
+            .my-responsive-preview .my-rp-size-phone {
+                width: 35%;
+                height: 90%;
+            }
+        </style>
+
+        <script>
+            function change_example(event) {
+                let label  = event.target.textContent;
+                let src    = event.target.dataset.src;
+                let target = event.target.dataset.target;
+                let parent = event.target.dataset.parent;
+
+                document.querySelector(`#${parent}`).textContent = label;
+                document.querySelector(`#${target} .my-rp-size-screen`).src = `${src}?screen`;
+                document.querySelector(`#${target} .my-rp-size-tablet`).src = `${src}?tablet`;
+                document.querySelector(`#${target} .my-rp-size-phone`).src = `${src}?phone`;
+            }
+        </script>
     </head>
     <body class="slides invisible" data-title="Responsive Webdesign" tabindex="0">
         <header>
@@ -40,51 +103,10 @@
             <h1>Mobile Webseiten früher und heute</h1>
             <article>
                 <style>
-                    #intro-beispiel .hintergrundbild {
-                        width: 100%;
-                        padding-bottom: 55%;
-
+                    #intro-beispiel .my-rp-background {
                         background-image: url(intro-bg.jpg);
-                        background-size: cover;
-                        background-position: center;
-
-                        position: relative;
-                    }
-
-                    #intro-beispiel .inhalt {
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-                        right: 0;
-
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
-
-                    #intro-beispiel iframe {
-                        background-color: white;
-                        border: none;
-                        box-shadow: 0px 0px 4px rgba(0,0,0, 0.5);
-                    }
-
-                    #intro-beispiel .intro-size-screen {
-                        width: 95%;
-                        height: 92%;
-                    }
-
-                    #intro-beispiel .intro-size-tablet {
-                        width: 85%;
-                        height: 80%;
-                    }
-
-                    #intro-beispiel .intro-size-phone {
-                        width: 35%;
-                        height: 90%;
                     }
                 </style>
-
 
                 <lsx-ul emoji="📱">
                     <li>
@@ -98,27 +120,27 @@
                     </li>
                 </lsx-ul>
 
-                <lsx-tab-pages id="intro-beispiel">
+                <lsx-tab-pages id="intro-beispiel" class="my-responsive-preview">
                     <lsx-tab-page title="Smartphone">
-                        <div class="hintergrundbild">
-                            <div class="inhalt">
-                                <iframe class="intro-size-phone" src="intro/index.html?phone"></iframe>
+                        <div class="my-rp-background">
+                            <div class="my-rp-content">
+                                <iframe class="my-rp-size-phone" src="intro/index.html?phone"></iframe>
                             </div>
                         </div>
                     </lsx-tab-page>
 
                     <lsx-tab-page title="Tablet">
-                        <div class="hintergrundbild">
-                            <div class="inhalt">
-                                <iframe class="intro-size-tablet" src="intro/index.html?tablet"></iframe>
+                        <div class="my-rp-background">
+                            <div class="my-rp-content">
+                                <iframe class="my-rp-size-tablet" src="intro/index.html?tablet"></iframe>
                             </div>
                         </div>
                     </lsx-tab-page>
 
                     <lsx-tab-page title="Großer Bildschirm">
-                        <div class="hintergrundbild">
-                            <div class="inhalt">
-                                <iframe class="intro-size-screen" src="intro/index.html?screen"></iframe>
+                        <div class="my-rp-background">
+                            <div class="my-rp-content">
+                                <iframe class="my-rp-size-screen" src="intro/index.html?screen"></iframe>
                             </div>
                         </div>
                     </lsx-tab-page>
@@ -156,7 +178,7 @@
                     Größenangaben zu verwenden, funktioniert dies spätestens seit Erfindung des
                     Smartphones nicht mehr. Zwar war es bis weit in die 2000er-Jahre noch üblich,
                     getrennte Seiten für mobile und stationäre Endgeräte zu entwerfen. Die einseitige
-                    Fokusierung das iPhone (erschienen 2007) führte jedoch schnell zu Problemen,
+                    Fokusierung auf das iPhone (erschienen 2007) führte jedoch schnell zu Problemen,
                     als rund um Android ein immer größerer Gerätezoo auf den Markt kam. 🐘
                     Für das iPhone optimierte Webseiten sahen auf anderen Geräten meist viel zu klein
                     oder viel zu groß aus, da keine zwei Geräte dieselbe Bildschirmauflösung besaßen.
@@ -166,25 +188,24 @@
                     mehr physische Pixel sondern <b>CSS-Pixel</b> genannte Vielfache von 1/96tel-Zoll
                     damit beschrieben werden. Was anfangs wie eine gute Idee klingt (immerhin werden die
                     Layouts dadurch auf allen Geräten gleich groß dargestellt), löst leider das zugrunde
-                    liegende Problem nicht. Denn auch die Bildschirmform, oder genauer gesagt das
-                    Seitenverhältnis aus Displaybreite und Höhe, unterscheidet sich von Gerät zu Gerät,
-                    wodurch Layouts mit festen Größenangaben oft zu schmal oder zu breit erscheinen.
-                    Wenig später sollte das Problem deshalb richtig gelöst werden, als im Jahr 2012
-                    <b>Media Queries</b> spezifiziert wurden. Seither ist es möglich, die Eigenschaften
-                    des verwendeten Ausgabegeräts abzufragen, um das Layout an dessen Gegebenheiten
-                    anzupassen. <b>Responsive Webdesign</b> lautet das Zauberwort, da Webseiten und
-                    Anwendungen seitdem so gestaltet werden, dass sie sich an jeden Bildschirm anpassen,
-                    selbst wenn sich die Parameter zur Laufzeit ändern (beispielsweise wenn ein Smartphone
-                    vom Hoch- ins Querformat wechselt).
+                    liegende Problem nicht. Denn auch die Bildschirmform oder genauer gesagt Größe und
+                    Seitenverhältnis unterscheiden sich von Gerät zu Gerät, wodurch Layouts mit festen
+                    Größenangaben oft zu schmal oder zu breit erscheinen. Wenig später sollte das Problem
+                    deshalb richtig gelöst werden, als im Jahr 2012 <b>Media Queries</b> spezifiziert
+                    wurden. Seither ist es möglich, die Eigenschaften des verwendeten Ausgabegeräts
+                    abzufragen, um das Layout an dessen Gegebenheiten anzupassen. <b>Responsive Webdesign</b>
+                    lautet das Zauberwort, da Webseiten und Anwendungen seitdem so gestaltet werden, dass
+                    sie sich an jeden Bildschirm anpassen, selbst wenn sich die Parameter zur Laufzeit ändern
+                    (beispielsweise wenn ein Smartphone vom Hoch- ins Querformat wechselt).
                 </p>
                 <p>
                     Responsive Webdesign bedeutet allerdings nur, dass sich das Layout einer Seite dynamisch
-                    an die Eigenschaften des Ausgabegeräte anpasst und somit für alle Bildschirmtypen
+                    an die Eigenschaften des Ausgabegeräts anpasst und somit für alle Bildschirmtypen
                     gut funktioniert. Die Erfahrung zeigt jedoch, dass dies nicht für jedes Layout einfach
                     umsetzbar ist. Insbesondere komplexe Designs lassen sich nachträglich nur schwer auf
                     kleine Bildschirme herunterbrechen. <b>Mobile First</b> ist daher eine Entwicklungsmethode,
                     bei der zunächst eine möglichst einfache Darstellung für mobile Endgeräte entworfen und
-                    diese durch zusätzliche Fallunterscheidungen an immer größere Bildschirme adaptiert wird.
+                    diese durch zusätzliche Fallunterscheidungen für immer größere Bildschirme adaptiert wird.
                     Der Quellcode wird dadurch automatisch einfacher strukturiert und leichter zu verstehen,
                     während gleichzeitig einem veränderten Nutzungsverhalten Rechnung getragen wird: Anstatt
                     umständlich erst den Computer einzuschalten nehmen wir immer öfters nur Smartphone oder
@@ -290,617 +311,418 @@
             </article>
         </section>
 
-        <!--
         <section>
-            <h1>Geräteneutrale Gestaltung früher und heute</h1>
+            <h1>Nutzung der Browser-Werkzeuge</h1>
             <article>
-                ... TODO ...
-            </article>
-            <aside>
-                ... TODO ...
-            </aside>
-        </section>
-        -->
-
-        <section>
-            <h1>Die Entwicklungswerkzeuge des Browsers</h1>
-            <article>
-                <lsx-carousel>
-                    <lsx-carousel-page>
-                        <p>
-                            Man nehme eine beliebige Webseite (hier im Firefox) und drücke <kbd>F12</kbd>.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_01.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Schon öffnen sich unten die Entwicklerwerkzeuge.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_02.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Viele mächtige Werkzeuge verstecken sich hier. Allen voran die Quellcodeansicht …
-                        </p>
-                        <img class="active d-block w-100" src="devtools_03.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            … oder die Konsole …
-                        </p>
-                        <img class="active d-block w-100" src="devtools_04.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            … oder der JavaScript-Debugger …
-                        </p>
-                        <img class="active d-block w-100" src="devtools_05.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            … oder die Netzwerkanalyse.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_06.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Doch nun zurück zum Quellcode. Hier sehen wir, welches HTML und CSS gerade angezeigt wird.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_07.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Um dich über ein Element zu informieren, musst du es nur im Quellcode anklicken.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_08.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Oder du schaltest die Funktion „Element auf Seite auswählen” ein …
-                        </p>
-                        <img class="active d-block w-100" src="devtools_09.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            … und fährst dann mit der Maus drüber.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_10.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Rechts unten siehst du die CSS-Anweisungen des ausgewählten Elements.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_11.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Jede Änderung am CSS wird sofort aktiv.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_12.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Mit einem Rechtsklick kannst du aber auch die HTML-Struktur ändern.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_13.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Und auch diese Änderung wird sofort aktiv.
-                        </p>
-                        <img class="active d-block w-100" src="devtools_14.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Auf diese Weise kannst du ganz leicht Dinge ausprobieren, ohne den Browser zu verlassen.
-                        </p>
-                        <img class="active d-block w-25 m-auto" src="../finish.svg" />
-                    </lsx-carousel-page>
-                </lsx-carousel>
-            </article>
-            <aside>
-                <lsx-youtube video="R_2MxFEVz90"></lsx-youtube>
-                <lsx-info-box>
-                    Das Video vemittelt praktische Tipps zur Nutzung der Entwicklungswerkzeuge des Browsers.
-                </lsx-info-box>
-
-                <p>
-                    Mit dem Hammer in der Hand sieht alles aus wie ein Nagel. 🔨 Das hast du sicher
-                    schon mal gehört. Bei den Entwicklerwerkzeugen des Browsers ist das jedoch etwas
-                    anderes. Denn dabei handelt es sich eher um <a href="https://www.amazon.de/Wenger-Schweizer-Offiziersmesser-Messer-Schatulle/dp/B000R0JDSI"
-                    target="_blank" title="unbedingt auch die Bewertungen lesen">das ultimative Schweizer
-                    Taschenmesser</a>, dessen Funktionen du unbedingt kennen solltest. Der Aufruf erfolgt
-                    bei den meisten Browsern mit der <kbd>F12</kbd>-Taste, woraufhin sich in der Regel
-                    ein Panel mit unterschiedlichen Tabreitern öffnet.
-                </p>
-                <p>
-                    In den Screenshots auf der Folie siehst du die Entwicklerwerkzeuge von Firefox.
-                    Im Chrome, Internet Explorer und Edge sehen sie fast gleich aus, jedoch haben
-                    manche Werkzeuge andere Namen und der ein oder andere Button befindet sich an
-                    einer anderen Stelle. Davon abgesehen wirst du dich aber auch dort schnell
-                    zurechtfinden. Natürlich können wir hier nicht auf jeden einzelnen Reiter im
-                    Detail eingehen, zumal es auch noch ein paar versteckte Reiter gibt, die erst in
-                    den Einstellungen aktiviert werden wollen. Vier wesentliche Reiter werden uns
-                    von nun an aber immer wieder begleiten:
+                <p class="mb-4">
+                    Moderne Browser beinhalten eine Vielzahl von Werkzeugen, um vorhandene
+                    Webseiten zu analysieren, die Gestaltung eigener Seiten zu vereinfachen
+                    und Fehler zu analysieren. Diese Seite zeigt, wie sie genutzt werden.
                 </p>
 
-                <h2>Quellcodeansicht</h2>
-                <p>
-                    <b>
-                        („Inspector” im Firefox, „Elements” in Chrome)
-                    </b>
-                </p>
-                <p>
-                    Hinter dieser Ansicht verbirgt sich ein wahres Multitalent. Hier siehst
-                    du nicht einfach nur den HTML-Quellcode deiner Seite. Du siehst das
-                    Document Object Model, so wie es tatsächlich im Speicher des Browsers
-                    vorliegt. Und das in Quellcode-Form. Klingt unspektakulär? Spätestens,
-                    wenn wir mit JavaScript anfangen, wird das noch sehr nützlich sein,
-                    da wir an dieser Stelle nicht den Quellcode sehen, so wie er in der
-                    HTML-Datei steht, sondern so wie er nach allen Änderungen durch
-                    JavaScript tatsächlich dargestellt wird.
-                </p>
-                <p>
-                    Sehr praktisch ist dabei auch, dass dir zu jedem HTML-Element verschiedene
-                    Informationen angezeigt werden, wenn du es im Quellcode anklickst oder
-                    mit der Funktion „Element auf Seite wählen” (im Firefox links oben)
-                    mit der Maus drüber fährst. Dadurch wird das Element farbig hervorgehoben
-                    und es werden folgende Dinge angezeigt:
-                </p>
-                <ul>
-                    <li>
-                        Ober- oder Unterhalb des Elements stehen seine Art und Größe in Pixeln.
-                    </li>
-                    <li>
-                        Hilfslinien helfen dir, die Anordnung des Elements zu überprüfen.
-                    </li>
-                    <li>
-                        Rechts vom Quellcode werden die CSS-Eigenschaften des Elements angezeigt.
-                    </li>
-                </ul>
-                <p>
-                    Das Schöne an der Sache ist, dass du auch direkt Änderungen vornehmen kannst.
-                    Du kannst also ohne den Browser zu verlassen verschiedene HTML-Elemente und
-                    CSS-Eigenschaften ausprobieren, so lange bis dir die Darstellung gefällt.
-                    Hierfür kannst du neue Anweisungen einbauen oder bereits vorhandene Anweisungen
-                    mit einem Klick deaktivieren. Wenn dir das Ergebnis gefällt, weißt du dann gleich,
-                    was du im Quellcode ändern musst.
-                </p>
+                <h3 class="dhbw-lightblue mb-3">Kurzversion für Eilige</h3>
 
-                <h2>Konsole</h2>
-                <p>
-                    Diese schauen wir uns bei JavaScript nochmal näher an. Unter anderem siehst du
-                    hier Warnungen und Fehlermeldungen und kannst einzelne JavaScript-Befehle
-                    ausführen.
-                </p>
+                <lsx-accordion>
+                    <lsx-accordion-page title="Entwicklungswerkzeuge">
+                        <lsx-carousel>
+                            <lsx-carousel-page>
+                                <p>
+                                    Die wichtigste Taste für Webentwickler ist <kbd>F12</kbd>.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_01.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Denn sie öffnet in den meisten Browsern die Entwicklerwerkzeuge.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_02.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Hier finden wir unter anderem den DOM-Inspektor (in Chrome „Elemente” genannt), …
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_03.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    … die JavaScript-Konsole …
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_04.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    … einen Debugger …
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_05.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    … oder die Netzwerkanalyse.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_06.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Im DOM-Inspekter wird die HTML-Struktur der Seite (das Document Object Model) dargestellt.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_07.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Um sich über ein Element zu informieren, kann es im Quellcode einfach angeklickt werden.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_08.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Oder man schaltet die Funktion „Element auf Seite auswählen” ein …
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_09.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    … und fährt dann mit der Maus darüber.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_10.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Rechts unten werden die CSS-Eigenschaften des ausgewählten Elements angezeigt.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_11.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Jede Änderung wird sofort aktiv.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_12.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Es kann aber auch die HTML-Struktur verändert werden.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_13.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Auch diese Änderungen werden sofort aktiv.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="devtools_14.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Man kann somit ganz leicht Dinge ausprobieren, ohne den Browser zu verlassen.
+                                </p>
+                                <img class="active d-block w-25 m-auto" src="../finish.svg" />
+                            </lsx-carousel-page>
+                        </lsx-carousel>
+                    </lsx-accordion-page>
 
-                <h2>JavaScript-Debugger</h2>
-                <p>
-                    <b>
-                        („Debugger” im Firefox, „Sources” in Chrome)
-                    </b>
-                </p>
-                <p>
-                    Der Debugger wird ebenfalls erst interessant, sobald wir mit JavaScript unsere
-                    ersten Browser Apps schreiben. Hier kannst du Breakpoints setzen und den Ablauf
-                    des JavaScript-Codes kontrollieren.
-                </p>
+                    <lsx-accordion-page title="Responsive-Design-Modus">
+                        <lsx-carousel>
+                            <lsx-carousel-page>
+                                <p>
+                                    Ein weiteres, unverzichtbares Werkzeug ist der Responsive-Design-Modus des Browsers.
+                                    Diesen erreicht man mit <kbd>Shift</kbd>+<kbd>Strg</kbd>+<kbd>M</kbd> oder über einen
+                                    Knopf in den Entwicklungswerkzeugen.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="resmode_01.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Dort kann man zum Beispiel prüfen, wie eine Seite auf dem Smartphone aussieht.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="resmode_02.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Natürlich kann die Ansicht auch im Querformat erfolgen.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="resmode_03.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Aber auch jede andere Bildschirmauflösung ist möglich.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="resmode_04.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Darüber hinaus kann eine langsame Internetverbindung simuliert werden.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="resmode_05.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Es gibt somit keinen Grund, eine Seite nicht für mobile Endgeräte zu optimieren.
+                                </p>
+                                <img class="active d-block w-25 m-auto" src="../finish.svg" />
+                            </lsx-carousel-page>
+                        </lsx-carousel>
+                    </lsx-accordion-page>
+                </lsx-accordion>
 
-                <h2>Netzwerkanalyse</h2>
-                <p>
-                    Auch auf dieses Werkzeug werden wir später nochmal zurück kommen, wenn wir uns
-                    mit dem HTTP-Protokoll näher auseinander setzen. Trotzdem kannst du es dir ja
-                    schon einmal anschauen. Hier wird die Kommunikation zwischen Browser und Server
-                    aufgezeichnet, so dass du jede Anfrage und auch jede Antwort analysieren kannst.
-                    Um das auszuprobieren, starte einfach einen leeren Tabreiter und öffne darin die
-                    Netzwerkanalyse. Anschließend gib einfach irgend eine Webadresse ein und sieh
-                    zu, was beim Laden der Seite passiert.
-                </p>
-                <p>
-                    Google Chrome (bzw. Chromium) und Firefox gehen dabei sogar noch einen Schritt
-                    weiter und protokollieren nicht nur die Ladezeiten, sondern erlauben auch die
-                    Simulation langsamer Internetverbindungen. Damit kannst du dann auch gleich
-                    die Ladezeiten 🐢 unterwegs auf hoher See 🚢 überprüfen.
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>Der Responsive-Design-Modus</h1>
-            <article>
-                <lsx-carousel>
-                    <lsx-carousel-page>
-                        <p>
-                            Ein Klick genügt und du kommst in den „Responsive-Design-Modus”.
-                        </p>
-                        <img class="active d-block w-100" src="resmode_01.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Dort kannst du zum Beispiel prüfen, wie deine Seite auf einem Smartphone aussieht.
-                        </p>
-                        <img class="active d-block w-100" src="resmode_02.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Natürlich kannst du auch ganz easy auf Querformat umschalten.
-                        </p>
-                        <img class="active d-block w-100" src="resmode_03.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Oder auf eine beliebige andere Bildschirmauflösung.
-                        </p>
-                        <img class="active d-block w-100" src="resmode_04.jpg" />
-                    </lsx-carousel-page>
-                    <lsx-carousel-page>
-                        <p>
-                            Den Responsive-Design-Modus solltest du deshalb so oft wie möglich verwenden.
-                        </p>
-                        <img class="active d-block w-25 m-auto" src="../finish.svg" />
-                    </lsx-carousel-page>
-                </lsx-carousel>
-
-                <p>
+                <p class="mb-4">
                     <small>
                         <small>
                             Bildnachweis für das Endesymbol: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
                         </small>
                     </small>
                 </p>
+
+                <h3 class="dhbw-lightblue mb-3">Langversion ausführlichen Beispielen</h3>
+
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-youtube video="R_2MxFEVz90"></lsx-youtube>
+                            <lsx-info-box>
+                                Das Video zeigt, welche Entwicklungswerkzeuge am häufigsten benötigt werden und wie
+                                damit das Layout einer Seite untersucht werden kann.
+                            </lsx-info-box>
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <lsx-youtube video="S6BUceg7UZo"></lsx-youtube>
+                            <lsx-info-box>
+                                Das Video zeigt, wie unterschiedliche Bildschirmgrößen und Netzgeschwindigkeiten
+                                im Responsive-Design-Modus simuliert werden können.
+                            </lsx-info-box>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
             </article>
             <aside>
                 <p>
-                    Ein weiteres Wunder der Technik ist der Responsive-Design-Modus, den du mit einem kurzen
-                    Mausklick in den Entwicklerwerkzeugen aktivieren kannst. Oder klar, du kannst auch einfach
-                    die Tastenkombination <kbd>Shift</kbd>+<kbd>Strg</kbd>+<kbd>M</kbd> drücken. Das ist natürlich
-                    viel professioneller. 😎
-                </p>
-                <img src="devtools_toolbar.png" class="d-block img-responsive" />
-                <p>
-                    So oder so wirst du sehen, dass sich die Anzeige im Browser dadurch deutlich
-                    verändert. Denn im Responsive-Design-Modus simuliert der Browser die Anzeige eines
-                    Smartphones oder Tablets, wahlweise im Hoch- oder im Querformat. Über eine
-                    Auswahl am oberen Bildschirmrand kannst du dabei zwischen häufig vorkommenden
-                    Auflösungen umschalten. Du kannst aber auch einfach eine völlig eigene
-                    Auflösung eingeben oder den Sichtbereich mit der Maus verändern.
-                </p>
-                <p>
-                    Damit deine Seite auf möglichst vielen Geräten gut aussieht, solltest du den
-                    Responsive-Design-Modus so oft wie möglich verwenden und dabei möglichst viele
-                    Auflösungen durchprobieren. Denn auch heute kann es sonst passieren, dass deine
-                    Seite bei bestimmten Auflösungen super aussieht und bei anderen nicht.
+                    Moderne Browser sind heute viel mehr, als einfache HTML-Anzeigeprogramme.
+                    Dank immer neuer Fähigkeiten von HTML, CSS und JavaScript entwickeln sie
+                    sich immer mehr zum
+                    <a href="https://www.amazon.de/Wenger-Schweizer-Offiziersmesser-Messer-Schatulle/dp/B000R0JDSI"
+                    target="_blank">ultimativen Schweizer Taschenmesser</a>¹, das für jede Problemstellung
+                    eine Lösung bietet. Entsprechend aufwändiger ist jedoch die Programmierung
+                    und auch die Fehlersuche kann nicht immer einfach sein. Um diese Komplexität
+                    in den Griff zu bekommen bieten die Browser heute jedoch mächtige Werkzeuge
+                    zur Unterstützung der Entwicklung. Allen voran:
                 </p>
 
-                <lsx-youtube video="S6BUceg7UZo"></lsx-youtube>
-                <lsx-info-box>
-                    Das Video zeigt, wie unterschiedliche Bildschirmgrößen und Netzgeschwindigkeiten
-                    im Responsive-Design-Modus simuliert werden können.
-                </lsx-info-box>
-            </aside>
-        </section>
+                <ul class="dhbw-list-spacious">
+                    <li>
+                        <b>Entwicklungswerkzeuge:</b>
+                        Eine Sammlung verschiedener Werkzeuge zur Untersuchung oder Änderung der
+                        DOM-Struktur, Testen von CSS-Anpassungen, Fehlersuche im JavaScript-Code,
+                        Aufzeichnung aller HTTP-Anfragen und vielem mehr.
+                    </li>
+                    <li>
+                        <b>Responsive-Design-Modus:</b>
+                        Eine spezielle Ansicht, um die Darstellung einer Seite auf unterschiedlichen
+                        Endgeräten zu testen oder langsame Internetverbindungen zu simulieren.
+                    </li>
+                </ul>
 
-        <section>
-            <h1>Wie es nicht aussehen soll</h1>
-            <article>
-                <lsx-tab-pages>
-                    <lsx-tab-page title="Desktop-Ansicht">
-                        <img src="so_nicht1.jpg" class="d-block" style="width: 100%" />
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Smartphone-Ansicht">
-                        <img src="so_nicht2.jpg" class="d-block" style="width: 100%" />
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="HTML-Quellcode">
-                        <source-code language="html">
-                            &lt;!DOCTYPE html&gt;
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    &lt;meta charset="utf-8" /&gt;
-                                    &lt;title&gt;Jasper, Kanada&lt;/title&gt;
-                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-
-                                    &lt;link rel="stylesheet" href="style.css" /&gt;
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;header&gt;
-                                        &lt;h1&gt;Smartphones, nutzt das wirklich jemand?&lt;/h1&gt;
-                                    &lt;/header&gt;
-
-                                    &lt;section&gt;
-                                        &lt;!-- Hauptbereich mit Inhalt --&gt;
-                                        &lt;main&gt;
-                                            &lt;h1&gt;Jasper (Alberta)&lt;/h1&gt;
-                                            &lt;p&gt;
-                                                Jasper ist eine Siedlung innerhalb des Jasper-Nationalparks …
-                                            &lt;/p&gt;
-
-                                            &lt;img src="jasper1.jpg" alt="Typisches Haus in Jasper"/&gt;
-                                            &lt;img src="jasper2.jpg" alt="Typische Straße in Jasper"/&gt;
-
-                                            &lt;h2&gt;Lage&lt;/h2&gt;
-                                            &lt;p&gt;
-                                                Jasper liegt im Jasper-Nationalpark nahe der Grenze …
-                                            &lt;/p&gt;
-                                            …
-                                        &lt;/main&gt;
-
-                                        &lt;!-- Side Bar mit Navigation --&gt;
-                                        &lt;nav&gt;
-                                            &lt;h2&gt;Toolbox&lt;/h2&gt;
-                                            &lt;ul&gt;
-                                                &lt;li&gt; &lt;a&gt;Einstellungen&lt;/a&gt; &lt;/li&gt;
-                                                &lt;li&gt; &lt;a&gt;Bearbeiten&lt;/a&gt; &lt;/li&gt;
-                                                &lt;li&gt; &lt;a&gt;Nutzer/innen&lt;/a&gt; &lt;/li&gt;
-                                                …
-                                            &lt;/ul&gt;
-                                        &lt;/nav&gt;
-                                    &lt;/section&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Stylesheet">
-                        <source-code language="css">
-                            /** Allgemeines **/
-                            html {
-                                font-family: sans-serif;
-                                font-size: 2.3vmin;
-                            }
-
-                            /** Hauptbereich **/
-                            section {
-                                display: flex;
-                            }
-
-                            section main {
-                                padding: 0.5rem;
-                            }
-
-                            section img {
-                                display: inline-block;
-                                max-width: calc(50% - 2em);
-                                margin: 0 1em 1em 0;
-
-                                background: white;
-                                border: …
-                            }
-                        </source-code>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
-            </article>
-            <aside>
                 <p>
-                    Hier siehst du eine einfache Webseite, bei der nicht auf die Darstellung
-                    auf Smartphones und Tablets geachtet wurde. Zwar ist der Quellcode recht
-                    übersichtlich und auch semantisch sinnvoll aufgebaut, auf dem Smartphone
-                    ist die Seite jedoch viel zu klein und die Sidebar nimmt wertvollen
-                    Bildschirmplatz ein.
+                    Sie lassen sich mit <kbd>F12</kbd> für die Entwicklungswerkzeuge bzw.
+                    <kbd>Shift</kbd>+<kbd>Strg</kbd>+<kbd>M</kbd> für den Responsive-Design-Modus
+                    öffnen und sollten während der Entwicklung ausgiebig genutzt werden.
+                    Beispielsweise erlaubt der DOM-Inspektor in den Entwicklungswerkzeugen,
+                    die gerade sichtbare HTML-Struktur zu überprüfen und zu verändern. Dabei
+                    können Abstände, Größe und Ausrichtung beliebiger Elemente visuell überprüft
+                    und Änderungen am HTML-Code direkt ausprobiert werden. Im Gegensatz dazu kann
+                    im Responsive-Design-Modus die Darstellung auf unterschiedlich großen Bildschirmen
+                    überprüft werden, um somit die mobile Darstellung einer Seite zu testen.
+                    Praktischerweise sind dort bereits Voreinstellungen für gängige Smartphones und
+                    Tablets hinterlegt. Die Größe des Viewports (also des sichtbaren Bereichs der Seite)
+                    kann aber auch ganz einfach mit der Maus verändert werden und eigene Größen können als
+                    Voreinstellung gespeichert werden. Hinzu kommt die Möglichkeit, unterschiedliche Arten
+                    von Internetzugängen zu testen, wodurch auch die Ladezeiten und damit indirekt den
+                    Akku-Verbrauch zu optimieren.
                 </p>
                 <p>
-                    Das Stylesheet auf der Folie ist natürlich so nicht komplett und würde
-                    daher auch nicht zu denselben Screenshots führen. Damit du aber besser sehen
-                    kannst, wo die Probleme liegen, sind nur die besonders kritischen Stellen
-                    abgebildet und alles andere, was sich nur um Farben, Rahmen, Hintergründe
-                    und so weiter dreht, wurde weggelassen.
-                </p>
-
-                <h2>Die Schriftgröße</h2>
-                <p>
-                    Für die Schriftgröße wird hier eigentlich ein genialer Trick angewendet:
-                    Sie wird nicht, wie sonst üblich, in <tt>pt</tt> oder <tt>px</tt> sondern
-                    als relative Schriftgröße <tt>vmin</tt> angegeben. Wie du sicher noch
-                    weißt handelt es sich dabei um eine relative Größenangabe, die auf der
-                    Größe des Browserfensters basiert.
-                    Dadurch wird erreicht, dass die Schrift umso größer wird, je größer der
-                    Bildschirm ist. Ziemlich genial, da die Schrift somit auch noch auf einem
-                    großen Flachbildfernseher gut erkannt werden kann, den man typischerweise
-                    ja aus einigen Metern Entfernung betrachtet. Doch umgekehrt funktioniert es
-                    leider auch: Je kleiner der Bildschirm ist, desto kleiner ist die Schrift.
-                    Als Folge daraus ist sie auf dem Smartphone kaum erkennbar. 🔎
-                </p>
-
-                <h2>Die Sidebar</h2>
-                <p>
-                    Für die Sidebar wurde ein anderer schöner Trick verwendet: Inhalt und
-                    Sidebar sind zwei HTML-Elemente, die sich in einer gemeinsamen
-                    <src-code language="html">&lt;section&gt;</src-code> befinden, wobei
-                    die Sidebar im Quellcode auf den Hauptinhalt folgt, da sie rechts davon
-                    stehen soll. Damit die beiden nun aber nicht untereinander sondern nebeneinander
-                    stehen, wird durch die Anweisung <src-code language="css">display: flex</src-code>
-                    der <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">
-                    Flexbox-Algorithmus</a> aktiviert. Bereits seine Voreinstellungen liefern
-                    das gewünschte Ergebnis, so dass hier kein weiteres CSS gebraucht wird.
-                </p>
-                <p>
-                    Auf großen Bildschirmen sieht das alles ganz gut aus. Auf dem Smartphone
-                    ist es jedoch eine mittlere Katastrophe. 💣 Denn die Sidebar verkleinert
-                    den ohnehin schon schmalen Bildschirm nochmal um kostbare 25%, ohne dabei
-                    gut bedienbar zu sein. Hierfür müsste sie eigentlich nicht neben dem Text
-                    sondern über dem Text stehen und die volle Bildschirmbreite einnehmen.
-                </p>
-
-                <h2>Die Bilder</h2>
-                <p>
-                    Ob die Bilder auf dem Smartphone zu klein erscheinen oder nicht, ist
-                    im wahrsten Sinne des Wortes Ansichtssache. Soll die Seite mehr einen
-                    Überblick über viele Bilder geben, ist die Anordnung mit zwei Bildern
-                    nebeneinander ganz praktisch, da dadurch automatisch ein Gitter wie
-                    in einer Bildergalerie entsteht.
-                    Umgekehrt kann man dadurch aber kaum noch Details erkennen, so dass man
-                    eigentlich gar nicht beurteilten kann, wie der in beschriebene Ort wirklich
-                    aussieht. In diesem Fall wäre es daher wohl besser, die Bilder untereinander
-                    und in voller Breite darzustellen, damit zumindest noch ein paar Details
-                    sichtbar sind.
-                </p>
-            </aside>
-        </section>
-
-        <section>
-            <h1>Dieselbe Seite ein wenig anders</h1>
-            <article>
-                <lsx-tab-pages>
-                    <lsx-tab-page title="Desktop-Ansicht">
-                        <img src="so_schon1.jpg" class="d-block" style="width: 100%" />
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Smartphone-Ansicht">
-                        <img src="so_schon2.jpg" class="d-block" style="width: 100%" />
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="HTML-Quellcode">
-                        <source-code language="html">
-                            &lt;!DOCTYPE html&gt;
-                            &lt;html&gt;
-                                &lt;head&gt;
-                                    &lt;meta charset="utf-8" /&gt;
-                                    &lt;title&gt;Jasper, Kanada&lt;/title&gt;
-                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-
-                                    &lt;link rel="stylesheet" href="style.css" /&gt;
-                                &lt;/head&gt;
-                                &lt;body&gt;
-                                    &lt;header&gt;
-                                        &lt;h1&gt;Klar nutzen wir Smartphones &lt;/h1&gt;
-                                    &lt;/header&gt;
-
-                                    &lt;section&gt;
-                                        &lt;!-- Side Bar mit Navigation --&gt;
-                                        &lt;!-- Steht jetzt vor dem Hauptbereich --&gt;
-                                        &lt;nav&gt;
-                                            &lt;h2&gt;Toolbox&lt;/h2&gt;
-                                            &lt;ul&gt;
-                                                &lt;li&gt; &lt;a&gt;Einstellungen&lt;/a&gt; &lt;/li&gt;
-                                                &lt;li&gt; &lt;a&gt;Bearbeiten&lt;/a&gt; &lt;/li&gt;
-                                                &lt;li&gt; &lt;a&gt;Nutzer/innen&lt;/a&gt; &lt;/li&gt;
-                                                …
-                                            &lt;/ul&gt;
-                                        &lt;/nav&gt;
-
-                                        &lt;!-- Hauptbereich mit Inhalt --&gt;
-                                        &lt;main&gt;
-                                            …
-                                        &lt;/main&gt;
-                                    &lt;/section&gt;
-                                &lt;/body&gt;
-                            &lt;/html&gt;
-                        </source-code>
-                    </lsx-tab-page>
-
-                    <lsx-tab-page title="Stylesheet">
-                        <source-code language="css">
-                            /** Allgemeines und Smartphone **/
-                            html {
-                                font-family: sans-serif;
-                                font-size: 10pt;
-                            }
-
-                            section main {
-                                padding: 0.5rem;
-                            }
-
-                            section img {
-                                max-width: calc(100% - 1rem);
-                                display: block;
-                                margin-bottom: 1em;
-
-                                background: white;
-                                border: …
-                            }
-
-                            /** Große Bildschirme **/
-                            @media (min-width: 40em) {
-                                html {
-                                    font-size: 2.3vmin;
-                                }
-
-                                section {
-                                    display: flex;
-                                }
-
-                                section img {
-                                    display: inline-block;
-                                    max-width: calc(50% - 2em);
-                                    margin: 0 1em 1em 0;
-                                }
-                            }
-                        </source-code>
-                    </lsx-tab-page>
-                </lsx-tab-pages>
-            </article>
-            <aside>
-                <p>
-                    Diese Version der Seite sieht gleich viel besser aus. Also am Computer
-                    natürlich nicht, aber die Smartphone-Ansicht ist nun richtig gelungen. ☺
-                    Die Sidebar ist plötzlich zu einem Top-Menü geworden und man sieht schön,
-                    wie die am Computer nebeneinander liegenden Bilder untereinander stehen
-                    und nu gut erkennbar sind. Das gesamte Layout entfaltet sich für Smartphones
-                    typisch schön von oben nach unten. Doch warum ist das so? Welche Änderungen
-                    haben zu dieser verbesserten Version geführt?
-                </p>
-
-                <h2>Anordnung der Sidebar</h2>
-                <p>
-                    Am HTML-Code hat sich eigentlich gar nichts geändert. Lediglich das
-                    <src-code language="html">&lt;nav&gt;</src-code>-Element mit der Sidebar
-                    ist nun vor das <src-code language="html">&lt;main&gt;</src-code> gerutscht,
-                    damit es auf dem Smartphone ganz oben erscheint. Dabei kommt uns zu Gute,
-                    dass beides Blockelemente sind, die der Browser ohnehin untereinander und
-                    in voller Breite anzeigt. Auf dem Smartphone sieht es daher automatisch
-                    gut aus, wohingegen wir bei großen Bildschirmen noch den Flexbox-Algorithmus
-                    einschalten müssen.
-                </p>
-
-                <h2>Media Queries und Mobile First</h2>
-                <p>
-                    Und da sind wir dann auch schon bei Mobile First und bei Media Queries.
-                    So, wie der HTML-Code nun aufgebaut ist, ist es genau richtig. Da Smartphones
-                    und mobile Endgeräte viel kleinere Displays haben, benötigen sie auch ein
-                    einfacheres Layout als am Computer. Meistens reichen dabei schon die
-                    Voreinstellungen des Browsers, wie zum Beispiel bei den Blockelementen.
-                    Nach und nach arbeiten wir uns dann zu immer größeren Displays vor,
-                    indem wir hier und da kleine Fallunterscheidungen in das Stylesheet
-                    einbauen und so manche Eigenschaften erst ab einer bestimmten Mindestgröße
-                    freischalten. Dieses Vorgehen nennen wir <b>Mobile First</b> und es ist
-                    eine der Grundregeln guten Webdesigns.
-                </p>
-                <p>
-                    Die Fallunterscheidungen, die wir in das Stylesheet einbauen müssen,
-                    nennen sich <b>Media Queries</b>, da sie die Eigenheiten des verwendeten
-                    Ausgabegeräts abfragen. Damit können wir dann zum Beispiel zwischen
-                    unterschiedlichen Schriftgrößen umschalten oder Elemente nebeneinander
-                    anordnen, wenn genügend Platz dafür vorhanden ist. Die Syntax hierfür
-                    sehen wir in der Folie anhand folgendem Beispiel:
-                </p>
-                <source-code language="css">
-                    @media (min-width: 40em) {
-                        html {
-                            …
-                        }
-
-                        section {
-                            …
-                        }
-                    }
-                </source-code>
-                <p>
-                    Jedes Media Query sieht genau so aus, nur dass sich der Inhalt zwischen den
-                    runden und geschweiften Klammern unterscheidet. Zwischen den runden Klammern
-                    steht die Bedingung, die das Ausgabegerät erfüllen muss und zwischen den
-                    Geschweiften Klammern die Anweisungen, die dann ausgeführt werden. Hier muss
-                    das Gerät mindestens <tt>40em</tt> breit sein¹, als ungefähr 40 Buchstaben
-                    in einer Zeile anzeigen können. Trifft dies zu, werden die in den geschweiften
-                    Klammern stehenden Regeln aktiviert.
+                    Auf dieser Seite wird die Verwendung anhand verschiedener Beispiele vorgestellt.
+                    Einmal als Bildergallerie für Kurzentschlossen und einmal in Form zweier Screencasts 📺,
+                    die über die Bilder hinausgehende Tipps geben.
                 </p>
                 <p>
                     ¹
                     <small>
-                        Die Prüfung auf <tt>em</tt> statt <tt>px</tt> ist zugegeben etwas unkonventionell.
-                        Prüfen doch die meisten Webdesigner eher gewohnte Pixelauflösungen ab. Durch diesen
-                        Trick wird die Prüfung aber etwas zuverlässiger, da sie die falschen Pixelangaben
-                        der mobilen Browser in Bezug auf die Bildschirmgröße ignoriert.
+                        Unbedingt auch die Fragen und Produktbewertungen lesen.
+                    </small>
+                    🤣
+                </p>
+            </aside>
+        </section>
+
+        <section>
+            <h1>Geräteneutrale Gestaltung früher und heute</h1>
+            <article>
+                <style>
+                    #layout-beispiele .my-rp-background {
+                        background-image: url(layouts-bg.jpg);
+                    }
+
+                    #layout-beispiele iframe {
+                        border: 1px solid #333333;
+                    }
+                </style>
+
+                <div class="dropdown mb-3">
+                    <button
+                        id             = "layouts-dropdown-button"
+                        class          = "btn btn-secondary dropdown-toggle"
+                        type           = "button"
+                        data-toggle    = "dropdown"
+                        aria-haspopup  = "true"
+                        aria-expanded  = "false"
+                    >
+                        Fixes Layout
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="layouts-dropdown-button">
+                        <li>
+                            <button
+                                class       = "dropdown-item"
+                                type        = "button"
+                                data-src    = "layout-fixed/index.html"
+                                data-target = "layout-beispiele"
+                                data-parent = "layouts-dropdown-button"
+                                onclick     = "change_example(event)"
+                            >
+                                Fixes Layout
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class       = "dropdown-item"
+                                type        = "button"
+                                data-src    = "layout-fluid/index.html"
+                                data-target = "layout-beispiele"
+                                data-parent = "layouts-dropdown-button"
+                                onclick     = "change_example(event)"
+                            >
+                                Fluides Layout
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class       = "dropdown-item"
+                                type        = "button"
+                                data-src    = "layout-adaptive/index.html"
+                                data-target = "layout-beispiele"
+                                data-parent = "layouts-dropdown-button"
+                                onclick     = "change_example(event)"
+                            >
+                                Adaptives Layout
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class       = "dropdown-item"
+                                type        = "button"
+                                data-src    = "layout-responsive/index.html"
+                                data-target = "layout-beispiele"
+                                data-parent = "layouts-dropdown-button"
+                                onclick     = "change_example(event)"
+                            >
+                                Responsives Layout
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <lsx-tab-pages id="layout-beispiele" class="my-responsive-preview mb-0">
+                    <lsx-tab-page title="Großer Bildschirm">
+                        <div class="my-rp-background">
+                            <div class="my-rp-content">
+                                <iframe class="my-rp-size-screen" src="layout-fixed/index.html?screen"></iframe>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Tablet">
+                        <div class="my-rp-background">
+                            <div class="my-rp-content">
+                                <iframe class="my-rp-size-tablet" src="layout-fixed/index.html?tablet"></iframe>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Smartphone">
+                        <div class="my-rp-background">
+                            <div class="my-rp-content">
+                                <iframe class="my-rp-size-phone" src="layout-fixed/index.html?phone"></iframe>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis für den Hintergrund:
+                            <a href="https://pixabay.com/photos/french-bulldog-dog-paw-animal-cute-6068752/" target="_blank">Pixabay: Mylene2401</a>
+                        </small>
+                    </small>
+                </p>
+
+                <lsx-info-box type="warning" class="mt-4">
+                    Obwohl es sich hier um das Kapitel „Responsive Webdesign” handelt, funktionieren die Beispiele
+                    nur auf großen Bildschirmen vernünftig. Auf einem Smartphone ist das zum Einbinden der Beispiele
+                    verwendete <src-code language="html">&lt;iframe&gt;</src-code>-Element zu klein, so dass die
+                    Media Queries zum Erkennen größerer Bildschirme nicht funktionieren und im Grunde genommen immer
+                    die Smartphone-Version angezeigt wird. 🙄
+                </lsx-info-box>
+            </article>
+            <aside>
+                <lsx-youtube video="FZuuXIO-pgg/edit"></lsx-youtube>
+                <lsx-info-box class="mb-4">
+                    Das Video zeigt die Besonderheiten der jeweiligen Layouts und wie diese
+                    im Quellcode realisiert werden. Besonderer Wert wird abei auf die unsauberen
+                    Tricks und Probleme der nicht-responsiven Layouts gelegt.
+                </lsx-info-box>
+
+                <p>
+                    Früher gab es das Problem unterschiedlicher Anzeigegeräte nicht. Denn obwohl es internetfähige
+                    PDAs und Tablet-Computer schon lange vor den heutigen Smartphones gab, waren diese nicht weit
+                    verbreitet und wurden eher zur E-Mailkommunikation als zum Surfen im Web verwendet. Zumal die
+                    Geschwindigkeit aus verschiedenen Gründen extrem langsam war.¹ 🐌 Doch selbst bei Desktop-Computern
+                    gab es nur wenig Streuung bezüglich Bildschirmauflösung und Größe, so dass es völlig ausreichend
+                    war, eine plausible Annahme zu treffen und einfach ein Layout mit fester Breite (natürlich in
+                    Pixel definiert) zu gestalten. Heute funktioniert das natürlich nicht mehr, da von einer Seite
+                    einfach erwartet wird, für alle Geräte optimiert zu sein. Die verschiedenen Möglichkeiten, dies
+                    zu erzielen, werden auf dieser Seite vorgestellt, auch wenn nicht jede Technik gleich gute
+                    Ergebnisse liefert:
+                </p>
+                <ul class="dhbw-list-spacious">
+                    <li>
+                        <b>Fixes Layout:</b>
+                        Gar keine Anpassung an unterschiedliche Bildschirmgrößen
+                    </li>
+                    <li>
+                        <b>Fluides Layout:</b>
+                        Von der Bildschirmgröße abhängige Breite des Layouts
+                    </li>
+                    <li>
+                        <b>Adaptives Layout:</b>
+                        Getrennte Stylesheets für unterschiedliche Geräte
+                    </li>
+                    <li>
+                        <b>Responsives Layout:</b>
+                        Fallunterscheidungen zu optimalen Anpassung an alle Geräte
+                    </li>
+                </ul>
+                <p>
+                    Über das Dropdown-Menü oberhalb der verschiedenen Bildschirmgrößen kann zwischen den
+                    Beispielen umgeschaltet werden. Erklärungen zu den Besonderheiten der Beispiele sowie
+                    den jeweiligen Vor- und Nachteilen im Quellcode liefert das Video.
+                </p>
+
+                <p>
+                    ¹
+                    <small>
+                        Einerseits waren die Prozessorgeschwindigkeiten damals viel geringer als heute und mobile
+                        Geräte nutzten (wie heute eigentlich auch) noch leistungsschwächere CPUs. Die Verbindung
+                        mit dem Internet erfolgte zusätzlich über eine Modem-Verbindung, die über das Telefonnetz
+                        hergestellt wurde. Die Verbindung zum Modem wurde dabei über eine serielle Schnittstelle
+                        per Kabel oder Infrarot, was ebenfalls nur geringe Übertragungsraten erlaubt. Erst mit
+                        Aufkommen der ersten DSL-Anschlüsse und des 3G-Funknetzes wurden diese Flaschenhälse nach
+                        und nach abgeschafft.
                     </small>
                 </p>
             </aside>
@@ -1012,7 +834,7 @@
 
                         <src-code language="css">print</src-code>
                         <p>
-                            Ausgabe auf dem Drucker. Hier bitte alle überflüssigen Elemente entfernen.
+                            Ausgabe auf dem Drucker. In diesem Fall bitte alle überflüssigen Elemente mit <src-code language="css">display: none</src-code> ausblenden.
                         </p>
 
                         <src-code language="css">(orientation: landscape), (min-width: 1024px)</src-code>
@@ -1144,28 +966,33 @@
             </article>
             <aside>
                 <p>
-                    Nachdem wir geräteabhängige Fallunterscheidungen anhand von Media Queries eben schon
-                    im praktischen Einsatz gesehen haben, sollen hier nun ihre Syntax und wesentlichen
-                    Funktionen als Kurzreferenz dargestellt werden. Wie immer gilt, dass diese nicht direkt
-                    auswendig gelernt dafür aber oft genug praktisch angewandt werden muss. Mit zunehmender
-                    Erfahrung prägen sich die Details dann ganz von alleine ein.
+                    Nachdem wir geräteabhängige Fallunterscheidungen anhand von Media Queries eben im
+                    Video schon gesehen haben, sollen hier nun ihre Syntax und wesentlichen Funktionen
+                    als Kurzreferenz dargestellt werden. Wir sehen hier nochmal in kompakter Weise, wie
+                    spezifische CSS-Anweisungen in Abhängigkeit bestimmter Ausgabegeräte sowie derer
+                    Eigenschaften aktiviert werden können. Wie wir aber auch sehen werden, kann man nicht
+                    direkt abfragen, ob die Darstellung auf einem Smartphone, Tablet oder Desktop-Computer
+                    erfolgt, da aus Sicht von CSS alle einen Bildschirm besitzen und man nur prüfen kann,
+                    ob die Ausgabe zum Beispiel auf einem Bildschirm oder auf Papier erfolgt. Jedoch
+                    lassen sich die Eigenschaften der Bildschirme abprüfen, was im Grunde genommen auch
+                    die sinnvollere Variante ist.
                 </p>
 
                 <h2>Grundsätzliche Syntax</h2>
                 <p>
                     Media Queries prüfen immer zwei Dinge gleichzeitig ab: Das verwendete Ausgabegerät
                     sowie dessen Eigenschaften. Dementsprechend setzen sie sich aus dem Namen des zu
-                    prüfenden Geräts und den in Klammern dahinter stehenden Prüfungen zusammen. Beide
+                    prüfenden Geräts und in Klammern dahinter zusätzlichen Prüfungen zusammen. Beide
                     Teile sind dabei optional, was entweder bedeutet, dass eine Eigenschaft für alle
-                    möglichen Geräte geprüft oder nur das Gerät selbst ohne weitere Einschränkung seiner
-                    Fähigkeiten abgefragt wird. Die generelle Syntax für alle drei Formen ist:
+                    möglichen Geräte geprüft oder nur das Gerät selbst ohne weitere Einschränkung
+                    abgefragt wird. Die generelle Syntax für alle drei Formen ist:
                 </p>
                 <source-code language="css">
                     ausgabemedium (eigenschaft: wert)
                 </source-code>
                 <p>
-                    Da eben beidete Teile optional sind, solange der jeweils andere Teil vorhanden ist,
-                    sind aber auch folgende beide Varianten erlaubt:
+                    Da beidete Teile optional sind, solange der jeweils andere Teil vorhanden ist,
+                    sind aber auch folgende Varianten erlaubt:
                 </p>
                 <ul>
                     <li>
@@ -1177,18 +1004,18 @@
                 </ul>
                 <p>
                     Welche Ausgabemedien es gibt, und welche Eigenschaften für diese geprüft werden können,
-                    steht auf der Folie. Beispielsweise steht das Gerät <code>screen</code> für beliebige
-                    Bildschirme und <code>print</code> für die Ausgabe auf dem Drucker. Innerhalb dieser
-                    Geräteklassen gibt es dann aber keine weitere Unterschiede mehr, so dass insbesondere
-                    nicht einfach zwischen Smartphone, Tablet oder Desktop-Computer unterschieden werden
-                    kann. Diese müssen stattdessen über ihre Eigenschaften ermittelt werden:
+                    steht im Hauptbereich dieser Seite. Beispielsweise steht das Gerät <code>screen</code>
+                    für beliebige Bildschirme und <code>print</code> für die Ausgabe auf dem Drucker. Innerhalb
+                    dieser Geräteklassen gibt es dann aber keine weitere Unterschiede mehr, so dass insbesondere
+                    nicht einfach zwischen Smartphone, Tablet oder Desktop-Computer unterschieden werden kann.
+                    Diese müssen stattdessen über ihre Eigenschaften ermittelt werden:
                 </p>
                 <ul>
                     <li>
-                        <code>min-width</code>: Mindestbreite der Ausgabe
+                        <code>min-width</code>: Mindestbreite des Viewports¹
                     </li>
                     <li>
-                        <code>max-width</code>: Maximale Breite der Ausgabe
+                        <code>max-width</code>: Maximale Breite des Viewports¹
                     </li>
                     <li>
                         <code>orientation</code>:
@@ -1216,6 +1043,15 @@
                         </p>
                     </li>
                 </ul>
+                <p>
+                    ¹
+                    <small>
+                        Der Viewport entspricht dem sichtbaren Bereich einer Seite. In der Regel hat
+                        dieser dieselbe Größe wie das Browserfenster. Im Responsive-Design-Modus kann
+                        jedoch zum Testen nur der Viewport verkleinert werden, ohne das Browserfenster
+                        zu verändern.
+                    </small>
+                </p>
 
                 <h2>Verwendung im HTML-Code</h2>
                 <p>
@@ -1241,18 +1077,17 @@
                     Meist wird diese Möglichkeit genutzt, um allgemeingültige Layoutangaben in einem
                     zentralen Stylesheet zu verpacken und zusätzlich zu diesem gerätespezische
                     Stylesheets nachzuladen. Oft wird es auch genutzt, um für die Bildschirmdarstellung
-                    und Druckausgabe komplett eigenstängige Stylesheets zu verwenden.
+                    und Druckausgabe weitgehend eigenstängige Stylesheets zu definieren.
                 </p>
 
                 <h2>Verwendung im CSS-Code</h2>
                 <p>
-                    Innerhalb von Stylesheets können ganze Regelblöcke von einem <code>@media</code>-Block
-                    umgeben werden, um diese in Abhängigkeit eines Media Queries auszuwerten. Zu beachten
-                    ist dabei allerdings, dass <code>@media</code> nur auf der obersten Ebene in einem
-                    Stylesheet und nicht etwa innerhalb eines Regelblocks stehen darf (Präprozessoren wie
-                    <a href="http://lesscss.org/" target="_blank">Less</a> und
-                    <a href="https://sass-lang.com/" target="_blank">Sass</a> könne hier Abhilfe schaffen).
-                    Folgender Quellcode ist daher syntaktisch korrekt:
+                    Die meiste Verwendung finden Media Queries innerhalb von Stylesheets, da hier ganze
+                    Regelblöcke dadurch ein- oder ausgeschaltet werden können. Dabei ist allerdings zu
+                    beachten, dass dies nur auf der obersten Ebene in einem Stylesheet erlaubt ist und
+                    insbesondere innerhalb der geschweiften Klammern eines Regelblocks keine Media Queries
+                    erlaubt sind.² Die Prüfung selbst wird durch die Anweisung <code>@media</code> wie
+                    im folgenden Beispiel eingeleitet:
                 </p>
                 <source-code language="css">
                     @media screen (min-width: 800px) {
@@ -1266,7 +1101,7 @@
                     }
                 </source-code>
                 <p>
-                    Während folgender Quellcode leider nicht funktioniert:
+                    Folgender Quellcode funktioniert stattdessen leider nicht:
                 </p>
                 <source-code language="css">
                     main {
@@ -1280,9 +1115,16 @@
                     }
                 </source-code>
                 <p>
-                    In den Folien ist darüber hinaus noch eine Variante dargestellt, bei der
+                    Im Hauptbereich ist darüber hinaus noch eine Variante dargestellt, bei der
                     mit <code>@import</code> geräteabhängig weitere Stylesheets importiert
                     werden können.
+                </p>
+                <p>
+                    ²
+                    <small>
+                        Präprozessoren wie <a href="http://lesscss.org/" target="_blank">Less</a> und
+                        <a href="https://sass-lang.com/" target="_blank">Sass</a> könne hier Abhilfe schaffen.
+                    </small>
                 </p>
             </aside>
         </section>
@@ -1300,14 +1142,15 @@
             <aside>
                 <p>
                     Die Gestaltung einer Webseite oder Webanwendung wirklich konsequent nach dem Mobile-First-Prinzip
-                    zu realisieren, erfordert einiges an Erfahung und auch viel Disziplin. Zu groß ist doch die
-                    Verlockung, erst das Desktop-Layout zu gestalten, wenn man doch ohnehin beim Programmieren
-                    an einem großen Bildschirm sitzt. Richtig umgesetzt, ist natürlich auch dies kein Problem.
-                    Man rennt jedoch viel eher in schwer lösbare Probleme, wenn sich ein liebevoll optimiertes
-                    Layout nur mit großen Verrenkungen auch kleine Bildschirme runterbrechen lässt. Gängige Praxis
-                    ist inzwischen daher folgendes, vollkommen gegensätzliches Vorgehen:
+                    zu realisieren, erfordert einiges an Erfahung und Disziplin. Zu groß ist die Verlockung, erst das
+                    Desktop-Layout zu gestalten, wenn man die Seite doch ohnehin auf einem großen Bildschirm entwickelt. 🖥️
+                    Richtig umgesetzt, funktioniert natürlich auch das. Die Erfahrung zeigt aber, dass ein erst für
+                    große Bildschirme definiertes Layout meistens nur sehr schwer auf kleinere Geräte heruntergebrochen
+                    werden kann. Denn meistens erlaubt die HTML-Struktur dann nicht mehr, die Positionierung einzelner
+                    Elemente im gewünschten Maße zu verändern, ohne dabei tief in die CSS-Trickkiste 🪄 greifen zu müssen.
+                    Gängige Praxis ist daher folgendes, genau gegensätzliches Vorgehen:
                 </p>
-                <ol>
+                <ol class="dhbw-list-spacious">
                     <li>
                         Nutzung des Responsive-Design-Mode des Browsers, um erst das Smartphone-Layout zu erstellen.
                     </li>
@@ -1320,16 +1163,20 @@
                         Hamburger-Menü verstecken.
                     </li>
                     <li>
-                        Das Hambuger-Menü im einfachsten Fall als bildschirmfüllend oder als Seitenmenü analog
-                        Android gestalten.
-                    </li>
-                    <li>
                         Alle anderen Elemente möglichst einfach als maximal breite Blockelemente untereinander platzieren.
                     </li>
                     <li>
-                        Erst danach schrittweise die betrachtete Bildschirmgröße erhöhen und das Layout mit Media
-                        Queries entsprechend justieren, beispielsweise indem immer mehr Elemente nebeneinander
-                        platziert und die Schriftgröße vergrößert werden.
+                        <p>
+                            Erst danach schrittweise die betrachtete Bildschirmgröße erhöhen und das Layout mit Media
+                            Queries entsprechend justieren, beispielsweise indem immer mehr Elemente nebeneinander
+                            platziert und die Schriftgröße vergrößert werden. Ein netter Trick kann dabei sein, die
+                            Schriftgröße in Abhängigkeit vom verfügbaren Platz zu definieren:
+                        </p>
+                        <source-code language="css">
+                            body {
+                                font-size: min(2.4vmin, 11pt);
+                            }
+                        </source-code>
                     </li>
                     <li>
                         Testes, testen, testen! Und zwar mit unterschiedlichen Browsern in unterschiedlichen Versionen
@@ -1338,11 +1185,24 @@
                 </ol>
                 <p>
                     Ein leicht nachvollziehbares Beispiel, wie dieses Vorgehen von der ersten Idee bis zur fertigen App
-                    umgesetzt werden kann, zeigt das Video anhand eines selbst-entwickelten Media Players. <b>Nimm dir
-                    die Zeit. Es lohnt sich!</b>
+                    umgesetzt werden kann, zeigt das Video anhand eines selbst-entwickelten Media Players. Auch wenn
+                    das Video mit einer Stunde recht lang ist: <b>Nimm dir die Zeit. Es lohnt sich!</b>
                 </p>
             </aside>
         </section>
+
+        <!-- TODO: Fallbeispiel Flexbox+Media Query: Unterneinander mobil, nebeneinander sonst -->
+        <!-- TODO: Fallbeispiel Hamburger-Menü -->
+        <!-- TODO: Fallbeispiel: Side-Menü mit Backdrop -->
+        <!-- <section>
+            <h1>Häufig anzutreffende Layoutvarianten</h1>
+            <article>
+                TODO: Dropdown und IFRAMEs wie oben + Tabreiter mit Quellcode direkt darunter (ebenfalls durch Dropdown geschaltet)
+            </article>
+            <aside>
+                TODO
+            </aside>
+        </section> -->
 
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 1: Ein kleines Webdesign-Quiz</h1>
@@ -1998,49 +1858,68 @@
         </section>
 
         <!-- -->
-        <!-- TODO: Folie anhand Fallbeispiel aus ODT 2017 neuschreiben, HTML-Layout Schritt für Schritt herleiten -->
+        <!-- TODO: Folie neuschreiben, HTML-Layout Schritt für Schritt herleiten -->
         <!-- -->
         <section>
             <h1>CSS-basierte Layout Grids am Beispiel von Bootstrap</h1>
             <article>
-                <source-code language="html">
-                    &lt;!DOCTYPE html&gt;
-                    &lt;html&gt;
-                        &lt;head&gt;
-                            &lt;meta charset="utf-8" /&gt;
-                            &lt;title&gt;Beispiel für Bootstrap&lt;/title&gt;
-                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Kurzvorstellung von Bootstrap">
+                        <lsx-youtube video="HSU9rqpZcfs"></lsx-youtube>
+                        <lsx-info-box>
+                            Das Video gibt einen Überblick zu Herkunft, Vorteilen und Umfang des Bootstrap-Frameworks.
+                            Anhand eines praktischen Beispiels wird gezeigt, wie ein neues Projekt mit Bootstrap gestartet
+                            und mit den vordefinierten CSS-Klassen ein responsives Layout gestaltet werden kann.
+                        </lsx-info-box>
+                    </lsx-tab-page>
 
-                            &lt;!-- Bootstrap Stylesheets und Javascript --&gt;
-                            &lt;link rel="stylesheet" href="css/bootstrap.min.css"&gt;
+                    <lsx-tab-page title="Fallbeispiel zum Grid-System">
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;title&gt;Beispiel für Bootstrap&lt;/title&gt;
+                                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
 
-                            &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"&gt;&lt;/script&gt;
-                            &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"&gt;&lt;/script&gt;
-                            &lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;
-                        &lt;/head&gt;
-                        &lt;body&gt;
-                            &lt;!-- Container für das Grid --&gt;
-                            &lt;div class="container"&gt;
-                                &lt;!-- Zeile mit drei gleichgroßen Spalten --&gt;
-                                &lt;div class="row"&gt;
-                                    &lt;div class="col-md-4"&gt;
-                                        &lt;h2&gt;Die Beatles&lt;/h2&gt;
-                                        &lt;p&gt;The Beatles waren …&lt;/p&gt;
-                                    &lt;/div&gt;
-                                    &lt;div class="col-md-4"&gt;
-                                        &lt;h2&gt;Abbey Road Studios&lt;/h2&gt;
-                                        &lt;p&gt;Abbey Road Studios sind die …&lt;p&gt;
-                                    &lt;/div&gt;
-                                    &lt;div class="col-md-4"&gt;
-                                        &lt;img src="img/london.jpg" alt="Abbey Road in London"/&gt;
-                                    &lt;/div&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                        &lt;/body&gt;
-                    &lt;/html&gt;
-                </source-code>
+                                            &lt;!-- Bootstrap Stylesheets und Javascript --&gt;
+                                            &lt;link rel="stylesheet" href="css/bootstrap.min.css"&gt;
 
-                <img src="bootstrap-grid.svg" class="d-block" style="width: 100%;" />
+                                            &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"&gt;&lt;/script&gt;
+                                            &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"&gt;&lt;/script&gt;
+                                            &lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;!-- Container für das Grid --&gt;
+                                            &lt;div class="container"&gt;
+                                                &lt;!-- Zeile mit drei gleichgroßen Spalten --&gt;
+                                                &lt;div class="row"&gt;
+                                                    &lt;div class="col-md-4"&gt;
+                                                        &lt;h2&gt;Die Beatles&lt;/h2&gt;
+                                                        &lt;p&gt;The Beatles waren …&lt;/p&gt;
+                                                    &lt;/div&gt;
+                                                    &lt;div class="col-md-4"&gt;
+                                                        &lt;h2&gt;Abbey Road Studios&lt;/h2&gt;
+                                                        &lt;p&gt;Abbey Road Studios sind die …&lt;p&gt;
+                                                    &lt;/div&gt;
+                                                    &lt;div class="col-md-4"&gt;
+                                                        &lt;img src="img/london.jpg" alt="Abbey Road in London"/&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-tab-page>
+
+                            <lsx-tab-page title="Anordnung der Elemente">
+                                <img src="bootstrap-grid.svg" class="d-block" style="width: 100%;" />
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
             </article>
             <aside>
                 <p>
@@ -3018,4 +2897,4 @@
             </aside>
         </section>
     </body>
-</html>
+</html
