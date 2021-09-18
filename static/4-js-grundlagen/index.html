@@ -299,107 +299,108 @@
                     <lsx-tab-page title="Vorschau">
                         <div id="vorhang-vorschau">
                             <style>
-                            #vorhang-vorschau > .theater {
-                                padding-top: 63%;
-                                position: relative;
-                                overflow: hidden;
-                                cursor: pointer;
-                            }
-
-                            #vorhang-vorschau > .theater > .buehne {
-                                position: absolute;
-                                width: 100%;
-                                top: 0;
-                                left: 0;
-                            }
-
-                            #vorhang-vorschau > .theater > .links {
-                                position: absolute;
-                                width: 50%;
-                                top: 0;
-                                left: 0;
-
-                                transition: left 2s;
-                            }
-                            #vorhang-vorschau > .theater > .links.offen {
-                                left: -50%;
-                            }
-
-                            #vorhang-vorschau > .theater > .rechts {
-                                position: absolute;
-                                width: 50%;
-                                top: 0;
-                                right: 0;
-
-                                transition: right 2s;
-                            }
-                            #vorhang-vorschau > .theater > .rechts.offen {
-                                right: -50%;
-                            }
-
-                            #vorhang-vorschau > .theater > .publikum {
-                                position: absolute;
-                                width: 100%;
-                                bottom: 0;
-                                left: 0;
-                            }
-
-                            #vorhang-vorschau > .theater > .hinweis {
-                                position: absolute;
-                                top: 1em;
-                                left: 1em;
-
-                                background: rgba(0,0,0,0.75);
-                                color: white;
-                                padding: 0.25em;
-                            }
-                        </style>
-                        <script>
-                            vorhangIstOffen = false;
-                            buehnenbilder = ["vorhang_buehne1.jpg", "vorhang_buehne2.jpg", "vorhang_buehne3.jpg"];
-                            aktuellesBild = 0;
-
-                            applaus1 = new Audio("vorhang_auf.ogg");
-                            applaus2 = new Audio("vorhang_zu.ogg");
-
-                            function vorhangAufZu() {
-                                let buehne = document.querySelector("#vorhang-vorschau > .theater > .buehne");
-                                let vorhangLinks = document.querySelector("#vorhang-vorschau > .theater > .links");
-                                let vorhangRechts = document.querySelector("#vorhang-vorschau > .theater > .rechts");
-
-                                if (!vorhangIstOffen) {
-                                    vorhangIstOffen = true;
-
-                                    applaus1.currentTime = 0;
-                                    applaus1.play();
-
-                                    vorhangLinks.classList.add("offen");
-                                    vorhangRechts.classList.add("offen");
-                                } else {
-                                    vorhangIstOffen = false;
-
-                                    applaus2.currentTime = 0;
-                                    applaus2.play();
-
-                                    vorhangLinks.classList.remove("offen");
-                                    vorhangRechts.classList.remove("offen");
-
-                                    aktuellesBild++;
-                                    if (aktuellesBild >= buehnenbilder.length) aktuellesBild = 0;
-
-                                    window.setTimeout(() => buehne.src = buehnenbilder[aktuellesBild], 2100);
+                                #vorhang-vorschau > .theater {
+                                    padding-top: 63%;
+                                    position: relative;
+                                    overflow: hidden;
+                                    cursor: pointer;
                                 }
-                            }
-                        </script>
 
-                        <div class="theater" onclick="vorhangAufZu()">
-                            <img src="vorhang_buehne1.jpg" class="buehne" />
-                            <img src="vorhang_links.jpg" class="links" />
-                            <img src="vorhang_rechts.jpg" class="rechts" />
-                            <img src="vorhang_publikum.png" class="publikum" />
+                                #vorhang-vorschau > .theater > .buehne {
+                                    position: absolute;
+                                    width: 100%;
+                                    top: 0;
+                                    left: 0;
+                                }
 
-                            <div class="hinweis">
-                                Klicke auf das Bild! 🖱
+                                #vorhang-vorschau > .theater > .links {
+                                    position: absolute;
+                                    width: 50%;
+                                    top: 0;
+                                    left: 0;
+
+                                    transition: left 2s;
+                                }
+                                #vorhang-vorschau > .theater > .links.offen {
+                                    left: -50%;
+                                }
+
+                                #vorhang-vorschau > .theater > .rechts {
+                                    position: absolute;
+                                    width: 50%;
+                                    top: 0;
+                                    right: 0;
+
+                                    transition: right 2s;
+                                }
+                                #vorhang-vorschau > .theater > .rechts.offen {
+                                    right: -50%;
+                                }
+
+                                #vorhang-vorschau > .theater > .publikum {
+                                    position: absolute;
+                                    width: 100%;
+                                    bottom: 0;
+                                    left: 0;
+                                }
+
+                                #vorhang-vorschau > .theater > .hinweis {
+                                    position: absolute;
+                                    top: 1em;
+                                    left: 1em;
+
+                                    background: rgba(0,0,0,0.75);
+                                    color: white;
+                                    padding: 0.25em;
+                                }
+                            </style>
+                            <script>
+                                vorhangIstOffen = false;
+                                buehnenbilder = ["vorhang_buehne1.jpg", "vorhang_buehne2.jpg", "vorhang_buehne3.jpg"];
+                                aktuellesBild = 0;
+
+                                applaus1 = new Audio("vorhang_auf.ogg");
+                                applaus2 = new Audio("vorhang_zu.ogg");
+
+                                function vorhangAufZu() {
+                                    let buehne = document.querySelector("#vorhang-vorschau > .theater > .buehne");
+                                    let vorhangLinks = document.querySelector("#vorhang-vorschau > .theater > .links");
+                                    let vorhangRechts = document.querySelector("#vorhang-vorschau > .theater > .rechts");
+
+                                    if (!vorhangIstOffen) {
+                                        vorhangIstOffen = true;
+
+                                        applaus1.currentTime = 0;
+                                        applaus1.play();
+
+                                        vorhangLinks.classList.add("offen");
+                                        vorhangRechts.classList.add("offen");
+                                    } else {
+                                        vorhangIstOffen = false;
+
+                                        applaus2.currentTime = 0;
+                                        applaus2.play();
+
+                                        vorhangLinks.classList.remove("offen");
+                                        vorhangRechts.classList.remove("offen");
+
+                                        aktuellesBild++;
+                                        if (aktuellesBild >= buehnenbilder.length) aktuellesBild = 0;
+
+                                        window.setTimeout(() => buehne.src = buehnenbilder[aktuellesBild], 2100);
+                                    }
+                                }
+                            </script>
+
+                            <div class="theater" onclick="vorhangAufZu()">
+                                <img src="vorhang_buehne1.jpg" class="buehne" />
+                                <img src="vorhang_links.jpg" class="links" />
+                                <img src="vorhang_rechts.jpg" class="rechts" />
+                                <img src="vorhang_publikum.png" class="publikum" />
+
+                                <div class="hinweis">
+                                    Klicke auf das Bild! 🖱
+                                </div>
                             </div>
                         </div>
                     </lsx-tab-page>
@@ -5785,38 +5786,38 @@
                                 method   = "POST"
                             >
                                 <!-- Vorname und Nachname -->
-                                <label for="firstname">
+                                <label for="beispiel-formular-firstname">
                                     Ihr Name:
                                     <span class="required">*</span>
                                 </label>
                                 <div class="side-by-side">
-                                    <input name="firstname" type="text" placeholder="Vorname" class="w-50" />
-                                    <input name="lastname" type="text" placeholder="Nachname" class="w-50" />
+                                    <input id="beispiel-formular-firstname" name="firstname" type="text" placeholder="Vorname" class="w-50" />
+                                    <input id="beispiel-formular-lastname" name="lastname" type="text" placeholder="Nachname" class="w-50" />
                                 </div>
 
                                 <!-- E-Mailadresse -->
-                                <label>
+                                <label for="beispiel-formular-email">
                                     E-Mail:
                                     <span class="required">*</span>
                                 </label>
-                                <input name="email" type="email" />
+                                <input id="beispiel-formular-email" name="email" type="email" />
 
                                 <!-- Auswahlliste für den Betreff -->
-                                <label>
+                                <label for="beispiel-formular-subject">
                                     Betreff:
                                 </label>
-                                <select name="subject">
+                                <select id="beispiel-formular-subject" name="subject">
                                     <option selected="selected">Allgemeine Anfrage</option>
                                     <option>Angebot aus der Werbung</option>
                                     <option>Kooperation und Partnerschaft</option>
                                 </select>
 
                                 <!-- Die Nachricht -->
-                                <label>
+                                <label for="beispiel-formular-message">
                                     Ihre Nachricht:
                                     <span class="required">*</span>
                                 </label>
-                                <textarea name="message"></textarea>
+                                <textarea id="beispiel-formular-message" name="message"></textarea>
 
                                 <!-- Button zum Abschicken des Formulars -->
                                 <input type="submit" value="Abschicken" />
@@ -5848,38 +5849,38 @@
                                         method   = "POST"
                                     &gt;
                                         &lt;!-- Vorname und Nachname --&gt;
-                                        &lt;label for="firstname"&gt;
+                                        &lt;label for="field-firstname"&gt;
                                             Ihr Name:
                                             &lt;span class="required"&gt;*&lt;/span&gt;
                                         &lt;/label&gt;
                                         &lt;div class="side-by-side"&gt;
-                                            &lt;input name="firstname" type="text" placeholder="Vorname" /&gt;
-                                            &lt;input name="lastname" type="text" placeholder="Nachname" /&gt;
+                                            &lt;input id="field-firstname" name="firstname" type="text" placeholder="Vorname" /&gt;
+                                            &lt;input id="field-lastname" name="lastname" type="text" placeholder="Nachname" /&gt;
                                         &lt;/div&gt;
 
                                         &lt;!-- E-Mailadresse --&gt;
-                                        &lt;label for="email"&gt;
+                                        &lt;label for="field-email"&gt;
                                             E-Mail:
                                             &lt;span class="required"&gt;*&lt;/span&gt;
                                         &lt;/label&gt;
-                                        &lt;input name="email" type="email" /&gt;
+                                        &lt;input id="field-email" name="email" type="email" /&gt;
 
                                         &lt;!-- Auswahlliste für den Betreff --&gt;
-                                        &lt;label for="subject"&gt;
+                                        &lt;label for="field-subject"&gt;
                                             Betreff:
                                         &lt;/label&gt;
-                                        &lt;select name="subject"&gt;
+                                        &lt;select id="field-subject" name="subject"&gt;
                                             &lt;option selected="selected"&gt;Allgemeine Anfrage&lt;/option&gt;
                                             &lt;option&gt;Angebot aus der Werbung&lt;/option&gt;
                                             &lt;option&gt;Kooperation und Partnerschaft&lt;/option&gt;
                                         &lt;/select&gt;
 
                                         &lt;!-- Die Nachricht --&gt;
-                                        &lt;label for="message"&gt;
+                                        &lt;label for="field-message"&gt;
                                             Ihre Nachricht:
                                             &lt;span class="required"&gt;*&lt;/span&gt;
                                         &lt;/label&gt;
-                                        &lt;textarea name="message"&gt;&lt;/textarea&gt;
+                                        &lt;textarea id="field-message" name="message"&gt;&lt;/textarea&gt;
 
                                         &lt;!-- Button zum Abschicken des Formulars --&gt;
                                         &lt;input type="submit" value="Abschicken" /&gt;
@@ -6225,7 +6226,7 @@
                             <lsx-answer>
                                 <src-code language="javascript">document.getElementById("…")</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
 
                         <lsx-question
                             type = "multiple-choice"
@@ -6246,7 +6247,7 @@
                             <lsx-answer>
                                 <src-code language="javascript">document.querySelectorAll("#toolbar")</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
 
                         <lsx-question type="single-choice">
                             <lsx-question-text>
@@ -6257,13 +6258,13 @@
                             <lsx-answer>
                                 <src-code language="javascript">false</src-code>
                             </lsx-answer>
-                            <lsx-answer>
+                            <lsx-answer correct>
                                 <src-code language="javascript">undefined</src-code>
-                            </lsx-answer correct>
+                            </lsx-answer>
                             <lsx-answer>
                                 <src-code language="javascript">null</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
 
                         <lsx-question type="single-choice">
                             <lsx-question-text>
@@ -6283,7 +6284,7 @@
                             <lsx-answer>
                                 Die Zahl <src-code language="javascript">0</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
                     </lsx-exercise>
 
                     <lsx-exercise title="Inhalte verändern und erzeugen">
@@ -6306,7 +6307,7 @@
                             <lsx-answer correct>
                                 <src-code language="javascript">element.style["borderBottomWidth"] = "1px"</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
 
                         <lsx-question
                             type = "single-choice"
@@ -6327,7 +6328,7 @@
                             <lsx-answer>
                                 <src-code language="javascript">element.style.invisible = true</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
 
                         <lsx-question type="single-choice">
                             <lsx-question-text>
@@ -6348,7 +6349,7 @@
                                 das Ergebnis der HTML-Elemente. Ganz so, als wären sie von Anfang an im Quellcode
                                 der Seite gestanden.
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
 
                         <lsx-question type="single-choice">
                             <lsx-question-text>
@@ -6369,7 +6370,7 @@
                                 das Ergebnis der HTML-Elemente. Ganz so, als wären sie von Anfang an im Quellcode
                                 der Seite gestanden.
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
                     </lsx-exercise>
 
                     <lsx-exercise title="Arbeiten mit der DOM-Struktur">
@@ -6389,7 +6390,7 @@
                             <lsx-answer>
                                 <src-code language="javascript">element.parentNodes</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
 
                         <lsx-question
                             type = "multiple-choice"
@@ -6407,7 +6408,7 @@
                             <lsx-answer correct>
                                 <src-code language="javascript">element.parentNode.removeChild(element)</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
 
                         <lsx-question type="single-choice">
                             <lsx-question-text>
@@ -6426,7 +6427,7 @@
                             <lsx-answer>
                                 <src-code language="javascript">document.createTextNode("div")</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
 
                         <lsx-question
                             type = "single-choice"
@@ -6444,7 +6445,7 @@
                             <lsx-answer>
                                 <src-code language="javascript">element1.appendChild(element2)</src-code>
                             </lsx-answer>
-                        </lxs-question>
+                        </lsx-question>
                     </lsx-exercise>
                 </lsx-quiz>
             </article>
