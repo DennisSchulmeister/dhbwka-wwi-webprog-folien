@@ -1,0 +1,27 @@
+/***************
+ * KOPFBEREICH *
+ ***************/
+
+header {
+    /* Breite des Headers auf großen Bildschirmen begrenzen und den Header
+     * horizontal zentrieren */
+    width: 20em;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/****************
+ * HAUPTBEREICH *
+ ***************/
+
+.card-container {
+    /* Karten auf großen Bildschirmen nebeneinander anordnen */
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    /* Breite der Karten auf großen Bildschirmen begrenzen */
+    width: 23em;
+}

@@ -1,0 +1,113 @@
+/***************
+ * ALLGEMEINES *
+ **************/
+
+html {
+    /* Dynamische Schriftgröße je nach Bildschirmgröße */
+    font-family: sans-serif;
+    font-size: 2.4vh;
+    /* font-size: max(2.4vh, 11pt); */
+
+    /* Hintergrundfarbe und Schriftfarbe */
+    background-color: rgb(240, 230, 217);
+    color: rgb(209, 0, 0);
+}
+
+body {
+    /* Vordefinierte Abstände zum Fensterrand übersteuern */
+    margin: 0;
+    padding: 0;
+}
+
+header, main {
+    /* Einheitlicher Innenabstand für den Kopf- und Hauptbereich */
+    padding: 1rem;
+}
+
+/***************
+ * KOPFBEREICH *
+ **************/
+
+header {
+    /* Schriftart */
+    font-family: 'Calistoga', cursive;
+
+    /* Größere Schrift auf kleinen Bildschirmen */
+    font-size: 120%;
+
+    /* Kleiner Schatten als Abgrenzung zum Haubtbereich */
+    box-shadow: 0 1px 2px rgba(0,0,0, 0.2);
+}
+
+header .logo {
+    /* Größe des Logos, die Höhe ergibt sicht automatisch */
+    width: 3em;
+}
+
+header .app-header {
+    /* Die Inhalte des App-Headers für die mobile Ansicht mit Hilfe des
+     * Flexbox-Algorithmus so anordnen, dass ganz links das Icon zum Auf-
+     * und Zuklappen des Menüs und ganz rechts das Logo erscheint */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .toggle-button {
+    /* Für das Menü-Icon denselben Mauszeiger wie bei einem Link verwenden */
+    cursor: pointer;
+}
+
+header nav ul {
+    /* Einträge des Navigationsmenüs nicht wie eine typische Liste darstellen */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /* Stattdessen die Einträge untereinander, horizontal zentriert anordnen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+
+header,                             /* Der Kopfbereich allgemein       */
+header a,                           /* Unbesuchte Links im Kopfbereich */
+header a:visited {                  /* Besuchte Links im Kopfbereich   */
+    /* Schriftfarbe und keine Unterstreichung */
+    color: rgb(70, 49, 49);
+    text-decoration: none;
+}
+
+header a:hover {
+    /* Links unterstreichen, wenn die Maus darüber fährt */
+    text-decoration: underline;
+}
+
+/****************
+ * HAUPTBEREICH *
+ ****************/
+
+main {
+    /* Auf kleinen Bildschirmen wird eigentlich keine Flexbox benötigt.
+     * Allerdings kann mit 'gap: 1em' auch hier leichter ein einheitlicher
+     * Abstand zwischen den Bildern erzielt werden. */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+main .hamburger {
+    /* Rahmen, runde Ecken und Schatten für die Bilder im Hauptbereich */
+    border-radius: 1em;
+    border: 3px solid white;
+    box-shadow: 2px 2px 3px rgba(0,0,0, 0.25);
+
+    /* Breite der Bilder auf 100% des Elternelements begrenzen. Wichtig, da
+     * die Bilder sonst durchaus breiter als das Browserfenster dargestellt
+     * werden können. */
+    width: 100%;
+
+    /* Selben Mauszeiger wie bei anklickbaren Links verwenden */
+    cursor: pointer;
+}

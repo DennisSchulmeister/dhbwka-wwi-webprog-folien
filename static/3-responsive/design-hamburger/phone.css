@@ -1,0 +1,25 @@
+/***************
+ * ALLGEMEINES *
+ **************/
+
+/* CSS-Klassen, um Inhalte auf kleinen Bildschirmen auszublenden. Die Klasse
+ * 'small-screen-hidden' kann entweder einzeln oder zusammen mit der Klasse
+ * 'animated' verwendet werden. Einzeln wird das Element mit 'display: none'
+ * einfach ausgeblendet. Zusammen mit der Klasse 'animated' wird die maximale
+ * Höhe des Elements auf Null gesetzt, um es animiert zuzuklappen. */
+.small-screen-hidden:not(.animated) {
+    display: none !important;
+}
+
+.small-screen-hidden.animated {
+    max-height: 0 !important;
+}
+
+.animated {
+    /* Die maximale Höhe muss angepasst werden, wenn sich die Anzahl der
+     * Menüeinträge ändert, damit des Menü vollständig angezeigt und die
+     * Animation beim Zuklappen ohne Zeitversatz sichtbar wird. */
+    max-height: 10em;
+    transition: max-height 1s;
+    overflow: hidden;
+}

@@ -1,0 +1,57 @@
+/***************
+ * ALLGEMEINES *
+ **************/
+
+/* CSS-Klasse, um Inhalte auf großen Bildschirmen auszublenden */
+.large-screen-hidden {
+    display: none !important;
+}
+
+/***************
+ * KOPFBEREICH *
+ **************/
+
+header {
+    /* Auf großen Bildschirmen zurück zur normalen Schriftgröße */
+    font-size: 100%;
+
+    /* Auf großen Bildschirmen die Inhalte des Headers mit Hilfe des
+     * Flexbox-Algorithmus so anordnen, das ganz links das Menü und
+     * ganz rechts das Logo erscheint */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    /* Die Inhalte des Menüs auf großen Bildschirmen nebeneinander statt
+     * untereinander anordnen */
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/****************
+ * HAUPTBEREICH *
+ ****************/
+
+main {
+    /* Auf großen Bildschirmen die Breite des Hauptbereichs begrenzen
+     * und diesen horizontal zentriert anordnen. Durch den Trick mit
+     * 'margin: 0 auto' können wir auf eine Flexbox als Elternelement
+     * verzichten, nur um den Hauptinhalt zu zentrieren. */
+    width: 55em;
+    margin: 0 auto;
+
+    /* Die Inhalte des Elements selbst werden allerdings durchaus mit dem
+     * Flexbox-Algorithmus angeordnet. Auf großen Bildschirmen diese so
+     * ändern, dass mehrere Bilder in einer Zeile stehen können und die
+     * Bilder automatisch in die nächste Zeile umbrechen. */
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+main .hamburger {
+    /* Auf großen Bildschirmen die Größe der Bilder so begrenzen, dass
+     * in einer Zeile immer genau zwei Bilder nebeneinander stehen können */
+    width: 25em;
+}

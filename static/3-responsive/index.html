@@ -64,11 +64,20 @@
                 let src    = event.target.dataset.src;
                 let target = event.target.dataset.target;
                 let parent = event.target.dataset.parent;
+                let hide   = event.target.dataset.hide;
+                let show   = event.target.dataset.show
 
                 document.querySelector(`#${parent}`).textContent = label;
-                document.querySelector(`#${target} .my-rp-size-screen`).src = `${src}?screen`;
-                document.querySelector(`#${target} .my-rp-size-tablet`).src = `${src}?tablet`;
-                document.querySelector(`#${target} .my-rp-size-phone`).src = `${src}?phone`;
+                let my_rp_size_screen = document.querySelector(`#${target} .my-rp-size-screen`);
+                let my_rp_size_tablet = document.querySelector(`#${target} .my-rp-size-tablet`);
+                let my_rp_size_phone = document.querySelector(`#${target} .my-rp-size-phone`);
+
+                if (my_rp_size_screen) my_rp_size_screen.src = `${src}?screen`;
+                if (my_rp_size_tablet) my_rp_size_tablet.src = `${src}?tablet`;
+                if (my_rp_size_phone)  my_rp_size_phone.src = `${src}?phone`;
+
+                if (hide) document.querySelectorAll(hide).forEach(e => e.classList.add("d-none"));
+                if (show) document.querySelectorAll(show).forEach(e => e.classList.remove("d-none"));
             }
         </script>
     </head>
@@ -499,8 +508,8 @@
                     <a href="https://www.amazon.de/Wenger-Schweizer-Offiziersmesser-Messer-Schatulle/dp/B000R0JDSI"
                     target="_blank">ultimativen Schweizer Taschenmesser</a>¹, das für jede Problemstellung
                     eine Lösung bietet. Entsprechend aufwändiger ist jedoch die Programmierung
-                    und auch die Fehlersuche kann nicht immer einfach sein. Um diese Komplexität
-                    in den Griff zu bekommen bieten die Browser heute jedoch mächtige Werkzeuge
+                    und auch die Fehlersuche kann durchaus schwierig sein. Um diese Komplexität
+                    in den Griff zu bekommen, bieten die Browser heute jedoch mächtige Werkzeuge
                     zur Unterstützung der Entwicklung. Allen voran:
                 </p>
 
@@ -1191,18 +1200,1411 @@
             </aside>
         </section>
 
-        <!-- TODO: Fallbeispiel Flexbox+Media Query: Unterneinander mobil, nebeneinander sonst -->
-        <!-- TODO: Fallbeispiel Hamburger-Menü -->
-        <!-- TODO: Fallbeispiel: Side-Menü mit Backdrop -->
-        <!-- <section>
-            <h1>Häufig anzutreffende Layoutvarianten</h1>
+        <section>
+            <h1>Häufig anzutreffende Designs</h1>
             <article>
-                TODO: Dropdown und IFRAMEs wie oben + Tabreiter mit Quellcode direkt darunter (ebenfalls durch Dropdown geschaltet)
+                <style>
+                    #design-beispiele .my-rp-background {
+                        background-image: url(designs-bg.jpg);
+                    }
+
+                    #design-beispiele iframe {
+                        border: 1px solid #333333;
+                    }
+                </style>
+
+                <div class="dropdown mb-3">
+                    <button
+                        id             = "design-dropdown-button"
+                        class          = "btn btn-secondary dropdown-toggle"
+                        type           = "button"
+                        data-toggle    = "dropdown"
+                        aria-haspopup  = "true"
+                        aria-expanded  = "false"
+                    >
+                        Anordnung der Elemente
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="design-dropdown-button">
+                        <li>
+                            <button
+                                class       = "dropdown-item"
+                                type        = "button"
+                                data-src    = "design-anordnung/index.html"
+                                data-target = "design-beispiele"
+                                data-parent = "design-dropdown-button"
+                                data-hide   = ".design-beispiel-code"
+                                data-show   = ".design-anordnung"
+                                onclick     = "change_example(event)"
+                            >
+                                Anordnung der Elemente
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class       = "dropdown-item"
+                                type        = "button"
+                                data-src    = "design-hamburger/index.html"
+                                data-target = "design-beispiele"
+                                data-parent = "design-dropdown-button"
+                                data-hide   = ".design-beispiel-code"
+                                data-show   = ".design-hamburger"
+                                onclick     = "change_example(event)"
+                            >
+                                Hamburger-Menü
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class       = "dropdown-item"
+                                type        = "button"
+                                data-src    = "intro/index.html"
+                                data-target = "design-beispiele"
+                                data-parent = "design-dropdown-button"
+                                data-hide   = ".design-beispiel-code"
+                                data-show   = ".design-slidein"
+                                onclick     = "change_example(event)"
+                            >
+                                Slide-In-Menü
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                class       = "dropdown-item"
+                                type        = "button"
+                                data-src    = "design-vollbild/index.html"
+                                data-target = "design-beispiele"
+                                data-parent = "design-dropdown-button"
+                                data-hide   = ".design-beispiel-code"
+                                data-show   = ".design-vollbild"
+                                onclick     = "change_example(event)"
+                            >
+                                Vollbild-Menü
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <lsx-tab-pages id="design-beispiele" class="my-responsive-preview mb-3">
+                    <lsx-tab-page title="Kleine Darstellung">
+                        <div class="my-rp-background">
+                            <div class="my-rp-content">
+                                <iframe class="my-rp-size-phone" src="design-anordnung/index.html?phone"></iframe>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Große Darstellung">
+                        <div class="my-rp-background">
+                            <div class="my-rp-content">
+                                <iframe class="my-rp-size-screen" src="design-anordnung/index.html?screen"></iframe>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="HTML">
+                        <!-- Beispiel: Anordnung der Elemente -->
+                        <div class="design-beispiel-code design-anordnung">
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html lang="de"&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Wir lieben Hunde&lt;/title&gt;
+                                        &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+
+                                        &lt;!-- Stylesheet und Icon --&gt;
+                                        &lt;link rel="stylesheet" id="style-base" href="style.css" /&gt;
+                                        &lt;link rel="shortcut icon" href="img/logo.svg" /&gt;
+
+                                        &lt;!-- Google Fonts --&gt;
+                                        &lt;link rel="preconnect" href="https://fonts.googleapis.com" /&gt;
+                                        &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /&gt;
+                                        &lt;link href="https://fonts.googleapis.com/css2?&family=Pacifico&display=swap" rel="stylesheet" /&gt;
+
+                                        &lt;!-- Fontello Icons --&gt;
+                                        &lt;link rel="stylesheet" href="fontello/css/fontello.css" /&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;!-- Kopfbereich mit Suchfeld --&gt;
+                                        &lt;header&gt;
+                                            &lt;div class="searchbar"&gt;
+                                                &lt;div class="icon icon-search"&gt;&lt;/div&gt;
+                                                &lt;div class="input" contenteditable="true"&gt;&lt;/div&gt;
+                                                &lt;div class="icon icon-camera"&gt;&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;a class="icon icon-paw" href="#"&gt;&lt;/a&gt;
+                                        &lt;/header&gt;
+
+                                        &lt;!-- Hauptbereich mit den darzustellenden Einträgen --&gt;
+                                        &lt;main&gt;
+                                            &lt;h2&gt;Wahre Freunde&lt;/h2&gt;
+                                            &lt;p&gt;
+                                                Entdecken Sie die liebsten Hunde der Welt. Für Familien mit
+                                                und ohne Kinder, für Singles und alle anderen Menschen. Ein
+                                                Hund ist ein Freund für's Leben. Einfach auf einen Eintrag
+                                                klicken, um mehr zu erfahren.
+                                            &lt;/p&gt;
+
+                                            &lt;div id="dog-cards" class="card-container"&gt;
+                                                &lt;div class="card"&gt;
+                                                    &lt;h2 class="card-title"&gt;Ernsto&lt;/h2&gt;
+                                                    &lt;img src="img/dog1.jpg" alt="" class="card-image" /&gt;
+
+                                                    &lt;p class="card-body"&gt;
+                                                        Ernesto ist wirklich ein liebenswertes Kerlchen.
+                                                        Dieser kleine Welpe verträgt sich prima mit Kindern
+                                                        und anderen Hunden.
+                                                    &lt;/p&gt;
+                                                &lt;/div&gt;
+
+                                                &lt;!--
+                                                    Weitere Karten für die anderen Hunde ...
+                                                --&gt;
+                                            &lt;/div&gt;
+                                        &lt;/main&gt;
+
+                                        &lt;!-- Fußbereich --&gt;
+                                        &lt;footer&gt;
+                                            &lt;img class="logo" src="img/logo.svg" alt="" /&gt;
+                                            &lt;span class="slogan"&gt;Wir lieben Hunde!&lt;/span&gt;
+                                        &lt;/footer&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+
+                        <!-- Beispiel: Hamburger-Menü -->
+                        <div class="design-beispiel-code design-hamburger d-none">
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html lang="de"&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;McKing&lt;/title&gt;
+                                        &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+
+                                        &lt;!-- Icon und Stylesheet --&gt;
+                                        &lt;link rel="shortcut icon" href="img/favicon.svg" /&gt;
+                                        &lt;link rel="stylesheet" href="style.css" /&gt;
+
+                                        &lt;!-- Fontello Icons --&gt;
+                                        &lt;link rel="stylesheet" href="fontello/css/fontello.css" /&gt;
+
+                                        &lt;!-- Google Fonts --&gt;
+                                        &lt;link rel="preconnect" href="https://fonts.googleapis.com" /&gt;
+                                        &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /&gt;
+                                        &lt;link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet" /&gt;
+
+                                        &lt;!-- JavaScript-Code für den Hamburger-Button --&gt;
+                                        &lt;script&gt;
+                                            window.addEventListener("load", () =&gt; {
+                                                let hamburgerButton = document.querySelector("header .toggle-button");
+                                                let navigationList = document.querySelector("#nav-menu");
+
+                                                hamburgerButton.addEventListener("click", () =&gt; {
+                                                    if (navigationList.classList.contains("small-screen-hidden")) {
+                                                        navigationList.classList.remove("small-screen-hidden");
+                                                    } else {
+                                                        navigationList.classList.add("small-screen-hidden");
+                                                    }
+                                                });
+                                            });
+                                        &lt;/script&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;header&gt;
+                                            &lt;!-- Mobile Ansicht: Hamburger-Button und Logo --&gt;
+                                            &lt;div class="app-header large-screen-hidden"&gt;
+                                                &lt;div class="toggle-button icon-menu"&gt;Menü&lt;/div&gt;
+                                                &lt;img src="img/logo.svg" alt="" class="logo" /&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;!-- Navigationsmenü --&gt;
+                                            &lt;nav&gt;
+                                                &lt;ul id="nav-menu" class="small-screen-hidden animated"&gt;
+                                                    &lt;li&gt;
+                                                        &lt;a href="#"&gt;Hamburger&lt;/a&gt;
+                                                    &lt;/li&gt;
+                                                    &lt;li&gt;
+                                                        &lt;a href="#"&gt;Getränke&lt;/a&gt;
+                                                    &lt;/li&gt;
+                                                    &lt;li&gt;
+                                                        &lt;a href="#"&gt;Lieferservice&lt;/a&gt;
+                                                    &lt;/li&gt;
+                                                    &lt;li&gt;
+                                                        &lt;a href="#"&gt;Filialfinder&lt;/a&gt;
+                                                    &lt;/li&gt;
+                                                    &lt;li&gt;
+                                                        &lt;a href="#"&gt;Jobs&lt;/a&gt;
+                                                    &lt;/li&gt;
+                                                &lt;/ul&gt;
+                                            &lt;/nav&gt;
+
+                                            &lt;!-- Desktop-Ansicht: Logo am rechten Bildschirmrand--&gt;
+                                            &lt;img src="img/logo.svg" alt="" class="logo small-screen-hidden" /&gt;
+                                        &lt;/header&gt;
+
+                                        &lt;main&gt;
+                                            &lt;img class="hamburger" src="img/hamburger1.jpg" alt="" /&gt;
+                                            &lt;img class="hamburger" src="img/hamburger2.jpg" alt="" /&gt;
+                                            &lt;img class="hamburger" src="img/hamburger3.jpg" alt="" /&gt;
+                                            &lt;img class="hamburger" src="img/hamburger4.jpg" alt="" /&gt;
+                                            &lt;img class="hamburger" src="img/hamburger5.jpg" alt="" /&gt;
+                                            &lt;img class="hamburger" src="img/hamburger6.jpg" alt="" /&gt;
+                                            &lt;img class="hamburger" src="img/hamburger7.jpg" alt="" /&gt;
+                                            &lt;img class="hamburger" src="img/hamburger8.jpg" alt="" /&gt;
+                                        &lt;/main&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+
+                        <!-- Beispiel: Slide-In-Menü -->
+                        <div class="design-beispiel-code design-slidein d-none">
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Youtube&lt;/title&gt;
+                                        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                                        &lt;!-- Stylesheets --&gt;
+                                        &lt;link rel="stylesheet" href="base.css" /&gt;
+                                        &lt;link rel="stylesheet" href="tablet.css" media="(min-width: 50em)" /&gt;
+                                        &lt;link rel="stylesheet" href="screen.css" media="(min-width: 80em)" /&gt;
+
+                                        &lt;!-- Fontello Icons --&gt;
+                                        &lt;link rel="stylesheet" href="fontello/css/fontello.css" /&gt;
+
+                                        &lt;!-- JavaScript-Code zum Auf-/Zuklappen des Seitenmenüs --&gt;
+                                        &lt;script&gt;
+                                            function toggle_side_menu() {
+                                                let modalBackdrop = document.querySelector("#modal-backdrop");
+                                                let sideMenu = document.querySelector("#side-menu-wide");
+
+                                                if (sideMenu.classList.contains("visible")) {
+                                                    modalBackdrop.classList.remove("visible");
+                                                    sideMenu.classList.remove("visible");
+
+                                                    window.setTimeout(() =&gt; {
+                                                        modalBackdrop.classList.add("zindex")
+                                                        sideMenu.classList.remove("animated");
+                                                    }, 550);
+                                                } else {
+                                                    modalBackdrop.classList.remove("zindex");
+                                                    modalBackdrop.classList.add("visible");
+
+                                                    sideMenu.classList.add("animated");
+                                                    sideMenu.classList.add("visible");
+                                                }
+
+                                                return false;
+                                            }
+                                        &lt;/script&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;!-- Kopfzeile --&gt;
+                                        &lt;header&gt;
+                                            &lt;!-- Hamburger-Button zum Ein-/Ausblenden des Menüs --&gt;
+                                            &lt;div class="hamburger-toggle" onclick="toggle_side_menu()"&gt;
+                                                &lt;span class="icon-menu"&gt;&lt;/span&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;!-- Suchzeile und Icons oben rechts --&gt;
+                                            &lt;div class="search flex-stretch"&gt;
+                                                &lt;input placeholder="Search" /&gt;
+                                                &lt;button class="icon-search"&gt;&lt;/button&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class="header-menu"&gt;
+                                                &lt;span class="icon-bell-alt"&gt;&lt;/span&gt;
+                                                &lt;span class="icon-videocam"&gt;&lt;/span&gt;
+                                                &lt;img src="img/profile.jpg" class="round" /&gt;
+                                            &lt;/div&gt;
+                                        &lt;/header&gt;
+
+                                        &lt;!-- Hauptinhalt --&gt;
+                                        &lt;main&gt;
+                                            &lt;!-- ... Hauptinhalt der Seite ... --&gt;
+                                        &lt;/main&gt;
+
+                                        &lt;!-- Modaler Hintergrund --&gt;
+                                        &lt;aside id="modal-backdrop" class="zindex" onclick="toggle_side_menu()"&gt;
+                                        &lt;/aside&gt;
+
+                                        &lt;!-- Seitenmenü --&gt;
+                                        &lt;ul id="side-menu-wide" class="side-menu"&gt;
+                                            &lt;li class="toggle-menu"&gt;
+                                                &lt;a href="#" class="icon-menu" onclick="toggle_side_menu()"&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                &lt;a href="#" class="icon-home"&gt;
+                                                    &lt;span class="label"&gt;Home&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                &lt;a href="#" class="icon-calendar"&gt;
+                                                    &lt;span class="label"&gt;Recent Uploads&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                &lt;a href="#" class="icon-chat-empty"&gt;
+                                                    &lt;span class="label"&gt;Comments&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class="line"&gt;
+                                                &lt;a href="#" class="icon-thumbs-up"&gt;
+                                                    &lt;span class="label"&gt;Social Activities&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+
+                                            &lt;li&gt;
+                                                &lt;a href="#" class="icon-star-empty"&gt;
+                                                    &lt;span class="label"&gt;Favorites&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                &lt;a href="#" class="icon-history"&gt;
+                                                    &lt;span class="label"&gt;Recent Videos&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class="line"&gt;
+                                                &lt;a href="#" class="icon-user-secret"&gt;
+                                                    &lt;span class="label"&gt;Private Videos&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+
+                                            &lt;li&gt;
+                                                &lt;a href="#" class="icon-guidedog"&gt;
+                                                    &lt;span class="label"&gt;Guide&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li&gt;
+                                                &lt;a href="#" class="icon-graduation-cap"&gt;
+                                                    &lt;span class="label"&gt;Help&lt;/span&gt;
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+
+                        <!-- Beispiel: Vollbild-Menü -->
+                        <div class="design-beispiel-code design-vollbild d-none">
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html lang="de"&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;title&gt;Unser Mond&lt;/title&gt;
+                                        &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+
+                                        &lt;!-- Stylesheet und Icon --&gt;
+                                        &lt;link rel="stylesheet" id="style-base" href="style.css" /&gt;
+                                        &lt;link rel="shortcut icon" href="favicon.svg" /&gt;
+
+                                        &lt;!-- Google Fonts --&gt;
+                                        &lt;link rel="preconnect" href="https://fonts.googleapis.com" /&gt;
+                                        &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /&gt;
+                                        &lt;link href="https://fonts.googleapis.com/css2?&family=Heebo&family=Pacifico&display=swap" rel="stylesheet" /&gt;
+
+                                        &lt;!-- JavaScript-Code zum Öffnen/Schließen des Hauptmenüs --&gt;
+                                        &lt;script&gt;
+                                            async function timeout(ms) {
+                                                return new Promise(resolve =&gt; {
+                                                    setTimeout(resolve, ms);
+                                                });
+                                            }
+
+                                            window.addEventListener("load", () =&gt; {
+                                                let toggleButton = document.querySelector("header .toggle-button");
+                                                let mainMenu = document.querySelector("#main-menu");
+                                                let menuItems = document.querySelectorAll("#main-menu li");
+
+                                                menuItems.forEach(e =&gt; e.classList.add("fade-out"));
+
+                                                toggleButton.addEventListener("click", async () =&gt; {
+                                                    if (mainMenu.classList.contains("invisible")) {
+                                                        // Menü einblenden
+                                                        mainMenu.classList.remove("hidden");
+                                                        await timeout(100);
+                                                        mainMenu.classList.remove("invisible");
+                                                        menuItems.forEach(e =&gt; e.classList.replace("fade-out", "fade-in"));
+                                                    } else {
+                                                        // Menü ausblenden
+                                                        mainMenu.classList.add("invisible");
+                                                        menuItems.forEach(e =&gt; e.classList.replace("fade-in", "fade-out"));
+                                                        await timeout(1000);
+                                                        mainMenu.classList.add("hidden");
+                                                    }
+                                                });
+                                            });
+                                        &lt;/script&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;!-- Kopfbereich mit Button zum Öffnen/Schließen des Menüs --&gt;
+                                        &lt;header&gt;
+                                            &lt;div class="brandname"&gt;Der Mond&lt;/div&gt;
+                                            &lt;div class="toggle-button"&gt;Menü&lt;/div&gt;
+                                        &lt;/header&gt;
+
+                                        &lt;!-- Hauptmenü --&gt;
+                                        &lt;nav id="main-menu" class="invisible hidden"&gt;
+                                            &lt;ul&gt;
+                                                &lt;li&gt;&lt;a href="#"&gt;Etymologie&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a href="#"&gt;Umlaufbahn&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a href="#"&gt;Geologie&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a href="#"&gt;Oberfläche&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a href="#"&gt;Geschichte&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a href="#"&gt;Erforschung&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a href="#"&gt;Missionen&lt;/a&gt;&lt;/li&gt;
+                                            &lt;/ul&gt;
+                                        &lt;/nav&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Stylesheet">
+                        <!-- Beispiel: Anordnung der Elemente -->
+                        <div class="design-beispiel-code design-anordnung">
+                            <p>
+                                Wesentliches Merkmal dieses Beispiel ist die Anordnung der Karten
+                                auf kleinen und großen Bildschirmen. Auf kleinen Bildschirmen stehen
+                                sie maximal breit untereinander und auf großen Bildschirmen mit fester
+                                Breite in Gitterformation. Dies wird durch eine Flexbox und einen
+                                Media Query erreicht.
+                            </p>
+                            <p>
+                                Der Flexbox-Algorithmus wird aber auch an vielen anderen Stellen genutzt,
+                                um zum Beispiel den Footer immer an das untere Bildschirmende zu drücken,
+                                selbst wenn der Hauptbereich nur wenig Inhalt besitzt. Die Anordnung des
+                                Suchfelds und des Icons danaben wurde ebenfalls mit einer Flexbox realisiert,
+                                wie die Gestaltung des Suchfelds selbst.
+                            </p>
+                            <p>
+                                Um die Wirkungsweise der einzelnen Flexboxen besser nachvollziehen zu
+                                können, wird das Stylesheet hier in mehreren Teilabschnitten gezeigt.
+                            </p>
+
+                            <lsx-tab-pages class="mb-0 mt-4">
+                                <lsx-tab-page title="Allgemeines">
+                                    <source-code language="css">
+                                        html {
+                                            /* Dynamische Schriftgröße je nach Bildschirmgröße */
+                                            font-family: sans-serif;
+                                            font-size: max(2.4vh, 11pt);
+
+                                            /* CSS-Variablen für mehrfach benötigte Werte */
+                                            --color-light-grey: rgb(230, 230, 230);
+                                            --color-dark-grey: rgb(120, 120, 120);
+                                            --border-radius: 0.5rem;
+                                        }
+
+                                        body {
+                                            /* Inhalt der Seite nicht direkt am Fensterrand kleben lassen */
+                                            margin: 0;
+                                            padding: 1em;
+
+                                            /* Auch bei nur wenig Inhalt das &lt;body&gt;-Element so hoch wie das Browser-
+                                             * fenster machen, damit die Positionierung von Header, Hauptbereich und
+                                             * Footer mit der Flexbox funktioniert */
+                                            min-height: 100vh;
+                                            box-sizing: border-box;
+
+                                            /* Den Inhalt als vertikale Flexbox anordnen und damit insb. den Footer
+                                            * an den unteren Bildschirmrand drücken. */
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: space-between;
+                                        }
+
+                                        main {
+                                            /* Dem Hauptbereich innerhalb seiner Flexbox maximale Höhe geben, damit er
+                                             * bei zu wenig Inhalt nicht vertikal zentiert wird. */
+                                            flex: 1;
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Kopfbereich">
+                                    <source-code language="css">
+                                        header {
+                                            /* Inhalte im Header mit dem Flexbox-Algorithmus nebeneinander und maximal
+                                             * weit auseinander anordnen, damit das Suchfeld ganz Links und das Icon
+                                             * daneben ganz rechts steht. */
+                                            display: flex;
+                                            justify-content: space-between;
+                                            align-items: center;
+                                            gap: 0.5em;
+
+                                            /*  Schrift etwas größer als beim Rest der Seite. */
+                                            font-size: 130%;
+                                        }
+
+                                        header .searchbar {
+                                            /* Das Suchfeld innerhalb seiner Flexbox maximal verbreitern. Funktioniert,
+                                             * weil es das einzige Element mit der flex-Anweisung ist. Hätten mehrere
+                                             * Kinder Flexbox diese Anweisung, würde die Zahl das jeweilige Größen-
+                                             * verhältnis definieren. */
+                                            flex: 1;
+
+                                            /* Inhalt im Suchfeld ebenfalls mit dem Flexbox-Algorithmus nebeneinander
+                                             * und maximal weit auseinander anordnen, damit die beiden Icons jeweils
+                                             * ganz links und ganz rechts stehen.*/
+                                            display: flex;
+                                            justify-content: space-between;
+                                            align-items: center;
+                                            gap: 0.25em;
+
+                                            /* Hintergrundfarbe, Innenabstand und runde Ecken */
+                                            background-color: var(--color-light-grey);
+                                            padding: 0.5em;
+                                            border-radius: var(--border-radius);
+                                        }
+
+                                        header .searchbar .input {
+                                            /* Dem eigentlichen Eingabefeld maximale Breite in der Flexbox geben. */
+                                            flex: 1;
+
+                                            /* Hintegrundfarbe und Rahmen entfernen, da durch das Elternelement schon
+                                             * schon ein Hintergrund definiert ist. */
+                                            border-width: 0;
+                                            background: transparent;
+                                            outline: none;
+                                        }
+
+                                        header,                                 /* Generell alle Inhalte im Header  */
+                                        header a,                               /* Alle unbesuchten Links im Header */
+                                        header a:visited {                      /* Alle besuchten Links im Header   */
+                                            /* Schriftfarbe, keine Unterstreichung, Fettschrift             */
+                                            color: var(--color-dark-grey);
+                                            text-decoration: none;
+                                            font-weight: bold;
+                                        }
+
+                                        @media (min-width: 20em) {
+                                            header {
+                                                /* Breite des Headers auf großen Bildschirmen begrenzen und den Header
+                                                 * horizontal zentrieren */
+                                                width: 20em;
+                                                max-width: 100%;
+                                                margin: 0 auto;
+                                            }
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Hauptbereich">
+                                    <source-code language="css">
+                                        main p {
+                                            /* Text im Hauptbereich als Blocksatz mit Silbentrennung */
+                                            text-align: justify;
+                                            hyphens: auto;
+                                            word-wrap: break-word;
+                                        }
+
+                                        .card-container {
+                                            display: flex;
+                                            flex-direction: column;
+                                            gap: 2em;
+
+                                            margin: 2em 0 2em 0;
+                                        }
+
+                                        .card {
+                                            /* Hellgrauer Rahmen mit runden Ecken für die Karten. "overflow: hidden"
+                                             * wird zusätzlich benötigt, damit der Hintergrund der Titelzeile durch
+                                             * die runden Ecken begrenzt wird. */
+                                            border: 1px solid var(--color-light-grey);
+                                            border-radius: var(--border-radius);
+                                            overflow: hidden;
+
+                                            /* Mauszeiger für anklickbare Elemente */
+                                            cursor: pointer;
+                                        }
+
+                                        .card .card-title {
+                                            /* Automatische Margins des &lt;h2&gt;-Elements auf null setzen, dafür aber
+                                             * innerhalb des Elements etwas Platz zu seinem Inhalt lassen */
+                                            margin: 0;
+                                            padding: 0.5rem;
+
+                                            /* Kartentitel grau einfärben */
+                                            background-color: var(--color-light-grey);
+                                            color: var(--color-dark-grey);
+                                        }
+
+                                        .card .card-image {
+                                            /* Bild maximal breit darstellen */
+                                            display: block;
+                                            width: 100%;
+                                        }
+
+                                        .card .card-body {
+                                            /* Automatische Margins des &lt;p&gt;-Elements auf null setzen, dafür aber
+                                             * innerhalb des Elements etwas Platz zu seinem Inhalt lassen */
+                                            margin: 0;
+                                            padding: 0.5rem;
+                                        }
+
+                                        @media (min-width: 45em) {
+                                            .card-container {
+                                                /* Karten auf großen Bildschirmen nebeneinander anordnen */
+                                                flex-direction: row;
+                                                flex-wrap: wrap;
+                                                justify-content: center;
+                                            }
+
+                                            .card {
+                                                /* Breite der Karten auf großen Bildschirmen begrenzen */
+                                                width: 23em;
+                                            }
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Fußbereich">
+                                    <source-code language="css">
+                                        footer {
+                                            /* Den Inhalt des Footers mit dem Flexbox-Algorithmus horizontal und
+                                             * vertikal zentrieren */
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+                                        }
+
+                                        footer .logo {
+                                            /* Größe des Logos definieren. Die Höhe ergibt sich automatisch. */
+                                            width: 5em;
+                                        }
+
+                                        footer .slogan {
+                                            /* Schriftfarbe, Größe und Farbe für den Slogan */
+                                            font-family: 'Pacifico', cursive;
+                                            font-size: 200%;
+                                            color: DeepPink;
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                            </lsx-tab-pages>
+                        </div>
+
+                        <!-- Beispiel: Hamburger-Menü -->
+                        <div class="design-beispiel-code design-hamburger d-none">
+                            <p>
+                                Ein einfaches Muster für Navigationsmenüs ist, ihre Inhalte auf großen Bildschirmen
+                                nebeneinander und auf kleinen Bildschirmen untereinander anzuordnen. Typischerweise
+                                wird das Menü hierfür mit dem Flexbox-Algorithmus und einem Media Query ausgerichtet.
+                                Zusätzlich wird es auf mobilen Geräten hinter einem „Hamburger”-Button mit dem Symbol
+                                ☰ versteckt.
+                            </p>
+                            <p>
+                                Im Stylesheet sind hierfür die Klassen <code>large-screen-hidden</code> und
+                                <code>small-screen-hidden</code> vorgesehen, um Teile des Menüs nur auf kleinen oder nur auf
+                                großen Bildschirmen darzustellen. Die Menüeinträge werden mit <code>small-screen-hidden</code>
+                                zunächst unsichtbar gemacht, können mit JavaScript aber jederzeit wieder hergeholt werden,
+                                indem die Klasse temporär entfernt wird. Zum Schließen des Menüs wird die Klasse wieder gesetzt.
+                            </p>
+                            <p>
+                                In der Regel wird die CSS-Anweisung <src-code language="css">display: none</src-code> verwendet,
+                                um HTML-Elemente unsichtbar zu machen. Das Beispiel zeigt darüber hinaus einen Trick, wie das
+                                Öffnen und Schließen des Menüs animiert werden kann.
+                            </p>
+
+                            <lsx-tab-pages>
+                                <lsx-tab-page title="Allgemeines">
+                                    <source-code language="css">
+                                        html {
+                                            /* Dynamische Schriftgröße je nach Bildschirmgröße */
+                                            font-family: sans-serif;
+                                            font-size: max(2.4vh, 11pt);
+
+                                            /* Hintergrundfarbe und Schriftfarbe */
+                                            background-color: rgb(240, 230, 217);
+                                            color: rgb(209, 0, 0);
+                                        }
+
+                                        body {
+                                            /* Vordefinierte Abstände zum Fensterrand übersteuern */
+                                            margin: 0;
+                                            padding: 0;
+                                        }
+
+                                        header, main {
+                                            /* Einheitlicher Innenabstand für den Kopf- und Hauptbereich */
+                                            padding: 1rem;
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Inhalte ein-/ausblenden">
+                                    <source-code language="css">
+                                        @media (max-width: 60em) {
+                                            /* CSS-Klassen, um Inhalte auf kleinen Bildschirmen auszublenden. Die Klasse
+                                             * 'small-screen-hidden' kann entweder einzeln oder zusammen mit der Klasse
+                                             * 'animated' verwendet werden. Einzeln wird das Element mit 'display: none'
+                                             * einfach ausgeblendet. Zusammen mit der Klasse 'animated' wird die maximale
+                                             * Höhe des Elements auf Null gesetzt, um es animiert zuzuklappen. */
+                                            .small-screen-hidden:not(.animated) {
+                                                display: none !important;
+                                            }
+
+                                            .small-screen-hidden.animated {
+                                                max-height: 0 !important;
+                                            }
+
+                                            .animated {
+                                                /* Die maximale Höhe muss angepasst werden, wenn sich die Anzahl der
+                                                 * Menüeinträge ändert, damit des Menü vollständig angezeigt und die
+                                                 * Animation beim Zuklappen ohne Zeitversatz sichtbar wird. */
+                                                max-height: 10em;
+                                                transition: max-height 1s;
+                                                overflow: hidden;
+                                            }
+                                        }
+
+                                        @media (min-width: 60em) {
+                                            /* CSS-Klasse, um Inhalte auf großen Bildschirmen auszublenden */
+                                            .large-screen-hidden {
+                                                display: none !important;
+                                            }
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Kopfbereich">
+                                    <source-code language="css">
+                                        header {
+                                            /* Schriftart */
+                                            font-family: 'Calistoga', cursive;
+
+                                            /* Größere Schrift auf kleinen Bildschirmen */
+                                            font-size: 120%;
+
+                                            /* Kleiner Schatten als Abgrenzung zum Haubtbereich */
+                                            box-shadow: 0 1px 2px rgba(0,0,0, 0.2);
+                                        }
+
+                                        header .logo {
+                                            /* Größe des Logos, die Höhe ergibt sicht automatisch */
+                                            width: 3em;
+                                        }
+
+                                        header .app-header {
+                                            /* Die Inhalte des App-Headers für die mobile Ansicht mit Hilfe des
+                                             * Flexbox-Algorithmus so anordnen, dass ganz links das Icon zum Auf-
+                                             * und Zuklappen des Menüs und ganz rechts das Logo erscheint */
+                                            display: flex;
+                                            justify-content: space-between;
+                                            align-items: center;
+                                        }
+
+                                        header .toggle-button {
+                                            /* Für das Menü-Icon denselben Mauszeiger wie bei einem Link verwenden */
+                                            cursor: pointer;
+                                        }
+
+                                        header nav ul {
+                                            /* Einträge des Navigationsmenüs nicht wie eine typische Liste darstellen */
+                                            list-style: none;
+                                            padding: 0;
+                                            margin: 0;
+
+                                            /* Stattdessen die Einträge untereinander, horizontal zentriert anordnen */
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: center;
+                                            gap: 0.5em;
+                                        }
+
+                                        header,                             /* Der Kopfbereich allgemein       */
+                                        header a,                           /* Unbesuchte Links im Kopfbereich */
+                                        header a:visited {                  /* Besuchte Links im Kopfbereich   */
+                                            /* Schriftfarbe und keine Unterstreichung */
+                                            color: rgb(70, 49, 49);
+                                            text-decoration: none;
+                                        }
+
+                                        header a:hover {
+                                            /* Links unterstreichen, wenn die Maus darüber fährt */
+                                            text-decoration: underline;
+                                        }
+
+                                        @media (min-width: 60em) {
+                                            header {
+                                                /* Auf großen Bildschirmen zurück zur normalen Schriftgröße */
+                                                font-size: 100%;
+
+                                                /* Auf großen Bildschirmen die Inhalte des Headers mit Hilfe des
+                                                 * Flexbox-Algorithmus so anordnen, das ganz links das Menü und
+                                                 * ganz rechts das Logo erscheint */
+                                                display: flex;
+                                                justify-content: space-between;
+                                                align-items: center;
+                                            }
+
+                                            header nav ul {
+                                                /* Die Inhalte des Menüs auf großen Bildschirmen nebeneinander statt
+                                                 * untereinander anordnen */
+                                                flex-direction: row;
+                                                flex-wrap: wrap;
+                                            }
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Hauptbereich">
+                                    <source-code language="css">
+                                        main {
+                                            /* Auf kleinen Bildschirmen wird eigentlich keine Flexbox benötigt.
+                                             * Allerdings kann mit 'gap: 1em' auch hier leichter ein einheitlicher
+                                             * Abstand zwischen den Bildern erzielt werden. */
+                                            display: flex;
+                                            flex-direction: column;
+                                            gap: 1em;
+                                        }
+
+                                        main .hamburger {
+                                            /* Rahmen, runde Ecken und Schatten für die Bilder im Hauptbereich */
+                                            border-radius: 1em;
+                                            border: 3px solid white;
+                                            box-shadow: 2px 2px 3px rgba(0,0,0, 0.25);
+
+                                            /* Breite der Bilder auf 100% des Elternelements begrenzen. Wichtig, da
+                                             * die Bilder sonst durchaus breiter als das Browserfenster dargestellt
+                                             * werden können. */
+                                            width: 100%;
+
+                                            /* Selben Mauszeiger wie bei anklickbaren Links verwenden */
+                                            cursor: pointer;
+                                        }
+
+                                        @media (min-width: 55em) {
+                                            main {
+                                                /* Auf großen Bildschirmen die Breite des Hauptbereichs begrenzen
+                                                 * und diesen horizontal zentriert anordnen. Durch den Trick mit
+                                                 * 'margin: 0 auto' können wir auf eine Flexbox als Elternelement
+                                                 * verzichten, nur um den Hauptinhalt zu zentrieren. */
+                                                width: 55em;
+                                                margin: 0 auto;
+
+                                                /* Die Inhalte des Elements selbst werden allerdings durchaus mit dem
+                                                 * Flexbox-Algorithmus angeordnet. Auf großen Bildschirmen diese so
+                                                 * ändern, dass mehrere Bilder in einer Zeile stehen können und die
+                                                 * Bilder automatisch in die nächste Zeile umbrechen. */
+                                                flex-direction: row;
+                                                flex-wrap: wrap;
+                                            }
+
+                                            main .hamburger {
+                                                /* Auf großen Bildschirmen die Größe der Bilder so begrenzen, dass
+                                                 * in einer Zeile immer genau zwei Bilder nebeneinander stehen können */
+                                                width: 25em;
+                                            }
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                            </lsx-tab-pages>
+                        </div>
+
+                        <!-- Beispiel: Slide-In-Menü -->
+                        <div class="design-beispiel-code design-slidein d-none">
+                            <p>
+                                An dieser Stelle schauen wir uns das Beispiel vom Anfang des Kapitels genauer an
+                                und konzentrieren uns dabei auf das Menü am linken Bildschirmrand. Auf großen
+                                Bildschirmen ist es dauerhaft sichtbar und wird unterhalb des Suchbereichs angezeigt.
+                                Auf kleinen Bildschirmen fährt es stattdessen vom linken Bildschirmrand in den
+                                Sichtbereich hinein und überlagert diesen teiweise. Zusätzlich wird der Hintergrund
+                                abgedunkelt.
+                            </p>
+                            <p>
+                                Wenig überraschend sind der Header und das Menü jeweils als Flexbox ausgeführt.
+                                Der Slide-In-Effekt erfordert jedoch, dass das Menü absolut positioniert wird.
+                                Header und Menü besitzen daher feste Größen und Positionsangaben, so dass das
+                                Menü zum Ausblenden einfach nur links vom Bildschirmrand geparkt und bei Bedarf
+                                wieder nach rechts verschoben werden muss. In der Desktop-Version „parkt” es
+                                stattdessen direkt in Zielposition, so dass hier der Slide-In-Effekt entfällt.
+                            </p>
+                            <p>
+                                Der abgedunkelte Hintergrund wird durch ein zusätzliches HTML-Elemenet erzielt,
+                                das ebenfalls mit absoluter Positionierung über den gesamten Bildschirm gelegt
+                                wird. Die Anweisung <code>z-index</code> stellt dabei sicher, dass das Element
+                                über dem Seiteninhalt aber hinter dem Menü liegt.
+                            </p>
+
+                            <lsx-tab-pages>
+                                <lsx-tab-page title="Allgemeines">
+                                    <source-code language="css">
+                                        html, body {
+                                            /* Voreingestellte Abstände zum Fensterrand unterdrücken */
+                                            margin: 0;
+                                            padding: 0;
+                                        }
+
+                                        html {
+                                            /* Allgemeine Schriftart und Größe */
+                                            font-family: sans-serif;
+                                            font-size: 2.3vh;
+                                        }
+
+                                        .flex-stretch {
+                                            /* Hilfsklasse für maximal große Flexbox-Inhalte */
+                                            flex-grow: 1;
+                                            flex-shrink: 1;
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Kopfbereich">
+                                    <source-code language="css">
+                                        header {
+                                            /* Kopfbereich am oberen Bildschirmrand dauerhaft anzeigen */
+                                            position: sticky;
+                                            top: 0;
+
+                                            /* Größe und Abstände im Header */
+                                            padding: 0.5em;
+                                            height: 3em;
+                                            box-sizing: border-box;
+
+                                            /* Ausrichtung der Inhalte als Flexbox */
+                                            display: flex;
+                                            justify-content: space-between;
+                                            align-items: center;
+
+                                            /* Hintergrund- und Schriftfarbe */
+                                            background-color: white;
+                                            color: #606060;
+                                        }
+
+                                        header .hamburger-toggle {
+                                            /* Hamburger-Button über das geöffnete Menü drüber legen */
+                                            z-index: 30;
+
+                                            /* Selber Mauszeiger wie für Links */
+                                            cursor: pointer;
+                                        }
+
+                                        header .search {
+                                            /* Suchzeile in der mobilen Ansicht ausblenden */
+                                            display: none;
+                                        }
+
+                                        @media (min-width: 80em) {
+                                            header {
+                                                /* Etwas andere Abstände für den Header auf großen Bildschirmen */
+                                                margin-left: 0;
+                                                padding-left: 0.5em;
+                                            }
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Seitenmenü">
+                                    <source-code language="css">
+                                        #modal-backdrop {
+                                            /* Element zum Verdunkeln über die gesamte Seite legen */
+                                            position: fixed;
+                                            top: 0;
+                                            bottom: 0;
+                                            left: 0;
+                                            right: 0;
+
+                                            /* Zunächst ist die Hintergrunfarbe komplett durchsichtig, ihre Änderungen werden
+                                             * jedoch animiert, um dadurch einen schönen Überblendeffekt zu erzielen */
+                                            background-color: rgba(0,0,0, 0);
+                                            transition: background-color 0.5s;
+                                        }
+
+                                        #modal-backdrop.zindex {
+                                            /* Standardmäßig liegt das Verdunklungselement hinter allen anderen Inhalten */
+                                            z-index: -999;
+                                        }
+
+                                        #modal-backdrop.visible {
+                                            /* Zum sichtbarschalten seine Farbe und seine Z-Position ändern, um damit den
+                                             * Hauptinhalt der Seite zu übermalen */
+                                            background-color: rgba(0,0,0, 0.5);
+                                            z-index: 10;
+                                        }
+
+                                        #side-menu-wide {
+                                            /* Das Menü liegt oberhalb der Verdunklung aber unterhalb des Hamburger-Buttons */
+                                            z-index: 20;
+
+                                            /* Das Menü besitzt eine feste Breite, ist maximal Hoch und zunächst außerhalb
+                                             * des Browserfensters geparkt, bis es angezeigt werden soll.*/
+                                            position: fixed;
+                                            top: 0em;
+                                            bottom: 0;
+
+                                            width: 15em;
+                                            left: -15em;
+
+                                            /* Innenabstand und Scrollbalken für extralange Menüs */
+                                            padding: 0.5em;
+                                            box-sizing: border-box;
+                                            overflow: scroll-y;
+
+                                            /* Weißen Hintergrund setzen, damit die HTML-Elemente hinter dem Menü nicht durchscheinen. */
+                                            background-color: white;
+
+                                            /* Menüinhalte als Flexbox ausrichten */
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-content: stretch;
+
+                                            list-style: none;
+                                            margin: 0;
+                                        }
+
+                                        #side-menu-wide.animated {
+                                            /* Änderungen an der linken X-Position immer animieren */
+                                            transition: left 0.5s;
+                                        }
+
+                                        #side-menu-wide.visible {
+                                            /* Zum Einblenden einfach das Menü in den sichtbaren Bereich der
+                                             * Seite hinein verschieben */
+                                            left: 0;
+                                        }
+
+                                        @media (min-width: 80em) {
+                                            #side-menu-wide {
+                                                /* Auf großen Bildschirmen das Menü gleich innerhalb der sichtbaren Bereichs
+                                                 * der Seite anzeigen, dafür aber nicht ganz oben, um den Header nicht zu übermalen. */
+                                                left: 0;
+                                                top: 3em;
+                                                padding-top: 1em;
+                                            }
+
+                                            #side-menu-wide li.toggle-menu {
+                                                /* Hamburger-Button auf großen Bildschirmen ausblenden, da ohne Funktion */
+                                                display: none;
+                                            }
+
+                                            main {
+                                                /* Links vom Hauptinhalt genügend Platz für das Menü lassen, damit das Menü
+                                                 * den Hauptinhalt auf großen Bildschirmen nicht verdeckt */
+                                                margin-left: 15em;
+                                            }
+                                        }
+
+                                        /* Sonstige Anweisungen zur Darstellung der Menüinhalte */
+                                        #side-menu-wide li {
+                                            padding: 0.5em 0 0.5em 0;
+                                        }
+
+                                        #side-menu-wide li.line {
+                                            border: 0px solid lightgrey;
+                                            border-bottom-width: 1px;
+                                        }
+
+                                        #side-menu-wide .label {
+                                            margin-left: 1em;
+                                        }
+
+                                        .side-menu a, .side-menu a:visited {
+                                            color: #303030;
+                                            text-decoration: none;
+                                        }
+
+                                        .side-menu a:hover {
+                                            color: #606060;
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                            </lsx-tab-pages>
+                        </div>
+
+                        <!-- Beispiel: Vollbild-Menü -->
+                        <div class="design-beispiel-code design-vollbild d-none">
+                            <p>
+                                Der einfachste Quellcode erzeugt manchmal den größten Effekt. Hier sehen
+                                wir ein Menü, das auf großen und kleinen Bildschirmen gleichermaßen gut
+                                funktioniert. Manchmal ist weniger tatsächlich mehr. Der Trick ist einfach,
+                                die Sichtbarkeit des Menüs mit JavaScript umzuschalten, indem die CSS-Klassen
+                                <code>invisble</code> und <code>hidden</code> entfernt oder gesetzt werden.
+                            </p>
+                            <p>
+                                Im einfachsten Fall müsste nur die Klasse <code>hidden</code> verwendet werden,
+                                da diese mit <src-code language="css">display: none</src-code> bereits dafür sorgt,
+                                dass das Menü vollständig verschwindet. Die Klassen <code>hidden</code>,
+                                <code>fade-in</code> und <code>fade-out</code> fügen dem aber noch einen netten
+                                Ein-/Ausblendeffekt hinzu.
+                            </p>
+
+                            <lsx-tab-pages>
+                                <lsx-tab-page title="Allgemeines">
+                                    <source-code language="css">
+                                        html {
+                                            /** Schriftart und Größe  */
+                                            font-family: 'Heebo', sans-serif;
+                                            font-size: max(2.8vh, 11pt);
+
+                                            /* Hintergrundbild */
+                                            background-image: url(background.jpg);
+                                            background-size: cover;
+                                            background-position: center;
+                                            background-attachment: fixed;
+                                        }
+
+                                        html, body {
+                                            /* Vordefinierte Abstände zum Bildschirmrand übersteuern */
+                                            padding: 0;
+                                            margin: 0;
+                                        }
+
+                                        html,               /* Die Seite allgemein */
+                                        a,                  /* Unbesuchte Links    */
+                                        a:visited {         /* Besuchte Links      */
+                                            /* Weiße Schriftfarbe und keine Untertreichung */
+                                            color: rgb(220, 220, 220);
+                                            text-decoration: none;
+                                        }
+
+                                        a:hover {
+                                            /* Links unterstreichen, wenn die Maus darüber fährt */
+                                            text-decoration: underline;
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Kopfbereich">
+                                    <source-code language="css">
+                                        header {
+                                            /* Innenabstand und Schriftart */
+                                            padding: 1rem;
+                                            font-family: 'Pacifico', cursive;
+
+                                            /* Inhalt mit dem Flexbox-Algorithmus so anordnen, dass das Seitentitel
+                                             * ganz links und der Link zum Öffnen des Menüs ganz rechts erscheint */
+                                            display: flex;
+                                            justify-content: space-between;
+                                            align-items: center;
+                                        }
+
+                                        header .brandname {
+                                            /* Header durch das Menü nicht übermalen */
+                                            z-index: 999;
+                                        }
+
+                                        header .toggle-button {
+                                            /* Schriftfarbe und Mauszeiger */
+                                            color: BurlyWood;
+                                            cursor: pointer;
+
+                                            /* Header durch das Menü nicht übermalen */
+                                            z-index: 999;
+                                        }
+
+                                        header .toggle-button:hover {
+                                            /* Buttontext unterstreichen, wenn die Maus darüber fährt */
+                                            text-decoration: underline;
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Hauptmenü">
+                                    <source-code language="css">
+                                        #main-menu {
+                                            /* Gesamten Bildschirm mit dem Menü verdecken */
+                                            position: fixed;
+                                            top: 0;
+                                            right: 0;
+                                            left: 0;
+                                            bottom: 0;
+
+                                            background-color: rgb(30, 30, 30);
+                                            overflow-y: scroll;
+
+                                            /* Inhalt horizontal und vertikal zentrieren */
+                                            display: flex;
+                                            justify-content: center;
+                                            align-items: center;
+
+                                            /* Menü ein-/ausblenden */
+                                            transition: opacity 1s;
+                                            opacity: 1;
+                                        }
+
+                                        #main-menu ul {
+                                            /* Menüeinträge nicht als typische Listenelemente darstellen */
+                                            list-style: none;
+                                            padding: 0;
+                                            margin: 0;
+
+                                            /* Menüeinträge untereinander und zentriert anordnen */
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: center;
+                                            gap: 0.5em;
+                                        }
+
+                                        /* Beim Ein-/Ausblenden zunächst nur die Transaprenz des Menüs ändern,
+                                         * später mit JavaScript das Menü richtig vom Bildschirm entfnern, indem
+                                         * die Klasse 'hidden' gesetzt wird */
+                                        #main-menu.invisible {
+                                            opacity: 0;
+                                        }
+
+                                        #main-menu.hidden {
+                                            display: none;
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                                <lsx-tab-page title="Zusätzliche Animationen">
+                                    <source-code language="css">
+                                        /* Zusätzliche Animation zum Einblenden der einzelnen Menüeinträge */
+                                        #main-menu li.fade-in:nth-child(1) { animation-delay: 0.125s; }
+                                        #main-menu li.fade-in:nth-child(2) { animation-delay: 0.250s; }
+                                        #main-menu li.fade-in:nth-child(3) { animation-delay: 0.375s; }
+                                        #main-menu li.fade-in:nth-child(4) { animation-delay: 0.500s; }
+                                        #main-menu li.fade-in:nth-child(5) { animation-delay: 0.625s; }
+                                        #main-menu li.fade-in:nth-child(6) { animation-delay: 0.750s; }
+                                        #main-menu li.fade-in:nth-child(7) { animation-delay: 0.875s; }
+
+                                        @keyframes fadein {
+                                            0% {
+                                                opacity: 0;
+                                            }
+
+                                            100% {
+                                                opacity: 1;
+                                            }
+                                        }
+
+                                        #main-menu .fade-in {
+                                            opacity: 0;
+                                            animation-name: fadein;
+                                            animation-duration: 0.5s;
+                                            animation-iteration-count: 1;
+                                            animation-fill-mode: forwards;
+                                        }
+
+                                        /* Zusätzliche Animation zum Ausblenden der einzelnen Menüeinträge */
+                                        #main-menu li.fade-out:nth-child(7) { animation-delay: 0.125s; }
+                                        #main-menu li.fade-out:nth-child(6) { animation-delay: 0.250s; }
+                                        #main-menu li.fade-out:nth-child(5) { animation-delay: 0.375s; }
+                                        #main-menu li.fade-out:nth-child(4) { animation-delay: 0.500s; }
+                                        #main-menu li.fade-out:nth-child(3) { animation-delay: 0.625s; }
+                                        #main-menu li.fade-out:nth-child(2) { animation-delay: 0.750s; }
+                                        #main-menu li.fade-out:nth-child(1) { animation-delay: 0.875s; }
+
+                                        @keyframes fadeout {
+                                            0% {
+                                                opacity: 1;
+                                            }
+
+                                            100% {
+                                                opacity: 0;
+                                            }
+                                        }
+
+                                        #main-menu .fade-out {
+                                            opacity: 1;
+                                            animation-name: fadeout;
+                                            animation-duration: 0.5s;
+                                            animation-iteration-count: 1;
+                                            animation-fill-mode: forwards;
+                                        }
+                                    </source-code>
+                                </lsx-tab-page>
+                            </lsx-tab-pages>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+
+                <p style="line-height: 1;">
+                    <small>
+                        <small>
+                            Bildnachweis für den Hintergrund:
+                            <a href="https://pixabay.com/photos/office-sitting-room-executive-730681/" target="_blank">Pixabay: MagicDesk</a>
+                            <br />
+
+                            Bildnachweise für die Hundebilder:
+                            <a href="https://pixabay.com/vectors/dog-love-friend-friendship-2166765/" target="_blank">Pixabay: andremsantana</a>,
+                            <a href="https://pixabay.com/photos/puppy-dog-pet-collar-dog-collar-1903313/" target="_blank">Pixabay: 3194556</a>,
+                            <a href="https://pixabay.com/photos/dog-corgi-pets-cute-rain-4415649/" target="_blank">Pixabay: huadg5888</a>,
+                            <a href="https://pixabay.com/photos/dog-pinscher-portrait-dog-breed-1787835/" target="_blank">Pixabay: wiggijo</a>,
+                            <a href="https://pixabay.com/photos/dog-pet-car-window-drive-road-trip-1850465/" target="_blank">Pixabay: Pexels</a>,
+                            <a href="https://pixabay.com/photos/dog-pet-animal-domestic-dog-canine-2810484/" target="_blank">Pixabay: Nietjuh</a>,
+                            <a href="https://pixabay.com/photos/dog-corgi-cute-animal-4988985/" target="_blank">Pixabay: luciolu</a>
+                            <br />
+
+                            Bildnachweise für die Hamburger-Bilder:
+                            <a href="https://pixabay.com/photos/hamburger-snack-burger-gourmet-494706/" target="_blank">Pixabay: niekverlaan</a>,
+                            <a href="https://pixabay.com/photos/hamburger-burger-barbeque-bbq-beef-1238246/" target="_blank">Pixabay: Shutterbug75</a>,
+                            <a href="https://pixabay.com/photos/burger-hamburger-bbq-cheese-burger-3962996/" target="_blank">Pixabay: RitaE</a>,
+                            <a href="https://pixabay.com/illustrations/burger-hamburger-meal-yummy-2041192/" target="_blank">Pixabay: Comfreak</a>,
+                            <a href="https://pixabay.com/photos/burger-hamburger-bun-grilling-2762431/" target="_blank">Pixabay: RitaE</a>,
+                            <a href="https://pixabay.com/photos/hamburger-burger-meal-fast-food-2943825/" target="_blank">Pixabay: whitesession</a>,
+                            <a href="https://pixabay.com/photos/hamburger-snack-french-fries-brown-3483290/" target="_blank">Pixabay: Fotorech</a>,
+                            <a href="https://pixabay.com/photos/burger-hamburger-bbq-food-3442206/" target="_blank">Pixabay: RitaE</a>
+                            <br />
+
+                            Bildnachweise für die Mondbilder:
+                            <a href="https://pixabay.com/photos/moon-sky-luna-craters-lunar-1527501/" target="_blank">Pixabay: Ponciano</a>,
+                            <a href="https://pixabay.com/vectors/cartoon-moon-simple-2026643/" target="_blank">Pixabay: OpenClipart-Vectors</a>
+                        </small>
+                    </small>
+                </p>
             </article>
             <aside>
-                TODO
+                <p>
+                    Seitdem das technische Problem, ein und dieselbe Webseite für alle Geräteklassen zu
+                    optimieren, gelöst ist, hat sich ein immer klareres Verständnis herauskristalisiert,
+                    wie bestimmte Inhalte dargestellt werden können. Teilweise sind hierfür Designmuster
+                    von anderen Plattformen wie Android oder iOS auf das Web übergeschwappt, nicht zuletzt
+                    auch deshalb, weil viele Android- oder iOS-Apps in Wirklichkeit als Smartphone-App
+                    verpacket Webanwendungen sind (wie zum Beispiel die GMail-App), oder die Anbieter eine
+                    einheitliche Bedienung sicherstellen wollen (wie zum Beispiel bei YouTube). Umgekehrt
+                    sind aber auch viele Ideen aus HTML, CSS und JavaScript in die die großen Plattformen
+                    zurückgeflossen, beispielsweise in Form des „Material Design” von Google oder des
+                    Flexbox-Algorithmus als Alternative zu den althergebrachten Layoutmanagern in der
+                    Android-Entwicklung.
+                </p>
+                <p>
+                    Auf dieser Seite werden daher ein paar einfache Beispiele mit typischen Designmustern
+                    responsiver Anwendungen gezeigt:
+                </p>
+                <ul class="dhbw-list-spacious">
+                    <li>
+                        <b>Anordnung der Elemente:</b>
+                        Auf kleinen Bildschirmen ist oft nicht genügend Platz, um große Elemente
+                        nebeneinander zu platzieren. Entsprechend dem Standardverhalten der Browser
+                        werden die meisten Elemente daher einfach maximal Breit und untereinander
+                        dargestellt. Auf großen Bildschirmen rutschen Sie stattdessen zum Beispiel
+                        in die Mitte des Bildschirms und ordnen sich gitterförmig nebeneinander
+                        und untereinander an.
+                    </li>
+                    <li>
+                        <b>Hamburger-Menü:</b>
+                        Mittelgroße Navigationsmenüs werden nur auf großen Bildschirmen immer
+                        dargestellt, da sie dort in der Regel als Menüzeile mit überschaubarer
+                        Breite ausgeführt werden können. Auf kleinen Bildschirmen ist es hingegen
+                        üblich, die Menüeinträge untereinander und mit großem Abstand, um die Auswahl
+                        per Touchscreen zu erleichtern, anzuordnen. Dennoch sollte das Menü keinen
+                        unnötigen Platz beanspruchen, weshalb es fast immer hinter einem Hamburger-Button
+                        mit dem Symbol ☰ versteckt wird.
+                    </li>
+                    <li>
+                        <b>Slide-In-Menü:</b>
+                        Seitenmenüs, die von links in den Bildschirm fahren, waren eine Zeit lang sehr
+                        modern in Android. Vergleichbare Ergebnisse lassen sich auch im Web erzielen,
+                        wenn man hierfür bereit ist, einige feste Größenangaben im Stylesheet zu
+                        verwenden.
+                    </li>
+                    <li>
+                        <b>Vollbild-Menü:</b>
+                        Nicht immer muss eine klare Trennung zwischen mobilem Layout und der Darstellung
+                        auf großen Bildschirmen erfolgen. Dieses Beispiel zeigt ein Navigationsmenü, das
+                        vollkommen ohne Media Queries auf allen Geräten funktioniert.
+                    </li>
+                </ul>
+                <p>
+                    Die Beispiele können über das Dropdown-Feld oberhalb der Tabreiter umgeschaltet werden.
+                    Jedes Beispiel beinhaltet neben dem fertigen UI auch den vollständig kommentierten Quellcode.
+                    Die Grundidee wird jeweils beim Stylesheet erklärt.
+                </p>
             </aside>
-        </section> -->
+        </section>
 
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 1: Ein kleines Webdesign-Quiz</h1>
