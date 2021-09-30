@@ -101,6 +101,30 @@
             .my-bootstrap-example *[scope] {
                 font-weight: bold;
             }
+
+            .dummy-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1em;
+            }
+
+            .dummy {
+                width: 5em;
+                height: 5em;
+            }
+
+            .dummy2 {
+                display: inline-flex !important;
+            }
+
+            .dummy, .dummy1, .dummy2 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                font-weight: bold;
+                background-color: #f0f0f0;
+            }
         </style>
     </head>
     <body class="slides invisible" data-title="Responsive Webdesign" tabindex="0">
@@ -3992,10 +4016,7 @@
 
                                 <lsx-tab-pages>
                                     <lsx-tab-page title="Aussehen">
-                                        <div class="my-bootstrap-example" style="padding-top: 10em;">
-                                            <p>
-                                                Hier ist absichtlich viel Platz, damit das Menü nicht abgeschnitten wird.
-                                            </p>
+                                        <div class="my-bootstrap-example" style="padding-top: 10em; padding-bottom: 20em;">
                                             <div class="dropdown">
                                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     Anmelden
@@ -4027,6 +4048,9 @@
                                                     <a class="dropdown-item" href="#">Passwort vergessem</a>
                                                 </div>
                                             </div>
+                                            <p class="mt-3 text-muted">
+                                                Hier ist absichtlich viel Platz, damit das Menü nicht abgeschnitten wird.
+                                            </p>
                                         </div>
                                     </lsx-tab-page>
                                     <lsx-tab-page title="HTML-Code">
@@ -4067,12 +4091,357 @@
                                 </lsx-tab-pages>
                             </lsx-accordion-page>
                         </lsx-accordion>
+
+                        <p class="mt-4">
+                            Diese Seite zeigt eine kleine Auswahl oft eingesetzter UI-Komponenten. Jede Komponente
+                            besitzt darüber hinaus zahlreiche Varianten, so dass sich auch komplexe Oberflächen mit
+                            Bootstrap gestalten lassen.
+                        </p>
                     </lsx-tab-page>
 
                     <!-- Hilfsklassen -->
-                    <!-- <lsx-tab-page title="Hilfsklassen">
-                        ... TODO ...
-                    </lsx-tab-page> -->
+                    <lsx-tab-page title="Hilfsklassen">
+                        <p class="mb-4">
+                            Um die Entwicklung komplexer Layouts weiter zu vereinfachen, bietet Bootstrap eine ganze
+                            Reihe zusätzlicher CSS-Klassen an, mit denen bestimmte Eigenschaften eines HTML-Elements
+                            wie sein Rahmen, seine Farbe oder die Innen- und Außenabstände definiert werden können.
+                            Bootstrap folgt damit der Philospohie, das komplette Layout in HTML ohne zusätzliche,
+                            selbst-entwickelte Stylesheets zu beschreiben.
+                        </p>
+
+                        <lsx-accordion>
+                            <lsx-accordion-page title="Farben" bold active>
+                                <p>
+                                    Bootstrap definiert eine Reihe semantischer Standardfarben, die als Text- oder
+                                    Hintergrundfarbe verwendet werden können. Auf diese Weise soll eine einheitliche
+                                    Farbgebung sichergestellt werden.
+                                </p>
+
+                                <lsx-tab-pages>
+                                    <lsx-tab-page title="Aussehen">
+                                        <div class="my-bootstrap-example">
+                                            <h5 class="m-0 mb-2">Textfarben</h5>
+                                            <div class="dummy-container">
+                                                <div class="dummy1 p-2 border text-primary">text-primary</div>
+                                                <div class="dummy1 p-2 border text-secondary">text-secondary</div>
+                                                <div class="dummy1 p-2 border text-succes">text-success</div>
+                                                <div class="dummy1 p-2 border text-danger">text-danger</div>
+                                                <div class="dummy1 p-2 border text-warning">text-warning</div>
+                                                <div class="dummy1 p-2 border text-info">text-info</div>
+                                                <div class="dummy1 p-2 border text-light bg-dark">text-light</div>
+                                                <div class="dummy1 p-2 border text-dark">text-dark</div>
+                                                <div class="dummy1 p-2 border text-muted">text-muted</div>
+                                                <div class="dummy1 p-2 border text-white bg-dark">text-white</div>
+                                            </div>
+
+                                            <h5 class="m-0 mt-4 mb-2">Hintergrundfarben</h5>
+                                            <div class="dummy-container">
+                                                <div class="dummy1 p-2 border bg-primary text-light">bg-primary</div>
+                                                <div class="dummy1 p-2 border bg-secondary text-light">bg-secondary</div>
+                                                <div class="dummy1 p-2 border bg-success text-light">bg-success</div>
+                                                <div class="dummy1 p-2 border bg-danger text-light">bg-danger</div>
+                                                <div class="dummy1 p-2 border bg-warning">bg-warning</div>
+                                                <div class="dummy1 p-2 border bg-info text-light">bg-info</div>
+                                                <div class="dummy1 p-2 border bg-light">bg-light</div>
+                                                <div class="dummy1 p-2 border bg-dark text-light">bg-dark</div>
+                                                <div class="dummy1 p-2 border bg-white">bg-white</div>
+                                            </div>
+                                        </div>
+                                    </lsx-tab-page>
+                                    <lsx-tab-page title="HTML-Code">
+                                        <source-code language="html">
+                                            &lt;h5 class="m-0 mb-2"&gt;Textfarben&lt;/h5&gt;
+                                            &lt;div class="d-flex flex-wrap gap-3"&gt;
+                                                &lt;div class="p-2 border text-primary"&gt;text-primary&lt;/div&gt;
+                                                &lt;div class="p-2 border text-secondary"&gt;text-secondary&lt;/div&gt;
+                                                &lt;div class="p-2 border text-succes"&gt;text-success&lt;/div&gt;
+                                                &lt;div class="p-2 border text-danger"&gt;text-danger&lt;/div&gt;
+                                                &lt;div class="p-2 border text-warning"&gt;text-warning&lt;/div&gt;
+                                                &lt;div class="p-2 border text-info"&gt;text-info&lt;/div&gt;
+                                                &lt;div class="p-2 border text-light bg-dark"&gt;text-light&lt;/div&gt;
+                                                &lt;div class="p-2 border text-dark"&gt;text-dark&lt;/div&gt;
+                                                &lt;div class="p-2 border text-muted"&gt;text-muted&lt;/div&gt;
+                                                &lt;div class="p-2 border text-white bg-dark"&gt;text-white&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;h5 class="m-0 mt-4 mb-2"&gt;Hintergrundfarben&lt;/h5&gt;
+                                            &lt;div class="d-flex flex-wrap gap-3"&gt;
+                                                &lt;div class="p-2 border bg-primary text-light"&gt;bg-primary&lt;/div&gt;
+                                                &lt;div class="p-2 border bg-secondary text-light"&gt;bg-secondary&lt;/div&gt;
+                                                &lt;div class="p-2 border bg-success text-light"&gt;bg-success&lt;/div&gt;
+                                                &lt;div class="p-2 border bg-danger text-light"&gt;bg-danger&lt;/div&gt;
+                                                &lt;div class="p-2 border bg-warning"&gt;bg-warning&lt;/div&gt;
+                                                &lt;div class="p-2 border bg-info text-light"&gt;bg-info&lt;/div&gt;
+                                                &lt;div class="p-2 border bg-light"&gt;bg-light&lt;/div&gt;
+                                                &lt;div class="p-2 border bg-dark text-light"&gt;bg-dark&lt;/div&gt;
+                                                &lt;div class="p-2 border bg-white"&gt;bg-white&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        </source-code>
+                                    </lsx-tab-page>
+                                </lsx-tab-pages>
+                            </lsx-accordion-page>
+
+                            <lsx-accordion-page title="Transparenz" bold>
+                                <p>
+                                    Mit den <code>opacity</code>-Klassen können einzelne Elemente halbtransparent
+                                    dargestellt werden, beispielweise um anzudeuten, dass ihre Inhalte noch nicht
+                                    vollständig geladen wurden.
+                                </p>
+
+                                <lsx-tab-pages>
+                                    <lsx-tab-page title="Aussehen">
+                                        <div class="my-bootstrap-example dummy-container">
+                                            <div class="dummy bg-primary text-light" style="opacity: 1.00;"><span>100%</span></div> <!-- Bootstrap 5: .opacity-100 -->
+                                            <div class="dummy bg-primary text-light" style="opacity: 0.75;"><span>75%</span></div> <!-- Bootstrap 5: .opacity-75 -->
+                                            <div class="dummy bg-primary text-light" style="opacity: 0.50;"><span>50%</span></div> <!-- Bootstrap 5: .opacity-50 -->
+                                            <div class="dummy bg-primary text-light" style="opacity: 0.25;"><span>25%</span></div> <!-- Bootstrap 5: .opacity-25 -->
+                                        </div>
+                                    </lsx-tab-page>
+                                    <lsx-tab-page title="HTML-Code">
+                                        <source-code language="html">
+                                            &lt;div class="bg-primary text-light opacity-100"&gt;&lt;/div&gt;
+                                            &lt;div class="bg-primary text-light opacity-75"&gt;&lt;/div&gt;
+                                            &lt;div class="bg-primary text-light opacity-50"&gt;&lt;/div&gt;
+                                            &lt;div class="bg-primary text-light opacity-25"&gt;&lt;/div&gt;
+                                        </source-code>
+                                    </lsx-tab-page>
+                                </lsx-tab-pages>
+                            </lsx-accordion-page>
+
+                            <lsx-accordion-page title="Rahmen" bold>
+                                <p>
+                                    Dezente Umrandungen können, wenn sie richtig eingesetzt werden, einem Layout einen
+                                    professionellen Feinschliff verleihen. Bootstrap definiert daher eine Reihe von
+                                    CSS-Klassen, mit denen die wichtigsten Parameter gesetzt werden können, wobei hierzu
+                                    auch abgerundete Ecken und kreisrunde Elemente zählen¹.
+                                </p>
+
+                                <lsx-tab-pages>
+                                    <lsx-tab-page title="Aussehen">
+                                        <div class="my-bootstrap-example dummy-container">
+                                            <div class="dummy border"></div>
+                                            <div class="dummy border border-primary"></div>
+                                            <div class="dummy border border-primary" style="border-width: 3px !important;"></div> <!-- Bootstrap 5: .border-2 -->
+                                            <div class="dummy border rounded rounded-lg"></div> <!-- Bootstrap 5: .rounded-3 -->
+                                            <div class="dummy border rounded-circle"></div>
+                                        </div>
+                                    </lsx-tab-page>
+                                    <lsx-tab-page title="HTML-Code">
+                                        <source-code language="html">
+                                            &lt;div class="border"&gt;&lt;/div&gt;
+                                            &lt;div class="border border-primary"&gt;&lt;/div&gt;
+                                            &lt;div class="border border-primary border-2"&gt;&lt;/div&gt;
+                                            &lt;div class="border rounded rounded-3"&gt;&lt;/div&gt;
+                                            &lt;div class="border rounded-circle"&gt;&lt;/div&gt;
+                                        </source-code>
+                                    </lsx-tab-page>
+                                </lsx-tab-pages>
+
+                                <p>
+                                    ¹
+                                    <small>
+                                        <small>
+                                            Kreisrunde Elemente werden in CSS mit den Anweisungen
+                                            <src-code language="css">border-radius: 50%; overflow: hidden;</src-code>
+                                            definiert, also denselben Anweisungen, die auch für abgerundete Ecken
+                                            verwendet werden. Damit wirklich ein Kreis entsteht, muss zusätzlich
+                                            eine quadratische Größe sichergestellt werden.
+                                        </small>
+                                    </small>
+                                </p>
+                            </lsx-accordion-page>
+
+                            <lsx-accordion-page title="Schatten" bold>
+                                <p>
+                                    Schatten können entweder sehr sparsam als Ersatz für einen Rahmen oder zur
+                                    pseudodreidimensionalen Visualisierung einer Hierarchie eingesetzt werden.
+                                    Die CSS-Klassen von Bootstrap dienen eher Letzterem und orientieren sich
+                                    dabei grob am
+                                    <a href="https://material.io/design/environment/light-shadows.html" target="_blank">Google Material Design</a>.
+                                </p>
+
+                                <lsx-tab-pages>
+                                    <lsx-tab-page title="Aussehen">
+                                        <div class="my-bootstrap-example dummy-container">
+                                            <div class="dummy border shadow-none"><span>None</span></div>
+                                            <div class="dummy border shadow-sm"><span>Small</span></div>
+                                            <div class="dummy border shadow"><span>Normal</span></div>
+                                            <div class="dummy border shadow-lg"><span>Large</span></div>
+                                        </div>
+                                    </lsx-tab-page>
+                                    <lsx-tab-page title="HTML-Code">
+                                        <source-code language="html">
+                                            &lt;div class="border shadow-none"&gt;&lt;/div&gt;
+                                            &lt;div class="border shadow-sm"&gt;&lt;/div&gt;
+                                            &lt;div class="border shadow"&gt;&lt;/div&gt;
+                                            &lt;div class="border shadow-lg"&gt;&lt;/div&gt;
+                                        </source-code>
+                                    </lsx-tab-page>
+                                </lsx-tab-pages>
+                            </lsx-accordion-page>
+
+                            <lsx-accordion-page title="Abstände" bold>
+                                <p>
+                                    Innenabstände können mit den Klassen <code>p-0</code> bis <code>p-5</code>
+                                    und Außenabstände mit <code>m-0</code> bis <code>m-5</code> gesetzt werden.
+                                    Durch Anhängen eines weiteren Buchstabens können die Abstände auch nur für
+                                    einzelne Seiten gesetzt werden, zum Beispiel <code>mb-3</code> für den
+                                    Außenabstand nach unten oder <code>mt-3</code> für oben.
+                                </p>
+
+                                <lsx-tab-pages>
+                                    <lsx-tab-page title="Aussehen">
+                                        <div class="my-bootstrap-example">
+                                            <h5 class="m-0 mb-2">Innenabstände (Padding)</h5>
+                                            <div>
+                                                <div class="dummy2 border m-3 p-0">p-0</div>
+                                                <div class="dummy2 border m-3 p-1">p-1</div>
+                                                <div class="dummy2 border m-3 p-2">p-2</div>
+                                                <div class="dummy2 border m-3 p-3">p-3</div>
+                                                <div class="dummy2 border m-3 p-4">p-4</div>
+                                                <div class="dummy2 border m-3 p-5">p-5</div>
+                                            </div>
+
+                                            <h5 class="m-0 mt-4 mb-2">Außenabstände (Margin)</h5>
+                                            <div>
+                                                <div class="dummy2 border bg-info">
+                                                    <div class="dummy2 border p-2 m-0">m-0</div>
+                                                </div>
+                                                <div class="dummy2 border bg-info">
+                                                    <div class="dummy2 border p-2 m-1">m-1</div>
+                                                </div>
+                                                <div class="dummy2 border bg-info">
+                                                    <div class="dummy2 border p-2 m-2">m-2</div>
+                                                </div>
+                                                <div class="dummy2 border bg-info">
+                                                    <div class="dummy2 border p-2 m-3">m-3</div>
+                                                </div>
+                                                <div class="dummy2 border bg-info">
+                                                    <div class="dummy2 border p-2 m-4">m-4</div>
+                                                </div>
+                                                <div class="dummy2 border bg-info">
+                                                    <div class="dummy2 border p-2 m-5">m-5</div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </lsx-tab-page>
+                                    <lsx-tab-page title="HTML-Code">
+                                        <source-code language="html">
+                                            &lt;h5 class="m-0 mb-2"&gt;Innenabstände (Padding)&lt;/h5&gt;
+                                            &lt;div&gt;
+                                                &lt;div class="bg-light border p-0"&gt;p-0&lt;/div&gt;
+                                                &lt;div class="bg-light border p-1"&gt;p-1&lt;/div&gt;
+                                                &lt;div class="bg-light border p-2"&gt;p-2&lt;/div&gt;
+                                                &lt;div class="bg-light border p-3"&gt;p-3&lt;/div&gt;
+                                                &lt;div class="bg-light border p-4"&gt;p-4&lt;/div&gt;
+                                                &lt;div class="bg-light border p-5"&gt;p-5&lt;/div&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;h5 class="m-0 mb-2"&gt;Außenabstände (Margin)&lt;/h5&gt;
+                                            &lt;div&gt;
+                                                &lt;div class="bg-light border m-0"&gt;p-0&lt;/div&gt;
+                                                &lt;div class="bg-light border m-1"&gt;p-1&lt;/div&gt;
+                                                &lt;div class="bg-light border m-2"&gt;p-2&lt;/div&gt;
+                                                &lt;div class="bg-light border m-3"&gt;p-3&lt;/div&gt;
+                                                &lt;div class="bg-light border m-4"&gt;p-4&lt;/div&gt;
+                                                &lt;div class="bg-light border m-5"&gt;p-5&lt;/div&gt;
+                                            &lt;/div&gt;
+                                        </source-code>
+                                    </lsx-tab-page>
+                                    <lsx-tab-page title="Seiten">
+                                        <ul>
+                                            <li>
+                                                Leer – Alle Seiten
+                                            </li>
+                                            <li>
+                                                <code>t</code> – Oben
+                                            </li>
+                                            <li>
+                                                <code>b</code> – Unten
+                                            </li>
+                                            <li>
+                                                <code>s</code> – Links (bei westlicher Links-nach-Rechts-Schreibrichtung)
+                                            </li>
+                                            <li>
+                                                <code>e</code> – Rechts (bei westlicher Links-nach-Rechts-Schreibrichtung)
+                                            </li>
+                                            <li>
+                                                <code>x</code> – Links und Rechts
+                                            </li>
+                                            <li>
+                                                <code>y</code> – Oben und Unten
+                                            </li>
+                                        </ul>
+                                    </lsx-tab-page>
+                                </lsx-tab-pages>
+                            </lsx-accordion-page>
+
+                            <lsx-accordion-page title="Flexbox" bold>
+                                <p>
+                                    Keine andere Entwicklung hat das Webdesign so sehr verändert, wie die Standardisierung
+                                    des <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Flexbox-Algorithmus</a>
+                                    im Jahr 2018. Seither wurde Bootstrap komplett umgeschrieben, so dass insbesondere das
+                                    Grid-Layout auf dem Flexbox-Algorithmus basiert. Aber auch ohne das Grid-Layout können
+                                    Flexboxen mit Bootstrap genutzt werden.
+                                </p>
+
+                                <lsx-tab-pages>
+                                    <lsx-tab-page title="Aussehen">
+                                        <div class="my-bootstrap-example">
+                                            <div class="d-flex justify-content-between align-items-stretch border bg-secondary p-3" style="height: 25em; gap: 1em;"> <!-- Bootstrap 5: .gap3 -->
+                                                <div class="d-flex flex-column justify-content-center border bg-light p-3" style="gap: 1em;"> <!-- Bootstrap 5: .gap3 -->
+                                                    <div class="dummy border bg-primary"></div>
+                                                    <div class="dummy border bg-primary"></div>
+                                                    <div class="dummy border bg-primary"></div>
+                                                </div>
+                                                <div class="d-flex flex-column justify-content-around border bg-light p-3" style="gap: 1em;"> <!-- Bootstrap 5: .gap3 -->
+                                                    <div class="dummy border bg-success"></div>
+                                                    <div class="dummy border bg-success"></div>
+                                                    <div class="dummy border bg-success"></div>
+                                                </div>
+                                                <div class="d-flex flex-column justify-content-between border bg-light p-3" style="gap: 1em;"> <!-- Bootstrap 5: .gap3 -->
+                                                    <div class="dummy border bg-warning"></div>
+                                                    <div class="dummy border bg-warning"></div>
+                                                    <div class="dummy border bg-warning"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </lsx-tab-page>
+                                    <lsx-tab-page title="HTML-Code">
+                                        <source-code language="html">
+                                            &lt;div class="d-flex justify-content-between align-items-stretch gap-3   border bg-secondary p-3" style="height: 25em;"&gt;
+                                                &lt;div class="d-flex flex-column justify-content-center gap-3   border bg-light p-3"&gt;
+                                                    &lt;div class="border bg-primary"&gt;&lt;/div&gt;
+                                                    &lt;div class="border bg-primary"&gt;&lt;/div&gt;
+                                                    &lt;div class="border bg-primary"&gt;&lt;/div&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class="d-flex flex-column justify-content-around gap-3   border bg-light p-3"&gt;
+                                                    &lt;div class="border bg-success"&gt;&lt;/div&gt;
+                                                    &lt;div class="border bg-success"&gt;&lt;/div&gt;
+                                                    &lt;div class="border bg-success"&gt;&lt;/div&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class="d-flex flex-column justify-content-between gap-3   border bg-light p-3"&gt;
+                                                    &lt;div class="border bg-warning"&gt;&lt;/div&gt;
+                                                    &lt;div class="border bg-warning"&gt;&lt;/div&gt;
+                                                    &lt;div class="border bg-warning"&gt;&lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        </source-code>
+                                    </lsx-tab-page>
+                                </lsx-tab-pages>
+                            </lsx-accordion-page>
+                        </lsx-accordion>
+
+                        <p class="mt-4">
+                            Diese Seite zeigt einige CSS-Hilfsklassen von Bootstrap. Die meisten Klassen lassen sich
+                            durch Anhängen von <code>-md</code>, <code>-lg</code> und so weiter auf Bildschirme mit
+                            einer bestimmten Mindestgröße beschränken. Insgesamt decken die CSS-Hilfsklassen einen
+                            großen Teil von CSS-Anweisungen ab, so dass in vielen Fällen auf eigene Stylesheets
+                            verzichtet werden kann (zugunsten eines aufwändigeren und wenig übersichtlichen HTML-Codes).
+                        </p>
+                    </lsx-tab-page>
                 </lsx-tab-pages>
 
                 <p>
@@ -4150,7 +4519,7 @@
                     <li>
                         <b>Vordefinierte CSS-Klassen:</b>
                         Die Entwicklung eigener Stylesheets ist durch Bootstrap auch deshalb häufig
-                        überflüssig, weil es für viele CSS-Anweisungen auch passende Klassennamen gibt,
+                        überflüssig, weil es für viele CSS-Anweisungen passende Klassennamen gibt,
                         die im HTML-Code direkt verwendet werden können, um ein Element damit auszuzeichnen.
                         Beispielsweise kann mit <src-code language="html">&lt;div class="shadow-sm"&gt;</src-code>
                         einem Element ein dezenter Schatten gegeben werden, ohne diesen in CSS definieren
