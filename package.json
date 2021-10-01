@@ -46,7 +46,7 @@
         "lecture-slides.js": "^1.5.2",
         "less": "^3.13.1",
         "less-loader": "^4.0.5",
-        "ls-plugin-extra-tags": "^1.5.0",
+        "ls-plugin-extra-tags": "^1.5.1",
         "ls-plugin-highlight.js": "^1.0.1",
         "shelljs": "^0.8.4",
         "style-loader": "^0.23.1",

@@ -3133,13 +3133,13 @@
 
                 <lsx-ul emoji="🖥️">
                     <li>
-                        Ursprünglich als Einmannprojekt bei Twitter gestartet, wurde Bootstrap 2011 offiziell vorgestellt.
+                        Ursprünglich als Einmannprojekt bei Twitter gestartet, wurde Bootstrap 2011 unter MIT-Lizenz veröffentlicht.
                     </li>
                     <li>
                         Einstiges Killer-Feature war das Grid-System zur Gestaltung responsiver, spaltenbasierter Layouts.
                     </li>
                     <li>
-                        Inzwischen bietet es eine vielzahl von Funktionen, von denen insbesonder größere Projekte profitieren.
+                        Inzwischen bietet es eine vielzahl von Funktionen, von denen insbesondere größere Projekte profitieren.
                     </li>
                 </lsx-ul>
 
@@ -4466,15 +4466,15 @@
                 <p>
                     Ursprünglich als Einmannprojekt zur vereinheitlichung interner Webanwendungen bei Twitter
                     erfunden, wurde Bootstrap schnell von anderen Entwickler*innen aufgegriffen und im Jahr 2011
-                    als Open-Source-Projekt der Allgemeinheit vorgestellt. Seither hat sich Bootstrap zu einem
-                    der beliebtesten Webframeworks für die Frontendentwicklung entwickelt, das auch heute noch
-                    in vielen Projekten genutzt wird. Im Gegensatz zu anderen Frameworks, die oft nach kurzer
-                    Zeit wieder von der Bildfläche verschwinden (oder wie jQuery nicht mehr benötigt werden),
-                    wurde Bootstrap inzwischen mehrmals neugeschrieben, um mit aktuellen Entwicklungen im Web
-                    schrittzuhalten. Auch wenn heute die Notwendigkeit für Frameworks nicht mehr so groß ist
-                    wie früher¹, bietet insbesondere Bootstrap in größeren Projekten nach wie vor viele Vorteile.
-                    Stellvertretend für eine ganze Reihe ähnlich gelagerter Frameworks² wollen uns daher die
-                    Programmierung mit Bootstrap an dieser Stelle genauer anschauen.
+                    als Open-Source-Projekt unter MIT-Lizenz der Allgemeinheit vorgestellt. Seither hat sich
+                    Bootstrap zu einem der beliebtesten Webframeworks für die Frontendentwicklung entwickelt,
+                    das auch heute noch in vielen Projekten genutzt wird. Im Gegensatz zu anderen Frameworks,
+                    die oft nach kurzer Zeit wieder von der Bildfläche verschwinden (oder wie jQuery nicht
+                    mehr benötigt werden), wurde Bootstrap inzwischen mehrmals neugeschrieben, um mit aktuellen
+                    Entwicklungen im Web schrittzuhalten. Auch wenn heute die Notwendigkeit für Frameworks nicht
+                    mehr so groß ist wie früher¹, bietet insbesondere Bootstrap in größeren Projekten nach wie vor
+                    viele Vorteile. Stellvertretend für eine ganze Reihe ähnlich gelagerter Frameworks² wollen uns
+                    daher die Programmierung mit Bootstrap an dieser Stelle genauer anschauen.
                 </p>
                 <p>
                     Anfangs war Bootstrap vor allem für sein Grid-System bekannt, da sich damit leicht gängige
@@ -4582,18 +4582,258 @@
             </aside>
         </section>
 
-        <!-- <section>
+        <section>
             <h1>Bootstrap in ein Projekt einbinden</h1>
             <article>
-                ... 3 Arten ...
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Content Delivery Network">
+                        <lsx-ul emoji="💫">
+                            <li>
+                                Bootstrap besteht lediglich aus einem Stylesheet und einer optionalen JavaScript-Datei¹.
+                            </li>
+                            <li>
+                                Diese können am einfachsten über ein Content Delivery Network eingebunden werden.
+                            </li>
+                            <li>
+                                Auf der Webseite von Bootstrap wird hierfür <a href="https://www.jsdelivr.com/" target="_blank">jsDelivr</a>
+                                empfohlen.
+                            </li>
+                            <li>
+                                <p>
+                                    Im HTML-Code müssen dann nur folgende Zeilen eingebaut werden.
+                                </p>
+                            </li>
+                        </lsx-ul>
+                        <!-- Bootstrap 5.1.1 -->
+                        <source-code language="html">
+                            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" /&gt;
+                            &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                        </source-code>
+                        <p>
+                            ¹
+                            <small>
+                                <small>
+                                    Es handelt sich dabei um die für den Produktiveinsatz optimierte Version, die aus
+                                    den eigentlichen Quelldateien gebaut und minifiziert wird.
+                                </small>
+                            </small>
+                        </p>
+
+                        <h2 class="mt-5 dhbw-lightblue">Vollständige Vorlage</h2>
+                        <p>
+                            Der folgende Quellcode entspricht im Wesentlichen der Vorlage von der Bootstrap-Webseite
+                            mit den im Video erklärten Anpassungen.
+                        </p>
+                        <div class="bg-light border p-3">
+                            <!-- Bootstrap 5.1.1 -->
+                            <source-code language="html">
+                                &lt;!DOCTYPE html&gt;
+                                &lt;html lang="de"&gt;
+                                    &lt;head&gt;
+                                        &lt;title&gt;Hallo, Bootstrap!&lt;/title&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+
+                                        &lt;!-- Bootstrap --&gt;
+                                        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" /&gt;
+                                        &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;!-- Seiteninhalt hier --&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                        </div>
+                    </lsx-tab-page>
+                    <lsx-tab-page title="Manueller Download">
+                        <lsx-carousel>
+                            <lsx-carousel-page>
+                                <p>
+                                    Auf <a href="https://getbootstrap.com/" target="_blank">getbootstrap.com</a>
+                                    erscheint sich gleich am Anfang ein Download-Button.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="bootstrap-download-01.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Hier können vorkompilierte CSS- und JavaScript-Dateien heruntergeladen werden.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="bootstrap-download-02.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Die ZIP-Datei kann direkt im Projektverzeichnis entpacket werden.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="bootstrap-download-03.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    So sollte die entpackte Verzeichnisstruktur aussehen. Der Einfachheit halber
+                                    wurde das Bootstrap-Verzeichnis hier in <code>bootstrap</code> umbenannt.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="bootstrap-download-04.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Wahlweise können einzelne Teile von Bootstrap oder das gesamte Framework
+                                    eingebunden werden
+                                    (<a href="https://getbootstrap.com/docs/5.1/getting-started/contents/" target="_blank">Dokumentation hierzu</a>).
+                                    Soll das gesamte Framework genutzt werden, werden nur die folgenden Dateien benötigt.
+                                </p>
+                                <img class="active d-block w-100 dhbw-border" src="bootstrap-download-05.png" />
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Im Projektverzeichnis sollte eine Datei namens <code>index.html</code>
+                                    mit folgendem Inhalt angelegt werden. Im Vergleich zur CDN-Variante unterscheiden
+                                    sich hier nur das <src-code language="html">&lt;link&gt;</src-code> und
+                                    <src-code language="html">&lt;script&gt;</src-code>-Element.
+                                </p>
+                                <source-code language="html">
+                                    &lt;!DOCTYPE html&gt;
+                                    &lt;html lang="de"&gt;
+                                        &lt;head&gt;
+                                            &lt;title&gt;Hallo, Bootstrap!&lt;/title&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+
+                                            &lt;!-- Bootstrap --&gt;
+                                            &lt;link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" /&gt;
+                                            &lt;script src="bootstrap/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;!-- Seiteninhalt hier --&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </lsx-carousel-page>
+                            <lsx-carousel-page>
+                                <p>
+                                    Das war's. Viel Spaß beim Programmieren.
+                                </p>
+                                <img class="active d-block w-25 m-auto" src="../finish.svg" />
+                            </lsx-carousel-page>
+                        </lsx-carousel>
+                        <p>
+                            <small>
+                                <small>
+                                    Bildnachweis für das Endesymbol: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                                </small>
+                            </small>
+                        </p>
+                    </lsx-tab-page>
+                    <lsx-tab-page title="Weitere Möglichkeiten">
+                        <h2 class="dhbw-lightblue">Paketverwaltung</h2>
+                        <lsx-ul emoji="🌟">
+                            <li>
+                                In der professionellen Webentwicklung werden häufig Package Manager genutzt.
+                            </li>
+                            <li>
+                                Beispiele hierfür sind der
+                                <a href="https://www.npmjs.com" target="_blank">Node Package Manager</a> oder
+                                <a href="https://yarnpkg.com" target="_blank">Yarn</a>.
+                            </li>
+                            <li>
+                                Diese laden alle benötigten Bibliotheken und Frameworks aus einem zentralen Repository.
+                            </li>
+                            <li>
+                                Zusätzlich wird dann noch ein Bundler wie
+                                <a href="https://webpack.js.org/" target="_blank">Webpack</a> oder
+                                <a href="https://parceljs.org/" target="_blank">Parcel</a> benötigt.
+                            </li>
+                            <li>
+                                Denn der Package Manager lädt die Pakete nur herunter. Der Bundler kopiert die
+                                Dateien in das Projekt¹.
+                            </li>
+                            <li>
+                                Sind beide Voraussetzungen gegeben, kann Bootstrap mit einem Befehl wie dem folgenden
+                                installiert werden:
+                            </li>
+                        </lsx-ul>
+                        <source-code language="sh">
+                            npm install bootstrap
+                        </source-code>
+                        <p>
+                            ¹
+                            <small>
+                                <small>
+                                    Dies ist eine stark vereinfachte Darstellung. Bundler bauen aus dem Quellcode
+                                    einer Anwendung sowie den Quellcodes aller benötigten Bibliotheken so genannte
+                                    Bundles, die vom Browser geladen und ausgeführt werden können. Auf diese Weise
+                                    wird nicht nur die Integration externer Bibliotheken vereinfacht, da ihre Dateien
+                                    nicht manuell in das Projekt kopiert werden müssen. Auch die Ladezeiten können
+                                    optimiert werden, indem viele kleine Dateien zu einer größeren Datei zusammengefasst
+                                    und anschließend minifiziert werden. Immer besser funktioniert dabei auch das
+                                    so genannte „Tree Shaking”, durch das alle nicht benutzten Teile aus dem Quellcode
+                                    entfernt werden.
+                                </small>
+                            </small>
+                        </p>
+
+                        <h2 class="mt-5 dhbw-lightblue">Import Maps</h2>
+                        <p>
+                            Ein aktuell noch in Enstehung befindlicher Standard sind
+                            <a href="https://wicg.github.io/import-maps/" target="_blank">Import Maps</a>,
+                            mit denen die Verwaltung externer Abhängigkeiten in der Frontend-Entwicklung
+                            künftig deutlich vereinfacht wird. Der Einsatz von Package Managern und Bundlern
+                            wird dadurch in vielen Projekten überflüssig werden. Da der Standard aber noch
+                            nicht ratifiziert wurde (Stand: Oktober 2021), wird er derzeit nicht von allen
+                            Browsern unterstützt. Siehe
+                            <a href="https://caniuse.com/?search=import%20maps" target="_blank">Can I Use: Import Maps</a>.
+                        </p>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
             </article>
             <aside>
-                ...
+                <p>
+                    Lediglich zwei Dateien werden benötigt, um Bootstrap in ein Projekt einzubinden:
+                    Das Bootstrap-Stylesheet und optional der dazugehörige JavaScript-Code. Sollen die
+                    vordefinierten UI-Elemente von Bootstrap nicht genutzt bzw. ihre Logik von Hand
+                    ausprogrammiert werden, genügt sogar nur das Stylesheet. Beide Dateien werden von
+                    den Bootstrap-Entwicklern anhand der Quellcodes von Bootstrap zusammengebaut und
+                    minifiziert, um die Ladezeiten zu optimieren. Das Framework kann somit leicht
+                    eingebunden werden, wobei hierbei drei Alternativen zur Verfügung stehen:
+                </p>
+                <ol class="dhbw-list-spacious">
+                    <li>
+                        <b>Content Delivery Network:</b>
+                        Am einfachsten ist die Einbindung über ein Content Delivery Network (kurz: CDN), da
+                        hierfür leidglich zwei Zeilen im HTML-Code ergänzt werden müssen. Die Dateien werden
+                        dabei von den weltweit gespiegelten Servern des Content Delivery Network geladen.
+                    </li>
+                    <li>
+                        <b>Manueller Download:</b>
+                        Will man sich nicht von fremdbetriebenen Servern abhängig machen, oder soll die
+                        Seite auch ohne permanente Internetverbindung ausführbar sein, können die zu
+                        integrierenden Dateien auch manuell heruntergeladen und in das eigene Projekt
+                        übernommen werden.
+
+                    </li>
+                    <li>
+                        <b>Paketverwaltung:</b>
+                        Je mehr Bilbiotheken und Frameworks in einem Projekt genutzt werden und je mehr
+                        diese von anderen Bibliotheken abhängen, desto aufwändiger und fehleranfälliger
+                        ist es, diese im Internet zu suchen und in das Projekt zu übernehmen. In vielen
+                        Projekten übernimmt diese Aufgabe heute daher ein Werkzeug zur Paketverwaltung.
+                    </li>
+                </ol>
+                <p>
+                    Auf dieser Seite werden die ersten beiden Alternativen vorgestellt, wobei von
+                    diesen meist die Variante mit dem Content Delivery Network zu bevorzugen ist.
+                    Denn auf diese Weise können Synergieeffekte mit anderen Seiten genutzt werden,
+                    in denen dieselbe Bootstrap-Version zum Einsatz kommt, da die Dateien dann ohne
+                    Zeitversatz aus dem Browser-Cache geladen werden. Außerdem haben Bundler und
+                    Werkzeuge zur Paketverwaltung das manuelle Suchen und Herunterladen von
+                    Bibliotheken inzwischen weitgehend verdrängt, so dass dies heutzutage nur noch
+                    in speziellen Fällen notwendig ist. Da hierfür aber umfangreiche Werkzeuge
+                    benötigt werden, die wir bisher noch nicht betrachtet haben, fehlt diese
+                    Möglichkeit hier.
+                </p>
             </aside>
         </section>
 
         <section>
-            <h1>Responsive Layouts mit Bootstrap</h1>
+            <h1>Das Bootstrap Grid-Layout im Detail</h1>
             <article>
                 ...
             </article>
@@ -4603,16 +4843,6 @@
         </section>
 
         <section>
-            <h1>Vergleich mit der CSS-Anweisung „grid”</h1>
-            <article>
-                ...
-            </article>
-            <aside>
-                ...
-            </aside>
-        </section> -->
-
-        <!-- <section>
             <h1>Fallbeispiel zur Nutzung von Bootstrap</h1>
             <article>
                 ...
@@ -4620,7 +4850,7 @@
             <aside>
                 ...
             </aside>
-        </section> -->
+        </section>
 
         <section data-background-color="rgb(231, 221, 141)">
             <h1>Aufgabe 3: Ein kleines Bootstrap-Quiz</h1>
