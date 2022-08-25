@@ -623,7 +623,7 @@
                         id             = "layouts-dropdown-button"
                         class          = "btn btn-secondary dropdown-toggle"
                         type           = "button"
-                        data-toggle    = "dropdown"
+                        data-bs-toggle = "dropdown"
                         aria-haspopup  = "true"
                         aria-expanded  = "false"
                     >
@@ -1264,7 +1264,7 @@
                         id             = "design-dropdown-button"
                         class          = "btn btn-secondary dropdown-toggle"
                         type           = "button"
-                        data-toggle    = "dropdown"
+                        data-bs-toggle = "dropdown"
                         aria-haspopup  = "true"
                         aria-expanded  = "false"
                     >
@@ -3949,7 +3949,7 @@
                                 <lsx-tab-pages>
                                     <lsx-tab-page title="Aussehen">
                                         <div class="my-bootstrap-example">
-                                            <div id="bootstrap-beispiel-carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                                            <div id="bootstrap-beispiel-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                                                 <!-- Inhalt des Karussells -->
                                                 <div class="carousel-inner">
                                                     <div class="carousel-item active">
@@ -3964,11 +3964,11 @@
                                                 </div>
 
                                                 <!-- Steuerbuttons -->
-                                                <a class="carousel-control-prev" href="#bootstrap-beispiel-carousel" role="button" data-slide="prev">
+                                                <a class="carousel-control-prev" href="#bootstrap-beispiel-carousel" role="button" data-bs-slide="prev">
                                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                     <span class="sr-only">Zurück</span>
                                                 </a>
-                                                <a class="carousel-control-next" href="#bootstrap-beispiel-carousel" role="button" data-slide="next">
+                                                <a class="carousel-control-next" href="#bootstrap-beispiel-carousel" role="button" data-bs-slide="next">
                                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                     <span class="sr-only">Weiter</span>
                                                 </a>
@@ -3992,11 +3992,11 @@
                                                 &lt;/div&gt;
 
                                                 &lt;!-- Steuerbuttons --&gt;
-                                                &lt;a class="carousel-control-prev" href="#bootstrap-beispiel-carousel" role="button" data-slide="prev"&gt;
+                                                &lt;a class="carousel-control-prev" href="#bootstrap-beispiel-carousel" role="button" data-bs-slide="prev"&gt;
                                                     &lt;span class="carousel-control-prev-icon" aria-hidden="true"&gt;&lt;/span&gt;
                                                     &lt;span class="sr-only"&gt;Zurück&lt;/span&gt;
                                                 &lt;/a&gt;
-                                                &lt;a class="carousel-control-next" href="#bootstrap-beispiel-carousel" role="button" data-slide="next"&gt;
+                                                &lt;a class="carousel-control-next" href="#bootstrap-beispiel-carousel" role="button" data-bs-slide="next"&gt;
                                                     &lt;span class="carousel-control-next-icon" aria-hidden="true"&gt;&lt;/span&gt;
                                                     &lt;span class="sr-only"&gt;Weiter&lt;/span&gt;
                                                 &lt;/a&gt;
@@ -4018,7 +4018,7 @@
                                     <lsx-tab-page title="Aussehen">
                                         <div class="my-bootstrap-example" style="padding-top: 10em; padding-bottom: 20em;">
                                             <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     Anmelden
                                                 </button>
 
@@ -4056,7 +4056,7 @@
                                     <lsx-tab-page title="HTML-Code">
                                         <source-code language="html">
                                             &lt;div class="dropdown"&gt;
-                                                &lt;button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                                                &lt;button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
                                                     Anmelden
                                                 &lt;/button&gt;
 
@@ -4600,21 +4600,33 @@
                             </li>
                             <li>
                                 <p>
-                                    Im HTML-Code müssen dann nur folgende Zeilen eingebaut werden.
+                                    Im HTML-Code müssen dann nur folgende Zeilen eingebaut werden.²
                                 </p>
                             </li>
                         </lsx-ul>
-                        <!-- Bootstrap 5.1.1 -->
+                        <!-- Bootstrap 5.2.0 -->
                         <source-code language="html">
-                            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" /&gt;
-                            &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                            <!-- CSS only -->
+                            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" /&gt;
+                            &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
                         </source-code>
-                        <p>
+                        <p class="mb-0">
                             ¹
                             <small>
                                 <small>
                                     Es handelt sich dabei um die für den Produktiveinsatz optimierte Version, die aus
                                     den eigentlichen Quelldateien gebaut und minifiziert wird.
+                                </small>
+                            </small>
+                        </p>
+                        <p>
+                            ²
+                            <small>
+                                <small>
+                                    <!-- Bootstrap 5.2.0 -->
+                                    Hier wird Bootstrap-Version 5.2.0 eingebunden. Auf der Startseite von
+                                    <a href="https://getbootstrap.com/" target="_blank">getboostrap.com</a>
+                                    finden sich unter „Include via CDN” eventuell neuere Links.
                                 </small>
                             </small>
                         </p>
@@ -4635,8 +4647,8 @@
                                         &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
 
                                         &lt;!-- Bootstrap --&gt;
-                                        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" /&gt;
-                                        &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                                        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" /&gt;
+                                        &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
                                     &lt;/head&gt;
                                     &lt;body&gt;
                                         &lt;!-- Seiteninhalt hier --&gt;
@@ -4777,7 +4789,7 @@
                             mit denen die Verwaltung externer Abhängigkeiten in der Frontend-Entwicklung
                             künftig deutlich vereinfacht wird. Der Einsatz von Package Managern und Bundlern
                             wird dadurch in vielen Projekten überflüssig werden. Da der Standard aber noch
-                            nicht ratifiziert wurde (Stand: Oktober 2021), wird er derzeit nicht von allen
+                            nicht ratifiziert wurde (Stand: September 2022), wird er derzeit nicht von allen
                             Browsern unterstützt. Siehe
                             <a href="https://caniuse.com/?search=import%20maps" target="_blank">Can I Use: Import Maps</a>.
                         </p>
@@ -5215,13 +5227,13 @@
                             }
                         </style>
                         <div id="aufgabe4-vorschau" class="container-fluid">
-                            <div class="row no-gutters"> <!-- Bootstrap 5: g-0 -->
+                            <div class="row g-0">
                                 <div class="col">
                                     <h2>Mein schönster Urlaub</h2>
                                 </div>
                             </div>
 
-                            <div class="row no-gutters"> <!-- Bootstrap 5: g-0 -->
+                            <div class="row g-0">
                                 <div class="col-md-9">
                                     <img src="aufgabe4/auto.jpg" alt="Mein Auto" />
                                 </div>
@@ -5230,7 +5242,7 @@
                                 </div>
                             </div>
 
-                            <div class="row no-gutters"> <!-- Bootstrap 5: g-0 -->
+                            <div class="row g-0">
                                 <div class="col-md-6">
                                     <img src="aufgabe4/boot.jpg" alt="Schnellboot" />
                                 </div>
@@ -5242,7 +5254,7 @@
                                 </div>
                             </div>
 
-                            <div class="row no-gutters"> <!-- Bootstrap 5: g-0 -->
+                            <div class="row g-0">
                                 <div class="col-md-3">
                                     <img src="aufgabe4/baer.jpg" alt="Bär im Wald" />
                                 </div>
@@ -5315,6 +5327,7 @@
                     </lsx-tab-page>
 
                     <lsx-tab-page title="Lösung">
+                        <!-- Bootstrap 5.2.0 -->
                         <source-code language="html">
                             &lt;!DOCTYPE html&gt;
                             &lt;html&gt;
@@ -5324,8 +5337,8 @@
                                     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
 
                                     &lt;!-- Bootstrap aus CDN --&gt;
-                                    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" /&gt;
-                                    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                                    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" /&gt;
+                                    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
 
                                     &lt;style&gt;
                                         html {

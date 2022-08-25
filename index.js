@@ -37,13 +37,18 @@
 
 import emailLinkJs from "email-link.js";
 
-import SlideshowPlayer from "lecture-slides.js";
+import SlideshowPlayer from "@dschulmeis/lecture-slides.js";
 import "./style/style.less";
 
-import LsPluginExtraTags from "ls-plugin-extra-tags";
+import LsPluginExtraTags from "@dschulmeis/ls-plugin-extra-tags";
 
-import LsPluginHighlightJs from "ls-plugin-highlight.js";
-import "highlight.js/styles/atom-one-light.css";
+import LsPluginHighlightJs from "@dschulmeis/ls-plugin-highlight.js";
+import HLJS_Language_HTTP from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/http';
+import HLJS_Language_XML from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/xml';
+import HLJS_Language_CSS from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/css';
+import HLJS_Language_JS from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/javascript';
+import HLJS_Language_JAVA from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/java';
+import "@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/styles/atom-one-light.css";
 
 window.addEventListener("load", () => {
     emailLinkJs.enableEmailLinks();
@@ -75,7 +80,17 @@ window.addEventListener("load", () => {
                 labelQuizNewTry: "Neuer Versuch",
                 githubEditUrlPrefix: "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/",
             }),
-            HighlightJs: new LsPluginHighlightJs(),
+            HighlightJs: new LsPluginHighlightJs({
+                languages: {
+                    http: HLJS_Language_HTTP,
+                    html: HLJS_Language_XML,
+                    xml: HLJS_Language_XML,
+                    css: HLJS_Language_CSS,
+                    javascript: HLJS_Language_JS,
+                    json: HLJS_Language_JS,
+                    java: HLJS_Language_JAVA,
+                }
+            }),
         }
     });
 
