@@ -37,9 +37,9 @@
         "replace_variables_extensions": ".htm; .html"
     },
     "devDependencies": {
-        "@dschulmeis/lecture-slides.js": "2.0.0",
-        "@dschulmeis/ls-plugin-extra-tags": "^2.1.0",
-        "@dschulmeis/ls-plugin-highlight.js": "^2.0.3",
+        "@dschulmeis/lecture-slides.js": "^3.0.0",
+        "@dschulmeis/ls-plugin-extra-tags": "^3.0.0",
+        "@dschulmeis/ls-plugin-highlight.js": "^2.0.4",
         "css-loader": "^2.1.1",
         "email-link.js": "^1.0.1",
         "extract-text-webpack-plugin": "^4.0.0-beta.0",

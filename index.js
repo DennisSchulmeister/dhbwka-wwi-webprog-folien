@@ -43,12 +43,12 @@ import "./style/style.less";
 import LsPluginExtraTags from "@dschulmeis/ls-plugin-extra-tags";
 
 import LsPluginHighlightJs from "@dschulmeis/ls-plugin-highlight.js";
-import HLJS_Language_HTTP from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/http';
-import HLJS_Language_XML from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/xml';
-import HLJS_Language_CSS from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/css';
-import HLJS_Language_JS from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/javascript';
-import HLJS_Language_JAVA from '@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/lib/languages/java';
-import "@dschulmeis/ls-plugin-highlight.js/node_modules/highlight.js/styles/atom-one-light.css";
+import HLJS_Language_HTTP from 'highlight.js/lib/languages/http';
+import HLJS_Language_XML from 'highlight.js/lib/languages/xml';
+import HLJS_Language_CSS from 'highlight.js/lib/languages/css';
+import HLJS_Language_JS from 'highlight.js/lib/languages/javascript';
+import HLJS_Language_JAVA from 'highlight.js/lib/languages/java';
+import "highlight.js/styles/atom-one-light.css";
 
 window.addEventListener("load", () => {
     emailLinkJs.enableEmailLinks();
