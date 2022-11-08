@@ -2314,9 +2314,8 @@
                                 <p>
                                     Vergiss es. Ohne Klassen läuft in Java nichts. 😛 Diese müssen wir erst einmal
                                     definieren. Zum Glück speichern wir bei den Darstellern nur die Namen. Denn sonst
-                                    hätten wir dafür auch nochmal eine Klasse gebraucht. Will man es besonders schön
-                                    machen, muss man sogar für jedes Attribut eine Setter- und eine Getter-Methode
-                                    anlegen.
+                                    hätten wir dafür auch nochmal eine Klasse gebraucht. Typischerweise sieht das
+                                    so aus:
                                 </p>
                                 <source-code language="java">
                                     import java.util.ArrayList;
@@ -2342,9 +2341,9 @@
                                     }
                                 </source-code>
                                 <p>
-                                    Dann können wir endlich ein Objekt erzeugen:
+                                    Erst dann kann man ein Objekt erzeugen:
                                 </p>
-                                <source-code>
+                                <source-code language="java">
                                     Film dieTollkuehneHexe = new Film();
                                     dieTollkuehneHexe.setTitel("Die tollkühne Hexe in ihrem fliegenden Bett");
                                     dieTollkuehneHexe.setOriginalTitel("Beknobs and Broomsticks");
@@ -2358,11 +2357,41 @@
                                     …
                                 </source-code>
                                 <p>
-                                    Natürlich hätten wir noch ein paar Sachen vereinfachen können. Zum Beispiel indem
-                                    wir der Klasse einen gescheiten Konstruktor und ein paar Hilfsmethoden spendiert
-                                    hätten. Weniger Quellcode wäre es deshalb natürlich nicht geworden. Die Klasse
-                                    <tt>Film</tt> wäre aber angenehmer zu verwenden gewesen (worauf man immer achten
-                                    sollte 😌).
+                                    Seit Java 14 kann die Schreibarbeit mit
+                                    <a href="https://www.baeldung.com/java-record-keyword" target="_blank">Record Classes</a>
+                                    immerhin deutlich vereinfacht werden:
+                                </p>
+                                <source-code language="java">
+                                    public record Film(
+                                        String titel,
+                                        String originalTitel,
+                                        String land,
+                                        String originalSprache,
+                                        int jahr,
+                                        List&lt;String&gt; darsteller
+                                    ) {
+                                        // Hier kein Quellcode
+                                    }
+                                </source-code>
+                                <p>
+                                    Die so angelegten Klassen besitzen automatisch einen Konstruktor zur Vorbelegung
+                                    der Attribute sowie passende Getter und Setter (ohne den Prefix <src-code>set</src-code>
+                                    bzw. <src-code>get</src-code>):
+                                </p>
+                                <source-code language="java">
+                                    Film dieTollkuehneHexe(
+                                        /* titel           */  "Die Tollkühne Hexe und das fliegende Bett",
+                                        /* originalTitel   */  "Beknobs and Broomsticks",
+                                        /* land            */  "USA",
+                                        /* originalSprache */  "Englisch",
+                                        /* jahr            */  1971,
+                                        /* darsteller      */  Arrays.asList("Angela Lansbury", "David Tomlinson")
+                                    );
+
+                                    System.out.println(dieTollkuehneHexe.titel());
+                                </source-code>
+                                <p>
+                                    So oder so ist es jedoch viel aufwändiger und weniger flexibel als in JavaScript. 🙃
                                 </p>
                             </lsx-tab-page>
                         </lsx-tab-pages>
