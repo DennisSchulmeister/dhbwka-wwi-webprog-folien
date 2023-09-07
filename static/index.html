@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Entwicklung verteilter Systeme – Webprogrammierung</title>
+
+        <link rel="shortcut icon" href="shared/favicon.svg" />
+        <link rel="stylesheet" href="_bundle.css" />
+        <script src="_bundle.js"></script>
+
+        <!-- Beispiele für unterschiedliche Bildschirmgrößen -->
+        <style>
+            .my-responsive-preview {
+                margin-bottom: 1em;
+            }
+
+            .my-responsive-preview .my-rp-background {
+                width: 100%;
+                padding-bottom: 55%;
+
+                background-size: cover;
+                background-position: center;
+
+                position: relative;
+            }
+
+            .my-responsive-preview .my-rp-content {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .my-responsive-preview iframe {
+                background-color: white;
+                border: none;
+                box-shadow: 0px 0px 4px rgba(0,0,0, 0.5);
+            }
+
+            .my-responsive-preview .my-rp-size-screen {
+                width: 95%;
+                height: 92%;
+            }
+
+            .my-responsive-preview .my-rp-size-tablet {
+                width: 85%;
+                height: 80%;
+            }
+
+            .my-responsive-preview .my-rp-size-phone {
+                width: 35%;
+                height: 90%;
+            }
+        </style>
+
+        <script>
+            function change_example(event) {
+                let label  = event.target.textContent;
+                let src    = event.target.dataset.src;
+                let target = event.target.dataset.target;
+                let parent = event.target.dataset.parent;
+                let hide   = event.target.dataset.hide;
+                let show   = event.target.dataset.show
+
+                document.querySelector(`#${parent}`).textContent = label;
+                let my_rp_size_screen = document.querySelector(`#${target} .my-rp-size-screen`);
+                let my_rp_size_tablet = document.querySelector(`#${target} .my-rp-size-tablet`);
+                let my_rp_size_phone = document.querySelector(`#${target} .my-rp-size-phone`);
+
+                if (my_rp_size_screen) my_rp_size_screen.src = `${src}?screen`;
+                if (my_rp_size_tablet) my_rp_size_tablet.src = `${src}?tablet`;
+                if (my_rp_size_phone)  my_rp_size_phone.src = `${src}?phone`;
+
+                if (hide) document.querySelectorAll(hide).forEach(e => e.classList.add("d-none"));
+                if (show) document.querySelectorAll(show).forEach(e => e.classList.remove("d-none"));
+            }
+        </script>
+
+        <style>
+            .my-bootstrap-example,
+            .my-bootstrap-example h1,
+            .my-bootstrap-example h2,
+            .my-bootstrap-example h3,
+            .my-bootstrap-example h4,
+            .my-bootstrap-example h5,
+            .my-bootstrap-example h6 {
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            .my-bootstrap-example *[scope] {
+                font-weight: bold;
+            }
+
+            .dummy-container {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1em;
+            }
+
+            .dummy {
+                width: 5em;
+                height: 5em;
+            }
+
+            .dummy2 {
+                display: inline-flex !important;
+            }
+
+            .dummy, .dummy1, .dummy2 {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                font-weight: bold;
+                background-color: #f0f0f0;
+            }
+        </style>
+
+        <!-- Bootstrap-Beispiele -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet" />
+    </head>
+    <body class="slides invisible" data-title="Entwicklung verteilter Systeme – Webprogrammierung" tabindex="0">
+        <header>
+            <h2>Inhaltsverzeichnis</h2>
+        </header>
+
+        <ls-include src="templates.html"></ls-include>
+        <ls-include src="0-intro.html"></ls-include>
+        <ls-include src="1-grundlagen.html"></ls-include>
+        <ls-include src="2-html_css.html"></ls-include>
+        <ls-include src="3-responsive.html"></ls-include>
+        <ls-include src="4-js-grundlagen.html"></ls-include>
+        <!-- <ls-include src="5-js-app-dev.html"></ls-include> -->
+        <ls-include src="99-anhang.html"></ls-include>
+    </body>
+</html>

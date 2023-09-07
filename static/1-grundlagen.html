@@ -1,0 +1,1842 @@
+<section data-chapter="h1" data-background-color="rgb(210,190,210)">
+    <h1>Grundlagen des Web</h1>
+    <article>
+        <h3>Nach Abschluss dieser Einheit kannst du …</h3>
+        <ul>
+            <li>
+                Die <span class="dhbw-lightblue font-weight-bold">Entwicklung des Internets</span> zeitlich einordnen
+                und die wichtigsten Meilensteine benennen.
+            </li>
+            <li>
+                Das Internet vom World Wide Web abgrenzen und beide Begriffe im Sinne ihrer Bedeutung verwenden.
+            </li>
+            <li>
+                Die <span class="dhbw-lightblue font-weight-bold">Entwicklung des World Wide Web</span> von der ersten
+                Idee bis zum heutigen Stand nachvollziehen.
+            </li>
+            <li>
+                Die wesentlichen <span class="dhbw-lightblue font-weight-bold">Technologien des World Wide Web</span>
+                aufzählen und ihr Zusammenwirken beschreiben.
+            </li>
+            <li>
+                Funktionsweise und Eigenheiten des <span class="dhbw-lightblue font-weight-bold">HTTP-Übertragunsprotokolls</span>
+                kennen und verstehen.
+            </li>
+        </ul>
+        <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
+    </article>
+    <aside>
+        <p>
+            Hallo und herzlich willkommen zu deinem ersten Selbststudium. Heute erlebst du aus nächster Nähe,
+            wofür du schon bald einen guten Teil deiner Freizeit nach Vorlesungsende opfern wirst, um in der
+            nächsten Vorlesung nicht den Anschluss zu verlieren. Heute zeigen wir dir, wie das Selbststudium
+            dieses Semester laufen wird und vor allem, wie das Onlinematerial hierfür aufbereitet ist.
+            Anstatt jetzt aber über irgendwelche Beispielthemen zu reden, kommen wir lieber gleich zur Sache
+            und befassen uns mit den Grundlagen des World Wide Web. Somit kannst du dann auch besser verstehen,
+            was von nun an auch inhaltlich auf dich zukommen wird.
+        </p>
+        <p>
+            Dieses Selbststudium ist im Vergleich zu den nachfolgenden nicht sehr groß. Dennoch gehen wir
+            hier auf die beiden Begriffe <b>Internet</b> und <b>World Wide Web</b> ein und zeigen dir,
+            warum das eine zwar nicht ohne das andere kann, es aber trotzdem zwei eigene Dinge sind.
+            Hierfür gehen wir zunächst auf die <b>Geschichte des Internets</b> ein und stellen die
+            wesentlichen Meilensteine vor, die es während seiner Entwicklung gab. Einer davon wird dann
+            auch das WWW sein, auf dessen Entwicklung wir separat eingehen werden. Abschließen werden
+            wir die Einheit mit einem kurzen Überblick über die <b>Bestandteile des WWW</b>, also all
+            jenen Technologien, deren Summe das World Wide Web ergibt und mit denen wir uns im Laufe
+            der Vorlesung beschäftigen werden.
+        </p>
+        <p>
+            Alles klar? Wir wünschen dir viel Spaß dabei!
+        </p>
+    </aside>
+</section>
+
+<section>
+    <h1>Eine kleine Zeittafel</h1>
+    <article>
+        <lsx-grid-fluid class="p-0">
+            <lsx-row>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/1960er.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1969: Das Internet kommt zur Welt
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/1970er.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1970 – 1979: Erste Internetprotokolle
+                </lsx-col>
+            </lsx-row>
+            <lsx-row>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/1980er.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1980 – 1989: Wandel zum modernen Internet
+                </lsx-col>
+                <lsx-col size="md">
+                    <img src="1-grundlagen/1990er.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1990 – heute: Das World Wide Web erobert die Welt
+                </lsx-col>
+            </lsx-row>
+            <lsx-row>
+                <lsx-col size="md" class="dhbw-fontsize-tiny">
+                    Bildnachweise:
+                    <a href="https://pixabay.com/de/vw-camper-volkswagen-vw-auto-336606/" target="_blank">Pixabay: Free-Photos</a>,
+                    <a href="https://pixabay.com/de/aufzeichnungen-antik-musik-143468/" target="_blank">Pixabay: CopleyNathan</a>,
+                    <a href="https://pixabay.com/en/waikiki-sunny-beach-travel-hawaii-2244523/" target="_blank">Pixabay: jed_ant</a>,
+                    <a href="http://cdn1.tekrevue.com/wp-content/uploads/2014/05/old-pc-windows-95.jpg" target="_blank">old-pc-windows-95.jpg</a>
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside>
+        <p>
+            Mensch, das Internet. Wie lange gibt es das eigentlich schon?
+            20 Jahre? 30 Jahre? Gefühlt doch irgendwie schon immer.
+            Und so ganz falsch ist das auch gar nicht. Oder hättest du
+            gedacht, dass die ersten Überlegungen dazu schon bis in die
+            1960er-Jahre hinein reichen? Bzw. sogar bis in die 1950er,
+            wenn man es genau nimmt?
+        </p>
+        <p>
+            Für die meisten von uns gibt es das Internet also tatsächlich
+            schon immer. Obwohl dann auch wieder irgendwie nicht.
+            Frag mal deine Eltern, wann sie ihren ersten Internetanschluss
+            bekommen haben. Denn das Internet gibt es zwar schon seit den
+            1960er/1970er-Jahren, im Alltag angekommen ist es aber erst
+            viel später. Nämlich erst ab der Mitte der 1990er-Jahre und
+            für viele sogar erst in den 2000ern. Doch jetzt erst mal zurück
+            ins Jahr 1969 als alles begann. Die nächsten Seiten zeigen ein paar
+            „Erinnerungen” des Internets. Sozusagen ein kleines Fotoalbum
+            der wichtigsten Stationen, die es in seiner langen Geschichte
+            durchlief. Wikipedia hat hierzu auch
+            <a href="https://de.wikipedia.org/wiki/Geschichte_des_Internets" target="_blank">einen
+            sehr guten Artikel</a> mit guten Literaturempfehlungen, falls
+            du mehr erfahren willst.
+        </p>
+        <p>
+            Außerdem lernst du hier, dass es einen kleinen aber feinen
+            Unterschied macht, ob man vom <i>Internet</i> oder vom
+            <i>World Wide Web</i>, also dem Web bzw. dem Netz,
+            spricht.
+        </p>
+
+        <lsx-youtube video="9hIQjrMHTv4"></lsx-youtube>
+    </aside>
+</section>
+
+<section data-background-image="1-grundlagen/1960er.jpg">
+    <h1 style="color: yellow">Die Geburt: Ende der 1960er</h1>
+    <article>
+        <div class="h3 img-thumbnail mx-auto dhbw-lightbox float-end">
+            <h2>1969, Vereinigte Staaten von Amerika</h2>
+            <ul class="dhbw-ls-none">
+                <li>
+                    Die ersten vier Rechner des ARPANET gehen online.
+                </li>
+                <li>
+                    Steve Crocker schreibt den <a href="https://tools.ietf.org/html/rfc1" target="_blank">RFC #1</a>.
+                </li>
+            </ul>
+            <lsx-youtube video="vuiBTJZfeo8"></lsx-youtube>
+        </div>
+    </article>
+</section>
+
+<section data-background-image="1-grundlagen/1970er.jpg">
+    <h1 style="color: yellow">Die Kindheit: In den 1970ern</h1>
+    <article>
+        <div class="h3 img-thumbnail mx-auto dhbw-lightbox float-end">
+            <ul class="dhbw-ls-none">
+                <li>
+                    <span class="dhbw-lightblue">1971:</span> Der Vorläufer der E-Mail wird erfunden.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1973:</span> TCP/IP war damals nur <u>ein</u> Protokoll.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1977:</span> Weltweite Demonstration der Technik.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1979:</span> Rogue wird das erste Multi Player Game.
+                    <img src="1-grundlagen/rogue.png" class="img-fluid d-block" style="margin-top: 0.5em" />
+                    <span class="dhbw-fontsize-tiny">
+                        <small>
+                            Bildnachweis: <a href="https://drl.chaosforge.org/images/12.png" target="_blank">https://drl.chaosforge.org/images/12.png</a>
+                        </small>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </article>
+</section>
+
+<section data-background-image="1-grundlagen/1980er.jpg">
+    <h1 style="color: yellow; display: inline-block; background: rgba(255,255,255, 0.95); padding: 0 0.5em 0 0.5em;)">Jugendalter: In den 1980ern</h1>
+    <article>
+        <div class="h3 img-thumbnail mx-auto dhbw-lightbox float-end">
+            <ul class="dhbw-ls-none">
+                <li>
+                    <span class="dhbw-lightblue">1983:</span> Geburt des Internets – Im ARPANET wird auf TCP/IP umgestellt.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1984:</span> Die Uni Karlsruhe empfängt die erste E-Mail Deutschlands.
+                    <img src="1-grundlagen/erste_email.jpg" class="img-fluid d-block" style="margin-top: 0.5em" />
+                    <span class="dhbw-fontsize-tiny">
+                        <small>
+                            Foto: Uli Deck
+                        </small>
+                    </span>
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1985:</span> Mit symbolics.com wird die erste .com-Domain registriert.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1989:</span> Erstmals wächst das Internet auf mehr als 100.000 Teilnehmer.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1989:</span> Tim Berners-Lee skizziert seine Ideen für das World Wide Web.
+                </li>
+            </ul>
+        </div>
+    </article>
+</section>
+
+<section data-background-image="1-grundlagen/1990er.jpg">
+    <h1 style="color: yellow">Frühes Erwachsenenalter: Ab den 1990ern</h1>
+    <article>
+        <div class="h3 img-thumbnail mx-auto dhbw-lightbox float-end">
+            <ul class="dhbw-ls-none">
+                <li>
+                    <span class="dhbw-lightblue">1990:</span> Der Internet-Toaster wird erfunden.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1991:</span> Freigabe des Internets zur kommerziellen Nutzung.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1991:</span> Im CERN steht der erste Webserver der Welt.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1993:</span> Bereits über 500 Webserver außerhalb des CERN.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1994:</span> Pizza Hut führt die Onlinebestellung von Pizza ein.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1995:</span> Der Vatikan schaltet seine erste Webseite online.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1995:</span> Sun veröffentlicht die Programmiersprache Java.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">1995:</span> Ersten Arbeiten zu IPv6.
+                </li>
+                <li>
+                    <span class="dhbw-lightblue">…</span>
+                </li>
+            </ul>
+        </div>
+    </article>
+</section>
+
+<section>
+    <h1>Die Idee hinter dem World Wide Web</h1>
+    <article>
+        <h2>Alles begann mit einer einfachen Idee</h2>
+        <img src="1-grundlagen/world_wide_web.svg" class="img-fluid d-block" style="margin-bottom: 3em" />
+
+        <h2>Die aber auch bald ihre Kritiker fand</h2>
+        <blockquote class="blockquote">
+            <p class="mb-3">Das World Wide Web ist ein großen Misthaufen mit ein paar Perlen drin.</p>
+            <footer class="blockquote-footer">Joseph Weizenbaum</footer>
+        </blockquote>
+    </article>
+    <aside>
+        <p>
+            Die vorausgegangenen Folien haben dir einen Eindruck vermittelt,
+            welche großen Ereignisse es in der Entwicklung des Internets
+            gegeben hat. Auch wenn Leonard Kleinrock, einer der Urväter des
+            Internets, zurecht darauf hinweist, dass diese Dinge immer im
+            Verborgenen geschehen sind und sich die Geschichtsträchtigkeit
+            immer erst hinterher herausgestellt hat.
+        </p>
+        <p>
+            So war es auch 1989, als Tim Berners-Lee, einer der Forscher am
+            europäischen Kernforschungszentrum, eine Idee hatte. Zu dieser Zeit
+            hatte er schon eine Weile am CERN gearbeitet und er hatte gesehen,
+            dass jede Forschergruppe ihr eigenes Computersystem nutzte, in dem
+            sie ihre Ergebnisse dokumentierten. Und da das zu dieser Zeit noch
+            nicht selbstverständlich war, waren die Systeme nicht miteinander
+            vernetzt. Trotz Computer fand der Informationsaustausch also noch
+            immer analog und auf Papier statt.
+        </p>
+        <p>
+            Zur Lösung des Problems stellte er sich eine weltweite Wissenssammlung
+            vor, auf die jeder mit einem Computer zugreifen könnte. Ein einfaches
+            Zugriffsprogramm (heute sagen wir „Browser” dazu) sollte genügen, um
+            die Informationen abzurufen, eigene Informationen zu veröffentlichen
+            und vorhandene Informationen zu bearbeiten. Kommt dir irgendwie bekannt
+            vor? Tatsächlich hatte Jim Wales bei der Gründung von Wikipedia fast
+            die gleiche Idee. Denn die freie Editierbarkeit der Webinhalte hatte
+            sich damals noch nicht durchgesetzt.
+        </p>
+        <p>
+            In den 1980ern war die Forschung an sog. Hypertexten weit verbreitet
+            und es gab auch einige solcher Programme für Personal Computer (vgl.
+            <a href="https://en.wikipedia.org/wiki/HyperCard" target="_blank">Apple Hypercard</a>).
+            Die Idee von Hypertexten ist dabei ganz einfach, dass die lineare Form
+            eines Buchs (von Deckel zu Deckel) eigentlich relativ schlecht darin
+            ist, komplexe Zusammenhänge zu erfassen. Denn die Reihenfolge, in der
+            die Informationen eines Buchs präsentiert werden, ist oftmals nur eine
+            von vielen Möglichkeiten, diese zu strukturieren. Hypertexte verabschieden
+            sich daher von der linearen Form und führen Verlinkungen ein, so dass
+            der/die Leser*in bei Bedarf einfach an eine themenverwandte Stelle springen
+            und dort weiter lesen kann.
+        </p>
+        <p>
+            Und genau so etwas wollte Tim Berners-Lee auf das globale Internet
+            übertragen. Denn bisher konnte man über das Internet E-Mails senden
+            und empfangen, sich auf anderen Computern einloggen oder Dateien
+            austauschen, ein Informationssystem wie das World Wide Web gab es
+            aber noch nicht. Also setzte sich Berners-Lee hin und schrieb den
+            heute berühmten Aufsatz „Information Management – A Proposal” und
+            legte ihn seinem Arbeitgeber vor. Dieser fand die Idee auch durchaus
+            interessant, dabei blieb es dann aber auch.
+        </p>
+        <p>
+            Keiner konnte ja damals ahnen, was aus dieser Idee einmal werden
+            würde. Dass sie einmal soweit kommen würde, dass der bekannte
+            Informatiker Joseph Weizenbaum einmal sagte: „Das World Wide Web
+            ist ein großer Misthaufen mit ein paar Perlen drin.”
+        </p>
+    </aside>
+</section>
+
+<section>
+    <h1>Die Bestandteile des World Wide Web</h1>
+    <article>
+        <lsx-accordion>
+            <lsx-accordion-page title="Die wichtigsten Webtechnologien heute" active>
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <h3>Von Tim Berners-Lee erfunden</h3>
+                            <ul class="dhbw-ls-none">
+                                <li>
+                                    <b>HTML:</b> Beschreibungssprache für die Dokumente und Inhalte im Web
+                                </li>
+
+                                <li>
+                                    <b>URL:</b> Formales Schema zur Adressierung aller Web-Ressourcen
+                                </li>
+
+                                <li>
+                                    <b>HTTP:</b> Übertragungsprotokoll zum Abruf der Inhalte von einem Server
+                                </li>
+                            </ul>
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <h3>Nachträglich hinzugefügt</h3>
+                            <ul class="dhbw-ls-none">
+                                <li>
+                                    <b>CSS:</b> Stylesheet-Sprache zur visuellen Gestaltung von HTML-Seiten
+                                </li>
+
+                                <li>
+                                    <b>JavaScript:</b> Programmiersprache für Anwendungslogik
+                                </li>
+
+                                <li>
+                                    <b>WebSockets:</b> Protokoll für bidirektionalen Datenaustausch
+                                </li>
+                            </ul>
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/tim_berners_lee.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            Tim Berners-Lee im Jahr 2014
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://de.wikipedia.org/wiki/Tim_Berners-Lee#/media/File:Sir_Tim_Berners-Lee.jpg" target="_blank">Wikipedia</a>
+                                </small>
+                            </p>
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-grundlagen/first_web_server.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            Der erste Webserver der Welt.
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://upload.wikimedia.org/wikipedia/commons/d/d1/First_Web_Server.jpg" target="_blank">Wikipedia</a>
+                                </small>
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Aufbau und Funktion von URLs">
+                <lsx-ul emoji="🧭" class="mb-4">
+                    <li>
+                        URLs adressieren die <b>aufrufbaren Ressourcen</b> des World Wide Web (oft als Dateien einer Webseite).
+                    </li>
+                    <li>
+                        Hierfür beinhalten sie die <b>Adresse eines Hosts</b> sowie den <b>Pfad</b> einer darauf befindlichen Resource.
+                    </li>
+                    <li>
+                        Zusätzlich beinhalten sie den Namen des zu verwendenden <b>Übertragungsprotokolls</b> sowie dessen <b>Portnummer</b>.
+                    </li>
+                    <li>
+                        Optional können Sie noch vom Server ausgewertete Anfrageparameter (sog. URL-Parameter) und einen Anker beinhalten.
+                    </li>
+                    <li>
+                        Namen und Bedeutung der <b>Anfrageparameter</b> können dabei vom Server beliebig interpretiert werden.
+                    </li>
+                    <li>
+                        Der <b>Anker</b> wird vom Server in der Regel ignoriert und nur vom Client ausgewertet.
+                    </li>
+                </lsx-ul>
+
+                <table class="table table-bordered mb-4">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>
+                                Protokoll
+                            </th>
+                            <th>
+                                Host
+                            </th>
+                            <th>
+                                Port
+                            </th>
+                            <th>
+                                Pfad
+                            </th>
+                            <th>
+                                Parameter
+                            </th>
+                            <th>
+                                Anker
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="dhbw-optional">
+                                <tt>https://</tt>
+                            </td>
+                            <td>
+                                <tt>karlsruhe.dhbw.de</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                <tt>:443</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                <tt>/</tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="dhbw-optional">
+                                <tt>https://</tt>
+                            </td>
+                            <td>
+                                <tt>www.wpvs.de</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                :443
+                            </td>
+                            <td>
+                                <tt>/repo/webprog/folien/2-html_css/<span class="dhbw-optional">index.html</span></tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <tt>http://</tt>
+                            </td>
+                            <td>
+                                <tt>localhost</tt>
+                            </td>
+                            <td>
+                                <tt>:8080</tt>
+                            </td>
+                            <td>
+                                <tt>/2-html_css/<span class="dhbw-optional">index.html</span></tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="dhbw-optional">
+                                <tt>https://</tt>
+                            </td>
+                            <td>
+                                <tt>www.google.de</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                <tt>:443</tt>
+                            </td>
+                            <td>
+                                <tt>/search</tt>
+                            </td>
+                            <td>
+                                <tt>?q=HTTP</tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="dhbw-optional">
+                                <tt>https://</tt>
+                            </td>
+                            <td>
+                                <tt>de.wikipedia.org</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                <tt>:443</tt>
+                            </td>
+                            <td>
+                                <tt>/wiki/Hypertext_Transfer_Protocol</tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                <tt>#Aufbau</tt>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Optionale Bestandteile (in der Tabelle hellgrau):
+                </p>
+
+                <ul>
+                    <li>
+                        <b>Protokoll:</b> Fehlt dieses, wird HTTP oder HTTPS angenommen.
+                    </li>
+                    <li>
+                        <b>Port:</b> Fehlt dieser, wird die Standardportnummer des Protokolls verwendet.
+                    </li>
+                    <li>
+                        <b>Pfad:</b> Fehlt dieser, wird das Wurzelement <tt>/</tt> angenommen.
+                    </li>
+                    <li>
+                        <b>Datei:</b> Wird nur ein Verzeichnis angegeben, wird meist die Datei <tt>index.html</tt> gesucht.
+                    </li>
+                    <li>
+                        <b>Parameter:</b> Haben keinen Standardwert
+                    </li>
+                    <li>
+                        <b>Anker:</b> Hat keinen Standardwert
+                    </li>
+                </ul>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Ein kurzer Blick auf HTML">
+                <lsx-info-box>
+                    Drücke <kbd>Strg</kbd>+<kbd>U</kbd>, um den Quellcode dieser Seite als Beispiel anzuzeigen.
+                </lsx-info-box>
+                <img class="d-block w-100 dhbw-border" src="1-grundlagen/html_code.png" />
+            </lsx-accordion-page>
+        </lsx-accordion>
+    </article>
+    <aside>
+        <h2>Ursprünge des Web</h2>
+        <p>
+            In den folgenden Jahren machte sich Tim Berners-Lee daran, seine
+            Vision umzusetzen. Er ging also wirklich her und hat angefangen,
+            sowohl einen Webserver als auch einen Browser zu entwickeln.
+            Als Entwicklungsmaschine nutzte er hierfür einen
+            <a href="https://de.wikipedia.org/wiki/NeXTcube" target="_blank">NeXTcube</a>,
+            der für sich genommen schon eine interessante Geschichte wert
+            wäre. So viel sei an dieser Stelle aber zum NeXTcube und der Firma
+            NeXT verraten: Als Steve Jobs die von ihm mitgegründete Firma
+            Apple 1985 im Streit verließ, gründete er kurzerhand einfach
+            einen neuen Computerhersteller. 1996 wurde dieser von Apple
+            übernommen und Steve Jobs kehrte zu seiner ersten Firma zurück.
+        </p>
+        <p>
+            Doch zurück zum Thema. Bereits in seinem Aufsatz von 1989 beschreibt
+            Tim Berners-Lee die drei wesentlichen Elemente, die zusammengenommen
+            das World Wide Web ergeben (vom Internet einmal abgesehen):
+        </p>
+        <ul>
+            <li>
+                <b>HTML</b> (Hypertext Markup Language) als Beschreibungssprache zum
+                Verfassen von Webseiten. Wobei damit anfangs eher Textdokumente wie
+                zum Beispiel wissenschaftliche Artikel oder Anleitungen und weniger
+                Webseiten in modernen Sinne gemeint waren. Als Grundlage wählte er
+                daher eine bereits vorhandene Beschreibungssprache namens SGML und
+                vereinfachte diese.
+            </li>
+            <li>
+                <b>URL</b> (Uniform Resource Locator) als das formale Schema zur
+                Adressierung jener Dokumente im Web. Jedes Dokument sollte damit
+                eine weltweit eindeutige Adresse bekommen, unter der aus gefunden
+                und abgerufen werden kann.
+            </li>
+            <li>
+                <b>HTTP</b> (HyperText Transfer Protocol) als Übertragunsprotokoll,
+                mit dem Verbindung zu einem Server hergestellt werden konnte, um
+                die gewünschten Dokumente abzurufen. Im Vergleich zu heute war das
+                Protokoll dabei fast schon trivial einfach: Nach erfolgtem
+                Verbindungsaufbau sollte einfach das Wort <tt>GET</tt> gefolgt vom
+                Namen der gewünschten Datei gesendet werden, woraufhin der Server
+                mit dem Inhalt der Datei antwortete und die Verbindung beendete.
+            </li>
+        </ul>
+        <p>
+            1991 war es endlich soweit. Eine erste lauffähige Version der Software
+            war vorhanden und Tom Berners-Lee setzte den ersten Webserver mit der
+            ersten Webseite auf. Diese hatte die Adresse
+            <a href="http://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank">http://info.cern.ch/hypertext/WWW/TheProject.html</a>
+            und beschrieb einfach nur „das Projekt”, wie er es damals nannte.
+        </p>
+
+        <h2>Die Entwicklung danach</h2>
+        <p>
+            Mit dem World Wide Web hatte Tim Berners-Lee einen Zeitgeist getroffen.
+            Zwar gab es für ein paar Jahre mit <a href="https://de.wikipedia.org/wiki/Gopher" target="_blank">Gopher</a>
+            einen alternativen Informationsdienst im Internet, dieser konnte sich
+            jedoch nicht gegen die neuen multimedialen Fähigkeiten des Web durchsetzen.
+            Und so kam es, dass 1993, noch im selben Jahr, als Berners-Lee die Software
+            der Allgemeinheit zur Verfügung stellte, weltweit bereits über 500 Webserver
+            online gingen.
+        </p>
+        <p>
+            In den Folgejahren entwickelte sich eine immer größere Fangemeinde rund um das
+            Web und Tim Bernes-Lee verließ irgendwann das CERN, um das
+            <a href="https://www.w3.org/" target="_blank">W3C</a> zur Koordination
+            aller weiteren Tätigkeiten zu gründen. Das Web entwickelte sich daraufhin
+            rapide weiter, so dass gerade in den Anfangsjahren öfters neue Versionen
+            der zugrunde liegenden Technologien erschienen. Dabei hat sich natürlich
+            nicht jede Idee durchgesetzt, auch weil es oft konkurrierende Umsetzungen
+            gab. Beispielsweise gab es vor CSS mehrere Stylesheetsprachen, mit denen
+            der/die <b>Besucher*in</b> das Aussehen einer Webseite definieren konnte.
+            Aber erst die Idee, dass dies durch den/die <b>Betreiber*in</b> erfolgen
+            sollte, konnte letztlich überzeugen.
+        </p>
+        <p>
+            Für interaktive Elemente innerhalb einer Webseite wurde 1995 dann die
+            Programmiersprache <b>JavaScript</b> erfunden und im Netscape Communicator
+            (heute Firefox) eingebunden. Syntax und Namen orientieren sich an der
+            damals ebenfalls neuen Programmiersprache Java. Einsatzgebiet sollte
+            aber nicht Entwicklung platformneutraler Anwendungen sondern die
+            anreicherung einfacher Webseiten sein. Andere Browserhersteller zogen
+            deshalb bald nach, leisteten sich aber im Falle von Microsoft auch
+            inkompatible Implementierungen, in der Hoffnung, dadurch mehr Benutzer*innen
+            zu generieren. Unterdessen setzte aber auch eine Standardisierung ein,
+            wodurch die Browser mit jeder Version immer kompatibler wurden.
+        </p>
+        <p>
+            Viele Jahre später – wir sind nun mitten in der 200ern angekommen –
+            gab es dann nochmal eine kleine Revolution. <b>WebSockets</b> lösten
+            das bis dahin existierende Problem der bidirektionalen Kommunikation
+            zwischen Client und Server. Denn bisher konnte der Server immer nur
+            dann Daten liefern, wenn diese durch den Client durch eine HTTP-Anfrage
+            explizit angefordert wurden. WebSockets erlauben darüber hinaus aber
+            auch, eine dauerhafte Verbindung offen zu halten, so dass beide Seiten
+            jederzeit proaktiv Daten übermitteln können. Push-Nachrichten,
+            Mehrbenutzer-Chats und Browserspiele und viele mehr lassen sich dadurch
+            wesentlich einfacher als bisher realisieren.
+        </p>
+        <p>
+            Und der Rest, heißt es so schön, ist Geschichte!
+        </p>
+    </aside>
+</section>
+
+<section>
+    <h1>Vom Browser zum Server und zurück</h1>
+    <article>
+        <lsx-carousel id="server-und-zurueck">
+            <lsx-carousel-page>
+                <p>
+                    Eigentlich solltest du ja lernen. Du kannst dich aber gerade nicht motivieren.
+                </p>
+                <img class="active d-block w-100" src="1-grundlagen/ablauf_01.jpg" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/de/laptop-frau-bildung-studie-jung-3087585/" target="_blank">Pixabay: JESHOOTScom</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Du startest daher einen Browser und rufst YouTube auf.
+                </p>
+                <img class="active d-block w-100" src="1-grundlagen/ablauf_02.jpg" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/de/youtube-laptop-notebook-online-1158693/" target="_blank">Pixabay: TymonOziemblewski</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Der Browser sendet daraufhin eine HTTP-Anfrage an den Server von YouTube.
+                </p>
+                <source-code language="http">
+                    GET / HTTP/1.1
+                    Host: www.youtube.com
+                    User-Agent: Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0
+                    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+                    Accept-Language: de-DE,en-US;q=0.7,en;q=0.3
+                    Accept-Encoding: gzip, deflate, br
+                    Connection: keep-alive
+                    Upgrade-Insecure-Requests: 1
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Der Server verarbeitet die Anfrage und sendet eine HTTP-Antwort zurück.
+                </p>
+                <source-code language="http">
+                    HTTP/1.1 200 Connection established
+                    Content-Type: text/html; charset=utf-8
+                    Cache-Control: no-cache
+                    Expires: Tue, 27 Apr 1971 19:44:06 EST
+                    Date: Wed, 22 Aug 2018 00:28:14 GMT
+                    Server: YouTube Frontend Proxy
+
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        ...
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Im Datenteil der Antwort befindet sich die geforderte HTML-Seite.
+                </p>
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;YouTube&lt;/title&gt;
+
+                            &lt;link rel="shortcut icon" href="favicon.svg" /&gt;
+                            &lt;link rel="stylesheet" href="startpage.css" /&gt;
+                            &lt;link rel="stylesheet" href="video_preview.css" /&gt;
+                            &lt;link rel="stylesheet" href="social_plugins.css" /&gt;
+
+                            &lt;script src="1-grundlagen/video_loader.js"&gt;&lt;/script&gt;
+                            &lt;script src="1-grundlagen/video_add_player.js"&gt;&lt;/script&gt;
+                            &lt;script src="1-grundlagen/comments_and_likes.js"&gt;&lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;nav id="sidebar"&gt;
+                                &lt;div id="nav-start" class="menu-item"&gt;Start&lt;/div&gt;
+                                &lt;div id="nav-trends" class="menu-item"&gt;Trends&lt;/div&gt;
+                                &lt;div id="nav-abos" class="menu-item"&gt;Abos&lt;/div&gt;
+                                …
+                            &lt;/nav&gt;
+                            &lt;main&gt;
+                                &lt;h2&gt;Empfohlen&lt;/h2&gt;
+                                …
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Durch weitere HTTP-Aufrufe werden die Stylesheets mit den Darstellungsangaben geladen.
+                </p>
+                <source-code language="css">
+                    /*
+                        * Basic screen layout with header and main body
+                        */
+                    html, body {
+                        min-height: 100vh;
+                    }
+
+                    body {
+                        display: flex;
+                        flex-direction: column;
+
+                        header {
+                            margin: @padding @padding 0 @padding;
+                        }
+
+                        main {
+                            margin: @padding;
+                            margin-top: @padding / 2;
+                            flex-grow: 1;
+                        }
+
+                        .fullscreen {
+                            margin: 0;
+                        }
+
+                        …
+                    }
+                    …
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Ebenso wie der JavaScript-Code für die interaktiven Seitenelemente.
+                </p>
+                <source-code language="javascript">
+                    "use strict";
+
+                    // Built-in plugins
+                    import I18nPlugin from "./i18n.js";
+                    import BreadcrumbPlugin from "./breadcrumb.js";
+                    import IconLinkPlugin from "./icon_link.js";
+                    import ToastPlugin from "./toast.js";
+                    import RedirectHomePlugin from "./home.js";
+                    import The500ScreenPlugin from "./screens/500.js";
+                    import The404ScreenPlugin from "./screens/404.js";
+                    import RouterPlugin from "./router.js";
+                    import VideoPlayerPlugin from "./video_player.js";
+
+                    // Local configuration (may contain extra plugins)
+                    import config from "shared/config.js";
+
+                    // Instantiate all plugins
+                    let pluginClasses = [
+                        I18nPlugin,
+                        BreadcrumbPlugin,
+                        IconLinkPlugin,
+                        ToastPlugin,
+                        SyntaxHighlightPlugin,
+                        RedirectHomePlugin,
+                        The500ScreenPlugin,
+                        The404ScreenPlugin,
+                        RouterPlugin,
+                        VideoPlayer,
+                    ];
+
+                    let plugins = {};
+                    let instances = [];
+
+                    pluginClasses.forEach(pluginClass =&gt; {
+                        let plugin = new pluginClass();
+                        let name = plugin.name ? plugin.name : pluginClass.name;
+                        plugins[name] = plugin;
+                        instances.push(plugin)
+                    });
+
+                    export default plugins;
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Sie alle werden vom Browser ausgeführt, wodurch die Seite auf
+                    dem Bildschirm erscheint.
+                </p>
+                <img class="active d-block w-100 dhbw-border" src="1-grundlagen/youtube-screenshot.jpg" />
+                <p>
+                    <small>
+                        <small>
+                            Screenshot von youtube.com erstellt am 02.08.2020
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Die Ablenkung hat echt gut getan. 🐕 Mit frischem Schwung gehst du nun an deine Hausaufgaben.
+                </p>
+                <img class="active d-block w-25 m-auto" src="shared/finish.svg" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+        </lsx-carousel>
+    </article>
+    <aside>
+        <p>
+            Erst die Summe aus URLs, HTTP, HTML, CSS und JavaScript macht das WWW zu dem, was es heute ist.
+            Indem all jene Technologien hervorragend aufeinander abgestimmt sind und daher stets Hand in Hand
+            zusammenarbeiten, lässt sich damit jede fast beliebige Webanwendung realisieren. Zum Beispiel
+            wie bei YouTube oder anderen bekannten Webportalen. 🎥
+        </p>
+
+        <lsx-youtube video="dA3YGwMPHRY"></lsx-youtube>
+
+        <p>
+            Der Abruf der Daten wird immer durch den Browser initiiert und erfolgt durch Senden einer
+            <b>HTTP-Anfrage</b> an den Server. Der Server nimmt die Anfrage entgegen, verarbeitet sie,
+            indem er beispielsweise verschiedene Daten in einer Datenbank sucht und generiert daraus
+            eine <b>HTML-Seite</b>. Diese wird dann mit der <b>HTTP-Antwort</b> an den Browser geschickt
+            und von diesem dargestellt.
+        </p>
+        <p>
+            Allerdings reicht der HTML-Code alleine meist noch nicht aus, um die Seite vollständig
+            anzeigen und ausführen zu können. Innerhalb des HTML-Codes befinden sich meist noch Verweise
+            auf Stylesheets und JavaScript-Dateien, die über eigene HTTP-Anfragen ebenfalls abgerufen
+            werden sollen. Danach führt der Browser die empfangenen Quellcodes aus.
+        </p>
+    </aside>
+</section>
+
+<section>
+    <h1>Das HTTP-Protokoll im Detail</h1>
+    <article>
+        <style>
+            #http-nachricht1 table {
+                color: rgb(80,80,80);
+            }
+
+            #http-nachricht1 td {
+                vertical-align: top;
+                padding: 0;
+                padding: 0 0.3em 0 0.3em;
+            }
+
+            #http-nachricht1 .http-nachricht {
+                font-family: monospace;
+                color: black;
+                background-color: rgba(0,0,0, 0.07);
+            }
+
+            #http-nachricht1 .http-verb       { color: darkred; }
+            #http-nachricht1 .http-url        { color: darkgreen; }
+            #http-nachricht1 .http-version    { color: darkcyan; }
+            #http-nachricht1 .http-header     { color: darkblue; }
+            #http-nachricht1 .http-statuscode { color: darkred; }
+            #http-nachricht1 .http-statustext { color: darkgreen; }
+            #http-nachricht1 .http-optional   { color: red; }
+        </style>
+        <div id="http-nachricht1" style="margin-bottom: 1em;">
+            <lsx-tab-pages id="http-daten">
+                <lsx-tab-page title="Anfrage">
+                    <table>
+                        <tr>
+                            <td>
+                                Verb
+                            </td>
+                            <td>
+                                Pfad
+                            </td>
+                            <td>
+                                HTTP-Version
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-verb">
+                                POST
+                            </td>
+                            <td class="http-nachricht http-url">
+                                /feedback/save.php
+                            </td>
+                            <td class="http-nachricht http-version">
+                                HTTP/1.1
+                            </td>
+                            <td>
+                                Anfragezeile
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-header" colspan="3" >
+                                Host: www.wpvs.de <br />
+                                Content-Type: text/json <br />
+                                Accept: text/json <br />
+                                Connection: keep-alive <br />
+                            </td>
+                            <td>
+                                Header Fields
+                                <span class="http-optional">¹</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht" colspan="3">
+                                &nbsp;
+                            </td>
+                            <td>
+                                Leerzeile
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-body" colspan="3">
+                                { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"course": "vertsys", <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"year": 2020, <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"text": "Vielen Dank für diese tolle Vorlesung!" <br />
+                                }
+                            </td>
+                            <td>
+                                Request Body
+                                <span class="http-optional">¹</span>
+                            </td>
+                        </tr>
+                    </table>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Antwort">
+                    <table>
+                        <tr>
+                            <td>
+                                HTTP-Version
+                            </td>
+                            <td>
+                                Statuscode
+                            </td>
+                            <td>
+                                Bezeichnung
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-version">
+                                HTTP/1.1
+                            </td>
+                            <td class="http-nachricht http-statuscode">
+                                200
+                            </td>
+                            <td class="http-nachricht http-statustext">
+                                Ok
+                            </td>
+                            <td>
+                                Antwortzeile
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-header" colspan="3" >
+                                Content-Type: text/json <br />
+                                Content-Length: 55 <br />
+                                Date: Sun, 15 Oct 2017 20:18:17 GMT
+                            </td>
+                            <td>
+                                Header Fields
+                                <span class="http-optional">¹</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht" colspan="3">
+                                &nbsp;
+                            </td>
+                            <td>
+                                Leerzeile
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-body" colspan="3">
+                                { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"type": "success", <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"message": "Feedback wurde gespeichert", <br />
+                                }
+                            </td>
+                            <td>
+                                Response Body
+                                <span class="http-optional">¹</span>
+                            </td>
+                        </tr>
+                    </table>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Beispiel">
+                    <lsx-carousel id="http-beispiel">
+                        <lsx-carousel-page>
+                            <p>
+                                Hier wollen wir uns anschauen, welche Daten beim Senden einer HTTP-Anfrage „über die Leitung gehen”.
+                                Wir starten mit einer leeren Konsole. Du kennst doch die Konsole deines Betriebssystems, oder? 🐒
+                            </p>
+                            <img class="active d-block w-100" src="1-grundlagen/http_demo_01.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Mit <tt>telnet</tt> stellen wir eine <a href="https://de.wikipedia.org/wiki/Socket_(Software)"
+                                target="_blank">TCP/IP-Verbindung</a> zum Webserver her.
+                            </p>
+                            <img class="active d-block w-100" src="1-grundlagen/http_demo_02.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Daraufhin meldet <tt>telnet</tt>, dass die Verbindung erfolgreich aufgebaut wurde und der Server wartet
+                                auf Eingaben.
+                            </p>
+                            <img class="active d-block w-100" src="1-grundlagen/http_demo_03.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Wir schicken eine <tt>GET</tt>-Anfrage zum Abruf der Datei <tt>/webprog/hallo-http.txt</tt>.
+                            </p>
+                            <img class="active d-block w-100" src="1-grundlagen/http_demo_04.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Als nächstes folgt das Header Field <tt>Host</tt>, da es mehrere Domains mit derselben IP-Adresse gibt.
+                            </p>
+                            <img class="active d-block w-100" src="1-grundlagen/http_demo_05.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Das war es dann auch schon mit den Header Fields. Zum Abschluss folgt deshalb eine Leerzeile.
+                            </p>
+                            <img class="active d-block w-100" src="1-grundlagen/http_demo_06.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Und schon schickt uns der Server die Antwort und trennt die Verbindung.
+                            </p>
+                            <img class="active d-block w-100" src="1-grundlagen/http_demo_07.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                So einfach ist das. 👍🏻 Allerdings nur mit HTTP/1, denn HTTP/2 kodiert die Nachrichten in einer kompakteren
+                                Binärform. Schaue dir deshalb gleich das Video auf dem nächsten Tabreiter an, um zu erfahren, wie HTTP-Aufrufe
+                                richtig getestet werden.
+                            </p>
+                            <img class="active d-block w-25 m-auto" src="shared/finish.svg" />
+                            <p>
+                                <small>
+                                    <small>
+                                        Bildnachweis: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                                    </small>
+                                </small>
+                            </p>
+                        </lsx-carousel-page>
+                    </lsx-carousel>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Testprogramme">
+                    <lsx-youtube video="qnPutbEmkWA"></lsx-youtube>
+                    <lsx-ul emoji="❇️">
+                        <li>
+                            Browser sind nicht die einzigen Programme, die HTTP-Anfragen versenden.
+                        </li>
+                        <li>
+                            Eine beliebte, grafische Anwendung zum Testen von HTTP-Anfragen ist
+                            <a href="https://www.postman.com/" target="_blank">Postman</a>.
+                        </li>
+                        <li>
+                            In Scripts und auf der Kommandozeile wird häufig <a href="https://curl.haxx.se/" target="_blank">curl</a>
+                            verwendet.
+                        </li>
+                        <li>
+                            <a href="https://httpie.org/" target="_blank">HTTPie</a> ist jedoch einfacher zu nutzen
+                            und genauso leistungsfähig.
+                        </li>
+                    </lsx-ul>
+                </lsx-tab-page>
+            </lsx-tab-pages>
+
+            <p>
+                <small>
+                    <small>
+                        <span class="http-optional">¹</span> Optional
+                    </small>
+                </small>
+            </p>
+        </div>
+
+        <div id="http-nachricht2">
+            <lsx-tab-pages id="http-listen">
+                <lsx-tab-page title="Verben">
+                    <h2>GET</h2>
+                    <ul>
+                        <li>
+                            Inhalte vom Server abrufen
+                        </li>
+                        <li>
+                            Die Anfrage darf keinen Request Body enthalten
+                        </li>
+                        <li>
+                            Der Server antwortet mit dem gewünschten Inhalt oder einer Fehlerbeschreibung
+                        </li>
+                    </ul>
+
+                    <h2>POST</h2>
+                    <ul>
+                        <li>
+                            Daten zur Verarbeitung an den Server schicken
+                        </li>
+                        <li>
+                            Wird häufig dazu verwende, neue Inhalte auf dem Server abzulegen
+                        </li>
+                        <li>
+                            Der Server antwortet mit dem gespeicherten Inhalt oder einer Fehlerbeschreibung
+                        </li>
+                    </ul>
+
+                    <h2>PUT</h2>
+                    <ul>
+                        <li>
+                            Wird häufig verwendet, um vorhandene Daten auf dem Server zu aktualisieren
+                        </li>
+                        <li>
+                            Der Inhalt der Datei muss im Request Body mitgeschickt werden
+                        </li>
+                        <li>
+                            Der Server antwortet mit dem gespeicherten Inhalt oder einer Fehlerbeschreibung
+                        </li>
+                    </ul>
+
+                    <h2>DELETE</h2>
+                    <ul>
+                        <li>
+                            Daten auf dem Server löschen
+                        </li>
+                        <li>
+                            Die Anfrage darf keinen Request Body enthalten
+                        </li>
+                        <li>
+                            Der Server antwortet mit einer Bestätigung oder einer Fehlberbeschreibung
+                        </li>
+                    </ul>
+
+                    <h2>Seltener verwendete Verben</h2>
+                    <p>
+                        <tt>HEAD</tt>, <tt>OPTIONS</tt>, <tt>TRACE</tt>, <tt>PATCH</tt>
+                    </p>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Statuscodes">
+                    <h2>1xx: Informationen</h2>
+                    <ul>
+                        <li>
+                            Zwischenmeldung, um die Verbindung aufrecht zu erhalten
+                        </li>
+                        <li>
+                            Verhindert, dass die Verbindung durch einen Timeout vorzeitig beendet wird
+                        </li>
+                    </ul>
+
+                    <h2>2xx: Erfolgreicher Abschluss</h2>
+                    <ul>
+                        <li>
+                            Die Anfrage wurde erfolgreich bearbeitet
+                        </li>
+                        <li>
+                            <tt>200 OK</tt>: Alles roger! Der Response Body beinhaltet die gewünschten Daten 👌🏼
+                        </li>
+                        <li>
+                            <tt>201 Created</tt>: Der an den Server gesendete Datensatz wurde erfolgreich angelegt
+                        </li>
+                        <li>
+                            <tt>202 Accepted</tt>: Die Anfrage wurde empfangen, wird aber erst später bearbeitet
+                        </li>
+                        <li>
+                            <tt>204 No Content</tt>: Alles in Ordnung. Der Body enthält jedoch keine Daten
+                        </li>
+                        <li>
+                            …
+                        </li>
+                    </ul>
+
+                    <h2>3xx: Umleitung</h2>
+                    <ul>
+                        <li>
+                            Es sind weitere Aktionen vom Client notwendig
+                        </li>
+                        <li>
+                            <tt>300 Multiple Choice</tt>: Die Anfrage war nicht eindeutig genug
+                        </li>
+                        <li>
+                            <tt>301 Moved Permanently</tt>: Umleitung des Clients auf eine andere URL
+                        </li>
+                        <li>
+                            …
+                        </li>
+                    </ul>
+
+                    <h2>4xx: Client Fehler</h2>
+                    <ul>
+                        <li>
+                            Der Client hat etwas falsch gemacht; die Verarbeitung wird abgelehnt
+                        </li>
+                        <li>
+                            <tt>400 Bad Request</tt>: Ungültige bzw. fehlerhafte Anfrage
+                        </li>
+                        <li>
+                            <tt>401 Unauthorized</tt>: Keine Berechtigung für diese Aktion
+                        </li>
+                        <li>
+                            <tt>403 Forbidden</tt>: Die Aktion ist prinzipiell nicht erlaubt
+                        </li>
+                        <li>
+                            <tt>404 Not Found</tt>: Der gesuchte Inhalt wurde nicht gefunden
+                        </li>
+                        <li>
+                            <tt>409 Conflict</tt>: Der übermittelte Inhalt wiederspricht anderen Daten
+                        </li>
+                        <li>
+                            …
+                        </li>
+                    </ul>
+
+                    <h2>5xx: Server Fehler</h2>
+                    <ul>
+                        <li>
+                            Anfrage kann aufgrund eines Serverfehlers nicht bearbeitet werden
+                        </li>
+                        <li>
+                            <tt>500 Internal Server Error</tt>: Schwerer technischer Fehler, alles ist kaputt! 🗑️
+                        </li>
+                        <li>
+                            <tt>501 Not Implemented</tt>: Die Funktion ist nicht verfügbar
+                        </li>
+                        <li>
+                            <tt>503 Service Unavailable</tt>: Temporärer Fehler, bitte später nochmal versuchen
+                        </li>
+                        <li>
+                            …
+                        </li>
+                    </ul>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Header Fields">
+                    <!-- Anfrage -->
+                    <h2>Anfrage</h2>
+
+                    <h4>Host</h4>
+                    <p>
+                        Domain des aufgerufenen Servers, um zwischen mehreren Domains mit derselben IP-Adresse unterscheiden zu können
+                    </p>
+
+                    <h4>User-Agent</h4>
+                    <p>
+                        Name, Version und Betriebssystem des Clients, wobei die Angaben meistens nicht stimmen
+                    </p>
+
+                    <h4>Content-Type</h4>
+                    <p>
+                        MIME-Type und ggf. Zeichensatz der im Body enthaltenen Daten
+                    </p>
+
+                    <h4>Accept</h4>
+                    <p>
+                        MIME-Type der erwarteten Antwort
+                    </p>
+
+                    <h4>Accept-Language</h4>
+                    <p>
+                        Erwartete Sprachen (deutsch, englisch, …) der Antwort
+                    </p>
+
+                    <h4>Connection</h4>
+                    <p>
+                        Hinweise zur Aufrechterhaltung der TCP/IP-Verbindung für weitere Anfragen
+                    </p>
+
+                    <!-- Antwort -->
+                    <h2>Antwort</h2>
+
+                    <h4>Content-Type</h4>
+                    <p>
+                        MIME-Type und ggf. Zeichensatz der im Body enthaltenen Daten
+                    </p>
+
+                    <h4>Location</h4>
+                    <p>
+                        Umleitung auf eine neue URL bzw. URL der gespeicherten Daten
+                    </p>
+
+                    <h4>Cache-Control</h4>
+                    <p>
+                        Hinweise zur Pufferung der Antwort im Browsercache
+                    </p>
+
+                    <h4>Last-Modified</h4>
+                    <p>
+                        Datum und Uhrzeit der letzten Änderung an den Daten
+                    </p>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Versionen">
+                    <h2>HTTP/0.9</h2>
+                    <p>
+                        Dies war die ursprüngliche von Tim Berners-Lee entwickelte HTTP-Version, wie sie 1991 veröffentlicht wurde.
+                        In dieser Version gab es nur GET-Anfragen und noch keine Header Fields. Eine Anfrage bestand daher lediglich
+                        aus einer Zeile:
+                    </p>
+                    <source-code language="http">
+                        GET /index.html
+                    </source-code>
+                    <p>
+                        Die Antwort des Servers beinhalte nur den Inhalt der abgerufenen Datei, sonst nichts.
+                    </p>
+
+                    <h2 style="margin-top: 1em;">HTTP/1.0</h2>
+                    <p>
+                        1996 wurde HTTP/1.0 veröffentlicht. Ab hier haben die HTTP-Nachrichten den oben gezeigten Aufbau.
+                    </p>
+
+                    <h2 style="margin-top: 1em;">HTTP/1.1</h2>
+                    <p>
+                        Diese Version wurde 1999 veröffentlicht und brachte weitreichende Verbesserungen. Unter anderem
+                        die Möglichkeit, die Verbindung zwischen zwei Anfragen offen zu halten. Denn zuvor wurde die Verbindung
+                        nach jeder Antwort automatisch getrennt. Da aber gerade der Verbindungsaufbau bei TCP/IP sehr langsam ist,
+                        führte dies zu langen Wartezeiten, wenn mehrere Dateien vom selben Server abgerufen werden mussten.
+                    </p>
+
+                    <h2 style="margin-top: 1em;">HTTP/2</h2>
+                    <p>
+                        2015 wurde HTTP/2 offiziell verabschiedet. In seinen Grundzügen basiert es auf dem von Google entwickelten
+                        SPDY-Protokoll. Die Inhalte der HTTP-Nachrichten sind weitgehend gleich geblieben, jedoch werden sie nicht
+                        mehr in der oben gezeigten Textform kodiert. Stattdessen kommt ein kompaktes und in vielen Dingen eindeutiger
+                        spezifiziertes Binärformat zum Einsatz.¹
+                    </p>
+                    <p>
+                        Als weitere größere Neuerung führt HTTP/2 <b>Server Push</b> ein, wodurch der Server beim Abruf einer
+                        HTML-Seite selbstständig weitere Dateien an den Browser schicken kann. Somit können Stylesheets, Skripte
+                        und Bilder schon an den Browser geschickt werden, bevor dieser überhaupt weiß, dass er sie benötigen wird.
+                    </p>
+                    <p>
+                        Stand 2020 hat sich HTTP/2 noch nicht vollständig gegen HTTP/1 durchgesetzt. Sehr viele Webseiten verwenden
+                        weiterhin HTTP/1. Inzwischen unterstützen aber alle Server, Browser und Frameworks das neue Protokoll.
+                    </p>
+                    <p>
+                        <small>
+                            <small>
+                                ¹ Beispielsweise war bei HTTP/1.x nie definiert, welche Bytefolge ein Zeilenende markiert.
+                            </small>
+                        </small>
+                    </p>
+                </lsx-tab-page>
+            </lsx-tab-pages>
+        </div>
+    </article>
+    <aside>
+        <p>
+            Das Übertragungsprotokoll, mit dem der Browser Daten vom Server abruft, heißt HTTP. Die Abkürzung steht eigentlich
+            für <b>HyperText Transfer Protocol</b>. Heute nennt es aber niemand mehr so. 🙂
+        </p>
+
+        <h2>Alles beginnt mit einer Anfrage</h2>
+        <p>
+            HTTP ist wirklich ein simples Protokoll. Oder zumindest war es das einmal, als es erfunden wurde. Denn im
+            Laufe der Zeit wurde es natürlich immer mehr erweitert. In seinen Grundzügen ist es aber immer noch relativ
+            einfach: Der Browser stellt eine Verbindung zum Server her, sendet eine Anfrage und erhält eine Antwort.
+            Die Anfrage beinhaltet dabei stets folgende Daten:
+        </p>
+        <ul>
+            <li>
+                <b>Verb:</b> Kennzeichnet die Aktion, die der Server ausführen soll. Zum Beispiel <tt>GET</tt> für
+                den Abruf einer Seite, oder <tt>PUT</tt> zum Hochladen einer Datei.
+            </li>
+            <li>
+                <b>Pfad:</b> Der Dateipfad, auf den sich die Anfrage bezieht. Oft handelt es sich einfach um eine
+                Datei, die der Server zurückschicken soll. Das muss aber nicht so sein, wie wir später noch sehen
+                werden.
+            </li>
+            <li>
+                <b>HTTP-Version:</b> In HTTP/1 dient dies hauptsächlich dazu, die Anfrage von der Antwort zu unterscheiden.
+                Bei der Anfrage steht die HTTP-Version in der ersten Zeile hinten, bei der Antwort ganz am Anfang. Darüber
+                hinaus steuert die HTTP-Version aber auch welche Header Fields (siehe nächster Punkt) die Gegenseite
+                verstehen muss.
+            </li>
+            <li>
+                <b>Header Fields (optional):</b> Dies sind Daten, die das Verhalten des Servers beeinflussen. Beispielsweise
+                wird hier die angeforderte Domain mitgeschickt, da heutzutage die meisten Webserver mehrere Domains mit derselben
+                IP-Adresse bedienen.
+            </li>
+            <li>
+                <b>Request Body (optional):</b> Hier können Daten an den Server geschickt werden, die dieser speichern
+                oder weiterverarbeiten soll. Ob der Server einen Request Body erwartet hängt dabei vom verwendeten
+                HTTP-Verb ab.
+            </li>
+        </ul>
+        <p>
+            Den genauen Aufbau einer HTTP-Anfrage sowie alle erlaubten Verben findest du auf der Folie. 📄
+        </p>
+
+        <h2>Und endet mit einer Antwort</h2>
+        <p>
+            Die Antwort des Servers sieht im Prinzip genauso aus. Anstelle von Verb und Pfad beinhaltet sie jedoch einen
+            Statuscode, der darüber Auskunft gibt, ob die angeforderte Aktion ausgeführt werden konnte. Jede Antwort
+            beinhaltet daher folgende Daten:
+        </p>
+        <ul>
+            <li>
+                <b>HTTP-Version:</b> Die HTTP-Version, nach deren Regeln die Antwort aufgebaut ist.
+            </li>
+            <li>
+                <b>Statuscode:</b> Nummerischer Code, der die Art der Antwort definiert.
+            </li>
+            <li>
+                <b>Statustext:</b> Kurze, menschenverständliche Beschreibung zum Statuscode.
+            </li>
+            <li>
+                <b>Header Fields:</b> Verschiedene Informationen über die gelieferten Daten, zum Beispiel das Datenformat
+                (<a href="https://de.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions" target="_blank">MIME-Type</a>)
+                und die Anzahl Bytes.
+            </li>
+            <li>
+                <b>Response Body:</b> Die eigentlichen Daten oder bei Fehlern eine HTML-Seite mit einer Fehlerbeschreibung.
+            </li>
+        </ul>
+        <p>
+            Kurioserweise wird der Statuscode allerdings von den Browsern gar nicht angezeigt. Manche davon beinflussen
+            aber durchaus, wie der Browser mit einer Antwort umgeht. So teilt der Statuscode 301 zum Beispiel mit, dass
+            der/die Anwender*in auf eine neue Seite weitergeleitet werden soll. Oder der Statuscode 404 sagt aus, dass
+            die gesuchte Ressource nicht gefunden wurde. Bei 200 hingegen ist einfach alles okay.
+        </p>
+
+        <h2>Über die verschiedenen HTTP-Versionen</h2>
+        <p>
+            Heute sind eigentlich nur zwei HTTP-Versionen von Bedeutung: HTTP/1.1 und HTTP/2. HTTP/3 ist noch am Entstehen.
+            Dies ist wichtig, da HTTP bis zur Version 1.1 ein reines Textprotokoll war, Anfrage und Antwort ab HTTP/2 aber
+            nur noch binär kodiert werden. Neuere Versionen sind deshalb naturgemäß schneller. Aus Gründen der Kompatibilität
+            verstehen aber aller Browser und Server auch die alten Versionen.
+        </p>
+    </aside>
+</section>
+
+<section>
+    <h1>Weitere Erfindungen der 1990er</h1>
+    <article>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md">
+                    <img src="1-grundlagen/linux.png" class="img-thumbnail d-block" style="width: 100%" />
+                    1991: Der Linux-Kernel
+                </div>
+                <div class="col-md">
+                    <img src="1-grundlagen/palm.png" class="img-thumbnail d-block" style="width: 100%" />
+                    1992: Personal Digital Assistants
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <img src="1-grundlagen/amazon.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1994: Der Onlinebuchhändler Amazon
+                    <p class="dhbw-fontsize-tiny">
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/de/buchladen-b%C3%BCcher-kaufen-bibliothek-2495148/" target="_blank">Pixabay: Reisefreiheit_eu</a>
+                        </small>
+                    </p>
+                </div>
+                <div class="col-md">
+                    <img src="1-grundlagen/windows95.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1995: Taskleiste, Startmenü, Desktop und
+                    <a href="http://www.der-postillon.com/2017/06/windows-nachhaltig.html" target="_blank">Papierkorb</a>
+                    <p class="dhbw-fontsize-tiny">
+                        <small>
+                            Bildnachweis: <a href="http://www.pcworld.com/article/3027904/windows/windows-95-is-back-right-inside-your-browser.html" target="_blank">PCWorld</a>
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <img src="1-grundlagen/ebay.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1995: AuctionWeb, später bekannt als eBay
+                    <p class="dhbw-fontsize-tiny">
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/de/hammer-b%C3%BCcher-gesetz-gericht-620011/" target="_blank">Pixabay: succo</a>
+                        </small>
+                    </p>
+                </div>
+                <div class="col-md">
+                    <img src="1-grundlagen/google.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1997: BackRub heißt jetzt Google
+                    <p class="dhbw-fontsize-tiny">
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/de/internet-suchmaschine-laptop-netbook-1519471/" target="_blank">Pixabay: PhotoMIX-Company</a>
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <img src="1-grundlagen/netflix.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1997: Netflix verleiht noch Videokassetten
+                    <p class="dhbw-fontsize-tiny">
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/de/alte-tv-aufzeichnungen-vhs-kassetten-1149416/" target="_blank">Pixabay: Free-Photos</a>
+                        </small>
+                    </p>
+                </div>
+                <div class="col-md">
+                    <img src="1-grundlagen/IPv6.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1998: <a href="https://tools.ietf.org/html/rfc2460" target="_blank">RFC 2460</a> zu IPv6
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <img src="1-grundlagen/dvd.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                    1999: Filme auf DVD
+                    <p class="dhbw-fontsize-tiny">
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/de/comics-lesen-bild-abdeckung-buch-2589659/" target="_blank">Pixabay: StockSnap</a>
+                        </small>
+                    </p>
+                </div>
+                <div class="col-md">
+                    <img src="1-grundlagen/macOS.png" class="img-thumbnail d-block" style="width: 100%" />
+                    1999: Mac OS X, heute bekannt als mac OS
+                    <p class="dhbw-fontsize-tiny">
+                        <small>
+                            Bildnachweis: <a href="https://virtualboxes.org/screenshots/#jp-carousel-315" target="_blank">virtualboxes.org</a>
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <aside>
+        <p>
+            Die 1990er waren schon eine verrückte Zeit. Voller neuer
+            Ideen und Hypes, auf die die Leute aufgesprungen sind.
+            An dieser Stelle daher ein kleiner Ausblick, was noch alles
+            in den 1990ern erfunden wurde, was wir heute noch kennen und
+            nutzen.
+        </p>
+        <ul>
+            <li>
+                <b>1991:</b> Der finnische Student Linus Torvalds kündigt im Usenet den
+                <a href="https://de.wikipedia.org/wiki/Linux" target="_blank">Linux-Kernel</a>
+                an. Heute läuft die Mehrheit aller Webseiten auf einem
+                <a href="https://httpd.apache.org" target="_blank">Apache-Server</a>
+                (erschienen 1995) unter Linux.
+            </li>
+            <li>
+                <b>1992:</b> Mit dem Apple Newton und dem Palm Zoomer erscheinen
+                die ersten PDAs (Personal Digital Assistant). Die Kombination
+                von PDA und Handy in einem Gerät sollte 2007, als Apple das iPhone
+                vorstellte, als Smartphone bekannt werden.
+            </li>
+            <li>
+                <b>1994:</b> Der US-Amerikanische Informatiker Jeff Bezos gründet
+                den Onlinebuchhändler Amazon. Nach einer längeren Testphase wird
+                der Webshop ein Jahr später unter amazon.com der breiten
+                Öffentlichkeit zugänglich gemacht. Seit 1998 ist Amazon auch
+                in Deutschland am Markt.
+            </li>
+            <li>
+                <b>1995:</b> Microsoft veröffentlicht mit Windows 95
+                die erste Windows-Version mit den bekannten drei Buttons
+                in der Titelzeile eines Fensters, einem Desktop, auf dem
+                Dateien und Icons abgelegt werden können, dem Windows
+                Explorer, einem Papierkorb sowie der Taskleiste mit dem
+                Startmenü.
+            </li>
+            <li>
+                <b>1995:</b> Im kalifornischen San José wird die Onlineplattform
+                AuctionWeb, später bekannt als eBay, gegründet.
+            </li>
+            <li>
+                <b>1997:</b> Larry Page und Sergey Brin nennen ihre 1996 onlinegestellte
+                Suchmaschine BackRub in Google um. Benannt ist sie nach der Zahl „Googol”,
+                die einer Eins mit hundert Nullen entspricht und die Fülle der verarbeiteten
+                Informationen widerspiegelt.
+            </li>
+            <li>
+                <b>1997:</b> In den USA wird die Firma Netflix gegründet.
+                Bis 2007 bestand das Geschäftsfeld allerdings noch ausschließlich
+                aus dem Onlineverleih von Videokassetten und DVDs. Das Streaming
+                von Filmen kommt erst später dazu.
+            </li>
+            <li>
+                <b>1998:</b> Im Dezember 1998 wird der
+                <a href="https://tools.ietf.org/html/rfc2460" target="_blank">RFC 2460</a>,
+                in dem das neue IPv6 beschrieben wird, veröffentlicht. Die Arbeiten an dem
+                neuen Protokoll dauern zu dieser Zeit bereits drei Jahre an, obwohl der
+                IPv4-Adressvorrat noch bis 2011 reichen soll.
+            </li>
+            <li>
+                <b>1999:</b> Die ersten DVDs kommen auf den Markt. Es handelt sich um das
+                erste erfolgreiche Heimvideo-Medium nach Einführung der Videokassetten
+                in den 1970ern. Frühere Versuche, wie zum Beispiel die
+                <a href="https://de.wikipedia.org/wiki/Laserdisc" target="_blank">LaserDisc</a>,
+                können sich hingegen nicht durchsetzen.
+            </li>
+            <li>
+                <b>1999:</b> Nach der Übernahme von Steve Jobs Firma
+                <a href="https://de.wikipedia.org/wiki/NeXT" target="_blank">NeXT Inc.</a>
+                drei Jahre zuvor entwickelt Apple das Betriebssystem
+                <a href="https://de.wikipedia.org/wiki/OPENSTEP" target="_blank">OPENSTEP</a>
+                zu
+                <a href="https://de.wikipedia.org/wiki/MacOS#Geschichte" target="_blank">Mac OS X</a>,
+                dem heutigen mac OS, weiter.
+            </li>
+        </ul>
+        <p>
+            Viele dieser Erfindungen wurden im
+            <a href="https://de.wikipedia.org/wiki/Silicon_Valley" target="_blank">Silicon Valley</a>
+            gemacht, einer Region südlich von San Francisco, USA.
+        </p>
+        <img src="1-grundlagen/google-banner.jpg" class="img-thumbnail d-block" style="width: 100%;"/>
+    </aside>
+</section>
+
+<section data-background-color="rgb(231, 221, 141)">
+    <h1>Aufgabe: Ein kleines WWW-Quiz</h1>
+
+    <article>
+        <lsx-quiz prefix="Aufgabe #:">
+            <lsx-exercise title="Die Geschichte des Internets">
+                <lsx-question
+                    type = "single-choice"
+                    text = "a) Wie hieß der technische Vorläufer des heutigen Internets?"
+                >
+                    <lsx-answer>ADANET</lsx-answer>
+                    <lsx-answer correct>ARPANET</lsx-answer>
+                    <lsx-answer>Darker Net</lsx-answer>
+                    <lsx-answer>Global Web</lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "single-choice"
+                    text = "b) In welchem Jahr gingen die ersten Rechner online?"
+                >
+                    <lsx-answer>1959</lsx-answer>
+                    <lsx-answer>1963</lsx-answer>
+                    <lsx-answer correct>1969</lsx-answer>
+                    <lsx-answer>1971</lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "single-choice"
+                    text = "c) Welches war die erste .com-Domain der Welt?"
+                >
+                    <lsx-answer>internet.com</lsx-answer>
+                    <lsx-answer>graphics.com</lsx-answer>
+                    <lsx-answer>worldwideweb.com</lsx-answer>
+                    <lsx-answer>cern.com</lsx-answer>
+                    <lsx-answer correct>symbolics.com</lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "single-choice"
+                    text = "d) In welcher Einrichtung wurde das World Wide Web erfunden?"
+                >
+                    <lsx-answer correct>CERN: Europäisches Kernforschungszentrum</lsx-answer>
+                    <lsx-answer>ESA: Europäische Weltraumbehörde</lsx-answer>
+                    <lsx-answer>DLR: Deutsches Zentrum für Luft- und Raumfahrt</lsx-answer>
+                    <lsx-answer>KIT: Karlsruhe Institute of Technology</lsx-answer>
+                    <lsx-answer>DHBW: Duale Hochschule Baden-Württemberg</lsx-answer>
+                </lsx-question>
+            </lsx-exercise>
+
+            <lsx-exercise title="Technisches zum World Wide Web">
+                <lsx-question
+                    type = "single-choice"
+                    text = "a) Was ist ein Hypertext? "
+                >
+                    <lsx-answer correct>Ein nicht-linearer Text mit Absprüngen und Verlinkungen</lsx-answer>
+                    <lsx-answer>Ein technisch-orientierter Text mit multimedialen Inhalten</lsx-answer>
+                    <lsx-answer>Ein für Computer lesbarer Quelltext nach der Compilierung</lsx-answer>
+                    <lsx-answer>Ein besonders effizient komprimierter, natürlichsprachlicher Text</lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "multiple-choice"
+                    text = "b) Welche drei Technologien erfand Tim Berners-Lee in den Anfangstagen des Web? "
+                >
+                    <lsx-answer>WebSockets</lsx-answer>
+                    <lsx-answer>Das AJAX-Prinzip</lsx-answer>
+                    <lsx-answer correct>Das HTML-Format</lsx-answer>
+                    <lsx-answer correct>Den Aufbau einer URL</lsx-answer>
+                    <lsx-answer>Clientseitige Webanwendungen</lsx-answer>
+                    <lsx-answer correct>Das HTTP-Übertragungsprotokoll</lsx-answer>
+                    <lsx-answer>CSS-basierte Stylesheets</lsx-answer>
+                    <lsx-answer>TCP/IP-fähige Betriebssysteme</lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "single-choice"
+                    text = "c) Auf welchem Computermodell entwickelte Bernes-Lee die ersten Webserver und Browser? "
+                >
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/Commodore_64" target="_blank">Commodore C64</a></lsx-answer>
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/Apple_II" target="_blank">Apple II</a></lsx-answer>
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/Atari_ST" target="_blank">Atari ST</a></lsx-answer>
+                    <lsx-answer correct><a href="https://de.wikipedia.org/wiki/NeXT" target="_blank">NeXT Cube</a></lsx-answer>
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/SPARCstation" target="_blank">SPARCstation</a></lsx-answer>
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/Virtual_Address_eXtension" target="_blank">DEC VAX</a></lsx-answer>
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/PDP-11" target="_blank">PDP-11</a></lsx-answer>
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/System_i" target="_blank">IBM AS/400</a></lsx-answer>
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/SGI_Indigo" target="_blank">SGI Indigo</a></lsx-answer>
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/Intel_80486" target="_blank">Intel 80486</a></lsx-answer>
+                    <lsx-answer><a href="https://de.wikipedia.org/wiki/Star-Trek-Technologie#LCARS" target="_blank">LCARS</a></lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "single-choice"
+                    text = "d) Wie lautet die vollständige URL der DHBW Karlsruhe inklusive aller optionalen Bestandteile? "
+                >
+                    <lsx-answer><code>karlsruhe.dhbw.de</code></lsx-answer>
+                    <lsx-answer><code>www.karlsruhe.dhbw.de</code></lsx-answer>
+                    <lsx-answer><code>https://www.karlsruhe.dhbw.de</code></lsx-answer>
+                    <lsx-answer correct><code>https://www.karlsruhe.dhbw.de/</code></lsx-answer>
+                    <lsx-answer><code>https://www.karlsruhe.dhbw.de/dhbw-karlsruhe/</code></lsx-answer>
+                    <lsx-answer><code>https://www.karlsruhe.dhbw.de/en/general/about-us.html</code></lsx-answer>
+                    <lsx-answer><code>https://www.karlsruhe.dhbw.de/en/general/about-us.html?lang=en</code></lsx-answer>
+                </lsx-question>
+            </lsx-exercise>
+        </lsx-quiz>
+    </article>
+    <aside>
+        <p>
+            Jetzt wird es spannend! Hier kannst du zeigen, dass du die Folien
+            aufmerksam durchgelesen und dabei alles verstanden hast. 🤓
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-background-color="rgb(153, 190, 137)">
+    <h1>Über das Selbststudium</h1>
+    <article style="overflow: hidden;">
+        <h4>Daran solltest du denken …</h4>
+        <ul>
+            <li>Dies war ein eher kleines Selbststudium, die nachfolgenden werden umfangreicher sein.</li>
+            <li>Mehr Folien, mehr Text, mehr Geschichten, mehr von allem. 🙂</li>
+            <li>Zusätzlich werden sie auch kleinere Programmieraufgaben und Übungen beinhalten.</li>
+            <li>Plane also ausreichend Zeit für dein Selbststudium ein!</li>
+        </ul>
+        <div style="font-size: 400px; color: white; transform: rotate(-5deg) translate(-20px,0);" class="dhbw-text-shadow" >!</div>
+    </article>
+    <aside>
+        <p>
+            Wenn du jetzt noch die Lernkontrolle und das Feedback in Moodle
+            ausfüllst, hast du schon einen ziemlich guten Eindruck davon,
+            was dich im Selbststudium erwarten wird. Eine Warnung soll an
+            dieser Stelle aber noch ausgesprochen werden:
+        </p>
+        <p>
+            Das war ja nur ein kurzes Kapitel. Die nachfolgenden
+            Selbststudiumseinheiten werden deutlich größer als diese
+            sein und auch kleinere Aufgaben und Übungen umfassen.
+            Du solltest dir also unbedingt ausreichend Zeit einplanen
+            und nicht erst, wie man das sonst ja so mit Hausaufgaben macht,
+            erst in der Straßenbahn auf dem Weg zur Hochschule damit anfangen. 😉
+        </p>
+        <p>
+            Obwohl diese Folien natürlich durchaus auf dem Smartphone
+            betrachtet werden können. In der Straßenbahn auf dem Weg
+            nach Hause ist also okay … 😃
+        </p>
+    </aside>
+</section>

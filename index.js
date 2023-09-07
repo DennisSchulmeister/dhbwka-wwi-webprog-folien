@@ -48,11 +48,10 @@ import HLJS_Language_XML from 'highlight.js/lib/languages/xml';
 import HLJS_Language_CSS from 'highlight.js/lib/languages/css';
 import HLJS_Language_JS from 'highlight.js/lib/languages/javascript';
 import HLJS_Language_JAVA from 'highlight.js/lib/languages/java';
+import HLJS_Language_SHELL from 'highlight.js/lib/languages/shell';
 import "highlight.js/styles/atom-one-light.css";
 
-window.addEventListener("load", () => {
-    emailLinkJs.enableEmailLinks();
-
+window.addEventListener("load", async () => {
     let player = new SlideshowPlayer({
         labelPrev: "Zurück",
         labelNext: "Weiter",
@@ -89,10 +88,13 @@ window.addEventListener("load", () => {
                     javascript: HLJS_Language_JS,
                     json: HLJS_Language_JS,
                     java: HLJS_Language_JAVA,
+                    sh: HLJS_Language_SHELL,
+                    shell: HLJS_Language_SHELL,
                 }
             }),
         }
     });
 
-    player.start();
+    await player.start();
+    emailLinkJs.enableEmailLinks();
 });
