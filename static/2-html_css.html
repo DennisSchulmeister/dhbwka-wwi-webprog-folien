@@ -320,6 +320,292 @@
 </section>
 
 <section>
+    <h1>Der Aufruf einer Webseite in Bildern</h1>
+
+    <article>
+        <style>
+            #http-intro > div {
+                float: left;
+                box-sizing: border-box;
+
+                position: relative;
+                padding-bottom: 30%;
+            }
+
+            #http-intro .http-intro-w3  { width: 25%; }
+            #http-intro .http-intro-w4  { width: 34%; }
+            #http-intro .http-intro-w6  { width: 50%; }
+            #http-intro .http-intro-w8  { width: 66%; }
+            #http-intro .http-intro-w12 { width: 100%; }
+
+            #http-intro .img-thumbnail {
+                margin-right: 0.33em;
+                margin-bottom: 0.33em;
+                padding: 0;
+                overflow: hidden;
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+
+                border: 1px solid rgb(214, 214, 214);
+                border-radius: 0.3em;
+            }
+
+            #http-intro .img-thumbnail img {
+                position: absolute;
+                bottom: 0;
+                display: block;
+                width: 100%;
+            }
+
+            #http-intro .img-thumbnail p {
+                width: 100%;
+                padding: 0.2em;
+            }
+
+            .http-intro-hidden {
+                display: none !important;
+            }
+
+            .http-intro-next > .img-thumbnail {
+                background-color: rgb(223, 247, 252);
+                color: rgb(18, 84, 116);
+                font-size: 80%;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                transition: filter 0.2s, box-shadow 0.2s, opacity 0.75s;
+            }
+
+            .http-intro-next > .img-thumbnail:hover {
+                filter: contrast(90%);
+                box-shadow: 0 0 2px rgba(0,0,0,0.25);
+                cursor: pointer;
+            }
+
+            @media all and (max-width: 1500px) {
+                #http-intro > div {
+                    display: block;
+                    width: 100% !important;
+                    padding-bottom: 0;
+                    float: none;
+                }
+
+                #http-intro .img-thumbnail {
+                    position: relative;
+                }
+
+                #http-intro .img-thumbnail img {
+                    width: auto;
+                    height: 100%;
+                    position: relative;
+                }
+            }
+        </style>
+
+        <script>
+        window.http_intro_showNext = (event, classHidden, classPlaceholder) => {
+            // Nächstes Bild anzeigen
+            let element = document.querySelector(`.${classHidden}`);
+            if (element != null) element.classList.remove(classHidden);
+
+            // Platzhalter entfernen, wenn alle Bilder offen sind
+            element = document.querySelector(`.${classHidden}`);
+
+            if (element === null) {
+                let placeholder = document.querySelector(`.${classPlaceholder}`);
+                placeholder.remove();
+            }
+        };
+        </script>
+
+        <div id="http-intro">
+            <div class="http-intro-w8">
+                <div class="img-thumbnail">
+                    <p>
+                        Unsere Geschichte beginnt mit einen Browser, einem Webserver …
+                    </p>
+                    <img src="2-html_css/http_intro_01.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w4 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        … und einem Anwender, der eine URL eingibt.
+                    </p>
+                    <img src="2-html_css/http_intro_02.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w6 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Daraufhin baut der Browser eine Verbindung zum Server auf.
+                    </p>
+                    <img src="2-html_css/http_intro_03.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w6 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Und sendet eine Anfrage zum Abruf der Seite. Eine GET-Anfrage.
+                    </p>
+                    <img src="2-html_css/http_intro_04.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w12 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Der Server antwortet mit Statuscode 200 und dem HTML-Inhalt der Seite.
+                    </p>
+                    <img src="2-html_css/http_intro_05.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w3 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Sogleich macht sich der Browser daran die Seite darzustellen.
+                    </p>
+                    <img src="2-html_css/http_intro_06.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w3 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Doch halt! Der HTML-Code verweist auf CSS-Stylesheets, JavaScript-Dateien und Bilder.
+                    </p>
+                    <img src="2-html_css/http_intro_07.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w6 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Sie müssen natürlich auch alle abgerufen werden.
+                    </p>
+                    <img src="2-html_css/http_intro_08.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w8 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Der Server antwortet fleißig mit den gewünschten Dateien, die der
+                        Browser sogleich ausführt.
+                    </p>
+                    <img src="2-html_css/http_intro_09.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w4 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Bei Webanwendungen muss der Content jedoch separat abgerufen werden.
+                    </p>
+                    <img src="2-html_css/http_intro_10.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w6 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Also sendet sie noch mehr HTTP-Anfragen an den Server.
+                    </p>
+                    <img src="2-html_css/http_intro_11.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w6 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Und wieder antwortet der Server, dieses Mal allerdings mit JSON-Daten.
+                    </p>
+                    <img src="2-html_css/http_intro_12.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w4 http-intro-hidden">
+                <div class="img-thumbnail">
+                    <p>
+                        Am Ende ist die Seite vollständig aufgebaut und die Verbindung wird getrennt.
+                    </p>
+                    <img src="2-html_css/http_intro_13.svg" />
+                </div>
+            </div>
+            <div class="http-intro-w8 http-intro-hidden">
+                <div class="img-thumbnail" style="background-image: url(2-html_css/http_intro_14.jpg); background-size: cover;">
+                    <p style="text-align: center;">
+                        <b style="color: crimson; font-size: 300%; text-shadow: 1px 1px black;">Happy End!</b>
+                    </p>
+                </div>
+            </div>
+            <div class="http-intro-w3 http-intro-next" onclick="http_intro_showNext(event, 'http-intro-hidden', 'http-intro-next')">
+                <div class="img-thumbnail">
+                    <span style="font-size: 400%">🖼️</span>
+                    Nächstes Bild anzeigen
+                </div>
+            </div>
+        </div>
+
+        <p style="clear: both;">
+            <small>
+                <small>
+                    Bildnachweise:
+                    <a href="https://pixabay.com/de/computer-schreibtisch-modern-ger%C3%A4t-154114/" target="_blank">Pixabay: OpenClipart-Vectors</a>,
+                    <a href="https://pixabay.com/de/server-hardware-netzwerk-computer-37258/" target="_blank">Pixabay: Clker-Free-Vector-Images</a>,
+                    <a href="https://pixabay.com/de/mann-gesch%C3%A4ft-cartoon-kaufmann-1351761/" target="_blank">Pixabay: ROverhate</a>,
+                    <a href="https://pixabay.com/de/palette-farben-malerei-werkzeug-1817857/" target="_blank">Pixabay: Jsprzperez</a>
+                </small>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Auf der vorherigen Seite wurden die wichtigsten Sprachen und Formate vorstellt,
+            die ein Webbrowser beim Anzeigen einer Webseite interpretiert. Kurz wurde dies
+            auch schon im Grundlagenkapitel angedeutet. Um die nachfolgenden Codebeispiele
+            besser einordnen zu können, sehen wir auf dieser Seite zunächst ein zusammenhängendes
+            Fallbeispiel, was beim Aufruf einer Webseite passiert:
+        </p>
+        <p>
+            Wird eine URL in der Adresszeile des Browsers eingegeben oder ein Link angeklickt,
+            sendet der Browser eine HTTP GET-Anfrage an den jeweiligen Server, um die Seite
+            abzurufen. In den meisten Fällen beinhaltet die Antwort darauf eine HTML-Seite,
+            die der Browser versucht darzustellen.¹ In der Regel reicht der HTML-Code aber
+            nicht aus, um die Seite vollständig zu rendern, da dieser auf weitere Dateien wie
+            Bilder, Stylesheets und JavaScript-Code verweist. Der Browser zeichnet zwar schon
+            die ersten Inhalte auf den Bildschirm, sendet im Hintergrund aber entsprechende
+            Folgenanfragen an den Server, um die restlichen Dateien abzurufen.
+            Im Idealfall sehen wir bald eine vollständige Webseite auf dem Bildschirm. Doch
+            selbst heute kennen wir immer noch den Effekt, wenn man einer langsamen Webseite
+            „beim Laden zusehen“ kann. Im schlimmsten Fall kommt es dabei zu einem
+            <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank">Flash of Unstyled Conent</a>,
+            wenn die Stylesheets erst nach dem HTML-Inhalt vollständig geladen werden.
+        </p>
+        <p>
+            Webanwendungen benötigen im Gegensatz zu Webseiten meistens darüber hinaus noch weitere
+            Daten vom Server, da der HTML-Code oft nur einen UI-Rahmen ohne tatsächliche Inhalte definiert.²
+            Dies wird am Ende der Bildergeschichte kurz angedeutet, beschäftigt uns aber erst später,
+            wenn wir JavaScript und REST-Webservices vertiefen. Zunächst interessiert uns nur, dass der
+            HTML-Code die Struktur einer Seite oder Anwendung definiert, darzustellende Inhalte besitzen
+            kann und hierfür auf weitere Quelldateien verweist.
+        </p>
+        <p>
+            ¹
+            <small>
+                Die meisten anderen Dateien würde der Browser stattdessen zum Download anbieten.
+            </small>
+        </p>
+        <p>
+            ²
+            <small>
+                Moderne Frameworks versuchen diesen Nachteil durch sog. „Hydration“ zu beheben.
+            </small>
+        </p>
+        <lsx-youtube video="HnKV2belxgs"></lsx-youtube>
+    </aside>
+</section>
+
+<section>
     <h1>Die grundlegende Syntax einer HTML-Datei</h1>
     <article>
         <lsx-tab-pages>
@@ -374,7 +660,7 @@
         <p>
             Wie du siehst, ist HTML wirklich ein einfaches Format. Auch ohne ausschweifende Erklärungen
             musst du dir nur ein wenig das Beispiel anschauen und du siehst sofort, was die wichtigsten
-            Eigenheiten sind. Um aber ganz sicher zu gehen, erklären wir es dir hier trotzdem nochmal. 💃
+            Eigenheiten sind. Sicherheitshalber erklären wir es hier aber nochmal.
         </p>
         <p>
             HTML ist eine sogenannte <a href="https://de.wikipedia.org/wiki/Auszeichnungssprache" target="_blank">Markup Language</a>
