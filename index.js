@@ -65,7 +65,7 @@ window.addEventListener("load", async () => {
         labelFadeToWhite: "Alles ausblenden (weiß)",
         labelFadeToBlack: "Alles ausblenden (schwarz)",
         labelFadeBack: "Klicken, um zu den Folien zurückzukehren",
-        mode: "overview",
+        mode: "slideshow",  // "overview",
         linkMode: "slideshow",
         plugins: {
             ExtraTags: new LsPluginExtraTags({
