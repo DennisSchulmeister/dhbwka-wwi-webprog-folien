@@ -22,7 +22,7 @@
     ],
     "scripts": {
         "clean": "node scripts/clean.js",
-        "build": "npm run clean; node scripts/build-static.mjs; node scripts/esbuild-bundle.js",
+        "build": "npm run clean && node scripts/build-static.mjs && node scripts/esbuild-bundle.js",
         "start": "node scripts/esbuild-serve.js",
         "publish": "scripts/publish.sh"
     },
