@@ -1,0 +1,20 @@
+- Grundlagen: Cookies
+    - Zustandslosigkeit von HTTP
+      Cookies zur Überwindung
+      HTTP kennt kein "Ich habe eben die Seite A abgerufen. Hier ist ein Folgerequest dazu".
+      Ein HTTP-Server kann Anfragen keinem "Benutzer" zuordnen / zusammenhängende Anfragen erkennen.
+      Genau das muss man aber für Funktionen wie: Login/Logout, Warenkorb, ...
+      Überall, wo eine Webanwendung benutzerspezifische Daten verarbeitet
+
+    - Funktionsweise von Cookies zur Überwindung der Zustandslosigkeit
+
+    - Einsatzgebiete
+      Sicheres Indiz: Benutzerregistrierung / Login
+      Aber auch Tracking, Werbung, ...
+      
+    - Cookie-Banner / Datenschutz
+
+- JavaScript: Cookies, LocalStorage, SessionStorage
+
+- HTML/CSS: HTMLX-Fallbeispiel
+    - Übungsaufgabe dazu
