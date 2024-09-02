@@ -35,7 +35,7 @@
     },
     "devDependencies": {
         "@dschulmeis/lecture-slides.js": "^4.3.0",
-        "@dschulmeis/ls-plugin-extra-tags": "^3.1.0",
+        "@dschulmeis/ls-plugin-extra-tags": "^3.2.6",
         "@dschulmeis/ls-plugin-highlight.js": "^2.0.4",
         "@dschulmeis/ls-plugin-markdown": "^1.0.0",
         "email-link.js": "^1.0.1",
