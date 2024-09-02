@@ -41,6 +41,7 @@ import SlideshowPlayer from "@dschulmeis/lecture-slides.js";
 import "./style/style.less";
 
 import LsPluginExtraTags from "@dschulmeis/ls-plugin-extra-tags";
+import LS_Plugin_Markdown from "@dschulmeis/ls-plugin-markdown";
 
 import LsPluginHighlightJs from "@dschulmeis/ls-plugin-highlight.js";
 import HLJS_Language_HTTP from 'highlight.js/lib/languages/http';
@@ -69,6 +70,7 @@ window.addEventListener("load", async () => {
         mode: "slideshow",  // "overview",
         linkMode: "slideshow",
         plugins: {
+            Markdown: new LS_Plugin_Markdown(),
             ExtraTags: new LsPluginExtraTags({
                 labelCarouselNext: "Nächstes Bild",
                 labelCarouselPrev: "Vorheriges Bild",

@@ -13,9 +13,6 @@
                 Welche Kompetenzziele die Modulbeschreibung der DHBW hierfür vorgibt.
             </li>
             <li>
-                Welches Wissen du zum Bestehen der Vorlesung mitbringend solltest.
-            </li>
-            <li>
                 Welches didaktische Modell in dieser Vorlesung verfolgt wird.
             </li>
             <li>
@@ -372,53 +369,75 @@
 
 <section data-title="Kompetenzziele">
     <article>
-        <h2>Fachkompetenz</h2>
-        <p>
-            <small>Welches neue Wissen eigne ich mir an?</small>
-        </p>
-        <ul>
-            <li>Technische Grundlagen des World Wide Web</li>
-            <li>Funktionsweise von HTTP als universelles Transportprotokoll</li>
-            <li>Umsetzung eigener Entwurfsideen mit HTML und CSS</li>
-            <li>Berücksichtigung gerätespezifischer Besonderheiten bei der Entwicklung</li>
-            <li>Vertiefung in JavaScript z.B. zur Objektorientierung</li>
-        </ul>
+        <lsx-accordion>
+            <lsx-accordion-page active>
+                <lsx-accordion-title>
+                    <div class="w-100 me-3 d-flex justify-content-between">
+                        <b>Fachkompetenz</b>
+                        <span>Wissen</span>
+                    </div>
+                </lsx-accordion-title>
+                <lsx-accordion-content>
+                    <lsx-ul>
+                        <li>Technische Grundlagen des World Wide Web</li>
+                        <li>Funktionsweise von HTTP als universelles Transportprotokoll</li>
+                        <li>Umsetzung eigener Entwurfsideen mit HTML und CSS</li>
+                        <li>Berücksichtigung gerätespezifischer Besonderheiten bei der Entwicklung</li>
+                        <li>Vertiefung in JavaScript z.B. zur Objektorientierung</li>
+                    </lsul>
+                </lsx-accordion-content>
+            </lsx-accordion-page>
+            
+            <lsx-accordion-page title="Methodenkompetenz">
+                <lsx-accordion-title>
+                    <div class="w-100 me-3 d-flex justify-content-between">
+                        <b>Methodenkompetenz</b>
+                        <span>Können</span>
+                    </div>
+                </lsx-accordion-title>
+                <lsx-accordion-content>
+                    <lsx-ul>
+                        <li>Webanwendungen von der Anforderung bis zur Umsetzung konzipieren</li>
+                        <li>Entwicklungswerkzeuge wie IDEs, Debugger oder die Browser-Tools bedienen</li>
+                        <li>Mit HTML und CSS eigene Webseiten erstellen</li>
+                        <li>Mit JavaScript browserbasierte Apps entwickeln</li>
+                        <li>Vorhandene Webanwendungen analysieren und weiterentwickeln</li>
+                    </lsx-ul>
+                </lsx-accordion-content>
+            </lsx-accordion-page>
 
-        <h2>Methodenkompetenz</h2>
-        <p>
-            <small>Welche neuen Werkzeuge und Methoden kann ich anwenden?</small>
-        </p>
-        <ul>
-            <li>Webanwendungen von der Anforderung bis zur Umsetzung konzipieren</li>
-            <li>Entwicklungswerkzeuge wie IDEs, Debugger oder die Browser-Tools bedienen</li>
-            <li>Mit HTML und CSS eigene Webseiten erstellen</li>
-            <li>Mit JavaScript browserbasierte Apps entwickeln</li>
-            <li>Vorhandene Webanwendungen analysieren und weiterentwickeln</li>
-        </ul>
-
-        <h2>Personale und soziale Kompetenz</h2>
-        <p>
-            <small>
-                Wie entwickele ich mich nicht nur fachlich sondern auch persönlich weiter?
-            </small>
-        </p>
-        <ul>
-            <li>Aktuelle Konzepte der Webentwicklung kennen und diskutieren können</li>
-            <li>Eigene Entwürfe verständlich kommunizieren und argumentieren</li>
-            <li>Eventuelle Programmfehler erkennen und deren Behebung erklären können</li>
-        </ul>
-
-        <h2>Übergreifende Handlungskompetenz</h2>
-        <p>
-            <small>
-                Welche allgemeinen Fähigkeiten erwerbe ich durch diese Vorlesung?
-            </small>
-        </p>
-        <ul>
-            <li>Trends und Entwicklungen im Bereich Webentwicklung bewerten</li>
-            <li>Sich in Diskussionen einbringen und Lösungsvorschläge unterbreiten</li>
-            <li>Sich eigenständig in neue Themengebiete der Webentwicklung einarbeiten</li>
-        </ul>
+            <lsx-accordion-page>
+                <lsx-accordion-title>
+                    <div class="w-100 me-3 d-flex justify-content-between">
+                        <b>Personale und soziale Kompetenz</b>
+                        <span>Persönliche Entwicklung</span>
+                    </div>
+                </lsx-accordion-title>
+                <lsx-accordion-content>
+                    <lsx-ul>
+                        <li>Aktuelle Konzepte der Webentwicklung kennen und diskutieren können</li>
+                        <li>Eigene Entwürfe verständlich kommunizieren und argumentieren</li>
+                        <li>Eventuelle Programmfehler erkennen und deren Behebung erklären können</li>
+                    </lsx-ul>
+                </lsx-accordion-content>
+            </lsx-accordion-page>
+            
+            <lsx-accordion-page title="Übergreifende Handlungskompetenz">
+                <lsx-accordion-title>
+                    <div class="w-100 me-3 d-flex justify-content-between">
+                        <b>Übergreifende Handlungskompetenz</b>
+                        <span>Allgemeine Fähigkeiten</span>
+                    </div>
+                </lsx-accordion-title>
+                <lsx-accordion-content>
+                    <lsx-ul>
+                        <li>Trends und Entwicklungen im Bereich Webentwicklung bewerten</li>
+                        <li>Sich in Diskussionen einbringen und Lösungsvorschläge unterbreiten</li>
+                        <li>Sich eigenständig in neue Themengebiete der Webentwicklung einarbeiten</li>
+                    </lsx-ul>                
+                </lsx-accordion-content>
+            </lsx-accordion-page>
+        </lsx-accordion>
     </article>
     <aside>
         <p>
@@ -464,58 +483,6 @@
     </aside>
 </section>
 
-<section data-title="Vorausgesetztes Wissen">
-    <article>
-        <p>
-            <small>
-                Folgendes Wissen aus den bisherigen Semestern wird für diese
-                Vorlesung als bekannt vorausgesetzt. Wenn du etwas nicht mehr
-                genau weißt, <b style="color: red">wiederhole es möglichst bald!</b>
-            </small>
-        </p>
-        <lsx-grid-fluid>
-            <lsx-row>
-                <lsx-col size="md-5">
-                    <h4>Java-Grundlagen</h4>
-                    <p>
-                        Klasse, Attribut, Methode, Instanz
-                        Sichtbarkeit, Verdecken, Syntax,
-                        public, private, protected, static,
-                        package private, const, Vererbung,
-                        Polymorphie, Interface, Überladen,
-                        Überschreiben, Atomare Typen,
-                        Typkonvertierung, Zugriffsrechte,
-                        Implementierung, Innere Klassen,
-                        Anonyme Klassen, abstract,
-                        Referenz, Laufzeitfehler, Ausnahme,
-                        Throwable, Exception, Runtime
-                        Error, Syntaxfehler, Logische Fehler,
-                        Compiler, *.java vs. *.class-Datei,
-                        Paket inkl. Verzeichnisstruktur
-                    </p>
-                </lsx-col>
-                <lsx-col size="md">
-                    <h4>Fortgeschrittene Themen</h4>
-                    <p>
-                        Datenstrom, Text, Binär, Zeichensatz, Reader/Writer, Input/Output-
-                        Stream, Runnable, Thread, Dämon-Thread, Thread-Erzeugung,
-                        Synchronisation, Nebenläufigkeit, Semaphor, Monitor, synchronized,
-                        Erzeuger/Verbraucher-Problem, Lost Update-Problem, Deadlock,
-                        Livelock, die speisenden Philosophen
-                    </p>
-
-                    <h4>Netzwerke und Internet</h4>
-                    <p>
-                        Kommunikation im Internet, OSI-Schichtenmodell, MAC-Adresse,
-                        IP-Adresse, IPv4, IPv6, TCP, UDP, Portnummer, Socket, DNS,
-                        Domain Name, Protokoll, Web Browser, E-Mail-Client
-                    </p>
-                </lsx-col>
-            </lsx-row>
-        </lsx-grid-fluid>
-    </article>
-</section>
-
 <section data-title="Didaktisches Modell">
     <article>
         <lsx-tab-pages>
@@ -525,17 +492,17 @@
                 </p>
                 <lsx-ul class="mb-3">
                     <li>
-                        Jedes Selbststudium besteht hierfür aus <b>Vorwissensabfrage</b>,
-                        <b>Onlineskript</b> und <b>Rückfragen</b>.
+                        Jedes Selbststudium besteht aus einem Kapitel im
+                        <b>Onlineskript</b>, <b>Fragen zur Vorlesung</b> und einer <b>Lernkontrolle</b>.
                     </li>
                     <li>
-                        Auf jedes Selbststudium folgt eine Theoriestunde zur Klärung der Fragen und Vertiefung der Inhalte.
+                        Auf jedes Selbststudium folgt eine Theoriestunde zur Klärung von Fragen und Besprechung weiterer Inhalte.
                     </li>
                     <li>
-                        Anschließend wird eine prüfungsrelevante <b>Lernkontrolle</b> in Moodle fällig.
+                        Anschließend wird die <b>Lernkontrolle</b> in Moodle fällig, da diese in die Modulnote einfließt (s. nächste Seite).
                     </li>
                     <li>
-                        Darauf folgen eine oder mehrere Übungsstunden mit praktischen Aufgaben.
+                        Dazwischen bearbeiten wir Übungen, praktische Aufgaben und ein benotetes Programmierprojekt.
                     </li>
                 </lsx-ul>
 
@@ -558,11 +525,28 @@
                     </lsx-row>
                 </lsx-grid-fluid>
             </lsx-tab-page>
-            <lsx-tab-page title="Vorlesungsübersicht in Moodle">
+            <lsx-tab-page title="Moodle">
                 <img src="0-intro/moodle1.png" class="img-fluid img-thumbnail mx-auto d-block" />
             </lsx-tab-page>
-            <lsx-tab-page title="Gliederung der Kapitel in Moodle">
-                <img src="0-intro/moodle2.png" class="img-fluid img-thumbnail mx-auto d-block" />
+            <lsx-tab-page title="Vorlesungsskript">
+                <p>
+                    Das Skript wird  laufend aktuell gehalten. Bitte haben Sie deshalb Verständnis
+                    dafür, wenn sich die Inhalte innerhalb des Semesters kurzfristig ändern oder neue
+                    Inhalte nachgereicht werden.
+                </p>
+                <p>
+                    <b>Bild:</b> Gestern Nacht beim Schreiben des Onlineskripts. 🥱
+                </p>
+
+                <img src="0-intro/mad-professor.jpg" class="img-fluid img-thumbnail mx-auto d-block" />
+
+                <p>
+                    <small>
+                        <small>
+                            OpenAI DALL-E, Prompt: Mad professor working late at night at his computer
+                        </small>
+                    </small>
+                </p>
             </lsx-tab-page>
         </lsx-tab-pages>
     </article>
@@ -611,53 +595,39 @@
             gibt es hier je Kapitel einen eigenen Bereich, der durch eine
             der Kacheln aufgerufen wird. Innerhalb der Kacheln gibt es dann
             für jedes Selbststudium und jede Vorlesungsstunde eine entsprechende
-            Überschrift mit den dazugehörigen Materialien. Über ein kleines
-            Häkchen am rechten Bildschirmrand können die Materialien dann
-            als Bearbeitet gekennzeichnet werden, um die Fortschrittsanzeige
-            zu aktualisieren.
+            Überschrift mit den dazugehörigen Materialien.
         </p>
 
         <h5>Elektronische Anwesenheitsliste</h5>
         <p>
-            Eine Besonderheit ist hier die elektronische Anwesenheitsliste
-            in Moodle. Nachdem Corona leider immer noch ein Thema ist, ist
-            es sicher keine gute Idee, jede Vorlesung einen Laufzettel durch
-            alle Hände gehen zu lassen. Bei Onlineterminen funktioniert das
-            darüber hinaus auch gar nicht. Die Anwesenheitsliste wird daher
-            in Moodle geführt, wobei jede*r Teilnehmer*in sich am Anfang einer
-            Stunde selbst einträgt. Dies ist nur während dem jeweiligen Termin
-            möglich und erfordert ein Passwort, dass am Anfang der Stunde
-            bekannt gegeben wird.
+            Eine Besonderheit ist die elektronische Anwesenheitsliste.
+            Hat Corona hier doch tatsächlich die Digitalisierung drastisch beschleunigt,
+            indem wir den guten alten Laufzettel seither durch eine Selbererfassung Moodle
+            ersertzt haben. Dies ist nur während dem jeweiligen Termin möglich und erfordert
+            ein Passwort, dass am Anfang der Stunde bekannt gegeben wird.
         </p>
 
         <h5>Selbststudium</h5>
         <p>
             Unter dieser Überschrift befindet sich immer eine
-            komplette Selbststudiumseinheit bestehend aus folgenden
-            Materialien:
+            komplette Selbststudiumseinheit bestehend aus:
         </p>
         <ol>
-            <li>
-                Vorwissensabfrage
-            </li>
             <li>
                 Onlineskript
             </li>
             <li>
-                Rückfragen zum Onlineskript
+                Fragen zur Vorlesung
             </li>
             <li>
                 Lernkontrolle
             </li>
-            <li>
-                Ergänzende Quellcodes
-            </li>
         </ol>
 
-        <h5>Vorlesung</h5>
+        <h5>Übungen</h5>
         <p>
-            Hier finden sich dann alle Quellcodes, Beispiele und Aufgaben,
-            die wir gemeinsam in den Präsenzterminen besprechen.
+            Hier finden sich die in den Präsenzstunden besprochenen Quellcodes, Fallbeispiele
+            und Aufgaben sowie ggf. zusätzliche Materialien.
         </p>
     </aside>
 </section>
@@ -716,7 +686,7 @@
                     </tr>
                     <tr style="background-color: white;">
                         <td>4</td>
-                        <td><b>Learning Scrum</b></td>
+                        <td><b>Aufgabenblatt</b></td>
                         <td>Vor Beginn der Klausurphase</td>
                         <td>3</td>
                     </tr>
@@ -731,17 +701,6 @@
 
             <lsx-tab-page title="Unterlagen in Moodle">
                 <img src="0-intro/pf-moodle.png" class="img-fluid img-thumbnail mx-auto d-block" />
-            </lsx-tab-page>
-
-            <lsx-tab-page title="Aufgabenblatt">
-                <div class="d-flex w-100" style="gap: 0.5em;">
-                    <div class="flex-grow-1 flex-shrink-1">
-                        <img src="0-intro/pf-blatt1.png" class="img-thumbnail d-block w-100" />
-                    </div>
-                    <div class="flex-grow-1 flex-shrink-1">
-                        <img src="0-intro/pf-blatt2.png" class="img-thumbnail d-block w-100" />
-                    </div>
-                </div>
             </lsx-tab-page>
         </lsx-tab-pages>
     </article>
@@ -777,13 +736,14 @@
             </li>
             <li>
                 <b>Ein Programmierprojekt</b> im dritten Semester dient der praktischen
-                Anwendung der Vorlesungsinhalte, in dem jede*r Studierende*r eine eigen
-                Webanwendung entwirft, umsetzt und (kurz) präsentiert.
+                Anwendung der Vorlesungsinhalte, indem sich die Studierende in kleinen
+                Gruppen zusammenschließen, um eine Webanwendung zu entwerfen und implementieren.
             </li>
             <li>
-                Im vierten Semester kommt hierzu ein <b>Learning Scrum</b> genanntes
-                Format, bei dem sich die Studierende in kleine Gruppen zusammenschließen,
-                um ein selbstgewähltes Thema selbst zu erarbeiten.
+                Im vierten Semester kommt hierzu ein <b>Aufgabenblatt</b> mit praktischen
+                Fallbeispielen und vertiefungen Fragestellungen, das in Einzelleistung
+                zu bearbeiten ist. Denn obwohl Gruppenarbeit beim Portfolio erlaubt ist,
+                muss die Note laut Studienordnung dennoch überwiegend individuell verdient werden.
             </li>
         </ul>
         <p>
@@ -821,9 +781,10 @@
                 <lsx-grid-fluid>
                     <lsx-row class="mb-0">
                         <lsx-col size="md">
-                            <h2>Entwicklungsumgebung: Visual Studio Code</h2>
                             <p>
-                                Da der Atom-Editor nicht mehr weiterentwickelt wird. 🙁
+                                Als Entwicklungsumgebung werden wir Visual Studio Code, da der Atom-Editor leider nicht mehr
+                                weiterentwickelt wird. 🙁 Es handelt sich um eine weit verbreitete IDE mit Unterstützung für
+                                alle gängigen Programmiersprachen und Betriebssysteme.
                             </p>
                         </lsx-col>
                     </lsx-row>
@@ -842,7 +803,7 @@
 
                     <lsx-row>
                         <lsx-col size="md">
-                            <ul>
+                            <lsx-ul>
                                 <li>
                                     Weit verbreitete IDE für alle gängigen Betriebssysteme
                                 </li>
@@ -850,19 +811,23 @@
                                     Geschrieben in HTML und JavaScript (basierend auf der Chrome Webengine)
                                 </li>
                                 <li>
-                                    Open-Source von Microsoft (Made in Switzerland)
+                                    Open-Source von Microsoft (Made in Switzerland) 🇨🇭
                                 </li>
-                            </ul>
+                            </lsx-ul>
                         </lsx-col>
                     </lsx-row>
                 </lsx-grid-fluid>
             </lsx-tab-page>
 
-            <lsx-tab-page title="node.js">
+            <lsx-tab-page title="Node.js">
                 <lsx-grid-fluid>
                     <lsx-row class="mb-0">
                         <lsx-col size="md">
-                            <h2>Serversprache und Werkzeugsammlung: node.js</h2>
+                            <p>
+                                Für die Backendprogrammierung werden wir Node.js als JavaScript-Laufzeitumgebung nutzen.
+                                Es handelt sich um eine weit verbreitete Runtime für nebenläufige verteilte Anwendungen
+                                auf Basis der V8-Enginge des Google Chrome Browsers.
+                            </p>
                         </lsx-col>
                     </lsx-row>
 
@@ -877,7 +842,7 @@
 
                     <lsx-row>
                         <lsx-col size="md">
-                            <ul>
+                            <lsx-ul>
                                 <li>
                                     Beinhaltet den Node Package Manager zur einfachen Installation aller für ein Projekt benötigten Bibliotheken
                                 </li>
@@ -887,100 +852,146 @@
                                 <li>
                                     Beinhaltet eine komplette JavaScript-Laufzeitumgebung für die serverseitige Programmierung
                                 </li>
-                            </ul>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Git">
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <p>
+                                Für die gemeinsame Erstellung und Pflege von Quellcode gelten Versionskontrollsysteme wie
+                                Git als anerkannter Standard. Sie versionieren und dokumentieren alle Änderungen und stellen
+                                sicher, dass alle Projektmitglieder auf denselben Quellcodes arbeiten.
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/git-logo.svg" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="0-intro/git-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul>
+                                <li>
+                                    Git ist inzwischen das am weitesten verbreitete Versionskontrollsystem.
+                                </li>
+                                <li>
+                                    Die Nutzung kann rein lokal oder mit einer Onlineplattform wie GitHub erfolgen.
+                                </li>
+                                <li>
+                                    Von den Machern von Linux 🐧.
+                                </li>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Gitpod">
+                <lsx-grid-fluid>
+                    <lsx-row class="mb-0">
+                        <lsx-col size="md">
+                            <p>
+                                Falls Sie auf Ihrem Computer keine zusätzliche Software installieren können oder sich bestimmte
+                                Dienste über das DHBW-Netzwerk nicht erreichen lassen, können Sie auf die Gitpod Online-IDE ausweichen.
+                                Diese bietet eine IDE und Linux-Umgebung direkt in Ihrem Browser.
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="0-intro/github-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="0-intro/gitpod-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                        </lsx-col>
+                    </lsx-row>
+
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul>
+                                <li>
+                                    IDE und Linux-Umgebung mit vorinstallierten Werkzeugen komplett in der Cloud.
+                                </li>
+                                <li>
+                                    Keine Registrierung erforderlich, sofern Sie bereits einen GitHub Account besitzen.
+                                </li>
+                                <li>
+                                    Quellcodes müssen in einem öffentlich sichtbare Git-Repository auf GitHub liegen.
+                                </li>
+                            </lsx-ul>
                         </lsx-col>
                     </lsx-row>
                 </lsx-grid-fluid>
             </lsx-tab-page>
         </lsx-tab-pages>
     </article>
-    <aside>
-        <p>
-            Ein Handwerker braucht zum Arbeiten sein Werkzeug. Das ist
-            beim Programmieren natürlich nicht anders. Und genau wie beim
-            Handwerkszeug gibt es eine geradezu unendliche Auswahl an
-            Editoren, Frameworks, Datenbanken und Servern, die man zur
-            Entwicklung seiner Anwendungen nutzen kann. In der Vorlesung
-            haben wir uns daher auf folgende Werkzeuge festgelegt.
-        </p>
+    <aside class="markdown">
+        Ein Handwerker braucht zum Arbeiten sein Werkzeug. Das ist beim Programmieren natürlich nicht anders.
+        Und genau wie beim Handwerkszeug gibt es eine geradezu unendliche Auswahl an Editoren, Frameworks,
+        Datenbanken und Servern, die man zur Entwicklung seiner Anwendungen nutzen kann. In der Vorlesung
+        haben wir uns daher auf folgende Werkzeuge festgelegt.
 
-        <h5>Visual Studio Code</h5>
-        <p>
-            Visual Studio Code hat sich in den letzten Jahren zu einer der
-            beliebtesten und flexibelsten IDEs überhaupt entwickelt. Im
-            Gegensatz zu klassischen IDEs wit Eclipse, NetBeans oder dem
-            großen Bruder Visual Studio, ist Visual Studio Code im Kern
-            jedoch äußert kompakt und dank der durchgängigen Verwendung
-            Technologien leicht anpass- und erweiterbar.
-        </p>
-        <p>
-            <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a>
-        </p>
+        ##### Visual Studio Code
 
-        <h5>node.js und npm</h5>
-        <p>
-            Leider werden wir uns nicht sehr ausführlich mit node.js
-            beschäftigen, auch wenn das wirklich lohnenswert wäre.
-            Gegen Ende der Vorlesung wollen wir uns jedoch ein wenig
-            damit beschäftigen und da macht es natürlich Sinn, sich
-            auch die Serverseite unter JavaScript anzuschauen. node.js
-            ist hier eine stabile und weit verbreitete Laufzeitumgebung
-            für JavaScript außerhalb des Browsers. Außerdem enthält es
-            den <b>node package manager</b>, mit dem wir uns allerlei
-            nützliche Bibliotheken und Werkzeuge leicht installieren
-            können.
-        </p>
-        <p>
-            <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a>
-        </p>
-    </aside>
-</section>
+        Visual Studio Code hat sich in den letzten Jahren zu einer der beliebtesten und flexibelsten IDEs
+        überhaupt entwickelt. Im Gegensatz zu klassischen IDEs wit Eclipse, NetBeans oder dem großen Bruder
+        Visual Studio, ist Visual Studio Code im Kern jedoch äußert kompakt und dank der durchgängigen Verwendung
+        von Web-Technologien leicht anpass- und erweiterbar. Ein Blick in den Extension Marketplace wird dies
+        bestätigen. 
 
-<section data-title="Literaturempfehlungen">
-    <article>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="0-intro/buch1.png" class="img-thumbnail mx-auto d-block w-100" />
-                </div>
-                <div class="col-md-4">
-                    <img src="0-intro/buch2.png" class="img-thumbnail mx-auto d-block w-100" />
-                </div>
-                <div class="col-md-4">
-                    <img src="0-intro/buch3.png" class="img-thumbnail mx-auto d-block w-100" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="0-intro/buch4.png" class="img-thumbnail mx-auto d-block w-100" />
-                </div>
-            </div>
-        </div>
-    </article>
-    <aside>
-        <p>
-            Die folgenden Bücher kannst du verwenden, um Sachen
-            nachzuschlagen, die dir in der Vorlesung nicht klar
-            geworden sind. Darüber hinaus eignen sie sich auch
-            hervorragend zur Vertiefung der hier gelernten Inhalte.
-        </p>
-        <p>
-            Aber sein wir ganz ehrlich: Zum Bestehen der Vorlesung
-            brauchst du sie nicht.
-        </p>
-        <ul>
-            <li>
-                <b>Flexible Boxes – Ein Einführung in moderne Websites</b> (Müller), Rheinwerk Verlag
-            </li>
-            <li>
-                <b>Einstieg in JavaScript</b> (Theis), Rheinwerk Verlag
-            </li>
-            <li>
-                <b>Responsive Webdesign</b> (Ertel, Laborenz), Rheinwerk Verlag
-            </li>
-            <li>
-                <b>Grundkurs Programmieren in Java</b> (Ratz, Schulmeister-Zimolong, Seese, Wiesenberger), Hanser-Verlag
-            </li>
-        </ul>
+        <lsx-info-box type="warning">
+            <b>Vorsichtig:</b> <i>A fool with a tool is still a fool.</i> Zu viele Extensions stören eher,
+            als dass Sie bei der Problemlösung helfen.
+        </lsx-info-box>
+
+        [https://code.visualstudio.com/](https://code.visualstudio.com/){target=blank}
+
+        ##### Node.js und npm
+
+        Die in der Vorlesung besprochenen Konzepte sind an keine konkrete Programmiersprache gebunden.
+        Eine in jüngerer Zeit vor allem bei Webentwicklern zunehmend beliebte Sprache ist jedoch JavaScript,
+        die Node.js oder Bun inzwischen auch außeralb des Browsers läuft. In der Vorlesung werden wir daher
+        unsere jüngst erworbenen JavaScript-Kenntnisse vertiefen und JavaScript auch für die Backendprogrammierung
+        nutzen.
+
+        [https://nodejs.org/](https://nodejs.org/){target=blank}
+
+        ##### Git und GitHub
+
+        In großen Programmierprojekten hat sich bereits sehr früh die Verwendung so genannter Versionskontrollsysteme
+        zur Dokumentation und Verwaltung aller Quellcodeänderungen etabliert. Die ersten Systeme entstanden dabei unter
+        anderem für Unix bereits in den 1970er-Jahren. Heute zählt Git zu den am weitesten verbreiteten Systemen, da es
+        als **verteilte Versionsverwaltung** sowohl rein lokal als auch im Verbund mit Onlineplattformen wie
+        [GitHub](https://github.com/) oder [GitLab](https://gitlab.com/) genutzt werden kann. Git stellt dabei durch
+        seine verteilte Änderungshistorie sicher, dass keine Änderung jemals verloren geht und keine Änderung eine andere
+        unbemerkt überschreiben kann. Zusätzlich lässt sich der Quellcode damit einfach und zuverlässig mit allen Projektbeteiligten
+        teilen. Es ist dadurch sehr viel leistungsfähiger, robuster und mit etwas Eingewöhnung einfacher zu nutzen als die typischen
+        Filesharing-Dienste unserer Zeit. Für die Gruppenarbeiten nutzen wir daher Git, um einen reibungslosen Ablauf zu garantieren.
+
+        [https://git-scm.com/](https://git-scm.com/)
+
+        ##### Gitpod
+
+        Rein optional aber durchaus eine Alternative, um die Installation lokaler Softwarepakete auf
+        Ihrem Computer zu vermeiden. Bei Gitpod handelt es sich um einen in der Cloud laufenden Ableger
+        von Visual Studio Code, der neben der IDE auch eine vollständige Linux-Umgebung mit vorinstallierten
+        Werkzeugen von Docker oder Node.js bietet. Einzige Voraussetzung hierfür ist, dass der zu bearbeitende
+        Quellcode in einem öffentlich sichtbaren Git-Repository auf GitHub liegt. Denn dann kann Gitpod für
+        persönliche Projekte kostenlos genutzt werden. Die Anmeldung erfolgt mit dem persönlichen GitHub Account.
+        Zwar handelt es sich um ein kommerzielles Angebot, die Plattform ist jedoch vollständig quelloffen.
+
+        [https://gitpod.io/](https://gitpod.io/){target=blank}
     </aside>
 </section>

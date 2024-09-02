@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="96"
+   height="46.950001"
+   fill="none"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="gitpod-logo.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="8"
+     inkscape:cx="52.1875"
+     inkscape:cy="7.375"
+     inkscape:window-width="1920"
+     inkscape:window-height="1031"
+     inkscape:window-x="0"
+     inkscape:window-y="49"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg11" />
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="m 51.8472,3.3061801 a 4.424,4.424 0 0 1 -1.6492,6.0382 L 36.9862,16.88618 a 1.12,1.12 0 0 0 -0.5642,0.973 v 11.8384 a 1.12,1.12 0 0 0 0.5642,0.973 l 10.458,5.9696 a 1.12,1.12 0 0 0 1.1116,0 l 10.458,-5.9696 a 1.12,1.12 0 0 0 0.5642,-0.973 v -7.3626 l -9.401,5.299 a 4.4338,4.4338 0 0 1 -6.0368,-1.68 4.424,4.424 0 0 1 1.6828,-6.0312 l 13.4498,-7.581 c 4.0978,-2.31 9.1672,0.6482 9.1672,5.348 v 12.908 a 8.4224,8.4224 0 0 1 -4.249,7.3136 l -12.0064,6.853 a 8.442,8.442 0 0 1 -8.3692,0 l -12.0064,-6.853 a 8.4224,8.4224 0 0 1 -4.249,-7.315 v -13.636 a 8.4224,8.4224 0 0 1 4.249,-7.3149999 l 13.993,-7.987 a 4.4338,4.4338 0 0 1 6.0452,1.6478 z"
+     fill="url(#a)"
+     id="path2"
+     style="fill:url(#a);stroke-width:1" />
+  <defs
+     id="defs9">
+    <linearGradient
+       id="a"
+       x1="23.378"
+       y1="4.8390002"
+       x2="8.4130001"
+       y2="28.391001"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#FFB45B"
+         id="stop4" />
+      <stop
+         offset="1"
+         stop-color="#FF8A00"
+         id="stop6" />
+    </linearGradient>
+  </defs>
+</svg>
