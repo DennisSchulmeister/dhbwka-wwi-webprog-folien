@@ -2756,9 +2756,19 @@
             auskommt.
         </p>
 
-        <lsx-info-box type="critical">
-            Mische HTML und CSS nur, wenn du gute Gründe dafür hast.
-            Faulheit sollte nicht dazu gehören. 😉
+        <lsx-info-box>
+            <p>
+                Moderne Frameworks Bootstrap oder Tailwind CSS verzichten auf eine Trennung von
+                HTML und CSS und nutzen stattdessen das <code>class</code>-Attribut von HTML, um
+                seine Elemente zu stylen. Die Überlegung dahinter ist, dass Inhalt und Darstellung
+                gerade bei komplexen UIs (und weniger bei einfachen Textdokumenten) eben doch sehr
+                eng miteinander verbunden und nicht wirklich wiederverwendbar sind.
+            </p>
+            <p>
+                Zumindest am Anfang wollen wir uns aber an die von der Web-Plattform vorgesehene
+                Trennung von HTML und CSS halten und uns erst später mit möglichen Alternativen
+                beschäftigen. HTML und CSS gehören für uns daher aktuell immer in getrennte Dateien.
+            </p>
         </lsx-info-box>
     </aside>
 </section>
