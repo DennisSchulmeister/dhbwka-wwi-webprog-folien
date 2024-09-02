@@ -1,577 +1,400 @@
-<!DOCTYPE html>
-<html lang="de">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>App-Entwicklung mit JavaScript</title>
+<section data-title="App-Entwicklung mit JavaScript" data-chapter="h1" data-background-color="rgb(210,190,210)">
+    <article>
+        <h3>Nach Abschluss dieser Einheit kannst du …</h3>
+        <ul>
+            <li>
+                verstehen, warum JavaScript keine „klassische“
+                <span class="dhbw-lightblue font-weight-bold">Objektorientierung</span>
+                unterstützt.
+            </li>
+            <li>
+                verstehen, warum JavaScript aber dennoch eine objektorientierte Sprache ist.
+            </li>
+            <li>
+                eigene Objekte <span class="dhbw-lightblue font-weight-bold">deklarieren</span>,
+                <span class="dhbw-lightblue font-weight-bold">kopieren</span> und
+                <span class="dhbw-lightblue font-weight-bold">vererben</span>.
+            </li>
+            <li>
+                alten JavaScript-Code aus der Zeit warten, als es noch keine Klassen gab.
+            </li>
+            <li>
+                neuen JavaScript-Code mit <span class="dhbw-lightblue font-weight-bold">Klassen</span>,
+                <span class="dhbw-lightblue font-weight-bold">Methoden</span> und
+                <span class="dhbw-lightblue font-weight-bold">Settern und Gettern</span> schreiben.
+            </li>
+            <li>
+                den Code einer <span class="dhbw-lightblue font-weight-bold">Browser App</span>
+                ein saube getrennte Einheiten gliedern.
+            </li>
+            <li>
+                das <span class="dhbw-lightblue font-weight-bold">JavaScript-Modulsystem</span>
+                mit seinen Vor- und Nachteilen erklären.
+            </li>
+            <li>
+                die Vorteile von <span class="dhbw-lightblue font-weight-bold">Data Binding</span>
+                erkennen und dir ein passendes Framework hierfür aussuchen.
+            </li>
+            <li>
+                die Funktionsweise gängiger Werkzeuge zur professionellen JavaScript-Entwicklung
+                nachvollziehen.
+            </li>
+        </ul>
+        <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
+    </article>
+    <aside>
+        <p>
+            Bereits seit dem letzten Kapitel kennst du die wichtigsten Eigenheiten von
+            JavaScript und kannst eigene kleine Browser Apps damit entwickeln. Doch
+            obwohl das Kapitel ziemlich umfangreich war, gibt es noch vieles, was wir
+            noch nicht besprochen haben, worüber du aber immer wieder stolpern wirst.
+            Allen voran haben wir uns noch nicht mit der <b>Objektorientierung in JavaScript</b>
+            auseinandergesetzt. Doch gerade die hat es in sich, da JavaScript seit ein
+            paar Jahren zwar Klassen kennt, diese historisch bedingt aber nicht viel
+            mit den altbekannten Klassen aus Java gemeinsam haben.
+        </p>
+        <p>
+            Zu Anfang des Kapitels werden wir daher einen genaueren Blick auf die
+            eigenwilligen OOP-Konzepte von JavaScript werfen und dabei lernen, dass
+            jedes Objekt ein Dictionary ist und umgekehrt. Die praktische Konsequenz
+            daraus wird dann sein, dass wir direkt im Quellcode Objektinstanzen
+            deklarieren können, ohne hierfür eine Klasse zu benötigen. Mithilfe von
+            <b>Prototypen</b> werden wir dabei sogar <b>Vererbung</b> anwenden,
+            immer noch, ohne eine Klasse hierfür zu programmieren.
+        </p>
+        <p>
+            Allerdings kommt auch modernes JavaScript nicht mehr ohne Klasse aus.
+            In den folgenden Folien werden wir die Funktionsweise von Klassen daher
+            ganz genau analysieren, indem wir erst zeigen, wie „Klassen“ in JavaScript
+            früher definiert wurden, als es das <code>class</code>-Schlüsselwort noch
+            nicht gab und wie dasselbe dann mit <code>class</code> deutlich vereinfacht
+            wird. Dies dient uns dann als Grundlage für einen kleinen Ausflug in die
+            Entwicklung größerer Browser Apps und weiterer Anwendungen, die wir anhand
+            der objektorientierten Prinzipien und unter Zuhilfenahme des <b>Modulsystems
+            von JavaScript</b> sauber gliedern werden.
+        </p>
+    </aside>
+</section>
 
-        <link rel="shortcut icon" href="shared/favicon.svg" />
-        <link rel="stylesheet" href="shared/_bundle.css" />
-        <script src="shared/_bundle.js"></script>
-    </head>
-    <body class="slides invisible" data-title="Objektorienterung in JavaScript" tabindex="0">
-        <header>
-            <h2>Inhaltsverzeichnis</h2>
-            <p>
-                Nachdem du nun die grundlegenden Eigenheiten von JavaScript kennengelernt
-                hast, gehen wir nun einen Schritt weiter und zeigen dir, wie modernes
-                JavaScript heutzutage aussieht. Du lernst die Besonderheiten der
-                Objektorientierung und JavaScript und wie diese die Entwicklung moderner
-                Browser Apps vereinfachen.
-            </p>
-        </header>
-
+<section data-title="JavaScript auf Client und Server" data-background-color="rgb(210,190,210)">
+    <article>
+        ...
         <!--
-            ===================
-            Über dieses Kapitel
-            ===================
+            Zwei Skalen über den Anteil an ausführbarem Quellcode auf Client- und Serverseite.
+            Jeweils mit einem eigenen Schieberegler von 0 (kein Code) bis 10 (alles dynamisch).
+            Je nach Position der Schieberegler wird ein erklärender Text angezeigt, der beschreibt,
+            was der Code jeweils macht und wie er hierfür grob aufgebaut ist.
+
+            Beim Drucken alle Erklärungen untereinander zeigen.
         -->
-        <section data-chapter data-background-image="shared/trennfolie.jpg">
-            <h1>Über dieses Kapitel</h1>
-            <article>
-                <small>
-                    <small>
-                        Bildnachweis:
-                        <a href="https://pixabay.com/en/adult-break-business-caucasian-2398561/" target="_blank">Pixabay: rawpixel</a>
-                    </small>
-                </small>
-            </article>
-        </section>
+    </article>
+    <aside>
+        ...
+    </aside>
+</section>
 
-        <section data-background-color="rgb(210,190,210)">
-            <h1>JavaScript auf Client und Server</h1>
-            <article>
-                ...
-                <!--
-                    Zwei Skalen über den Anteil an ausführbarem Quellcode auf Client- und Serverseite.
-                    Jeweils mit einem eigenen Schieberegler von 0 (kein Code) bis 10 (alles dynamisch).
-                    Je nach Position der Schieberegler wird ein erklärender Text angezeigt, der beschreibt,
-                    was der Code jeweils macht und wie er hierfür grob aufgebaut ist.
+<!--
+    ====================================
+    VON KLASSEN, OBJEKTEN UND PROTOTYPEN
+    ====================================
+-->
+<section data-use-template="teilkapitel" data-titel="Von Klassen, Objekten und Prototypen"></section>
 
-                    Beim Drucken alle Erklärungen untereinander zeigen.
-                -->
-            </article>
-            <aside>
-                ...
-            </aside>
-        </section>
+<section data-title="Dictionaries sind Objekte und umgekehrt">
+    <article>
+        .
+    </article>
+    <aside>
+        .
+        <!-- Duck Typing: If it looks ... -->
+        <!-- http://geekandpoke.typepad.com/.a/6a00d8341d3df553ef0120a830136e970b-pi -->
+        <!-- http://geek-and-poke.com/geekandpoke/2014/10/26/duck-typing-dogfooding -->
+    </aside>
+</section>
 
-        <section data-background-color="rgb(210,190,210)">
-            <h1>Lernziele dieser Einheit</h1>
-            <article>
-                <h3>Nach Abschluss dieser Einheit kannst du …</h3>
-                <ul>
-                    <li>
-                        verstehen, warum JavaScript keine „klassische“
-                        <span class="dhbw-lightblue font-weight-bold">Objektorientierung</span>
-                        unterstützt.
-                    </li>
-                    <li>
-                        verstehen, warum JavaScript aber dennoch eine objektorientierte Sprache ist.
-                    </li>
-                    <li>
-                        eigene Objekte <span class="dhbw-lightblue font-weight-bold">deklarieren</span>,
-                        <span class="dhbw-lightblue font-weight-bold">kopieren</span> und
-                        <span class="dhbw-lightblue font-weight-bold">vererben</span>.
-                    </li>
-                    <li>
-                        alten JavaScript-Code aus der Zeit warten, als es noch keine Klassen gab.
-                    </li>
-                    <li>
-                        neuen JavaScript-Code mit <span class="dhbw-lightblue font-weight-bold">Klassen</span>,
-                        <span class="dhbw-lightblue font-weight-bold">Methoden</span> und
-                        <span class="dhbw-lightblue font-weight-bold">Settern und Gettern</span> schreiben.
-                    </li>
-                    <li>
-                        den Code einer <span class="dhbw-lightblue font-weight-bold">Browser App</span>
-                        ein saube getrennte Einheiten gliedern.
-                    </li>
-                    <li>
-                        das <span class="dhbw-lightblue font-weight-bold">JavaScript-Modulsystem</span>
-                        mit seinen Vor- und Nachteilen erklären.
-                    </li>
-                    <li>
-                        die Vorteile von <span class="dhbw-lightblue font-weight-bold">Data Binding</span>
-                        erkennen und dir ein passendes Framework hierfür aussuchen.
-                    </li>
-                    <li>
-                        die Funktionsweise gängiger Werkzeuge zur professionellen JavaScript-Entwicklung
-                        nachvollziehen.
-                    </li>
-                </ul>
-                <span style="font-size: 240px; color: white;" class="dhbw-text-shadow" >🏁</span>
-            </article>
-            <aside>
-                <p>
-                    Bereits seit dem letzten Kapitel kennst du die wichtigsten Eigenheiten von
-                    JavaScript und kannst eigene kleine Browser Apps damit entwickeln. Doch
-                    obwohl das Kapitel ziemlich umfangreich war, gibt es noch vieles, was wir
-                    noch nicht besprochen haben, worüber du aber immer wieder stolpern wirst.
-                    Allen voran haben wir uns noch nicht mit der <b>Objektorientierung in JavaScript</b>
-                    auseinandergesetzt. Doch gerade die hat es in sich, da JavaScript seit ein
-                    paar Jahren zwar Klassen kennt, diese historisch bedingt aber nicht viel
-                    mit den altbekannten Klassen aus Java gemeinsam haben.
-                </p>
-                <p>
-                    Zu Anfang des Kapitels werden wir daher einen genaueren Blick auf die
-                    eigenwilligen OOP-Konzepte von JavaScript werfen und dabei lernen, dass
-                    jedes Objekt ein Dictionary ist und umgekehrt. Die praktische Konsequenz
-                    daraus wird dann sein, dass wir direkt im Quellcode Objektinstanzen
-                    deklarieren können, ohne hierfür eine Klasse zu benötigen. Mithilfe von
-                    <b>Prototypen</b> werden wir dabei sogar <b>Vererbung</b> anwenden,
-                    immer noch, ohne eine Klasse hierfür zu programmieren.
-                </p>
-                <p>
-                    Allerdings kommt auch modernes JavaScript nicht mehr ohne Klasse aus.
-                    In den folgenden Folien werden wir die Funktionsweise von Klassen daher
-                    ganz genau analysieren, indem wir erst zeigen, wie „Klassen“ in JavaScript
-                    früher definiert wurden, als es das <code>class</code>-Schlüsselwort noch
-                    nicht gab und wie dasselbe dann mit <code>class</code> deutlich vereinfacht
-                    wird. Dies dient uns dann als Grundlage für einen kleinen Ausflug in die
-                    Entwicklung größerer Browser Apps und weiterer Anwendungen, die wir anhand
-                    der objektorientierten Prinzipien und unter Zuhilfenahme des <b>Modulsystems
-                    von JavaScript</b> sauber gliedern werden.
-                </p>
-            </aside>
-        </section>
+<section data-title="Objekte kopieren und vererben">
+    <article>
+        .
+    </article>
+    <aside>
+        .
+    </aside>
+</section>
 
+<section data-title="Aufgabe 1: Professoren und Studenten" data-background-color="rgb(231, 221, 141)">
+    <article>
+        .
+    </article>
+    <aside>
+        .
+    </aside>
+</section>
+
+<section data-title="Modernes JavaScript hat Klasse!">
+    <article>
+        .
+    </article>
+    <aside>
+        .
+    </aside>
+</section>
+
+<section data-title="Aufgabe 2: Klassenbasierte Objektorientierung" data-background-color="rgb(231, 221, 141)">
+    <article>
+        .
+    </article>
+    <aside>
+        .
+    </aside>
+</section>
+
+<section data-title="Setter- und Getter-Methoden">
+    <article>
+        .
+    </article>
+    <aside>
+        .
+    </aside>
+</section>
+
+<section data-title="Asynchrone Funktionen und Promises">
+    <article>
+        .
+    </article>
+    <aside>
+        .
+    </aside>
+</section>
+
+<section data-title="Aufgabe 3: Ein kleines OOP-Quiz" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <h2>Aufgabe 1.1: …</h2>
+
+        <p>
+            a) Irgend eine Frage?
+        </p>
+        <ol>
+            <li>
+                …
+            </li>
+            <li>
+                …
+            </li>
+            <li>
+                …
+            </li>
+        </ol>
+
+        <hr />
+
+        <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+            <small>
+                <b>Lösung:</b> Aufgabe 1.1: …
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Das war ja ziemlich interessant. Aber auch ziemlich verwirrend, wenn
+            du bisher nur mit Java gearbeitet hast. Hier kannst du daher prüfen,
+            ob du die wichtigsten Dinge verstanden hast. 🦍
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<!--
+    ============================
+    ENTWICKLUNG VON BROWSER APPS
+    ============================
+-->
+<section data-use-template="teilkapitel" data-titel="Entwicklung von Browser Apps"></section>
+
+<section data-title="Strukturierung einer größeren App">
+    <article>
+        .
+    </article>
+    <aside>
         <!--
-            ====================================
-            VON KLASSEN, OBJEKTEN UND PROTOTYPEN
-            ====================================
+        Nachfolgende Beispiele beziehen sich auf die Entwicklung von Browser Apps.
+        Die meisten Tipps gelten aber ganz allgemein für JS auch außerhalb des Browsers.
+        Durch die nachfolgenden Tipps verschwimmen die Unterschiede ohnehin zusehends.
         -->
-        <section data-chapter data-background-image="shared/trennfolie.jpg">
-            <h1>Von Klassen, Objekten und Prototypen</h1>
-            <article>
-                <small>
-                    <small>
-                        Bildnachweis:
-                        <a href="https://pixabay.com/en/adult-break-business-caucasian-2398561/" target="_blank">Pixabay: rawpixel</a>
-                    </small>
-                </small>
-            </article>
-        </section>
+        .
+    </aside>
+</section>
 
-        <section>
-            <h1>Dictionaries sind Objekte und umgekehrt</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                .
-                <!-- Duck Typing: If it looks ... -->
-                <!-- http://geekandpoke.typepad.com/.a/6a00d8341d3df553ef0120a830136e970b-pi -->
-                <!-- http://geek-and-poke.com/geekandpoke/2014/10/26/duck-typing-dogfooding -->
-            </aside>
-        </section>
-
-        <section>
-            <h1>Objekte kopieren und vererben</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                .
-            </aside>
-        </section>
-
-        <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 1: Professoren und Studenten</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                .
-            </aside>
-        </section>
-
-        <section>
-            <h1>Modernes JavaScript hat Klasse!</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                .
-            </aside>
-        </section>
-
-        <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 2: Klassenbasierte Objektorientierung</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                .
-            </aside>
-        </section>
-
-        <section>
-            <h1>Setter- und Getter-Methoden</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                .
-            </aside>
-        </section>
-
-        <section>
-            <h1>Asynchrone Funktionen und Promises</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                .
-            </aside>
-        </section>
-
-        <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 3: Ein kleines OOP-Quiz</h1>
-            <article>
-                <h2>Aufgabe 1.1: …</h2>
-
-                <p>
-                    a) Irgend eine Frage?
-                </p>
-                <ol>
-                    <li>
-                        …
-                    </li>
-                    <li>
-                        …
-                    </li>
-                    <li>
-                        …
-                    </li>
-                </ol>
-
-                <hr />
-
-                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
-                    <small>
-                        <b>Lösung:</b> Aufgabe 1.1: …
-                    </small>
-                </p>
-            </article>
-            <aside>
-                <p>
-                    Das war ja ziemlich interessant. Aber auch ziemlich verwirrend, wenn
-                    du bisher nur mit Java gearbeitet hast. Hier kannst du daher prüfen,
-                    ob du die wichtigsten Dinge verstanden hast. 🦍
-                </p>
-                <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
-                <p>
-                    <small>
-                        Bildnachweis:
-                        <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
-                    </small>
-                </p>
-            </aside>
-        </section>
-
+<section data-title="Das JavaScript-Modulsystem">
+    <article>
+        .
+    </article>
+    <aside>
         <!--
-            ============================
-            ENTWICKLUNG VON BROWSER APPS
-            ============================
+        export und import
+        keine globalen Variablen mehr nötig
         -->
-        <section data-chapter data-background-image="shared/trennfolie.jpg">
-            <h1>Entwicklung von Browser Apps</h1>
-            <article>
-                <small>
-                    <small>
-                        Bildnachweis:
-                        <a href="https://pixabay.com/en/adult-break-business-caucasian-2398561/" target="_blank">Pixabay: rawpixel</a>
-                    </small>
-                </small>
-            </article>
-        </section>
+        .
+    </aside>
+</section>
 
-        <section>
-            <h1>Strukturierung einer größeren App</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                <!--
-                Nachfolgende Beispiele beziehen sich auf die Entwicklung von Browser Apps.
-                Die meisten Tipps gelten aber ganz allgemein für JS auch außerhalb des Browsers.
-                Durch die nachfolgenden Tipps verschwimmen die Unterschiede ohnehin zusehends.
-                -->
-                .
-            </aside>
-        </section>
+<section data-title="Aufgabe 4: Grundgerüst einer Browser App" data-background-color="rgb(231, 221, 141)">
+    <article>
+        .
+    </article>
+    <aside>
+        .
+    </aside>
+</section>
 
-        <section>
-            <h1>Das JavaScript-Modulsystem</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                <!--
-                export und import
-                keine globalen Variablen mehr nötig
-                -->
-                .
-            </aside>
-        </section>
+<section data-title="Seiteninhalte zur Laufzeit nachladen">
+    <article>
+        .
+    </article>
+    <aside>
+        .
+    </aside>
+</section>
 
-        <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 4: Grundgerüst einer Browser App</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                .
-            </aside>
-        </section>
-
-        <section>
-            <h1>Seiteninhalte zur Laufzeit nachladen</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                .
-            </aside>
-        </section>
-
-        <section>
-            <h1>Integration einer Template Engine</h1>
-            <article>
-                <!--
-                    Zwei Varianten desselben Codes:
-
-                        1. Platzhalter im HTML-Code mit String.replace ersetzen
-                        2. Integration von https://mozilla.github.io/nunjucks/
-
-                    Beides hat Vor- und Nachteile bzgl. Komplexität, Größe, ...
-                -->
-                .
-            </article>
-            <aside>
-                .
-            </aside>
-        </section>
-
-        <section>
-            <h1>Den Code mit Data Binding vereinfachen</h1>
-            <article>
-                .
-            </article>
-            <aside>
-                <!--
-                Problem 1: Ein im UI sichtbarer Wert wird an mehreren Stellen geschrieben.
-                Problem 2:  Ein im UI sichtbarer Wert kann sich nachträglich ändern.
-                Einfache Lösung: An allen Stellen das DOM-Update einbauen.
-                Ist aber nicht so schön, da doppelter Quellcode und schwer zu pflegen, wenn sich die HTML-Struktur ändert.
-                Bessere Lösung: Eine Funktion/Methode definieren, die den Wert setzt und das DOM aktualisiert
-                Diese Lösung lässt sich mit einer selbstgeschriebene DataBinding-Klasse verallgemeinern
-                -->
-                .
-            </aside>
-        </section>
-
-        <section data-background-color="rgb(231, 221, 141)">
-            <h1>Aufgabe 5: Ein kleines App-Entwicklungs-Quiz</h1>
-            <article>
-                <h2>Aufgabe 5.1: …</h2>
-
-                <p>
-                    a) Irgend eine Frage?
-                </p>
-                <ol>
-                    <li>
-                        …
-                    </li>
-                    <li>
-                        …
-                    </li>
-                    <li>
-                        …
-                    </li>
-                </ol>
-
-                <hr />
-
-                <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
-                    <small>
-                        <b>Lösung:</b> Aufgabe 5.1: …
-                    </small>
-                </p>
-            </article>
-            <aside>
-                <p>
-                    Wie immer darf das kleine Quiz zum Schluss nicht fehlen. Hier kannst du
-                    gleich mal überprüfen, ob du noch weißt, was du da gerade gelesen hast. 📚
-                    Viel Erfolg!
-                </p>
-                <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
-                <p>
-                    <small>
-                        Bildnachweis:
-                        <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
-                    </small>
-                </p>
-            </aside>
-        </section>
-
+<section data-title="Integration einer Template Engine">
+    <article>
         <!--
-            ====================
-            HINWEISE ZUM SCHLUSS
-            ====================
+            Zwei Varianten desselben Codes:
+
+                1. Platzhalter im HTML-Code mit String.replace ersetzen
+                2. Integration von https://mozilla.github.io/nunjucks/
+
+            Beides hat Vor- und Nachteile bzgl. Komplexität, Größe, ...
         -->
-        <section data-chapter data-background-image="shared/trennfolie.jpg">
-            <h1>Hinweise zum Schluss</h1>
-            <article>
-                <small>
-                    <small>
-                        Bildnachweis:
-                        <a href="https://pixabay.com/en/adult-break-business-caucasian-2398561/" target="_blank">Pixabay: rawpixel</a>
-                    </small>
-                </small>
-            </article>
-        </section>
+        .
+    </article>
+    <aside>
+        .
+    </aside>
+</section>
 
-        <section data-background-color="rgb(153, 190, 137)">
-            <h1>Do &amp; Don't</h1>
-            <article>
-                <h4>Objektorientierung in der Praxis</h4>
-                <ul>
-                    <li>
-                        Definiere einfache Datentransferobjekte direkt als Dictionaries ohne Klassen.
-                    </li>
-                    <li>
-                        Ziehe in neuen Quellcodes stets Klassen den alten Konstruktorfunktionen vor.
-                    </li>
-                    <li>
-                        Überlege dir, alte Quellcodes umzuschreiben, wenn sie noch aktiv gepflegt werden müssen.
-                    </li>
-                    <li>
-                        Nutze Techniken wie Vererbung und private Attribute dort, wo sie einen Mehrwert bieten.
-                    </li>
-                    <li>
-                        Aber übertreibe es damit nicht. JavaScript ist weiterhin eine schwach-typisierte Sprache.
-                    </li>
-                    <li>
-                        Schreibe Funktionen und Methoden immer mit der Pfeilsyntax, um
-                        <src-code language="javascript">bind()</src-code>-Aufrufe zu sparen.
-                    </li>
-                    <li>
-                        Schreibe echter Setter- und Getter-Funktionen mit
-                        <src-code language="javascript">set attiribut(a) { … }</src-code> und
-                        <src-code language="javascript">get attribut() { … }</src-code>.
-                    </li>
-                </ul>
+<section data-title="Den Code mit Data Binding vereinfachen">
+    <article>
+        .
+    </article>
+    <aside>
+        <!--
+        Problem 1: Ein im UI sichtbarer Wert wird an mehreren Stellen geschrieben.
+        Problem 2:  Ein im UI sichtbarer Wert kann sich nachträglich ändern.
+        Einfache Lösung: An allen Stellen das DOM-Update einbauen.
+        Ist aber nicht so schön, da doppelter Quellcode und schwer zu pflegen, wenn sich die HTML-Struktur ändert.
+        Bessere Lösung: Eine Funktion/Methode definieren, die den Wert setzt und das DOM aktualisiert
+        Diese Lösung lässt sich mit einer selbstgeschriebene DataBinding-Klasse verallgemeinern
+        -->
+        .
+    </aside>
+</section>
 
-                <h4>Strukturierung größerer Quellcodes</h4>
-                <ul>
-                    <li>
-                        Gliedere große Quellcodes immer in geschlossene Klassen und Module.
-                    </li>
-                    <li>
-                        Nutze das JavaScript-Modulsystem, wenn es deine Werkzeuge unterstützen.
-                    </li>
-                    <li>
-                        Nutze ein Framework für Data Binding oder Web Components anstelle direkter DOM-Manipulation.
-                    </li>
-                    <li>
-                        Wenn du kein Framework nutzt, implementiere wenigstens selbst ein einfaches Data Binding.
-                    </li>
-                </ul>
-            </article>
-            <aside>
-                <p>
-                    Dies sind sie: Die goldenen Regeln der Webentwicklung. 👑 Auf dieser Folie haben wir ein paar allgemeine
-                    Tipps zusammengestellt, die dir das Leben etwas einfacher machen sollen.
-                </p>
-                <img src="shared/do-dont.svg" class="d-block" style="width: 20em; max-width: 100%; margin-bottom: 0.5em;" />
-                <p>
-                    <small>
-                        Bildnachweis:
-                        <a href="https://pixabay.com/en/dialog-tip-advice-hint-speaking-148815/" target="_blank" style="color: rgb(25, 68, 49);">Pixabay: OpenClipart-Vectors</a>
-                    </small>
-                </p>
-            </aside>
-        </section>
+<section data-title="Aufgabe 5: Ein kleines App-Entwicklungs-Quiz" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <h2>Aufgabe 5.1: …</h2>
 
-        <section data-background-color="rgb(158, 203, 231)">
-            <h1>Rechtshinweise</h1>
-            <article>
-                <h4>Creative Commons Namensnennung 4.0 International</h4>
-                <ul>
-                    <li>Beliebiges Teilen ist erlaubt</li>
-                    <li>Die Unterlagen dürfen bearbeitet und verändert werden</li>
-                    <li>Wenn die Namens- und Urheberangaben erhalten bleiben</li>
-                    <li>Und keine weiteren Einschränkungen auferlegt werden</li>
-                </ul>
-                <span style="font-size: 400px; color: white;" class="dhbw-text-shadow" >§</span>
-            </article>
-            <aside style="font-size: 80%">
-                <h4>Kontaktdaten</h4>
-                <p>
-                    Dennis Schulmeister-Zimolong<br/>
-                    E-Mail: <a data-email-address>dhbw windows3.de</a><br/>
-                </p>
+        <p>
+            a) Irgend eine Frage?
+        </p>
+        <ol>
+            <li>
+                …
+            </li>
+            <li>
+                …
+            </li>
+            <li>
+                …
+            </li>
+        </ol>
 
-                <h4>Urheberrecht und Lizenzvereinbarung</h4>
-                <p>
-                    © 2017 – 2023 Dennis Schulmeister-Zimolong im Auftrag der DHBW Karlsruhe<br/>
-                    <a href="https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien" target="_blank">https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-folien</a>
-                </p>
-                <img src="https://i.creativecommons.org/l/by/4.0/88x31.png" alt="Creative Commons Lizenzvertrag" />
-                <p>
-                    Das Werk <i>Vorlesung "Webprogrammierung" im Studiengang Wirtschaftsinformatik an der DHBW Karlsruhe</i>
-                    von <a href="http://www.wpvs.de" target="_blank">Dennis Schulmeister-Zimolong im Auftrag der Dualen Hochschule
-                    Baden-Württemberg Karlsruhe</a> ist lizenziert unter
-                    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><i>Creative Commons Namensnennung 4.0 International</i></a>.
-                </p>
-                <p>
-                    Du darfst:
-                </p>
-                <ul>
-                    <li>
-                        <b>Teilen</b> — das Material in jedwedem Format oder Medium vervielfältigen
-                        und weiterverbreiten
-                    </li>
-                    <li>
-                        <b>Bearbeiten</b> — das Material remixen, verändern und darauf aufbauen
-                        und zwar für beliebige Zwecke, sogar kommerziell.
-                    </li>
-                </ul>
-                <p>
-                    Unter folgenden Bedingungen:
-                </p>
-                <ul>
-                    <li>
-                        <b>Namensnennung</b> — Du musst angemessene Urheber- und Rechteangaben
-                        machen, einen Link zur Lizenz beifügen und angeben, ob Änderungen
-                        vorgenommen wurden. Diese Angaben dürfen in jeder angemessenen Art
-                        und Weise gemacht werden, allerdings nicht so, dass der Eindruck
-                        entsteht, der Lizenzgeber unterstütze gerade dich oder deine Nutzung
-                        besonders.
-                    </li>
-                    <li>
-                        <b>Keine weiteren Einschränkungen</b> — Du darfst keine zusätzlichen Klauseln
-                        oder technische Verfahren einsetzen, die anderen rechtlich irgendetwas
-                        untersagen, was die Lizenz erlaubt.
-                    </li>
-                </ul>
-                <p>
-                    Es werden keine Garantien gegeben und auch keine Gewähr geleistet.
-                    Die Lizenz verschafft dir möglicherweise nicht alle Erlaubnisse,
-                    die du für die jeweilige Nutzung brauchst. Es können beispielsweise
-                    andere Rechte wie Persönlichkeits- und Datenschutzrechte zu beachten
-                    sein, die deine Nutzung des Materials entsprechend beschränken.
-                </p>
-                <p>
-                    <i>
-                        Die Erstellung dieser Unterlagen wurde in den Jahren 2017 und 2018 durch
-                        das Projekt „DigiTransMoBiL – Gestaltungskompetenzen für die Digitale
-                        Transformation durch Modulbausteine mit innovativen Lehrinhalten und
-                        Lehrmethoden“ gefördert.
-                    </i>
-                </p>
-            </aside>
-        </section>
-    </body>
-</html>
+        <hr />
+
+        <p style="transform: scaleY(-1) scaleX(-1); display: inline-block;">
+            <small>
+                <b>Lösung:</b> Aufgabe 5.1: …
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Wie immer darf das kleine Quiz zum Schluss nicht fehlen. Hier kannst du
+            gleich mal überprüfen, ob du noch weißt, was du da gerade gelesen hast. 📚
+            Viel Erfolg!
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-title="Do &amp; Don't" data-background-color="rgb(153, 190, 137)">
+    <article>
+        <h4>Objektorientierung in der Praxis</h4>
+        <ul>
+            <li>
+                Definiere einfache Datentransferobjekte direkt als Dictionaries ohne Klassen.
+            </li>
+            <li>
+                Ziehe in neuen Quellcodes stets Klassen den alten Konstruktorfunktionen vor.
+            </li>
+            <li>
+                Überlege dir, alte Quellcodes umzuschreiben, wenn sie noch aktiv gepflegt werden müssen.
+            </li>
+            <li>
+                Nutze Techniken wie Vererbung und private Attribute dort, wo sie einen Mehrwert bieten.
+            </li>
+            <li>
+                Aber übertreibe es damit nicht. JavaScript ist weiterhin eine schwach-typisierte Sprache.
+            </li>
+            <li>
+                Schreibe Funktionen und Methoden immer mit der Pfeilsyntax, um
+                <src-code language="javascript">bind()</src-code>-Aufrufe zu sparen.
+            </li>
+            <li>
+                Schreibe echter Setter- und Getter-Funktionen mit
+                <src-code language="javascript">set attiribut(a) { … }</src-code> und
+                <src-code language="javascript">get attribut() { … }</src-code>.
+            </li>
+        </ul>
+
+        <h4>Strukturierung größerer Quellcodes</h4>
+        <ul>
+            <li>
+                Gliedere große Quellcodes immer in geschlossene Klassen und Module.
+            </li>
+            <li>
+                Nutze das JavaScript-Modulsystem, wenn es deine Werkzeuge unterstützen.
+            </li>
+            <li>
+                Nutze ein Framework für Data Binding oder Web Components anstelle direkter DOM-Manipulation.
+            </li>
+            <li>
+                Wenn du kein Framework nutzt, implementiere wenigstens selbst ein einfaches Data Binding.
+            </li>
+        </ul>
+    </article>
+    <aside>
+        <p>
+            Dies sind sie: Die goldenen Regeln der Webentwicklung. 👑 Auf dieser Folie haben wir ein paar allgemeine
+            Tipps zusammengestellt, die dir das Leben etwas einfacher machen sollen.
+        </p>
+        <img src="shared/do-dont.svg" class="d-block" style="width: 20em; max-width: 100%; margin-bottom: 0.5em;" />
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/en/dialog-tip-advice-hint-speaking-148815/" target="_blank" style="color: rgb(25, 68, 49);">Pixabay: OpenClipart-Vectors</a>
+            </small>
+        </p>
+    </aside>
+</section>
