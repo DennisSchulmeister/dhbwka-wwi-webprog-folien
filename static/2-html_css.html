@@ -5463,114 +5463,7 @@
 -->
 <section data-use-template="teilkapitel" data-titel="Übungsaufgaben"></section>
 
-<section data-title="Übung 1: Urlaub in Kanada" data-background-color="rgb(179, 202, 223)">
-    <article>
-        <lsx-github-edit
-            class        = "mb-3"
-            url          = "1%20HTML%20und%20CSS/Aufgaben/Urlaub%20in%20Kanada/Aufgabe"
-            download     = "1%20HTML%20und%20CSS/Aufgaben/Urlaub%20in%20Kanada"
-            pages-url1   = "1%20HTML%20und%20CSS/Aufgaben/Urlaub%20in%20Kanada/Loesung/"
-            pages-label1 = "Musterlösung ansehen"
-        >
-        </lsx-github-edit>
-
-        <p>
-            Kanada ist nicht nur eines der größten, sondern auch eines der schönsten und vielfältigsten
-            Länder der Welt. Es gibt nichts schöneres, als mit einem Mietwagen durch die Rocky Mountains
-            bis nach Vancouver zu fahren und an unzähligen Zwischenstationen die atemberaubende Schönheit
-            der Natur zu genießen. 🐻 In dieser Aufgaben soll deshalb eine Landing Page für das fiktive
-            Reisebüro <b>DH Best World – Travel Agency Ltd.</b> (kurz DHBW Travel) erstellt werden. Die
-            Seite soll dabei als One Pager (alle Inhalte auf einer Seite) mit Parallax-Effekt, wie in
-            den folgenden Screenshots zu sehen, gestaltet werden.
-        </p>
-
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="2-html_css/ub-kanada/vorlage1.png" caption="Ansicht direkt nach dem Laden der Seite"></lsx-modal-image>
-            <lsx-modal-image src="2-html_css/ub-kanada/vorlage2.png" caption="Ansicht, wenn man ein wenig scrollt"></lsx-modal-image>
-            <lsx-modal-image src="2-html_css/ub-kanada/vorlage3.png" caption="Ansicht komplett nach unten gescrollt"></lsx-modal-image>
-        </div>
-
-        <p>
-            Die HTML-Struktur wurde bereits fertiggestellt, und auch Teile des Stylesheets zur Realisierung
-            des Parallax-Effekts sind schon vorhanden. Der Parallax-Effekt wird dadurch auf beliebig viele
-            <code>&lt;section&gt;</code>-Elemente angewendet, die sich beim Scrollen immer übereinander
-            schieben. (Eine tolle Variation ist, unterschiedlich große Abschnitte zu verwenden). Konkret
-            beinhaltet die Seite aber nur einen Abschnitt für den Kopfbereich, welcher aufgrund der Höhenangabe
-            <code>height: 100vh</code> den gesamten Bildschirm ausfüllt und somit den Fußbereich quasi
-            unten aus dem Bildschirm schiebt.
-        </p>
-        <p>
-            Der Rest fehlt allerdings noch. So werden weder die Inhalte des Kopf- noch des Fußbereichs
-            vollständig formatiert. Deine Aufgabe ist daher, möglichst ohne den HTML-Code zu verändern,
-            das Stylesheet entsprechend der Screenshots zu Ende zu programmieren. Der
-            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Flexbox-Algorithmus</a>
-            könnte dabei gute Dienste leisten. 😉
-        </p>
-    </article>
-    <aside>
-        <p>
-            Zeit für die erste, große Programmierübung. Bei dieser Aufgabe kannst du das gelernte
-            Wissen in einem kleinen Projekt praktisch anwenden. 💻
-        </p>
-        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
-        <p>
-            <small>
-                Bildnachweis:
-                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
-            </small>
-        </p>
-    </aside>
-</section>
-
-<section data-title="Übung 2: Joe Cocker" data-background-color="rgb(179, 202, 223)">
-    <article>
-        <lsx-github-edit
-            class        = "mb-3"
-            url          = "1%20HTML%20und%20CSS/Aufgaben/Joe%20Cocker/Aufgabe"
-            download     = "1%20HTML%20und%20CSS/Aufgaben/Joe%20Cocker"
-            pages-url1   = "1%20HTML%20und%20CSS/Aufgaben/Joe%20Cocker/Loesung/"
-            pages-label1 = "Musterlösung ansehen"
-        >
-        </lsx-github-edit>
-
-        <div class="d-md-flex flex-column flex-md-row gap-3">
-            <div class="d-flex flex-column gap-2 align-items-center justify-content-stretch">
-                <lsx-modal-image src="2-html_css/ub-cocker/vorlage.png" caption="Screenshot der Original-Webseite"></lsx-modal-image>
-                <lsx-modal-image src="2-html_css/ub-cocker/musterloesung.png" caption="Screenshot der Musterlösung"></lsx-modal-image>
-            </div>
-            <div>
-                <p>
-                    Als am 22. Dezember 2014 der legendäre Sänger Joe Cocker starb, zeigte die offizielle Webseite
-                    <a href="https://www.cocker.com" target="_blank">www.cocker.com</a> eine einfache Gedenkseite
-                    mit den Lebensdaten und den Covern aller bis dato veröffentlichten Alben. Inzwischen findet sich
-                    auf der Seite natürlich ganz anderer Inhalt, weshalb die Seite von damals in dieser Aufgabe
-                    rekonstruiert werden soll.
-                </p>
-                <p>
-                    Das Grundgerüst der Seite wurde bereits fertiggestellt. Jedoch müssen noch verschiedene
-                    Anpassungen vorgenommen werden, um das gewünschte Layout zu realisieren. Die notwendigen
-                    Änderungen sind als Kommentar in der Datei <tt class="fn">index.html</tt> beschrieben.
-                </p>
-            </div>
-        </div>
-    </article>
-    <aside>
-        <p>
-            Hier haben wir eine Knobelaufgabe für dich. Die zu erstellende Webseite ist nicht groß. Aber es gibt
-            mehrere Wege, wie das gewünschte Layout erzielt werden kann. Klassisch mit <code>flex: right</code>,
-            als Tabelle (nicht so toll), als Flexbox oder CSS Grid. Was darf es sein? 🙃
-        </p>
-        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
-        <p>
-            <small>
-                Bildnachweis:
-                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
-            </small>
-        </p>
-    </aside>
-</section>
-
-<section data-title="Übung 3: Dashboard-Kacheln" data-background-color="rgb(179, 202, 223)">
+<section data-title="Übung 1: Dashboard-Kacheln" data-background-color="rgb(179, 202, 223)">
     <article>
         <lsx-github-edit
             class        = "mb-3"
@@ -5814,6 +5707,113 @@
             Nicht nur statische Webseiten, auch moderne App UIs lassen sich mit HTML und CSS bauen,
             wie diese Aufgabe zeigt. In diesem Projekt baust du deshalb ein einfaches Dashboard
             für eine TODO-Anwendung. 📅
+        </p>
+        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-title="Übung 2: Urlaub in Kanada" data-background-color="rgb(179, 202, 223)">
+    <article>
+        <lsx-github-edit
+            class        = "mb-3"
+            url          = "1%20HTML%20und%20CSS/Aufgaben/Urlaub%20in%20Kanada/Aufgabe"
+            download     = "1%20HTML%20und%20CSS/Aufgaben/Urlaub%20in%20Kanada"
+            pages-url1   = "1%20HTML%20und%20CSS/Aufgaben/Urlaub%20in%20Kanada/Loesung/"
+            pages-label1 = "Musterlösung ansehen"
+        >
+        </lsx-github-edit>
+
+        <p>
+            Kanada ist nicht nur eines der größten, sondern auch eines der schönsten und vielfältigsten
+            Länder der Welt. Es gibt nichts schöneres, als mit einem Mietwagen durch die Rocky Mountains
+            bis nach Vancouver zu fahren und an unzähligen Zwischenstationen die atemberaubende Schönheit
+            der Natur zu genießen. 🐻 In dieser Aufgaben soll deshalb eine Landing Page für das fiktive
+            Reisebüro <b>DH Best World – Travel Agency Ltd.</b> (kurz DHBW Travel) erstellt werden. Die
+            Seite soll dabei als One Pager (alle Inhalte auf einer Seite) mit Parallax-Effekt, wie in
+            den folgenden Screenshots zu sehen, gestaltet werden.
+        </p>
+
+        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+            <lsx-modal-image src="2-html_css/ub-kanada/vorlage1.png" caption="Ansicht direkt nach dem Laden der Seite"></lsx-modal-image>
+            <lsx-modal-image src="2-html_css/ub-kanada/vorlage2.png" caption="Ansicht, wenn man ein wenig scrollt"></lsx-modal-image>
+            <lsx-modal-image src="2-html_css/ub-kanada/vorlage3.png" caption="Ansicht komplett nach unten gescrollt"></lsx-modal-image>
+        </div>
+
+        <p>
+            Die HTML-Struktur wurde bereits fertiggestellt, und auch Teile des Stylesheets zur Realisierung
+            des Parallax-Effekts sind schon vorhanden. Der Parallax-Effekt wird dadurch auf beliebig viele
+            <code>&lt;section&gt;</code>-Elemente angewendet, die sich beim Scrollen immer übereinander
+            schieben. (Eine tolle Variation ist, unterschiedlich große Abschnitte zu verwenden). Konkret
+            beinhaltet die Seite aber nur einen Abschnitt für den Kopfbereich, welcher aufgrund der Höhenangabe
+            <code>height: 100vh</code> den gesamten Bildschirm ausfüllt und somit den Fußbereich quasi
+            unten aus dem Bildschirm schiebt.
+        </p>
+        <p>
+            Der Rest fehlt allerdings noch. So werden weder die Inhalte des Kopf- noch des Fußbereichs
+            vollständig formatiert. Deine Aufgabe ist daher, möglichst ohne den HTML-Code zu verändern,
+            das Stylesheet entsprechend der Screenshots zu Ende zu programmieren. Der
+            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Flexbox-Algorithmus</a>
+            könnte dabei gute Dienste leisten. 😉
+        </p>
+    </article>
+    <aside>
+        <p>
+            Zeit für die erste, große Programmierübung. Bei dieser Aufgabe kannst du das gelernte
+            Wissen in einem kleinen Projekt praktisch anwenden. 💻
+        </p>
+        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-title="Übung 3: Joe Cocker" data-background-color="rgb(179, 202, 223)">
+    <article>
+        <lsx-github-edit
+            class        = "mb-3"
+            url          = "1%20HTML%20und%20CSS/Aufgaben/Joe%20Cocker/Aufgabe"
+            download     = "1%20HTML%20und%20CSS/Aufgaben/Joe%20Cocker"
+            pages-url1   = "1%20HTML%20und%20CSS/Aufgaben/Joe%20Cocker/Loesung/"
+            pages-label1 = "Musterlösung ansehen"
+        >
+        </lsx-github-edit>
+
+        <div class="d-md-flex flex-column flex-md-row gap-3">
+            <div class="d-flex flex-column gap-2 align-items-center justify-content-stretch">
+                <lsx-modal-image src="2-html_css/ub-cocker/vorlage.png" caption="Screenshot der Original-Webseite"></lsx-modal-image>
+                <lsx-modal-image src="2-html_css/ub-cocker/musterloesung.png" caption="Screenshot der Musterlösung"></lsx-modal-image>
+            </div>
+            <div>
+                <p>
+                    Als am 22. Dezember 2014 der legendäre Sänger Joe Cocker starb, zeigte die offizielle Webseite
+                    <a href="https://www.cocker.com" target="_blank">www.cocker.com</a> eine einfache Gedenkseite
+                    mit den Lebensdaten und den Covern aller bis dato veröffentlichten Alben. Inzwischen findet sich
+                    auf der Seite natürlich ganz anderer Inhalt, weshalb die Seite von damals in dieser Aufgabe
+                    rekonstruiert werden soll.
+                </p>
+                <p>
+                    Das Grundgerüst der Seite wurde bereits fertiggestellt. Jedoch müssen noch verschiedene
+                    Anpassungen vorgenommen werden, um das gewünschte Layout zu realisieren. Die notwendigen
+                    Änderungen sind als Kommentar in der Datei <tt class="fn">index.html</tt> beschrieben.
+                </p>
+            </div>
+        </div>
+    </article>
+    <aside>
+        <p>
+            Hier haben wir eine Knobelaufgabe für dich. Die zu erstellende Webseite ist nicht groß. Aber es gibt
+            mehrere Wege, wie das gewünschte Layout erzielt werden kann. Klassisch mit <code>flex: right</code>,
+            als Tabelle (nicht so toll), als Flexbox oder CSS Grid. Was darf es sein? 🙃
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
