@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0" version="24.7.10">
+  <diagram name="Seite-1" id="KDMaYDGyLrXCDGVrZJHe">
+    <mxGraphModel dx="1432" dy="764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-3" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;curved=1;fillColor=#dae8fc;strokeColor=#333333;fontFamily=Courier New;fontStyle=0" parent="1" source="2ix0DTtdsfGZTaUWHcCN-1" target="2ix0DTtdsfGZTaUWHcCN-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;curved=1;fillColor=#dae8fc;strokeColor=#333333;fontFamily=Courier New;fontStyle=0" parent="1" source="2ix0DTtdsfGZTaUWHcCN-1" target="2ix0DTtdsfGZTaUWHcCN-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-1" value="&lt;span&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#cc0000&quot;&gt;html&lt;/font&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#C4D0E3;strokeColor=#6c8ebf;fontFamily=Courier New;fontStyle=0" parent="1" vertex="1">
+          <mxGeometry x="440" y="80" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fillColor=#dae8fc;strokeColor=#333333;fontFamily=Courier New;fontStyle=0" parent="1" source="2ix0DTtdsfGZTaUWHcCN-2" target="2ix0DTtdsfGZTaUWHcCN-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-2" value="&lt;span&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#cc0000&quot;&gt;head&lt;/font&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#C4D0E3;strokeColor=#6c8ebf;fontFamily=Courier New;fontStyle=0" parent="1" vertex="1">
+          <mxGeometry x="320" y="160" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fillColor=#dae8fc;strokeColor=#333333;fontFamily=Courier New;fontStyle=0" parent="1" source="2ix0DTtdsfGZTaUWHcCN-4" target="2ix0DTtdsfGZTaUWHcCN-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;fillColor=#dae8fc;strokeColor=#333333;fontFamily=Courier New;fontStyle=0" parent="1" source="2ix0DTtdsfGZTaUWHcCN-4" target="2ix0DTtdsfGZTaUWHcCN-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-4" value="&lt;span&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#cc0000&quot;&gt;body&lt;/font&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#C4D0E3;strokeColor=#6c8ebf;fontFamily=Courier New;fontStyle=0" parent="1" vertex="1">
+          <mxGeometry x="560" y="160" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#333333;" parent="1" source="2ix0DTtdsfGZTaUWHcCN-6" target="2ix0DTtdsfGZTaUWHcCN-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-6" value="&lt;span&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#cc0000&quot;&gt;title&lt;/font&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#C4D0E3;strokeColor=#6C8EBF;fontFamily=Courier New;fontStyle=0" parent="1" vertex="1">
+          <mxGeometry x="320" y="240" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-8" value="Titel der Seite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="300" y="320" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#333333;" parent="1" source="2ix0DTtdsfGZTaUWHcCN-10" target="2ix0DTtdsfGZTaUWHcCN-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-10" value="&lt;span&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#cc0000&quot;&gt;h1&lt;/font&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontStyle=0" parent="1" vertex="1">
+          <mxGeometry x="480" y="240" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#333333;" parent="1" source="2ix0DTtdsfGZTaUWHcCN-12" target="2ix0DTtdsfGZTaUWHcCN-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-12" value="&lt;div&gt;&lt;span&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;lt;&lt;/font&gt;&lt;font color=&quot;#cc0000&quot;&gt;p&lt;/font&gt;&lt;font color=&quot;#333333&quot;&gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#cc6600&quot;&gt;class:&lt;/font&gt; &lt;font color=&quot;#006633&quot;&gt;main&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Courier New;fontStyle=0" parent="1" vertex="1">
+          <mxGeometry x="620" y="240" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-14" value="Eine Überschrift" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="460" y="320" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2ix0DTtdsfGZTaUWHcCN-17" value="Hier steht ein Absatz." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="625" y="320" width="120" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

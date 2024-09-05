@@ -93,6 +93,17 @@ td {
     border: 1px solid lightgrey;
 }
 
+.dhbw-vertical-divider {
+    border: 0px dashed lightgrey;
+    border-bottom-width: 1.5px;
+
+    // Bootstrap breakpoint large
+    @media (min-width: 992px) {
+        border-bottom-width: 0 !important;
+        border-right-width: 1.5px;
+    }
+}
+
 .dhbw-table-border {
     td, th {
         border: 1px solid black;
