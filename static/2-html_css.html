@@ -2248,6 +2248,120 @@
 <section data-title="Einführendes Beispiel">
     <article>
         <lsx-tab-pages>
+            <lsx-tab-page title="Gewünschtes Ergebnis">
+                <div id="einfuehrung-screenshot2">
+                    <!-- Beispiel Start -->
+                    <style>
+                        #einfuehrung-screenshot2 header,
+                        #einfuehrung-screenshot2 footer {
+                            background-color: #0A0A0A;
+
+                            border-style: solid;
+                            border-color: black;
+                            border-width: 0;
+                            border-bottom-width: 2px;
+
+                            padding: 0.5em;
+                            color: white;
+                            font-size: 95%;
+                        }
+
+                        #einfuehrung-screenshot2 header h2 {
+                            font-size: 150%;
+                            text-align: center;
+                            margin: 0;
+
+                            color: white;
+                            text-shadow: 1px 1px 1px rgba(255,255,255, 0.5);
+                        }
+
+                        #einfuehrung-screenshot2 header nav > ul {
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        #einfuehrung-screenshot2 header nav > ul > li {
+                            display: inline-block;
+                            margin-right: 1em;
+                        }
+
+                        #einfuehrung-screenshot2 header a,
+                        #einfuehrung-screenshot2 header a:visited {
+                            color: rgb(221, 218, 218);
+                            text-decoration: none;
+                        }
+
+                        #einfuehrung-screenshot2 header a:hover {
+                            color: white;
+                        }
+
+                        #einfuehrung-screenshot2 .main {
+                            background-color: rgb(230, 230, 230);
+                            padding: 0.5em 0.5em 5em 0.5em;
+                        }
+
+                        #einfuehrung-screenshot2 .card {
+                            display: inline-block;
+                            margin: 0.5em;
+                            width: 30%;
+
+                            border: 1px solid darkgrey;
+                            border-radius: 0.5em;
+                            background: rgba(245, 245, 245);
+                            padding: 0.5em;
+
+                            transition: transform 0.5s, background 0.5s;
+                            transform: scale(1);
+                        }
+
+                        #einfuehrung-screenshot2 .card:hover {
+                            background: white;
+                            transform: scale(1.03);
+                            cursor: pointer;
+                        }
+
+                        #einfuehrung-screenshot2 .card img {
+                            display: block;
+                            width: 100%;
+                            margin-bottom: 0.5em;
+                        }
+                    </style>
+                    <header>
+                        <h2>Faszination Klavier</h2>
+                        <nav>
+                            <ul>
+                                <li> <a>Startseite</a> </li>
+                                <li> <a>Das richtige Klavier finden</a> </li>
+                                <li> <a>Spielen mit zwei Händen</a> </li>
+                                <li> <a>Musizieren vor Publikum</a> </li>
+                                <li> <a>Impressum</a> </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <div class="main">
+                        <h3>Wählen Sie eine Kategorie</h3>
+
+                        <div class="card">
+                            <img src="2-html_css/piano1.jpg" />
+                            <b>Das richtige Klavier finden</b>
+                        </div>
+                        <div class="card">
+                            <img src="2-html_css/piano2.jpg" />
+                            <b>Spielen mit zwei Händen</b>
+                        </div>
+                        <div class="card">
+                            <img src="2-html_css/piano3.jpg" />
+                            <b>Musizieren vor Publikum</b>
+                        </div>
+                    </div>
+                    <footer>
+                        © Online-Klavierschule Pia Nist, Karlsruhe
+                    </footer>
+                    <!-- Beispiel Ende -->
+                </div>
+            </lsx-tab-page>
+
             <lsx-tab-page title="HTML-Quellcode">
                 <source-code language="html">
                     &lt;!DOCTYPE html&gt;
@@ -2258,9 +2372,24 @@
                             &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
                         &lt;/head&gt;
                         &lt;body&gt;
+                            &lt;!-- Kopfbereich --&gt;
                             &lt;header&gt;
+                            &lt;!-- Name des Unternehmens --&gt;
                                 &lt;h2&gt;Faszination Klavier&lt;/h2&gt;
+
+                                &lt;!-- Navigationsmenü --&gt;
+                                &lt;nav&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt; &lt;a&gt;Startseite&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a&gt;Das richtige Klavier finden&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a&gt;Spielen mit zwei Händen&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a&gt;Musizieren vor Publikum&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a&gt;Impressum&lt;/a&gt; &lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/nav&gt;
                             &lt;/header&gt;
+
+                            &lt;!-- Hauptbereich --&gt;
                             &lt;main&gt;
                                 &lt;h3&gt;Wählen Sie eine Kategorie&lt;/h3&gt;
 
@@ -2277,24 +2406,17 @@
                                     &lt;b&gt;Musizieren vor Publikum&lt;/b&gt;
                                 &lt;/div&gt;
                             &lt;/main&gt;
+
+                            &lt;!-- Abspann --&gt;
                             &lt;footer&gt;
-                                © Die Online-Klavierschule
-                                &lt;nav&gt;
-                                    &lt;ul&gt;
-                                        &lt;li&gt; &lt;a&gt;Startseite&lt;/a&gt; &lt;/li&gt;
-                                        &lt;li&gt; &lt;a&gt;Das richtige Klavier finden&lt;/a&gt; &lt;/li&gt;
-                                        &lt;li&gt; &lt;a&gt;Spielen mit zwei Händen&lt;/a&gt; &lt;/li&gt;
-                                        &lt;li&gt; &lt;a&gt;Musizieren vor Publikum&lt;/a&gt; &lt;/li&gt;
-                                        &lt;li&gt; &lt;a&gt;Impressum&lt;/a&gt; &lt;/li&gt;
-                                    &lt;/ul&gt;
-                                &lt;/nav&gt;
+                                © Online-Klavierschule Pia Nist, Karlsruhe
                             &lt;/footer&gt;
                         &lt;/body&gt;
                     &lt;/html&gt;
                 </source-code>
             </lsx-tab-page>
 
-            <lsx-tab-page title="Aussehen">
+            <lsx-tab-page title="Aussehen bisher">
             <header>
                     <h2 style="color: black">Faszination Klavier</h2>
                 </header>
@@ -2369,7 +2491,27 @@
                         margin: 0;
 
                         color: white;
-                        text-shadow: 1px 1px 1px grey;
+                        text-shadow: 1px 1px 1px rgba(255,255,255, 0.5);
+                    }
+
+                    header nav &gt; ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    header nav &gt; ul &gt; li {
+                        display: inline-block;
+                        margin-right: 1em;
+                    }
+
+                    a, a:visited {
+                        color: rgb(221, 218, 218);
+                        text-decoration: none;
+                    }
+
+                    a:hover {
+                        color: white;
                     }
 
                     main {
@@ -2379,6 +2521,7 @@
 
                     .card {
                         display: inline-block;
+                        margin: 0.5em;
                         width: 30%;
 
                         border: 1px solid darkgrey;
@@ -2401,138 +2544,7 @@
                         width: 100%;
                         margin-bottom: 0.5em;
                     }
-
-                    footer nav &gt; ul {
-                        list-style: none;
-                        padding: 0;
-                    }
-
-                    footer nav &gt; ul &gt; li {
-                        display: inline-block;
-                        margin-right: 1em;
-                    }
-
-                    a, a:visited {
-                        color: rgb(246, 178, 188);
-                        text-decoration: none;
-                    }
-
-                    a:hover {
-                        color: white;
-                    }
                 </source-code>
-            </lsx-tab-page>
-
-            <lsx-tab-page title="Neues Aussehen">
-                <div id="einfuehrung-screenshot2">
-                    <!-- Beispiel Start -->
-                    <style>
-                        #einfuehrung-screenshot2 header,
-                        #einfuehrung-screenshot2 footer {
-                            background-color: #0A0A0A;
-
-                            border-style: solid;
-                            border-color: black;
-                            border-width: 0;
-                            border-bottom-width: 2px;
-
-                            padding: 0.5em;
-                            color: white;
-                            font-size: 95%;
-                        }
-
-                        #einfuehrung-screenshot2 header h2 {
-                            font-size: 150%;
-                            text-align: center;
-                            margin: 0;
-
-                            color: white;
-                            text-shadow: 1px 1px 1px grey;
-                        }
-
-                        #einfuehrung-screenshot2 .main {
-                            background-color: rgb(230, 230, 230);
-                            padding: 0.5em 0.5em 5em 0.5em;
-                        }
-
-                        #einfuehrung-screenshot2 .card {
-                            display: inline-block;
-                            width: 30%;
-
-                            border: 1px solid darkgrey;
-                            border-radius: 0.5em;
-                            background: rgba(245, 245, 245);
-                            padding: 0.5em;
-
-                            transition: transform 0.5s, background 0.5s;
-                            transform: scale(1);
-                        }
-
-                        #einfuehrung-screenshot2 .card:hover {
-                            background: white;
-                            transform: scale(1.03);
-                            cursor: pointer;
-                        }
-
-                        #einfuehrung-screenshot2 .card img {
-                            display: block;
-                            width: 100%;
-                            margin-bottom: 0.5em;
-                        }
-
-                        #einfuehrung-screenshot2 footer nav > ul {
-                            list-style: none;
-                            padding: 0;
-                        }
-
-                        #einfuehrung-screenshot2 footer nav > ul > li {
-                            display: inline-block;
-                            margin-right: 1em;
-                        }
-
-                        #einfuehrung-screenshot2 a,
-                        #einfuehrung-screenshot2 a:visited {
-                            color: rgb(246, 178, 188);
-                            text-decoration: none;
-                        }
-
-                        #einfuehrung-screenshot2 a:hover {
-                            color: white;
-                        }
-                    </style>
-                    <header>
-                        <h2>Faszination Klavier</h2>
-                    </header>
-                    <div class="main">
-                        <h3>Wählen Sie eine Kategorie</h3>
-
-                        <div class="card">
-                            <img src="2-html_css/piano1.jpg" />
-                            <b>Das richtige Klavier finden</b>
-                        </div>
-                        <div class="card">
-                            <img src="2-html_css/piano2.jpg" />
-                            <b>Spielen mit zwei Händen</b>
-                        </div>
-                        <div class="card">
-                            <img src="2-html_css/piano3.jpg" />
-                            <b>Musizieren vor Publikum</b>
-                        </div>
-                    </div>
-                    <footer>
-                        © Die Online-Klavierschule
-                        <nav>
-                            <ul>
-                                <li> <a>Startseite</a> </li>
-                                <li> <a>Das richtige Klavier finden</a> </li>
-                                <li> <a>Spielen mit zwei Händen</a> </li>
-                                <li> <a>Musizieren vor Publikum</a> </li>
-                                <li> <a>Impressum</a> </li>
-                            </ul>
-                        </nav>
-                    </footer>
-                    <!-- Beispiel Ende -->
-                </div>
             </lsx-tab-page>
         </lsx-tab-pages>
 
@@ -2549,139 +2561,94 @@
     </article>
     <aside>
         <p>
-            Wie du ja schon weißt, wurde HTML ursprünglich als Markupsprache für Textdokumente
-            entworfen, die über das Web auf dem Bildschirm aufrufbar sein sollten. Über die
-            genaue Darstellung der Dokumente hat man sich dabei gar nicht so viele Gedanken
-            gemacht. Es genügte, wenn jeder Browser ungefähr ähnliche Regeln anwendete, so
-            dass eine Überschrift eben wie eine Überschrift und ein Absatz wie ein Absatz
-            aussah. Heute haben die Browser solche Regeln immer noch fest eingebaut, das
-            Ergebnis entspricht aber kaum modernen Anforderungen. Auch lassen sich mit den
-            eingebauten Regeln nicht mal ansatzweise moderne Webanwendungen oder sonstige,
-            anspruchsvolle User Interfaces realisieren.
+            HTML wurde ursprünglich als Markupsprache für Textdokumente entwickelt, ohne Fokus
+            auf die genaue Darstellung. Solange Überschriften und Absätze grob übereinstimmten,
+            genügten die eingebauten Browser-Regeln. Diese erfüllen jedoch kaum noch die Anforderungen
+            moderner Webanwendungen. CSS ermöglicht es uns daher, die vordefinierten Browser-Stile zu
+            überschreiben und eigene Regeln festzulegen, auf diese Weise ansprechende Layouts zu gestalten.
         </p>
         <p>
-            Hier kommt CSS ins Spiel, weil wir damit nicht nur die eingebauten Regeln des
-            Browsers überschreiben, sondern auch ganz eigene Regeln definieren können.
-            Auf diese Weise können wir dann all die wunderbaren Oberflächen erstellen, die
-            wir von Web, Mobile & Co. heute gewohnt sind. Hierfür ist es allerdings wirklich
-            wichtig, die HTML-Dateien gut zu strukturieren, da wir sonst keinen geeigneten
-            Ansatzpunkt für unsere CSS-Regeln haben. Die hier gezeigte HTML-Seite ist daher
-            bereits im HTML-Code in die folgenden drei Bereiche eingeteilt:
+            Voraussetzung dafür ist allerdings eine gut strukturierte HTML-Datei. Das hier gezeigte
+            Beispiel zeigt, wie es geht. Hierfür stellen wir uns vor, die Webseite einer Klavierschule
+            zu bauen. Diese soll aus einem Kopfbereich mit dem Namen der Schule und Navigationsmenü,
+            einem Hauptbereich mit einer Überschrift und ein paar Bildern sowie einem Abspann mit den
+            Pflichtangaben und bestehen. Diese Struktur müssen wir versuchen, möglichst einfach in
+            HTML zu definieren, wobei wir hier von oben nach unten und links nach rechts vorgehen können:
         </p>
-        <ol>
-            <li>Kopfbereich</li>
-            <li>Hauptteil</li>
-            <li>Fußzeile</li>
-        </ol>
-        <p>
-            Innerhalb des Kopfbereichs ist nur eine Überschrift. Im Hauptteil sind jedoch mehrere
-            <src-code language="html">&lt;div&gt;</src-code>-Container, in denen sich jeweils ein
-            Bild und ein Text befinden. Der Footer hingegen enthält einen Copyrightvermerk und eine
-            eigenartige Liste in einem <src-code language="html">&lt;nav&gt;</src-code>.
-        </p>
-        <p>
-            Schaust du dir zunächst auf dem Reiter „Aussehen“ das Ergebnis ohne Stylesheet an,
-            sieht die Seite noch ziemlich unfertig aus. Doch schon eine kleine Hand voll, gut
-            ausgesuchter CSS-Regeln und derselbe HTML-Code verwandelt sich in die Version im
-            Reiter „Neues Aussehen“. Am HTML sind hierfür, von der Einbindung des Stylesheets
-            abgesehen, keine Anpassungen notwendig. Dabei gibt es sogar kleine, interaktive
-            Spielereien, wie der Hover-Effekt der Bilder und Navigationslinks.
-        </p>
-        <p>
-            Im Reiter „Stylesheet einbinden“ siehst du, dass wir nur eine kleine Zeile in den
-            HTML-Code einbauen müssen, um das Stylesheet zu laden. Diese befindet sich immer im
-            <src-code language="html">&lt;head&gt;</src-code> und lautet:
-        </p>
+
         <source-code language="html">
-            &lt;link rel="stylesheet" href="style.css" /&gt;
+            &lt;header&gt;
+                &lt;h2&gt;Faszination Klavier&lt;/h2&gt;
+                &lt;nav&gt; … &lt;/nav&gt;
+            &lt;/header&gt;
+        
+            &lt;main&gt; … &lt;/main&gt;
+            &lt;footer&gt; … &lt;/footer&gt;
         </source-code>
+
         <p>
-            Die CSS-Datei haben wir hier <code>style.css</code> genannt, du kannst aber natürlich
-            auch jeden anderen Dateinamen verwenden, so lange du Leer- und Sonderzeichen (sofern
-            sie im Dateinamen überhaupt vorkommen) durch die richtige
-            <a href="https://de.wikipedia.org/wiki/URL-Encoding" target="_blank">Ersatzschreibweise</a>
-            ersetzt. Auch musst du natürlich auf den Ablageort des Stylesheets achten. So, wie es
-            hier angegeben wurde, muss es im selben Verzeichnis wie die HTML-Datei liegen. Gerne
-            kannst du dabei auch mehrere Stylesheets einbinden, indem du einfach mehrere
-            <src-code language="html">&lt;style&gt;</src-code>-Elemente einbaust.
-        </p>
-        <p>
-            Es gibt noch zwei andere Arten, wie man CSS-Anweisungen mit HTML kombinieren kann.
-            Diese zeigen wir dir auf der nächsten Seite. Für den Moment solltest du aber erst
-            hier weiter lesen. 🙂
+            Im hier gezeigten Beispiel wurde dabei großer Wert <b>semantischen Markup-Code</b> gelegt,
+            was bedeutet, dass die verwendeten HTML-Elemente die Intention der Darstellung möglichst
+            gut beschreiben. Dies macht den Quellcode leserlicher und hilft auch assistiven Technologien
+            wie Screenreadern, die Seitenstruktur besser zu verstehen.
         </p>
 
-        <h2>Die Stylesheet-Syntax</h2>
         <p>
-            Auf dieser Seite siehst auch schön die Syntax eines CSS-Stylesheets. Sie ist nicht wirklich
-            kompliziert, man muss nur ein paar einfache Grundregeln kennen. Zum Beispiel, dass jedes
-            Stylesheet immer die folgenden Dinge enthält:
-        </p>
-        <ul>
-            <li>
-                <b>Selektoren:</b> Das ist das, was vor den geschweiften Klammern steht. Damit werden die
-                HTML-Elemente ausgewählt, die man gestalten will.
-            </li>
-            <li>
-                <b>Die geschweiften Klammern:</b> Sie fassen die CSS-Eigenschaften zusammen, die auf
-                die ausgewählten HTML-Elemente angewendet werden sollen. Anders als bei Java darf man
-                die geschweiften Klammern allerdings nie weglassen, auch wenn man nur eine einzelne
-                CSS-Eigenschaft definieren will.
-            </li>
-            <li>
-                <b>Die CSS-Eigenschaften</b>: Innerhalb der geschweiften Klammern stehen dann die
-                Eigenschaften mit dem Aussehen der HTML-Elemente. Die Syntax ist dabei immer
-                Eigenschaft, Doppelpunkt, Wert, Strichpunkt.
-            </li>
-        </ul>
-        <p>
-            Im Beispiel nicht sichtbar sind Kommentare. Sie werden ähnlich wie in Java mit
-            <src-code language="css">/* ... */</src-code> gekennzeichnet. Die aus Java bekannte
-            Kurzform mit <code>//</code> am Anfang einer Zeile ist allerdings nicht erlaubt. 😳
-            Welche Selektoren es gibt und was die einzelnen Anweisungen bewirken, siehst du auf
-            den nächsten Seiten. Doch zuvor, noch ein kurzer Hinweis zu den verwendeten HTML-Elementen.
+            Dies bildet die Grundlage für das Stylesheet, indem die Elemente im nächsten Schritt ausgewählt
+            und mit Darstellungsoptionen versehen werden können. Ohne Stylesheet sieht die Seite natürlich
+            sehr unfertig und überhaupt nicht wie gewünscht ist. Mit einfachen Regeln wie den folgenden,
+            kann dies aber leicht geändert werden.
         </p>
 
-        <h2>Aber ist das auch das richtige HTML?</h2>
+        <source-code language="css">
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            header, footer {
+                background-color: #0A0A0A;
+            
+                border-style: solid;
+                border-color: black;
+                border-width: 0;
+                border-bottom-width: 2px;
+            
+                padding: 0.5em;
+                color: white;
+                font-size: 95%;
+            }
+        </source-code>
+
         <p>
-            Möglicherweise hast du dir beim Betrachten des HTML-Codes die Frage gestellt, ob das
-            HTML so überhaupt in Ordnung ist. Also ob es zum Beispiel okay ist, eine Liste mit
-            <src-code language="html">&lt;ul&gt;</src-code> zu definieren, obwohl die Einträge
-            eigentlich gar nicht wie eine Aufzählung aussehen sollen.
+            Dabei zeigt sich auch schon die Syntax von CSS. Ein Stylesheet besteht immer aus einem oder
+            mehreren, durch geschweifte Klammern eingeschlossene Blöcke. Vor den Klammern steht ein so
+            genannter <b>Selektor</b> zur Auswahl der gewünschten HTML-Elemente. Innerhalb der Klammern
+            stehen Name-Wert-Paare zur Definition ihrer <b>Eigenschaften</b>. Diese werden immer in der
+            Form <src-code language="css">name: wert;</src-code> geschrieben.
         </p>
+
         <p>
-            Und tatsächlich, das HTML ist absolut in Ordnung. Nicht, dass man jetzt einfach irgendwelchen
-            Schweinecode schreiben kann, den man mit einem Stylesheet in Form bringt 🐷, sondern der
-            Code ist aus einem ganz anderen Grund okay: Es handelt sich um <b>semantischen HTML-Code</b>.
-            Das heißt, es wurden wirklich nur so viele HTML-Anweisungen verwendet, wie zur Gestaltung der
-            Seite absolut notwendig sind, kein Element ist zu viel. Und jedes Element drückt durch seinen Namen
-            (oder da, wo es kein passendes HTML-Element gibt, durch das <src-code language="html">class</src-code>-Attribut)
-            aus, was es darstellen soll. Kurz gesagt: Auch ohne das Ergebnis zu kennen, sieht man dem Code an,
-            was er bewirken soll.
+            Aktiv wird das Stylesheet allerdings erst, wenn es mit der HTML-Datei verknüpft wird,
+            wofür ein Verweis auf die CSS-Datei in den HTML-Code eingebaut werden muss. Dies erfolgt
+            mit folgenden Zeilen im Kopfteil der Seite:
         </p>
+
+        <source-code language="html">
+            &lt;head&gt;
+                …
+                &lt;link rel="stylesheet" href="style.css" /&gt;
+            &lt;/head&gt;
+        </source-code>
+
         <p>
-            Deshalb ist es auch okay, die Navigationselemente der Fußzeile in eine ungeordnete Liste zu
-            packen. Denn um genau das handelt es sich ja: Um eine Aufzählung. Nur dass die Einträge nicht
-            untereinander sondern nebeneinander stehen sollen. Trotzdem ist es eine Aufzählung. Zwar ist
-            es im Grunde genommen egal, welches HTML-Element du verwendest, so lange das Ergebnis hinterher
-            so aussieht, wie es soll. Wenn du nicht aufpasst, kann es allerdings sein, dass deine Webseite
-            nur auf visuellen Bildschirmen gut aussieht.
-        </p>
-        <p>
-            Äh, Moment mal! Wie kann denn jemand die Seite nicht auf einem Bildschirm anschauen? 😲 Ja, das geht.
-            Viele Menschen sind auf Screenreader und andere Geräte wie
-            <a href="https://de.wikipedia.org/wiki/Braillezeile" target="_blank">Brailezeilen</a> angewiesen,
-            um mit dem Computer umgehen zu können. Wenn deine Navigation nur aus geschachtelten
-            <src-code language="html">&lt;div&gt;</src-code>s besteht, können diese Geräte nichts damit anfangen
-            und lesen die Navigation einfach als Fließtext vor. Handelt es sich aber um eine in einem
-            <src-code language="html">&lt;nav&gt;</src-code> eingeschlossene Liste, wissen die Geräte,
-            dass es sich um einen Navigationsbereich handelt, der anders oder nur bei Druck auf einen
-            bestimmten Knopf vorgelesen werden muss. Du siehst: Semantisches Markup ist sehr wichtig.
+            Wenn alles gut geht, sieht das Ergebnis dann wie hier gezeigt aus. Wenn nicht: Probieren,
+            probieren, probieren. 🙃
         </p>
     </aside>
 </section>
 
-<section data-title="HTML und CSS in derselben Datei">
+<section data-title="HTML und Stylesheet verknüpfen">
     <article>
         <lsx-ul class="mb-4">
             <li>
@@ -2700,6 +2667,30 @@
         </lsx-ul>
 
         <lsx-accordion>
+            <lsx-accordion-page title="Externes Stylesheet">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8"&gt;
+                            &lt;title&gt;HTML und CSS in einer Datei&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        
+                            &lt;!-- Externes Stylehseet --&gt;
+                            &lt;link rel="stylesheet" rel="style.css" /&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h1&gt;HTML und CSS endlich vereint!&lt;/h1&gt;
+                            &lt;p&gt;
+                                Was lange währt, wird endlich gut. Nachdem sich HTML und
+                                CSS nach ihrer Trennung lange Zeit nicht mehr gesehen haben,
+                                haben sie heute endlich wieder zueinander gefunden.
+                            &lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-accordion-page>
+
             <lsx-accordion-page title="Eingebettetes Stylesheet">
                 <source-code language="html">
                     &lt;!DOCTYPE html&gt;
@@ -2784,34 +2775,31 @@
     </article>
     <aside>
         <p>
-            Wenn es mal schnell gehen soll und du keine zwei Dateien für HTML
-            und CSS anlegen willst, kannst du beides auch in eine Datei packen.
-            Natürlich ist das dann nicht so schön, wie mit getrennten Dateien und
-            du hast nicht all die Vorteile, die die Trennung von HTML und CSS
-            mit sich bringt. Manchmal braucht man das aber auch gar nicht.
-            HTML und CSS können deshalb auf folgende zwei Arten in derselben
-            Datei untergebracht werden:
+            HTML und CSS können auf drei Weisen miteinander verknüpft werden, um die
+            Stylingangaben zu aktivieren:
         </p>
         <ul>
             <li>
-                Durch ein <src-code language="html">&lt;style&gt;</src-code>-Element
-                im <src-code language="html">&lt;head&gt;</src-code> der Seite
+                Durch Verweis auf eine externe Datei mit
+                <src-code language="html">&lt;link rel="stylesheet"&gt;</src-code>
             </li>
             <li>
-                Durch das <src-code language="html">style</src-code>-Attribut, das
-                man jedem HTML-Element geben kann
+                Als eingebettetes Stylesheet innerhalb eines 
+                <src-code language="html">&lt;style&gt;</src-code>-Elements
+            </li>
+            <li>
+                Direkt an den HTML-Elementen mit dem
+                <src-code language="html">style</src-code>-Attribut.
             </li>
         </ul>
         <p>
-            Beide Beispiele siehst du im Hauptteil dieser Seite. Dort siehst du auch, dass die
-            Syntax innerhalb von <src-code language="html">&lt;style&gt;…&lt;/style&gt;</src-code>
-            genau dieselbe wie in einer normalen CSS-Datei ist. Wohingegen sich das
-            <src-code language="html">style</src-code>-Attribut immer nur auf ein einzelnes
-            HTML-Element auswirkt und deshalb ohne Selektor und geschweifte Klammern
-            auskommt.
+            Alle drei Varianten sind auf dieser Seite dargestellt. Natürlich können sie
+            auch beliebig kombiniert und prinzipiell auch mehrere, sich ergänzende
+            Stylesheets verwendet werden.
         </p>
 
         <lsx-info-box>
+            <h4>Trennen oder nicht trennen?</h4>
             <p>
                 Moderne Frameworks Bootstrap oder Tailwind CSS verzichten auf eine Trennung von
                 HTML und CSS und nutzen stattdessen das <code>class</code>-Attribut von HTML, um
