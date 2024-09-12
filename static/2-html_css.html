@@ -4693,7 +4693,7 @@
 </section>
 
 <!--
-<section data-title="Wie vermisst man die Welt">
+<section data-title="Wie vermisst man die Welt?">
 </section>
 -->
 
@@ -6581,7 +6581,174 @@
     </aside>
 </section>
 
-<section data-title="Übung 2: Urlaub in Kanada" data-background-color="rgb(179, 202, 223)">
+<section data-title="Übung 2: Web-Visitenkarte" data-background-color="rgb(179, 202, 223)">
+    <article>
+        <lsx-github-edit
+            class        = "mb-3"
+            url          = "1%20HTML%20und%20CSS/Aufgaben/Web-Visitenkarte/Aufgabe"
+            download     = "1%20HTML%20und%20CSS/Aufgaben/Web-Visitenkarte"
+            pages-url1   = "1%20HTML%20und%20CSS/Aufgaben/Web-Visitenkarte/Loesung/"
+            pages-label1 = "Musterlösung ansehen"
+        >
+        </lsx-github-edit>
+
+        <p>
+            Erstelle eine minimale Webseite über dich als deine Visitenkarte im Web. So, dass jemand
+            nur die URL aufrufen muss, um auf einen Blick das Wichtigste über dich zu erfahren. Ein
+            Beispiel, wie so eine Seite aussehen könnte, siehst du unten. Folgende Merkmale sollte
+            die Seite aufweisen:
+        </p>
+
+        <ul>
+            <li>
+                Inhalt horizontal und vertikal im Browserfenster zentriert
+            </li>
+            <li>
+                Ein Foto in voller Breite über oder voller Höhe neben dem Inhalt
+            </li>
+            <li>
+                Margin und Padding nur für den Textbereich, nicht für das Foto
+            </li>
+            <li>
+                Gezielter Einsatz von Farbe und ein paar HTML-Elementen wie
+                <src-code language="html">&lt;h1&gt;</src-code>
+                oder
+                <src-code language="html">&lt;b&gt;</src-code>
+            </li>
+            <li>
+                Insgesamt ein einfaches aber ansprechendes Design
+            </li>
+        </ul>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Vorschau">
+                <img src="2-html_css/ub-visitenkarte/screenshot.jpg" alt="Screenshot der Musterlösung" class="d-block w-100"  />
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Hauptbereich zentrieren">
+                <p>
+                    Für den zentrierten Hauptbereich wurde in der Musterlösung ein einzelnes
+                    HTML-Element in einer Flexbox platziert. Da die gesamte Seite nur aus einem
+                    zentrierten Element besteht, wurde als Flexbox-Container einfach der
+                    <src-code language="html">&lt;body&gt;</src-code> verwendet:
+                </p>
+                <source-code language="css">
+                    body {
+                        display: flex;              /* Inhalte mit dem Flexbox-Algorithmus anordnen */
+                        justify-content: center;    /* Inhalte entlang der Hauptachse zentrieren    */
+                        align-items: center;        /* Inhalte entlant der Nebenachse zentrieren    */
+                        min-height: 100vh;          /* Body mindestens so hoch wie der Viewport     */
+                    }
+
+                    html, body {                    /* Unschöne Scrollbalken vermeiden */
+                        margin: 0;
+                        padding: 0;
+                    }
+                </source-code>
+                <p>
+                    Die eigentlichen Seiteninhalte müssen dann nur noch in ein Eltern-Element
+                    wie zum Beispiel ein <src-code language="html">&lt;main&gt;</src-code>
+                    oder ein <src-code language="html">&lt;div&gt;</src-code> verschoben werden:
+                </p>
+                <source-code language="html">
+                    &lt;body&gt;
+                        &lt;main&gt;
+                            Hier steht der eigentliche Inhalt. Da der Body eine Flexbox ist,
+                            wird dieses Element automatisch horizontal und vertikal zentriert.
+                        &lt;/main&gt;
+                    &lt;/body&gt;
+                </source-code>
+                <p>
+                    In seiner Voreinstellung sorgt der Flexbox-Algorithmus dafür, dass die direkten Kinder eines
+                    HTML-Elements (hier des <src-code language="html">&lt;body&gt;</src-code>) nebeneinander
+                    angeordnet werden. Die Hauptachse ist daher die X-Achse und die Nebenachse die Y-Achse.
+                    Würde man dem <src-code language="html">&lt;body&gt;</src-code> noch ein zweites Kind-Element
+                    zuweisen, stünde dieses daher neben dem bisherigen Inhalt. Mit
+                    <src-code language="css">gap: 1em</src-code> könnte dann ein kleiner Abstand zwischen den
+                    Elementen vorgesehen werden, wenn diese nicht aneinander kleben sollen.
+                    Mit der CSS-Anweisung <src-code language="css">flex-direction: row</src-code>
+                    könnten hingegen die beiden Achsen vertauscht werden, um eine Anordnung untereinander zu erhalten.
+                </p>
+                <p>
+                    Das Rücksetzen von Margin und Padding für <src-code language="html">&lt;html&gt;</src-code>
+                    und <src-code language="html">&lt;body&gt;</src-code> ist dabei notwendig, weil diese
+                    standardmäßig tatsächlich Margins und Paddings besitzen, die auf ihre Größe hinzugerechnet
+                    werden. Dadruch hätte man in Kombination mit dem <src-code language="css">min-height: 100vh</src-code>
+                    unschöne Scrollbalken, mit denen die Seite tatsächlich in klein wenig hin und her gescrollt werden könnte.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Unscharfer Hintergrund">
+                <p>
+                    Für den Unscharfen Hintergrund in der Musterlösung wurde zunächst dasselbe Foto wie
+                    im Hauptbereich als gestrecktes Hintergrundbild für die gesamte Seite festgelegt:
+                </p>
+                <source-code language="css">
+                    html {
+                        background-image: url(foto.jpg);
+                        background-size: cover;
+                        background-attachment: fixed;
+                    }
+                </source-code>
+                <p>
+                    Die Unschräfe entsteht durch ein Dummy-Element ohne Inhalt:
+                </p>
+                <source-code language="html">
+                    &lt;body&gt;
+                        &lt;!-- Dummy-Element zum Weichzeichnen des Hintergrunds --&gt;
+                        &lt;div id="bg-blur"&gt;&lt;/div&gt;
+
+                        &lt;!-- Seiteninhalt --&gt;
+                        &lt;main&gt;
+                            Inhalt des Hauptbereichs
+                        &lt;/main&gt;
+                    &lt;/body&gt;
+                </source-code>
+                <p>
+                    Das Dummy-Element wird mit absoluter Positionierung über den gesamten Viewport (Anzeigebereich
+                    des Browser-Fensters) gelegt und mit einem „Backdrop Filter” zum Weichzeichnen des durchscheinenden
+                    Hintergrunds belegt:
+                </p>
+                <source-code language="css">
+                    #bg-blur {
+                        position: absolute;             /* Das Element absolut mit Bezug zumkViewport platzieren */
+                        top: 0;                         /* Kein Abstand zu oberen Kante des Viewports            */
+                        bottom: 0;                      /* Kein Abstand zur unteren Kante des Viewports          */
+                        left: 0;                        /* Kein Abstand zu linken Kante des Viewports            */
+                        right: 0;                       /* Kein Abstand zur rechten Kante des Viewports          */
+        
+                        z-index: -100;                  /* Dummy-Element darf den Seiteninhalt nicht überlagern! */
+                        backdrop-filter: blur(15px);    /* Alles, was hinter dem Element liegt, weichzeichnen    */
+                    }
+                </source-code>
+                <p>
+                    Das Geheimnis ist hier also die Kombination aus <src-code language="css">position: absolute</src-code>
+                    und <src-code language="css">backdrop-filter: blur(15px)</src-code>.
+                    Die Anweisung <src-code language="css">z-index: -100</src-code> wird zusätzlich benötigt, damit
+                    der eigentliche Seiteninhalt in der drei-dimensionalen Z-Achse über dem Dummy-Element liegt
+                    und somit weiterhin lesbar bleibt. Ohne diese Anweisung sähe alles so aus, als hätte man
+                    seine Brille vergessen. 🥸
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            In der Kürze liegt die Würze. Wie wäre es daher mit einer ganz minimalen Webseite
+            als digitale Visitenkarte? Sozusagen das Wichtigste über dich auf einer kleinen Seite.
+            In dieser Übung kannst du sie bauen.
+        </p>
+        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-title="Übung 3: Urlaub in Kanada" data-background-color="rgb(179, 202, 223)">
     <article>
         <lsx-github-edit
             class        = "mb-3"
@@ -6627,8 +6794,9 @@
     </article>
     <aside>
         <p>
-            Zeit für die erste, große Programmierübung. Bei dieser Aufgabe kannst du das gelernte
-            Wissen in einem kleinen Projekt praktisch anwenden. 💻
+            Zeit für eine größere Programmierübung. Bei dieser Aufgabe kannst du das gelernte
+            Wissen über HTML und CSS in einem kleinen Projekt praktisch anwenden, um einen
+            interessanten One-Pager mit Parallex-Scroll-Effekt zu gestalten. 💻
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -6640,7 +6808,7 @@
     </aside>
 </section>
 
-<section data-title="Übung 3: Joe Cocker" data-background-color="rgb(179, 202, 223)">
+<section data-title="Übung 4: Joe Cocker" data-background-color="rgb(179, 202, 223)">
     <article>
         <lsx-github-edit
             class        = "mb-3"
@@ -6688,7 +6856,7 @@
     </aside>
 </section>
 
-<section data-title="Übung 4: npmjs.com" data-background-color="rgb(179, 202, 223)">
+<section data-title="Übung 5: npmjs.com" data-background-color="rgb(179, 202, 223)">
     <article>
         <lsx-github-edit
             class        = "mb-3"
