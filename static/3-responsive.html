@@ -5857,36 +5857,133 @@
     ÜBUNGSAUFGABEN
     ==============
 -->
-<!-- <section data-use-template="teilkapitel" data-titel="Übungsaufgaben"></section> -->
+<section data-use-template="teilkapitel" data-titel="Übungsaufgaben"></section>
 
-<!-- <section data-title="Übung 1: BitKits" data-background-color="rgb(179, 202, 223)">
+<section data-title="Übung 1: BitKits" data-background-color="rgb(179, 202, 223)">
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "2%20Responsive%20Webdesign/Aufgaben/Bitkits/Aufgabe"
+            download     = "2%20Responsive%20Webdesign/Aufgaben/Bitkits"
+            pages-url1   = "2%20Responsive%20Webdesign/Aufgaben/Bitkits/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
+      
+        <lsx-tab-pages>
+            <lsx-tab-page title="Vorlage">
+                <p>
+                    Ein tiefer Griff in die Mottenkiste und wir stoßen auf einen alten Screenshot
+                    der Seite <a href="https://www.uppercussion.com/products/bitkits" target="_blank">https://www.uppercussion.com/products/bitkits</a>.
+                    Es handelt sich dabei um die Produktseite einer Sample-Bibliothek mit 8-Bit-Sounds
+                    für Chiptunes und ähnliche Musik. Die Seite sieht eigentlich ganz nett aus, wurde aber
+                    nicht für mobile Geräte optimiert, wie die folgenden Screenshots zeigen: 
+                </p>
+        
+                <div class="d-flex gap-2 align-items-center justify-content-center mt-4 mb-4 flex-column flex-md-row align-items-md-end">
+                    <lsx-modal>
+                        <lsx-thumbnail>
+                            <div class="lsx-modal-image-thumbnail">
+                                <img src="3-responsive/ub-bitkits/vorlage-desktop.png" class="img-thumbnail d-block" style="height: 15em;" />
+                                Desktop-Ansicht der Vorlage
+                            </div>
+                        </lsx-thumbnail>
+                        <lsx-content>
+                            <img src="3-responsive/ub-bitkits/vorlage-desktop.png" class="lsx-modal-image-image img-thumbnail" />
+                        </lsx-content>
+                    </lsx-modal>
+        
+                    <lsx-modal>
+                        <lsx-thumbnail>
+                            <div class="lsx-modal-image-thumbnail">
+                                <img src="3-responsive/ub-bitkits/vorlage-mobile.png" class="img-thumbnail d-block" style="height: 15em;" />
+                                Mobile Ansicht der Vorlage
+                            </div>
+                        </lsx-thumbnail>
+                        <lsx-content>
+                            <img src="3-responsive/ub-bitkits/vorlage-mobile.png" class="lsx-modal-image-image img-thumbnail" />
+                        </lsx-content>
+                    </lsx-modal>
+                </div>
+            </lsx-tab-page>
 
-        <p>
-            ...
-        </p>
+            <lsx-tab-page title="Mobile Darstellung">
+                <p>
+                    Rufe den „Responsive Mode” deines Browsers auf und beginne damit, die mobile
+                    Darstellung der Seite zu entwickeln. Diese sollte möglichst genau den folgenden
+                    Screenshots entsprechen. Achte hier insbesondere auf die Details wie die
+                    verschiedenen Farben oder auch das Padding von Überschrift und Text, die beide
+                    absolut bündig ausgerichtet sind, obwohl der linke Rahmen der Überschrift
+                    scheinbar über den Rand hinaus ragt.
+                </p>
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-        </div>
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="3-responsive/ub-bitkits/loesung-mobile-1.png" caption="Mobile Ansicht der zu erstellenden Seite (1 von 3)"></lsx-modal-image>
+                    <lsx-modal-image src="3-responsive/ub-bitkits/loesung-mobile-2.png" caption="Mobile Ansicht der zu erstellenden Seite (2 von 3)"></lsx-modal-image>
+                    <lsx-modal-image src="3-responsive/ub-bitkits/loesung-mobile-3.png" caption="Mobile Ansicht der zu erstellenden Seite (3 von 3)"></lsx-modal-image>
+                </div>
+            </lsx-tab-page>
 
-        <p>
-            ...
-        </p>
+            <lsx-tab-page title="Große Endgeräte">
+                <p>
+                    Erweitere die Webseite nun so, dass sie auf großen Endgeräten so wie im folgenden
+                    Screenshot aussieht. Die Breite des Inhalts ist dort auf <code>60em</code> begrenzt
+                    und auch die Schrift ist ein klein wenig größer. Die Hauptinhalte werden zusätzlich
+                    in drei Spalten nebeneinander dargestellt. 
+                </p>
+
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="3-responsive/ub-bitkits/loesung-desktop.png" caption="Desktop-Version der zu erstellenden Webseite"></lsx-modal-image>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Hinweise">
+                <ul>
+                    <li>
+                        <p>
+                            Für die Texte kannst du irgend welche Dummytexte verwenden. Zum Beispiel
+                            <a href="https://de.wikipedia.org/wiki/Lorem_ipsum" target="_blank">Lorem Ipsum</a>.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Für die Begrenzung der Breite und die Anordnung in Spalten müssen
+                            weitere HTML-Elemente eingebaut werden.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Folgender CSS-Code bringt ein HTML-Element der Klasse <code>flexbox</code> dazu,
+                            seine Kindelemente nebeneinander anzuordnen:
+                        </p>
+                        <source-code language="css">
+                            .flexbox {
+                                display: flex;
+                                justify-content: space-between;
+                                column-gap: 1em;
+                            }
+                            
+                            .flexbox > * {
+                                flex: 1;
+                            }
+                        </source-code>
+                    </li>
+                    <li>
+                        <p>
+                            Damit das Soundcloud-Widget funktioniert muss die Seite
+                            über einen lokalen Webserver aufgerufen werden.
+                        </p>
+                    </li>
+                </ul>
+            </lsx-tab-page>
+        </lsx-tab-pages>
     </article>
     <aside>
         <p>
-            ...
+            Ältere Webseiten sind, auch wenn Sie sonst sehr gut aussehen, nicht immer
+            für mobile Geräte gemacht. In dieser Aufgabe wollen wir daher eine reale
+            Webseite nach dem Mobile-First-Prinzip nachbauen, um sie auch für moderne
+            Endgeräte nutzbar zu machen. 📱
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -5896,36 +5993,60 @@
             </small>
         </p>
     </aside>
-</section> -->
+</section>
 
-<!-- <section data-title="Übung 2: Atructio Retis AG" data-background-color="rgb(179, 202, 223)">
+<section data-title="Übung 2: Atructio Retis AG" data-background-color="rgb(179, 202, 223)">
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "2%20Responsive%20Webdesign/Aufgaben/Astructio%20Retis%20AG/Aufgabe"
+            download     = "2%20Responsive%20Webdesign/Aufgaben/Astructio%20Retis%20AG"
+            pages-url1   = "2%20Responsive%20Webdesign/Aufgaben/Astructio%20Retis%20AG/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
 
         <p>
-            ...
+            Die folgenden Screenshots zeigen die Webseite einer alt ehrwürdigen Webdesign-Agentur,
+            bei der es sich vermutlich um die älteste Firma ihrer Art handeln dürfte. Gegründet
+            im Jahre 50&nbsp;v.&nbsp;Chr. erstellt die Astructio Retis AG (lateinisch für „Webentwicklung”,
+            wörtlich: „Entwicklung für das Netz”) ansprechende Webseiten mit klassisch eleganter
+            Anmutung. Ihre Webseite sollst du, wie auf den folgenden Bildern gezeigt, nachbauen.
+            Die Bilder zeigen zunächst die mobile Version und dann die Desktopansicht der Seite.
         </p>
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
+        <div class="d-flex gap-2 align-items-center justify-content-center mt-4 mb-4 flex-column flex-md-row align-items-md-end">
+            <lsx-modal-image src="3-responsive/ub-astructio-retis-ag/loesung-mobile-1.png" caption="Header und Banner (mobil)"></lsx-modal-image>
+            <lsx-modal-image src="3-responsive/ub-astructio-retis-ag/loesung-mobile-2.png" caption="Mittelteil (mobil)"></lsx-modal-image>
+            <lsx-modal-image src="3-responsive/ub-astructio-retis-ag/loesung-mobile-3.png" caption="Abspann (mobil)"></lsx-modal-image>
+        </div>
+        <div class="d-flex gap-2 align-items-center justify-content-center mt-4 mb-4 flex-column flex-md-row align-items-md-end">
+            <lsx-modal-image src="3-responsive/ub-astructio-retis-ag/loesung-desktop-1.png" caption="Header und Banner (Desktop)"></lsx-modal-image>
+            <lsx-modal-image src="3-responsive/ub-astructio-retis-ag/loesung-desktop-2.png" caption="Mittelteil (Desktop)"></lsx-modal-image>
+            <lsx-modal-image src="3-responsive/ub-astructio-retis-ag/loesung-desktop-3.png" caption="Bildschirmfüllender Abspann (Desktop)"></lsx-modal-image>
         </div>
 
+        <h3 class="dhbw-lightblue">Vorbereitende Fragen</h3>
+
         <p>
-            ...
+            <b>a)</b> Was ist auf den Screenshots alles zu sehen? Erstelle eine Liste mit
+            allen in den Bildern erkennbaren, gestalterischen Einzelheiten. Versuche dabei,
+            das Layout so genau wie möglich zu beschreiben.
+        </p>
+        <p>
+            <b>b)</b> Mit welchen Media Queries können für die Seite sinnvolle Geräteeigenschaften
+            abgefragt werden?
+        </p>
+        <p>
+            <b>c)</b> Die kann die Kartenansicht im Abspann mit Hilfe einer Flexbox so gestaltet
+            werden, dass sie immer die maximale Höhe annimmt, um den Bildschirm auszufüllen?
         </p>
     </article>
     <aside>
         <p>
-            ...
+            Wer hätte das gedacht? Selbst im alten Rom gab es schon Unternehmen, die für
+            andere Leute Webseiten erstellen konnten. Beim Jupiter! Ob sich hier nicht
+            jemand um ein paar Jahrhunderte vertan hat?
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -5935,36 +6056,72 @@
             </small>
         </p>
     </aside>
-</section> -->
+</section>
 
-<!-- <section data-title="Übung 3: Flock of Sheep" data-background-color="rgb(179, 202, 223)">
+<section data-title="Übung 3: Flock of Sheep" data-background-color="rgb(179, 202, 223)">
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "2%20Responsive%20Webdesign/Aufgaben/Flock%20of%20Sheep/Aufgabe"
+            download     = "2%20Responsive%20Webdesign/Aufgaben/Flock%20of%20Sheep"
+            pages-url1   = "2%20Responsive%20Webdesign/Aufgaben/Flock%20of%20Sheep/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
 
         <p>
-            ...
+            Ein paar Seiten weiter vorne wurde das unten gezeigte Formular als Fallbeispiel
+            für Bootstrap vorgestellt. Um die konzeptionellen Unterschiede zur Entwicklung
+            nur mit HTML und CSS besser zu verstehen, soll es überarbeitet werden. Passe den
+            Quellcode der Vorlage daher so an, dass darin die zusätzlichen Blöcke und Felder
+            des zweiten Screenshots enthalten sind. Es handelt sich dabei um das Anmeldeformular
+            einer neue Social Media Plattform names „Flock of Sheep“. 🐑
         </p>
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
+        <div class="d-flex gap-2 align-items-center justify-content-center mt-4 mb-4 flex-column flex-md-row align-items-md-end">
+            <lsx-modal-image src="3-responsive/ub-flock-of-sheep/screenshot-vorher.png" caption="Vorlage"></lsx-modal-image>
+            <lsx-modal-image src="3-responsive/ub-flock-of-sheep/screenshot-nachher.png" caption="Erweiterte Version"></lsx-modal-image>
         </div>
 
+        <h3 class="dhbw-lightblue">Offene Diskussion</h3>
+
         <p>
-            ...
+            <b>a)</b>
+            Welche Teile des Quellcodes sind allgemeingültiges HTML/CSS und welche Bootstrap?
+        </p>
+
+        <p style="margin-top: 1em;">
+            <b>b)</b>
+            Wie geht Bootstrap¹ anders als HTML/CSS mit der Trennung von Markup und Styling um?
+        </p>
+
+        <p style="margin-top: 1em;">
+            <b>c)</b>
+            Welche Vor- oder Nachteile könnte das Vorgehen von Bootstrap haben? Welches Vorgehen bevorzugst du?
+        </p>
+
+        <p style="margin-top: 1em;">
+            <b>d)</b>
+            Wie beschleunigt Bootstrap die Entwicklung responsiver Layouts?
+        </p>
+
+        <p style="margin-top: 1em">
+            ¹
+            <small>
+                <small>
+                    Andere CSS-Frameworks wie <a href="https://tailwindcss.com/" target="_blank">TailwindCSS</a>
+                    verfolgen tatsächlich einen ähnlichen Ansatz.
+                </small>
+            </small>
         </p>
     </article>
     <aside>
         <p>
-            ...
+            Soziale Netzwerke machen einen großen Teil heutiger Web-Inhalte aus.
+            Die Qualität der geteilten Inhalte lässt aber oft zu wünschen übrig.
+            Was liegt da näher als eine eigene Version zu bauen, bei der alles
+            natürlich viel besser ist? In dieser Aufgabe wollen wir Bootstrap
+            einsetzen, um die Anmeldeseite davon zu gestalten.
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -5974,36 +6131,247 @@
             </small>
         </p>
     </aside>
-</section> -->
+</section>
 
-<!-- <section data-title="Übung 4: Gnome Desktop" data-background-color="rgb(179, 202, 223)">
+<section data-title="Übung 4: Gnome Desktop" data-background-color="rgb(179, 202, 223)">
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "2%20Responsive%20Webdesign/Aufgaben/GNOME-Projekt/Aufgabe"
+            download     = "2%20Responsive%20Webdesign/Aufgaben/GNOME-Projekt"
+            pages-url1   = "2%20Responsive%20Webdesign/Aufgaben/GNOME-Projekt/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
 
-        <p>
-            ...
-        </p>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe">
+                <p>
+                    Wer sich ein wenig mit Linux auseinandergesetzt hat, weiß, dass es die eine
+                    grafische Desktopumgebung unter Linux nicht gibt. Das System ist so modular
+                    und flexibel, dass man stattdessen unter einer Vielzahl von Angeboten
+                    auswählen kann, von denen die GNOME-Desktopumgebung eine weit verbreitete
+                    Option ist. Im Gegensatz zu anderen Desktops orientiert sie sich weniger am
+                    allgegenwärtigen Microsoft Windows, sondern geht zu Gunsten von Klarheit,
+                    Effizienz und leichter Bedienung ganz eigene Wege. Auf der Webseite des
+                    Projekts findet sich hierzu natürlich eine kleine Screenshot-Galerie, die
+                    die Eleganz des Konzepts aber nur ansatzweise wiederspiegelt.
+                </p>
+                <p>
+                    Für unsere Zwecke interessanter ist, dass sich die Webseite mit Bootstrap
+                    sehr leicht nachbauen lässt. Wir wollen daher die Gelegenheit nutzen und
+                    eine eigene Version der Seite bauen, um unsere Bootstrap-Kenntnisse zu
+                    vertiefen. Die linke Abbildung zeigt, wie die fertige Seite aussehen soll.
+                    Inzwischen hat sich die Originalseite zwar verändert, die wesentlichen
+                    Merkmale sind aber immer noch vorhanden. Der rechte Screenshot zeigt die
+                    Musterlösung, die dem Original wirklich sehr nahe kommt.
+                </p>
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="3-responsive/ub-..." caption="..."></lsx-modal-image>
-        </div>
+                <div class="d-flex gap-2 align-items-center justify-content-center mt-4 mb-4 flex-column flex-md-row align-items-md-end">
+                    <lsx-modal-image src="3-responsive/ub-gnome/screenshot.png" caption="Screenshot der Originalseite"></lsx-modal-image>
+                    <lsx-modal-image src="3-responsive/ub-gnome/musterloesung.png" caption="Screenshot der Musterlösung"></lsx-modal-image>
+                </div>
 
-        <p>
-            ...
-        </p>
+                <p>
+                    Im Gegensatz zum Original soll der große Screenshot ganz oben jedoch
+                    durch ein Karussell mit vier wechselnden Bildern ersetzt werden. Alles
+                    Andere bleibt gleich. Die exakten Farbcodes sowie Texte können aus der
+                    Aufgabenbeschreibung hinaus kopiert werden.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Bootstrap-Dokumentation">
+                <!-- Bootstrap 5.3.3 -->
+                <ul>
+                    <li>
+                        <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Startseite</a>
+                    </li>
+                    <li>
+                        <a href="https://getbootstrap.com/docs/5.3/components/navbar/" target="_blank">Responsive Navigationsleisten</a>
+                    </li>
+                    <li>
+                        <a href="https://getbootstrap.com/docs/5.3/components/carousel/" target="_blank">Karussell für die großen Screenshots</a>
+                    </li>
+                    <li>
+                        <a href="https://getbootstrap.com/docs/5.3/utilities/text/" target="_blank">Hilfsklassen für zentrierten Text</a>
+                    </li>
+                    <li>
+                        <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank">Layout-Grid zur für den Hauptbereich</a>
+                    </li>
+                </ul>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Farbcodes">
+                <style>
+                    #gnome-color-codes tr > td:first-child {
+                        width: 2em;
+                    }
+
+                    #gnome-color-codes tr > td:nth-child(2) {
+                        font-family: monospace;
+                        padding-left: 1em;
+                    }
+                </style>
+                <table id="gnome-color-codes" class="table">
+                    <tr>
+                        <td style="background: #000000;"></td>
+                        <td>#000000</td>
+                        <td>Hintergrundfarbe des Footers</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #919191;"></td>
+                        <td>#919191</td>
+                        <td>Schriftfarbe im Footer (auch für Links)</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #FFFFFF;"></td>
+                        <td>#FFFFFF</td>
+                        <td>Schriftfarbe für Links im Footer, wenn die Maus drüber fährt</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #4A86CF;"></td>
+                        <td>#4A86CF</td>
+                        <td>Hintergrundfarbe der Navigationsleiste</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #3968A1;"></td>
+                        <td>#3968A1</td>
+                        <td>Hintergrundfarbe des aktiven Navigationseintrags</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #6E9ED9;"></td>
+                        <td>#6E9ED9</td>
+                        <td>Hintergrundfarbe eines Navigationseintrags, wenn die Maus drüber fährt</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #F1F4F8;"></td>
+                        <td>#F1F4F8</td>
+                        <td>Schriftfarbe in der Navigationsleiste</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #3F4D5F;"></td>
+                        <td>#3F4D5F</td>
+                        <td>Schriftfarbe in der Navigationsleiste, wenn die Maus drüber fährt</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #FFFFFF;"></td>
+                        <td>#FFFFFF</td>
+                        <td>Hintergrundfarbe im Hauptbereich</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #555555;"></td>
+                        <td>#555555</td>
+                        <td>Schriftfarbe im Hauptbereich</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #000000;"></td>
+                        <td>#000000</td>
+                        <td>Schriftfarbe für die Bildüberschriften im Hauptbereich</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #C9C9C9;"></td>
+                        <td>#C9C9C9</td>
+                        <td>Farbe der Trennlinien im Hauptbereich</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #0489B7;"></td>
+                        <td>#0489B7</td>
+                        <td>Schriftfarbe für „And much much more”</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #5474A3;"></td>
+                        <td>#5474A3</td>
+                        <td>Linkfarbe für „Find out how to get GNOME 3”</td>
+                    </tr>
+                    <tr>
+                        <td style="background: #5A82B5;"></td>
+                        <td>#5A82B5</td>
+                        <td>Linkfarbe für „Find out how to get GNOME 3”, wenn die Maus drüber fährt</td>
+                    </tr>
+                </table>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Textvorlagen">
+                <ul>
+                    <li>GNOME 3</li>
+                    <li>Technologies</li>
+                    <li>Get Involved</li>
+                    <li>Foundation</li>
+                    <li>About Us</li>
+                </ul>
+
+                <p>
+                    Get things done with ease, comfort and control.
+                </p>
+                <p>
+                    GNOME 3 has been designed from the ground up to help you have the best possible computing experience. Learn about what it has to offer.
+                </p>
+
+                <h3>Simple and easy to use</h3>
+                <p>
+                    Every part of GNOME 3 has been designed to make it simple and easy to use. The Activities Overview is an easy way to access all your basic tasks. A press of a button is all it takes to view your open windows, launch applications or check if you have new messages. Having everything in one place is convenient and means that you don’t have to learn your way around a maze of different technologies.
+                </p>
+                <h3>Helps you get things done</h3>
+                <p>
+                    GNOME 3 provides a focused working environment that helps you to get things done, and it is packed with features that will make you more productive. A powerful search feature lets you access all your work from one place. Side-by-side windows makes it easy to view several documents at the same time, and we even provide a way to turn off notifications when you really need to concentrate on the task in hand.
+                </p>
+                <h3>Puts you in control</h3>
+                <p>
+                    GNOME 3 lets you do the things you want without getting in the way. It won’t bother you or badger you with demands, and it has been designed to help you comfortably deal with notifications. Our messaging system lets you quickly respond to notifications in place or to return to them at a convenient time.
+                </p>
+                <h3>Finely crafted</h3>
+                <p>
+                    Every aspect of GNOME 3 has been crafted to fit together as a harmonious whole, so that it offers a consistent and integrated experience. We have paid a huge amount of attention to detail, resulting in a smooth and polished product that is satisfying to use and beautiful to behold.
+                </p>
+                <h3>Easily access all your data</h3>
+                <p>
+                    If you use online services to store documents or to organize your calendar or contacts, GNOME 3 is just for you. It will seamlessly integrate with your online accounts, so that all your data can be accessed from the same place. This takes the work out of using online accounts and makes it easy to find things when you need them.
+                </p>
+
+                <h3>And much, much more</h3>
+                <p>
+                    Find out how to get GNOME 3
+                </p>
+
+                <ul>
+                    <li>The Gnome Project</li>
+                    <li>About Us</li>
+                    <li>Get Involved</li>
+                    <li>Support GNOME</li>
+                    <li>Merchandise</li>
+                    <li>Contact Us</li>
+                    <li>The GNOME Foundation</li>
+                </ul>
+                <ul>
+                    <li>Resources</li>
+                    <li>Developer Center</li>
+                    <li>Documentation</li>
+                    <li>Wiki</li>
+                    <li>Mailing Lists</li>
+                    <li>IRC Channels</li>
+                    <li>Bug Tracker</li>
+                    <li>Development Code</li>
+                </ul>
+                <ul>
+                    <li>News</li>
+                    <li>Press Releases</li>
+                    <li>Latest Release</li>
+                    <li>Planet GNOME</li>
+                </ul>
+                <p>
+                    © The GNOME Project <br />
+                    Free to share and remix: Creative Commons CC-BY. Optimized for standards. Hosted by Red Hat. Powered by WordPress.
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
     </article>
     <aside>
         <p>
-            ...
+            Real existierende Webseiten nachzubauen ist eine gute Übung. Oft kann man sich
+            viele gute Ideen für die Gestaltung abschauen. Und schwer ist es meistens auch
+            nicht, da auch die anderen nur mit Wasser kochen. Hier bauen wir deshalb einen
+            etwas älteren Screenshot von der Seite <a href="https://www.gnome.org/" target="_blank">gnome.org</a>
+            nach und setzen dabei wie das Original auf Bootstrap.
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -6013,4 +6381,4 @@
             </small>
         </p>
     </aside>
-</section> -->
+</section>
