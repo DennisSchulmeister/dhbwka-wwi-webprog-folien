@@ -7327,6 +7327,67 @@
                     Viel Spaß bei der Umsetzung und gute Unterhaltung mit Eliza! 🤖
                 </p>
             </lsx-tab-page>
+
+            <lsx-tab-page title="Weitere Seiten laden">
+                <p>
+                    Mit Hilfe der JavaScript-Bibliothek <a href="https://htmx.org/" target="_blank">htmx</a>
+                    lässt sich die Anwendung ganz leicht um weitere Seiten erweitern. Die Bibliothek sorgt
+                    dabei dafür, dass diese die geladene HTML-Datei im Browser nicht ersetzen (und dadurch
+                    auch den JavaScript-Code neustarten), sondern dass sie in die bestehende Seite nachgeladen
+                    werden. Hierfür sind im HTML-Code lediglich folgende Anpassungen notwendig:
+                </p>
+
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;title&gt;🤖 Eliza.js&lt;/title&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    
+                            &lt;!-- HTMX als einfache Lösung für Single Page Apps --&gt;
+                            &lt;script src="https://unpkg.com/htmx.org@2.0.3"&gt;&lt;/script&gt;
+                    
+                            &lt;!-- Eigene Skripte --&gt;
+                            &lt;link rel="stylesheet" href="style.css"/&gt;
+                            &lt;script src="index.js"&gt;&lt;/script&gt;
+                    
+                            &lt;!-- Ein- und Ausblenden des Chats --&gt;
+                            &lt;script&gt;
+                                function showChat() {
+                                    htmx.find('#chat-area').classList.remove("hidden");
+                                    htmx.find('#page-content').classList.add("hidden");
+                                }
+                    
+                                function hideChat() {
+                                    htmx.find('#chat-area').classList.add("hidden");
+                                    htmx.find('#page-content').classList.remove("hidden");
+                                }
+                            &lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;!-- Navigationslinks --&gt;
+                            &lt;nav&gt;
+                                &lt;a hx-on:click="showChat()"&gt;Chat&lt;/a&gt;
+                                &lt;a hx-get="pages/settings.html" hx-target="#page-content" hx-on:click="hideChat()"&gt;Einstellungen&lt;/a&gt;
+                                &lt;a hx-get="pages/about.html" hx-target="#page-content" hx-on:click="hideChat()"&gt;Informationen&lt;/a&gt;
+                            &lt;/nav&gt;
+                    
+                            &lt;main id="chat-area"&gt;
+                                &lt;div class="banner"&gt;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&lt;/div&gt;
+                                &lt;div class="banner"&gt;Eliza.js – Chatten bis der Arzt kommt!&lt;/div&gt;
+                                &lt;div class="banner"&gt;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&lt;/div&gt;
+                            
+                                &lt;div class="messages"&gt;&lt;/div&gt;
+                                &lt;input autofocus /&gt;
+                            &lt;/main&gt;
+                    
+                            &lt;!-- Bereich für die nachgeladenen Seiteninhalte --&gt;
+                            &lt;main id="page-content" class="hidden"&gt;&lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;                
+                </source-code>
+            </lsx-tab-page>
         </lsx-tab-pages>
     </article>
     <aside>
