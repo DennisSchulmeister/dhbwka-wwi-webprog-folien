@@ -6405,21 +6405,22 @@
     </aside>
 </section>
 
+<!--
 <section data-title="TODO - Aufgabe 9: Code-Schnippsel" data-background-color="rgb(231, 221, 141)">
     <article>
         <div class="d-flex flex-column gap-4">
-            <!-- Progress Steps -->
+            <! -- Progress Steps -- >
             <div class="d-flex flex-column justify-content-between">
                 <div class="d-flex justify-content-between align-items-center">
-                    <!-- Past Steps -->
+                    <! -- Past Steps -- >
                     <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #94c07c;"></div>
                     <hr class="flex-grow-1">
             
-                    <!-- Current Step -->
+                    <! -- Current Step -- >
                     <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #5483a9;"></div>
                     <hr class="flex-grow-1">
         
-                    <!-- Next Steps -->
+                    <! -- Next Steps -- >
                     <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #bdd0df;"></div>
                     <hr class="flex-grow-1">
 
@@ -6442,7 +6443,7 @@
                 </div>
             </div>
     
-            <!-- Aufgabentext -->
+            <! -- Aufgabentext -- >
             <div>
                 <p>
                     Definiere eine Funktion mit dem Namen <code>checkTemperature()</code>,
@@ -6472,7 +6473,7 @@
                 </table>
             </div>
     
-            <!-- JS-Editor -->
+            <! -- JS-Editor -- >
             <lsx-tab-pages>
                 <lsx-tab-page title="JavaScript">
                     <ace-code mode="javascript" style="height: 15em; font-size: 80%">
@@ -6489,12 +6490,12 @@
                 </lsx-tab-page>
             </lsx-tab-pages>
 
-            <!-- Feedback -->
+            <! -- Feedback -- >
             <lsx-info-box type="critical" title="Leider falsch …">
                 Funktion <code>checkTemperature</code> existiert nicht. 
             </lsx-info-box>
 
-            <!-- Buttons -->
+            <! -- Buttons -- >
             <div class="d-flex justify-content-between align-items-center gap-1">
                 <button type="button" class="btn btn-dark">Überprüfen</button>
                 <button type="button" class="btn btn-light">Neuer Versuch</button>
@@ -6506,7 +6507,7 @@
             </div>
         </div>
 
-        <!--
+        <! --
         <lsx-code-challenge>
             <lsx-cc-tasks>
                 <lsx-cc-task id="checkTemperature">
@@ -6562,7 +6563,7 @@
                 </lsx-tab-page>
             </lsx-cc-code>
         </lsx-code-challenge>
-        -->
+        -- >
     </article>
     <aside>
         <p>
@@ -6582,6 +6583,7 @@
         <lsx-youtube video="iDicwfAhDaM"></lsx-youtube>
     </aside>
 </section>
+-->
 
 <section data-title="Aufgabe 9: Formularprüfung" data-background-color="rgb(231, 221, 141)">
     <article>
@@ -7008,37 +7010,237 @@
     ÜBUNGSAUFGABEN
     ==============
 -->
-<!-- 
 <section data-use-template="teilkapitel" data-titel="Übungsaufgaben"></section>
 
 <section data-title="Übung 1: TwoStep" data-background-color="rgb(179, 202, 223)">
     <article>
-        <lsx-github-edit
-            class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
-            pages-label1 = "Musterlösung ansehen"
-        >
-        </lsx-github-edit>
+        <style>
+            table.twostep {
+                border-collapse: collapse;
+                width: 100%;
+                margin-bottom: 1em;
+                text-align: left;
+            }
 
-        <p>
-            ...
-        </p>
+            table.twostep thead {
+                background-color: lightsteelblue;
+            }
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-        </div>
+            table.twostep th,
+            table.twostep td {
+                padding: 0.5em;
+                border: 1px solid black;
+            }
 
-        <p>
-            ...
-        </p>
+            table.twostep td.given {
+                background-color: oldlace;
+            }
+
+            table.twostep td[contenteditable="true"] {
+                color: darkblue;
+            }
+
+            table.twostep td.code {
+                background-color: white;
+                font-family: monospace;
+            }
+
+            pre.twostep {
+                border: 1px solid black;
+                background: #333333;
+                color: mediumseagreen;
+                padding: 0.5em;
+            }
+        </style>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Einleitung">
+                <p>
+                    In dieser Aufgabe wollen wir eine kleine Musikdatenbank mit klassischen Ragtime-Stücken
+                    modellieren. Würden wir hierfür eine relationale Datenbank nutzen, würden die Tabellen
+                    in etwa so aussehen:
+                </p>
+        
+                <h4 class="dhbw-lightblue">Komponisten</h4>
+                <table class="twostep">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Geboren</th>
+                            <th>Gestorben</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="given key">1</td>
+                            <td class="given">Scott Joplin</td>
+                            <td class="given">1867</td>
+                            <td class="given">1917</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">2</td>
+                            <td class="given">James Scott</td>
+                            <td class="given">1886</td>
+                            <td class="given">1938</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">3</td>
+                            <td class="given">Luckey Roberts</td>
+                            <td class="given">1887</td>
+                            <td class="given">1968</td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+                <h4 class="dhbw-lightblue">Musikstücke</h4>
+                <table class="twostep">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Komponist</th>
+                            <th>Titel</th>
+                            <th>Jahr</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="given key">1</td>
+                            <td class="given">1</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=e01ulR5KMWI" target="_blank">The Entertainer</a>
+                            </td>
+                            <td class="given">1902</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">2</td>
+                            <td class="given">1</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=bCxLAr_bwpA" target="_blank">Maple Leaf Rag</a>
+                            </td>
+                            <td class="given">1899</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">3</td>
+                            <td class="given">2</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=kLCf6jDf4jM" target="_blank">Grace and Beauty</a>
+                            </td>
+                            <td class="given">1909</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">4</td>
+                            <td class="given">3</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=Di6qAAJD_aI" target="_blank">Pork and Beans</a>
+                            </td>
+                            <td class="given">1913</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">5</td>
+                            <td class="given">3</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=UXyTOypYDAM" target="_blank">The Music Box Rag</a>
+                            </td>
+                            <td class="given">1914</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Arrays und Objekte">
+                <p>
+                    <b>a)</b>
+                    Öffne den JS.Scratch-Editor aus der Vorlesung und schreibe eine JavaScript-Datei,
+                    die exakt dieselben Daten enthält. Die Werte sollen dabei in einer Variable mit
+                    einer tiefen Datenstruktur gespeichert werden.
+                </p>
+
+                <pre class="twostep" contenteditable="true"><code>Lösung kann hier eingetragen werden.</code></pre>
+
+                <p>
+                    <b>b)</b>
+                    Mit welcher Syntax kann auf die folgenden Werte zugegriffen werden?
+                </p>
+
+                <table class="twostep">
+                    <colgroup>
+                        <col style="width: 50%" />
+                        <col style="width: 50%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>JavaScript-Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="given">Alle Daten zum Komponisten „Scott Joplin“</td>
+                            <td class="code" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Auf das Geburtsjahr von „Luckey Roberts“</td>
+                            <td class="code" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Auf das Musikstück „The Entertainer“</td>
+                            <td class="code" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Auf das Erscheinungsjahr von „The Music Box Rag“</td>
+                            <td class="code" contenteditable="true"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center;">
+                    <small>
+                        In die weißen Spalten klicken, um etwas einzutragen.
+                    </small>
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Werte ausgeben">
+                <p>
+                    JavaScript kennt mehrere Möglichkeiten, eine Schleife über alle Werte eines Arrays zu bilden:
+                </p>
+                <ol>
+                    <li>
+                        <src-code language="javascript">for (let i = 0; i < liste.length; i++)</tt>
+                    </li>
+                    <li>
+                        <src-code language="javascript">for (let i in liste)</src-code>
+                    </li>
+                    <li>
+                        <src-code language="javascript">for (let element of liste)</src-code>
+                    </li>
+                    <li>
+                        <src-code language="javascript">list.forEach(element => …)</src-code>
+                    </li>
+                </ol>
+                <p>
+                    Probiere alle drei Varianten aus und versuche damit, alle Songtitel von allen Komponisten
+                    auf der Konsole auszugeben. Das Ergebnis sollte in etwa so aussehen:
+                </p>
+
+                <source-code language="text">
+                    The Entertainer
+                    Maple Leaf Rag
+                    Grace and Beauty
+                    Pork and Beans
+                    The Music Box Rag
+                </source-code>
+
+                <pre class="twostep" contenteditable="true"><code>Lösung kann hier eingetragen werden.</code></pre>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
     </article>
     <aside>
         <p>
-            ...
+            Was gibt es schöneres als Musik? Zum Kennenlernen von JavaScript wollen wir daher
+            eine kleine Musikdatenbank entwickeln und ein paar bekannte RagTime-Kompositionen
+            als Vorlage verwenden. Denn mit Musik geht alles viel besser. 🎵
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -7047,6 +7249,8 @@
                 <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
             </small>
         </p>
+
+        <lsx-youtube video="FrKtuX3YbyI"></lsx-youtube>
     </aside>
 </section>
 
@@ -7054,36 +7258,89 @@
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "3%20JavaScript/Aufgaben/Eliza.js/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/Eliza.js"
+            pages-url1   = "3%20JavaScript/Aufgaben/Eliza.js/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
 
-        <p>
-            ...
-        </p>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Im Einführungsvideo zu <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a>
+                    haben wir einen kleinen Chatbot programmiert, der in dieser Aufgabe nun zu Ende gebaut werden soll: Eliza.js,
+                    benannt nach dem <a href="https://sites.google.com/view/elizaarchaeology/home" target="_blank">berühmten Vorbild
+                    von Joseph Weizenbaum</a>. Die Grundidee ist ganz einfach: Der Chatbot simuliert ein intelligentes Gespräch,
+                    indem er auf bestimmte Schlüsselwörter reagiert und dazu passende Antworten generiert. Mit der Original-ELIZA
+                    oder gar ChatGPT kann er es zwar nicht aufnehmen. Aber zum Kennenlernen von JavaScript ist er ideal.
+                </p>
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-        </div>
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="4-js-grundlagen/ub-eliza/screenshot.png" caption="Screenshot der Musterlösung"></lsx-modal-image>
+                </div>
 
-        <p>
-            ...
-        </p>
+                <p>
+                    Das Grundgerüst der Anwendung ist bereits fertiggestellt. Der Quellcode enthält aber noch sehr
+                    viele Lücken, die erst noch fertig programmiert werden wollen, bevor der Chatbot wirklich mit
+                    uns spricht.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Vorgehensweise">
+                <p></p>
+                    Die zu ändernden Stellen sind im Quellcode wie üblich mit dem Hinweis
+                    <code>TODO</code> gekennzeichnet. Sie alle befinden sich innerhalb
+                    der Datei <code>index.js</code>. Weitere Dateien sind dieses Mal
+                    nicht zu bearbeiten:
+                </p>
+                <ol class="dhbw-list-spacious">
+                    <li>
+                        Die Variablen <code>messagesElement</code> und
+                        <code>inputElement</code> müssen mit den jeweiligen
+                        HTML-Elementen aus dem DOM-Baum versorgt werden.
+                    </li>
+                    <li>
+                        Die Struktur <code>chatbotKeywords</code> muss um weitere
+                        Schlüsselwörter und mögliche Antworten ergänzt werden.
+                    </li>
+                    <li>
+                        Die Funktion <code>postMessage()</code> muss wie in den Kommentaren
+                        beschrieben zu Ende programmiert werden, um die Nachrichten der beiden
+                        Chatteilnehmer anzuzeigen.
+                    </li>
+                    <li>
+                        Die Anzeige der vom manuell eingegebenen Nachrichten muss innerhalb des
+                        <code>keyup</code>-Event-Handlers vorgenommen werden. In derselben
+                        Funktion müssen auch die Antworten des Chatbots angefordert und angezeigt
+                        werden.
+                    </li>
+                    <li>
+                        Schlussendlich muss dann noch die Funktion <code>generateBotAnswer()</code>
+                        wie in den Kommentaren beschrieben vervollständigt werden. Dort muss die empfangene
+                        Nachricht auf bekannten Schlüsselwörter abgeklopft werden. Bei einer Übereinstimmung
+                        muss die Liste der möglichen Antworten entsprechend verlängert werden, bevor ganz am
+                        Ende dann eine zufällige Auswahl erfolgt.
+                    </li>
+                </ol>
+                <p>
+                    Viel Spaß bei der Umsetzung und gute Unterhaltung mit Eliza! 🤖
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
     </article>
     <aside>
         <p>
-            ...
+            Hier wollen wir eine echte kleine JavaScript-Anwendung bauen. Einen Chatbot, der zwar nicht
+            besonders intelligent ist. Aber anhand dessen wir uns ein paar Besonderheiten von JavaScript
+            sowie den Zugriff auf das Document Object Model praktisch anschauen können.
         </p>
-        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
+        <img src="4-js-grundlagen/eliza.jpg" class="img-fluid d-block" />
         <p>
             <small>
-                Bildnachweis:
-                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
+                Bildnachweise:
+                <a href="https://sites.google.com/view/elizaarchaeology/try-eliza" target="_blank">ELIZA Archaeology</a>,
+                <a href="https://upload.wikimedia.org/wikipedia/commons/a/a4/TSD_Computer_-%2CSchreib_und_B%C3%BCrotechnik_DEC_ASCII_Computer-Terminal_digital_VT_100.jpg" target="blank">Wikimedia Commons</a>
             </small>
         </p>
     </aside>
@@ -7093,30 +7350,77 @@
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "3%20JavaScript/Aufgaben/Fotobuch/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/Fotobuch"
+            pages-url1   = "3%20JavaScript/Aufgaben/Fotobuch/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
 
-        <p>
-            ...
-        </p>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Die Webseite der <a href="https://karlsruhe.dhbw.de" target="_blank">DHBW Karlsruhe</a> enthält einen
+                    schön gemachten <a href="https://www.36o.de/dhbw-karlsruhe/" target="_blank">360°-Fotorundgang</a>,
+                    auf dem man verschiedene Gebiete innerhalb und außerhalb des Campus erkunden kann. Eine dreidimensionale
+                    Projektion können wir in dieser Aufgabe zwar nicht nachbauen (auch wenn es mit
+                    <a href="https://threejs.org/" target="_blank">three.js</a> oder einer ähnlichen WebGL-Bibliothek nicht
+                    allzu schwer ist). Wir können die Seite aber wie immer als Vorlage für unsere eigenen Experimente nutzen
+                    und die wesentlichen Gestaltungsmerkmale in Form eines digitalen Fotobuchs nachbauen.
+                </p>
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-        </div>
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="4-js-grundlagen/ub-fotobuch/screenshot-vorlage.png" caption="Vorlage"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/ub-fotobuch/screenshot-loesung1.png" caption="Musterlösung (Desktop)"></lsx-modal-image>
+                </div>
 
-        <p>
-            ...
-        </p>
+                <p>
+                    Im unteren Bereich der Seite soll eine Reihe von Vorschaubildern zur
+                    Auswahl des aktuell sichtbaren Bildes angezeigt werden. Diese soll
+                    auf kleinen Bildschirmen auf drei Bilder bestehend aus dem aktuellen,
+                    dem vorherigen und dem nachfolgenden Bild beschränkt werden. Bei Klick
+                    auf ein Bild soll das aktuelle Hintergrundbild durch dieses Ersetzt
+                    werden, wobei der Wechsel durch eine mit CSS realisierte, animierte
+                    Überblendung erfolgen soll. Das aktuelle Vorschaubild soll visuell
+                    hervorgehoben werden, wenn die Maus darüber fährt, indem die anderen
+                    Vorschaubilder halbtransparent gemacht werden.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Vorgehensweise">
+                <p>
+                    Die zu bearbeitenden Stellen sind wie immer mit <code>TODO</code> im
+                    Quellcode gekennzeichnet und ausführlich beschrieben. Sie sollten
+                    in der durch die Nummerierung vorgegebenen Reihenfolge abgearbeitet
+                    werden:
+                </p>
+                <ol>
+                    <li>
+                        Weitere Bilder im HTML-Code deklarieren.
+                    </li>
+                    <li>
+                        Anklickbare Vorschaubilder generieren.
+                    </li>
+                    <li>
+                        Beim Start das erste Bild anzeigen.
+                    </li>
+                    <li>
+                        Hintergrundbild mit Animation wechseln.
+                    </li>
+                </ol>
+                <p>
+                    Es muss kein CSS-Code geschrieben werden. Lediglich eine Stelle im HTML-Code muss
+                    angepasst werden. Die eigentliche Arbeit liegt im JavaScript-Code, in dem einfach
+                    die TODO-Kommentare abgearbeitet werden müssen.
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
     </article>
     <aside>
         <p>
-            ...
+            Mit HTML, CSS und JavaScript kann man schon tolle Dinge machen. Im Handumdrehen entstehen
+            ansprechende User Interfaces und interaktive Anwendungen. Hier wollen wir ein kleines
+            Fotobuch zum Durchblättern von Urlaubsbildern damit programmieren. 📷
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -7132,30 +7436,40 @@
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "3%20JavaScript/Aufgaben/Gluecksrad/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/Gluecksrad"
+            pages-url1   = "3%20JavaScript/Aufgaben/Gluecksrad/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
 
         <p>
-            ...
+            Mit dem bisher erworbenen Wissen können wir sogar kleine Browserspiele programmieren.
+            Denn mit HTML und CSS lassen sich diese einfach gestalten, wobei JavaScript die Spiellogik
+            beisteuert. In dieser Aufgabe wollen wir daher ein kleines Ratespiel in Anlehnung an die
+            Spielshow Glücksrad programmieren. Genau wie im Original müssen bei uns Buchstaben für ein
+            Lösungswort erraten werden. Für jeden richtigen Buchstaben werden Punkte gutgeschrieben,
+            für jeden falschen Buchstaben wieder abgezogen. Passende Geräuscheffekte begleiten das Spiel. ♪
         </p>
 
         <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
+            <lsx-modal-image src="4-js-grundlagen/ub-gluecksrad/screenshot.jpg" caption="Screenshot der Musterlösung"></lsx-modal-image>
         </div>
 
         <p>
-            ...
+            Die zu bearbeitenden Stellen sind mit <code>TODO</code> im Quellcode gekennzeichnet.
+            Los geht es in der Datei <tt class="fn">index.html</tt>, in der ein neues Objekt der Klasse
+            <code>WheelOfFortune</code> erzeugt werden muss. Die Syntax ist ähnlich wie in Java.
+            Anschließend müssen in der Klasse ein paar DOM-Zugriffe ausprogrammiert werden,
+            um das Spiel fertigzustellen.
         </p>
     </article>
     <aside>
         <p>
-            ...
+            Auch Spiele lassen sich mit HTML, CSS und JavaScript einfach programmieren. 🎲
+            Hier können wir natürlich nur ein sehr kleines Spiel bauen, inspiriert von
+            der seit 1988 laufenden Spielshow <a href="https://de.wikipedia.org/wiki/Gl%C3%BCcksrad_(Spielshow)" target="_blank">Glücksrad</a>.
+            📺
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -7171,30 +7485,110 @@
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "3%20JavaScript/Aufgaben/SPA-Router/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/SPA-Router"
+            pages-url1   = "3%20JavaScript/Aufgaben/SPA-Router/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
 
-        <p>
-            ...
-        </p>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Streng genommen ist jede interaktive Webanwendung, die nur einmal beim Aufruf
+                    eine komplette HTML-Seite vom Server lädt und ab dann mit JavaScript im Browser
+                    läuft, eine <b>Single Page App</b>. Gemeint ist, dass nach dem ersten Aufruf nur
+                    noch Rohdaten oder Seitenfragmente vom Server abgeholt werden, die eigentliche
+                    Seite im Browser aber bestehen bleibt und zu keinem Zeitpunkt neugeladen wird.
+                </p>
+                <p>
+                    Gute Single Page Apps ändern daher  jedem Wechsel der Ansicht die in der
+                    Adresszeile des Browsers angezeigte URL und werten diese aus, um bei einem
+                    Aufruf der Anwendung sofort an die richtige Stelle zu springen. Das erhöht
+                    den Nutunzgskomfort und vereinfacht oft sogar den Quellcode, da die gesamte
+                    Navigation an zentraler Stelle abgehandelt werden kann. ♻️ Und auch die Anzeige
+                    einer Fehlerseite bei dem Versuch, eine unbekannte URL aufzurufen, lässt sich
+                    mit ganz einfach realisieren.
+                </p>
+        
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="4-js-grundlagen/ub-spa-router/screenshot1.png" caption="Startseite /"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/ub-spa-router/screenshot2.png" caption="Seite /other/"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/ub-spa-router/screenshot3.png" caption="Unbekannte Seite"></lsx-modal-image>
+                </div>
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-        </div>
+                <p>
+                    Die Zuordnung der darzustellenden Ansicht zu einer URL wird Routing und die
+                    Komponente, die diese Zuordnung vornimmt, wird Router oder URL-Router genannt.
+                    Single Page Apps nutzen daher einen „Single Page App Router” (kurz SPA-Router),
+                    der genau diese Aufgabe übernimmt. Jedes auf die Entwicklung von Single Page Apps
+                    spezialisierte Framework bringt einen solchen Router mit. Wie sich herausstellt,
+                    lässt sich dieser aber auch ohne Framework sehr einfach selbst realisieren,
+                    wenn man dabei auf den alten Trick zurückgreift, dass der Browser eine Seite
+                    nicht neu lädt, sofern sich an der URL nur der Anker, also der Teil nach dem
+                    ersten #-Zeichen, ändert. Die bereits fertig ausprogrammierte Klasse
+                    <code>Router</code> in dieser Aufgabe, zeigt wie das geht.
+                </p>
+                <lsx-info-box title="Hinweis">
+                    Mit etwas mehr Logik lassen sich mit derselben Technik auch URLs ohne <tt>#</tt>-Zeichen
+                    behandeln. Dies setzt allerdings einen entsprechend konfigurierten Webserver voraus, der
+                    immer den HTML-Code der Startseite liefert, auch wenn scheinbar ein Unterverzeichnis angefragt
+                    wurde. Anstelle des <code>hashchange</code>-Events müsste dann das <code>popstate</code>-Event
+                    behandelt werden.
+                </lsx-info-box>
+            </lsx-tab-page>
 
-        <p>
-            ...
-        </p>
+            <lsx-tab-page title="Vorgehensweise">
+                <p>
+                    Die Nutzung der Klasse ist relativ leicht. Sie muss beim Laden der Seite instantiiert
+                    und mit einer Liste von URL-Routen versorgt werden. Jede Route beseht dabei aus einem
+                    regulären Ausdruck zum Matchen der URL sowie einer Funktion, die den angezeigten Inhalt
+                    verändert. Der Aufruf der <code>start()</code>-Methode führt dann dazu, dass die aktuelle
+                    URL ausgewertet und auf jede zukünftige URL-Änderung reagiert wird.
+                </p>
+                <p>
+                    Soll innerhalb der Anwendung die Ansicht gewechselt werden, kann das ab diesem Moment
+                    entweder durch Überschreiben von <code>location.hash</code> in JavaScript oder durch
+                    einen Link in HTML ausgelöst werden:
+                </p>
+        
+                <lsx-grid-fluid>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-info-box title="Seite wechseln in JavaScript">
+                                <source-code language="javascript">
+                                    location.hash = "other";
+                                </source-code>
+                            </lsx-info-box>
+                        </lsx-col>
+
+                        <lsx-col size="md">
+                            <lsx-info-box title="Link in HTML">
+                                <source-code language="html">
+                                    &lt;a href="#/other/"&gt;Ansicht wechseln&lt;/a&gt;
+                                </source-code>
+                            </lsx-info-box>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+
+        
+                <p>
+                    In dieser Aufgabe sollst du dies einmal selbst ausprobieren. Die Grundstruktur
+                    der Seite wurde hierfür bereits vorbereitet. Du musst lediglich die Router-Klasse
+                    wie oben beschrieben initialisieren und ein paar alternative Ansichten mit Verlinkungen
+                    untereinander realisieren. 🔗 Wie das geht, steht wie immer als Kommentar im Quellcode.
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
     </article>
     <aside>
         <p>
-            ...
+            Das sog. URL-Routing ist enscheidung für eine gut gemachte Single Page App. Denn dadurch
+            können die Unterseiten der Anwendung direkt eine URL aufgerufen und somit zum Beispiel als
+            Link per Mail verschickt oder als Lesezeichen gespeichert werden. Diese Aufgabe zeigt, wie
+            es geht, anhand einer selbstgeschriebenen <code>Router</code>-Klasse, die einfach aber
+            flexibel einsetzbar ist.
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -7210,30 +7604,217 @@
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "3%20JavaScript/Aufgaben/Adressbuch%20(Single%20Page%20App)/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/Adressbuch%20(Single%20Page%20App)"
+            pages-url1   = "3%20JavaScript/Aufgaben/Adressbuch%20(Single%20Page%20App)/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
 
-        <p>
-            ...
-        </p>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Wie lang ist es her, als man mit einem Telefon wirklich noch telefoniert hat?
+                    Als ein Telefon nicht zwingend ein Display hatte, sondern nur einen Höhrer und
+                    Tasten zum Wählen? Als man noch richtig mit seinen Freunden telefonierte und
+                    die wichtigsten Telefonnummern auswendig kannte? Natürlich konnte man sich damals,
+                    kurz nachdem die Dinosaurier 🦖 die Welt beherrschten, nicht jede Telefonnummer
+                    merken. Aber dafür gab es ja Adressbücher (natürlich aus Papier), in denen man
+                    die Nummern festhalten konnte. 📓  Heute sind wir weniger old-school unterwegs.
+                    Unser Adressbuch soll daher als Browser App mit HTML, CSS und JavaScript realisiert
+                    werden. Folgende Anforderungen soll es erfüllen:
+                </p>
+                <ul>
+                    <li>
+                        Ruft man die App auf, erscheint eine Liste mit allen vorhandenen Adressen.
+                    </li>
+                    <li>
+                        Ist noch keine Adresse vorhanden, wird ein entsprechender Hinweis angezeigt.
+                    </li>
+                    <li>
+                        Zum Anlegen eines neuen Eintrags wird die Adressliste ausgeblendet und ein Eingabeformular eingeblendet.
+                    </li>
+                    <li>
+                        Dasselbe Formular soll auch zum Bearbeiten einer Adresse verwendet werden.
+                    </li>
+                    <li>
+                        Einzelne Adressen können nachträglich auch wieder gelöscht werden.
+                    </li>
+                    <li>
+                        Jede Adresse besteht aus Vorname, Nachname, Telefon und E-Mail.
+                    </li>
+                </ul>
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-        </div>
+                <p>
+                    Die folgenden Screenshots zeigen das Erscheinungsbild der App:
+                </p>
 
-        <p>
-            ...
-        </p>
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="4-js-grundlagen/ub-adressbuch/screenshot1.png" caption="Startseite ohne Einträge"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/ub-adressbuch/screenshot2.png" caption="Neuen Eintrag anlegen"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/ub-adressbuch/screenshot3.png" caption="Startseite mit Daten"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/ub-adressbuch/screenshot4.png" caption="Eintrag bearbeiten"></lsx-modal-image>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Quellcode">
+                <p>
+                    Der Quellcode der Anwendung weist einige Besonderheiten auf. Denn im Gegensatz
+                    zu den vorherigen Beispielen handelt es sich hierbei um eine vollwertige Single
+                    Page App mit einer leicht zu erweiternden Architektur. Die Anwendung wurde daher
+                    objekt-orientiert gegliedert und verwendet einen Single Page Router zur Steuerung
+                    der Navigation. Zusätzlich wird der HTML-Inhalt der einzelnen Ansichten erst bei
+                    Bedarf geladen, um die Ladezeit der App zu optimieren. Die ganze Architektur ist
+                    so gestaltet, dass später leicht echte Backendservices angebunden oder weitere
+                    Ansichten hinzugefügt werden können.
+                </p>
+                <p>
+                    Das Grundgerüst wird dabei durch folgende Dateien realisiert:
+                </p>
+                <table class="table border">
+                    <tr>
+                        <td>
+                            <span class="fn">index.html</span>
+                        </td>
+                        <td>
+                            Startdatei und HTML-Grundgerüst der Anwendung
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fn">app.css</span>
+                        </td>
+                        <td>
+                            Stylesheet zur Definition des übergreifenden Layouts
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fn">app.js</span>
+                        </td>
+                        <td>
+                            Hauptklasse <code>App</code> sowie JavaScript-Code zum Starten der Anwendung
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="fn">
+                            <span class="fn">router.js</span>
+                        </td>
+                        <td>
+                            Klasse <code>Router</code> mit dem Single Page Router zur Navigation innerhalb der App
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fn">
+                            <span class="fn">database.js</span>
+                        </td>
+                        <td>
+                            Klasse <code>Database</code> zur Verwaltung der Adressbucheinträge in einer lokalen Datenbank
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fn pb-4">
+                            <span class="fn">page.js</span>
+                        </td>
+                        <td class="skip">
+                            Basisklasse <code>Page</code> für die einzelnen Ansichten innerhalb der App
+                        </td>
+                    </tr>
+                </table>
+
+                <p>
+                    Durch den Single Page Router erhält jede Ansicht eine eindeutige URL,
+                    wodurch die Navigation innerhalb der App deutlich vereinfacht wird.
+                    Denn diese kann somit durch einfache Links im HTML-Code realisiert
+                    werden. Jede Ansicht kann zusätzlich über ihre URL direkt aufgerufen
+                    werden, ohne notwendigerweise die Startseite der App zu besuchen.
+                    Und bei jedem Navigationsschritt entsteht ein Eintrag in der
+                    Browser-Historie, so dass auch der Zurück-Button des Browsers
+                    genutzt werden kann, um zu einer vorherigen Ansicht zurückzukehren.
+                </p>
+                <p>
+                    Die Klasse <code>App</code> beinhaltet hierfür mehrere <code>_goto…()</code>
+                    genannte Methoden zum Aufruf einer Ansicht. Diese werden vom Single Page
+                    Router verwendet, um die aktuelle Ansicht zu wechseln. Innerhalb der Methoden
+                    wird dann jeweils der passende Quellcode nachgeladen und ein von der Klasse
+                    <code>Page</code> abgeleitetes Objekt erzeugt, das für die Generierung des
+                    jeweiligen HTML-Codes zuständig ist. Dieser wird hierfür innerhalb der
+                    geerbten <code>init()</code>-Methode aus einer separaten HTML-Datei geladen
+                    und mit den DOM-Methoden von JavaScript manipuliert.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Vorgehensweise">
+                <p>
+                    Das Grundgerüst der Anwendung ist wie immer vorgegeben und die zu bearbeitenden
+                    Codestellen sind mit <code>TODO</code> in den Kommentaren gekennzeichnet. Folgende
+                    Dinge müssen erledigt werden:
+                </p>
+
+                <h4 class="dhbw-lightblue mt-4">Einbau des Single Page Routers</h4>
+                <ol>
+                    <li>
+                        Definition der Menüeinträge in der Datei <span class="fn">index.html</span>.
+                    </li>
+                    <li>
+                        Definition der URL-Routen im Konstruktur der Klasse <code>App</code>.
+                    </li>
+                    <li>
+                        Methode <code>start()</code> des Routers in der <code>init</code>-Methode von <code>App</code> aufrufen.
+                    </li>
+                    <li>
+                        Methoden <code>_gotoList()</code> und <code>_gotoNew()</code> der <code>App</code>-Klasse ausprogrammieren.
+                    </li>
+                    <li>
+                        Arbeitsweise der Methode <code>init()</code> der Basisklasse <code>Page</code> nachvollziehen.
+                    </li>
+                    <li>
+                        In der Klasse <code>App</code> in <code>_showPage()</code> das sichtbare <code>&lt;main&gt;</code>-Element austauschen.
+                    </li>
+                </ol>
+
+                <h4 class="dhbw-lightblue mt-4">Fertigstellen der Übersichtsseite</h4>
+                <ol>
+                    <li>
+                        Den Aufbau des HTML-Templates <span class="fn">page-list/page-list.html</span> nachvollziehen.
+                    </li>
+                    <li>
+                        In der Klasse <code>PageList</code> bei vorhandenen Datenbankeinträgen den Hinweistext unsichtbar machen.
+                    </li>
+                    <li>
+                        Die Platzhalter im HTML-Code durch die tatsächlichen Werte aus der Datenbank ersetzen.
+                    </li>
+                    <li>
+                        Den HTML-Code des aktuellen Datensatzes an das <code>&lt;ol&gt;</code>-Element anhängen, um ihn anzuzeigen.
+                    </li>
+                    <li>
+                        Event Handler für die Buttons zum Bearbeiten und Löschen einer Adresse ausprogrammieren.
+                    </li>
+                </ol>
+
+                <h4 class="dhbw-lightblue mt-4">Adressen anlegen und bearbeiten</h4>
+                <ol>
+                    <li>
+                        Beim Speichern sicherstellen, dass mindestens der Vorname und der Nachname gefüllt sein müssen.
+                    </li>
+                    <li>
+                        Methode <code>save()</code> der Datenbankklasse aufrufen, um den bearbeiteten Datensatz zu speichern.
+                    </li>
+                    <li>
+                        Aktuelle URL auf <code>#/</code> ändern, um die Übersichtsseite aufzurufen.
+                    </li>
+                </ol>
+            </lsx-tab-page>
+        </lsx-tab-pages>
     </article>
     <aside>
         <p>
-            ...
+            Je größer und komplexer eine Anwendung wird, desto wichtiger wird es, ihren Quellcode
+            sauber zu strukturieren. „Separation of Concerns“ und „Objekt-Orientierung“ heißen
+            die Zauberwörter. Diese Aufgabe zeigt ein Beispiel, wie es gehen kann, wenn man kein
+            Framework nutzt, das ohnehin eine feste Quellcodestruktur vorgibt.
+
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -7249,30 +7830,72 @@
     <article>
         <lsx-github-edit
             class        = "mb-3"
-            url          = ".../Aufgabe"
-            download     = "..."
-            pages-url1   = ".../Loesung/"
+            url          = "3%20JavaScript/Aufgaben/Media%20Player/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/Media%20Player"
+            pages-url1   = "3%20JavaScript/Aufgaben/Media%20Player/Loesung/"
             pages-label1 = "Musterlösung ansehen"
         >
         </lsx-github-edit>
 
-        <p>
-            ...
-        </p>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Seitdem in HTML5 das <b><tt>&lt;audio&gt;</tt></b>- und das <b><tt>&lt;video&gt;</tt></b>-Element
+                    spezifiziert wurden, können Multimedia-Inhalte problemlos mit HTML und JavaScript wiedergegeben
+                    werden. Plattformabhängige Browser-Plugins wie Adobe Flash, Microsoft Silverlight oder auch Java
+                    Applets gehören damit zum Glück der Vergangenheit an. Was liegt also näher, als einen kleinen
+                    Media Player (zur Wiedergabe von Musik 🎶) zu programmieren? Auch wenn man sie nicht hören kann:
+                    Die folgenden Screenshots zeigen, wie die Anwendung aussehen soll.
+                </p>
 
-        <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-            <lsx-modal-image src="4-js-grundlagen/ub-..." caption="..."></lsx-modal-image>
-        </div>
+        
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="4-js-grundlagen/ub-media-player/screenshot1.png" caption="Kachelansicht"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/ub-media-player/screenshot2.png" caption="Listenansicht"></lsx-modal-image>
+                </div>
+        
+                <p>
+                    Die Benutzeroberfläche besteht aus zwei Ansichten, welche die vorhandenen Songs einmal als
+                    Kachelansicht und einmal als Liste zeigen. Links davon sind die Elemente zum Steuern der
+                    Wiedergabe und Umschalten der Ansicht. Die Titelzeile zeigt den Namen des aktuellen Titels,
+                    der darüber hinaus im Hauptbereich farblich hervorgehoben wird.
+                </p>
+                <p>
+                    Damit die Aufgabe nicht zu groß wird, wurden die meisten Funktionen schon ausprogrammiert.
+                    Wie immer fehlen aber wesentliche Inhalte, auf die die Kommentare im Quellcode hinweisen.
+                    Unter anderem fehlt in der Klasse <b><tt>Player</tt></b> der Quellcode, um die Wiedergabe
+                    zu starten. Und an einigen Stellen wird das UI noch nicht vollständig aktualisiert.
+                    Die Listenansicht ist hingegen schon fertig programmiert. Die Kachelansicht fehlt, kann
+                    aber nach dem gleichen Prinzip umgesetzt werden, um den Umgang mit der objekt-orientierten
+                    DOM API zu üben.
+                </p>
+                <p>
+                    Alle anzupassenden Quellcodestellen sind mit <code>TODO</code> gekennzeichnet. Fange in der
+                    <tt class="fn">index.html</tt> an und suche dann in den anderen Dateien nach dem Schlüsselwort.
+                    Im Kommentar steht jeweils, was zu tun ist.
+                </p>
+            </lsx-tab-page>
 
-        <p>
-            ...
-        </p>
+            <lsx-tab-page title="Testen">
+                <p></p>
+                    Der Fetch-Aufruf innerhalb der <tt>index.html</tt> zum Abholen der Playlist funktioniert
+                    nur, wenn die Anwendung über einen Webserver gestartet wird. Es muss daher, wie im Video
+                    in den HTML-Folien gezeigt, ein lokaler Entwicklungsserver zum Testen der Anwendung
+                    gestartet werden. In Visual Studio Code kann zum Beispiel die Extension <b>Live Server</b>
+                    genutzt werden. Nachdem die Erweiterung installiert wurde, öffnet man einfach die
+                    <tt class="fn">index.html</tt>-Datei des Projekts, drückt <kbd>F1</kbd> und wählt
+                    „Live Server: Open With Live Server” aus.
+                </p>
+                <lsx-youtube video="FijXwFMqrVc"></lsx-youtube>
+            </lsx-tab-page>
+        </lsx-tab-pages>
     </article>
     <aside>
         <p>
-            ...
+            Ein Media Player in HTML, CSS und JavaScript. Ja das geht. Sogar ziemlich einfach, seit dem
+            mit HTML5 die <src-code language="html">&lt;audio&gt;</src-code> und <src-code language="html">&lt;video&gt;</src-code>
+            Elemente eingeführt wurden. Diese Aufgabe zeigt, wie es geht, und liefert darüber hinaus eine
+            weitere Vorlage für die objekt-orientierte Strukturierung einer größeren Anwendung.
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
         <p>
@@ -7281,6 +7904,10 @@
                 <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
             </small>
         </p>
+
+        <lsx-youtube video="HERMqverQWM"></lsx-youtube>
+        <lsx-info-box>
+            Die Musikdateien dieser Aufgabe sind vor vielen Jahren selbst komponiert und zuhause aufgenommen worden. 😎
+        </lsx-info-box>
     </aside>
 </section>
--->
