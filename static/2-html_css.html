@@ -4492,118 +4492,76 @@
     </aside>
 </section>
 
-<section data-title="Maßeinheiten und Farben in CSS">
+<section data-title="Wie vermisst man die Welt?">
     <article>
-        <lsx-tab-pages>
-            <lsx-tab-page title="Maßeinheiten">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Einheit</th>
-                            <th>Beschreibung</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td><code>px</code></td>
-                        <td>
-                            Ein „virtueller“ Pixel von 1/96 Zoll Größe
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>pt</code></td>
-                        <td>
-                            1 Punkt = 0,376 Millimeter, üblich für Schriftgrößen
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>em</code></td>
-                        <td>
-                            Ungefähr die Breite eines großen M („Geviert“)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>ex</code></td>
-                        <td>
-                            Höhe eines kleinen X
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>rem</code></td>
-                        <td>
-                            Wie <code>em</code> nur mit der Schriftgröße des Wurzelelements
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>%</code></td>
-                        <td>
-                            Ein Prozent der Höhe oder Breite des Elternelements, je nach Verwendung
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>vw</code></td>
-                        <td>
-                            Ein Prozent der Breite des Browserfensters (Viewport Width)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>vh</code></td>
-                        <td>
-                            Ein Prozent der Höhe des Browserfensters (Viewport Height)
-                        </td>
-                    </tr>
-                </table>
-            </lsx-tab-page>
+        <!--
+        TODO:
 
-            <lsx-tab-page title="Farben in CSS">
-                <dl>
-                    <dt>Eingebaute Namen</dt>
-                    <dd>
-                        <ul>
-                            <li><code>red</code></li>
-                            <li><code>lightblue</code></li>
-                            <li><code>darkseagreen</code></li>
-                            <li>
-                                <a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">W3Schools: HTML Color Names</a>
-                            </li>
-                        </ul>
-                    </dd>
+        Tabelle mit Maßeinheiten und Erklärung, wofür sie benutzt werden
+        Kleines Fallbeispiel zu jeder Maßeinheit
+        Interaktives Beispiel zu em/rem (Scrollbalken zum Ändern der Schriftgröße)
 
-                    <dt>Hexadezimalcode</dt>
-                    <dd>
-                        <ul>
-                            <li><code>#FF0000</code></li>
-                            <li><code>#FFFF00</code></li>
-                            <li><code>#ADD8E6</code></li>
-                        </ul>
-                    <dt>RGB-Tupel</dt>
-                    <dd>
-                        <ul>
-                            <li><code>rgb(255, 255, 0)</code></li>
-                            <li><code>rgb(173, 216, 230)</code></li>
-                        </ul>
-                    </dd>
-
-                    <dt>RGBA-Tupel</dt>
-                    <dd>
-                        <ul>
-                            <li><code>rgba(100, 100, 100, 0.75)</code></li>
-                            <li><code>rgba(173, 216, 230, 0.85)</code></li>
-                        </ul>
-                    </dd>
-                </dl>
-            </lsx-tab-page>
-        </lsx-tab-pages>
+        em = Geviert (altdeutsch: Quadrat) -> Bild zu Bleisatz aus Wikipedia, Abstände Halb/Viertel-Geviert
+        Vgl. "Bleisatz" in Wikipedia, https://commons.wikimedia.org/wiki/Category:Metal_movable_types?uselang=de#/media/File:Garamond_type_%C5%BFi-ligature_2.jpg
+        -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Einheit</th>
+                    <th>Beschreibung</th>
+                </tr>
+            </thead>
+            <tr>
+                <td><code>px</code></td>
+                <td>
+                    Ein „virtueller“ Pixel von 1/96 Zoll Größe
+                </td>
+            </tr>
+            <tr>
+                <td><code>pt</code></td>
+                <td>
+                    1 Punkt = 0,376 Millimeter, üblich für Schriftgrößen
+                </td>
+            </tr>
+            <tr>
+                <td><code>em</code></td>
+                <td>
+                    Ungefähr die Breite eines großen M („Geviert“)
+                </td>
+            </tr>
+            <tr>
+                <td><code>ex</code></td>
+                <td>
+                    Höhe eines kleinen X
+                </td>
+            </tr>
+            <tr>
+                <td><code>rem</code></td>
+                <td>
+                    Wie <code>em</code> nur mit der Schriftgröße des Wurzelelements
+                </td>
+            </tr>
+            <tr>
+                <td><code>%</code></td>
+                <td>
+                    Ein Prozent der Höhe oder Breite des Elternelements, je nach Verwendung
+                </td>
+            </tr>
+            <tr>
+                <td><code>vw</code></td>
+                <td>
+                    Ein Prozent der Breite des Browserfensters (Viewport Width)
+                </td>
+            </tr>
+            <tr>
+                <td><code>vh</code></td>
+                <td>
+                    Ein Prozent der Höhe des Browserfensters (Viewport Height)
+                </td>
+            </tr>
+        </table>
     </article>
     <aside>
-        <p>
-            Okay, zugegeben. Das jetzt alles auswendig zu lernen ist ziemlich müßig.
-            Du musst es ja auch nicht gleich im Schlaf aufsagen können, doch um die
-            meisten der eben vorstellten CSS-Anweisungen zu verstehen, solltest du
-            wissen, wie Längenangaben und Farben in CSS beschrieben werden. Denn darum
-            geht es ja beim Layout: Um Positionen, Abstände und Farben.
-        </p>
-
-        <h2>Wie vermisst man die Welt?</h2>
         <p>
             CSS kennt ziemlich viele Maßeinheiten. Auf dieser Seite sind deshalb gar nicht
             alle aufgezählt. Die wichtigsten sind aber alle dabei. Bei vielen davon handelt
@@ -4658,67 +4616,600 @@
             <code>rem</code> hingegen nach der allgemeinen Schriftgröße der Webseite, wie sie dem
             <src-code language="html">&lt;html&gt;</src-code>-Element zugewiesen wurde.
         </p>
-
-        <h2>Was ist eigentlich eine Farbe?</h2>
-        <p>
-            Über Farben, was sie sind, und woraus sie sich zusammen setzen könnte man ganze
-            Bücher schreiben. 📚 Und klar, natürlich gibt es auch Bücher, die nichts anderes
-            beinhalten. 🤓 So ist sicher keine allzu große Überraschung, dass es mehrere Modelle
-            gibt, <a href="https://xkcd.com/1882/" target="_blank">wie eine Farbe beschrieben
-            werden kann</a>.
-        </p>
-        <p>
-            Für den Computer bestehen Farben oftmals aus den drei Grundfarben Rot, Grün und Blau,
-            weil so gut wie jeder Computerbildschirm damit arbeitet. Es handelt sich dabei um die
-            <b>additiven Grundfarben der Lichtmischung</b>, wie sie auch in der Physik Anwendung
-            finden. Wenn du dich in deiner Freizeit mit Malerei beschäftigst, kennst du stattdessen
-            die <b>subtraktiven Grundfarben der Malerei</b>. Diese sind Rot, Grün und <i>Gelb</i>.
-            Hier haben wir es aber mit einem Computer zu tun. 💻
-        </p>
-        <p>
-            CSS richtet sich auch nach dem Rot-Grün-Blau-Modell, wobei für jeden Farbanteil ein
-            Byte und somit die Werte von 0 … 255 verwendet werden. Wie du auf hier siehst,
-            gibt es verschiedene Schreibweisen für die drei Farbanteile: Die hexadezimale Form,
-            die etwas kompakter ist, und die <code>rgb()</code>-Form, die einfacher zu verstehen
-            ist. Welche du davon verwendest ist Geschmackssache. 🍉 In älteren Stylesheets wirst
-            du aber eher die Hex-Schreibweise vorfinden, da es sie schon länger gibt.
-        </p>
-        <p>
-            Eine Sonderform nimmt die <code>rgba()</code>-Notation ein. Sie drückt genau dasselbe
-            wie <code>rgb()</code> aus, nur dass noch ein vierter Wert für die Deckkraft hinzukommt.
-            Es handelt sich dabei um eine beliebige Kommazahl zwischen 0…1, wobei 0 komplett unsichtbar
-            und 1 komplett deckend ist.
-        </p>
     </aside>
 </section>
 
-<!--
-<section data-title="Wie vermisst man die Welt?">
-    Tabelle mit Maßeinheiten und Erklärung, wofür sie benutzt werden
-    Kleines Fallbeispiel zu jeder Maßeinheit
-    Interaktives Beispiel zu em/rem (Scrollbalken zum Ändern der Schriftgröße)
-
-    em = Geviert (altdeutsch: Quadrat) -> Bild zu Bleisatz aus Wikipedia, Abstände Halb/Viertel-Geviert
-    Vgl. "Bleisatz" in Wikipedia, https://commons.wikimedia.org/wiki/Category:Metal_movable_types?uselang=de#/media/File:Garamond_type_%C5%BFi-ligature_2.jpg
-</section>
--->
-
-<!--
 <section data-title="Jetzt wird es bunt">
-    Tabelle mit Schreibweisen für Farben in CSS
-    
-    Bilder aus Wikipedia: Additive Farbmisching, Subtraktive Farmischung (Folien vor Laptop), Pixel eines LCD-Montitors, Wellenlänge des Lichts
-    Hintergrund: Trichromasie des Menschen, Farbreiz als Wahrnehmung nicht als universelle Eigenschaft des Objekts
-    Vgl. "Additive Farbmischung", "Subtraktive Farbmischung", "Grundfarbe", "Pixel" in Wikipedia
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Was ist Farbe?">
+                <lsx-ul>
+                    <li>Farbe ist keine universelle Eigenschaft von Objekten, sondern ein Sinneseindruck (die sog. <b>Farbwahrnehmung</b>).</li>
+                    <li>Sie wird durch die <b>Wahrnehmung elektromagnetischer Strahlung</b> – dem Licht – ausgelöst.</li>
+                    <li>Der sichtbare Bereich und auch der wahrgenommene Sinneseindruck unterscheiden sich für jedes Lebewesen.</li>
+                    <li>Der sichtbare Bereich für Menschen liegt typischerweise zwischen 400 bis 780&nbsp; Nanometer Wellenlänge.</li>
+                    <li>Heute geht man sogar davon aus, dass die Menschen in der Antike die Farbe Blau nicht sehen konnten.</li>
+                </lsx-ul>
 
-    Grid mit Farpalette ähnlich zu flatuicolors.com
-    Bei Klick auf eine Farbe (oder Hover) sieht man verschiedene Schreibweise für die Farbe
+                <img src="2-html_css/farbspektrum.svg" class="d-block img-responsive mw-100 mt-4 mb-4" alt="Für den Menschen sichtbares Spektrum">
 
-    Interaktiver Farbmischer mit drei Scorllbalken und Auswahl des Farbsystems: RGB vs. HSL
+                <lsx-ul>
+                    <li>Das menschliche Auge besitzt drei Arten von <b>Zapfen</b> zur Wahrnehmung der Farben
+                        <span style="color: red">Rot</span>,
+                        <span style="color: green">Grün</span>
+                        und
+                        <span style="color: blue">Blau</span>.
+                    </li>
+                    <li>
+                        Hinzu kommen die <b>Stäbchen</b>, die nur auf die Lichtintensität reagieren
+                        („Nachts sind alle Katzen grau”).
+                    </li>
+                    <li>
+                        Ihre kombinierten Reize bilden im Gehirn den Farbwahrnehmung genannten Sinneseindruck.
+                    </li>
+                </lsx-ul>
+            </lsx-tab-page>
 
-    Relative Farbangaben in CSS nun möglich? Farbe2 = Farbe1 heller usw.
+            <lsx-tab-page title="Additive vs. subtraktive Farbmischung">
+                <lsx-grid-fluid class="p-0 mb-2">
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="2-html_css/prisma1.jpg" class="img-thumbnail d-block w-100" alt="Lichtbrechung in einem Prisma (1)">
+                            Lichtbrechung in einem Prisma
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="2-html_css/prisma2.jpg" class="img-thumbnail d-block w-100" alt="Lichtbrechung in einem Prisma (2)">
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="2-html_css/lcd-pixel.jpg" class="img-thumbnail d-block w-100" alt="Vergrößerte Pixel eines LCD-Displays">
+                            Vergrößerte Pixel eines LCD-Displays
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+
+                <lsx-ul>
+                    <li>Grundsätzlich kann derselbe Farbeindruck auf unterschiedliche Weise hervorgerufen werden.</li>
+                    <li>Einmal durch <b>monochromatisches Licht</b> von (mehr oder weniger) exakt einer Wellenlänge – die sog. <b>Spektralfarben</b>.</li>
+                    <li>Oder durch <b>polychromatisches Licht</b>, bei dem sich Strahlungen unterschiedlicher Wellenlänge überlagen.</li>
+                    <li>Die ersten beiden Bilder zeigen, wie ein Glas-Prisma das polychromatische Sonnenlicht in seine Spektralfarben bricht.</li>
+                    <li>Das dritte Bild zeigt, wie ein typisches LCD-Display jeden Pixel aus roten, grünen und blauen Sub-Pixeln zusammensetzt.</li>
+                </lsx-ul>
+
+                <p>
+                    Im Alltag haben wir es fast immer mit polychromatischem Licht zu tun. Dies machen sich
+                    unterschieliche Bildgebungsverfahren zu Nutzen, indem Sie entweder aus dem reflektierten
+                    Umgebungslicht bestimmte Wellenlängen filtern <b>(subtraktive Farbmischung)</b> oder
+                    durch Eigenleuchten meist <span style="color: red">rote</span>, <span style="color: green">grüne</span>
+                    und <span style="color: blue">blaue</span> Wellenlängen erzeugen <b>(additive Farbmischung)</b>.
+                    Unten kannst du beide Verfahren ausprobieren und herausfinden, welche Farbeindrücke dabei entstehen.
+                </p>
+
+                <lsx-accordion>
+                    <!-- Additive Farbmischung -->
+                    <lsx-accordion-page>
+                        <lsx-accordion-title>
+                            <div class="w-100 me-2 d-flex justify-content-between align-items-center">
+                                <b>Additive Farbmischung</b>
+                                <div>LCD-Display, Röhrenbildschirm usw.</div>
+                            </div>
+                        </lsx-accordion-title>
+                        <lsx-accordion-content>
+                            <lsx-grid-fluid class="p-0">
+                                <lsx-row>
+                                    <lsx-col size="md-2">
+                                        <img src="2-html_css/additive-farbmischung.svg" class="d-block img-thumbnail w-100" alt="Additive Farbmischung mit drei Farbkreisen">
+                                    </lsx-col>
+                                    <lsx-col size="md">
+                                        Bei der additiven Farbmischung wird Licht unterschiedlicher Wellenlängen erzeugt.
+                                        Meist handelt es sich dabei um die Spektralfarben <span style="color:red">Rot</span>,
+                                        <span style="color:green">Grün</span> und <span style="color:blue">Blau</span>
+                                        entsprechend der Funktionsweise des menschlichen Auges. Ein Computerbildschirm kann zum
+                                        Beispiel nur exakt diese drei Farben erzeugen, indem jeder Pixel aus drei entsprechenden
+                                        Sub-Pixeln besteht. Das Gehirn kombiniert diese dann letztlichen Farbeindruck.
+                                    </lsx-col>
+                                </lsx-row>
+
+                                <lsx-row>
+                                    <lsx-col size="md-2">
+                                        <div class="img-thumbnail h-100">
+                                            <div id="additiv-vorschau" class="h-100"></div>
+                                        </div>
+                                    </lsx-col>
+                                    <lsx-col size="md">
+                                        <div>
+                                            <label for="additiv-r" class="form-label" style="color: red">Rot</label>
+                                            <input id="additiv-r" type="range" class="form-range" min="0" max="255">
+                                        </div>
+                                        <div>
+                                            <label for="additiv-g" class="form-label" style="color: green">Grün</label>
+                                            <input id="additiv-g" type="range" class="form-range" min="0" max="255">
+                                        </div>
+                                        <div>
+                                            <label for="additiv-b" class="form-label" style="color: blue">Blau</label>
+                                            <input id="additiv-b" type="range" class="form-range" min="0" max="255">
+                                        </div>
+                                    </lsx-col>
+                                </lsx-row>
+                            </lsx-grid-fluid>
+
+                            <script>
+                                window.additiveFarbmischungVorschau = function() {
+                                    let sliderR = document.querySelector("#additiv-r");
+                                    let sliderG = document.querySelector("#additiv-g");
+                                    let sliderB = document.querySelector("#additiv-b");
+                                    let preview = document.querySelector("#additiv-vorschau");
+
+                                    if (!sliderR) return;
+
+                                    if (window._additiveFarbmisching) return;
+                                    window._additiveFarbmisching = true;
+
+                                    sliderR.value = parseInt(Math.random() * 255);
+                                    sliderG.value = parseInt(Math.random() * 255);
+                                    sliderB.value = parseInt(Math.random() * 255);
+
+                                    function _preview() {
+                                        preview.style.backgroundColor = `rgb(${parseInt(sliderR.value)}, ${parseInt(sliderG.value)}, ${parseInt(sliderB.value)})`;
+                                    }
+
+                                    _preview();
+
+                                    sliderR.addEventListener("input", _preview);
+                                    sliderG.addEventListener("input", _preview);
+                                    sliderB.addEventListener("input", _preview);
+                                }
+
+                                window.addEventListener("ls-slide-changed", () => {
+                                    window.setTimeout(window.additiveFarbmischungVorschau, 1000);
+                                });
+                            </script>
+                        </lsx-accordion-content>
+                    </lsx-accordion-page>
+
+                    <!-- Subtraktive Farbmischung -->
+                    <lsx-accordion-page>
+                        <lsx-accordion-title>
+                            <div class="w-100 me-2 d-flex justify-content-between align-items-center">
+                                <b>Subtraktive Farbmischung</b>
+                                <div>Drucker, Ölfarben usw.</div>
+                            </div>
+                        </lsx-accordion-title>
+                        <lsx-accordion-content>
+                            <lsx-grid-fluid class="p-0">
+                                <lsx-row>
+                                    <lsx-col size="md-2">
+                                        <img src="2-html_css/subtraktive-farbmischung.svg" class="d-block img-thumbnail w-100" alt="Subtraktive Farbmischung mit drei Farbkreisen">
+                                    </lsx-col>
+                                    <lsx-col size="md">
+                                        Jedes Material reflektiert bestimmte Wellenlängen oder lässt sie hindurch. Fensterglas beispielsweise
+                                        lässt das für uns sichtbare Spektrum nahezu ungehindert durch, reflektiert aber Ultraviolett-Strahlung,
+                                        weshalb man im Auto keinen Sonnenbrand bekommt. Dies nutzen die meisten Druckverfahren, indem sie auf
+                                        eine Oberfläche wie Papier eine Materialschicht auftragen (die Druckertinte), die einen Teil des
+                                        Lichtspektrums schlucken und nur den übrigen Teil durchlassen. Als Grundfarben werden hierfür meist
+                                        <span style="color: cyan">Cyan</span>, <span style="color:gold">Gelb</span>,
+                                        <span style="color:magenta">Magenta</span> und ein Schwarzanteil verwendet.
+                                    </lsx-col>
+                                </lsx-row>
+
+                                <lsx-row>
+                                    <lsx-col size="md-2">
+                                        <div class="img-thumbnail h-100">
+                                            <div id="subtraktiv-vorschau" class="h-100"></div>
+                                        </div>
+                                    </lsx-col>
+                                    <lsx-col size="md">
+                                        <div>
+                                            <label for="subtraktiv-c" class="form-label" style="color: cyan">Cyan</label>
+                                            <input id="subtraktiv-c" type="range" class="form-range" min="0" max="100">
+                                        </div>
+                                        <div>
+                                            <label for="subtraktiv-y" class="form-label" style="color: gold">Gelb</label>
+                                            <input id="subtraktiv-y" type="range" class="form-range" min="0" max="100">
+                                        </div>
+                                        <div>
+                                            <label for="subtraktiv-m" class="form-label" style="color: magenta">Magenta</label>
+                                            <input id="subtraktiv-m" type="range" class="form-range" min="0" max="100">
+                                        </div>
+                                        <div>
+                                            <label for="subtraktiv-k" class="form-label" style="color: black">Schwarzanteil</label>
+                                            <input id="subtraktiv-k" type="range" class="form-range" min="0" max="100">
+                                        </div>
+                                    </lsx-col>
+                                </lsx-row>
+                            </lsx-grid-fluid>
+
+                            <img src="2-html_css/cmyk.jpg" class="mt-4 d-block w-100" alt="CMYK-Anteile eines gedruckten Bildes">
+
+                            <script>
+                                window.subtraktiveFarbmischungVorschau = function() {
+                                    let sliderC = document.querySelector("#subtraktiv-c");
+                                    let sliderM = document.querySelector("#subtraktiv-m");
+                                    let sliderY = document.querySelector("#subtraktiv-y");
+                                    let sliderK = document.querySelector("#subtraktiv-k");
+                                    let preview = document.querySelector("#subtraktiv-vorschau");
+
+                                    if (!sliderC) return;
+
+                                    if (window._subtraktiveFarbmisching) return;
+                                    window._subtraktiveFarbmisching = true;
+
+                                    sliderC.value = parseInt(Math.random() * 100);
+                                    sliderM.value = parseInt(Math.random() * 100);
+                                    sliderY.value = parseInt(Math.random() * 100);
+                                    sliderK.value = parseInt(Math.random() * 100);
+
+                                    // 16.10.2024: cmyk() ist aktuell nur ein Vorschlag für CSS4, den die
+                                    // Browser noch nicht unterstützen.
+                                    function _cmykToRgb(c, m, y, k) {
+                                        c = c / 100;
+                                        m = m / 100;
+                                        y = y / 100;
+                                        k = k / 100;
+
+                                        const r = 255 * (1 - c) * (1 - k);
+                                        const g = 255 * (1 - m) * (1 - k);
+                                        const b = 255 * (1 - y) * (1 - k);
+
+                                        return {
+                                            r: Math.round(r),
+                                            g: Math.round(g),
+                                            b: Math.round(b)
+                                        };
+                                    }
+
+                                    function _preview() {
+                                        let rgb = _cmykToRgb(sliderC.value, sliderM.value, sliderY.value, sliderK.value);
+                                        preview.style.backgroundColor = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+
+                                    }
+
+                                    _preview();
+
+                                    sliderC.addEventListener("input", _preview);
+                                    sliderM.addEventListener("input", _preview);
+                                    sliderY.addEventListener("input", _preview);
+                                    sliderK.addEventListener("input", _preview);
+                                }
+
+                                window.addEventListener("ls-slide-changed", () => {
+                                    window.setTimeout(window.subtraktiveFarbmischungVorschau, 1000);
+                                });
+                            </script>
+                        </lsx-accordion-content>
+                    </lsx-accordion-page>
+                </lsx-accordion>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Farbencodes in CSS">
+                <p>
+                    Farben können in CSS auf unterschiedliche Weise beschrieben werden. In Hexadezimal-Schreibweise,
+                    als <code>rgb()</code>- bzw. <code>rgba()</code>-Tupel sowie bei 140 eingebauten Farben mit
+                    ihrem Namen. Unten kannst du den Unterschied sehen. Klicke unten auf eine Farbe, um ihre
+                    verschiedenen Schreibweisen anzeigen zu lassen. Mit dem Schieberegler kannst du zusätzlich ihre
+                    Deckkraft (den Alpha-Wert), die allerdings nur bei <code>rgba()</code>-Tupeln existiert, ändern.
+                </p>
+
+                <lsx-grid-fluid class="p-0 mb-4">
+                    <lsx-row>
+                        <lsx-col size="md-2">
+                            <div id="css-farbpalette-preview1" class="img-thumbnail w-100 h-100 border-secondary">
+                                <img src="2-html_css/smiley-grin.svg" class="d-block w-100 h-100 "alt="">
+                                <div id="css-farbpalette-preview2"></div>
+                            </div>
+                        </lsx-col>
+
+                        <lsx-col size="md" class="mt-4 mt-md-0">
+                            <h4 class="dhbw-lightblue">Ausgewählte Farbe</h3>
+                            
+                            <table>
+                                <tr>
+                                    <td class="fw-bold">Name:</td>
+                                    <td>
+                                        <code id="css-farbpalette-name"></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Hexadezimal:</td>
+                                    <td>
+                                        <code id="css-farbpalette-hex"></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">RGB-Tupel:</td>
+                                    <td>
+                                        <code id="css-farbpalette-rgb"></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">RGBA-Tupel:</td>
+                                    <td>
+                                        <code id="css-farbpalette-rgba"></code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">Alpha:</td>
+                                    <td>
+                                        <input
+                                            id="css-farbpalette-alpha"
+                                            type="range"
+                                            class="form-range"
+                                            min="0"
+                                            max="100"
+                                            value="100"
+                                        >
+                                    </td>
+                                </tr>
+                            </table>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+
+                <div id="css-farbpalette-palette" class="d-flex flex-wrap justify-content-start align-items-stretch gap-2">
+                </div>
+
+                <style>
+                    #css-farbpalette-preview1 {
+                        position: relative;
+                        overflow: hidden;
+                        max-width: 10em;
+                    }
+
+                    #css-farbpalette-preview2 {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                    }
+
+                    #css-farbpalette-palette .farbe {
+                        width: 5em;
+                        height: 5em;
+                        cursor: pointer;
+                    }
+
+                    #css-farbpalette-palette .farbe:hover {
+                        border: 2px solid black;
+                        box-shadow: 1px 1px 2px rgba(0,0,0, 0.5); */
+                    }
+                </style>
+
+                <script>
+                    window.cssFarbpalette = function() {
+                        let cssFarbpalette = document.querySelector("#css-farbpalette-palette");
+                        let previewName    = document.querySelector("#css-farbpalette-name");
+                        let previewHex     = document.querySelector("#css-farbpalette-hex");
+                        let previewRGB     = document.querySelector("#css-farbpalette-rgb");
+                        let previewRGBA    = document.querySelector("#css-farbpalette-rgba");
+                        let sliderAlpha    = document.querySelector("#css-farbpalette-alpha");
+                        let previewFarbe   = document.querySelector("#css-farbpalette-preview2");
+
+                        if (!cssFarbpalette) return;
+
+                        if (window._cssFarbpalette) return;
+                        window._cssFarbpalette = true;
+
+                        let colors = {
+                            AliceBlue:            {r: 240, g: 248, b: 255},
+                            AntiqueWhite:         {r: 250, g: 235, b: 215},
+                            Aqua:                 {r: 0,   g: 255, b: 255},
+                            Aquamarine:           {r: 127, g: 255, b: 212},
+                            Azure:                {r: 240, g: 255, b: 255},
+                            Beige:                {r: 245, g: 245, b: 220},
+                            Bisque:               {r: 255, g: 228, b: 196},
+                            Black:                {r: 0,   g: 0,   b: 0},
+                            BlanchedAlmond:       {r: 255, g: 235, b: 205},
+                            Blue:                 {r: 0,   g: 0,   b: 255},
+                            BlueViolet:           {r: 138, g: 43,  b: 226},
+                            Brown:                {r: 165, g: 42,  b: 42},
+                            BurlyWood:            {r: 222, g: 184, b: 135},
+                            CadetBlue:            {r: 95,  g: 158, b: 160},
+                            Chartreuse:           {r: 127, g: 255, b: 0},
+                            Chocolate:            {r: 210, g: 105, b: 30},
+                            Coral:                {r: 255, g: 127, b: 80},
+                            CornflowerBlue:       {r: 100, g: 149, b: 237},
+                            Cornsilk:             {r: 255, g: 248, b: 220},
+                            Crimson:              {r: 220, g: 20,  b: 60},
+                            Cyan:                 {r: 0,   g: 255, b: 255},
+                            DarkBlue:             {r: 0,   g: 0,   b: 139},
+                            DarkCyan:             {r: 0,   g: 139, b: 139},
+                            DarkGoldenRod:        {r: 184, g: 134, b: 11},
+                            DarkGray:             {r: 169, g: 169, b: 169},
+                            DarkGreen:            {r: 0,   g: 100, b: 0},
+                            DarkKhaki:            {r: 189, g: 183, b: 107},
+                            DarkMagenta:          {r: 139, g: 0,   b: 139},
+                            DarkOliveGreen:       {r: 85,  g: 107, b: 47},
+                            DarkOrange:           {r: 255, g: 140, b: 0},
+                            DarkOrchid:           {r: 153, g: 50,  b: 204},
+                            DarkRed:              {r: 139, g: 0,   b: 0},
+                            DarkSalmon:           {r: 233, g: 150, b: 122},
+                            DarkSeaGreen:         {r: 143, g: 188, b: 143},
+                            DarkSlateBlue:        {r: 72,  g: 61,  b: 139},
+                            DarkSlateGray:        {r: 47,  g: 79,  b: 79},
+                            DarkTurquoise:        {r: 0,   g: 206, b: 209},
+                            DarkViolet:           {r: 148, g: 0,   b: 211},
+                            DeepPink:             {r: 255, g: 20,  b: 147},
+                            DeepSkyBlue:          {r: 0,   g: 191, b: 255},
+                            DimGray:              {r: 105, g: 105, b: 105},
+                            DodgerBlue:           {r: 30,  g: 144, b: 255},
+                            FireBrick:            {r: 178, g: 34,  b: 34},
+                            FloralWhite:          {r: 255, g: 250, b: 240},
+                            ForestGreen:          {r: 34,  g: 139, b: 34},
+                            Fuchsia:              {r: 255, g: 0,   b: 255},
+                            Gainsboro:            {r: 220, g: 220, b: 220},
+                            GhostWhite:           {r: 248, g: 248, b: 255},
+                            Gold:                 {r: 255, g: 215, b: 0},
+                            GoldenRod:            {r: 218, g: 165, b: 32},
+                            Gray:                 {r: 128, g: 128, b: 128},
+                            Green:                {r: 0,   g: 128, b: 0},
+                            GreenYellow:          {r: 173, g: 255, b: 47},
+                            HoneyDew:             {r: 240, g: 255, b: 240},
+                            HotPink:              {r: 255, g: 105, b: 180},
+                            IndianRed:            {r: 205, g: 92,  b: 92},
+                            Indigo:               {r: 75,  g: 0,   b: 130},
+                            Ivory:                {r: 255, g: 255, b: 240},
+                            Khaki:                {r: 240, g: 230, b: 140},
+                            Lavender:             {r: 230, g: 230, b: 250},
+                            LavenderBlush:        {r: 255, g: 240, b: 245},
+                            LawnGreen:            {r: 124, g: 252, b: 0},
+                            LemonChiffon:         {r: 255, g: 250, b: 205},
+                            LightBlue:            {r: 173, g: 216, b: 230},
+                            LightCoral:           {r: 240, g: 128, b: 128},
+                            LightCyan:            {r: 224, g: 255, b: 255},
+                            LightGoldenRodYellow: {r: 250, g: 250, b: 210},
+                            LightGray:            {r: 211, g: 211, b: 211},
+                            LightGreen:           {r: 144, g: 238, b: 144},
+                            LightPink:            {r: 255, g: 182, b: 193},
+                            LightSalmon:          {r: 255, g: 160, b: 122},
+                            LightSeaGreen:        {r: 32,  g: 178, b: 170},
+                            LightSkyBlue:         {r: 135, g: 206, b: 250},
+                            LightSlateGray:       {r: 119, g: 136, b: 153},
+                            LightSteelBlue:       {r: 176, g: 196, b: 222},
+                            LightYellow:          {r: 255, g: 255, b: 224},
+                            Lime:                 {r: 0,   g: 255, b: 0},
+                            LimeGreen:            {r: 50,  g: 205, b: 50},
+                            Linen:                {r: 250, g: 240, b: 230},
+                            Magenta:              {r: 255, g: 0,   b: 255},
+                            Maroon:               {r: 128, g: 0,   b: 0},
+                            MediumAquaMarine:     {r: 102, g: 205, b: 170},
+                            MediumBlue:           {r: 0,   g: 0,   b: 205},
+                            MediumOrchid:         {r: 186, g: 85,  b: 211},
+                            MediumPurple:         {r: 147, g: 112, b: 219},
+                            MediumSeaGreen:       {r: 60,  g: 179, b: 113},
+                            MediumSlateBlue:      {r: 123, g: 104, b: 238},
+                            MediumSpringGreen:    {r: 0,   g: 250, b: 154},
+                            MediumTurquoise:      {r: 72,  g: 209, b: 204},
+                            MediumVioletRed:      {r: 199, g: 21,  b: 133},
+                            MidnightBlue:         {r: 25,  g: 25,  b: 112},
+                            MintCream:            {r: 245, g: 255, b: 250},
+                            MistyRose:            {r: 255, g: 228, b: 225},
+                            Moccasin:             {r: 255, g: 228, b: 181},
+                            NavajoWhite:          {r: 255, g: 222, b: 173},
+                            Navy:                 {r: 0,   g: 0,   b: 128},
+                            OldLace:              {r: 253, g: 245, b: 230},
+                            Olive:                {r: 128, g: 128, b: 0},
+                            OliveDrab:            {r: 107, g: 142, b: 35},
+                            Orange:               {r: 255, g: 165, b: 0},
+                            OrangeRed:            {r: 255, g: 69,  b: 0},
+                            Orchid:               {r: 218, g: 112, b: 214},
+                            PaleGoldenRod:        {r: 238, g: 232, b: 170},
+                            PaleGreen:            {r: 152, g: 251, b: 152},
+                            PaleTurquoise:        {r: 175, g: 238, b: 238},
+                            PaleVioletRed:        {r: 219, g: 112, b: 147},
+                            PapayaWhip:           {r: 255, g: 239, b: 213},
+                            PeachPuff:            {r: 255, g: 218, b: 185},
+                            Peru:                 {r: 205, g: 133, b: 63},
+                            Pink:                 {r: 255, g: 192, b: 203},
+                            Plum:                 {r: 221, g: 160, b: 221},
+                            PowderBlue:           {r: 176, g: 224, b: 230},
+                            Purple:               {r: 128, g: 0,   b: 128},
+                            Red:                  {r: 255, g: 0,   b: 0},
+                            RosyBrown:            {r: 188, g: 143, b: 143},
+                            RoyalBlue:            {r: 65,  g: 105, b: 225},
+                            SaddleBrown:          {r: 139, g: 69,  b: 19},
+                            Salmon:               {r: 250, g: 128, b: 114},
+                            SandyBrown:           {r: 244, g: 164, b: 96},
+                            SeaGreen:             {r: 46,  g: 139, b: 87},
+                            SeaShell:             {r: 255, g: 245, b: 238},
+                            Sienna:               {r: 160, g: 82,  b: 45},
+                            Silver:               {r: 192, g: 192, b: 192},
+                            SkyBlue:              {r: 135, g: 206, b: 235},
+                            SlateBlue:            {r: 106, g: 90,  b: 205},
+                            SlateGray:            {r: 112, g: 128, b: 144},
+                            Snow:                 {r: 255, g: 250, b: 250},
+                            SpringGreen:          {r: 0,   g: 255, b: 127},
+                            SteelBlue:            {r: 70,  g: 130, b: 180},
+                            Tan:                  {r: 210, g: 180, b: 140},
+                            Teal:                 {r: 0,   g: 128, b: 128},
+                            Thistle:              {r: 216, g: 191, b: 216},
+                            Tomato:               {r: 255, g: 99,  b: 71},
+                            Turquoise:            {r: 64,  g: 224, b: 208},
+                            Violet:               {r: 238, g: 130, b: 238},
+                            Wheat:                {r: 245, g: 222, b: 179},
+                            White:                {r: 255, g: 255, b: 255},
+                            WhiteSmoke:           {r: 245, g: 245, b: 245},
+                            Yellow:               {r: 255, g: 255, b: 0},
+                            YellowGreen:          {r: 154, g: 205, b: 50}
+                        };
+
+                        let currentName  = "";
+                        let currentColor = {};
+
+                        function _preview(name, color) {
+                            currentName  = name;
+                            currentColor = color;
+
+                            let alpha = sliderAlpha.value / 100.0;
+                            const toHex = (component) => component.toString(16).padStart(2, '0').toUpperCase();
+
+                            previewFarbe.style.backgroundColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
+                            previewName.textContent = name;
+                            previewHex.textContent  = `#${toHex(color.r)}${toHex(color.g)}${toHex(color.b)}`;
+                            previewRGB.textContent  = `rgb(${color.r}, ${color.g}, ${color.b})`;
+                            previewRGBA.textContent = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
+                        }
+
+                        for (let name in colors) {
+                            let color = colors[name];
+
+                            if (!currentName) {
+                                _preview(name, color);
+                            }
+
+                            let div = document.createElement("div");
+                            div.classList.add("farbe");
+                            div.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+                            cssFarbpalette.appendChild(div);
+
+                            div.addEventListener("click", () => _preview(name, color));
+                        }
+
+                        sliderAlpha.addEventListener("input", () => _preview(currentName, currentColor));
+                    }
+
+                    window.addEventListener("ls-slide-changed", () => {
+                        window.setTimeout(window.cssFarbpalette, 1000);
+                    });
+                </script>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <p>
+            <small>
+                Bildnachweise: <br>
+                <a href="https://de.wikipedia.org/wiki/Farbwahrnehmung#/media/Datei:Electromagnetic_spectrum_-de_c.svg" target="_blank">Wikipedia: Horst Frank / Phrood / Anony</a> <br>
+                <a href="https://de.wikipedia.org/wiki/Spektralfarbe#/media/Datei:Sz%C3%ADnsz%C3%B3r%C3%B3d%C3%A1s_prizm%C3%A1n2.jpg" target="_blank">Wikipedia: Zátonyi Sándor, (ifj.) Fizped</a> <br>
+                <a href="https://de.wikipedia.org/wiki/Licht#/media/Datei:Prism_flat_rainbow_(cropped).jpg" target="_blank">Wikipedia: User Kelvinsong</a> <br>
+                <a href="https://de.wikipedia.org/wiki/Fl%C3%BCssigkristallanzeige#/media/Datei:Lcd.jpg" target="_blank">Wikipedia: Richard Bartz, München</a> <br>
+                <a href="https://de.wikipedia.org/wiki/Datei:Synthese%2B.svg" target="_blank">Wikipedia: Quark67</a> <br>
+                <a href="https://de.wikipedia.org/wiki/Farbe#/media/Datei:Synthese-.svg" target="_blank">Wikipedia: Quark67</a> <br>
+                <a href="https://de.wikipedia.org/wiki/CMYK-Farbmodell#/media/Datei:CMYK_channels_demo.jpg" target="_blank">Wikipedia: TiHa</a> <br>
+                <a href="https://pixabay.com/vectors/face-grin-icon-smile-smiley-1296761/" target="_blank">Pixabay: OpenClipart-Vectors</a> <br>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Neben Form, Größe und Schriftbild ist Farbe mitunter das wichtigste Gestaltungselement
+            beim Web Design. Doch gerade Farbe ist eines der komplexesten Themen. Auf dieser Seite
+            nähern wir uns der Thematik von einer eher technischen Seite, um besser zu verstehen,
+            wie Farben in HTML und CSS definiert werden und warum das so ist. Nicht weniger wichtig
+            und auch nicht minder Komplex ist allerdings der psyhcologische Effekt den Farben beim
+            Betrachten auslösen. Diesen können wir hier aber immerhin auf folgenden Tipp reduzieren:
+        </p>
+
+        <lsx-info-box>
+            Weniger ist mehr. 🖌️
+        </lsx-info-box>
+
+        <p>
+            Ein ansprechendes Design zeichnet sich durch einen gut lesbaren Farbkontrast und die
+            Verwendung weniger Akzentfarben auf einer einheitlichen Hintergrundfarbe aus.
+        </p>
+
+        <lsx-youtube video="evu1h3a0GdA"></lsx-youtube>
+    </aside>
 </section>
--->
 
 <section data-title="Aufgabe 5: Ein kleines CSS-Quiz" data-background-color="rgb(231, 221, 141)">
     <article>
