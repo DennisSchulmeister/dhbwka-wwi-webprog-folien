@@ -33,7 +33,6 @@
  * andere Rechte wie Persönlichkeits- und Datenschutzrechte zu beachten
  * sein, die Ihre Nutzung des Materials entsprechend beschränken.
  */
-
 .deprecation-note {
     color: crimson;
     font-weight: bold;
@@ -149,4 +148,26 @@ td {
     padding: 0.1em;
     font-family: monospace;
     font-size: 0.9em;
+}
+
+.dhbw-text-columns {
+    // bootstrap medium
+    @media (min-width: 769px) {
+        column-count: 2;
+        column-gap: 1.5em;
+    }
+
+    // bootstrap large
+    // @media (min-width: 993px) {
+    //     column-count: 3;
+    //     column-gap: 2.5em;
+    // }
+}
+
+// Dirty Hack für Code-Ausschnitte in Flexbox-Containern. Diese erhöhen die Breite
+// des Flex Items, wenn sie zu breit sind. Die Lösung ist, das Flex Item und alle
+// Kinder bis runter zum <pre> eine Mindesbreite von 0 zu geben, um dieses Verhalten
+// zu umgehen. Vgl. https://stackoverflow.com/a/32038209
+* {
+    min-width: 0;
 }
