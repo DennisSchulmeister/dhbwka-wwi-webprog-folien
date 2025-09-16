@@ -250,7 +250,7 @@
                     </lsx-card>
                 </lsx-col>
             </lsx-row>
-            <lsx-row>
+            <lsx-row class="mb-0">
                 <lsx-col size="lg">
                     <lsx-card title="CSS (Cascading StyleSheets)" bold>
                         <lsx-ul emoji="🌈">
@@ -4529,72 +4529,470 @@
 
 <section data-title="Wie vermisst man die Welt?">
     <article>
-        <!--
-        TODO:
+        <lsx-tab-pages class="mb-0">
+            <lsx-tab-page title="Gängige Maßeinheiten">
+                <lsx-grid-fluid>
+                    <lsx-row>
+                        <lsx-col size="lg">
+                            <lsx-card title="Pixel" img="2-html_css/einheit_px.png" bold class="h-100">
+                                <table>
+                                    <tr>
+                                        <td class="fw-bold" style="width: 8em">Maßeinheit:</td>
+                                        <td><code>px</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Definition:</td>
+                                        <td>Ein „virtueller“ Pixel = 1/96 Zoll</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Verwendung:</td>
+                                        <td>Früher für alles, heute nur Größen ohne Bezug zur Schriftgröße insbesondere bei Rahmen und Schatten</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Beispiel:</td>
+                                        <td><src-code language="css">border-width: 1px</src-code></td>
+                                    </tr>
+                                </table>
+                            </lsx-card>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <lsx-card title="Punkt" img="2-html_css/einheit_pt.jpg" bold class="h-100">
+                                <table>
+                                    <tr>
+                                        <td class="fw-bold" style="width: 8em">Maßeinheit:</td>
+                                        <td><code>pt</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Definition:</td>
+                                        <td>0,376 Millimeter</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Verwendung:</td>
+                                        <td>Schriftgrößen, wobei in den meisten Programmen die Einheit meist nicht angezeigt wird</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Beispiel:</td>
+                                        <td><src-code language="css">font-size: 12pt</src-code></td>
+                                    </tr>
+                                </table>
+                            </lsx-card>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <lsx-card title="Millimeter, Centimeter, …" img="2-html_css/einheit_mm.jpg" bold class="h-100">
+                                <table>
+                                    <tr>
+                                        <td class="fw-bold" style="width: 8em">Maßeinheit:</td>
+                                        <td><code>mm</code>, <code>cm</code>, <code>…</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Definition:</td>
+                                        <td>Absolute Größen der realen Welt</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Verwendung:</td>
+                                        <td>CSS-Regeln für die Druckausgabe, wenn überhaupt. Die Verwendung ist eher untypisch.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Beispiel:</td>
+                                        <td><src-code language="css">min-width: 55mm</src-code></td>
+                                    </tr>
+                                </table>
+                            </lsx-card>
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="lg">
+                            <lsx-card title="Geviert" img="2-html_css/einheit_em.jpg" bold class="h-100">
+                                <table>
+                                    <tr>
+                                        <td class="fw-bold" style="width: 8em">Maßeinheit:</td>
+                                        <td><code>em</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Definition:</td>
+                                        <td>Ungefähr die Breite eines großen M gemessen an der Schriftgröße des Elements</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Verwendung:</td>
+                                        <td>Nahezu alle Größenangaben</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Beispiel:</td>
+                                        <td><src-code language="css">width: 15em</src-code></td>
+                                    </tr>
+                                </table>
+                            </lsx-card>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <lsx-card title="Kleines X" img="2-html_css/einheit_ex.jpg" bold class="h-100">
+                                <table>
+                                    <tr>
+                                        <td class="fw-bold" style="width: 8em">Maßeinheit:</td>
+                                        <td><code>ex</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Definition:</td>
+                                        <td>Ungefähr die Höhe eines kleinen X gemessen an der Schriftgröße des Elements</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Verwendung:</td>
+                                        <td>Als Alternative zu <code>em</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Beispiel:</td>
+                                        <td><src-code language="css">gap: 1.5ex</src-code></td>
+                                    </tr>
+                                </table>
+                            </lsx-card>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <lsx-card title="Relatives Geviert / Kleines X" img="2-html_css/einheit_rem.jpg" bold class="h-100">
+                                <table>
+                                    <tr>
+                                        <td class="fw-bold" style="width: 8em">Maßeinheit:</td>
+                                        <td><code>rem</code>, <code>rex</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Definition:</td>
+                                        <td>Wie <code>em</code> und <code>ex</code> aber bezogen die Schriftgröße der Seite anstatt des Elements</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Verwendung:</td>
+                                        <td>Außenabstände der Hauptblöcke einer Seite, um diese einheitlich auszurichten</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Beispiel:</td>
+                                        <td><src-code language="css">margin-left: 2rem</src-code></td>
+                                    </tr>
+                                </table>
+                            </lsx-card>
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="lg">
+                            <lsx-card title="Prozent" img="2-html_css/einheit_prozent.jpg" bold class="h-100">
+                                <table>
+                                    <tr>
+                                        <td class="fw-bold" style="width: 8em">Maßeinheit:</td>
+                                        <td><code>%</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Definition:</td>
+                                        <td>Ein Prozent der Höhe oder Breite des Elternelements, je nach Verwendung</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Verwendung:</td>
+                                        <td>Heutzutage sehr selten</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Beispiel:</td>
+                                        <td><src-code language="css">width: 33%</src-code></td>
+                                    </tr>
+                                </table>
+                            </lsx-card>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <lsx-card title="Viewport-Breite" img="2-html_css/einheit_vw.jpg" bold class="h-100">
+                                <table>
+                                    <tr>
+                                        <td class="fw-bold" style="width: 8em">Maßeinheit:</td>
+                                        <td><code>vw</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Definition:</td>
+                                        <td>Ein Prozent der Breite des Browserfensters (Viewport Width) </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Verwendung:</td>
+                                        <td>Breite der Navigationsleiste etc.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Beispiel:</td>
+                                        <td><src-code language="css">width: 100vw</src-code></td>
+                                    </tr>
+                                </table>
+                            </lsx-card>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <lsx-card title="Viewport-Höhe" img="2-html_css/einheit_vh.jpg" bold class="h-100">
+                                <table>
+                                    <tr>
+                                        <td class="fw-bold" style="width: 8em">Maßeinheit:</td>
+                                        <td><code>X</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Definition:</td>
+                                        <td>Ein Prozent der Höhe des Browserfensters (Viewport Height)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Verwendung:</td>
+                                        <td>Als Höhe bildschirmfüllender Seiten</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Beispiel:</td>
+                                        <td><src-code language="css">height: 100vh</src-code></td>
+                                    </tr>
+                                </table>
+                            </lsx-card>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+            </lsx-tab-page>
 
-        Tabelle mit Maßeinheiten und Erklärung, wofür sie benutzt werden
-        Kleines Fallbeispiel zu jeder Maßeinheit
-        Interaktives Beispiel zu em/rem (Scrollbalken zum Ändern der Schriftgröße)
+            <lsx-tab-page title="Interaktives Beispiel">
+                    <!-- Slider für interaktives Beispiel -->
+                    <table id="css-groessen-beispiel-parameter" class="w-100">
+                        <tr>
+                            <td style="width: 8em"><src-code language="css">body {</src-code></td>
+                            <td style="width: 3em;"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<src-code language="css">font-size:</src-code></td>
+                            <td><span id="css-groessen-body-fs-value">12</span>pt;</td>
+                            <td><input id="css-groessen-body-fs-slider" type="range" min="8" max="36" value="12"></td>
+                        </tr>
+                        <tr>
+                            <td><src-code language="css">}</src-code></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-        em = Geviert (altdeutsch: Quadrat) -> Bild zu Bleisatz aus Wikipedia, Abstände Halb/Viertel-Geviert
-        Vgl. "Bleisatz" in Wikipedia, https://commons.wikimedia.org/wiki/Category:Metal_movable_types?uselang=de#/media/File:Garamond_type_%C5%BFi-ligature_2.jpg
-        -->
-        <table>
-            <thead>
-                <tr>
-                    <th>Einheit</th>
-                    <th>Beschreibung</th>
-                </tr>
-            </thead>
-            <tr>
-                <td><code>px</code></td>
-                <td>
-                    Ein „virtueller“ Pixel von 1/96 Zoll Größe
-                </td>
-            </tr>
-            <tr>
-                <td><code>pt</code></td>
-                <td>
-                    1 Punkt = 0,376 Millimeter, üblich für Schriftgrößen
-                </td>
-            </tr>
-            <tr>
-                <td><code>em</code></td>
-                <td>
-                    Ungefähr die Breite eines großen M („Geviert“)
-                </td>
-            </tr>
-            <tr>
-                <td><code>ex</code></td>
-                <td>
-                    Höhe eines kleinen X
-                </td>
-            </tr>
-            <tr>
-                <td><code>rem</code></td>
-                <td>
-                    Wie <code>em</code> nur mit der Schriftgröße des Wurzelelements
-                </td>
-            </tr>
-            <tr>
-                <td><code>%</code></td>
-                <td>
-                    Ein Prozent der Höhe oder Breite des Elternelements, je nach Verwendung
-                </td>
-            </tr>
-            <tr>
-                <td><code>vw</code></td>
-                <td>
-                    Ein Prozent der Breite des Browserfensters (Viewport Width)
-                </td>
-            </tr>
-            <tr>
-                <td><code>vh</code></td>
-                <td>
-                    Ein Prozent der Höhe des Browserfensters (Viewport Height)
-                </td>
-            </tr>
-        </table>
+                        <tr>
+                            <td><src-code language="css">header {</src-code></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<src-code language="css">font-size:</src-code></td>
+                            <td><span id="css-groessen-header-fs-value">20</span>pt;</td>
+                            <td><input id="css-groessen-header-fs-slider" type="range" min="8" max="36" value="20"></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<src-code language="css">padding:</src-code></td>
+                            <td><span id="css-groessen-header-p-value">1</span>rem;</td>
+                            <td><input id="css-groessen-header-p-slider" type="range" min="0" max="10" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<src-code language="css">#logo {</src-code></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<src-code language="css">height:</src-code></td>
+                            <td><span id="css-groessen-logo-h-value">2.5</span>em;</td>
+                            <td><input id="css-groessen-logo-h-slider" type="range" min="0" max="10" value="2.5"></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<src-code language="css">}</src-code></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><src-code language="css">}</src-code></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td><src-code language="css">main {</src-code></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<src-code language="css">padding:</src-code></td>
+                            <td><span id="css-groessen-main-p-value">1</span>rem;</td>
+                            <td><input id="css-groessen-main-p-slider" type="range" min="0" max="10" value="1"></td>
+                        </tr>
+                        <tr>
+                            <td><src-code language="css">}</src-code></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+
+                    <div class="mb-4">
+                        <button id="css-groessen-beispiel-reset" class="btn btn-secondary">Werte zurücksetzen</button>
+                    </div>
+
+                    <!-- Vorschau -->
+                    <style>
+                        #css-groessen-beispiel-parameter {
+                            span {
+                                font-family: monospace;
+                                font-size: .875em;
+                            }
+                        }
+
+                        #css-groessen-beispiel {
+                            font-size: 12pt;
+
+                            header {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+
+                                background: #cbdbe1;
+                                font-size: 20pt;
+                                padding: 12pt;
+
+                                img {
+                                    height: 2.5em;
+                                }
+
+                                ul {
+                                    list-style: none;
+                                    padding: 0;
+                                    display: flex;
+                                    gap: 1em;
+                                }
+                            }
+
+                            main {
+                                padding: 12pt;
+                            }
+                        }
+                    </style>
+                    <div id="css-groessen-beispiel" class="card">
+                        <header class="d-flex space-between">
+                            <img src="2-html_css/css-groessen-logo.png" alt="Logo">
+                            <ul>
+                                <li>
+                                    Startseite
+                                </li>
+                                <li>
+                                    Angebote
+                                </li>
+                                <li>
+                                    Warenkorb
+                                </li>
+                            </ul>
+                        </header>
+                        <main>
+                            <h3>Essen wann und wo immer du willst</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+                                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+                                quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
+                                rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+                                Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                                Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus
+                                in, viverra quis, feugiat a, tellus.
+                            </p>
+                            <p>
+                                Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies
+                                nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
+                                tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.
+                                Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt
+                                tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget
+                                eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.
+                                Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, 
+                            </p>
+                        </main>
+                    </div>
+                    <script>
+                        window.cssGroessenBeispiel = function() {
+                            let sliderBodyFontSize   = document.querySelector("#css-groessen-body-fs-slider");
+                            let sliderHeaderFontSize = document.querySelector("#css-groessen-header-fs-slider");
+                            let sliderHeaderPadding  = document.querySelector("#css-groessen-header-p-slider");
+                            let sliderLogoHeight     = document.querySelector("#css-groessen-logo-h-slider");
+                            let sliderMainPadding    = document.querySelector("#css-groessen-main-p-slider");
+
+                            let valueBodyFontSize   = document.querySelector("#css-groessen-body-fs-value");
+                            let valueHeaderFontSize = document.querySelector("#css-groessen-header-fs-value");
+                            let valueHeaderPadding  = document.querySelector("#css-groessen-header-p-value");
+                            let valueLogoHeight     = document.querySelector("#css-groessen-logo-h-value");
+                            let valueMainPadding    = document.querySelector("#css-groessen-main-p-value");
+
+                            let bodyElement   = document.querySelector("#css-groessen-beispiel");
+                            let headerElement = bodyElement.querySelector("header");
+                            let logoElement   = headerElement.querySelector("img");
+                            let mainElement   = bodyElement.querySelector("main");
+
+                            let resetButton = document.querySelector("#css-groessen-beispiel-reset");
+
+                            if (!sliderBodyFontSize) return;
+
+                            if (window._cssGroessenBeispiel) return;
+                            window._cssGroessenBeispiel = true;
+
+                            function _preview() {
+                                valueBodyFontSize.textContent   = sliderBodyFontSize.value;
+                                valueHeaderFontSize.textContent = sliderHeaderFontSize.value;
+                                valueHeaderPadding.textContent  = sliderHeaderPadding.value;
+                                valueLogoHeight.textContent     = sliderLogoHeight.value;
+                                valueMainPadding.textContent    = sliderMainPadding.value;
+
+                                bodyElement.style.fontSize   = `${sliderBodyFontSize.value}pt`;
+                                headerElement.style.fontSize = `${sliderHeaderFontSize.value}pt`;
+                                headerElement.style.padding  = `${sliderBodyFontSize.value   * sliderHeaderPadding.value}pt`;
+                                logoElement.style.height     = `${sliderHeaderFontSize.value * sliderLogoHeight.value}pt`;
+                                mainElement.style.padding    = `${sliderBodyFontSize.value   * sliderMainPadding.value}pt`;
+                            }
+
+                            _preview();
+
+                            sliderBodyFontSize.addEventListener("input", _preview);
+                            sliderHeaderFontSize.addEventListener("input", _preview);
+                            sliderHeaderPadding.addEventListener("input", _preview);
+                            sliderLogoHeight.addEventListener("input", _preview);
+                            sliderMainPadding.addEventListener("input", _preview);
+
+                            resetButton.addEventListener("click", () => {
+                                sliderBodyFontSize.value   = 12;
+                                sliderHeaderFontSize.value = 20;
+                                sliderHeaderPadding.value  = 1;
+                                sliderLogoHeight.value     = 3;
+                                sliderMainPadding.value    = 1;
+
+                                _preview();
+                            });
+                        };
+
+                        window.addEventListener("ls-slide-changed", () => {
+                            window.setTimeout(window.cssGroessenBeispiel, 1000);
+                        });
+                    </script>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <p>
+            <small>
+                <small>
+                    Bildnachweise: <br>
+                    <a href="https://pixabay.com/vectors/ox-pixel-new-year-chinese-art-5990375/" target="_blank">Pixabay: silverpipe</a> <br>
+                    <a href="https://pixabay.com/photos/ruler-geometry-triangle-ruler-4017378/" target="_blank">Pixabay: stux</a> <br>
+                    <a href="https://pixabay.com/photos/calipers-minus-interest-4017104/" target="_blank">Pixabay: wir_sind_klein</a> <br>
+                    <a href="https://commons.wikimedia.org/wiki/File:09092018-stamperia_Benedetti3.jpg" target="_blank">Wikimedia Commons: 57claudio</a> <br>
+                    <a href="https://pixabay.com/illustrations/yellow-background-doodle-book-6168124/" target="_blank">Pixabay: chenspec</a> <br>
+                    <a href="https://pixabay.com/illustrations/alphabet-lettering-text-font-type-2165048/" target="_blank">Pixabay: Prawny</a> <br>
+                    <a href="https://pixabay.com/illustrations/hundred-one-numbers-100-percent-751063/" target="_blank">Pixabay: TheDigitalArtist</a> <br>
+                    <a href="https://pixabay.com/illustrations/ai-generated-dog-sad-window-7851441/" target="_blank">Pixabay: Mrnasim</a> <br>
+                    <a href="https://pixabay.com/photos/building-architecture-city-9761776/" target="_blank">Pixabay: manseok_Kim</a> <br>
+                    <a href="https://pixabay.com/photos/meal-food-nourishment-feed-logo-191902/" target="_blank">Pixabay: stux</a> <br>
+                </small>
+            </small>
+        </p>
     </article>
     <aside>
         <p>
@@ -4967,7 +5365,6 @@
                                         <input
                                             id="css-farbpalette-alpha"
                                             type="range"
-                                            class="form-range"
                                             min="0"
                                             max="100"
                                             value="100"
@@ -5211,15 +5608,17 @@
 
         <p>
             <small>
-                Bildnachweise: <br>
-                <a href="https://de.wikipedia.org/wiki/Farbwahrnehmung#/media/Datei:Electromagnetic_spectrum_-de_c.svg" target="_blank">Wikipedia: Horst Frank / Phrood / Anony</a> <br>
-                <a href="https://de.wikipedia.org/wiki/Spektralfarbe#/media/Datei:Sz%C3%ADnsz%C3%B3r%C3%B3d%C3%A1s_prizm%C3%A1n2.jpg" target="_blank">Wikipedia: Zátonyi Sándor, (ifj.) Fizped</a> <br>
-                <a href="https://de.wikipedia.org/wiki/Licht#/media/Datei:Prism_flat_rainbow_(cropped).jpg" target="_blank">Wikipedia: User Kelvinsong</a> <br>
-                <a href="https://de.wikipedia.org/wiki/Fl%C3%BCssigkristallanzeige#/media/Datei:Lcd.jpg" target="_blank">Wikipedia: Richard Bartz, München</a> <br>
-                <a href="https://de.wikipedia.org/wiki/Datei:Synthese%2B.svg" target="_blank">Wikipedia: Quark67</a> <br>
-                <a href="https://de.wikipedia.org/wiki/Farbe#/media/Datei:Synthese-.svg" target="_blank">Wikipedia: Quark67</a> <br>
-                <a href="https://de.wikipedia.org/wiki/CMYK-Farbmodell#/media/Datei:CMYK_channels_demo.jpg" target="_blank">Wikipedia: TiHa</a> <br>
-                <a href="https://pixabay.com/vectors/face-grin-icon-smile-smiley-1296761/" target="_blank">Pixabay: OpenClipart-Vectors</a> <br>
+                <small>
+                    Bildnachweise: <br>
+                    <a href="https://de.wikipedia.org/wiki/Farbwahrnehmung#/media/Datei:Electromagnetic_spectrum_-de_c.svg" target="_blank">Wikipedia: Horst Frank / Phrood / Anony</a> <br>
+                    <a href="https://de.wikipedia.org/wiki/Spektralfarbe#/media/Datei:Sz%C3%ADnsz%C3%B3r%C3%B3d%C3%A1s_prizm%C3%A1n2.jpg" target="_blank">Wikipedia: Zátonyi Sándor, (ifj.) Fizped</a> <br>
+                    <a href="https://de.wikipedia.org/wiki/Licht#/media/Datei:Prism_flat_rainbow_(cropped).jpg" target="_blank">Wikipedia: User Kelvinsong</a> <br>
+                    <a href="https://de.wikipedia.org/wiki/Fl%C3%BCssigkristallanzeige#/media/Datei:Lcd.jpg" target="_blank">Wikipedia: Richard Bartz, München</a> <br>
+                    <a href="https://de.wikipedia.org/wiki/Datei:Synthese%2B.svg" target="_blank">Wikipedia: Quark67</a> <br>
+                    <a href="https://de.wikipedia.org/wiki/Farbe#/media/Datei:Synthese-.svg" target="_blank">Wikipedia: Quark67</a> <br>
+                    <a href="https://de.wikipedia.org/wiki/CMYK-Farbmodell#/media/Datei:CMYK_channels_demo.jpg" target="_blank">Wikipedia: TiHa</a> <br>
+                    <a href="https://pixabay.com/vectors/face-grin-icon-smile-smiley-1296761/" target="_blank">Pixabay: OpenClipart-Vectors</a> <br>
+                </small>
             </small>
         </p>
     </article>
