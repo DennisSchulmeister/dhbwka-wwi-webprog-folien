@@ -862,7 +862,7 @@
             die sinnvollere Variante ist.
         </p>
 
-        <h2>Grundsätzliche Syntax</h2>
+        <h2 class="dhbw-lightblue">Grundsätzliche Syntax</h2>
         <p>
             Media Queries prüfen immer zwei Dinge gleichzeitig ab: Das verwendete Ausgabegerät
             sowie dessen Eigenschaften. Dementsprechend setzen sie sich aus dem Namen des zu
@@ -896,10 +896,10 @@
         </p>
         <ul>
             <li>
-                <code>min-width</code>: Mindestbreite des Viewports¹
+                <code>min-width</code>: Mindestbreite des Viewports<sup>1</sup>
             </li>
             <li>
-                <code>max-width</code>: Maximale Breite des Viewports¹
+                <code>max-width</code>: Maximale Breite des Viewports<sup>1</sup>
             </li>
             <li>
                 <code>orientation</code>:
@@ -928,7 +928,7 @@
             </li>
         </ul>
         <p>
-            ¹
+            <sup>1</sup>
             <small>
                 Der Viewport entspricht dem sichtbaren Bereich einer Seite. In der Regel hat
                 dieser dieselbe Größe wie das Browserfenster. Im Responsive-Design-Modus kann
@@ -937,7 +937,7 @@
             </small>
         </p>
 
-        <h2>Verwendung im HTML-Code</h2>
+        <h2 class="dhbw-lightblue">Verwendung im HTML-Code</h2>
         <p>
             Innerhalb von HTML können Media Queries nur an sehr wenigen Stellen direkt
             verwendet werden. Die wichtigste davon ist das <code>&lt;link&gt;</code>-Element
@@ -964,14 +964,14 @@
             und Druckausgabe weitgehend eigenstängige Stylesheets zu definieren.
         </p>
 
-        <h2>Verwendung im CSS-Code</h2>
+        <h2 class="dhbw-lightblue">Verwendung im CSS-Code</h2>
         <p>
             Die meiste Verwendung finden Media Queries innerhalb von Stylesheets, da hier ganze
             Regelblöcke dadurch ein- oder ausgeschaltet werden können. Dabei ist allerdings zu
             beachten, dass dies nur auf der obersten Ebene in einem Stylesheet erlaubt ist und
             insbesondere innerhalb der geschweiften Klammern eines Regelblocks keine Media Queries
-            erlaubt sind.² Die Prüfung selbst wird durch die Anweisung <code>@media</code> wie
-            im folgenden Beispiel eingeleitet:
+            erlaubt sind.<sup>2</sup> Die Prüfung selbst wird durch die Anweisung <code>@media</code>
+            wie im folgenden Beispiel eingeleitet:
         </p>
         <source-code language="css">
             @media screen (min-width: 800px) {
@@ -1004,7 +1004,7 @@
             werden können.
         </p>
         <p>
-            ²
+            <sup>2</sup>
             <small>
                 Präprozessoren wie <a href="http://lesscss.org/" target="_blank">Less</a> und
                 <a href="https://sass-lang.com/" target="_blank">Sass</a> könne hier Abhilfe schaffen.
@@ -2283,8 +2283,9 @@
                                     left: 0;
                                     bottom: 0;
 
-                                    background-color: rgb(30, 30, 30);
-                                    overflow-y: scroll;
+                                    background-color: rgba(30, 30, 30, 0.8);
+                                    backdrop-filter: blur(10px);
+                                    overflow-y: auto;
 
                                     /* Inhalt horizontal und vertikal zentrieren */
                                     display: flex;
@@ -2479,6 +2480,715 @@
     </aside>
 </section>
 
+<section data-title="Container Queries als moderne Alternative">
+    <article>
+        <lsx-ul class="mb-4">
+            <li>Container Queries reagieren auf die Größe eines Elternelements, nicht auf das gesamte Viewport-Fenster.</li>
+            <li>Sie machen HTML-Komponenten unabhängig vom globalen Layout und fördern ihre Wiederverwendbarkeit.</li>
+            <li>Sie sind daher besonders nützlich für komplexe, modulare Layouts wie Karten, Widgets oder wiederverwendbare UI-Komponenten.</li>
+            <li>Allerdings muss das Elternelement mit <code>container-type</code> als Container deklariert werden.</li>
+            <li>Für so gekennzeichnete Elternelemente gelten dann andere Regeln, wie ihre Breite/Höhe ausgerechnet wird.</li>
+        </lsx-ul>
+
+        <lsx-tab-pages class="my-responsive-preview">
+            <lsx-tab-page title="Beispiel">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-screen" src="3-responsive/container-queries/index.html"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+            <lsx-tab-page title="HTML-Code">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="de"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Container-Queries&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+
+                            &lt;!-- Eigenes Stylesheet --&gt;
+                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;!-- Header --&gt;
+                            &lt;header&gt;
+                                &lt;img src="logo.svg" alt="Container Queries"&gt;
+                            &lt;/header&gt;
+
+                            &lt;!-- Fotogalerie --&gt;
+                            &lt;main class="max-width"&gt;
+                                &lt;section id="gallery"&gt;
+                                    &lt;img src="gallery/guitar1.jpg"&gt;
+                                    &lt;img src="gallery/guitar2.jpg"&gt;
+                                    &lt;img src="gallery/guitar3.jpg"&gt;
+                                    &lt;img src="gallery/guitar4.jpg"&gt;
+                                    &lt;img src="gallery/guitar5.jpg"&gt;
+                                    &lt;img src="gallery/guitar6.jpg"&gt;
+                                    &lt;img src="gallery/guitar7.jpg"&gt;
+                                    &lt;img src="gallery/guitar8.jpg"&gt;
+                                    &lt;img src="gallery/guitar9.jpg"&gt;
+                                    &lt;img src="gallery/guitar10.jpg"&gt;
+                                    &lt;img src="gallery/guitar11.jpg"&gt;
+                                    &lt;img src="gallery/guitar12.jpg"&gt;
+                                    &lt;img src="gallery/guitar13.jpg"&gt;
+                                &lt;/section&gt;
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+            <lsx-tab-page title="Stylesheet">
+                <source-code language="css">
+                    /***********************
+                    * HEADER-BAR MIT LOGO *
+                    ***********************/
+                    header {
+                        /* Allgemeine Gestaltung */
+                        ...
+
+                        /*
+                        * Container Queries gegen dieses Element erlauben 
+                        *
+                        * WICHTIG: Dem Element muss eine explizite Größe zugewiesen werden, da Elemente
+                        * die in Container Queries abgefragt werden können, ihre Höhe nicht mehr automatisch
+                        * aus ihren Inhalten ableiten. Deshalb wird hier mit `flex-basis` die Größe gesetzt.
+                        * `flex-basis` ist die Höhe innerhalb einer horizontalen Flexbox und die Breite
+                        * in einer vertikalen Flexbox.
+                        */
+                        container-type: size;
+                        container-name: header-bar;
+                        flex-basis: var(--image-height);
+                    }
+
+                    @container header-bar (orientation: portrait) {
+                        /* Logo drehen, wenn der Header hochkant steht */
+                        img {
+                            transform: rotate(-90deg);
+                        }
+                    }
+
+                    /***************
+                    * FOTOGALERIE *
+                    ***************/
+                    main {
+                        /* Allgemeine Gestaltung */
+                        ...
+                        
+                        /* Container Queries gegen dieses Element erlauben */
+                        container-type: inline-size;
+                        container-name: main;
+                    }
+
+                    @container main (min-width: 50em) {
+                        /* Bilder in einem großen Container nebeneinander statt untereinander anordnen */
+                        #gallery {
+                            display: flex;
+                            align-items: stretch;
+                        }
+
+                        img {
+                            height: 100% !important;
+                            width: 7.8vw !important;
+                            transition: width 0.5s !important;
+                        }
+
+                        img:hover {
+                            width: 30vh !important;
+                        }
+                    }
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <h2 class="dhbw-lightblue">Problemstellung</h2>
+        <p>
+            Media Queries zählen seit ihrer Einführung zu den Arbeitspferden des Responsive Webdesign.
+            Endlich war es auf einfache Weise möglich, die Eigenschaften des Ausgabegeräts abzufragen
+            und das Layout einer Webseite dynamisch an diese anzupassen, anstatt wie bisher üblich,
+            mehrere Versionen derselben Seite für unterschiedliche Geräte zu programmieren. Doch genau
+            hier liegt auch das Problem von Media Queries: Die prüfen das Ausgabegerät, in der Regel
+            also den Bildschirm bzw. den Viewport des Browsers<sup>1</sup>, nicht aber den Platz, den
+            ein konkretes Element an seiner konkreten Position tatsächlich zur Verfügung hat.
+        </p>
+        <p>
+            Warum ist das ein Problem? Baut man eine vergleichsweise einfache Webseite aus einem Guss,
+            so wie wir das bisher immer gemacht haben, kommt man mit Media Queries tatsächlich sehr weit.
+            Man hat ein bestimmtes Layout vor Augen und weiß genau, wie viel Platz für welche Inhalte
+            an welcher Stelle vorgesehen ist. Mit Media Queries stellt man lediglich sicher, dass das
+            Layout nur dann angewandt wird, wenn in der Regel der Bildschirm groß genug dafür ist.
+            Problematisch wird es allerdings, wenn das Layout selbst gar nicht statisch ist, sondern
+            sich zum Beispiel durch Ein- und Ausblenden optionaler Inhalte selbst verändern kann.
+            Weil dann kann es sein, dass durch die zusätzlich eingeblendeten Inhalte der für ein
+            Element zur Verfügung stehende Platz nicht mehr ausreicht – ein Fall, der mit Media Queries
+            nicht abgefragt werden kann. Die Bildschirmgröße bleibt ja immer gleich.
+        </p>
+        <p>
+            Hinzu kommt, dass man in der Realität häufig gar nicht weiß, an welcher Stelle ein
+            bestimmter Inhalt später angezeigt werden wird und wie viel Platz dann zur Verfügung
+            steht. Als Beispiel stelle man sich hier die Teilen-Funktion von Youtube vor, die es
+            ermöglicht, ein Video mit einem HTML-Schnippsel in fremde Webseiten einzubetten. Oder
+            die Teilen-Funktion von Facebook, X und Instagram, mit denen ein Socal Media Post in
+            eine Webseite eingebettet werden kann. Aber auch, wenn man mit einem Komponenten-Framework
+            wie Angular oder React quasi seine eigenen HTML-Elemente baut<sup>2</sup>, kann es sein,
+            dass man während der Entwicklung noch nicht weiß, wer diese Elemente wo einsetzen wird.
+        </p>
+        <p>
+            Container Queries, die seit dem Jahr 2023 von allen gängigen Browsern unterstützt werden,
+            können helfen, diese Probleme zu lösen. Denn sie prüfen nicht das Ausgabemedium oder den
+            Viewport des Browsers, sondern konkrete HTML-Elemente, so wie sie tatsächlich auf einer
+            Seite dargestellt werden. Dadurch wird es möglich, CSS-Regeln zu definieren, die von Fragen
+            abhängen wie:
+        </p>
+        <ul>
+            <li>
+                Habe ich an dieser Stelle genügend Platz für den Inhalt?
+            </li>
+            <li>
+                Ist der zur Verfügung stehende Bereich höher wie breit oder breiter wie hoch?
+            </li>
+            <li>
+                Und viele mehr, die sich auf das gewünschte Elternelement beziehen.
+            </li>
+        </ul>
+        <p>
+            Der Vorteil: Komponenten können flexibel in unterschiedlichen Kontexten wiederverwendet werden.
+            Zum Beispiel kann so eine Karten-Komponente innerhalb einer schmalen Sidebar anders an als im
+            breiten Hauptbereich dargestellt werden, ganz egal, auf welchem Bildschirm dies später erfolgt –
+            es zählt nur der Platz, den man für die Kartendarstellung tatsächlich gerade zur Verfügung hat.
+        </p>
+        <p>
+            <sup>1</sup>
+            <small>
+                Der Viewport ist der Anzeigebereich im Browser, innerhalb dessen die Webseite dargestellt wird.
+            </small>
+        </p>
+        <p>
+            <sup>2</sup>
+            <small>
+                Stark vereinfachte Darstellung. 🙂
+            </small>
+        </p>
+
+        <h2 class="dhbw-lightblue">Grundlegende Syntax</h2>
+        <p>
+            Die grundlegende Syntax von Container Queries ist dieselbe wie bei Media Queries. Lediglich statt
+            <code>@media</code> schreibt man <code>@container</code> und hängt dann die zu prüfenden Eigenschaften
+            an. Zum Beispiel:
+        </p>
+        <source-code language="css">
+            .goolge-maps {
+                /* CSS-Regeln für die KLEINE Kartendarstellung */
+            }
+
+            @container (min-width: 30em) {
+                .goolge-maps {
+                    /* CSS-Regeln für die GROSSE Kartendarstellung */
+                }
+            }
+        </source-code>
+        <p>
+            Doch auf welches HTML-Element bezieht sich diese Prüfung? Die Größe von welchem Element wird damit geprüft?
+            Tatsächlich, so wie es dasteht, von keinem. Denn, das zu prüfende Elemente muss zusätzlich markiert werden,
+            damit klar ist, um welches Element es sich handelt und welche Eigenschaften tatsächlich davon abgefragt
+            werden dürfen. Dies geschieht mit der CSS-Eigenschaft <code>container-type</code>. Das vollständige Beispiel
+            lautet daher:
+        </p>
+        <source-code language="css">
+            main {
+                /* Von diesem Element kann die Breite geprüft werden */
+                container-type: inline-size;
+            }
+
+            .goolge-maps {
+                /* CSS-Regeln für die KLEINE Kartendarstellung */
+            }
+
+            @container (min-width: 30em) {
+                .goolge-maps {
+                    /* CSS-Regeln für die GROSSE Kartendarstellung */
+                }
+            }
+        </source-code>
+        <p>
+            Die Eigenschaft <code>container-type</code> besitzt dabei folgende Ausprägungen:
+        </p>
+        <table class="table">
+            <tr>
+                <td style="width: 7em;">
+                    <code>normal</code>
+                </td>
+                <td>
+                    Standardwert – das Element ist <b>kein Container</b> und kann nicht für Container Queries genutzt werden.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>size</code>
+                </td>
+                <td>
+                    Das Element ist ein <b>voller Container</b>: Sowohl Breite als auch Höhe können abgefragt werden.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>inline-size</code>
+                </td>
+                <td>
+                    Das Element ist ein <b>einfacher Container</b>, der nur die <b>Inline-Achse (meist die Breite)</b> berücksichtigt.
+                    Dies ist der in der Praxis am häufigsten genutzte Wert.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>block-size</code>
+                </td>
+                <td>
+                    Beobachtet nur die <b>Block-Achse (meist die Höhe)</b>.
+                </td>
+            </tr>
+        </table>
+        <p>
+            Diese Kennzeichnung ist notwendig, weil die Breite und Höhe eines Element meistens von seinem Inhalt abhängen.
+            Doch hier willen wir ja gerade den Inhalt anders darstellen, abhängig davon wie Breit oder Hoch das Element ist.
+            Die Kennzeichnung sorgt dafür, dass die gewünschten Eigenschaften abgefragt werden können, dafür aber nicht mehr
+            vom Inhalt des Elements abhängen. Stattdessen müssen die Breite und die Höhe dann explizit gesetzt werden, entweder
+            mit den entsprechenden CSS-Eigenschaften (<code>width</code>, <code>height</code>, …) oder durch eine umgebende
+            Flexbox etc.
+        </p>
+
+        <h2 class="dhbw-lightblue">Mehrere benannte Container</h2>
+        <p>
+            Häufig kommt es vor, dass man nicht <i>den</i> Container Query zur Prüfung <i>des</i> Elternelements benötigt,
+            sondern mehrere Queries zur Prüfung mehrerer Elternelemente. Eben, weil es mehrere Stellen in einer Webseite
+            gibt, an denen sich der zur Verfügung stehende Platz dynamisch ändern kann. Dies würde mit der oben gezeigten
+            Syntax nicht unterstützt werden, da die einzelnen Bereiche nicht außeinander gehalten werden könnten. Die
+            Lösung hierfür bietet die CSS-Eigenschaft <code>container-name</code>, wie im folgenden Beispiel gezeigt:
+        </p>
+        <source-code language="css">
+            #sidebar {
+                container-name: sidebar;
+                container-type: inline-size;
+            }
+
+            main {
+                container-name: main;
+                container-type: inline-size;
+            }
+
+            @container sidebar (min-width: 25em) {
+                /* Sidebar ist mindestens 25em breit */
+            }
+
+            @container main (min-width: 60em) {
+                /* Hauptbereich ist mindestens 60em breit */
+            }
+        </source-code>
+        <p>
+            Wie man sieht, kann den Containern mit <code>container-name</code> ein eindeutiger Name gegeben werden,
+            aufden sich die eigentliche <code>@container</code>-Anweisung später beziehen kann.
+        </p>
+    </aside>
+</section>
+
+<section data-title="Flexbox, Flexbox, Flexbox">
+    <article>
+        <p>
+            Der Flexbox-Algorithmus ermöglicht es, auf elegante Weise mit wenigen Code-Zeilen komplexe Layouts zu definieren.
+        </p>
+        <lsx-ul class="mb-4">
+            <li>
+                Elemente können sowohl horizontal als auch vertikal einfach zentriert und verteilt werden.
+            </li>
+            <li>
+                Die Kinder einer Flexbox passen sich automatisch an den verfügbaren Platz an und können wachsen oder schrumpfen.
+            </li>
+            <li>
+                Die Reihenfolge der Flex-Items lässt sich unabhängig von der Reiihenfolge im HTML anpassen.
+            </li>
+            <li>
+                Elemente können bei Platzmangel automatisch in neue Zeilen bzw. Spalten umbrechen.
+            </li>
+        </lsx-ul>
+
+        <lsx-accordion class="mb-4">
+            <lsx-accordion-page title="CSS-Eigenschaften des Containers" bold>
+                <p>
+                    Um den Flexbox-Algorithmus zu aktivieren, muss ein HTML-Element mit der CSS-Eigenschaft
+                    <code>display</code> entsprechend gekennzeichnet werden. Hinzu kommen dann noch weitere
+                    Eigenschaften, die das Verhalten der Flexbox beeinflussen. Nachfolgend sind die wichtigsten
+                    davon genannt. Eine vollständige Übersicht gibt es auf
+                    <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">css-tricks.com</a>.
+                </p>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="display">
+                        <p>
+                            Aktiviert mit dem richtigen Wert den Flexbox-Algorithmus für ein HTML-Element und
+                            macht es somit zu einem Flexbox-Container.
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>flex</code>
+                                </td>
+                                <td>
+                                    Der Container wird zu einem <b>Block-Element mit Flexbox-Verhalten</b>. Das bedeutet, er nimmt standardmäßig
+                                    die volle Breite ein, verhält sich wie ein Block-Level-Element, und seine Kinder werden zu Flex-Items.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>inline-flex</code>
+                                </td>
+                                <td>
+                                    Der Container wird zu einem <b>Inline-Element mit Flexbox-Verhalten</b>. Das heißt, er verhält sich in Bezug
+                                    auf umliegenden Text oder andere Inline-Elemente wie ein Inline-Block, ordnet seine Kinder aber trotzdem als
+                                    Flex-Items an.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i>Alle anderen</i>
+                                </td>
+                                <td>
+                                    Der Container ist keine Flexbox.
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="flex-direction">
+                        <p>
+                            Ändert die Richtung, in welcher die Flexbox ihre Inhalte anordnet, indem festgelegt
+                            wird, welche Achse die Hauptachse ist (<code>justify-content</code>). Die andere Achse
+                            ist dann automatisch die Nbenachse (<code>align-items</code>).
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>row</code>
+                                </td>
+                                <td>
+                                    (Standardwert) Ordnet die Flex-Items in einer horizontalen Reihe von links nach rechts an.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>column</code>
+                                </td>
+                                <td>
+                                    Stapelt die Flex-Items vertikal von oben nach unten.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>row-reverse</code>
+                                </td>
+                                <td>
+                                    Ordnet die Flex-Items in einer Reihe von rechts nach links an.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>column-reverse</code>
+                                </td>
+                                <td>
+                                    Stapelt die Flex-Items vertikal von unten nach oben.
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="justify-content">
+                        <p>
+                            Bestimmt die Anordnung der Kind-Elemente entlang der Hauptachse der Flexbox.
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>flex-start</code>
+                                </td>
+                                <td>
+                                    (Standardwert) Die Flex-Items beginnen am Anfang der Hauptachse.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>flex-end</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items beginnen am Anfang der Hauptachse.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>center</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden in der Mitte der Hauptachse zentriert.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>space-between</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden mit gleichmäßigem Abstand dazwischen verteilt, ohne Randabstand.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>space-around</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items haben einen gleichmäßigen Abstand, auch zum Rand des Containers.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>space-evenly</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items und Ränder haben überall denselben Abstand.
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="align-items">
+                        <p>
+                            Bestimmt die Anordnung der Kind-Elemente entlang der Neben der Flexbox.
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>stretch</code>
+                                </td>
+                                <td>
+                                    (Standardwert) Die Flex-Items werden so gestreckt, dass sie die Nebenachse des Containers ausfüllen.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>flex-start</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden am Anfang der Nebenachse des Containers ausgerichtet.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>flex-end</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden am Ende der Nebenachse des Containers ausgerichtet.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>center</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden in der Mitte der Nebenachse des Containers ausgerichtet.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>baseline</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden entlang ihrer Textgrundlinie ausgerichtet.
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="flex-wrap">
+                        <p>
+                            Legt fest, ob die Flexbox ihre Items bei zu wenig Platz in eine neue Zeile bzw.
+                            eine neue Spalte umbrechen darf. Standardmäßist ist dies deaktiviert, wodurch die
+                            Items unter Umständen sehr gequetscht werden.
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>nowrap</code>
+                                </td>
+                                <td>
+                                    (Standardwert) Alle Flex-Items bleiben in einer Zeile, auch wenn sie dabei
+                                    über den Container hinausragen oder zusammengedrückt werden.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>wrap</code>
+                                </td>
+                                <td>
+                                    Flex-Items brechen in eine neue Zeile/Spalte um, wenn nicht genug Platz vorhanden ist.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>wrap-reverse</code>
+                                </td>
+                                <td>
+                                    Wie <code>wrap</code>, nur dass die neuen Zeilen in umgekehrter Richtung angeordnet werden
+                                    (z. B. oberhalb statt unterhalb).
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="gap">
+                        <p>
+                            Definiert den Abstand zwischen den Flex-Items, zum Beispiel:
+                        </p>
+                        <source-code language="css">
+                            .my-flexbox {
+                                display: flex;
+                                gap: 1em;
+                            }
+                        </source-code>
+                        <p>
+                            Spezielle Varianten existieren für den horizontalen und den vertikalen
+                            Abstand, wenn diese nicht einheitlich sein sollen:
+                        </p>
+                        <ul>
+                            <li><code>row-gap</code>: Horizontaler Abstand zwischen den Flex-Items</li>
+                            <li><code>column-gap</code>: Vertikaler Abstand zwischen den Flex-Items</li>
+                        </ul>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="CSS-Eigenschaften der Flex-Items" bold>
+                <p>
+                    Bei Flexbox gibt es nicht nur Eigenschaften für den Container, sondern auch spezielle
+                    Eigenschaften, die direkt an den Flex-Items (also den Kindelementen) gesetzt werden können.
+                    Damit steuert man, wie sich jedes einzelne Element innerhalb des Flex-Containers verhält,
+                    z.B. wie groß es werden darf oder wie es sich beim Verteilen des Platzes verhält.
+                </p>
+                <table class="table">
+                    <tr>
+                        <td style="width: 9em;">
+                            <code>flex-grow</code>
+                        </td>
+                        <td>
+                            Bestimmt, wie stark ein Item wächst, wenn im Container zusätzlicher Platz vorhanden ist.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>flex-shrink</code>
+                        </td>
+                        <td>
+                            Bestimmt, wie stark ein Item schrumpft, wenn der Platz im Container nicht ausreicht.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>flex-basis</code>
+                        </td>
+                        <td>
+                            Gibt die Ausgangsgröße eines Items an, bevor Wachsen oder Schrumpfen angewendet werden.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>flex</code>
+                        </td>
+                        <td>
+                            Kurzschreibweise für <code>flex-grow</code>, <code>flex-shrink</code> und <code>flex-basis</code>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>align-self</code>
+                        </td>
+                        <td>
+                            Überschreibt die vertikale Ausrichtung (<code>align-items</code>) für ein einzelnes Item.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>order</code>
+                        </td>
+                        <td>
+                            Übersteuert die Reihenfolge, in der die Items im Container angezeigt werden.
+                        </td>
+                    </tr>
+                </table>
+            </lsx-accordion-page>
+        </lsx-accordion>
+
+        <iframe src="3-responsive/flexbox/index.html" class="dhbw-border" style="width: 100%; height: 55%;"></iframe>
+    </article>
+    <aside>
+        <p>
+            Moderne Webseiten verhalten sich immer weniger wie einfache Textdokumente, sondern immer mehr wie
+            vollwertige Anwendungen mit einer richtigen Benutzeroberfläche. Im Laufe der Zeit haben sich daher
+            gängige Layouts wie die Verwendung eines komplexen Headers oder einer Sidebar herausgebildet, die
+            früher so nur von großen Desktopanwendungen bekannt werden. Doch leider konnten diese Layouts mit
+            den Boardmitteln von HTML und CSS nur sehr umständlich und fehleranfällig nachgebaut werden. Oft
+            musst man auf unschöne Tricks wie der Verwendung Floats und Tabellen zugreifen, um das gewünschte
+            Ergebnis irgendwie hinzubekommen. 🥲
+        </p>
+        <p>
+            Und dann kam die Flexbox und alles wurde anders. 🚀 Es handelt sich dabei um ein neues Layout-Modul
+            für CSS, das es ermöglicht, die Elemente eines Containers (die so genannten Flex-Items) einfach und
+            kontrolliert anzuordnen. Elemente zentrieren, Fußzeilen immer am unteren Bildschirmende platzieren,
+            Sidebards, … war plötzlich alles ganz leicht.
+        </p>
+        <p>
+            Die grundlegende Funktionsweise von Flexbox ist, dass man einen Container als „flexible Box“ definiert.
+            Dieser Container bestimmt dann, wie sich die enthaltenen Elemente, die Flex-Items, anordnen. Statt dass
+            man für jedes Element komplizierte Positionierungen schreibt, reicht es, dem übergeordneten Container
+            bestimmte Regeln zu geben, zum Beispiel ob die Elemente nebeneinander oder untereinander stehen sollen,
+            ob sie links, rechts oder zentriert ausgerichtet werden, und so weiter.
+        </p>
+        <p>
+            Ein einfaches Beispiel soll diese Grundprinzip dahinter verdeutlichen. Angenommen, wir haben einen
+            Container mit drei Boxen:
+        </p>
+        <source-code language="html">
+            &lt;div class="container"&gt;
+                &lt;div class="item"&gt;Box 1&lt;/div&gt;
+                &lt;div class="item"&gt;Box 2&lt;/div&gt;
+                &lt;div class="item"&gt;Box 3&lt;/div&gt;
+            &lt;/div&gt;
+        </source-code>
+        <p>
+            Mit nur wenigen Zeilen CSS kann man steuern, dass sie nebeneinander in einer Reihe erscheinen und gleichmäßig
+            verteilt werden:
+        </p>
+        <source-code language="css">
+            .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        </source-code>
+        <p>
+            In diesem Beispiel wird durch <src-code language="css">display: flex</src-code> der Container zum Flexbox-Container.
+            Die Eigenschaft <code>justify-content</code> sorgt dafür, dass die Boxen mit gleichmäßigem Abstand verteilt werden,
+            und <code>align-items</code> richtet sie vertikal mittig innerhalb des Containers aus. Damit entsteht schnell ein Layout,
+            das sich flexibel anpasst und ohne komplizierte Tricks auskommt – in Kombination mit Media oder Container Queries
+            unschlagbar!
+        </p>
+        <p>
+            Für ihre Anordnung unterscheidet die Flexbox zwischen ihrer Hauptachse (<code>justify-content</code>) und ihrer
+            Nebenachse (<code>align-items</code>). Standardmäßig werden die Flex-Items entlang einer Reihe angeordnet, so
+            dass die X-Achste die Hauptachse und die Y-Achse die Nebenachse ist. Mit <code>flex-direction</code> kann dies
+            aber umgeschaltet werden, um die Elemente beispielsweise untereinander anordnen zu können.
+        </p>
+        <p>
+            Die Seite reichts zeigt ein interaktives Beispiel sowie die wichtigsten CSS-Eigenschaften. Mehr Details findet
+            man schön visualisiert hingegen auf <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">css-tricks.com</a>.
+        </p>
+    </aside>
+</section>
+
 <section data-title="Aufgabe 1: Ein kleines Webdesign-Quiz" data-background-color="rgb(231, 221, 141)">
     <article>
         <lsx-tab-pages>
@@ -2530,9 +3240,19 @@
                             text = "e) Was ist ein Media Query?"
                         >
                             <lsx-answer correct>Eine Fallunterscheidung zur Abfrage von Eigenschaften des Ausgabegeräts</lsx-answer>
-                            <lsx-answer>Ein spezielles Stylehsset für die Anpassung an mobile Endgeräte</lsx-answer>
+                            <lsx-answer>Ein spezielles Stylesheet für die Anpassung an mobile Endgeräte</lsx-answer>
                             <lsx-answer>Eine Abfragesprache für unterschiedliche Multimedia-Inhalte</lsx-answer>
                             <lsx-answer>Eine HTML-Anweisung zur Nutzung geräteabhängiger Medieninhalte</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "f) Was ist ein Container Query?"
+                        >
+                            <lsx-answer>Die ältere Bezeichnung für Media Queries, bevor sie standardisiert wurden</lsx-answer>
+                            <lsx-answer>Eine alternative Syntax für die CSS-Selektoren in einem Stylesheet</lsx-answer>
+                            <lsx-answer>Eine Bibliothek zur Gestaltung benutzerfreundlicher Eingabeformulare</lsx-answer>
+                            <lsx-answer correct>Eine Fallunterscheidung anhand der Eigenschaften eines HTML-Container-Elements</lsx-answer>
                         </lsx-question>
                     </lsx-exercise>
                 </lsx-quiz>
@@ -2680,6 +3400,63 @@
                             <lsx-answer>Auf kleinen Bildschirmen werden überflüssige Elemente nicht angezeigt</lsx-answer>
                             <lsx-answer>Ausdrucke in DIN A5 oder kleiner beinhalten weniger Elemente als größere Formate</lsx-answer>
                             <lsx-answer correct>Ein Ausdruck der Seite beinhaltet nur den Hauptbereich ohne sonstige Elemente</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 1.4">
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                a) Damit die Eigenschaften eines Elements mit einem Container Query abgefragt werden können, sollte
+                                dem Element im Stylesheet ein Container-Name zugewiesen werden.
+                            </lsx-question-text>
+
+                            <lsx-question-line>
+                                <lsx-answer correct>Wahr</lsx-answer>
+                                <lsx-answer>Falsch</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question type="multiple-choice">
+                            <lsx-question-text>
+                                b) Elementen, deren Größe mit einem Container Query abgefragt wird, muss im Stylesheet …
+                            </lsx-question-text>
+    
+                            <lsx-answer correct>mit <code>container-name: mein-name;</code> ein Name zugewiesen werden.</lsx-answer>
+                            <lsx-answer correct>die Eigenschaft <code>container-type: size;</code> zugewiesen werden.</lsx-answer>
+                            <lsx-answer>eine explizite Breite, zum Beispiel mit <code>width</code> oder durch eine Flexbox zugewiesen werden.</lsx-answer>
+                            <lsx-answer correct>eine explizite Höhe, zum Beispiel mit <code>height</code> oder durch eine Flexbox zugewiesen werden.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question type="multiple-choice">
+                            <lsx-question-text>
+                                <p>
+                                    c) Was bewirken die folgenden Zeilen?
+                                </p>
+                                <source-code language="css">
+                                    section {
+                                        container-type: size;
+                                        container-name: article-section;
+                                        height: 2.5em;
+                                    }
+
+                                    @container article-section (orientation: portrait) {
+                                        img {
+                                            transform: rotate(-90deg);
+                                        }
+                                    }
+                                </source-code>
+                            </lsx-question-text>
+
+                            <lsx-answer>Es wird ein Media Query definiert.</lsx-answer>
+                            <lsx-answer correct>Es wird ein Container Query definiert.</lsx-answer>
+                            <lsx-answer>Es wird die Höhe der ausgewählten Elemente geprüft.</lsx-answer>
+                            <lsx-answer correct>Es wird geprüft das Seitenverhältnis der ausgewählten Elemente geprüft.</lsx-answer>
+                            <lsx-answer correct>Wenn der Query zutrift, werden die enthaltenen Bilder im -90° gedreht.</lsx-answer>
+                            <lsx-answer>Wenn der Query zutrift, werden die enthaltenen Bilder kleiner dargestellt.</lsx-answer>
                         </lsx-question>
                     </lsx-exercise>
                 </lsx-quiz>
@@ -2915,6 +3692,187 @@
             Hier kannst du dich mit Media Queries ein wenig vertraut machen. Die Aufgabe
             ist ganz einfach, versprochen. Wenn du alles richtig machst, hast du hinterher
             aber trotzdem eine echte „Mobile First“-Seite erstellt. 🐊
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>
+
+<section data-title="Aufgabe 3: Welche Flexbox hätten Sie gerne?" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <p>
+            Angenommen, eine Webseite besitzt eine Flexbox mit drei Flex-Items. Welcher der folgenden CSS-Codes
+            passt zu den Screenshots unten?
+        </p>
+        
+        <lsx-grid-fluid class="mb-4 p-0">
+            <lsx-row>
+                <lsx-col size="lg" class="mb-3 mb-md-0">
+                    <lsx-card title="Quellcode A" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: center;
+                                align-items:     flex-end;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+                <lsx-col size="lg" class="mb-3 mb-md-0">
+                    <lsx-card title="Quellcode B" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: space-between;
+                                align-items:     flex-start;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+                <lsx-col size="lg">
+                    <lsx-card title="Quellcode C" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: flex-start;
+                                align-items:     flex-start;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+            </lsx-row>
+            <lsx-row>
+                <lsx-col size="lg" class="mb-3 mb-md-0">
+                    <lsx-card title="Quellcode D" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: space-between;
+                                align-items:     stretch;
+                            }
+
+                            .flex-item2 {
+                                flex: 1;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+                <lsx-col size="lg" class="mb-3 mb-md-0">
+                    <lsx-card title="Quellcode E" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: center;
+                                align-items:     center;
+                            }
+
+                            .flex-item3 {
+                                flex: 1;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+                <lsx-col size="lg">
+                    <lsx-card title="Quellcode F" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  column-reverse;
+                                justify-content: space-between;
+                                align-items:     stretch;
+                            }
+
+                            .flex-item2 {
+                                flex: 1;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+
+        <lsx-carousel class="carousel-fade">
+            <lsx-carousel-page>
+                <img src="3-responsive/flexbox-welche-1.png" alt="Screenshot 1" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/flexbox-welche-2.png" alt="Screenshot 2" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/flexbox-welche-3.png" alt="Screenshot 3" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/flexbox-welche-4.png" alt="Screenshot 4" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/flexbox-welche-5.png" alt="Screenshot 5" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/flexbox-welche-6.png" alt="Screenshot 6" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <h2 class="dhbw-lightblue">Lösung</h2>
+
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="lg" class="mb-3 mb-md-0">
+                            <img src="3-responsive/flexbox-welche-1.png" alt="Screenshot 1" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode C</span>
+                        </lsx-col>
+                        <lsx-col size="lg" class="mb-3 mb-md-0">
+                            <img src="3-responsive/flexbox-welche-2.png" alt="Screenshot 2" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode B</span>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <img src="3-responsive/flexbox-welche-3.png" alt="Screenshot 3" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode D</span>
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="lg" class="mb-3 mb-md-0">
+                            <img src="3-responsive/flexbox-welche-4.png" alt="Screenshot 4" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode F</span>
+                        </lsx-col>
+                        <lsx-col size="lg" class="mb-3 mb-md-0">
+                            <img src="3-responsive/flexbox-welche-5.png" alt="Screenshot 5" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode A</span>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <img src="3-responsive/flexbox-welche-6.png" alt="Screenshot 6" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode E</span>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Sehr gut! 🐕 Die Flexbox sollte man wirklich können.
+                </p>
+                <img class="active d-block w-25 m-auto" src="shared/finish.svg" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+        </lsx-carousel>
+    </article>
+    <aside>
+        <p>
+            Die Flexbox ist die beste Erfindung seit geschnitten Brot. 🍞 Hier kannst du prüfen, ob du
+            ihre Verwendung verstanden hast.
         </p>
         <img src="shared/github_atom.png" class="img-fluid d-block"/>
         <p>
@@ -4708,7 +5666,7 @@
                     box.classList.add("bg-white");
                     box.classList.add("border");
                     box.classList.add("shadow");
-                    box.style.overflow  = "scroll";
+                    box.style.overflow  = "auto";
                     box.style.maxWidth  = "100vw";
                     box.style.maxHeight = "100vh";
                     overlay.appendChild(box);
