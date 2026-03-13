@@ -39,7 +39,7 @@
         "@dschulmeis/ls-plugin-extra-tags": "^3.3.2",
         "@dschulmeis/ls-plugin-highlight.js": "^2.0.6",
         "@dschulmeis/ls-plugin-markdown": "^1.0.0",
-        "email-link.js": "^1.0.1",
+        "email-link.js": "^1.1.0",
         "esbuild": "^0.19.2",
         "esbuild-plugin-less": "^1.2.4",
         "shelljs": "^0.8.5"
