@@ -21,10 +21,10 @@
         "template"
     ],
     "scripts": {
-        "clean": "node scripts/clean.js",
-        "build": "npm run clean && node scripts/build-static.mjs && node scripts/esbuild-bundle.js",
-        "start": "node scripts/esbuild-serve.js",
-        "publish": "scripts/publish.sh"
+        "clean": "node bin/clean.js",
+        "build": "npm run clean && node bin/build-static.mjs && node bin/esbuild-bundle.js",
+        "start": "node bin/esbuild-serve.js",
+        "publish": "bin/publish.sh"
     },
     "config": {
         "src_dir": "src",
