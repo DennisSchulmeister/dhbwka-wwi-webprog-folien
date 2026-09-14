@@ -86,8 +86,9 @@ window.addEventListener("load", async () => {
                 labelQuizPoints:         "{1} von {2}",
                 labelQuizEvaluate:       "Bewerten",
                 labelQuizNewTry:         "Neuer Versuch",
-                githubEditUrlPrefix:     "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-quellcodes/tree/master/",
-                githubPagesUrlPrefix:    "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-quellcodes/",
+                githubDownloadUrlPrefix: "https://github.com/DennisSchulmeister/dhbwka-wwi-webprog-",
+                githubEditUrlPrefix:     "https://codespaces.new/DennisSchulmeister/dhbwka-wwi-webprog-",
+                githubPagesUrlPrefix:    "https://dennisschulmeister.github.io/dhbwka-wwi-webprog-",
             }),
             HighlightJs: new LsPluginHighlightJs({
                 languages: {
