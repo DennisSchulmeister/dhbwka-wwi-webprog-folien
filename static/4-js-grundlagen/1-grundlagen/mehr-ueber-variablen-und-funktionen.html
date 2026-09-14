@@ -4,7 +4,7 @@
             Im Vergleich zu anderen Programmiersprachen besitzt JavaScript nur eine sehr
             begrenzte Anzahl an Datentypen und auch die neue Syntax zur Definition einer
             Funktion ist sicher etwas gewöhnungsbedürftig. Im Vergleich zu anderen
-            Programmierprachen ist JavaScript deshalb aber nicht weniger flexibel, wie
+            Programmiersprachen ist JavaScript deshalb aber nicht weniger flexibel, wie
             insbesondere das Video zeigt.
         </p>
         <lsx-accordion class="mb-3">
@@ -54,7 +54,7 @@
                 </p>
                 <source-code language="javascript">
                     function halloWelt(name, alter) {
-                        return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                        return `Hallo ${name}. Sie sind ${alter} Jahre alt.`;
                     }
                 </source-code>
                 <p>
@@ -62,20 +62,20 @@
                 </p>
                 <source-code language="javascript">
                     let halloWelt = (name, alter) => {
-                        return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                        return `Hallo ${name}. Sie sind ${alter} Jahre alt.`;
                     };
                 </source-code>
                 <p>
                     Oder noch kürzer:
                 </p>
                 <source-code language="javascript">
-                    let halloWelt = (name, alter) => return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                    let halloWelt = (name, alter) => return `Hallo ${name}. Sie sind ${alter} Jahre alt.`;
                 </source-code>
                 <p>
                     Oder am kürzesten:
                 </p>
                 <source-code language="javascript">
-                    let halloWelt = (name, alter) => `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                    let halloWelt = (name, alter) => `Hallo ${name}. Sie sind ${alter} Jahre alt.`;
                 </source-code>
             </lsx-accordion-page>
         </lsx-accordion>
@@ -111,30 +111,30 @@
         </p>
         <ul>
             <li>
-                <b>Boolean:</b> Kennst du aus Java. Ein Boolean kann nur <code>true</code>
+                <b>Boolean:</b> Kennen Sie aus Java. Ein Boolean kann nur <code>true</code>
                 oder <code>false</code> sein.
             </li>
             <li>
-                <b>String:</b> Kennst du ebenfalls aus Java. Ein String ist eine Zeichenkette,
+                <b>String:</b> Kennen Sie ebenfalls aus Java. Ein String ist eine Zeichenkette,
                 in der Unicode-Zeichen gespeichert werden.
             </li>
             <li>
-                <b>Number:</b> JavaScript hat tatsächlich nur diesen einen nummerischen Datentyp.
+                <b>Number:</b> JavaScript hat tatsächlich nur diesen einen numerischen Datentyp.
                 Er entspricht dem <code>double</code> aus Java, da es sich um eine 64-bit
                 Fließkommazahl handelt. Neben den üblichen Zahlen kann er noch die Werte
                 <code>+infinity</code>, <code>-infinity</code> und <code>NaN</code> beinhalten.
             </li>
             <li>
-                <b>Object:</b> Das sind im Prinzip Objekte, wie du sie aus Java kennst. Jedoch
+                <b>Object:</b> Das sind im Prinzip Objekte, wie Sie sie aus Java kennen. Jedoch
                 werden sie anders erzeugt und gerade die Objektorientierung ist in JavaScript
-                in gewisser Weiße speziell.
+                in gewisser Weise speziell.
             </li>
         </ul>
         <p>
             Das war's dann schon. Die anderen Typen benutzt man nur in ganz besonderen
             Ausnahmefällen, zum Beispiel um zu prüfen, ob eine Variable überhaupt
             definiert ist. Aus diesem Grund nennt man JavaScript auch eine <b>schwach
-            typisierte</b> Sprache. 🚶 Java hingegen – du denkst es dir sicher schon –
+            typisierte</b> Sprache. 🚶 Java hingegen – Sie denken es sich sicher schon –
             ist eine <b>stark typisierte</b> Sprache. 💪
         </p>
 
@@ -176,11 +176,11 @@
             window.meinName = "Hugo Boss";
         </source-code>
         <p>
-            Du siehst, mit Variablen musst du höllisch aufpassen. 👹 Gewöhne dir daher
-            am besten gleich an, vor jede Variable <code>let</code> zu schreiben.
+            Sie sehen, dass bei Variablen besondere Vorsicht geboten ist. Gewöhnen Sie sich
+            am besten direkt an, vor jede Variable <code>let</code> zu schreiben.
             Steht die Variable außerhalb einer Funktion, macht es kaum einen Unterschied.
-            Aber steht sie innerhalb einer Funktion, kannst du dir sicher sein, dass es
-            nicht so solchen Fehlern wie eben beschrieben kommt.
+            Aber steht sie innerhalb einer Funktion, können Sie sich sicher sein, dass es
+            nicht zu solchen Fehlern wie eben beschrieben kommt.
         </p>
         <p>
             In altem JavaScript-Code (älter als 2016) findet man stattdessen auch noch
@@ -243,7 +243,7 @@
         </ul>
 
         <p>
-            Im Großen und Ganzen ist die alte Schreibwiese schon okay. Historisch bedingt
+            Im Großen und Ganzen ist die alte Schreibweise schon okay. Historisch bedingt
             verhalten sich die so deklarierten Funktionen aber in verschiedenen Fällen
             sehr umständlich. 2016 wurde daher eine neue Schreibweise eingeführt:
         </p>
@@ -254,7 +254,7 @@
         </source-code>
         <p>
             Das Besondere ist dabei gar nicht mal die Schreibweise. Obwohl die neue
-            Form den netten Vorteil hat, das sich einzeilige Funktionen sehr kompakt
+            Form den netten Vorteil hat, dass sich einzeilige Funktionen sehr kompakt
             schreiben lassen:
         </p>
         <source-code language="javascript">
@@ -267,9 +267,9 @@
         <p>
             Das Besondere daran ist, dass sich die so deklarierten Funktionen in
             manchen Fällen anders verhalten. Im Moment macht das noch keinen Unterschied
-            für uns. Sobald wir aber anfangen, objektorientiert zu programmieren, solltest
-            du dich an die neue Schreibweise gewöhnen. Denn gerade die <code>this</code>-Variable
-            verhält sich in den neuen Funktionen viel mehr so, wie du es von Java her kennst.
+            für uns. Sobald wir aber anfangen, objektorientiert zu programmieren, sollten
+            Sie sich an die neue Schreibweise gewöhnen. Denn gerade die <code>this</code>-Variable
+            verhält sich in den neuen Funktionen viel mehr so, wie Sie es von Java her kennen.
             Ab hier verwenden daher nur noch die neue Form.
         </p>
         <p>

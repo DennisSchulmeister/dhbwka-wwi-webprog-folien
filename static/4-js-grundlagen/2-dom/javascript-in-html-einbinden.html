@@ -28,10 +28,10 @@
 
                                             klickMichButton.addEventListener("click", () =&gt; {
                                                 anzahl++;
-                                                ergebnis.textContent = `Du hast mich ${anzahl} mal angeklickt.`;
+                                                ergebnis.textContent = `Sie haben mich ${anzahl}-mal angeklickt.`;
 
                                                 if (anzahl &gt; 2) {
-                                                    ergebnis.innerHTML += "&lt;br /&gt; Du hast einen einfachen Button sehr glücklich gemacht."
+                                                    ergebnis.innerHTML += "&lt;br /&gt; Sie haben einen einfachen Button sehr glücklich gemacht."
                                                 }
                                             });
                                         });
@@ -77,10 +77,10 @@
                                     let ergebnisDiv = document.querySelector("#einbinden-direkt-ergebnis > .ergebnis");
 
                                     window.einbinden_direkt_ergebnis_anzahl++;
-                                    ergebnisDiv.textContent = `Du hast mich ${window.einbinden_direkt_ergebnis_anzahl} mal angeklickt.`;
+                                    ergebnisDiv.textContent = `Sie haben mich ${window.einbinden_direkt_ergebnis_anzahl}-mal angeklickt.`;
 
                                     if (window.einbinden_direkt_ergebnis_anzahl > 2) {
-                                        ergebnisDiv.innerHTML += "<br /> Du hast einen einfachen Button sehr glücklich gemacht."
+                                        ergebnisDiv.innerHTML += "<br /> Sie haben einen einfachen Button sehr glücklich gemacht."
                                     }
                                 }
                             </script>
@@ -153,10 +153,10 @@
 
                                 klickMichButton.addEventListener("click", () =&gt; {
                                     anzahl++;
-                                    ergebnisDiv.textContent = `Du hast mich ${anzahl} mal angeklickt.`;
+                                    ergebnisDiv.textContent = `Sie haben mich ${anzahl}-mal angeklickt.`;
 
                                     if (anzahl &gt; 2) {
-                                        ergebnisDiv.innerHTML += "&lt;br /&gt; Du hast einen einfachen Button sehr glücklich gemacht.";
+                                        ergebnisDiv.innerHTML += "&lt;br /&gt; Sie haben einen einfachen Button sehr glücklich gemacht.";
                                     }
                                 });
                             });
@@ -195,10 +195,10 @@
                                     let ergebnisDiv = document.querySelector("#einbinden-separat-ergebnis > .ergebnis");
 
                                     window.einbinden_separat_ergebnis_anzahl++;
-                                    ergebnisDiv.textContent = `Du hast mich ${window.einbinden_separat_ergebnis_anzahl} mal angeklickt.`;
+                                    ergebnisDiv.textContent = `Sie haben mich ${window.einbinden_separat_ergebnis_anzahl}-mal angeklickt.`;
 
                                     if (window.einbinden_separat_ergebnis_anzahl > 2) {
-                                        ergebnisDiv.innerHTML += "<br /> Du hast einen einfachen Button sehr glücklich gemacht.";
+                                        ergebnisDiv.innerHTML += "<br /> Sie haben einen einfachen Button sehr glücklich gemacht.";
                                     }
                                 }
                             </script>
@@ -214,18 +214,18 @@
     <aside>
         <p>
             In diesem Teilkapitel wollen wir uns mehr mit dem Zusammenspiel von HTML
-            und JavaScript beschäftigen. Aus diesem Grund siehst du hier nochmal
+            und JavaScript beschäftigen. Aus diesem Grund sehen Sie hier noch einmal
             Beispiele dafür, wie JavaScript in eine HTML-Datei eingebunden werden
-            kann. Wie du siehst, ist es nicht anders, als mit CSS. Auch da hast
-            du die Wahl, ob du den Code direkt in die HTML-Seite einbauen oder in
-            eine eigene Datei auslagern willst. Doch im Gegensatz zu CSS gibt es
+            kann. Wie Sie sehen, ist es nicht anders, als mit CSS. Auch da haben
+            Sie die Wahl, ob Sie den Code direkt in die HTML-Seite einbauen oder in
+            eine eigene Datei auslagern möchten. Doch im Gegensatz zu CSS gibt es
             für JavaScript keine zwei unterschiedlichen HTML-Tags. Für beide
             Varianten wird stattdessen das
             <src-code language="html">&lt;script&gt;</src-code>-Tag verwendet.
         </p>
 
         <p>
-            Willst du den JavaScript-Code direkt in die HTML-Datei schreiben, machst du das
+            Möchten Sie den JavaScript-Code direkt in die HTML-Datei schreiben, machen Sie das
             wie unten gezeigt. Das <src-code language="html">&lt;script&gt;</src-code>-Element
             darf dabei sowohl im <src-code language="html">&lt;head&gt;</src-code> als auch im
             <src-code language="html">&lt;body&gt;</src-code> stehen.
@@ -240,7 +240,7 @@
         </source-code>
 
         <p>
-            Willst du den JavaScript-Code stattdessen auslagern, machst du das so:
+            Möchten Sie den JavaScript-Code stattdessen auslagern, machen Sie das so:
         </p>
 
         <source-code language="html">
@@ -248,19 +248,18 @@
         </source-code>
         <p>
             Dabei ist allerdings ganz wichtig, dass sich das <src-code language="html">&lt;script&gt;</src-code>-Tag
-            nicht selbst schließen darf! Du brauchst also zwingend immer auch das schließende
+            nicht selbst schließen darf! Sie brauchen also zwingend immer auch das schließende
             <src-code language="html">&lt;/script&gt;</src-code>-Tag.
             <src-code language="html">&lt;script … /&gt;</src-code> ist <b>nicht</b> erlaubt.
         </p>
 
         <div class="info-box">
-            In den Beispielen siehst du bereits verschiedene Objekte und Methoden, die wir uns auf
-            später noch genauer anschauen werden. Unter anderem siehst du hier,
-            wie du mit <src-code language="javascript">document.getElementById()</src-code> auf
-            einzelne HTML-Elemente anhand ihrer ID zugreifen kannst. Außerdem siehst du, wie du
-            mit der <src-code language="javascript">addEventListener()</src-code>-Methode auf
-            bestimmte Ereignisse reagieren kannst. 🔔 Die Details dazu schauen wir uns aber gleich
-            nochmal genauer an.
+            In den Beispielen sind bereits verschiedene Objekte und Methoden zu sehen, die später noch
+            detailliert betrachtet werden. Unter anderem wird hier gezeigt, wie Sie mit
+            <src-code language="javascript">document.getElementById()</src-code> auf einzelne HTML-Elemente
+            anhand ihrer ID zugreifen können. Zudem wird die Verwendung der
+            <src-code language="javascript">addEventListener()</src-code>-Methode zur Reaktion auf bestimmte Ereignisse
+            demonstriert. Die genauen Details folgen im weiteren Verlauf.
         </div>
     </aside>
 </section>

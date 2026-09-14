@@ -11,13 +11,13 @@
 
         <lsx-tab-pages>
             <lsx-tab-page title="Aufgabe">
-                <p>
-                    Ein gutes Workout für die HTML- und CSS-Muskeln 💪 ist, interessant gestaltete Webseiten zu
-                    analysieren und anschließend nachzuprogrammieren. Ebenso kann es nicht schaden, Screenshots
-                    guter Webseiten zu sammeln, um diese später als Inspiration für eigene Projekte heranzuziehen.
-                    In dieser Aufgabe soll deshalb die Startseite von <a href="https://www.npmjs.com">npmjs.com</a>
-                    nachgebaut werden.
-                </p>
+                 <p>
+                     Eine effektive Übung für HTML und CSS besteht darin, interessant gestaltete Webseiten zu
+                     analysieren und anschließend nachzuprogrammieren. Es ist zudem hilfreich, Screenshots
+                     guter Webseiten zu sammeln, um diese später als Inspiration für eigene Projekte zu nutzen.
+                     In dieser Aufgabe soll deshalb die Startseite von <a href="https://www.npmjs.com">npmjs.com</a>
+                     nachgebaut werden.
+                 </p>
         
                 <div class="d-flex gap-2 align-items-center justify-content-center mt-4 mb-4 flex-column flex-md-row align-items-md-end">
                     <lsx-modal-image src="2-html_css/4-uebungen/bung-5-npmjs-com/ub-npmjs/vorlage.png" caption="Screenshot der Original-Webseite"></lsx-modal-image>
@@ -25,37 +25,37 @@
                     <lsx-modal-image src="2-html_css/4-uebungen/bung-5-npmjs-com/ub-npmjs/jumbotron-hintergrund.png" caption="Ersatzbild für das Jumbotron"></lsx-modal-image>                
                 </div>
         
-                <p>
-                    Das Erscheinungsbild der Originalwebseite ändert sich immer mal wieder und entspricht deshalb
-                    möglicherweise schon nicht mehr dem Screenshot. Außerdem enthält sie noch viel mehr Inhalt, den
-                    nachzubauen sich nicht lohnt. Für den Screenshot wurden daher mit den Entwicklungswerkzeugen
-                    des Browsers alle unnötigen Inhalte entfernt, um die wesentlichen Gestaltungsmerkmale besser
-                    hervorzuheben. In der Musterlösung wurden darüber hinaus ein paar Schönheitsfehler behoben,
-                    so dass die Seite wirklich „pixelperfekt” ist (Größe der Suchbuttons sowie die rechtsbündige
-                    Ausrichtung der Buttons mit der Menüzeile und dem Fußbereich).
-                </p>
+                 <p>
+                     Das Erscheinungsbild der Originalwebseite ändert sich immer mal wieder und entspricht deshalb
+                     möglicherweise schon nicht mehr dem Screenshot. Außerdem enthält sie noch viel mehr Inhalt, den
+                     nachzubauen sich nicht lohnt. Für den Screenshot wurden daher mit den Entwicklungswerkzeugen
+                     des Browsers alle unnötigen Inhalte entfernt, um die wesentlichen Gestaltungsmerkmale besser
+                     hervorzuheben. In der Musterlösung wurden darüber hinaus ein paar Schönheitsfehler behoben,
+                     sodass die Seite wirklich „pixelperfekt“ ist (Größe der Suchbuttons sowie die rechtsbündige
+                     Ausrichtung der Buttons mit der Menüzeile und dem Fußbereich).
+                 </p>
             </lsx-tab-page>
 
             <lsx-tab-page title="Hinweise">
-                <p>
-                    Flexbox, Flexbox, Flexbox. Am einfachsten lässt sich das Layout mit mehreren,
-                    ineinander geschachtelten Flexboxen realisieren. Die Einteilung der Seite selbst,
-                    die Menüzeile, die Suchzeile, die Textbereiche und der Fußbereich: Sie alle sind
-                    Flexboxen mit unterschiedlichen Einstellungen. Vor Beginn der Aufgabe lohnt es
-                    sich daher, die Beschreibung des Flexbox-Algorithmus auf
-                    <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">css-tricks.com</a>
-                    zu studieren und immer wieder zu konsultieren.
-                </p>
-                <p>
-                    Denke zuerst vertikal, dann horizontal. Versuche also erst die übereinander gestapelten
-                    Bereiche zu definieren und mit dem Flexbox-Algorithmus zu positionieren. Das Elternelement
-                    muss hierfür die CSS-Anweisungen <code>display: flex</code> und <code>flex-direction: column</code>
-                    sowie weitere Anweisungen zur Ausrichtung ihrer Inhalte besitzen. Anschließend mache die
-                    Bereiche selbst zu Flexboxen und definiere damit die horizontale Ausrichtung ihrer Inhalte.
-                </p>
+                 <p>
+                     Flexbox, Flexbox, Flexbox: Am einfachsten lässt sich das Layout mit mehreren,
+                     ineinander geschachtelten Flexboxen realisieren. Die Einteilung der Seite selbst,
+                     die Menüzeile, die Suchzeile, die Textbereiche und der Fußbereich: Sie alle sind
+                     Flexboxen mit unterschiedlichen Einstellungen. Vor Beginn der Aufgabe lohnt es
+                     sich daher, die Beschreibung des Flexbox-Algorithmus auf
+                     <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">css-tricks.com</a>
+                     zu studieren und immer wieder zu konsultieren.
+                 </p>
+                 <p>
+                     Denken Sie zuerst vertikal, dann horizontal. Versuchen Sie also erst, die übereinander gestapelten
+                     Bereiche zu definieren und mit dem Flexbox-Algorithmus zu positionieren. Das Elternelement
+                     muss hierfür die CSS-Anweisungen <code>display: flex</code> und <code>flex-direction: column</code>
+                     sowie weitere Anweisungen zur Ausrichtung ihrer Inhalte besitzen. Anschließend machen Sie die
+                     Bereiche selbst zu Flexboxen und definieren damit die horizontale Ausrichtung ihrer Inhalte.
+                 </p>
                 <p>
                     Ein guter Trick für die bunten Farbstreifen oben und unten ist, einfach dem
-                    <code>&lt;html&gt;</code>-Element einen Farberlauf zu geben und die Dicke der Streifen
+                    <code>&lt;html&gt;</code>-Element einen Farbverlauf zu geben und die Dicke der Streifen
                     als Padding zu definieren. Damit der Hauptinhalt den Farbverlauf überdeckt, müssen zusätzlich
                     der Flexbox-Algorithmus aktiviert und für das <code>&lt;body&gt;</code>-Element eine
                     Hintergrundfarbe gesetzt werden:
@@ -85,32 +85,32 @@
                     }
                 </source-code>
 
-                <p>
-                    Um die CSS-Anweisungen für Farbverläufe zu generieren, gibt es diverse Onlinetools wie
-                    <a href="https://cssgradient.io" target="_blank">https://cssgradient.io</a>. Damit wurde
-                    auch der eben beschriebene Farbverlauf erzeugt, welcher der Vorlage recht nahe kommen sollte.
-                </p>
-                <p>
-                    Als Hintergrundbild für das Jumbotron (großer bunter Bereich mit dem Eye-Catcher-Text)
-                    kann das in der Vorlage enthaltene Bild <tt class="fn">jumbotron-hintergrund.png</tt>
-                    verwendet werden. Die Farbgebung ist ähnlich wie im Original. Allerdings handelt es sich um ein
-                    frei verfügbares Bild
-                    (<a href="https://pixabay.com/illustrations/geometric-wallpaper-abstract-3037028/" target="_blank">Quelle</a>),
-                    dessen Verwendung keine Urheberrechte verletzt. 🐒
-                </p>
+                 <p>
+                     Um die CSS-Anweisungen für Farbverläufe zu generieren, gibt es diverse Onlinetools wie
+                     <a href="https://cssgradient.io" target="_blank">https://cssgradient.io</a>. Damit wurde
+                     auch der eben beschriebene Farbverlauf erzeugt, der der Vorlage recht nahe kommen sollte.
+                 </p>
+                 <p>
+                     Als Hintergrundbild für das Jumbotron (großer bunter Bereich mit dem Eye-Catcher-Text)
+                     kann das in der Vorlage enthaltene Bild <tt class="fn">jumbotron-hintergrund.png</tt>
+                     verwendet werden. Die Farbgebung ist ähnlich wie im Original. Allerdings handelt es sich um ein
+                     frei verfügbares Bild
+                     (<a href="https://pixabay.com/illustrations/geometric-wallpaper-abstract-3037028/" target="_blank">Quelle</a>),
+                     dessen Verwendung keine Urheberrechte verletzt. 🐒
+                 </p>
             </lsx-tab-page>
         </lsx-tab-pages>
     </article>
     <aside>
         <p>
-            Seitdem im Jahr 2017 das Flexbox-Layout (offizieller Name „CSS flexible box layout“) eingeführt
+            Seit im Jahr 2017 das Flexbox-Layout (offizieller Name „CSS flexible box layout“) eingeführt
             wurde, hat sich die Webentwicklung nachhaltig verändert. Denn zuvor konnten viele Layouts nur
             sehr umständlich und mit schmutzigen Tricks, zum Beispiel als große Tabelle ohne Rahmen, realisiert
-            werden. Diese Aufgabe wimmelt nur so von Flexboxen. Wenn du sie schaffst, beherrscht du die Flexbox
-            wie ein Ninja. 🥷
+            werden.             Diese Aufgabe enthält zahlreiche Flexbox-Elemente. Nach erfolgreichem Abschluss beherrschen Sie die Flexbox
+            wie ein Profi.
         </p>
         <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
-        <p>
+        <p class="text-secondary">
             <small>
                 Bildnachweis:
                 <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>

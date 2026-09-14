@@ -209,10 +209,10 @@
                                     in die Seite eingefügt werden.
                                 </p>
                                 <p>
-                                    Aus Sicherheitsgründen sollte man aber aufpassen, wie sich der neue Wert für <code>innerHTML</code>
-                                    zusammensetzt. Werden dabei Inhalte von nicht vertrauenswürdigen Quellen zugelassen (zum Beispiel
-                                    Benutzereingaben), kann dies eine <a href="https://www.owasp.org/index.php/DOM_Based_XSS" target="_blank">
-                                    DOM-based Cross Site Scripting</a>-Lücke verursachen. 😔
+                                    Aus Sicherheitsgründen ist es wichtig, die Zusammensetzung des neuen Werts für <code>innerHTML</code>
+                                    zu beachten. Werden dabei Inhalte von nicht vertrauenswürdigen Quellen (z. B. Benutzereingaben)
+                                    zugelassen, kann dies eine <a href="https://www.owasp.org/index.php/DOM_Based_XSS" target="_blank">
+                                    DOM-based Cross Site Scripting</a>-Lücke verursachen.
                                 </p>
                             </dd>
 
@@ -352,8 +352,8 @@
                             <dd style="margin-bottom: 0.75em;">
                                 <p>
                                     Auf hoch offiziellem Wege, ohne dabei die Attribute <code>innerHTML</code> und <code>textContent</code>
-                                    zu benutzen, neue Elemente erzeugen kannst du mit diesen beiden Methoden. Sie erzeugen ein neues HTML-Element
-                                    bzw. einen Textknoten (enthält nur Text ohne HTML-Code), die du in das Document Object Model einfügen kannst,
+                                    zu benutzen, neue Elemente erzeugen können Sie mit diesen beiden Methoden. Sie erzeugen ein neues HTML-Element
+                                    bzw. einen Textknoten (enthält nur Text ohne HTML-Code), die Sie in das Document Object Model einfügen können,
                                     um sie anzuzeigen.
                                 </p>
                             </dd>
@@ -384,7 +384,7 @@
                             </dt>
                             <dd style="margin-bottom: 0.75em;">
                                 <p>
-                                    Und hier siehst du, wie du auf die Kindelemente eines HTML-Elements zugreifen kannst. Hier gilt
+                                    Und hier sehen Sie, wie Sie auf die Kindelemente eines HTML-Elements zugreifen können. Hier gilt
                                     wieder, dass es sich bei <code>childNodes</code> um ein <code>NodeList</code>-Objekt und nicht
                                     um ein vollwertiges Array handelt.
                                 </p>
@@ -400,7 +400,7 @@
                                     verschwindet es dann auch vom Bildschirm und kann bei Bedarf an anderer Stelle wieder eingefügt werden.
                                 </p>
                                 <p>
-                                    Kennst du nur das Element selbst, dass du entfernen willst (hier <code>pElement</code>), kannst du es über
+                                    Kennen Sie nur das Element selbst, das Sie entfernen möchten (hier <code>pElement</code>), können Sie es über
                                     folgendem Umweg entfernen:
                                 </p>
                                 <p>
@@ -593,14 +593,14 @@
     </article>
     <aside>
         <p>
-            Hier kommt nun die zweite wichtige Seite dieses Kapitels. 📚 Denn hier zeigen wir dir,
-            was du mit den DOM-Objekten machen kannst, sobald du sie ermittelt hast. Das heißt,
-            hier siehst du, wie du die Darstellung eines Elements oder auch seinen Inhalt mit
-            JavaScript überschreiben kannst. Zusätzlich siehst du hier, wie du im JavaScript-Code
-            neue HTML-Elemente erzeugen und in die Seite einbauen kannst.
+            Hier kommt nun die zweite wichtige Seite dieses Kapitels. 📚 Denn hier zeigen wir Ihnen,
+            was Sie mit den DOM-Objekten machen können, sobald Sie sie ermittelt haben. Das heißt,
+            hier sehen Sie, wie Sie die Darstellung eines Elements oder auch seinen Inhalt mit
+            JavaScript überschreiben können. Zusätzlich sehen Sie hier, wie Sie im JavaScript-Code
+            neue HTML-Elemente erzeugen und in die Seite einbauen können.
         </p>
         <img src="4-js-grundlagen/2-dom/nderungen-an-der-dom-struktur-vornehmen/referenz2.jpg" class="d-block img-thumbnail" style="width: 100%" />
-        <p>
+        <p class="text-secondary">
             <small>
                 <small>
                     Bildnachweis: <a href="https://pixabay.com/de/regal-innenraum-b%C3%BCcherregal-315802/" target="_blank">Pixabay: PublicDomainPictures</a>

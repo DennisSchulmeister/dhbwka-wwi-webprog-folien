@@ -470,7 +470,7 @@
                 <!-- Beispiel: Anordnung der Elemente -->
                 <div class="design-beispiel-code design-anordnung">
                     <p>
-                        Wesentliches Merkmal dieses Beispiel ist die Anordnung der Karten
+                        Wesentliches Merkmal dieses Beispiels ist die Anordnung der Karten
                         auf kleinen und großen Bildschirmen. Auf kleinen Bildschirmen stehen
                         sie maximal breit untereinander und auf großen Bildschirmen mit fester
                         Breite in Gitterformation. Dies wird durch eine Flexbox und einen
@@ -480,7 +480,7 @@
                         Der Flexbox-Algorithmus wird aber auch an vielen anderen Stellen genutzt,
                         um zum Beispiel den Footer immer an das untere Bildschirmende zu drücken,
                         selbst wenn der Hauptbereich nur wenig Inhalt besitzt. Die Anordnung des
-                        Suchfelds und des Icons danaben wurde ebenfalls mit einer Flexbox realisiert,
+                        Suchfelds und des Icons daneben wurde ebenfalls mit einer Flexbox realisiert,
                         wie die Gestaltung des Suchfelds selbst.
                     </p>
                     <p>
@@ -531,7 +531,7 @@
                             <source-code language="css">
                                 header {
                                     /* Inhalte im Header mit dem Flexbox-Algorithmus nebeneinander und maximal
-                                        * weit auseinander anordnen, damit das Suchfeld ganz Links und das Icon
+                                        * weit auseinander anordnen, damit das Suchfeld ganz links und das Icon
                                         * daneben ganz rechts steht. */
                                     display: flex;
                                     justify-content: space-between;
@@ -567,7 +567,7 @@
                                     /* Dem eigentlichen Eingabefeld maximale Breite in der Flexbox geben. */
                                     flex: 1;
 
-                                    /* Hintegrundfarbe und Rahmen entfernen, da durch das Elternelement schon
+                                    /* Hintergrundfarbe und Rahmen entfernen, da durch das Elternelement schon
                                         * schon ein Hintergrund definiert ist. */
                                     border-width: 0;
                                     background: transparent;
@@ -753,7 +753,7 @@
 
                                     .animated {
                                         /* Die maximale Höhe muss angepasst werden, wenn sich die Anzahl der
-                                            * Menüeinträge ändert, damit des Menü vollständig angezeigt und die
+                                            * Menüeinträge ändert, damit das Menü vollständig angezeigt und die
                                             * Animation beim Zuklappen ohne Zeitversatz sichtbar wird. */
                                         max-height: 10em;
                                         transition: max-height 1s;
@@ -778,12 +778,12 @@
                                     /* Größere Schrift auf kleinen Bildschirmen */
                                     font-size: 120%;
 
-                                    /* Kleiner Schatten als Abgrenzung zum Haubtbereich */
+                                    /* Kleiner Schatten als Abgrenzung zum Hauptbereich */
                                     box-shadow: 0 1px 2px rgba(0,0,0, 0.2);
                                 }
 
                                 header .logo {
-                                    /* Größe des Logos, die Höhe ergibt sicht automatisch */
+                                    /* Größe des Logos, die Höhe ergibt sich automatisch */
                                     width: 3em;
                                 }
 
@@ -833,7 +833,7 @@
                                         font-size: 100%;
 
                                         /* Auf großen Bildschirmen die Inhalte des Headers mit Hilfe des
-                                            * Flexbox-Algorithmus so anordnen, das ganz links das Menü und
+                                            * Flexbox-Algorithmus so anordnen, dass ganz links das Menü und
                                             * ganz rechts das Logo erscheint */
                                         display: flex;
                                         justify-content: space-between;
@@ -910,7 +910,7 @@
                         und konzentrieren uns dabei auf das Menü am linken Bildschirmrand. Auf großen
                         Bildschirmen ist es dauerhaft sichtbar und wird unterhalb des Suchbereichs angezeigt.
                         Auf kleinen Bildschirmen fährt es stattdessen vom linken Bildschirmrand in den
-                        Sichtbereich hinein und überlagert diesen teiweise. Zusätzlich wird der Hintergrund
+                        Sichtbereich hinein und überlagert diesen teilweise. Zusätzlich wird der Hintergrund
                         abgedunkelt.
                     </p>
                     <p>
@@ -922,7 +922,7 @@
                         stattdessen direkt in Zielposition, so dass hier der Slide-In-Effekt entfällt.
                     </p>
                     <p>
-                        Der abgedunkelte Hintergrund wird durch ein zusätzliches HTML-Elemenet erzielt,
+                        Der abgedunkelte Hintergrund wird durch ein zusätzliches HTML-Element erzielt,
                         das ebenfalls mit absoluter Positionierung über den gesamten Bildschirm gelegt
                         wird. Die Anweisung <code>z-index</code> stellt dabei sicher, dass das Element
                         über dem Seiteninhalt aber hinter dem Menü liegt.
@@ -1004,7 +1004,7 @@
                                     left: 0;
                                     right: 0;
 
-                                    /* Zunächst ist die Hintergrunfarbe komplett durchsichtig, ihre Änderungen werden
+                                    /* Zunächst ist die Hintergrundfarbe komplett durchsichtig, ihre Änderungen werden
                                         * jedoch animiert, um dadurch einen schönen Überblendeffekt zu erzielen */
                                     background-color: rgba(0,0,0, 0);
                                     transition: background-color 0.5s;
@@ -1118,7 +1118,7 @@
                         wir ein Menü, das auf großen und kleinen Bildschirmen gleichermaßen gut
                         funktioniert. Manchmal ist weniger tatsächlich mehr. Der Trick ist einfach,
                         die Sichtbarkeit des Menüs mit JavaScript umzuschalten, indem die CSS-Klassen
-                        <code>invisble</code> und <code>hidden</code> entfernt oder gesetzt werden.
+                        <code>invisible</code> und <code>hidden</code> entfernt oder gesetzt werden.
                     </p>
                     <p>
                         Im einfachsten Fall müsste nur die Klasse <code>hidden</code> verwendet werden,
@@ -1235,8 +1235,8 @@
                                     gap: 0.5em;
                                 }
 
-                                /* Beim Ein-/Ausblenden zunächst nur die Transaprenz des Menüs ändern,
-                                    * später mit JavaScript das Menü richtig vom Bildschirm entfnern, indem
+                                /* Beim Ein-/Ausblenden zunächst nur die Transparenz des Menüs ändern,
+                                    * später mit JavaScript das Menü richtig vom Bildschirm entfernen, indem
                                     * die Klasse 'hidden' gesetzt wird */
                                 #main-menu.invisible {
                                     opacity: 0;
@@ -1309,7 +1309,7 @@
             </lsx-tab-page>
         </lsx-tab-pages>
 
-        <p style="line-height: 1;">
+        <p class="text-secondary" style="line-height: 1;">
             <small>
                 <small>
                     Bildnachweis für den Hintergrund:
@@ -1347,13 +1347,13 @@
     <aside>
         <p>
             Seitdem das technische Problem, ein und dieselbe Webseite für alle Geräteklassen zu
-            optimieren, gelöst ist, hat sich ein immer klareres Verständnis herauskristalisiert,
+            optimieren, gelöst ist, hat sich ein immer klareres Verständnis herauskristallisiert,
             wie bestimmte Inhalte dargestellt werden können. Teilweise sind hierfür Designmuster
             von anderen Plattformen wie Android oder iOS auf das Web übergeschwappt, nicht zuletzt
             auch deshalb, weil viele Android- oder iOS-Apps in Wirklichkeit als Smartphone-App
-            verpacket Webanwendungen sind (wie zum Beispiel die GMail-App), oder die Anbieter eine
+            verpackte Webanwendungen sind (wie zum Beispiel die GMail-App), oder die Anbieter eine
             einheitliche Bedienung sicherstellen wollen (wie zum Beispiel bei YouTube). Umgekehrt
-            sind aber auch viele Ideen aus HTML, CSS und JavaScript in die die großen Plattformen
+            sind aber auch viele Ideen aus HTML, CSS und JavaScript in die großen Plattformen
             zurückgeflossen, beispielsweise in Form des „Material Design“ von Google oder des
             Flexbox-Algorithmus als Alternative zu den althergebrachten Layoutmanagern in der
             Android-Entwicklung.
@@ -1367,8 +1367,8 @@
                 <b>Anordnung der Elemente:</b>
                 Auf kleinen Bildschirmen ist oft nicht genügend Platz, um große Elemente
                 nebeneinander zu platzieren. Entsprechend dem Standardverhalten der Browser
-                werden die meisten Elemente daher einfach maximal Breit und untereinander
-                dargestellt. Auf großen Bildschirmen rutschen Sie stattdessen zum Beispiel
+                werden die meisten Elemente daher einfach maximal breit und untereinander
+                dargestellt. Auf großen Bildschirmen rutschen sie stattdessen zum Beispiel
                 in die Mitte des Bildschirms und ordnen sich gitterförmig nebeneinander
                 und untereinander an.
             </li>

@@ -11,7 +11,7 @@
                 Die Kinder einer Flexbox passen sich automatisch an den verfügbaren Platz an und können wachsen oder schrumpfen.
             </li>
             <li>
-                Die Reihenfolge der Flex-Items lässt sich unabhängig von der Reiihenfolge im HTML anpassen.
+                Die Reihenfolge der Flex-Items lässt sich unabhängig von der Reihenfolge im HTML anpassen.
             </li>
             <li>
                 Elemente können bei Platzmangel automatisch in neue Zeilen bzw. Spalten umbrechen.
@@ -68,7 +68,7 @@
                         <p>
                             Ändert die Richtung, in welcher die Flexbox ihre Inhalte anordnet, indem festgelegt
                             wird, welche Achse die Hauptachse ist (<code>justify-content</code>). Die andere Achse
-                            ist dann automatisch die Nbenachse (<code>align-items</code>).
+                            ist dann automatisch die Nebenachse (<code>align-items</code>).
                         </p>
                         <table class="table">
                             <tr>
@@ -124,7 +124,7 @@
                                     <code>flex-end</code>
                                 </td>
                                 <td>
-                                    Die Flex-Items beginnen am Anfang der Hauptachse.
+                                    Die Flex-Items beginnen am Ende der Hauptachse.
                                 </td>
                             </tr>
                             <tr>
@@ -164,7 +164,7 @@
 
                     <lsx-tab-page title="align-items">
                         <p>
-                            Bestimmt die Anordnung der Kind-Elemente entlang der Neben der Flexbox.
+                            Bestimmt die Anordnung der Kind-Elemente entlang der Nebenachse der Flexbox.
                         </p>
                         <table class="table">
                             <tr>
@@ -213,7 +213,7 @@
                     <lsx-tab-page title="flex-wrap">
                         <p>
                             Legt fest, ob die Flexbox ihre Items bei zu wenig Platz in eine neue Zeile bzw.
-                            eine neue Spalte umbrechen darf. Standardmäßist ist dies deaktiviert, wodurch die
+                            eine neue Spalte umbrechen darf. Standardmäßig ist dies deaktiviert, wodurch die
                             Items unter Umständen sehr gequetscht werden.
                         </p>
                         <table class="table">
@@ -335,16 +335,16 @@
             Moderne Webseiten verhalten sich immer weniger wie einfache Textdokumente, sondern immer mehr wie
             vollwertige Anwendungen mit einer richtigen Benutzeroberfläche. Im Laufe der Zeit haben sich daher
             gängige Layouts wie die Verwendung eines komplexen Headers oder einer Sidebar herausgebildet, die
-            früher so nur von großen Desktopanwendungen bekannt werden. Doch leider konnten diese Layouts mit
-            den Boardmitteln von HTML und CSS nur sehr umständlich und fehleranfällig nachgebaut werden. Oft
-            musst man auf unschöne Tricks wie der Verwendung Floats und Tabellen zugreifen, um das gewünschte
+            früher so nur von großen Desktopanwendungen bekannt waren. Doch leider konnten diese Layouts mit
+            den Bordmitteln von HTML und CSS nur sehr umständlich und fehleranfällig nachgebaut werden. Oft
+            musste man auf unschöne Tricks wie die Verwendung von Floats und Tabellen zugreifen, um das gewünschte
             Ergebnis irgendwie hinzubekommen. 🥲
         </p>
         <p>
             Und dann kam die Flexbox und alles wurde anders. 🚀 Es handelt sich dabei um ein neues Layout-Modul
             für CSS, das es ermöglicht, die Elemente eines Containers (die so genannten Flex-Items) einfach und
             kontrolliert anzuordnen. Elemente zentrieren, Fußzeilen immer am unteren Bildschirmende platzieren,
-            Sidebards, … war plötzlich alles ganz leicht.
+            Sidebars, … war plötzlich alles ganz leicht.
         </p>
         <p>
             Die grundlegende Funktionsweise von Flexbox ist, dass man einen Container als „flexible Box“ definiert.
@@ -354,7 +354,7 @@
             ob sie links, rechts oder zentriert ausgerichtet werden, und so weiter.
         </p>
         <p>
-            Ein einfaches Beispiel soll diese Grundprinzip dahinter verdeutlichen. Angenommen, wir haben einen
+            Ein einfaches Beispiel soll dieses Grundprinzip dahinter verdeutlichen. Angenommen, wir haben einen
             Container mit drei Boxen:
         </p>
         <source-code language="html">
@@ -385,11 +385,11 @@
         <p>
             Für ihre Anordnung unterscheidet die Flexbox zwischen ihrer Hauptachse (<code>justify-content</code>) und ihrer
             Nebenachse (<code>align-items</code>). Standardmäßig werden die Flex-Items entlang einer Reihe angeordnet, so
-            dass die X-Achste die Hauptachse und die Y-Achse die Nebenachse ist. Mit <code>flex-direction</code> kann dies
+            dass die X-Achse die Hauptachse und die Y-Achse die Nebenachse ist. Mit <code>flex-direction</code> kann dies
             aber umgeschaltet werden, um die Elemente beispielsweise untereinander anordnen zu können.
         </p>
         <p>
-            Die Seite reichts zeigt ein interaktives Beispiel sowie die wichtigsten CSS-Eigenschaften. Mehr Details findet
+            Die Seite rechts zeigt ein interaktives Beispiel sowie die wichtigsten CSS-Eigenschaften. Mehr Details findet
             man schön visualisiert hingegen auf <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">css-tricks.com</a>.
         </p>
     </aside>

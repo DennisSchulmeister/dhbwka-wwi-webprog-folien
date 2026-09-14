@@ -130,7 +130,7 @@
                                 &lt;img src="4-js-grundlagen/vorhang_publikum.png" class="publikum" /&gt;
 
                                 &lt;div class="hinweis"&gt;
-                                    Klicke auf das Bild! 🖱
+                                    Klicken Sie auf das Bild.
                                 &lt;/div&gt;
                             &lt;/div&gt;
                         &lt;/body&gt;
@@ -244,7 +244,7 @@
                 </lsx-info-box>
             </lsx-tab-page>
         </lsx-tab-pages>
-        <p>
+        <p class="text-secondary">
             <small>
                 <small>
                     Bildnachweise:
@@ -263,10 +263,9 @@
     </article>
     <aside>
         <p>
-            Ziemlich cooles Beispiel, nicht? 😎 Wenn du noch nie mit JavaScript zu tun
-            hattest, wirst du sicher nicht gleich jede Zeile verstehen. Aber allzu
-            kompliziert ist der Quellcode dann doch wieder nicht. Zumindest sieht er
-            ziemlich ähnlich zu dem Java aus, dass wir alle kennen und lieben.
+             Ein anschauliches Beispiel. Auch wenn Sie bisher noch keine Erfahrung mit JavaScript haben,
+             werden Sie viele Elemente des Quellcodes wiedererkennen. Der Aufbau ähnelt zudem stark dem von Java,
+             das Ihnen bereits vertraut ist.
             Also schauen wir uns doch mal an, was hier passiert.
         </p>
 
@@ -332,7 +331,7 @@
         <ol>
             <li>
                 <tt>padding-top: 63%</tt>: Dadurch werden die Höhe und das Seitenverhältnis des Bildes
-                gesetzt. Wie du weißt, ist ein <src-code language="html">&lt;div&gt;</src-code>
+                gesetzt. Wie Sie wissen, ist ein <src-code language="html">&lt;div&gt;</src-code>
                 ein Blockelement, das immer 100% der Breite seines Elternelements einnimmt.
                 Hier legen wir fest, dass seine Höhe 63% seiner Breite entsprechen soll.¹
             </li>
@@ -408,12 +407,12 @@
 
         <h2>JavaScript</h2>
         <p>
-            Wenn du bis hierhin folgen konntest, ist dir sicher klar, warum der JavaScript-Code
+            Wenn Sie bis hierhin folgen konnten, ist Ihnen sicher klar, warum der JavaScript-Code
             fast nichts mehr tun muss. Er muss eigentlich nur dafür sorgen, dass den beiden
             Vorhangbildern die Klasse <tt>offen</tt> gegeben wird, um den Vorhang zu öffnen
             und die Klasse wieder entfernt wird, um den Vorhang zu schließen. Als kleiner Bonus
             wird dann noch das Bühnenbild ausgetauscht und ein passendes Geräusch abgespielt.
-            Fertig ist ein perfekter Theaterabend. 💐
+             Damit ist ein anschauliches Beispiel für die Kombination von HTML, CSS und JavaScript entstanden.
         </p>
         <p>
             Hangeln wir uns Stück für Stück durch den Quellcode und fangen mit den ersten sechs Zeilen an:
@@ -460,7 +459,7 @@
             }
         </source-code>
         <p>
-            Das ist eine Funktion, also dass, was man in Java eine Methode nennen würde. Dabei ist dir
+            Das ist eine Funktion, also das, was man in Java eine Methode nennen würde. Dabei ist Ihnen
             aber sicher schon aufgefallen, dass gar keine Klasse um die Funktion herum steht, und dass
             der Aufruf über das <code>onclick</code>-Attribut im HTML-Dokument erfolgt.
         </p>
@@ -476,8 +475,8 @@
         </source-code>
         <p>
             Die Syntax für den Parameter von <code>document.querySelector()</code> ist dabei dieselbe,
-            die du auch von CSS her kennst. Das Ergebnis wird jeweils in eine lokale Variable gespeichert,
-            was du am vorangestellten <code>let</code> erkennen kannst. Darauf folgt dann eine Prüfung,
+            die Sie auch von CSS her kennen. Das Ergebnis wird jeweils in eine lokale Variable gespeichert,
+            was Sie am vorangestellten <code>let</code> erkennen können. Darauf folgt dann eine Prüfung,
             ob der Vorhang offen oder geschlossen ist:
         </p>
         <source-code language="javascript">
@@ -535,9 +534,9 @@
             }
         </source-code>
         <p>
-            Wie du siehst, ist das kein besonders komplizierter Quellcode.
+            Wie Sie sehen, ist das kein besonders komplizierter Quellcode.
             Lediglich der letzte Befehl hat es etwas in sich. Um ihn zu verstehen,
-            musst du wissen, wie die Methode <src-code language=javascript>window.setTimeout()</src-code>
+            müssen Sie wissen, wie die Methode <src-code language=javascript>window.setTimeout()</src-code>
             definiert ist:
         </p>
         <source-code language=javascript>
@@ -545,7 +544,7 @@
         </source-code>
         <p>
             Sie bekommt im ersten Parameter eine Funktion übergeben, die nach Ablauf
-            der festgestzten Zeit aufgerufen wird. Das funktioniert, weil Funktionen in
+            der festgelegten Zeit aufgerufen wird. Das funktioniert, weil Funktionen in
             JavaScript anders als in Java ganz normale Objekte sind, die man zum Beispiel
             in einer Variable ablegen oder eben auch einer anderen Funktion als Parameter
             übergeben kann. Und <src-code language=javascript>() =&gt; …</src-code> ist in

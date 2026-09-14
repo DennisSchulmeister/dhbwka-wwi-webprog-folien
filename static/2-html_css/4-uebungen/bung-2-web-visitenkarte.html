@@ -9,12 +9,12 @@
         >
         </lsx-github-edit>
 
-        <p>
-            Erstelle eine minimale Webseite über dich als deine Visitenkarte im Web. So, dass jemand
-            nur die URL aufrufen muss, um auf einen Blick das Wichtigste über dich zu erfahren. Ein
-            Beispiel, wie so eine Seite aussehen könnte, siehst du unten. Folgende Merkmale sollte
-            die Seite aufweisen:
-        </p>
+         <p>
+             Erstellen Sie eine minimale Webseite über sich als digitale Visitenkarte im Web, sodass jemand
+             nur die URL aufrufen muss, um auf einen Blick das Wichtigste über Sie zu erfahren. Ein
+             Beispiel, wie so eine Seite aussehen könnte, sehen Sie unten. Folgende Merkmale sollte
+             die Seite aufweisen:
+         </p>
 
         <ul>
             <li>
@@ -53,7 +53,7 @@
                     body {
                         display: flex;              /* Inhalte mit dem Flexbox-Algorithmus anordnen */
                         justify-content: center;    /* Inhalte entlang der Hauptachse zentrieren    */
-                        align-items: center;        /* Inhalte entlant der Nebenachse zentrieren    */
+                        align-items: center;        /* Inhalte entlang der Nebenachse zentrieren    */
                         min-height: 100vh;          /* Body mindestens so hoch wie der Viewport     */
                     }
 
@@ -62,11 +62,11 @@
                         padding: 0;
                     }
                 </source-code>
-                <p>
-                    Die eigentlichen Seiteninhalte müssen dann nur noch in ein Eltern-Element
-                    wie zum Beispiel ein <src-code language="html">&lt;main&gt;</src-code>
-                    oder ein <src-code language="html">&lt;div&gt;</src-code> verschoben werden:
-                </p>
+                 <p>
+                     Die eigentlichen Seiteninhalte müssen dann nur noch in ein Elternelement
+                     wie zum Beispiel ein <src-code language="html">&lt;main&gt;</src-code>
+                     oder ein <src-code language="html">&lt;div&gt;</src-code> verschoben werden:
+                 </p>
                 <source-code language="html">
                     &lt;body&gt;
                         &lt;main&gt;
@@ -75,31 +75,31 @@
                         &lt;/main&gt;
                     &lt;/body&gt;
                 </source-code>
-                <p>
-                    In seiner Voreinstellung sorgt der Flexbox-Algorithmus dafür, dass die direkten Kinder eines
-                    HTML-Elements (hier des <src-code language="html">&lt;body&gt;</src-code>) nebeneinander
-                    angeordnet werden. Die Hauptachse ist daher die X-Achse und die Nebenachse die Y-Achse.
-                    Würde man dem <src-code language="html">&lt;body&gt;</src-code> noch ein zweites Kind-Element
-                    zuweisen, stünde dieses daher neben dem bisherigen Inhalt. Mit
-                    <src-code language="css">gap: 1em</src-code> könnte dann ein kleiner Abstand zwischen den
-                    Elementen vorgesehen werden, wenn diese nicht aneinander kleben sollen.
-                    Mit der CSS-Anweisung <src-code language="css">flex-direction: row</src-code>
-                    könnten hingegen die beiden Achsen vertauscht werden, um eine Anordnung untereinander zu erhalten.
-                </p>
-                <p>
-                    Das Rücksetzen von Margin und Padding für <src-code language="html">&lt;html&gt;</src-code>
-                    und <src-code language="html">&lt;body&gt;</src-code> ist dabei notwendig, weil diese
-                    standardmäßig tatsächlich Margins und Paddings besitzen, die auf ihre Größe hinzugerechnet
-                    werden. Dadruch hätte man in Kombination mit dem <src-code language="css">min-height: 100vh</src-code>
-                    unschöne Scrollbalken, mit denen die Seite tatsächlich in klein wenig hin und her gescrollt werden könnte.
-                </p>
+                 <p>
+                     In seiner Voreinstellung sorgt der Flexbox-Algorithmus dafür, dass die direkten Kinder eines
+                     HTML-Elements (hier des <src-code language="html">&lt;body&gt;</src-code>) nebeneinander
+                     angeordnet werden. Die Hauptachse ist daher die X-Achse und die Nebenachse die Y-Achse.
+                     Würde man dem <src-code language="html">&lt;body&gt;</src-code> noch ein zweites Kindelement
+                     zuweisen, stünde dieses daher neben dem bisherigen Inhalt. Mit
+                     <src-code language="css">gap: 1em</src-code> könnte dann ein kleiner Abstand zwischen den
+                     Elementen vorgesehen werden, wenn diese nicht aneinander kleben sollen.
+                     Mit der CSS-Anweisung <src-code language="css">flex-direction: row</src-code>
+                     könnten hingegen die beiden Achsen vertauscht werden, um eine Anordnung untereinander zu erhalten.
+                 </p>
+                 <p>
+                     Das Rücksetzen von Margin und Padding für <src-code language="html">&lt;html&gt;</src-code>
+                     und <src-code language="html">&lt;body&gt;</src-code> ist dabei notwendig, weil diese
+                     standardmäßig tatsächlich Margins und Paddings besitzen, die auf ihre Größe hinzugerechnet
+                     werden. Dadurch hätte man in Kombination mit dem <src-code language="css">min-height: 100vh</src-code>
+                     unschöne Scrollbalken, mit denen die Seite tatsächlich ein klein wenig hin und her gescrollt werden könnte.
+                 </p>
             </lsx-tab-page>
 
             <lsx-tab-page title="Unscharfer Hintergrund">
-                <p>
-                    Für den Unscharfen Hintergrund in der Musterlösung wurde zunächst dasselbe Foto wie
-                    im Hauptbereich als gestrecktes Hintergrundbild für die gesamte Seite festgelegt:
-                </p>
+                 <p>
+                     Für den unscharfen Hintergrund in der Musterlösung wurde zunächst dasselbe Foto wie
+                     im Hauptbereich als gestrecktes Hintergrundbild für die gesamte Seite festgelegt:
+                 </p>
                 <source-code language="css">
                     html {
                         background-image: url(foto.jpg);
@@ -107,9 +107,9 @@
                         background-attachment: fixed;
                     }
                 </source-code>
-                <p>
-                    Die Unschräfe entsteht durch ein Dummy-Element ohne Inhalt:
-                </p>
+                 <p>
+                     Die Unschärfe entsteht durch ein Dummy-Element ohne Inhalt:
+                 </p>
                 <source-code language="html">
                     &lt;body&gt;
                         &lt;!-- Dummy-Element zum Weichzeichnen des Hintergrunds --&gt;
@@ -128,35 +128,35 @@
                 </p>
                 <source-code language="css">
                     #bg-blur {
-                        position: absolute;             /* Das Element absolut mit Bezug zumkViewport platzieren */
-                        top: 0;                         /* Kein Abstand zu oberen Kante des Viewports            */
+                        position: absolute;             /* Das Element absolut mit Bezug zum Viewport platzieren */
+                        top: 0;                         /* Kein Abstand zur oberen Kante des Viewports           */
                         bottom: 0;                      /* Kein Abstand zur unteren Kante des Viewports          */
-                        left: 0;                        /* Kein Abstand zu linken Kante des Viewports            */
+                        left: 0;                        /* Kein Abstand zur linken Kante des Viewports           */
                         right: 0;                       /* Kein Abstand zur rechten Kante des Viewports          */
         
                         z-index: -100;                  /* Dummy-Element darf den Seiteninhalt nicht überlagern! */
                         backdrop-filter: blur(15px);    /* Alles, was hinter dem Element liegt, weichzeichnen    */
                     }
                 </source-code>
-                <p>
-                    Das Geheimnis ist hier also die Kombination aus <src-code language="css">position: absolute</src-code>
-                    und <src-code language="css">backdrop-filter: blur(15px)</src-code>.
-                    Die Anweisung <src-code language="css">z-index: -100</src-code> wird zusätzlich benötigt, damit
-                    der eigentliche Seiteninhalt in der drei-dimensionalen Z-Achse über dem Dummy-Element liegt
-                    und somit weiterhin lesbar bleibt. Ohne diese Anweisung sähe alles so aus, als hätte man
-                    seine Brille vergessen. 🥸
-                </p>
+                 <p>
+                     Das Geheimnis ist hier also die Kombination aus <src-code language="css">position: absolute</src-code>
+                     und <src-code language="css">backdrop-filter: blur(15px)</src-code>.
+                     Die Anweisung <src-code language="css">z-index: -100</src-code> wird zusätzlich benötigt, damit
+                     der eigentliche Seiteninhalt in der dreidimensionalen Z-Achse über dem Dummy-Element liegt
+                     und somit weiterhin lesbar bleibt. Ohne diese Anweisung sähe alles so aus, als hätte man
+                     seine Brille vergessen. 🥸
+                 </p>
             </lsx-tab-page>
         </lsx-tab-pages>
     </article>
     <aside>
         <p>
             In der Kürze liegt die Würze. Wie wäre es daher mit einer ganz minimalen Webseite
-            als digitale Visitenkarte? Sozusagen das Wichtigste über dich auf einer kleinen Seite.
-            In dieser Übung kannst du sie bauen.
+            als digitale Visitenkarte? Sozusagen das Wichtigste über Sie auf einer kleinen Seite.
+            In dieser Übung können Sie sie bauen.
         </p>
-        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
-        <p>
+        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;" />
+        <p class="text-secondary">
             <small>
                 Bildnachweis:
                 <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>

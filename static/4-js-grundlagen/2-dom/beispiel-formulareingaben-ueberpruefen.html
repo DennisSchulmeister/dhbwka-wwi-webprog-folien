@@ -432,20 +432,18 @@
     </article>
     <aside>
         <p>
-            Hier siehst du ein weiteres Beispiel für den praktischen Einsatz von JavaScript:
-            Die Prüfung von Formulareingaben. 📋 Sicher hast du schon mal auf der ein oder
-            anderen Seite ein Formular wie dieses gesehen. Häufig handelt es sich dabei um
-            Kontaktformulare, über die eine Nachricht den Seitenbetreiber geschickt werden
-            kann. Es kann aber auch beliebige andere Eingabefelder beinhalten, die oftmals
-            zur Weiterverarbeitung an den Server geschickt werden.
+            Hier ist ein weiteres Beispiel für den praktischen Einsatz von JavaScript:
+            die Prüfung von Formulareingaben. Vermutlich sind Ihnen bereits ähnliche Formulare
+            auf verschiedenen Webseiten begegnet. Häufig handelt es sich dabei um Kontaktformulare,
+            über die Nachrichten an den Seitenbetreiber gesendet werden können. Es können jedoch
+            auch beliebige andere Eingabefelder enthalten sein, die zur Weiterverarbeitung an den Server
+            übermittelt werden.
         </p>
         <p>
-            Eine Grundregel der Webentwicklung besagt zwar, dass der Server alle empfangenen
-            Daten zwingend validieren muss, um Sicherheitslücken zu vermeiden. Um die Seite
-            aber für den Anwender so komfortabel wie möglich zu machen, sollte man die Eingaben
-            vor dem Abschicken auch clientseitig überprüfen. Somit kann der Anwender auf fehlende
-            oder falsche Eingaben aufmerksam gemacht werden, 🔔 bevor sie tatsächlich versendet
-            werden.
+            Eine grundlegende Regel der Webentwicklung besagt, dass der Server alle empfangenen
+            Daten zwingend validieren muss, um Sicherheitslücken zu vermeiden. Um die Benutzerfreundlichkeit
+            zu erhöhen, sollten die Eingaben jedoch bereits vor dem Absenden clientseitig geprüft werden.
+            Dadurch können fehlende oder falsche Eingaben erkannt und dem Nutzer vor dem Versand angezeigt werden.
         </p>
 
         <h2>Der HTML-Code</h2>
@@ -506,8 +504,8 @@
             <dd>
                 <p>
                     Dies ist ein mehrzeiliges Eingabefeld, in das der Anwender beliebig langen Text schreiben kann.
-                    Von Haus aus wird allerdings nur unformatierter Text unterstützt. Willst du stattdessen auch
-                    formatierte Eingaben erlauben, benötigst du eine zusätzliche Bibliothek wie zum Beispiel
+                    Von Haus aus wird allerdings nur unformatierter Text unterstützt. Sollen stattdessen auch
+                    formatierte Eingaben erlaubt werden, geht dies nicht ohne zusätzliche Bibliotheken. Zum Beispiel:
                     <a href="https://www.tinymce.com/" target="_blank">TineMCE</a> oder
                     <a href="https://ckeditor.com/" target="_blank">CKEditor</a>.
                 </p>
@@ -524,8 +522,8 @@
                 <div class="info-box">
                     So wie hier gezeigt, werden nicht nur die Formulareingaben an den Server geschickt,
                     sondern dabei auch eine neue Seite vom Server angefordert. Dies ist das historisch
-                    bedingte Standardverhaltung von Formularen. Willst du nur die Daten an den Server
-                    schicken, ohne die Seite zu verlassen, musst du noch ein bisschen warten, bis wir
+                    bedingte Standardverhalten von Formularen. Solleb nur die Daten an den Server
+                    geschickt werden, ohne die Seite zu verlassen, müssen Sie leider warten, bis wir
                     uns <a href="https://de.wikipedia.org/wiki/Ajax_(Programmierung)" target="_blank">AJAX</a>
                     anschauen.
                 </div>
@@ -559,9 +557,9 @@
             }
         </source-code>
         <p>
-            Der Rest ist ziemlich einfach. Siehst du dir die Funktion etwas genauer an, wirst
-            du sehen, dass hier einfach nur ein paar <code>if</code>-Abfragen hintereinander
-            stehen, um die Inhalte der Formularfelder zu überprüfen. Allerdings muss der Browser
+            Der Rest ist relativ einfach. Bei genauerer Betrachtung der Funktion wird deutlich,
+            dass hier lediglich einige <code>if</code>-Abfragen hintereinander geschaltet sind,
+            um die Inhalte der Formularfelder zu prüfen. Allerdings muss der Browser
             am Ende natürlich wissen, ob die Prüfung erfolgreich war oder nicht. Standardmäßig
             nimmt er dabei an, dass alles in Ordnung ist und das Formular abgeschickt werden
             kann. Um dies zu verhindern, wird am Ende der Funktion folgende Methode aufgerufen:
@@ -572,7 +570,7 @@
             //}
         </source-code>
         <p>
-            Anhand der Kommentare siehst du, dass dies eigentlich nur erfolgen sollte, wenn
+            Anhand der Kommentare sehen Sie, dass dies eigentlich nur erfolgen sollte, wenn
             die Prüfung des Formulars fehlgeschlagen ist. Da wir hier aber nicht wirklich
             einen Server im Hintergrund haben, der mit den Eingaben dieses Beispiels etwas
             anfangen kann, wird die Methode hier immer aufgerufen.

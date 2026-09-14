@@ -122,11 +122,11 @@
     <aside>
         <h2 class="dhbw-lightblue">Problemstellung</h2>
         <p>
-            Media Queries zählen seit ihrer Einführung zu den Arbeitspferden des Responsive Webdesign.
+            Media Queries zählen seit ihrer Einführung zu den Arbeitspferden des Responsive Webdesigns.
             Endlich war es auf einfache Weise möglich, die Eigenschaften des Ausgabegeräts abzufragen
             und das Layout einer Webseite dynamisch an diese anzupassen, anstatt wie bisher üblich,
             mehrere Versionen derselben Seite für unterschiedliche Geräte zu programmieren. Doch genau
-            hier liegt auch das Problem von Media Queries: Die prüfen das Ausgabegerät, in der Regel
+            hier liegt auch das Problem von Media Queries: Sie prüfen das Ausgabegerät, in der Regel
             also den Bildschirm bzw. den Viewport des Browsers<sup>1</sup>, nicht aber den Platz, den
             ein konkretes Element an seiner konkreten Position tatsächlich zur Verfügung hat.
         </p>
@@ -138,16 +138,16 @@
             Layout nur dann angewandt wird, wenn in der Regel der Bildschirm groß genug dafür ist.
             Problematisch wird es allerdings, wenn das Layout selbst gar nicht statisch ist, sondern
             sich zum Beispiel durch Ein- und Ausblenden optionaler Inhalte selbst verändern kann.
-            Weil dann kann es sein, dass durch die zusätzlich eingeblendeten Inhalte der für ein
+            Dann kann es sein, dass durch die zusätzlich eingeblendeten Inhalte der für ein
             Element zur Verfügung stehende Platz nicht mehr ausreicht – ein Fall, der mit Media Queries
             nicht abgefragt werden kann. Die Bildschirmgröße bleibt ja immer gleich.
         </p>
         <p>
             Hinzu kommt, dass man in der Realität häufig gar nicht weiß, an welcher Stelle ein
             bestimmter Inhalt später angezeigt werden wird und wie viel Platz dann zur Verfügung
-            steht. Als Beispiel stelle man sich hier die Teilen-Funktion von Youtube vor, die es
-            ermöglicht, ein Video mit einem HTML-Schnippsel in fremde Webseiten einzubetten. Oder
-            die Teilen-Funktion von Facebook, X und Instagram, mit denen ein Socal Media Post in
+            steht. Als Beispiel stelle man sich hier die Teilen-Funktion von YouTube vor, die es
+            ermöglicht, ein Video mit einem HTML-Schnipsel in fremde Webseiten einzubetten. Oder
+            die Teilen-Funktion von Facebook, X und Instagram, mit denen ein Social-Media-Post in
             eine Webseite eingebettet werden kann. Aber auch, wenn man mit einem Komponenten-Framework
             wie Angular oder React quasi seine eigenen HTML-Elemente baut<sup>2</sup>, kann es sein,
             dass man während der Entwicklung noch nicht weiß, wer diese Elemente wo einsetzen wird.
@@ -172,7 +172,7 @@
         </ul>
         <p>
             Der Vorteil: Komponenten können flexibel in unterschiedlichen Kontexten wiederverwendet werden.
-            Zum Beispiel kann so eine Karten-Komponente innerhalb einer schmalen Sidebar anders an als im
+            Zum Beispiel kann so eine Karten-Komponente innerhalb einer schmalen Sidebar anders als im
             breiten Hauptbereich dargestellt werden, ganz egal, auf welchem Bildschirm dies später erfolgt –
             es zählt nur der Platz, den man für die Kartendarstellung tatsächlich gerade zur Verfügung hat.
         </p>
@@ -196,19 +196,19 @@
             an. Zum Beispiel:
         </p>
         <source-code language="css">
-            .goolge-maps {
+            .google-maps {
                 /* CSS-Regeln für die KLEINE Kartendarstellung */
             }
 
             @container (min-width: 30em) {
-                .goolge-maps {
+                .google-maps {
                     /* CSS-Regeln für die GROSSE Kartendarstellung */
                 }
             }
         </source-code>
         <p>
             Doch auf welches HTML-Element bezieht sich diese Prüfung? Die Größe von welchem Element wird damit geprüft?
-            Tatsächlich, so wie es dasteht, von keinem. Denn, das zu prüfende Elemente muss zusätzlich markiert werden,
+            Tatsächlich, so wie es dasteht, von keinem. Denn das zu prüfende Element muss zusätzlich markiert werden,
             damit klar ist, um welches Element es sich handelt und welche Eigenschaften tatsächlich davon abgefragt
             werden dürfen. Dies geschieht mit der CSS-Eigenschaft <code>container-type</code>. Das vollständige Beispiel
             lautet daher:
@@ -219,12 +219,12 @@
                 container-type: inline-size;
             }
 
-            .goolge-maps {
+            .google-maps {
                 /* CSS-Regeln für die KLEINE Kartendarstellung */
             }
 
             @container (min-width: 30em) {
-                .goolge-maps {
+                .google-maps {
                     /* CSS-Regeln für die GROSSE Kartendarstellung */
                 }
             }
@@ -268,8 +268,8 @@
             </tr>
         </table>
         <p>
-            Diese Kennzeichnung ist notwendig, weil die Breite und Höhe eines Element meistens von seinem Inhalt abhängen.
-            Doch hier willen wir ja gerade den Inhalt anders darstellen, abhängig davon wie Breit oder Hoch das Element ist.
+            Diese Kennzeichnung ist notwendig, weil die Breite und Höhe eines Elements meistens von seinem Inhalt abhängen.
+            Doch hier wollen wir ja gerade den Inhalt anders darstellen, abhängig davon, wie breit oder hoch das Element ist.
             Die Kennzeichnung sorgt dafür, dass die gewünschten Eigenschaften abgefragt werden können, dafür aber nicht mehr
             vom Inhalt des Elements abhängen. Stattdessen müssen die Breite und die Höhe dann explizit gesetzt werden, entweder
             mit den entsprechenden CSS-Eigenschaften (<code>width</code>, <code>height</code>, …) oder durch eine umgebende
@@ -281,7 +281,7 @@
             Häufig kommt es vor, dass man nicht <i>den</i> Container Query zur Prüfung <i>des</i> Elternelements benötigt,
             sondern mehrere Queries zur Prüfung mehrerer Elternelemente. Eben, weil es mehrere Stellen in einer Webseite
             gibt, an denen sich der zur Verfügung stehende Platz dynamisch ändern kann. Dies würde mit der oben gezeigten
-            Syntax nicht unterstützt werden, da die einzelnen Bereiche nicht außeinander gehalten werden könnten. Die
+            Syntax nicht unterstützt werden, da die einzelnen Bereiche nicht auseinander gehalten werden könnten. Die
             Lösung hierfür bietet die CSS-Eigenschaft <code>container-name</code>, wie im folgenden Beispiel gezeigt:
         </p>
         <source-code language="css">
@@ -305,7 +305,7 @@
         </source-code>
         <p>
             Wie man sieht, kann den Containern mit <code>container-name</code> ein eindeutiger Name gegeben werden,
-            aufden sich die eigentliche <code>@container</code>-Anweisung später beziehen kann.
+            auf den sich die eigentliche <code>@container</code>-Anweisung später beziehen kann.
         </p>
     </aside>
 </section>

@@ -303,8 +303,8 @@
     </article>
     <aside>
         <p>
-            Hier siehst du ein komplettes Beispiel für eine einfache, kleine
-            Browser App. Unter anderem werden hier folgende Methoden verwendet:
+            Hier ist ein vollständiges Beispiel für eine einfache Browser-Anwendung.
+            Unter anderem werden hier folgende Methoden verwendet:
         </p>
         <ul>
             <li>
@@ -318,7 +318,7 @@
             </li>
         </ul>
         <p>
-            Zusätzlich siehst du hier noch folgenden Aufruf, den wir bisher noch
+            Zusätzlich sehen Sie hier noch folgenden Aufruf, den wir bisher noch
             nirgends verwendet haben:
         </p>
         <ul>
@@ -327,11 +327,10 @@
             </li>
         </ul>
         <p>
-            Probiere die Anwendung ruhig ein wenig aus, bevor du hier weiter liest. Wie du siehst,
-            handelt es sich um eine einfache Stoppuhr ⏰, die eine vorgegebene Anzahl an Sekunden
-            runterzählt. Mit den Knöpfen <kbd>+</kbd> und <kbd>-</kbd> kannst du die Sekunden stellen
-            und mit <kbd>▶</kbd> lässt du die Uhr laufen oder hältst sie wieder an. Ob die Uhr läuft,
-            siehst du dabei oben rechts. Sobald die Uhr auf Null steht, bleibt sie automatisch stehen.
+            Testen Sie die Anwendung gerne, bevor Sie fortfahren. Es handelt sich um eine einfache Stoppuhr,
+            die eine vorgegebene Anzahl an Sekunden herunterzählt. Mit den Knöpfen <kbd>+</kbd> und <kbd>-</kbd>
+            können Sie die Sekunden einstellen und mit <kbd>▶</kbd> die Uhr starten oder anhalten. Den aktuellen
+            Status der Uhr können Sie oben rechts ablesen. Sobald die Uhr auf Null steht, bleibt sie automatisch stehen.
         </p>
 
         <h2>Der HTML-Code</h2>
@@ -375,7 +374,7 @@
         <h2>Das Stylesheet</h2>
         <p>
             Das Stylehsset schauen wir uns nicht weiter an. Schließlich ist JavaScript hier
-            der Star 🌟 und die meisten CSS-Anweisungen solltest du ganz gut nachvollziehen können.
+            der Star 🌟 und die meisten CSS-Anweisungen sollten sich gut nachvollziehen lassen.
             Lediglich die Anweisung <src-code language="css">outline: 0</src-code> ist etwas
             ungewöhnlich. Sie sorgt dafür, dass die Buttons in manchen Browsern keinen gestrichelten
             Rahmen erhalten, sobald man sie anklickt.
@@ -447,16 +446,13 @@
             });
         </source-code>
         <p>
-            Das Besondere hieran ist, dass innerhalb der Event-Handler-Funktionen die Variablen der äußeren Funktion
-            direkt verwendet werden können. Mit <src-code language="html">counter++</src-code> wird daher tatsächlich
-            die Sekundenzahl der Stoppuhr hochgezählt, obwohl es sich bei <tt>counter</tt> eigentlich um eine lokale
-            Variable der äußeren Funktion handelt, die der reinen Lehre nach eigentlich gar nicht mehr existieren dürfte,
-            wenn der Button angeklickt wird. 🤔 Denn eigentlich verschwinden lokale Variablen ja wieder, sobald die
-            Funktion, in der sie definiert wurden, zu Ende gelaufen ist. Dass das hier nicht so ist, liegt daran, dass
-            JavaScript <a href="https://de.wikipedia.org/wiki/Closure_(Funktion)" target="_blank">Closures</a> unterstützt
-            und deshalb erkennt, dass die Variablen auch nach dem Ende der <tt>load</tt>-Funktion noch benötigt werden.
-            Dies ist einer der Hauptunterschiede zu Java und macht viele Dinge möglich, die in Java wesentlich umständlicher
-            sind.
+            Besonders ist hier, dass innerhalb der Event-Handler-Funktionen die Variablen der äußeren Funktion
+            direkt genutzt werden können. Mit <src-code language="html">counter++</src-code> wird die Sekundenzahl der Stoppuhr
+            erhöht, obwohl es sich bei <tt>counter</tt> um eine lokale Variable der äußeren Funktion handelt. Normalerweise
+            würden lokale Variablen nach Beendigung der Funktion nicht mehr existieren. Dass dies hier möglich ist, liegt daran,
+            dass JavaScript <a href="https://de.wikipedia.org/wiki/Closure_(Funktion)" target="_blank">Closures</a> unterstützt und
+            erkennt, dass die Variablen auch nach dem Ende der <tt>load</tt>-Funktion noch benötigt werden. Dies stellt einen
+            zentralen Unterschied zu Java dar und ermöglicht viele Funktionen, die in Java deutlich aufwendiger umzusetzen wären.
         </p>
         <p>
             Zum Schluss kommt dann die Funktion <tt>updateDisplay</tt>, die dafür sorgt, dass die Anzeige regelmäßig
@@ -471,8 +467,8 @@
             window.requestAnimationFrame(updateDisplay);
         </source-code>
         <p>
-            Diesen Trick solltest du dir merken, wenn du zum Beispiel Spiele in JavaScript entwickeln willst
-            oder wenn du Animationen programmieren willst, für die CSS alleine nicht ausreicht. Was hier passiert
+            Diesen Ansatz sollten Sie sich merken, wenn Sie beispielsweise Spiele in JavaScript entwickeln
+            oder Animationen umsetzen möchten, die allein mit CSS nicht realisierbar sind. Was hier passiert
             ist folgendes:
         </p>
         <p>
