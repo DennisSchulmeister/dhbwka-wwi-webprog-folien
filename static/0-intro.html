@@ -105,7 +105,7 @@
 </section>
 
 <!-- Idee: Bild weiterhin auch als Hintergrund aber mit filter: blur(10px) → Erweiterung in lecture-slide.js notwendig (data-background-blur) -->
-<section data-title="Wir gehen jetzt online" class="centered-content">
+<section data-title="Wir gehen jetzt online" class="centered-content" data-background-image="0-intro/online.jpg" data-background-blur="10px">
     <img src="0-intro/online.jpg" alt="" class="d-block img-responsive dhbw-box-shadow">
 
     <small>
@@ -390,125 +390,7 @@
     </aside>
 </section>
 
-<!--
-<section data-title="Kompetenzziele">
-    <article>
-        <lsx-accordion>
-            <lsx-accordion-page active>
-                <lsx-accordion-title>
-                    <div class="w-100 me-3 d-flex justify-content-between">
-                        <b>Fachkompetenz</b>
-                        <span>Wissen</span>
-                    </div>
-                </lsx-accordion-title>
-                <lsx-accordion-content>
-                    <lsx-ul>
-                        <li>Technische Grundlagen des World Wide Web</li>
-                        <li>Funktionsweise von HTTP als universelles Transportprotokoll</li>
-                        <li>Umsetzung eigener Entwurfsideen mit HTML und CSS</li>
-                        <li>Berücksichtigung gerätespezifischer Besonderheiten bei der Entwicklung</li>
-                        <li>Vertiefung in JavaScript z.B. zur Objektorientierung</li>
-                    </lsul>
-                </lsx-accordion-content>
-            </lsx-accordion-page>
-            
-            <lsx-accordion-page title="Methodenkompetenz">
-                <lsx-accordion-title>
-                    <div class="w-100 me-3 d-flex justify-content-between">
-                        <b>Methodenkompetenz</b>
-                        <span>Können</span>
-                    </div>
-                </lsx-accordion-title>
-                <lsx-accordion-content>
-                    <lsx-ul>
-                        <li>Webanwendungen von der Anforderung bis zur Umsetzung konzipieren</li>
-                        <li>Entwicklungswerkzeuge wie IDEs, Debugger oder die Browser-Tools bedienen</li>
-                        <li>Mit HTML und CSS eigene Webseiten erstellen</li>
-                        <li>Mit JavaScript browserbasierte Apps entwickeln</li>
-                        <li>Vorhandene Webanwendungen analysieren und weiterentwickeln</li>
-                    </lsx-ul>
-                </lsx-accordion-content>
-            </lsx-accordion-page>
-
-            <lsx-accordion-page>
-                <lsx-accordion-title>
-                    <div class="w-100 me-3 d-flex justify-content-between">
-                        <b>Personale und soziale Kompetenz</b>
-                        <span>Persönliche Entwicklung</span>
-                    </div>
-                </lsx-accordion-title>
-                <lsx-accordion-content>
-                    <lsx-ul>
-                        <li>Aktuelle Konzepte der Webentwicklung kennen und diskutieren können</li>
-                        <li>Eigene Entwürfe verständlich kommunizieren und argumentieren</li>
-                        <li>Eventuelle Programmfehler erkennen und deren Behebung erklären können</li>
-                    </lsx-ul>
-                </lsx-accordion-content>
-            </lsx-accordion-page>
-            
-            <lsx-accordion-page title="Übergreifende Handlungskompetenz">
-                <lsx-accordion-title>
-                    <div class="w-100 me-3 d-flex justify-content-between">
-                        <b>Übergreifende Handlungskompetenz</b>
-                        <span>Allgemeine Fähigkeiten</span>
-                    </div>
-                </lsx-accordion-title>
-                <lsx-accordion-content>
-                    <lsx-ul>
-                        <li>Trends und Entwicklungen im Bereich Webentwicklung bewerten</li>
-                        <li>Sich in Diskussionen einbringen und Lösungsvorschläge unterbreiten</li>
-                        <li>Sich eigenständig in neue Themengebiete der Webentwicklung einarbeiten</li>
-                    </lsx-ul>                
-                </lsx-accordion-content>
-            </lsx-accordion-page>
-        </lsx-accordion>
-    </article>
-    <aside>
-        <p>
-            Die DHBW drückt es in der Modulbeschreibung wie folgt aus:
-        </p>
-        <div style="font-size:85%">
-            <h5>Fachkompetenz</h5>
-            <p>
-                Die Studierenden kennen die grundlegenden Kernkonzepte der Nebenläufigkeit
-                und Internet-Kommunikation und die darauf aufbauenden aktuellen Technologien
-                und Werkzeuge für den Entwurf und für die Implementierung von Web-Anwendungen.
-                Die Studierenden kennen die technischen Grundlagen, Konzepte, Architekturen
-                und Technologien verteilter Systeme und Anwendungen sowie die gängigen Methoden,
-                Werkzeuge, Frameworks und Entwurfsmuster für die Entwicklung verteilter Anwendungen.
-            </p>
-            <h5>Methodenkompetenz</h5>
-            <p>
-                Die Studierenden können die Konzepte, Werkzeuge und Methoden der Web-Programmierung
-                anwenden und autonom Web-Anwendungen entwerfen, implementieren und testen. Die Studierenden
-                können die Konzepte, Werkzeuge und Methoden der verteilten Systementwicklung anwenden und
-                unter Einsatz von Frameworks und Entwurfsmustern einfache verteilte Anwendungen entwerfen,
-                implementieren und testen.
-            </p>
-            <h5>Personale und soziale Kompetenz</h5>
-            <p>
-                Die Studierenden können eigenständig verteilte Anwendungsarchitekturen erarbeiten.
-                Sie können stichhaltig und sachangemessen über Konzepte, eigene Entwürfe und deren
-                Implementierungen sowie die damit verbundenen Probleme argumentieren, eigene Umsetzungen
-                plausibel darstellen und eventuelle Fehler nachvollziehbar gegenüber anderen begründen.
-            </p>
-            <h5>Übergreifende Handlungskompetenz</h5>
-            <p>
-                Die Studierenden können eigenständig aktuelle Methoden der Analyse, des Entwurfs und
-                der Implementierung verteilter Systeme und Anwendungen für betriebliche Problemstellungen
-                diskutieren, bewerten und anwenden.
-            </p>
-        </div>
-        <p>
-            Tatsächlich bietet diese Beschreibung viel Handlungsspielraum, da sie ja für ganz
-            unterschiedliche Vorlesungen an allen DHBW-Standorten passen muss. Nebenstend findet
-            sich daher unsere Auslegung hier an der DHBW Karlsruhe.
-        </p>
-    </aside>
-</section>
--->
-
-<section data-title="Didaktisches Modell">
+<section data-title="Didaktisches Modell" data-hidden="2026: NEU SCHREIBEN">
     <article>
         <lsx-tab-pages>
             <lsx-tab-page title="Ablauf der Vorlesung">
@@ -657,9 +539,7 @@
     </aside>
 </section>
 
-<!-- 2025 Auskommentiert, da in den Kursen nicht einheitlich -->
-<!--
-<section data-title="Prüfungsaufgabe">
+<section data-title="Prüfungsaufgabe" data-hidden="2026: NEU SCHREIBEN">
     <article>
         <lsx-tab-pages>
             <lsx-tab-page title="Allgemeines">
@@ -800,185 +680,77 @@
         </p>
     </aside>
 </section>
--->
 
-<section data-title="Mitarbeit in der Vorlesung">
-        <article>
-            <lsx-grid-fluid>
-                <lsx-row>
-                    <lsx-col size="lg-6">
-                        <div style="height: 100%; display: flex; flex-direction: column; gap: 2em;">
-                            <lsx-info-box style="max-width: 58em;">
-                                Das didaktische Konzept der Vorlesung ist darauf ausgelegt, dass jede:r
-                                die Ziele erreichen und dabei eine (sehr) gute Note erreichen kann. Dies
-                                setzt jedoch Vorraus, die <b>Verantwortung für den eigenen Lernerfolg</b> zu übernehmen
-                                und sich sowohl in den Präsenzstunden einzubringen als auch das Selbststudium
-                                gewissenhaft zu bearbeiten. 🥴
-                            </lsx-info-box>
-                            <div>
-                                <h3 class="dhbw-lightblue">Anti-Patterns in der Vorlesung</h3>
-                                <lsx-ul emoji="💤">
-                                    <li>Nur passiv zuhören wollen</li>
-                                    <li>Erwarten, dass die Lehrperson alles vorbetet</li>
-                                    <li>Sich nicht trauen, sich zu melden bzw. mitzumachen</li>
-                                    <li>Übungszeit für Klatsch und Tratsch nutzen</li>
-                                </lsx-ul>
-                                <p style="font-style: italic">
-                                    Die Lehrperson ist kein Alleinunterhalter. 🤹 <br>
-                                    Die Vorlesung macht am meisten Spaß, wenn alle mitmachen.
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="dhbw-lightblue">Anti-Patterns im Selbststudium</h3>
-                                <lsx-ul emoji="📚">
-                                    <li>Erst kurz vor der nächsten Vorlesung lernen (wenn überhaupt)</li>
-                                    <li>Das Onlineskript nur grob überfliegen</li>
-                                    <li>Die Videos im Onlineskript nicht anschauen</li>
-                                    <li>Die Quizze im Onlineskript nicht machen</li>
-                                    <li>Die Aufgaben im Onlineskript nicht machen</li>
-                                    <li>Die Lernkontrollen in Moodle aufschieben</li>
-                                    <li>Das Feedbackformular in Moodle nicht ausfüllen</li>
-                                </lsx-ul>
-                                <p style="font-style: italic">
-                                    Natürlich können Sie nicht immer alle Materialien durcharbeiten. 💯 <br>
-                                    Planen Sie aber trotzdem bitte ausreichend Zeit für das Selbststudium ein.
-                                </p>
-                            </div>
-                            <div>
-                                <h3 class="dhbw-lightblue">Anti-Patterns zur Portfolioprüfung</h3>
-                                <lsx-ul emoji="💻">
-                                    <li>Alle Aufgaben schon am Anfang des Semesters bearbeiten können wollen</li>
-                                    <li>Zu spät mit der Bearbeitung anfangen</li>
-                                    <li>Sich von den anderen Gruppenmitgliedern tragen lassen</li>
-                                    <li>Die Lösung der Aufgaben an ChatGPT & Co. abdrücken</li>
-                                </lsx-ul>
-                                <p style="font-style: italic">
-                                    Das Portfolio wird semesterbegleitend bearbeitet, um den Lernweg zu dokumentieren. <br>
-                                    Bei Fragen und Problemen können Sie sich jederzeit melden. Die Lehrperson beißt nicht. 🐶
-                                </p>
-                            </div>
+<section data-title="Mitarbeit in der Vorlesung" data-hidden="2026: VEREINFACHUNG">
+    <article>
+        <lsx-grid-fluid>
+            <lsx-row>
+                <lsx-col size="lg-6">
+                    <div style="height: 100%; display: flex; flex-direction: column; gap: 2em;">
+                        <lsx-info-box style="max-width: 58em;">
+                            Das didaktische Konzept der Vorlesung ist darauf ausgelegt, dass jede:r
+                            die Ziele erreichen und dabei eine (sehr) gute Note erreichen kann. Dies
+                            setzt jedoch Vorraus, die <b>Verantwortung für den eigenen Lernerfolg</b> zu übernehmen
+                            und sich sowohl in den Präsenzstunden einzubringen als auch das Selbststudium
+                            gewissenhaft zu bearbeiten. 🥴
+                        </lsx-info-box>
+                        <div>
+                            <h3 class="dhbw-lightblue">Anti-Patterns in der Vorlesung</h3>
+                            <lsx-ul emoji="💤">
+                                <li>Nur passiv zuhören wollen</li>
+                                <li>Erwarten, dass die Lehrperson alles vorbetet</li>
+                                <li>Sich nicht trauen, sich zu melden bzw. mitzumachen</li>
+                                <li>Übungszeit für Klatsch und Tratsch nutzen</li>
+                            </lsx-ul>
+                            <p style="font-style: italic">
+                                Die Lehrperson ist kein Alleinunterhalter. 🤹 <br>
+                                Die Vorlesung macht am meisten Spaß, wenn alle mitmachen.
+                            </p>
                         </div>
-                    </lsx-col>
-                    <lsx-col size="lg">
-                        <img src="0-intro/fernsehen.jpg" class="d-block w-100" />
+                        <div>
+                            <h3 class="dhbw-lightblue">Anti-Patterns im Selbststudium</h3>
+                            <lsx-ul emoji="📚">
+                                <li>Erst kurz vor der nächsten Vorlesung lernen (wenn überhaupt)</li>
+                                <li>Das Onlineskript nur grob überfliegen</li>
+                                <li>Die Videos im Onlineskript nicht anschauen</li>
+                                <li>Die Quizze im Onlineskript nicht machen</li>
+                                <li>Die Aufgaben im Onlineskript nicht machen</li>
+                                <li>Die Lernkontrollen in Moodle aufschieben</li>
+                                <li>Das Feedbackformular in Moodle nicht ausfüllen</li>
+                            </lsx-ul>
+                            <p style="font-style: italic">
+                                Natürlich können Sie nicht immer alle Materialien durcharbeiten. 💯 <br>
+                                Planen Sie aber trotzdem bitte ausreichend Zeit für das Selbststudium ein.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="dhbw-lightblue">Anti-Patterns zur Portfolioprüfung</h3>
+                            <lsx-ul emoji="💻">
+                                <li>Alle Aufgaben schon am Anfang des Semesters bearbeiten können wollen</li>
+                                <li>Zu spät mit der Bearbeitung anfangen</li>
+                                <li>Sich von den anderen Gruppenmitgliedern tragen lassen</li>
+                                <li>Die Lösung der Aufgaben an ChatGPT & Co. abdrücken</li>
+                            </lsx-ul>
+                            <p style="font-style: italic">
+                                Das Portfolio wird semesterbegleitend bearbeitet, um den Lernweg zu dokumentieren. <br>
+                                Bei Fragen und Problemen können Sie sich jederzeit melden. Die Lehrperson beißt nicht. 🐶
+                            </p>
+                        </div>
+                    </div>
+                </lsx-col>
+                <lsx-col size="lg">
+                    <img src="0-intro/fernsehen.jpg" class="d-block w-100" />
 
-                        <small>
-                            <small>
-                                Bildnachweis:
-                                <a href="https://pixabay.com/illustrations/tv-watch-gawk-watch-tv-eve-1015426/" target="_blank">Pixabay: Peggy_Marco</a>
-                            </small>
-                        </small>
-                    </lsx-col>
-                </lsx-row>
-            </lsx-grid-fluid>
-        </article>
-</section>
-
-<section data-title="Partizipationsangebote" class="centered-content">
-    <div class="limited-width2">
-        <div class="dhbw-text-columns markdown mb-2">
-            Gute Lehrpersonen machen **aktivierende Lehre**, um die Lernwirksamkeit ihrer Vorlesungen zu erhöhen.
-            Aktivierende Lehre bezeichnet dabei alle Lehrhandlungen, die darauf abzielen, die Studierenden nicht
-            nur passiv teilnehmen zu lassen (sog. Frontalunterricht), sondern gezielte Lernhandlungen anzuregen,
-            die zu einer besseren Aufnahme und Durchdringung der Lehrinhalte abzielen. Manche bauen auch
-            **Partizipationsangebote** ein, um die Studierenden die Vorlesung mitgestalten zu lassen oder die
-            Studierenden an bestimmten Stellen mitentscheiden zu lassen. In dieser Vorlesung machen wir beides.
-        </div>
-        
-        <lsx-tab-pages>
-            <lsx-tab-page title="Aktivierung">
-                <img src="0-intro/aktivierung.png" alt="Aktivierende Lehrmethoden nach Chi und Wilye" class="d-block w-100 mb-4">
-
-                <div>
                     <small>
                         <small>
-                            <b>Vgl. Chi, M. T. (2009).</b> Active‐constructive‐interactive: A conceptual framework for differentiating learning activities.
-                            Topics in cognitive science, 1(1), 73-105. <br>
-
-                            <b>Vgl. Chi, M. T., & Wylie, R. (2014).</b> The ICAP framework: Linking cognitive engagement to active learning outcomes.
-                            Educational psychologist, 49(4), 219-243. <br>
-
-                            Bildnachweise:
-                            <a href="https://commons.wikimedia.org/wiki/Category:Educators_and_students?uselang=de#/media/File:Olivier_Robert_Marchand_cours_amphi_ILEPS.jpg" target="_blank">Wikimedia Commons: Olivier RM</a>,
-                            <a href="https://pixabay.com/photos/startup-start-up-people-593343/" target="_blank">Pixabay: StartupStockPhotos</a>,
-                            <a href="https://pixabay.com/illustrations/gears-metal-industry-cogwheel-686316/" target="_blank">Pixabay: TheDigitalArtist</a>
+                            Bildnachweis:
+                            <a href="https://pixabay.com/illustrations/tv-watch-gawk-watch-tv-eve-1015426/" target="_blank">Pixabay: Peggy_Marco</a>
                         </small>
                     </small>
-                </div>
-            </lsx-tab-page>
-    
-            <lsx-tab-page title="Partizipation">
-                <img src="0-intro/partizipation.svg" alt="Studentische Partizipation nach Mayrberger" class="d-block w-100 mb-4">
-
-                <div>
-                    <small>
-                        <small>
-                            <b>Vgl. Mayrberger, K. (2019).</b> Partizipative Mediendidaktik: Gestaltung der (Hochschul-)Bildung unter den
-                            Bedingungen der Digitalisierung. Beltz Juventa. <br>
-
-                            <b>Vgl. Kärner, T., Jüttler, M., Fritzsche, Y. et al.</b> (2023). Partizipation in Lehr-Lern-Arrangements:
-                            Literaturreview und kritische Würdigung des Partizipationskonzepts. Erziehungswissenschaften 26, 1053–1103. <br>
-                        </small>
-                    </small>
-                </div>
-            </lsx-tab-page>
-    
-            <lsx-tab-page title="Partizipationsangebote dieser Vorlesung">
-                <lsx-grid-fluid class="limited-width2 p-0">
-                    <lsx-row>
-                        <lsx-col size="md-4" class="mb-3 mb-md-0">
-                            <lsx-card title="Mitbestimmung der Vorlesungsinhalte" bold img="0-intro/partizipation1.jpg" class="h-100">
-                                Direktes Feedback durch Abstimmungen am Anfang und Ende der Vorlesungsstunden darüber,
-                                wie wir weitermachen sollen.
-                            </lsx-card>
-                        </lsx-col>
-                        <lsx-col size="md-4" class="mb-3 mb-md-0">
-                            <lsx-card title="Mitwirkung in den Vorlesungsstunden" bold img="0-intro/partizipation2.jpg" class="h-100">
-                                Durch eingestreute Präsentationen der einzelnen Gruppen zu ihren Portfolioprojekten
-                                oder den Arbeitsergebnissen einer Übungsstunde.
-                            </lsx-card>
-                        </lsx-col>
-                        <lsx-col size="md">
-                            <lsx-card title="Selbstbestimmung im Portfolioprojekt" bold img="0-intro/partizipation3.jpg" class="h-100">
-                                Durch einen selbst gewählten Anwendungsfällen mit großen Freiheiten bei den persönlichen
-                                Lernzielen und eingesetzten Werkzeugen.
-                            </lsx-card>
-                        </lsx-col>
-                    </lsx-row>
-                    <lsx-row>
-                        <lsx-col size="md-4" class="mb-3 mb-md-0">
-                            <lsx-card title="Mitbestimmung der Bewertungskriterien" bold img="0-intro/partizipation4.jpg" class="h-100">
-                                Durch ein gemeinsames Brainstorming zu den Prüfungskriterien mit anschließender
-                                Diskussion und Abstimmung.
-                            </lsx-card>
-                        </lsx-col>
-                        <lsx-col size="md-4" class="mb-3 mb-md-0">
-                            <lsx-card title="Mitwirkung bei der Weiterentwicklung" bold img="0-intro/partizipation5.jpg" class="h-100">
-                                Durch Feedbackmöglichkeiten in der Vorlesung sowie das Projekt als Anlass, um das Lehren
-                                und Lernen gemeinsam zu reflektieren.
-                            </lsx-card>
-                        </lsx-col>
-                        <lsx-col size="md">
-                            <!-- Leer -->
-                        </lsx-col>
-                    </lsx-row>
-                </lsx-grid-fluid>
-
-                <div>
-                    <small>
-                        <small>
-                            Bildnachweise:
-                            <a href="https://pixabay.com/photos/teacher-educator-studies-kitsch-3923074/" target="_blank">Pixabay: Miroslavik</a>,
-                            <a href="https://pixabay.com/photos/woman-work-office-whiteboard-4702060/" target="_blank">Pixabay: This_is_Engineering</a>,
-                            <a href="https://pixabay.com/photos/planning-housebuilding-pre-project-3536759/" target="_blank">Pixabay: aancapictures</a>,
-                            <a href="https://pixabay.com/photos/checklist-list-ticked-off-hook-2945401/" target="_blank">Pixabay: DCG_MAK</a>,
-                            <a href="https://pixabay.com/photos/evolution-development-future-ape-4107273/" target="_blank">Pixabay: Alexas_Fotos</a>
-                        </small>
-                    </small>
-                </div>
-            </lsx-tab-page>
-        </lsx-tab-pages>
-    </div>
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
 </section>
 
 <section data-title="Benötigte Software">
@@ -1104,24 +876,24 @@
                 </lsx-grid-fluid>
             </lsx-tab-page>
 
-            <lsx-tab-page title="Gitpod">
+            <lsx-tab-page title="GitHub Codespaces">
                 <lsx-grid-fluid>
                     <lsx-row class="mb-0">
                         <lsx-col size="md">
                             <p>
                                 Falls Sie auf Ihrem Computer keine zusätzliche Software installieren können oder sich bestimmte
-                                Dienste über das DHBW-Netzwerk nicht erreichen lassen, können Sie auf die Gitpod Online-IDE ausweichen.
-                                Diese bietet eine IDE und Linux-Umgebung direkt in Ihrem Browser.
+                                Dienste über das DHBW-Netzwerk nicht erreichen lassen, können Sie auf GitHub Codespaces ausweichen.
+                                Dort steht Ihnen Visual Studio Code mit einer vorkonfigurierten Linux-VM direkt im Browser zur Verfügung.
                             </p>
                         </lsx-col>
                     </lsx-row>
 
                     <lsx-row>
                         <lsx-col size="md">
-                            <img src="0-intro/github-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                            <img src="0-intro/github-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" alt="" />
                         </lsx-col>
                         <lsx-col size="md">
-                            <img src="0-intro/gitpod-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" />
+                            <img src="0-intro/github-codespaces-screenshot.png" class="img-thumbnail d-block" style="width: 100%; height: 100%;" alt ="" />
                         </lsx-col>
                     </lsx-row>
 
@@ -1134,8 +906,17 @@
                                 <li>
                                     Keine Registrierung erforderlich, sofern Sie bereits einen GitHub Account besitzen.
                                 </li>
+                            </lsx-ul>
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-ul emoji="🔥">
                                 <li>
-                                    Quellcodes müssen in einem öffentlich sichtbare Git-Repository auf GitHub liegen.
+                                    <b>Die kostenlose Version besitzt ein begrenztes Kontingent von 120 Studen/Monat!</b>
+                                </li>
+                                <li>
+                                    <b>Die VM muss unter <a href="https://github.com/codespaces" target="_blank">https://github.com/codespaces</a> manuell gestoppt werden!</b>
                                 </li>
                             </lsx-ul>
                         </lsx-col>
@@ -1189,16 +970,17 @@
 
         [https://git-scm.com/](https://git-scm.com/)
 
-        ##### Gitpod
+        ##### GitHub Codespaces
 
         Rein optional aber durchaus eine Alternative, um die Installation lokaler Softwarepakete auf
-        Ihrem Computer zu vermeiden. Bei Gitpod handelt es sich um einen in der Cloud laufenden Ableger
+        Ihrem Computer zu vermeiden. Bei GitHub Codespaces handelt es sich um einen in der Cloud laufenden Ableger
         von Visual Studio Code, der neben der IDE auch eine vollständige Linux-Umgebung mit vorinstallierten
         Werkzeugen von Docker oder Node.js bietet. Einzige Voraussetzung hierfür ist, dass der zu bearbeitende
-        Quellcode in einem öffentlich sichtbaren Git-Repository auf GitHub liegt. Denn dann kann Gitpod für
-        persönliche Projekte kostenlos genutzt werden. Die Anmeldung erfolgt mit dem persönlichen GitHub Account.
-        Zwar handelt es sich um ein kommerzielles Angebot, die Plattform ist jedoch vollständig quelloffen.
+        Quellcode in einem Git-Repository auf GitHub liegt. Die Anmeldung erfolgt mit dem persönlichen GitHub Account.
+        
+        Das kostenlose Kontingent umfasst 120 Stunden im Monat. Man muss aber darauf achten, die VM unter folgendem
+        Link manuell zu stoppen, damit die Zeit nicht ungenutzt abläuft!
 
-        [https://gitpod.io/](https://gitpod.io/){target=blank}
+        [https://github.com/codespaces](https://github.com/codespaces){target=blank}
     </aside>
 </section>

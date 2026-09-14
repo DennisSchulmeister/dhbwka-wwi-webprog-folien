@@ -34,7 +34,7 @@
         "replace_variables_extensions": ".htm; .html"
     },
     "devDependencies": {
-        "@dschulmeis/lecture-slides.js": "^4.6.0",
+        "@dschulmeis/lecture-slides.js": "^4.9.0",
         "@dschulmeis/ls-plugin-ace-code": "^1.0.0",
         "@dschulmeis/ls-plugin-extra-tags": "^3.3.2",
         "@dschulmeis/ls-plugin-highlight.js": "^2.0.6",
