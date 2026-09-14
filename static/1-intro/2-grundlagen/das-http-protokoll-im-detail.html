@@ -1,0 +1,603 @@
+<section data-title="Das HTTP-Protokoll im Detail">
+    <article>
+        <style>
+            #http-nachricht1 table {
+                color: rgb(80,80,80);
+            }
+
+            #http-nachricht1 td {
+                vertical-align: top;
+                padding: 0;
+                padding: 0 0.3em 0 0.3em;
+            }
+
+            #http-nachricht1 .http-nachricht {
+                font-family: monospace;
+                color: black;
+                background-color: rgba(0,0,0, 0.07);
+            }
+
+            #http-nachricht1 .http-verb       { color: darkred; }
+            #http-nachricht1 .http-url        { color: darkgreen; }
+            #http-nachricht1 .http-version    { color: darkcyan; }
+            #http-nachricht1 .http-header     { color: darkblue; }
+            #http-nachricht1 .http-statuscode { color: darkred; }
+            #http-nachricht1 .http-statustext { color: darkgreen; }
+            #http-nachricht1 .http-optional   { color: red; }
+        </style>
+        <div id="http-nachricht1" style="margin-bottom: 1em;">
+            <lsx-tab-pages id="http-daten">
+                <lsx-tab-page title="Anfrage">
+                    <table>
+                        <tr>
+                            <td>
+                                Verb
+                            </td>
+                            <td>
+                                Pfad
+                            </td>
+                            <td>
+                                HTTP-Version
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-verb">
+                                POST
+                            </td>
+                            <td class="http-nachricht http-url">
+                                /feedback/save.php
+                            </td>
+                            <td class="http-nachricht http-version">
+                                HTTP/1.1
+                            </td>
+                            <td>
+                                Anfragezeile
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-header" colspan="3" >
+                                Host: www.wpvs.de <br />
+                                Content-Type: text/json <br />
+                                Accept: text/json <br />
+                                Connection: keep-alive <br />
+                            </td>
+                            <td>
+                                Header Fields
+                                <span class="http-optional">¹</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht" colspan="3">
+                                &nbsp;
+                            </td>
+                            <td>
+                                Leerzeile
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-body" colspan="3">
+                                { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"course": "vertsys", <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"year": 2020, <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"text": "Vielen Dank für diese tolle Vorlesung!" <br />
+                                }
+                            </td>
+                            <td>
+                                Request Body
+                                <span class="http-optional">¹</span>
+                            </td>
+                        </tr>
+                    </table>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Antwort">
+                    <table>
+                        <tr>
+                            <td>
+                                HTTP-Version
+                            </td>
+                            <td>
+                                Statuscode
+                            </td>
+                            <td>
+                                Bezeichnung
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-version">
+                                HTTP/1.1
+                            </td>
+                            <td class="http-nachricht http-statuscode">
+                                200
+                            </td>
+                            <td class="http-nachricht http-statustext">
+                                Ok
+                            </td>
+                            <td>
+                                Antwortzeile
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-header" colspan="3" >
+                                Content-Type: text/json <br />
+                                Content-Length: 55 <br />
+                                Date: Sun, 15 Oct 2017 20:18:17 GMT
+                            </td>
+                            <td>
+                                Header Fields
+                                <span class="http-optional">¹</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht" colspan="3">
+                                &nbsp;
+                            </td>
+                            <td>
+                                Leerzeile
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="http-nachricht http-body" colspan="3">
+                                { <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"type": "success", <br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;"message": "Feedback wurde gespeichert", <br />
+                                }
+                            </td>
+                            <td>
+                                Response Body
+                                <span class="http-optional">¹</span>
+                            </td>
+                        </tr>
+                    </table>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Beispiel">
+                    <lsx-carousel id="http-beispiel">
+                        <lsx-carousel-page>
+                            <p>
+                                Hier wollen wir uns anschauen, welche Daten beim Senden einer HTTP-Anfrage „über die Leitung gehen“.
+                                Wir starten mit einer leeren Konsole. Du kennst doch die Konsole deines Betriebssystems, oder? 🐒
+                            </p>
+                            <img class="active d-block w-100" src="1-intro/2-grundlagen/das-http-protokoll-im-detail/http_demo_01.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Mit <tt>telnet</tt> stellen wir eine <a href="https://de.wikipedia.org/wiki/Socket_(Software)"
+                                target="_blank">TCP/IP-Verbindung</a> zum Webserver her.
+                            </p>
+                            <img class="active d-block w-100" src="1-intro/2-grundlagen/das-http-protokoll-im-detail/http_demo_02.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Daraufhin meldet <tt>telnet</tt>, dass die Verbindung erfolgreich aufgebaut wurde und der Server wartet
+                                auf Eingaben.
+                            </p>
+                            <img class="active d-block w-100" src="1-intro/2-grundlagen/das-http-protokoll-im-detail/http_demo_03.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Wir schicken eine <tt>GET</tt>-Anfrage zum Abruf der Datei <tt>/webprog/hallo-http.txt</tt>.
+                            </p>
+                            <img class="active d-block w-100" src="1-intro/2-grundlagen/das-http-protokoll-im-detail/http_demo_04.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Als nächstes folgt das Header Field <tt>Host</tt>, da es mehrere Domains mit derselben IP-Adresse gibt.
+                            </p>
+                            <img class="active d-block w-100" src="1-intro/2-grundlagen/das-http-protokoll-im-detail/http_demo_05.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Das war es dann auch schon mit den Header Fields. Zum Abschluss folgt deshalb eine Leerzeile.
+                            </p>
+                            <img class="active d-block w-100" src="1-intro/2-grundlagen/das-http-protokoll-im-detail/http_demo_06.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                Und schon schickt uns der Server die Antwort und trennt die Verbindung.
+                            </p>
+                            <img class="active d-block w-100" src="1-intro/2-grundlagen/das-http-protokoll-im-detail/http_demo_07.gif" />
+                        </lsx-carousel-page>
+                        <lsx-carousel-page>
+                            <p>
+                                So einfach ist das. 👍🏻 Allerdings nur mit HTTP/1, denn HTTP/2 kodiert die Nachrichten in einer kompakteren
+                                Binärform. Schaue dir deshalb gleich das Video auf dem nächsten Tabreiter an, um zu erfahren, wie HTTP-Aufrufe
+                                richtig getestet werden.
+                            </p>
+                            <img class="active d-block w-25 m-auto" src="shared/finish.svg" />
+                            <p>
+                                <small>
+                                    <small>
+                                        Bildnachweis: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                                    </small>
+                                </small>
+                            </p>
+                        </lsx-carousel-page>
+                    </lsx-carousel>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Testprogramme">
+                    <lsx-youtube video="qnPutbEmkWA"></lsx-youtube>
+                    <lsx-ul emoji="❇️">
+                        <li>
+                            Browser sind nicht die einzigen Programme, die HTTP-Anfragen versenden.
+                        </li>
+                        <li>
+                            Eine beliebte, grafische Anwendung zum Testen von HTTP-Anfragen ist
+                            <a href="https://www.postman.com/" target="_blank">Postman</a>.
+                        </li>
+                        <li>
+                            In Scripts und auf der Kommandozeile wird häufig <a href="https://curl.haxx.se/" target="_blank">curl</a>
+                            verwendet.
+                        </li>
+                        <li>
+                            <a href="https://httpie.org/" target="_blank">HTTPie</a> ist jedoch einfacher zu nutzen
+                            und genauso leistungsfähig.
+                        </li>
+                    </lsx-ul>
+                </lsx-tab-page>
+            </lsx-tab-pages>
+
+            <p>
+                <small>
+                    <small>
+                        <span class="http-optional">¹</span> Optional
+                    </small>
+                </small>
+            </p>
+        </div>
+
+        <div id="http-nachricht2">
+            <lsx-tab-pages id="http-listen">
+                <lsx-tab-page title="Verben">
+                    <h2>GET</h2>
+                    <ul>
+                        <li>
+                            Inhalte vom Server abrufen
+                        </li>
+                        <li>
+                            Die Anfrage darf keinen Request Body enthalten
+                        </li>
+                        <li>
+                            Der Server antwortet mit dem gewünschten Inhalt oder einer Fehlerbeschreibung
+                        </li>
+                    </ul>
+
+                    <h2>POST</h2>
+                    <ul>
+                        <li>
+                            Daten zur Verarbeitung an den Server schicken
+                        </li>
+                        <li>
+                            Wird häufig dazu verwende, neue Inhalte auf dem Server abzulegen
+                        </li>
+                        <li>
+                            Der Server antwortet mit dem gespeicherten Inhalt oder einer Fehlerbeschreibung
+                        </li>
+                    </ul>
+
+                    <h2>PUT</h2>
+                    <ul>
+                        <li>
+                            Wird häufig verwendet, um vorhandene Daten auf dem Server zu aktualisieren
+                        </li>
+                        <li>
+                            Der Inhalt der Datei muss im Request Body mitgeschickt werden
+                        </li>
+                        <li>
+                            Der Server antwortet mit dem gespeicherten Inhalt oder einer Fehlerbeschreibung
+                        </li>
+                    </ul>
+
+                    <h2>DELETE</h2>
+                    <ul>
+                        <li>
+                            Daten auf dem Server löschen
+                        </li>
+                        <li>
+                            Die Anfrage darf keinen Request Body enthalten
+                        </li>
+                        <li>
+                            Der Server antwortet mit einer Bestätigung oder einer Fehlberbeschreibung
+                        </li>
+                    </ul>
+
+                    <h2>Seltener verwendete Verben</h2>
+                    <p>
+                        <tt>HEAD</tt>, <tt>OPTIONS</tt>, <tt>TRACE</tt>, <tt>PATCH</tt>
+                    </p>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Statuscodes">
+                    <h2>1xx: Informationen</h2>
+                    <ul>
+                        <li>
+                            Zwischenmeldung, um die Verbindung aufrecht zu erhalten
+                        </li>
+                        <li>
+                            Verhindert, dass die Verbindung durch einen Timeout vorzeitig beendet wird
+                        </li>
+                    </ul>
+
+                    <h2>2xx: Erfolgreicher Abschluss</h2>
+                    <ul>
+                        <li>
+                            Die Anfrage wurde erfolgreich bearbeitet
+                        </li>
+                        <li>
+                            <tt>200 OK</tt>: Alles roger! Der Response Body beinhaltet die gewünschten Daten 👌🏼
+                        </li>
+                        <li>
+                            <tt>201 Created</tt>: Der an den Server gesendete Datensatz wurde erfolgreich angelegt
+                        </li>
+                        <li>
+                            <tt>202 Accepted</tt>: Die Anfrage wurde empfangen, wird aber erst später bearbeitet
+                        </li>
+                        <li>
+                            <tt>204 No Content</tt>: Alles in Ordnung. Der Body enthält jedoch keine Daten
+                        </li>
+                        <li>
+                            …
+                        </li>
+                    </ul>
+
+                    <h2>3xx: Umleitung</h2>
+                    <ul>
+                        <li>
+                            Es sind weitere Aktionen vom Client notwendig
+                        </li>
+                        <li>
+                            <tt>300 Multiple Choice</tt>: Die Anfrage war nicht eindeutig genug
+                        </li>
+                        <li>
+                            <tt>301 Moved Permanently</tt>: Umleitung des Clients auf eine andere URL
+                        </li>
+                        <li>
+                            …
+                        </li>
+                    </ul>
+
+                    <h2>4xx: Client Fehler</h2>
+                    <ul>
+                        <li>
+                            Der Client hat etwas falsch gemacht; die Verarbeitung wird abgelehnt
+                        </li>
+                        <li>
+                            <tt>400 Bad Request</tt>: Ungültige bzw. fehlerhafte Anfrage
+                        </li>
+                        <li>
+                            <tt>401 Unauthorized</tt>: Keine Berechtigung für diese Aktion
+                        </li>
+                        <li>
+                            <tt>403 Forbidden</tt>: Die Aktion ist prinzipiell nicht erlaubt
+                        </li>
+                        <li>
+                            <tt>404 Not Found</tt>: Der gesuchte Inhalt wurde nicht gefunden
+                        </li>
+                        <li>
+                            <tt>409 Conflict</tt>: Der übermittelte Inhalt wiederspricht anderen Daten
+                        </li>
+                        <li>
+                            …
+                        </li>
+                    </ul>
+
+                    <h2>5xx: Server Fehler</h2>
+                    <ul>
+                        <li>
+                            Anfrage kann aufgrund eines Serverfehlers nicht bearbeitet werden
+                        </li>
+                        <li>
+                            <tt>500 Internal Server Error</tt>: Schwerer technischer Fehler, alles ist kaputt! 🗑️
+                        </li>
+                        <li>
+                            <tt>501 Not Implemented</tt>: Die Funktion ist nicht verfügbar
+                        </li>
+                        <li>
+                            <tt>503 Service Unavailable</tt>: Temporärer Fehler, bitte später nochmal versuchen
+                        </li>
+                        <li>
+                            …
+                        </li>
+                    </ul>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Header Fields">
+                    <!-- Anfrage -->
+                    <h2>Anfrage</h2>
+
+                    <h4>Host</h4>
+                    <p>
+                        Domain des aufgerufenen Servers, um zwischen mehreren Domains mit derselben IP-Adresse unterscheiden zu können
+                    </p>
+
+                    <h4>User-Agent</h4>
+                    <p>
+                        Name, Version und Betriebssystem des Clients, wobei die Angaben meistens nicht stimmen
+                    </p>
+
+                    <h4>Content-Type</h4>
+                    <p>
+                        MIME-Type und ggf. Zeichensatz der im Body enthaltenen Daten
+                    </p>
+
+                    <h4>Accept</h4>
+                    <p>
+                        MIME-Type der erwarteten Antwort
+                    </p>
+
+                    <h4>Accept-Language</h4>
+                    <p>
+                        Erwartete Sprachen (deutsch, englisch, …) der Antwort
+                    </p>
+
+                    <h4>Connection</h4>
+                    <p>
+                        Hinweise zur Aufrechterhaltung der TCP/IP-Verbindung für weitere Anfragen
+                    </p>
+
+                    <!-- Antwort -->
+                    <h2>Antwort</h2>
+
+                    <h4>Content-Type</h4>
+                    <p>
+                        MIME-Type und ggf. Zeichensatz der im Body enthaltenen Daten
+                    </p>
+
+                    <h4>Location</h4>
+                    <p>
+                        Umleitung auf eine neue URL bzw. URL der gespeicherten Daten
+                    </p>
+
+                    <h4>Cache-Control</h4>
+                    <p>
+                        Hinweise zur Pufferung der Antwort im Browsercache
+                    </p>
+
+                    <h4>Last-Modified</h4>
+                    <p>
+                        Datum und Uhrzeit der letzten Änderung an den Daten
+                    </p>
+                </lsx-tab-page>
+
+                <lsx-tab-page title="Versionen">
+                    <h2>HTTP/0.9</h2>
+                    <p>
+                        Dies war die ursprüngliche von Tim Berners-Lee entwickelte HTTP-Version, wie sie 1991 veröffentlicht wurde.
+                        In dieser Version gab es nur GET-Anfragen und noch keine Header Fields. Eine Anfrage bestand daher lediglich
+                        aus einer Zeile:
+                    </p>
+                    <source-code language="http">
+                        GET /index.html
+                    </source-code>
+                    <p>
+                        Die Antwort des Servers beinhalte nur den Inhalt der abgerufenen Datei, sonst nichts.
+                    </p>
+
+                    <h2 style="margin-top: 1em;">HTTP/1.0</h2>
+                    <p>
+                        1996 wurde HTTP/1.0 veröffentlicht. Ab hier haben die HTTP-Nachrichten den oben gezeigten Aufbau.
+                    </p>
+
+                    <h2 style="margin-top: 1em;">HTTP/1.1</h2>
+                    <p>
+                        Diese Version wurde 1999 veröffentlicht und brachte weitreichende Verbesserungen. Unter anderem
+                        die Möglichkeit, die Verbindung zwischen zwei Anfragen offen zu halten. Denn zuvor wurde die Verbindung
+                        nach jeder Antwort automatisch getrennt. Da aber gerade der Verbindungsaufbau bei TCP/IP sehr langsam ist,
+                        führte dies zu langen Wartezeiten, wenn mehrere Dateien vom selben Server abgerufen werden mussten.
+                    </p>
+
+                    <h2 style="margin-top: 1em;">HTTP/2</h2>
+                    <p>
+                        2015 wurde HTTP/2 offiziell verabschiedet. In seinen Grundzügen basiert es auf dem von Google entwickelten
+                        SPDY-Protokoll. Die Inhalte der HTTP-Nachrichten sind weitgehend gleich geblieben, jedoch werden sie nicht
+                        mehr in der oben gezeigten Textform kodiert. Stattdessen kommt ein kompaktes und in vielen Dingen eindeutiger
+                        spezifiziertes Binärformat zum Einsatz.¹
+                    </p>
+                    <p>
+                        Als weitere größere Neuerung führt HTTP/2 <b>Server Push</b> ein, wodurch der Server beim Abruf einer
+                        HTML-Seite selbstständig weitere Dateien an den Browser schicken kann. Somit können Stylesheets, Skripte
+                        und Bilder schon an den Browser geschickt werden, bevor dieser überhaupt weiß, dass er sie benötigen wird.
+                    </p>
+                    <p>
+                        Stand 2020 hat sich HTTP/2 noch nicht vollständig gegen HTTP/1 durchgesetzt. Sehr viele Webseiten verwenden
+                        weiterhin HTTP/1. Inzwischen unterstützen aber alle Server, Browser und Frameworks das neue Protokoll.
+                    </p>
+                    <p>
+                        <small>
+                            <small>
+                                ¹ Beispielsweise war bei HTTP/1.x nie definiert, welche Bytefolge ein Zeilenende markiert.
+                            </small>
+                        </small>
+                    </p>
+                </lsx-tab-page>
+            </lsx-tab-pages>
+        </div>
+    </article>
+    <aside>
+        <p>
+            Das Übertragungsprotokoll, mit dem der Browser Daten vom Server abruft, heißt HTTP. Die Abkürzung steht eigentlich
+            für <b>HyperText Transfer Protocol</b>. Heute nennt es aber niemand mehr so. 🙂
+        </p>
+
+        <h2>Alles beginnt mit einer Anfrage</h2>
+        <p>
+            HTTP ist wirklich ein simples Protokoll. Oder zumindest war es das einmal, als es erfunden wurde. Denn im
+            Laufe der Zeit wurde es natürlich immer mehr erweitert. In seinen Grundzügen ist es aber immer noch relativ
+            einfach: Der Browser stellt eine Verbindung zum Server her, sendet eine Anfrage und erhält eine Antwort.
+            Die Anfrage beinhaltet dabei stets folgende Daten:
+        </p>
+        <ul>
+            <li>
+                <b>Verb:</b> Kennzeichnet die Aktion, die der Server ausführen soll. Zum Beispiel <tt>GET</tt> für
+                den Abruf einer Seite, oder <tt>PUT</tt> zum Hochladen einer Datei.
+            </li>
+            <li>
+                <b>Pfad:</b> Der Dateipfad, auf den sich die Anfrage bezieht. Oft handelt es sich einfach um eine
+                Datei, die der Server zurückschicken soll. Das muss aber nicht so sein, wie wir später noch sehen
+                werden.
+            </li>
+            <li>
+                <b>HTTP-Version:</b> In HTTP/1 dient dies hauptsächlich dazu, die Anfrage von der Antwort zu unterscheiden.
+                Bei der Anfrage steht die HTTP-Version in der ersten Zeile hinten, bei der Antwort ganz am Anfang. Darüber
+                hinaus steuert die HTTP-Version aber auch welche Header Fields (siehe nächster Punkt) die Gegenseite
+                verstehen muss.
+            </li>
+            <li>
+                <b>Header Fields (optional):</b> Dies sind Daten, die das Verhalten des Servers beeinflussen. Beispielsweise
+                wird hier die angeforderte Domain mitgeschickt, da heutzutage die meisten Webserver mehrere Domains mit derselben
+                IP-Adresse bedienen.
+            </li>
+            <li>
+                <b>Request Body (optional):</b> Hier können Daten an den Server geschickt werden, die dieser speichern
+                oder weiterverarbeiten soll. Ob der Server einen Request Body erwartet hängt dabei vom verwendeten
+                HTTP-Verb ab.
+            </li>
+        </ul>
+        <p>
+            Den genauen Aufbau einer HTTP-Anfrage sowie alle erlaubten Verben findest du im Hauptteil dieser Seite. 📄
+        </p>
+
+        <h2>Und endet mit einer Antwort</h2>
+        <p>
+            Die Antwort des Servers sieht im Prinzip genauso aus. Anstelle von Verb und Pfad beinhaltet sie jedoch einen
+            Statuscode, der darüber Auskunft gibt, ob die angeforderte Aktion ausgeführt werden konnte. Jede Antwort
+            beinhaltet daher folgende Daten:
+        </p>
+        <ul>
+            <li>
+                <b>HTTP-Version:</b> Die HTTP-Version, nach deren Regeln die Antwort aufgebaut ist.
+            </li>
+            <li>
+                <b>Statuscode:</b> Nummerischer Code, der die Art der Antwort definiert.
+            </li>
+            <li>
+                <b>Statustext:</b> Kurze, menschenverständliche Beschreibung zum Statuscode.
+            </li>
+            <li>
+                <b>Header Fields:</b> Verschiedene Informationen über die gelieferten Daten, zum Beispiel das Datenformat
+                (<a href="https://de.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions" target="_blank">MIME-Type</a>)
+                und die Anzahl Bytes.
+            </li>
+            <li>
+                <b>Response Body:</b> Die eigentlichen Daten oder bei Fehlern eine HTML-Seite mit einer Fehlerbeschreibung.
+            </li>
+        </ul>
+        <p>
+            Kurioserweise wird der Statuscode allerdings von den Browsern gar nicht angezeigt. Manche davon beinflussen
+            aber durchaus, wie der Browser mit einer Antwort umgeht. So teilt der Statuscode 301 zum Beispiel mit, dass
+            der/die Anwender*in auf eine neue Seite weitergeleitet werden soll. Oder der Statuscode 404 sagt aus, dass
+            die gesuchte Ressource nicht gefunden wurde. Bei 200 hingegen ist einfach alles okay.
+        </p>
+
+        <h2>Über die verschiedenen HTTP-Versionen</h2>
+        <p>
+            Heute sind eigentlich nur zwei HTTP-Versionen von Bedeutung: HTTP/1.1 und HTTP/2. HTTP/3 ist noch am Entstehen.
+            Dies ist wichtig, da HTTP bis zur Version 1.1 ein reines Textprotokoll war, Anfrage und Antwort ab HTTP/2 aber
+            nur noch binär kodiert werden. Neuere Versionen sind deshalb naturgemäß schneller. Aus Gründen der Kompatibilität
+            verstehen aber aller Browser und Server auch die alten Versionen.
+        </p>
+    </aside>
+</section>

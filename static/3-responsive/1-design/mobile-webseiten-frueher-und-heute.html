@@ -1,0 +1,124 @@
+<section data-title="Mobile Webseiten früher und heute">
+    <article>
+        <style>
+            #intro-beispiel .my-rp-background {
+                background-image: url(3-responsive/1-design/mobile-webseiten-frueher-und-heute/intro-bg.jpg);
+            }
+        </style>
+
+        <lsx-ul emoji="📱">
+            <li>
+                Früher musste für mobile Endgeräte eine eigene Seite entwickelt werden.
+            </li>
+            <li>
+                Moderne Webseiten funktionieren jedoch auf allen Endgeräten gleichermaßen.
+            </li>
+            <li>
+                Nur die Darstellung passt sich automatisch an die verfügbare Bildschirmgröße an.
+            </li>
+        </lsx-ul>
+
+        <lsx-tab-pages id="intro-beispiel" class="my-responsive-preview">
+            <lsx-tab-page title="Smartphone">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-phone" src="shared/intro/index.html?phone"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Tablet">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-tablet" src="shared/intro/index.html?tablet"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Großer Bildschirm">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-screen" src="shared/intro/index.html?screen"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <lsx-info-box>
+            Probiere, das Seitenmenü in der mobilen Version zu öffnen.
+        </lsx-info-box>
+
+        <p>
+            <small>
+                <small>
+                    <b>Vorlage für das Beispiel:</b> Eigener Kanal auf Youtube <br />
+                    <b>Bildnachweis für den Hintergrund:</b>
+                    <a href="https://pixabay.com/photos/chairs-conference-room-contemporary-2181994/" target="_blank">Pixabay: Pexels</a>
+                </small>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Das Internet und das World Wide Web begleiten uns heute überall. Was füher noch
+            visionäre Wunschvorstellung war, ist inzwischen längst Realität: Mit dem Smartphone
+            sind wir immer und überall online. Egal ob zuhause, bei der Arbeit oder unterwegs.
+            Smartphones, Tablets, Desktop-Computer und selbst Fernseher sind dauerhaft mit dem
+            Internet verbunden, so dass wir uns ein Leben wie früher gar nicht mehr vorstellen
+            können. Früher, als es höchstens einen Computer je Haushalt gab und dieser (wenn
+            überhaupt) nur für wenige Minuten am Tag per teurer Einwahlverbindung mit dem
+            Internet verbunden war.¹
+        </p>
+        <p>
+            Dementsprechend hat sich auch unsere Erwartungshaltung an das World Wide Web
+            geändert. War es früher noch üblich, eine Webseite für eine genau definierte
+            Bildschirmauflösung zu optimieren (meistens 1024✕768) und dabei pixelgenaue
+            Größenangaben zu verwenden, funktioniert dies spätestens seit Erfindung des
+            Smartphones nicht mehr. Zwar war es bis weit in die 2000er-Jahre noch üblich,
+            getrennte Seiten für mobile und stationäre Endgeräte zu entwerfen. Die einseitige
+            Fokussierung auf das iPhone (erschienen 2007) führte jedoch schnell zu Problemen,
+            als rund um Android ein immer größerer Gerätezoo auf den Markt kam. 🐘
+            Für das iPhone optimierte Webseiten sahen auf anderen Geräten meist viel zu klein
+            oder viel zu groß aus, da keine zwei Geräte dieselbe Bildschirmauflösung besaßen.
+        </p>
+        <p>
+            Die Maßeinheit <code>px</code> wurde daraufhin so abgewandelt, dass seitdem nicht
+            mehr physische Pixel sondern <b>CSS-Pixel</b> genannte Vielfache von 1/96tel-Zoll
+            damit beschrieben werden. Was anfangs wie eine gute Idee klingt (immerhin werden die
+            Layouts dadurch auf allen Geräten gleich groß dargestellt), löst leider das zugrunde
+            liegende Problem nicht. Denn auch die Bildschirmform oder genauer gesagt Größe und
+            Seitenverhältnis unterscheiden sich von Gerät zu Gerät, wodurch Layouts mit festen
+            Größenangaben oft zu schmal oder zu breit erscheinen. Wenig später sollte das Problem
+            deshalb richtig gelöst werden, als im Jahr 2012 <b>Media Queries</b> spezifiziert
+            wurden. Seither ist es möglich, die Eigenschaften des verwendeten Ausgabegeräts
+            abzufragen, um das Layout an dessen Gegebenheiten anzupassen. <b>Responsive Webdesign</b>
+            lautet das Zauberwort, da Webseiten und Anwendungen seitdem so gestaltet werden, dass
+            sie sich an jeden Bildschirm anpassen, selbst wenn sich die Parameter zur Laufzeit ändern
+            (beispielsweise wenn ein Smartphone vom Hoch- ins Querformat wechselt).
+        </p>
+        <p>
+            Responsive Webdesign bedeutet allerdings nur, dass sich das Layout einer Seite dynamisch
+            an die Eigenschaften des Ausgabegeräts anpasst und somit für alle Bildschirmtypen
+            gut funktioniert. Die Erfahrung zeigt jedoch, dass dies nicht für jedes Layout einfach
+            umsetzbar ist. Insbesondere komplexe Designs lassen sich nachträglich nur schwer auf
+            kleine Bildschirme herunterbrechen. <b>Mobile First</b> ist daher eine Entwicklungsmethode,
+            bei der zunächst eine möglichst einfache Darstellung für mobile Endgeräte entworfen und
+            diese durch zusätzliche Fallunterscheidungen für immer größere Bildschirme adaptiert wird.
+            Der Quellcode wird dadurch automatisch einfacher strukturiert und leichter zu verstehen,
+            während gleichzeitig einem veränderten Nutzungsverhalten Rechnung getragen wird: Anstatt
+            umständlich erst den Computer einzuschalten nehmen wir immer öfters nur Smartphone oder
+            Tablet zur Hand, um etwas nachzuschlagen. Responsive Webdesign und Mobile First entscheiden
+            somit ganz direkt, ob eine Webseite überhaupt besucht wird oder eben nicht.
+        </p>
+        <p>
+            ¹
+            <small>
+                Vor der breiten Verfügbarkeit von Internetzugängen war auch die Einwahl in so genannte
+                <a href="https://de.wikipedia.org/wiki/Mailbox_(Computer)" target="_blank">Mailboxen</a>
+                (englisch „Bulletin Board System“ bzw. BBS) üblich. Und welcher computerbegeisterte Teenager
+                bekam damals keinen Ärger, wenn am Monatsende die Telefonrechnung kam?
+            </small>
+            💸
+        </p>
+    </aside>
+</section>

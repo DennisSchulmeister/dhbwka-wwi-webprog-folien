@@ -1,0 +1,167 @@
+<section data-title="HTML und Stylesheet verknüpfen">
+    <article>
+        <lsx-ul class="mb-4">
+            <li>
+                CSS-Code kann innerhalb ein <src-code language="html">&lt;style&gt;</src-code>-Elements
+                stehen und wirkt immer auf die gesamte Seite.
+            </li>
+            <li>
+                Typischerweise stehen <src-code language="html">&lt;style&gt;</src-code>-Elemente daher
+                immer im <src-code language="html">&lt;head&gt;</src-code> zusammen mit den anderen Metadaten
+                der Seite.
+            </li>
+            <li>
+                Mit dem <code>style</code>-Attribut können allerdings auch CSS-Eigenschaften direkt am
+                HTML-Element gesetzt werden.
+            </li>
+        </lsx-ul>
+
+        <lsx-accordion>
+            <lsx-accordion-page title="Externes Stylesheet">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8"&gt;
+                            &lt;title&gt;HTML und CSS in einer Datei&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        
+                            &lt;!-- Externes Stylehseet --&gt;
+                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h1&gt;HTML und CSS endlich vereint!&lt;/h1&gt;
+                            &lt;p&gt;
+                                Was lange währt, wird endlich gut. Nachdem sich HTML und
+                                CSS nach ihrer Trennung lange Zeit nicht mehr gesehen haben,
+                                haben sie heute endlich wieder zueinander gefunden.
+                            &lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Eingebettetes Stylesheet">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8"&gt;
+                            &lt;title&gt;HTML und CSS in einer Datei&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        
+                            &lt;!-- Eingebettetes Stylehseet --&gt;
+                            &lt;style&gt;
+                                h1 {
+                                    color: #CD0D0D;
+                                    text-shadow: 1px 1px 1px grey;
+                                    margin: 0;
+                                }
+        
+                                p {
+                                    margin-top: 0.5em;
+                                }
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h1&gt;HTML und CSS endlich vereint!&lt;/h1&gt;
+                            &lt;p&gt;
+                                Was lange währt, wird endlich gut. Nachdem sich HTML und
+                                CSS nach ihrer Trennung lange Zeit nicht mehr gesehen haben,
+                                haben sie heute endlich wieder zueinander gefunden.
+                            &lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="CSS-Eigenschaften direkt setzen">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8"&gt;
+                            &lt;title&gt;HTML und CSS in einer Datei&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;!-- CSS-Eigenschaften direkt am HTML-Element --&gt;
+                            &lt;p style="color: darkred; font-weight: bold;"&gt;
+                                Mit dem style-Attribut kann man gezielt einzelne Elemente gestalten.
+                                Allerdings kann dies schnell unübersichtlich werden. 😵‍💫
+                            &lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Kombiniertes Beispiel">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8"&gt;
+                            &lt;title&gt;HTML und CSS in einer Datei&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        
+                            &lt;!-- Eingebettetes Stylehseet --&gt;
+                            &lt;style&gt;
+                                p {
+                                    margin-top: 0.5em;
+                                }
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;!-- CSS-Eigenschaften direkt am HTML-Element --&gt;
+                            &lt;p style="padding: 1em; box-shadow: 1px 1px 2px rgba(0,0,0, 0.33)"&gt;
+                                Diese Seite beinhaltet sowohl ein eingebettetes Stylesheet als auch
+                                CSS-Eigenschaften für einzelne HTML-Elemente.
+                            &lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-accordion-page>
+        </lsx-accordion>
+    </article>
+    <aside>
+        <p>
+            HTML und CSS können auf drei Weisen miteinander verknüpft werden, um die
+            Stylingangaben zu aktivieren:
+        </p>
+        <ul>
+            <li>
+                Durch Verweis auf eine externe Datei mit
+                <src-code language="html">&lt;link rel="stylesheet"&gt;</src-code>
+            </li>
+            <li>
+                Als eingebettetes Stylesheet innerhalb eines 
+                <src-code language="html">&lt;style&gt;</src-code>-Elements
+            </li>
+            <li>
+                Direkt an den HTML-Elementen mit dem
+                <src-code language="html">style</src-code>-Attribut.
+            </li>
+        </ul>
+        <p>
+            Alle drei Varianten sind auf dieser Seite dargestellt. Natürlich können sie
+            auch beliebig kombiniert und prinzipiell auch mehrere, sich ergänzende
+            Stylesheets verwendet werden.
+        </p>
+
+        <lsx-info-box>
+            <h4>Trennen oder nicht trennen?</h4>
+            <p>
+                Moderne Frameworks Bootstrap oder Tailwind CSS verzichten auf eine Trennung von
+                HTML und CSS und nutzen stattdessen das <code>class</code>-Attribut von HTML, um
+                seine Elemente zu stylen. Die Überlegung dahinter ist, dass Inhalt und Darstellung
+                gerade bei komplexen UIs (und weniger bei einfachen Textdokumenten) eben doch sehr
+                eng miteinander verbunden und nicht wirklich wiederverwendbar sind.
+            </p>
+            <p>
+                Zumindest am Anfang wollen wir uns aber an die von der Web-Plattform vorgesehene
+                Trennung von HTML und CSS halten und uns erst später mit möglichen Alternativen
+                beschäftigen. HTML und CSS gehören für uns daher aktuell immer in getrennte Dateien.
+            </p>
+        </lsx-info-box>
+    </aside>
+</section>

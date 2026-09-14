@@ -1,0 +1,266 @@
+<section data-title="JavaScript in HTML einbinden">
+    <article>
+        <lsx-accordion>
+            <lsx-accordion-page title="Direkt im HTML-Code" active>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="HTML-Code">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8" /&gt;
+                                    &lt;title&gt;JavaScript und HTML in einer Datei&lt;/title&gt;
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                                    &lt;style&gt;
+                                        html, body {
+                                            font-size: 16pt;
+                                            font-family: sans-serif;
+                                        }
+                                        …
+                                    &lt;/style&gt;
+
+                                    &lt;script&gt;
+                                        window.addEventListener("load", () =&gt; {
+                                            let klickMichButton = document.getElementById("klick-mich-button");
+                                            let ergebnisDiv = document.getElementById("ergebnis");
+                                            let anzahl = 0;
+
+                                            klickMichButton.addEventListener("click", () =&gt; {
+                                                anzahl++;
+                                                ergebnis.textContent = `Du hast mich ${anzahl} mal angeklickt.`;
+
+                                                if (anzahl &gt; 2) {
+                                                    ergebnis.innerHTML += "&lt;br /&gt; Du hast einen einfachen Button sehr glücklich gemacht."
+                                                }
+                                            });
+                                        });
+                                    &lt;/script&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;button id="klick-mich-button"&gt;Klick mich&lt;/button&gt;
+                                    &lt;div id="ergebnis"&gt;&lt;/div&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="einbinden-direkt-ergebnis">
+                            <style>
+                                #einbinden-direkt-ergebnis button {
+                                    font-size: 150%;
+                                    background-color: #353F8E;
+                                    color: white;
+                                    border: none;
+                                }
+
+                                #einbinden-direkt-ergebnis button:hover,
+                                #einbinden-direkt-ergebnis button:active,
+                                #einbinden-direkt-ergebnis button:focus,
+                                #einbinden-direkt-ergebnis button::-moz-focus-inner {
+                                    outline: 0;
+                                    border: 0;
+                                }
+
+                                #einbinden-direkt-ergebnis .ergebnis {
+                                    font-weight: bold;
+                                    color: crimson;
+                                    margin-top: 1em;
+                                }
+                            </style>
+                            <script>
+                                window.einbinden_direkt_ergebnis_anzahl = 0;
+
+                                window.einbinden_direkt_ergebnis_onclick = () => {
+                                    let klickMichButton = document.querySelector("#einbinden-direkt-ergebnis > .klick-mich-button");
+                                    let ergebnisDiv = document.querySelector("#einbinden-direkt-ergebnis > .ergebnis");
+
+                                    window.einbinden_direkt_ergebnis_anzahl++;
+                                    ergebnisDiv.textContent = `Du hast mich ${window.einbinden_direkt_ergebnis_anzahl} mal angeklickt.`;
+
+                                    if (window.einbinden_direkt_ergebnis_anzahl > 2) {
+                                        ergebnisDiv.innerHTML += "<br /> Du hast einen einfachen Button sehr glücklich gemacht."
+                                    }
+                                }
+                            </script>
+
+                            <button class="klick-mich-button" onclick="einbinden_direkt_ergebnis_onclick()">Klick mich</button>
+                            <div class="ergebnis"></div>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="In einer separaten Datei">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="HTML-Code">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;title&gt;JavaScript und HTML in einer Datei&lt;/title&gt;
+                                    &lt;meta charset="utf-8" /&gt;
+
+                                    &lt;!-- Stylesheet und JavaScript nun in eigenen Dateien --&gt;
+                                    &lt;link rel="stylesheet" href="style.css" /&gt;
+                                    &lt;script src="4-js-grundlagen/button-script.js"&gt;&lt;/script&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;button id="klick-mich-button"&gt;Klick mich&lt;/button&gt;
+                                    &lt;div id="ergebnis"&gt;&lt;/div&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Stylesheet">
+                        <source-code language="css">
+                            html, body {
+                                font-size: 16pt;
+                                font-family: sans-serif;
+                            }
+
+                            button {
+                                font-size: 150%;
+                                background-color: #353F8E;
+                                color: white;
+                                border: none;
+                            }
+
+                            button:hover,
+                            button:active,
+                            button:focus,
+                            button::-moz-focus-inner {
+                                outline: 0;
+                                border: 0;
+                            }
+
+                            #ergebnis {
+                                font-weight: bold;
+                                color: crimson;
+                                margin-top: 1em;
+                            }
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="JavaScript">
+                        <source-code language="javascript">
+                            window.addEventListener("load", () =&gt; {
+                                let klickMichButton = document.getElementById("klick-mich-button");
+                                let ergebnisDiv = document.getElementById("ergebnis");
+                                let anzahl = 0;
+
+                                klickMichButton.addEventListener("click", () =&gt; {
+                                    anzahl++;
+                                    ergebnisDiv.textContent = `Du hast mich ${anzahl} mal angeklickt.`;
+
+                                    if (anzahl &gt; 2) {
+                                        ergebnisDiv.innerHTML += "&lt;br /&gt; Du hast einen einfachen Button sehr glücklich gemacht.";
+                                    }
+                                });
+                            });
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="einbinden-separat-ergebnis">
+                            <style>
+                                #einbinden-separat-ergebnis button {
+                                    font-size: 150%;
+                                    background-color: #353F8E;
+                                    color: white;
+                                    border: none;
+                                }
+
+                                #einbinden-separat-ergebnis button:hover,
+                                #einbinden-separat-ergebnis button:active,
+                                #einbinden-separat-ergebnis button:focus,
+                                #einbinden-separat-ergebnis button::-moz-focus-inner {
+                                    outline: 0;
+                                    border: 0;
+                                }
+
+                                #einbinden-separat-ergebnis .ergebnis {
+                                    font-weight: bold;
+                                    color: crimson;
+                                    margin-top: 1em;
+                                }
+                            </style>
+                            <script>
+                                window.einbinden_separat_ergebnis_anzahl = 0;
+
+                                window.einbinden_separat_ergebnis_onlcick = () => {
+                                    let klickMichButton = document.querySelector("#einbinden-separat-ergebnis > .klick-mich-button");
+                                    let ergebnisDiv = document.querySelector("#einbinden-separat-ergebnis > .ergebnis");
+
+                                    window.einbinden_separat_ergebnis_anzahl++;
+                                    ergebnisDiv.textContent = `Du hast mich ${window.einbinden_separat_ergebnis_anzahl} mal angeklickt.`;
+
+                                    if (window.einbinden_separat_ergebnis_anzahl > 2) {
+                                        ergebnisDiv.innerHTML += "<br /> Du hast einen einfachen Button sehr glücklich gemacht.";
+                                    }
+                                }
+                            </script>
+
+                            <button class="klick-mich-button" onclick="einbinden_separat_ergebnis_onlcick()">Klick mich</button>
+                            <div class="ergebnis"></div>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+        </lsx-accordion>
+    </article>
+    <aside>
+        <p>
+            In diesem Teilkapitel wollen wir uns mehr mit dem Zusammenspiel von HTML
+            und JavaScript beschäftigen. Aus diesem Grund siehst du hier nochmal
+            Beispiele dafür, wie JavaScript in eine HTML-Datei eingebunden werden
+            kann. Wie du siehst, ist es nicht anders, als mit CSS. Auch da hast
+            du die Wahl, ob du den Code direkt in die HTML-Seite einbauen oder in
+            eine eigene Datei auslagern willst. Doch im Gegensatz zu CSS gibt es
+            für JavaScript keine zwei unterschiedlichen HTML-Tags. Für beide
+            Varianten wird stattdessen das
+            <src-code language="html">&lt;script&gt;</src-code>-Tag verwendet.
+        </p>
+
+        <p>
+            Willst du den JavaScript-Code direkt in die HTML-Datei schreiben, machst du das
+            wie unten gezeigt. Das <src-code language="html">&lt;script&gt;</src-code>-Element
+            darf dabei sowohl im <src-code language="html">&lt;head&gt;</src-code> als auch im
+            <src-code language="html">&lt;body&gt;</src-code> stehen.
+        </p>
+
+        <source-code language="html">
+            &lt;script&gt;
+                sagHallo = () =&gt; {
+                    console.log("Hallo, Welt!");
+                }
+            &lt;/script&gt;
+        </source-code>
+
+        <p>
+            Willst du den JavaScript-Code stattdessen auslagern, machst du das so:
+        </p>
+
+        <source-code language="html">
+            &lt;script src="4-js-grundlagen/script.js"&gt;&lt;/script&gt;
+        </source-code>
+        <p>
+            Dabei ist allerdings ganz wichtig, dass sich das <src-code language="html">&lt;script&gt;</src-code>-Tag
+            nicht selbst schließen darf! Du brauchst also zwingend immer auch das schließende
+            <src-code language="html">&lt;/script&gt;</src-code>-Tag.
+            <src-code language="html">&lt;script … /&gt;</src-code> ist <b>nicht</b> erlaubt.
+        </p>
+
+        <div class="info-box">
+            In den Beispielen siehst du bereits verschiedene Objekte und Methoden, die wir uns auf
+            später noch genauer anschauen werden. Unter anderem siehst du hier,
+            wie du mit <src-code language="javascript">document.getElementById()</src-code> auf
+            einzelne HTML-Elemente anhand ihrer ID zugreifen kannst. Außerdem siehst du, wie du
+            mit der <src-code language="javascript">addEventListener()</src-code>-Methode auf
+            bestimmte Ereignisse reagieren kannst. 🔔 Die Details dazu schauen wir uns aber gleich
+            nochmal genauer an.
+        </div>
+    </aside>
+</section>

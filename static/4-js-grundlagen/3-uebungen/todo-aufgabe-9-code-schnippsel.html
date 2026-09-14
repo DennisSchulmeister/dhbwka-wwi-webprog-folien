@@ -1,0 +1,177 @@
+<section data-title="TODO - Aufgabe 9: Code-Schnippsel" data-background-color="rgb(231, 221, 141)" data-hidden="UNFERTIG">
+    <article>
+        <div class="d-flex flex-column gap-4">
+            <! -- Progress Steps -- >
+            <div class="d-flex flex-column justify-content-between">
+                <div class="d-flex justify-content-between align-items-center">
+                    <! -- Past Steps -- >
+                    <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #94c07c;"></div>
+                    <hr class="flex-grow-1">
+            
+                    <! -- Current Step -- >
+                    <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #5483a9;"></div>
+                    <hr class="flex-grow-1">
+        
+                    <! -- Next Steps -- >
+                    <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #bdd0df;"></div>
+                    <hr class="flex-grow-1">
+
+                    <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #bdd0df;"></div>
+                    <hr class="flex-grow-1">
+
+                    <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #bdd0df;"></div>
+                    <hr class="flex-grow-1">
+
+                    <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #bdd0df;"></div>
+                    <hr class="flex-grow-1">
+
+                    <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #bdd0df;"></div>
+                    <hr class="flex-grow-1">
+
+                    <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #bdd0df;"></div>
+                    <hr class="flex-grow-1">
+
+                    <div style="width: 0.75em; height: 0.75em; border-radius: 50%; background: #bdd0df;"></div>
+                </div>
+            </div>
+    
+            <! -- Aufgabentext -- >
+            <div>
+                <p>
+                    Definiere eine Funktion mit dem Namen <code>checkTemperature()</code>,
+                    die als Parameter eine Temperatur in Grad Celsius übergeben bekommt.
+                    Je nach Wert der übergebenen Temperatur soll sie einen der folgenden Strings
+                    zurückliefern:
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">Kleiner oder gleich 10:</td>
+                            <td><code>"Kalt"</code></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Zwischen 11 und 20:</td>
+                            <td><code>"Etwas frisch"</code></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Zwischen 21 und 31:</td>
+                            <td><code>"Genau richtig"</code></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Größer oder gleich 32:</td>
+                            <td><code>"Heiß"</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <! -- JS-Editor -- >
+            <lsx-tab-pages>
+                <lsx-tab-page title="JavaScript">
+                    <ace-code mode="javascript" style="height: 15em; font-size: 80%">
+                        // Hier Quellcode schreiben ...
+                    </ace-code>
+                </lsx-tab-page>
+                <lsx-tab-page title="HTML">
+                    <source-code language="html">
+                        HTML hier
+                    </source-code>
+                </lsx-tab-page>
+                <lsx-tab-page title="Vorschau">
+                    Vorschau hier
+                </lsx-tab-page>
+            </lsx-tab-pages>
+
+            <! -- Feedback -- >
+            <lsx-info-box type="critical" title="Leider falsch …">
+                Funktion <code>checkTemperature</code> existiert nicht. 
+            </lsx-info-box>
+
+            <! -- Buttons -- >
+            <div class="d-flex justify-content-between align-items-center gap-1">
+                <button type="button" class="btn btn-dark">Überprüfen</button>
+                <button type="button" class="btn btn-light">Neuer Versuch</button>
+
+                <div class="flex-grow-1 flex-shrink-1"></div>
+            
+                <button type="button" class="btn btn-light" disabled>Zurück</button>
+                <button type="button" class="btn btn-light">Weiter</button>
+            </div>
+        </div>
+
+        <! --
+        <lsx-code-challenge>
+            <lsx-cc-tasks>
+                <lsx-cc-task id="checkTemperature">
+                    <p>
+                        Definiere eine Funktion mit dem Namen <code>checkTemperature()</code>,
+                        die als Parameter eine Temperatur in Grad Celsius übergeben bekommt.
+                        Je nach Wert der übergebenen Temperatur soll sie einen der folgenden Strings
+                        zurückliefern:
+                    </p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold">Kleiner oder gleich 10:</td>
+                                <td><code>"Kalt"</code></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Zwischen 11 und 20:</td>
+                                <td><code>"Etwas frisch"</code></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Zwischen 21 und 31:</td>
+                                <td><code>"Genau richtig"</code></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Größer oder gleich 32:</td>
+                                <td><code>"Heiß"</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </lsx-cc-task>
+
+                <lsx-cc-task id="hollywood">
+                    ...
+                </lsx-cc-task>
+            </lsx-cc-tasks>
+
+            <lsx-cc-code>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="JavaScript">
+                        <lsx-code-mirror
+                            config = "{lineNumbers: true, mode: 'javascript'}"
+                            style  = "height: 15em;"
+                        ></lsx-code-mirror>
+                    </lsx-tab-page>
+                    <lsx-tab-page title="HTML">
+                        <source-code language="html">
+                            ...
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+                <lsx-tab-page title="Vorschau">
+                    ...
+                </lsx-tab-page>
+            </lsx-cc-code>
+        </lsx-code-challenge>
+        -- >
+    </article>
+    <aside>
+        <p>
+            An dieser Stelle wollen wir fleißig in die Tasten hauen und unser neu erworbenes
+            JavaScript-Wissen anwenden. Neun mehr oder weniger knifflige Aufgaben warten darauf,
+            von dir gelöst zu werden. Gebe in das Editorfenster den jeweils passenden Quellcode
+            ein und klicke auf „Überprüfen“, um zu sehen, ob er funktioniert.
+        </p>
+        <img src="shared/computer-keyboard.svg" class="img-fluid d-block" style="max-width: 20em;" />
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/computer-digital-keyboard-1293390/" target="_blank">Pixabay:
+                    OpenClipart-Vectors</a>
+            </small>
+        </p>
+        <lsx-youtube video="iDicwfAhDaM"></lsx-youtube>
+    </aside>
+</section>

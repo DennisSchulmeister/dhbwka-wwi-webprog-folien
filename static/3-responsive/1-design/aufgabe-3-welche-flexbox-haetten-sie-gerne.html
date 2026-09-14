@@ -1,0 +1,180 @@
+<section data-title="Aufgabe 3: Welche Flexbox hätten Sie gerne?" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <p>
+            Angenommen, eine Webseite besitzt eine Flexbox mit drei Flex-Items. Welcher der folgenden CSS-Codes
+            passt zu den Screenshots unten?
+        </p>
+        
+        <lsx-grid-fluid class="mb-4 p-0">
+            <lsx-row>
+                <lsx-col size="lg" class="mb-3 mb-md-0">
+                    <lsx-card title="Quellcode A" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: center;
+                                align-items:     flex-end;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+                <lsx-col size="lg" class="mb-3 mb-md-0">
+                    <lsx-card title="Quellcode B" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: space-between;
+                                align-items:     flex-start;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+                <lsx-col size="lg">
+                    <lsx-card title="Quellcode C" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: flex-start;
+                                align-items:     flex-start;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+            </lsx-row>
+            <lsx-row>
+                <lsx-col size="lg" class="mb-3 mb-md-0">
+                    <lsx-card title="Quellcode D" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: space-between;
+                                align-items:     stretch;
+                            }
+
+                            .flex-item2 {
+                                flex: 1;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+                <lsx-col size="lg" class="mb-3 mb-md-0">
+                    <lsx-card title="Quellcode E" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  row;
+                                justify-content: center;
+                                align-items:     center;
+                            }
+
+                            .flex-item3 {
+                                flex: 1;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+                <lsx-col size="lg">
+                    <lsx-card title="Quellcode F" bold class="h-100">
+                        <source-code language="css">
+                            #flex-container {
+                                display:         flex;
+                                flex-direction:  column-reverse;
+                                justify-content: space-between;
+                                align-items:     stretch;
+                            }
+
+                            .flex-item2 {
+                                flex: 1;
+                            }
+                        </source-code>
+                    </lsx-card>
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+
+        <lsx-carousel class="carousel-fade">
+            <lsx-carousel-page>
+                <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-1.png" alt="Screenshot 1" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-2.png" alt="Screenshot 2" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-3.png" alt="Screenshot 3" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-4.png" alt="Screenshot 4" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-5.png" alt="Screenshot 5" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-6.png" alt="Screenshot 6" class="d-block img-thumbnail img-responsive">
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <h2 class="dhbw-lightblue">Lösung</h2>
+
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="lg" class="mb-3 mb-md-0">
+                            <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-1.png" alt="Screenshot 1" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode C</span>
+                        </lsx-col>
+                        <lsx-col size="lg" class="mb-3 mb-md-0">
+                            <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-2.png" alt="Screenshot 2" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode B</span>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-3.png" alt="Screenshot 3" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode D</span>
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="lg" class="mb-3 mb-md-0">
+                            <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-4.png" alt="Screenshot 4" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode F</span>
+                        </lsx-col>
+                        <lsx-col size="lg" class="mb-3 mb-md-0">
+                            <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-5.png" alt="Screenshot 5" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode A</span>
+                        </lsx-col>
+                        <lsx-col size="lg">
+                            <img src="3-responsive/1-design/aufgabe-3-welche-flexbox-haetten-sie-gerne/flexbox-welche-6.png" alt="Screenshot 6" class="d-block img-thumbnail img-responsive">
+                            <span>Quellcode E</span>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Sehr gut! 🐕 Die Flexbox sollte man wirklich können.
+                </p>
+                <img class="active d-block w-25 m-auto" src="shared/finish.svg" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+        </lsx-carousel>
+    </article>
+    <aside>
+        <p>
+            Die Flexbox ist die beste Erfindung seit geschnitten Brot. 🍞 Hier kannst du prüfen, ob du
+            ihre Verwendung verstanden hast.
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>

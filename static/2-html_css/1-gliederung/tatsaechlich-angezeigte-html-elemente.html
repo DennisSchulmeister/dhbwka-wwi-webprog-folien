@@ -1,0 +1,409 @@
+<section data-title="Tatsächlich angezeigte HTML-Elemente">
+    <article>
+        <lsx-accordion>
+            <lsx-accordion-page title="Überschriften und Absätze" active>
+                <lsx-tab-pages style="margin-bottom: 2em">
+                    <lsx-tab-page title="Übersicht">
+                        <source-code language="html">
+                            &lt;h1&gt;Per Anhalter durch die Galaxis&lt;/h1&gt;
+                            &lt;h2&gt;Die fünfteilige Trilogie&lt;/h2&gt;
+                            &lt;h3&gt;Entstehung des ersten Buchs&lt;/h3&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            Die Elemente <src-code language="html">&lt;h1&gt;</src-code> bis
+                            <src-code language="html">&lt;h6&gt;</src-code> definieren Überschriften
+                            verschiedener Arten. <src-code language="html">&lt;h1&gt;</src-code> ist
+                            dabei eine Hauptüberschrift, <src-code language="html">&lt;h2&gt;</src-code>
+                            eine Unterüberschrift, <src-code language="html">&lt;h3&gt;</src-code>
+                            eine Unterunterüberschrift und so weiter.
+                        </p>
+
+                        <source-code language="html">
+                            &lt;p&gt;
+                                Dies ist ein Absatz, wie er unter einer Überschrift stehen könnte.
+                            &lt;p&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            Absätze werden mit dem <src-code language="html">&lt;p&gt;</src-code>-Element
+                            definiert. Das „p“ steht dabei für „Paragraph“. Absätze sollten in der Regel
+                            nicht geschachtelt werden. Überschriften sollten ebenfalls oberhalb und nicht
+                            innerhalb der Absätze stehen.
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    ...
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Per Anhalter durch die Galaxis&lt;/h1&gt;
+                                    &lt;h2&gt;Die fünfteilige Trilogie&lt;/h2&gt;
+                                    &lt;p&gt;
+                                        Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
+                                        Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
+                                        verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
+                                        fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
+                                        nach seinem Tod die Fortsetzung „Und übrigens noch was …“ von Eoin Colfer.
+                                    &lt;/p&gt;
+                                    &lt;p&gt;
+                                        Die Serie umfasst daher folgende Titel:
+                                    &lt;/p&gt;
+                                    ...
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <h3>Per Anhalter durch die Galaxis</h3>
+                        <h4>Die fünfteilige Trilogie</h4>
+                        <p>
+                            Per Anhalter durch die Galaxis ist eine Romanreihe des britischen
+                            Autors Douglas Adams, die ab den ausgehenden 1970er Jahren in
+                            verschiedenen Medien erschien. Von Adams selbst stammen dabei der ersten
+                            fünf Bücher der fünfteiligen Trilogie. Im Jahr 2009 erschien acht Jahre
+                            nach seinem Tod die Fortsetzung „Und übrigens noch was …“ von Eoin Colfer.
+                        </p>
+                        <p>
+                            Die Serie umfasst daher folgende Titel:
+                        </p>
+                        ...
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Textformatierung">
+                <lsx-tab-pages style="margin-bottom: 2em">
+                    <lsx-tab-page title="Übersicht">
+                        <source-code language="html">
+                            &lt;b&gt;Fett&lt;/b&gt;
+                            &lt;i&gt;Kursiv&lt;/i&gt;
+                            &lt;u&gt;Unterstrichen&lt;/u&gt;
+                            &lt;tt&gt;Schreibmaschine&lt;/tt&gt;
+                            &lt;small&gt;Kleine Schriftgröße&lt;/small&gt;
+                            &lt;large&gt;Große Schriftgröße&lt;/large&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            Einzelne Wörter oder Teile eines Satzes können mit den hier gezeigten
+                            Elementen direkt formatiert werden. Es handelt sich um die einzigen
+                            HTML-Elemente, die direkt das Aussehen ihres Inhalts verändern. Lange
+                            Zeit war ihre Verwendung nicht gern gesehen. Seitdem man den Elementen
+                            aber eine semantische Bedeutung gegeben und dann festgelegt hat, wie
+                            diese dargestellt werden soll, geht die Verwendung wieder in Ordnung. 🙃
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    ...
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;p&gt;
+                                        &lt;b&gt;Wichtiger Hinweis:&lt;/b&gt; Lese immer das Kleingedruckte eines
+                                        Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
+                                        und kaum verstehen kann. &lt;i&gt;Im Kleingedruckten stecken oft viele
+                                        ungeahnte Fallen!&lt;/i&gt;
+                                    &lt;/p&gt;
+                                    &lt;p&gt;
+                                        &lt;u&gt;Hier ein Beispiel:&lt;/u&gt;
+                                    &lt;/p&gt;
+                                    &lt;p&gt;
+                                        &lt;small&gt;
+                                            &lt;small&gt;
+                                                Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
+                                                Wir garantieren für nichts und erstatten auch kein Geld zurück.
+                                                Wer bei uns kauft, ist selbst schuld.
+                                            &lt;/small&gt;
+                                        &lt;/small&gt;
+                                    &lt;/p&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <p>
+                            <b>Wichtiger Hinweis:</b> Lese immer das Kleingedruckte eines
+                            Vertrags, auch wenn es oft viel Text ist, den man nur schwer lesen
+                            und kaum verstehen kann. <i>Im Kleingedruckten stecken oft viele
+                            ungeahnte Fallen!</i>
+                        </p>
+                        <p>
+                            <u>Hier ein Beispiel:</u>
+                        </p>
+                        <p>
+                            <small>
+                                <small>
+                                    Sämtliche in der Werbung getroffenen Aussagen sind frei erfunden.
+                                    Wir garantieren für nichts und erstatten auch kein Geld zurück.
+                                    Wer bei uns kauft, ist selbst schuld.
+                                </small>
+                            </small>
+                        </p>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Zeilenumbrüche und Trennlinien">
+                <lsx-tab-pages style="margin-bottom: 2em">
+                    <lsx-tab-page title="Übersicht">
+                        <source-code language="html">
+                            &lt;br /&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            Definiert einen Zeilenumbruch, ohne einen neuen Absatz zu beginnen.
+                            Manchmal kann das ganz nützlich sein, um auf die Schnelle ein paar
+                            Elemente untereinander anzuordnen. <src-code language="html">&lt;br /&gt;</src-code>
+                            sollte aber sparsam verwendet werden, da die Umbrüche auf kleineren
+                            Bildschirmen oftmals unschön aussehen.
+                        </p>
+
+                        <source-code language="html">
+                            &lt;hr /&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            „hr“ steht für „Horizontal Ruler“ und fügt eine waagerechte Trennlinie
+                            ein. Heutzutage sieht man das Element nicht mehr so oft. Braucht man
+                            aber nur eine kleine Trennlinie, ist es oft einfacher, als sich mit den
+                            Rahmenlinien eines Absatzes herumzuschlagen.
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    ...
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;b&gt;Alice Wunderland&lt;/b&gt; &lt;br /&gt;
+                                    Hinter dem Haus 7 &lt;br /&gt;
+                                    76185 Karlsruhe-Märchendorf
+
+                                    &lt;hr /&gt;
+
+                                    &lt;b&gt;Grinsender Kater&lt;/b&gt; &lt;br /&gt;
+                                    Im Garten 9 &lt;br /&gt;
+                                    76185 Karlsruhe-Märchendorf
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <b>Alice Wunderland</b> <br />
+                        Hinter dem Haus 7 <br />
+                        76185 Karlsruhe-Märchendorf
+
+                        <hr />
+
+                        <b>Grinsender Kater</b> <br />
+                        Im Garten 9 <br />
+                        76185 Karlsruhe-Märchendorf
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Bilder und Links">
+                <lsx-tab-pages style="margin-bottom: 2em">
+                    <lsx-tab-page title="Übersicht">
+                        <source-code language="html">
+                            &lt;img src="2-html_css/familie.jpg" alt="Meine Familie und der Hund" /&gt;
+                            &lt;img src="shared/fotos/feuerstein.jpg" alt="Fred Feuerstein" /&gt;
+                            &lt;img src="2-html_css/www.beispiel.de/album/geroellheimer.jpg" alt="Barnie Geröllheimer" /&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            Mit diesem Tag wird ein Bild in die Seite eingefügt. Das Attribut
+                            <code>src</code> beinhaltet dabei die URL des Bildes, wobei das Bild
+                            entweder im selben Verzeichnis, in einem anderen Verzeichnis oder sogar
+                            auf einem anderen Server liegen kann. <code>alt</code> ist der Alternativtext,
+                            der zum Beispiel von Screenreadern vorgelesen wird. Deshalb sollte dieses
+                            Attribut immer mitgegeben werden, wenn das Bild wesentliche Informationen
+                            beinhaltet.
+                        </p>
+
+                        <source-code language="html">
+                            &lt;a href="http://www.wpvs.de/js/"&gt;JS.Scratch&lt;/a&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            Dies ist ein Link bzw. Verweis auf eine andere Seite. „a“ steht dabei für
+                            „Anchor“. Bei einem Link muss es sich nicht, wie hier gezeigt, um einfachen
+                            Text handeln. Zwischen dem öffnenden und dem schließenden Tag dürfen
+                            beliebige HTML-Elemente stehen, um sie anklickbar zu machen.
+                        </p>
+
+                        <source-code language="html">
+                            &lt;a id="uebersicht" /&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            Dies ist kein Link auf eine andere Seite sondern ein Anker innerhalb derselben
+                            Seite. Das Tag wird daher vom Browser nicht dargestellt. Durch Anhängen von
+                            <code>#uebersicht</code> an die aktuelle URL kann beim Aufruf der Seite aber
+                            direkt an die Stelle des Ankers gesprungen werden. Wenn du genau hinsiehst, ist
+                            dir das sicher schon mal bei Wikipedia und anderen Seiten aufgefallen,
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    ...
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h4&gt;JS.Scratch: Interaktiver JavaScript-Editor&lt;/h4&gt;
+                                    &lt;img src="2-html_css/screenshot.png" alt="Screenshot von JS.Scratch" /&gt; &lt;br /&gt;
+                                    &lt;a href="https://www.wpvs.de/repo/js.scratch/app/"&gt;Editor starten&lt;/a&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <h4>JS.Scratch: Interaktiver JavaScript-Editor</h4>
+                        <img src="2-html_css/1-gliederung/tatsaechlich-angezeigte-html-elemente/screenshot.png" class="img-fluid" alt="Screenshot von JS.Scratch" />
+                        <br />
+                        <a href="https://www.wpvs.de/repo/js.scratch/app/">Editor starten</a>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Aufzählungen und Listen">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <source-code language="html">
+                            &lt;ul&gt;
+                                &lt;li&gt;Garfield langt zu&lt;/li&gt;
+                                &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
+                                &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
+                                &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
+                                &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
+                            &lt;/ul&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            „ul“ steht für „Unordered List“ und beschreibt eine unsortierte Liste,
+                            also eine einfache Liste ohne Nummerierung. Dementsprechend sind die
+                            <src-code language="html">&lt;li&gt;</src-code>-Elemente die „List Items“.
+                            Die Listenelemente können beliebigen weiteren HTML-Quellcode wie Absätze
+                            oder untergeordnete Listen enthalten.
+                        </p>
+
+                        <source-code language="html">
+                            &lt;ol&gt;
+                                &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
+                                &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
+                                &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
+                                &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
+                                &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
+                            &lt;/ol&gt;
+                        </source-code>
+                        <p style="margin-top: -0.5em">
+                            Das ist eigentlich dasselbe wie <src-code language="html">&lt;ul&gt;</src-code>,
+                            nur dass es sich um eine „Ordered List“ also eine Liste mit Aufzählungszeichen handelt.
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    ...
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h2&gt;Meine Lieblinugsbücher als ich jung war&lt;/h2&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;
+                                            &lt;p&gt;
+                                                Garfield-Comics
+                                            &lt;/p&gt;
+                                            &lt;ul&gt;
+                                                &lt;li&gt;Garfield langt zu&lt;/li&gt;
+                                                &lt;li&gt;Garfield schläft sich durch&lt;/li&gt;
+                                                &lt;li&gt;Garfield überlebensgroß&lt;/li&gt;
+                                                &lt;li&gt;Garfield breitet sich aus&lt;/li&gt;
+                                                &lt;li&gt;Garfield sahnt ab&lt;/li&gt;
+                                            &lt;/ul&gt;
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                            &lt;p&gt;
+                                                Anhalter-Romane
+                                            &lt;/p&gt;
+                                            &lt;ol&gt;
+                                                &lt;li&gt;Per Anhalter durch die Galaxis&lt;/li&gt;
+                                                &lt;li&gt;Das Restaurant am Ende des Universums&lt;/li&gt;
+                                                &lt;li&gt;Das Leben, das Universum und der ganze Rest&lt;/li&gt;
+                                                &lt;li&gt;Macht's gut und danke für den Fisch&lt;/li&gt;
+                                                &lt;li&gt;Einmal Rupert und zurück&lt;/li&gt;
+                                            &lt;/ol&gt;
+                                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <h4>Meine Lieblinugsbücher als ich jung war</h4>
+                        <ul>
+                            <li>
+                                <p>
+                                    Garfield-Comics
+                                </p>
+                                <ul style="margin-bottom: 1em">
+                                    <li>Garfield langt zu</li>
+                                    <li>Garfield schläft sich durch</li>
+                                    <li>Garfield überlebensgroß</li>
+                                    <li>Garfield breitet sich aus</li>
+                                    <li>Garfield sahnt ab</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>
+                                    Anhalter-Romane
+                                </p>
+                                <ol>
+                                    <li>Per Anhalter durch die Galaxis</li>
+                                    <li>Das Restaurant am Ende des Universums</li>
+                                    <li>Das Leben, das Universum und der ganze Rest</li>
+                                    <li>Macht's gut und danke für den Fisch</li>
+                                    <li>Einmal Rupert und zurück</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+        </lsx-accordion>
+    </article>
+    <aside>
+        <blockquote>
+            <p class="mb-3">
+                Auf den Schirm, Mr. Spock!
+            </p>
+            <footer class="blockquote-footer">
+                Captain Kirk
+            </footer>
+        </blockquote>
+
+        <img src="2-html_css/1-gliederung/tatsaechlich-angezeigte-html-elemente/enterprise.jpg" class="img-fluid img-thumbnail d-block" />
+        <p>
+            <small>
+                Bildnachweis: © 1994, Dan Blair
+            </small>
+        </p>
+        <p>
+            Die HTML-Elemente auf dieser Seite gehören alle in den <code>body</code>
+            der HTML-Datei. Sie strukturieren ihren Inhalt und werden vom Browser daher
+            auch tatsächlich angezeigt.
+        </p>
+    </aside>
+</section>

@@ -1,0 +1,898 @@
+<section data-title="Typische Darstellungsoptionen">
+    <article>
+        <lsx-accordion>
+            <lsx-accordion-page title="Textformatierung" active>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="css">
+                                    font-family: Liberation Sans, Arial, sans-serif;
+                                </src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Legt die Schriftart für ein Element und seine Unterelemente fest.
+                                Werden mehrere Schriftarten angegeben, wird die erste gefundene verwendet.
+                                Immer vorhandene Schriften sind: <code>serif</code>, <code>sans-serif</code>,
+                                <code>monospace</code>, <code>fantasy</code>.
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">
+                                    font-size: 12pt;
+                                </src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Legt die Schriftgröße eines Elements fest. Erlaubt sind entweder numerische Werte oder
+                                folgende Konstanten: <code>small</code>, <code>x-small</code>, <code>large</code>,
+                                <code>x-large</code>, …
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">
+                                    font-weight: bold;
+                                </src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Legt fest, wie kräftig die Schrift erscheint. <code>bold</code> ist der normale Fettdruck.
+                                Es gibt aber auch <code>normal</code>, <code>bolder</code> und <code>lighter</code>.
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">
+                                    color: crimson;
+                                </src-code>
+                            </dt>
+                            <dd>
+                                Ändert die Schriftfarbe des aktuellen Elements. Erlaubt sind alle Farbwerte, wie
+                                auf der nächsten Seite beschrieben.
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <div class="d-flex flex-column gap-2 justify-content-between flex-lg-row">
+                            <div class="flex-grow-1 flex-shrink-1 dhbw-vertical-divider">
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;h1&gt;Dies ist eine Überschrift 1&lt;/h1&gt;
+                                            &lt;p&gt;Und dies ist ein kleiner Absatz.&lt;/p&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </div>
+
+                            <div class="flex-grow-1 flex-shrink-1"></div>
+
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    html {
+                                        font-family: Liberation Serif, serif;
+                                        font-size: 12pt;
+                                    }
+
+                                    h1 {
+                                        color: crimson;
+                                        font-weight: bold;
+                                    }
+                                </source-code>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="css-text-screenshot">
+                            <style>
+                                #css-text-screenshot {
+                                    font-family: Liberation Serif, serif;
+                                    font-size: 12pt;
+                                }
+
+                                #css-text-screenshot h3 {
+                                    color: crimson;
+                                    font-weight: bold;
+                                }
+                            </style>
+                            <h3>Dies ist eine Überschrift 1</h3>
+                            <p>
+                                Und dies ist ein kleiner Absatz.
+                            </p>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Hintergrundfarben und Bilder">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="css">
+                                    background-color: rgba(244, 186, 110, 0.9);
+                                </src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Ändert die Hintergrundfarbe eines Elements. Erlaubt sind natürlich
+                                alle Farbwerte aus der nächsten Seite. Mit <code>rgba()</code> lassen
+                                sich damit auch halbdurchsichtige Hintergründe definieren.
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">
+                                    background-image: url(bg.jpg);
+                                </src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Legt ein Hintergrundbild fest, das standardmäßig so oft wiederholt
+                                wird, bis das Element komplett damit bedeckt ist.
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <div class="d-flex flex-column gap-2 justify-content-between flex-lg-row">
+                            <div class="flex-grow-1 flex-shrink-1 dhbw-vertical-divider">
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;header&gt;
+                                                &lt;div id="company-name"&gt;
+                                                    Geldsack AG - Finanzdienstleistungen
+                                                &lt;/div&gt;
+                                            &lt;/header&gt;
+                                            &lt;div class="main"&gt;
+                                                Hier kommt auch irgend ein Text hin …
+                                            &lt;/div&gt;
+                                            &lt;footer class="black"&gt;
+                                                Alle Rechte vorbehalten
+                                            &lt;/footer&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </div>
+
+                            <div class="flex-grow-1 flex-shrink-1"></div>
+
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    html {
+                                        background-color: #F0F0F0;
+                                    }
+
+                                    header > #company-name {
+                                        background-color: rgb(4, 192, 242);
+                                    }
+
+                                    .black {
+                                        background-image: url(black_pattern.jpg);
+                                    }
+                                </source-code>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="css-hintergrund-screenshot">
+                            <style>
+                                #css-hintergrund-screenshot * {
+                                    margin: 0;
+                                }
+
+                                #css-hintergrund-screenshot {
+                                    background-color: #F0F0F0;
+                                }
+
+                                #css-hintergrund-screenshot header > nav {
+                                    background-color: rgb(4, 192, 242);
+                                    color: white;
+                                    font-weight: bold;
+                                    min-height: 3em;
+                                    padding: 0.5em;
+                                }
+
+                                #css-hintergrund-screenshot .black {
+                                    background-image: url(2-html_css/2-layouts/typische-darstellungsoptionen/black_pattern.jpg);
+                                    color: white;
+                                }
+
+                                #css-hintergrund-screenshot .main {
+                                    min-height: 10em;
+                                    padding: 0.5em;
+                                }
+
+                                #css-hintergrund-screenshot footer {
+                                    min-height: 4em;
+                                    padding: 0.5em;
+                                }
+                            </style>
+                            <header>
+                                <nav>
+                                    Geldsack AG - Finanzdienstleistungen
+                                </nav>
+                            </header>
+                            <div class="main">
+                                Hier kommt auch irgend ein Text hin …
+                            </div>
+                            <footer class="black">
+                                Alle Rechte vorbehalten
+                            </footer>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Anzeigeart und Größe">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="css">display: block;</src-code> <br />
+                                <src-code language="css">display: inline;</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Dies sind die bekannten Voreinstellungen des Browsers, so wie sie im
+                                am Anfang dieses Kapitels erklärt wurden.
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">
+                                    display: inline-block;
+                                </src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Eine Mischung aus Inline- und Blockelement. Im Prinzip handelt es sich
+                                beim betroffenen Element weiterhin um ein Blockelement, das sich in Teilen
+                                aber wie ein Inline verhält. Unter anderem passen sich Breite und Höhe komplett
+                                dem Inhalt an und es kann in derselben Zeile stehen wie weitere
+                                <src-code language="css">inline-block</src-code>-Elemente
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">width: 75%;</src-code> <br />
+                                <src-code language="css">min-width: 45%;</src-code> <br />
+                                <src-code language="css">height: 10em;</src-code> <br />
+                                <src-code language="css">min-height: 10em;</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Legen die Breite und Höhe der ausgewählten Elemente fest. <src-code language="css">width</src-code>
+                                und <src-code language="css">height</src-code> legen eine fixe Größe fest und können daher dazu führen,
+                                dass zu viel Inhalt aus den Elementen herausragt.
+                                <src-code language="css">min-width</src-code> und <src-code language="css">min-height</src-code>
+                                erlauben dem Element hingegen, mit seinem Inhalt zu wachsen.
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">
+                                    overflow: hidden;
+                                </src-code>
+                            </dt>
+                            <dd>
+                                Sorgt dafür, dass zu großer Inhalt nicht aus dem Element herausläuft, sondern abgeschnitten wird.
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <div class="d-flex flex-column gap-2 justify-content-between flex-lg-row">
+                            <div class="flex-grow-1 flex-shrink-1 dhbw-vertical-divider">
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;div class="card"&gt;
+                                                Dies sind Karten.
+                                            &lt;/div&gt;
+                                            &lt;div class="card"&gt;
+                                                Dank „inline-block“ stehen sie
+                                            &lt;/div&gt;
+                                            &lt;div class="card"&gt;
+                                                nebeneinander!
+                                            &lt;/div&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </div>
+
+                            <div class="flex-grow-1 flex-shrink-1"></div>
+
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <h5>Stylesheet</h5>
+
+                                <source-code language="css">
+                                    div.card {
+                                        display: inline-block;
+                                        min-width: 7em;
+                                        height: 3em;
+    
+                                        margin: 0.25em;
+                                        padding: 0.5em;
+    
+                                        border-radius: 0.3em;
+                                        background-color: rgb(235, 235, 235);
+                                        color: rgb(50, 50, 50);
+    
+                                        box-shadow: 1px 1px 4px rgba(0,0,0, 0.33);
+                                    }
+                                </source-code>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="css-groesse-screenshot">
+                            <style>
+                                #css-groesse-screenshot .my-card {
+                                    display: inline-block;
+                                    min-width: 7em;
+                                    height: 3em;
+
+                                    margin: 0.25em;
+                                    padding: 0.5em;
+
+                                    border-radius: 0.3em;
+                                    background-color: rgb(235, 235, 235);
+                                    color: rgb(50, 50, 50);
+
+                                    box-shadow: 1px 1px 4px rgba(0,0,0, 0.33);
+                                }
+                            </style>
+                            <div class="my-card">
+                                Dies sind Karten.
+                            </div>
+                            <div class="my-card">
+                                Dank „inline-block“ stehen sie
+                            </div>
+                            <div class="my-card">
+                                nebeneinander!
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Innen- und Außenabstand">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="css">
+                                    margin: 1em;
+                                </src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                <p>
+                                    Sorgt dafür, dass ein gleichmäßiger Abstand von 1em um die betroffenen
+                                    Elemente frei bleibt.
+                                </p>
+                                <div class="info-box warning">
+                                    <div class="info-box-title">
+                                        Achtung
+                                    </div>
+                                    <div class="info-box-content">
+                                        Die <src-code language="css">margin</src-code>
+                                        zweier benachbarter Elemente addieren sich auf (siehe Skizze).
+                                    </div>
+                                </div>
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">margin: 1em 0 2em 0;</src-code> <br />
+                                <src-code language="css">margin-top: 1em;</src-code> <br />
+                                <src-code language="css">margin-right: 0;</src-code> <br />
+                                <src-code language="css">margin-bottom: 2em;</src-code> <br />
+                                <src-code language="css">margin-left: 0;</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Erlaubt es, die vier Abstände um ein Element herum einzeln zu definieren.
+                                Die Kurzform in der ersten Zeile wird im Uhrzeigersinn gelesen: Oben, rechts, unten, links.
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">padding: 1em;</src-code> <br />
+                                <src-code language="css">padding: 1em 0 2em 0;</src-code> <br />
+                                <src-code language="css">padding-top: 1em;</src-code> <br />
+                                <src-code language="css">padding-right: 0;</src-code> <br />
+                                <src-code language="css">padding-bottom: 2em;</src-code> <br />
+                                <src-code language="css">padding-left: 0;</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Im Prinzip dasselbe wie <src-code language="css">margin</src-code>, nur dass
+                                es nicht um den Platz um das Element herum geht, sondern um den <u>inneren</u>
+                                Abstand vom Rand des Elements zu seinem Inhalt.
+                            </dd>
+                        </dl>
+
+                        <img src="2-html_css/2-layouts/typische-darstellungsoptionen/margin_padding.svg" class="d-block img-fluid" />
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <div class="d-flex flex-column gap-2 justify-content-between flex-lg-row">
+                            <div class="flex-grow-1 flex-shrink-1 dhbw-vertical-divider">
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;div class="gross"&gt;
+                                                Großer Bereich
+                                            &lt;/div&gt;
+                                            &lt;div class="klein"&gt;
+                                                Kleiner Bereich
+                                            &lt;/div&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </div>
+
+                            <div class="flex-grow-1 flex-shrink-1"></div>
+
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    .gross {
+                                        display: inline-block;
+
+                                        font-size: 130%;
+                                        padding: 3em;
+                                        margin: 1rem;
+
+                                        background-color: rgba(7, 88, 97, 0.5);
+                                        color: white;
+                                    }
+
+                                    .klein {
+                                        display: inline-block;
+
+                                        padding: 0.75em;
+                                        margin: 1rem;
+
+                                        background-color: rgba(138, 54, 172, 0.5);
+                                        color: white;
+                                    }
+                                </source-code>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="css-abstand-screenshot">
+                            <style>
+                                #css-abstand-screenshot .gross {
+                                    display: inline-block;
+
+                                    font-size: 130%;
+                                    padding: 3em;
+                                    margin: 1rem;
+
+                                    background-color: rgba(7, 88, 97, 0.5);
+                                    color: white;
+                                }
+
+                                #css-abstand-screenshot .klein {
+                                    display: inline-block;
+
+                                    padding: 0.75em;
+                                    margin: 1rem;
+
+                                    background-color: rgba(138, 54, 172, 0.5);
+                                    color: white;
+                                }
+                            </style>
+                            <div class="gross">
+                                Großer Bereich
+                            </div>
+                            <div class="klein">
+                                Kleiner Bereich
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Rund um den Rahmen">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="css">border: 1px solid black;</src-code> <br />
+                                <src-code language="css">border-width: 1px;</src-code> <br />
+                                <src-code language="css">border-style: solid;</src-code> <br />
+                                <src-code language="css">border-color: black;</src-code> <br />
+                                <src-code language="css">border-bottom-width: 0;</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Verschiedene Optionen zur Definition der Rahmendicke, Rahmenart und Rahmenfarbe.
+                                <src-code language="css">border-width</src-code>, <src-code language="css">border-style</src-code>
+                                und <src-code language="css">border-color</src-code> können alle vier oder nur eine Seite beeinflussen.
+                                Für letzteres muss nach <src-code language="css">border-</src-code> eine der vier Richtungen angegeben
+                                werden: <src-code language="css">top</src-code>; <src-code language="css">right</src-code>,
+                                <src-code language="css">bottom</src-code>, <src-code language="css">left</src-code>.
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">border-radius: 0.5em;</src-code> <br/>
+                                <src-code language="css">border-top-left-radius: 4px;</src-code> <br/>
+                                <src-code language="css">border-top-right-radius: 50%;</src-code> <br/>
+                                <src-code language="css">border-bottom-left-radius: 1rem;</src-code> <br/>
+                                <src-code language="css">border-bottom-right-radius: 0.75vh;</src-code> <br/>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Früher waren alle HTML-Elemente eckig wie Toastbrot. 🍞 Heute können sie auch
+                                abgerundete Ecken besitzen.
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <div class="d-flex flex-column gap-2 justify-content-between flex-lg-row">
+                            <div class="flex-grow-1 flex-shrink-1 dhbw-vertical-divider">
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;link rel="stylesheet" href="style.css" /&gt;
+                                        &lt;title&gt;Beispiel&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;div class="rect1"&gt;1&lt;/div&gt;
+                                        &lt;div class="rect2"&gt;2&lt;/div&gt;
+                                        &lt;div class="rect3"&gt;3&lt;/div&gt;
+                                        &lt;div class="rect4"&gt;4&lt;/div&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                            </div>
+
+                            <div class="flex-grow-1 flex-shrink-1"></div>
+
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    div {
+                                        font-size: 160%;
+                                        text-align: center;
+
+                                        display: inline-block;
+                                        min-width: 3.5em;
+                                        min-height: 3.5em;
+                                        
+                                        border: 1px solid black;
+                                        margin-right: 1em;
+                                    }
+
+                                    .rect1 {
+                                        border-radius: 1em;
+                                        background: rgba(112, 213, 104, 0.33);
+                                    }
+
+                                    .rect2 {
+                                        border-top-left-radius: 1em;
+                                        border-top-right-radius: 1em;
+                                        background: rgba(63, 236, 254, 0.33);
+                                    }
+
+                                    .rect3 {
+                                        border-top-left-radius: 1em;
+                                        border-bottom-right-radius: 1em;
+                                        background: rgba(179, 54, 54, 0.33);
+                                    }
+
+                                    .rect4 {
+                                        border-top-right-radius: 100%;
+                                        border-bottom-right-radius: 100%;
+                                        background: rgba(231, 231, 58, 0.33);
+                                    }
+                                </source-code>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="css-rahmen-screenshot">
+                            <style>
+                                #css-rahmen-screenshot .rect1,
+                                #css-rahmen-screenshot .rect2,
+                                #css-rahmen-screenshot .rect3,
+                                #css-rahmen-screenshot .rect4 {
+                                    font-size: 160%;
+                                    text-align: center;
+
+                                    display: inline-block;
+                                    min-width: 3.5em;
+                                    min-height: 3.5em;
+                                    
+                                    border: 1px solid black;
+                                    margin-right: 1em;
+                                }
+
+                                #css-rahmen-screenshot .rect1 {
+                                    border-radius: 1em;
+                                    background: rgba(112, 213, 104, 0.33);
+                                }
+
+                                #css-rahmen-screenshot .rect2 {
+                                    border-top-left-radius: 1em;
+                                    border-top-right-radius: 1em;
+                                    background: rgba(63, 236, 254, 0.33);
+                                }
+
+                                #css-rahmen-screenshot .rect3 {
+                                    border-top-left-radius: 1em;
+                                    border-bottom-right-radius: 1em;
+                                    background: rgba(179, 54, 54, 0.33);
+                                }
+
+                                #css-rahmen-screenshot .rect4 {
+                                    border-top-right-radius: 100%;
+                                    border-bottom-right-radius: 100%;
+                                    background: rgba(231, 231, 58, 0.33);
+                                }
+                            </style>
+                            <div class="rect1">1</div>
+                            <div class="rect2">2</div>
+                            <div class="rect3">3</div>
+                            <div class="rect4">4</div>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Schattierung und Unschärfe">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="css">box-shadow: 1px 1px 3px rgba(0,0,0, 0.33);</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Zeichnen eines weichen Schlagschattens hinter dem HTML-Element. Die Parameter sind:
+                                <ul>
+                                    <li>X-Offset</li>
+                                    <li>Y-Offset</li>
+                                    <li>Unschärfe (optional)</li>
+                                    <li>Farbe</li>
+                                </ul>
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">text-shadow: 1px 1px 3px rgba(0,0,0, 0.33);</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Schattierung der einzelnen Buchstaben anstelle des rechteckigen HTML-Elements.
+                                Die Parameter sind dieselben wie bei <src-code language="css">box-shadow</src-code>.
+                            </dd>
+
+                            <dt>
+                                <source-code language="css">
+                                    text-shadow: -1px  -1px  black,
+                                                 -1px   0px  black,
+                                                 -1px   1px  black,
+                                                  0px  -1px  black,
+                                                  0px   0px  black,
+                                                  0px   1px  black,
+                                                  1px  -1px  black,
+                                                  1px   0px  black,
+                                                  1px   1px  black;
+                                </source-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Kombination mehrerer durch Komma getrennter Textschatten ohne Unschärfe, um die Buchstaben zu umranden.
+                            </dd>
+
+                            <dt>
+                                <src-code language="css">backdrop-filter: blur(10px);</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                Den durch das Element hindurch scheinenden Seitenhintergrund unscharf machen.
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <div class="d-flex flex-column gap-2 justify-content-between flex-lg-row">
+                            <div class="flex-grow-1 flex-shrink-1 dhbw-vertical-divider">
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                &lt;html&gt;
+                                    &lt;head&gt;
+                                        &lt;meta charset="utf-8" /&gt;
+                                        &lt;link rel="stylesheet" href="style.css" /&gt;
+                                        &lt;title&gt;Beispiel&lt;/title&gt;
+                                    &lt;/head&gt;
+                                    &lt;body&gt;
+                                        &lt;div class="modal-backdrop"&gt;
+                                            &lt;div class="popup-window"&gt;
+                                                &lt;h1&gt;Achtung, Datenverlust!&lt;/h1&gt;
+                                                &lt;p&gt;
+                                                    Es bestehen noch ungesicherte Änderungen.
+                                                    Wollen Sie die diese sichern?
+                                                &lt;/p&gt;
+                                                &lt;button&gt;Sichern&lt;/button&gt;
+                                                &lt;button&gt;Verwerfen&lt;/button&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/body&gt;
+                                &lt;/html&gt;
+                            </source-code>
+                            </div>
+
+                            <div class="flex-grow-1 flex-shrink-1"></div>
+
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    body {
+                                        height: 100vh;
+    
+                                        background-image: url(hintergrund.jpg);
+                                        background-size: cover;
+                                        background-position: center;
+                                        background-attachment: fixed;
+                                    }
+
+
+                                    .modal-backdrop {
+                                        width: 100%;
+                                        height: 100%;
+
+                                        backdrop-filter: blur(10px);
+
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                    }
+
+                                    .popup-window {
+                                        padding: 1em;
+                                        background: white;
+                                        box-shadow: 2px 2px 4px rgba(0,0,0, 0.5);
+
+                                        h1 {
+                                            margin: 0;
+                                            font-size: 120%;
+
+                                            color: crimson;
+                                            text-shadow: 1px 1px 2px rgba(0,0,0, 0.5);
+                                        }
+
+                                        p {
+                                            margin-top: 1em;
+                                            margin-bottom: 1em;
+                                        }
+
+                                        button {
+                                            border: none;
+                                            background: lightgrey;
+                                            color: rgb(50, 50, 50);
+                                            padding: 0.25em 0.5em 0.25em 0.5em;
+                                            transition: background 0.25s, box-shadow 0.25s;
+
+                                            &amp;:hover {
+                                                background: rgb(240, 240, 240);
+                                                box-shadow: 0px 0px 2px rgba(0,0,0, 0.5);
+                                            }
+                                        }
+                                    }
+                                </source-code>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div class="border" id="css-schatten-screenshot">
+                            <style>
+                                #css-schatten-screenshot {
+                                    height: 15em;
+
+                                    background-image: url(2-html_css/2-layouts/typische-darstellungsoptionen/popup-hintergrund.jpg);
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-attachment: fixed;
+
+                                    .my-modal-backdrop {
+                                        width: 100%;
+                                        height: 100%;
+                                        padding: 1em;
+                                        backdrop-filter: blur(10px);
+
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                    }
+
+                                    .my-popup-window {
+                                        padding: 1em;
+                                        background: white;
+                                        box-shadow: 2px 2px 4px rgba(0,0,0, 0.5);
+
+                                        h1 {
+                                            margin: 0;
+                                            font-size: 120%;
+
+                                            color: crimson;
+                                            text-shadow: 1px 1px 2px rgba(0,0,0, 0.5);
+                                        }
+
+                                        p {
+                                            margin-top: 1em;
+                                            margin-bottom: 1em;
+                                        }
+
+                                        button {
+                                            border: none;
+                                            background: lightgrey;
+                                            color: rgb(50, 50, 50);
+                                            padding: 0.25em 0.5em 0.25em 0.5em;
+                                            transition: background 0.25s, box-shadow 0.25s;
+
+                                            &:hover {
+                                                background: rgb(240, 240, 240);
+                                                box-shadow: 0px 0px 2px rgba(0,0,0, 0.5);
+                                            }
+                                        }
+                                    }
+                                }
+                            </style>
+
+                            <div class="my-modal-backdrop">
+                                <div class="my-popup-window">
+                                    <h1>Achtung, Datenverlust!</h1>
+                                    <p>
+                                        Es bestehen noch ungesicherte Änderungen. Wollen Sie die diese sichern?
+                                    </p>
+                                    <button>Sichern</button>
+                                    <button>Verwerfen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+        </lsx-accordion>
+
+        <p class="mt-2">
+            <small>
+                <small>
+                    Bildnachweis:
+                    <a href="https://pixabay.com/illustrations/mountains-landscape-sunset-sunrise-3324569/" taget="_blank">Pixabay: ErikTanghe</a>
+                </small>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Diese Seite beinhaltet eine Auswahl der am häufigsten benötigten CSS-Anweisungen.
+            Im Laufe der Zeit wurden natürlich immer mehr Anweisungen hinzugefügt, so dass
+            man heute wirklich jedes Design mit HTML und CSS nachbauen kann. Aber selbst dabei
+            greift man immer wieder auf denselben, hier gezeigten, Kernvorrat zurück. Diesen
+            solltest du dir gut merken. Alles andere kannst du dann im
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank">Mozilla Developer Network</a>
+            nachschlagen. 🧐
+        </p>
+    </aside>
+</section>

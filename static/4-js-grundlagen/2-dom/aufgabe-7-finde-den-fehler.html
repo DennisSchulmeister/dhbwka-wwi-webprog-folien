@@ -1,0 +1,72 @@
+<section data-title="Aufgabe 7: Finde den Fehler" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            url      = "3%20JavaScript/Aufgaben/Finde%20den%20Fehler/Aufgabe"
+            download = "3%20JavaScript/Aufgaben/Finde%20den%20Fehler"
+        ></lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe">
+                <p>
+                    Lade dir den Quellcode zu dieser Aufgabe herunter und schaue dir die HTML-Datei
+                    aus dem Verzeichnis <tt>Aufgabe</tt> im Browser an. Es handelt sich um ein einfaches
+                    Memoryspiel. Leider läuft das Spiel noch nicht richtig. Wenn man eine Karte anklickt,
+                    passiert noch nichts, obwohl in der Datei <tt>script.js</tt> in Zeile 67 ein
+                    entsprechender Event Listener registriert wird. Um diesen Fehler zu finden,
+                    solltest du die Funktionen <code>onCardClicked</code> und <code>startGame</code>
+                    debuggen. Der Fehler ist dann ziemlich offensichtlich.
+                </p>
+                <p>
+                    Wenn das Umdrehen der Karten klappt, wirst du feststellen, dass das Spiel
+                    immer noch nicht läuft. Eigentlich sollte beim Aufklappen der zweiten Karte
+                    geprüft werden, ob die beiden Karten übereinstimmen und nur, wenn das der Fall
+                    ist, sollten die Karten offen liegen bleiben. Stattdessen bleiben die Karten
+                    aber einfach immer offen, auch wenn sie nicht identisch sind. Auch hier wirst
+                    du wohl debuggen müssen. Aber keine Angst, die Korrektur ist ziemlich einfach.
+                </p>
+                <img src="4-js-grundlagen/2-dom/aufgabe-7-finde-den-fehler/aufgabe-fehler.jpg" class="d-block img-thumbnail" style="width: 100%" />
+                <p>
+                    <small>
+                        Das sieht noch nicht ganz richtig aus …
+                    </small>
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung">
+                <p>
+                    Oh je! Wenn du hier schauen musst, hast du die beiden Fehler nicht gefunden. 😔
+                    Na gut, dann wollen wir dir mal weiter helfen:
+                </p>
+                <ol>
+                    <li>
+                        In Zeile 51 fehlt ein <tt>s</tt>. Es muss <src-code language="javascript">"#cards &gt; img"</src-code> statt
+                        <src-code language="javascript">"#card &gt; img"</src-code> heißen.
+                    </li>
+                    <li>
+                        Die Aufrufe in den Zeilen 103 und 104 sind vertauscht. Es muss erst die
+                        Funktion <src-code language="javascript">flipCard(card)</src-code>
+                        aufgerufen werden, um die angeklickte Karte umzudrehen. Erst dann können
+                        die Karten mit <src-code language="javascript">compareCards(card)</src-code>
+                        verglichen werden.
+                    </li>
+                </ol>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Bevor wir mit neuen Sachen weitermachen, sollst du hier ein wenig den
+            Umgang mit der Konsole und dem Debugger üben. Hierfür sollst du dir
+            die hier verlinkte Webseite anschauen und versuchen, die enthaltenen
+            Fehler zu korrigieren. Viel Erfolg! 🔧
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block" />
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>

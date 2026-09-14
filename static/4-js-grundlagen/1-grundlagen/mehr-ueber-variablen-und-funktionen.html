@@ -1,0 +1,295 @@
+<section data-title="Mehr über Variablen und Funktionen">
+    <article>
+        <p>
+            Im Vergleich zu anderen Programmiersprachen besitzt JavaScript nur eine sehr
+            begrenzte Anzahl an Datentypen und auch die neue Syntax zur Definition einer
+            Funktion ist sicher etwas gewöhnungsbedürftig. Im Vergleich zu anderen
+            Programmierprachen ist JavaScript deshalb aber nicht weniger flexibel, wie
+            insbesondere das Video zeigt.
+        </p>
+        <lsx-accordion class="mb-3">
+            <lsx-accordion-page title="Datentypen in JavaScript">
+                <ul>
+                    <li>
+                        <b>Boolean:</b> Einfache Flags, die nur <code>true</code>
+                        oder <code>false</code> sein können.
+                    </li>
+                    <li>
+                        <b>Null:</b> Kennt nur den Wert <code>null</code>.
+                    </li>
+                    <li>
+                        <b>Undefined:</b> Standardwert, den alle nicht vorhandenen
+                        Variablen zurückliefern.
+                    </li>
+                    <li>
+                        <b>Number:</b> Der einzige Zahlentyp in JavaScript. Entspricht
+                        einer 64-bit Fließkommazahl.
+                    </li>
+                    <li>
+                        <b>String:</b> Zeichenketten, genau wie in Java auch.
+                    </li>
+                    <li>
+                        <b>Object:</b> Zusammengesetzte Datentypen ähnlich den
+                        Objekten in Java.
+                    </li>
+                    <li>
+                        <b>Symbol:</b> Besonderer Datentyp, mit dem das fehlende
+                        <code>private</code>-Schlüsselwort in JavaScript emuliert
+                        werden kann.
+                    </li>
+                </ul>
+                <div class="info-box">
+                    JavaScript ist eine <b>schwach typisierte</b> sowie <b>dynamisch typisierte</b> Sprache.
+                    Es gibt daher nur wenige, eingebaute Datentypen und der Typ einer Variable
+                    kann sich durch Zuweisung eines neuen Werts jederzeit ändern.
+                </div>
+                <div class="info-box warning">
+                    Globale Variablen sind in Wahrheit Attribute des <src-code>window</src-code>-Objekts.
+                </div>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Definition einfacher Funktionen">
+                <p>
+                    Alte Syntax mit dem Schlüsselwort <code>function</code>:
+                </p>
+                <source-code language="javascript">
+                    function halloWelt(name, alter) {
+                        return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                    }
+                </source-code>
+                <p>
+                    Für neuen Code empfohlene Schreibweise:
+                </p>
+                <source-code language="javascript">
+                    let halloWelt = (name, alter) => {
+                        return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                    };
+                </source-code>
+                <p>
+                    Oder noch kürzer:
+                </p>
+                <source-code language="javascript">
+                    let halloWelt = (name, alter) => return `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                </source-code>
+                <p>
+                    Oder am kürzesten:
+                </p>
+                <source-code language="javascript">
+                    let halloWelt = (name, alter) => `Hallo ${name}. Du bist ${alter} Jahre alt.`;
+                </source-code>
+            </lsx-accordion-page>
+        </lsx-accordion>
+
+        <lsx-youtube video="Ex8QwHLfwjY"></lsx-youtube>
+        <lsx-info-box>
+            Das Video erklärt die Besonderheiten, die bei der Definition und Verwendung von
+            Variablen in JavaScript zu beachten sind. Darüber hinaus erklärt es die unterschiedlichen
+            Syntaxen zur Definition von Funktionen im Detail.
+        </lsx-info-box>
+    </article>
+    <aside>
+        <h2>Dynamische, schwache Typisierung</h2>
+        <p>
+            Wie auf der vorherigen Seite beschrieben, lassen sich Variablen in
+            JavaScript viel einfacher verwenden als in Java. Man muss sie nicht
+            wirklich deklarieren und ihr Datentyp ergibt sich einfach aus ihrem Inhalt.
+            Streng genommen ist es sogar so, dass Variablen in JavaScript gar keinen
+            Typ haben, sondern nur ihr Inhalt. Deshalb kann sich der Typ auch jederzeit
+            ändern, da man in eine Variable ja jederzeit einen neuen Wert schreiben kann.
+        </p>
+        <p>
+            Das ist anders als in Java, wo man den Typ einer Variable von Anfang an
+            festlegen muss und sich dieser dann auch nicht mehr ändern kann. Java
+            nennt man daher <b>statisch typisiert</b>, 🐻 während JavaScript
+            <b>dynamisch typisiert</b> ist. 🐀
+        </p>
+        <p>
+            Dennoch gibt es natürlich Datentypen in JavaScript. Allerdings gar nicht
+            so viele. Genauer gesagt sind es sogar erstaunlich wenige, gerade mal
+            sieben Stück. Und viele davon verwendet man auch nicht so oft. Für
+            Variablen benötigt man in der Regel eigentlich nur die folgenden Typen:
+        </p>
+        <ul>
+            <li>
+                <b>Boolean:</b> Kennst du aus Java. Ein Boolean kann nur <code>true</code>
+                oder <code>false</code> sein.
+            </li>
+            <li>
+                <b>String:</b> Kennst du ebenfalls aus Java. Ein String ist eine Zeichenkette,
+                in der Unicode-Zeichen gespeichert werden.
+            </li>
+            <li>
+                <b>Number:</b> JavaScript hat tatsächlich nur diesen einen nummerischen Datentyp.
+                Er entspricht dem <code>double</code> aus Java, da es sich um eine 64-bit
+                Fließkommazahl handelt. Neben den üblichen Zahlen kann er noch die Werte
+                <code>+infinity</code>, <code>-infinity</code> und <code>NaN</code> beinhalten.
+            </li>
+            <li>
+                <b>Object:</b> Das sind im Prinzip Objekte, wie du sie aus Java kennst. Jedoch
+                werden sie anders erzeugt und gerade die Objektorientierung ist in JavaScript
+                in gewisser Weiße speziell.
+            </li>
+        </ul>
+        <p>
+            Das war's dann schon. Die anderen Typen benutzt man nur in ganz besonderen
+            Ausnahmefällen, zum Beispiel um zu prüfen, ob eine Variable überhaupt
+            definiert ist. Aus diesem Grund nennt man JavaScript auch eine <b>schwach
+            typisierte</b> Sprache. 🚶 Java hingegen – du denkst es dir sicher schon –
+            ist eine <b>stark typisierte</b> Sprache. 💪
+        </p>
+
+        <h2>Der Gültigkeitsbereich einer Variable</h2>
+        <p>
+            Hier schleppt JavaScript den meisten Ballast mit sich rum. 🗿 Denn ursprünglich
+            waren alle Variablen in JavaScript globale Variablen. Eine einmal verwendete
+            Variable ist daher im gesamten JavaScript-Code gültig. Selbst wenn sie innerhalb
+            einer Funktion steht, wie das folgende Beispiel zeigt:
+        </p>
+        <source-code language="javascript">
+            let random = () {
+                zufallszahl = 4;    // Durch Würfeln ermittelt
+                                    // Ist daher garantiert zufällig
+                                    // Vgl. https://xkcd.com/221/
+                return zufallszahl;
+            }
+
+            let zeigeZufallszahl = () {
+                console.log(zufallszahl);
+            }
+
+            random();
+            zeigeZufallszahl();
+        </source-code>
+        <p>
+            Dieser Quellcode gibt tatsächlich die Zahl <tt>4</tt> aus, da die Variable
+            <tt>zufallszahl</tt> nach dem Aufruf von <src-code language="javascript">random();</src-code>
+            erhalten bleibt. Würde man stattdessen erst <src-code language="javascript">zeigeZufallszahl();</src-code>
+            und dann <src-code language="javascript">random();</src-code> ausführen, wäre
+            das Ergebnis <tt>undefined</tt>.
+        </p>
+        <p>
+            Technisch gesehen sind globale Variablen so realisiert, dass sie einfach am
+            <tt>window</tt>-Objekt hängen. Die folgenden zwei Zeilen sind daher identisch:
+        </p>
+        <source-code language="javascript">
+            meinName = "Hugo Boss";
+            window.meinName = "Hugo Boss";
+        </source-code>
+        <p>
+            Du siehst, mit Variablen musst du höllisch aufpassen. 👹 Gewöhne dir daher
+            am besten gleich an, vor jede Variable <code>let</code> zu schreiben.
+            Steht die Variable außerhalb einer Funktion, macht es kaum einen Unterschied.
+            Aber steht sie innerhalb einer Funktion, kannst du dir sicher sein, dass es
+            nicht so solchen Fehlern wie eben beschrieben kommt.
+        </p>
+        <p>
+            In altem JavaScript-Code (älter als 2016) findet man stattdessen auch noch
+            das Schlüsselwort <code>var</code>. Es bewirkt im Prinzip dasselbe wie
+            <code>let</code>, schränkt aber den Gültigkeitsbereich einer Variable nur
+            auf die gesamte Funktion ein. <code>let</code> hingegen begrenzt die Variable
+            auf den aktuellen Code-Block. An einem Beispiel wird der Unterschied schnell
+            klar:
+        </p>
+        <source-code language="javascript">
+            function lonestar() {
+                // Variable mit var, gibt "10" aus
+                for (var i = 0; i &lt; 10; i++) { … }
+                console.log(i);
+
+                // Variable mit let, wirft einen ReferenceError
+                for (let j = 0; j &lt; 10; j++) { … }
+                console.log(j);
+            }
+        </source-code>
+        <p>
+            Die Variable <tt>i</tt> bleibt nach der <code>for</code>-Schleife erhalten und beinhaltet
+            den letzten Wert kurz vor Abbruch der Schleife. <code>j</code> hingegen ist nur auf die Schleife
+            selbst begrenzt. Nach Verlassen des Schleifenkörpers wird die Variable wieder gelöscht.
+        </p>
+
+        <h2>Funktionen gestern, heute, morgen</h2>
+        <p>
+            Funktionen wurden in JavaScript die längste Zeit mit dem <code>function</code>-Schlüsselwort
+            definiert. Zum Beispiel so:
+        </p>
+        <source-code language="javascript">
+            function addiere(a, b) {
+                return a + b;
+            }
+        </source-code>
+        <p>
+            Das sieht zwar relativ ähnlich zu Java aus, hat aber doch ein paar gravierende
+            Unterschiede:
+        </p>
+        <ul>
+            <li>
+                Java kennt Funktionen überhaupt nicht. In Java gibt es nur Methoden, die
+                per Definition in einer Klasse stehen müssen.
+            </li>
+            <li>
+                Funktionen haben keine Zusätze wie <code>public</code>, <code>static</code>
+                oder <code>final</code>.
+            </li>
+            <li>
+                Wenn eine Funktion einen Wert zurückliefert, wird dies nirgendwo
+                kenntlich gemacht. Denn eine Funktion, in der die <code>return</code>-Anweisung
+                nicht vorkommt, gibt automatisch den Wert <code>undefined</code> zurück.
+            </li>
+            <li>
+                Bei den Parametern wird ebenfalls nur der Name ohne Typ angegeben. Das passt
+                natürlich in das allgemeine Bild, dass sich der Typ einer Variable jederzeit
+                ändern kann und daher nicht angegeben wird.
+            </li>
+        </ul>
+
+        <p>
+            Im Großen und Ganzen ist die alte Schreibwiese schon okay. Historisch bedingt
+            verhalten sich die so deklarierten Funktionen aber in verschiedenen Fällen
+            sehr umständlich. 2016 wurde daher eine neue Schreibweise eingeführt:
+        </p>
+        <source-code language="javascript">
+            let addiere = (a, b) => {
+                return a + b;
+            };
+        </source-code>
+        <p>
+            Das Besondere ist dabei gar nicht mal die Schreibweise. Obwohl die neue
+            Form den netten Vorteil hat, das sich einzeilige Funktionen sehr kompakt
+            schreiben lassen:
+        </p>
+        <source-code language="javascript">
+            // Ohne geschweifte Klammern aber mit return-Anweisung
+            let addiere_mittel = (a, b) => return a + b;
+
+            // Ohne geschweifte Klammern und ohne return-Anweisung
+            let addiere_kurz = (a, b) => a + b;
+        </source-code>
+        <p>
+            Das Besondere daran ist, dass sich die so deklarierten Funktionen in
+            manchen Fällen anders verhalten. Im Moment macht das noch keinen Unterschied
+            für uns. Sobald wir aber anfangen, objektorientiert zu programmieren, solltest
+            du dich an die neue Schreibweise gewöhnen. Denn gerade die <code>this</code>-Variable
+            verhält sich in den neuen Funktionen viel mehr so, wie du es von Java her kennst.
+            Ab hier verwenden daher nur noch die neue Form.
+        </p>
+        <p>
+            Eine Kleinigkeit sei hier noch gezeigt. Nämlich wie mit der neuen Schreibweise
+            eine Funktion ohne Parameter definiert wird:
+        </p>
+        <source-code language="javascript">
+            // Alte Schreibweise
+            function sagHallo() {
+                return "Hallo, Welt"!
+            }
+
+            // Neue Schreibweise
+            let sagHallo = () => "Hallo, Welt!";
+        </source-code>
+        <p>
+            Hat die Funktion genau einen Parameter, können die runden Klammern entfallen:
+        </p>
+        <source-code language="javascript">
+            let sagHallo = name => `Hallo ${name}!`;
+        </source-code>
+    </aside>
+</section>

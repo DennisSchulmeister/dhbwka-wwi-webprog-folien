@@ -1,0 +1,96 @@
+<section data-title="Aufgabe 2: Lokale und globale Variablen" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <div class="mb-3">
+            <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">
+                <button class="btn btn-dark">
+                    JS.Scratch
+                </button>
+            </a>
+        </div>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe">
+                <p>
+                    Schaue dir den folgenden JavaScript-Code und lasse ihn auch mal in
+                    <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a> laufen.
+                    Anschließend beantworte die folgenden Fragen:
+                </p>
+                <source-code language="javascript">
+                    let fibonacci = n => {
+                        if (n &lt; 1) return NaN;
+                        ergebnis = 0;
+
+                        for (let i = n; i &gt;= 1; i--) {
+                            ergebnis += i;
+                        }
+
+                        return ergebnis;
+                    };
+
+                    ergebnis = fibonacci(10);
+                    ergebnis1 = fibonacci(20);
+                </source-code>
+                <p>
+                    a) Welchen Wert hat die Variable <tt>ergebnis</tt> nach Aufruf der Funktion
+                    <src-code language="javascript">fibonacci(10)</src-code>?
+                </p>
+                <p>
+                    b) Welchen Wert hat die Variable <tt>ergebnis</tt> nach Aufruf der Funktion
+                    <src-code language="javascript">fibonacci(20)</src-code>?
+                </p>
+                <p>
+                    c) Wie lässt sich dieser Fehler korrigieren?
+                </p>
+                <p>
+                    d) Wie lässt sich innerhalb einer Funktion kenntlich machen, dass eine
+                    globale Variable angesprochen werden soll?
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung">
+                <p>
+                    a) Wie erwartet bekommt die Variable den Wert <src-code language="javascript">55</src-code> zugewiesen.
+                </p>
+                <p>
+                    b) Die Variablen <code>ergebnis</code> und <code>ergebnis1</code> haben beide den
+                    Wert <src-code language="javascript">210</src-code>. Das war so nicht gewollt, da
+                    das Ergebnis nur in <code>ergebnis1</code> gespeichert werden sollte.
+                </p>
+                <p>
+                    c) In der Funktion muss <src-code language="javascript">ergebnis = 0</src-code>
+                    durch <src-code language="javascript">let ergebnis = 0</src-code> oder
+                    <src-code language="javascript">const ergebnis = 0</src-code> ersetzt werden:
+                </p>
+                <source-code language="javascript">
+                    let fibonacci = n => {
+                        if (n &lt; 1) return NaN;
+                        let ergebnis = 0;
+
+                        for (let i = n; i &gt;= 1; i--) {
+                            ergebnis += i;
+                        }
+
+                        return ergebnis;
+                    };
+                </source-code>
+                <p>
+                    d) Durch Zugriff auf das <tt>window</tt>-Objekt, zum Beispiel so:
+                    <src-code language="javascript">window.ergebnis = 55;</src-code>
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Na, das war ja gar nicht so schwer, oder? Dann machen wir hier gleich
+            weiter und haben auch schon die nächste Aufgabe für dich. Dieses mal
+            geht es um den Unterschied von lokalen und globalen Variablen. 🌍
+        </p>
+        <img src="shared/js.scratch.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Screenshot: <a href="https://www.wikiberd.de/hg/dennis/js_scratch" target="_blank">JS.Scratch</a>
+            </small>
+        </p>
+    </aside>
+</section>

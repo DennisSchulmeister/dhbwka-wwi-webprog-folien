@@ -1,0 +1,176 @@
+<section data-title="Geräteneutrale Gestaltung früher und heute">
+    <article>
+        <style>
+            #layout-beispiele .my-rp-background {
+                background-image: url(3-responsive/1-design/geraeteneutrale-gestaltung-frueher-und-heute/layouts-bg.jpg);
+            }
+
+            #layout-beispiele iframe {
+                border: 1px solid #333333;
+            }
+        </style>
+
+        <div class="dropdown mb-3">
+            <button
+                id             = "layouts-dropdown-button"
+                class          = "btn btn-secondary dropdown-toggle"
+                type           = "button"
+                data-bs-toggle = "dropdown"
+                aria-haspopup  = "true"
+                aria-expanded  = "false"
+            >
+                Fixes Layout
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="layouts-dropdown-button">
+                <li>
+                    <button
+                        class       = "dropdown-item"
+                        type        = "button"
+                        data-src    = "3-responsive/1-design/geraeteneutrale-gestaltung-frueher-und-heute/layout-fixed/index.html"
+                        data-target = "layout-beispiele"
+                        data-parent = "layouts-dropdown-button"
+                        onclick     = "change_example(event)"
+                    >
+                        Fixes Layout
+                    </button>
+                </li>
+                <li>
+                    <button
+                        class       = "dropdown-item"
+                        type        = "button"
+                        data-src    = "3-responsive/1-design/geraeteneutrale-gestaltung-frueher-und-heute/layout-fluid/index.html"
+                        data-target = "layout-beispiele"
+                        data-parent = "layouts-dropdown-button"
+                        onclick     = "change_example(event)"
+                    >
+                        Fluides Layout
+                    </button>
+                </li>
+                <li>
+                    <button
+                        class       = "dropdown-item"
+                        type        = "button"
+                        data-src    = "3-responsive/1-design/geraeteneutrale-gestaltung-frueher-und-heute/layout-adaptive/index.html"
+                        data-target = "layout-beispiele"
+                        data-parent = "layouts-dropdown-button"
+                        onclick     = "change_example(event)"
+                    >
+                        Adaptives Layout
+                    </button>
+                </li>
+                <li>
+                    <button
+                        class       = "dropdown-item"
+                        type        = "button"
+                        data-src    = "3-responsive/1-design/geraeteneutrale-gestaltung-frueher-und-heute/layout-responsive/index.html"
+                        data-target = "layout-beispiele"
+                        data-parent = "layouts-dropdown-button"
+                        onclick     = "change_example(event)"
+                    >
+                        Responsives Layout
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <lsx-tab-pages id="layout-beispiele" class="my-responsive-preview mb-0">
+            <lsx-tab-page title="Großer Bildschirm">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-screen" src="3-responsive/1-design/geraeteneutrale-gestaltung-frueher-und-heute/layout-fixed/index.html?screen"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Tablet">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-tablet" src="3-responsive/1-design/geraeteneutrale-gestaltung-frueher-und-heute/layout-fixed/index.html?tablet"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Smartphone">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-phone" src="3-responsive/1-design/geraeteneutrale-gestaltung-frueher-und-heute/layout-fixed/index.html?phone"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <p>
+            <small>
+                <small>
+                    Bildnachweis für den Hintergrund:
+                    <a href="https://pixabay.com/photos/french-bulldog-dog-paw-animal-cute-6068752/" target="_blank">Pixabay: Mylene2401</a>
+                </small>
+            </small>
+        </p>
+
+        <lsx-info-box type="warning" class="mt-4">
+            Obwohl es sich hier um das Kapitel „Responsive Webdesign“ handelt, funktionieren die Beispiele
+            nur auf großen Bildschirmen vernünftig. Auf einem Smartphone ist das zum Einbinden der Beispiele
+            verwendete <src-code language="html">&lt;iframe&gt;</src-code>-Element zu klein, so dass die
+            Media Queries zum Erkennen größerer Bildschirme nicht funktionieren und im Grunde genommen immer
+            die Smartphone-Version angezeigt wird. 🙄
+        </lsx-info-box>
+    </article>
+    <aside>
+        <lsx-youtube video="FZuuXIO-pgg/edit"></lsx-youtube>
+        <lsx-info-box class="mb-4">
+            Das Video zeigt die Besonderheiten der jeweiligen Layouts und wie diese
+            im Quellcode realisiert werden. Besonderer Wert wird abei auf die unsauberen
+            Tricks und Probleme der nicht-responsiven Layouts gelegt.
+        </lsx-info-box>
+
+        <p>
+            Früher gab es das Problem unterschiedlicher Anzeigegeräte nicht. Denn obwohl es internetfähige
+            PDAs und Tablet-Computer schon lange vor den heutigen Smartphones gab, waren diese nicht weit
+            verbreitet und wurden eher zur E-Mailkommunikation als zum Surfen im Web verwendet. Zumal die
+            Geschwindigkeit aus verschiedenen Gründen extrem langsam war.¹ 🐌 Doch selbst bei Desktop-Computern
+            gab es nur wenig Streuung bezüglich Bildschirmauflösung und Größe, so dass es völlig ausreichend
+            war, eine plausible Annahme zu treffen und einfach ein Layout mit fester Breite (natürlich in
+            Pixel definiert) zu gestalten. Heute funktioniert das natürlich nicht mehr, da von einer Seite
+            einfach erwartet wird, für alle Geräte optimiert zu sein. Die verschiedenen Möglichkeiten, dies
+            zu erzielen, werden auf dieser Seite vorgestellt, auch wenn nicht jede Technik gleich gute
+            Ergebnisse liefert:
+        </p>
+        <ul class="dhbw-list-spacious">
+            <li>
+                <b>Fixes Layout:</b>
+                Gar keine Anpassung an unterschiedliche Bildschirmgrößen
+            </li>
+            <li>
+                <b>Fluides Layout:</b>
+                Von der Bildschirmgröße abhängige Breite des Layouts
+            </li>
+            <li>
+                <b>Adaptives Layout:</b>
+                Getrennte Stylesheets für unterschiedliche Geräte
+            </li>
+            <li>
+                <b>Responsives Layout:</b>
+                Fallunterscheidungen zu optimalen Anpassung an alle Geräte
+            </li>
+        </ul>
+        <p>
+            Über das Dropdown-Menü oberhalb der verschiedenen Bildschirmgrößen kann zwischen den
+            Beispielen umgeschaltet werden. Erklärungen zu den Besonderheiten der Beispiele sowie
+            den jeweiligen Vor- und Nachteilen im Quellcode liefert das Video.
+        </p>
+
+        <p>
+            ¹
+            <small>
+                Einerseits waren die Prozessorgeschwindigkeiten damals viel geringer als heute und mobile
+                Geräte nutzten (wie heute eigentlich auch) noch leistungsschwächere CPUs. Die Verbindung
+                mit dem Internet erfolgte zusätzlich über eine Modem-Verbindung, die über das Telefonnetz
+                hergestellt wurde. Die Verbindung zum Modem wurde dabei über eine serielle Schnittstelle
+                per Kabel oder Infrarot, was ebenfalls nur geringe Übertragungsraten erlaubt. Erst mit
+                Aufkommen der ersten DSL-Anschlüsse und des 3G-Funknetzes wurden diese Flaschenhälse nach
+                und nach abgeschafft.
+            </small>
+        </p>
+    </aside>
+</section>

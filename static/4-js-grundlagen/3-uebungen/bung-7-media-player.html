@@ -1,0 +1,84 @@
+<section data-title="Übung 7: Media Player" data-background-color="rgb(179, 202, 223)">
+    <article>
+        <lsx-github-edit
+            class        = "mb-3"
+            url          = "3%20JavaScript/Aufgaben/Media%20Player/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/Media%20Player"
+            pages-url1   = "3%20JavaScript/Aufgaben/Media%20Player/Loesung/"
+            pages-label1 = "Musterlösung ansehen"
+        >
+        </lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Seitdem in HTML5 das <b><tt>&lt;audio&gt;</tt></b>- und das <b><tt>&lt;video&gt;</tt></b>-Element
+                    spezifiziert wurden, können Multimedia-Inhalte problemlos mit HTML und JavaScript wiedergegeben
+                    werden. Plattformabhängige Browser-Plugins wie Adobe Flash, Microsoft Silverlight oder auch Java
+                    Applets gehören damit zum Glück der Vergangenheit an. Was liegt also näher, als einen kleinen
+                    Media Player (zur Wiedergabe von Musik 🎶) zu programmieren? Auch wenn man sie nicht hören kann:
+                    Die folgenden Screenshots zeigen, wie die Anwendung aussehen soll.
+                </p>
+
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="4-js-grundlagen/3-uebungen/bung-7-media-player/ub-media-player/screenshot1.png" caption="Kachelansicht"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/3-uebungen/bung-7-media-player/ub-media-player/screenshot2.png" caption="Listenansicht"></lsx-modal-image>
+                </div>
+        
+                <p>
+                    Die Benutzeroberfläche besteht aus zwei Ansichten, welche die vorhandenen Songs einmal als
+                    Kachelansicht und einmal als Liste zeigen. Links davon sind die Elemente zum Steuern der
+                    Wiedergabe und Umschalten der Ansicht. Die Titelzeile zeigt den Namen des aktuellen Titels,
+                    der darüber hinaus im Hauptbereich farblich hervorgehoben wird.
+                </p>
+                <p>
+                    Damit die Aufgabe nicht zu groß wird, wurden die meisten Funktionen schon ausprogrammiert.
+                    Wie immer fehlen aber wesentliche Inhalte, auf die die Kommentare im Quellcode hinweisen.
+                    Unter anderem fehlt in der Klasse <b><tt>Player</tt></b> der Quellcode, um die Wiedergabe
+                    zu starten. Und an einigen Stellen wird das UI noch nicht vollständig aktualisiert.
+                    Die Listenansicht ist hingegen schon fertig programmiert. Die Kachelansicht fehlt, kann
+                    aber nach dem gleichen Prinzip umgesetzt werden, um den Umgang mit der objekt-orientierten
+                    DOM API zu üben.
+                </p>
+                <p>
+                    Alle anzupassenden Quellcodestellen sind mit <code>TODO</code> gekennzeichnet. Fange in der
+                    <tt class="fn">index.html</tt> an und suche dann in den anderen Dateien nach dem Schlüsselwort.
+                    Im Kommentar steht jeweils, was zu tun ist.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Testen">
+                <p>
+                    Der Fetch-Aufruf innerhalb der <tt>index.html</tt> zum Abholen der Playlist funktioniert
+                    nur, wenn die Anwendung über einen Webserver gestartet wird. Es muss daher, wie im Video
+                    in den HTML-Folien gezeigt, ein lokaler Entwicklungsserver zum Testen der Anwendung
+                    gestartet werden. In Visual Studio Code kann zum Beispiel die Extension <b>Live Server</b>
+                    genutzt werden. Nachdem die Erweiterung installiert wurde, öffnet man einfach die
+                    <tt class="fn">index.html</tt>-Datei des Projekts, drückt <kbd>F1</kbd> und wählt
+                    „Live Server: Open With Live Server” aus.
+                </p>
+                <lsx-youtube video="FijXwFMqrVc"></lsx-youtube>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Ein Media Player in HTML, CSS und JavaScript. Ja das geht. Sogar ziemlich einfach, seit dem
+            mit HTML5 die <src-code language="html">&lt;audio&gt;</src-code> und <src-code language="html">&lt;video&gt;</src-code>
+            Elemente eingeführt wurden. Diese Aufgabe zeigt, wie es geht, und liefert darüber hinaus eine
+            weitere Vorlage für die objekt-orientierte Strukturierung einer größeren Anwendung.
+        </p>
+        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
+            </small>
+        </p>
+
+        <lsx-youtube video="HERMqverQWM"></lsx-youtube>
+        <lsx-info-box>
+            Die Musikdateien dieser Aufgabe sind vor vielen Jahren selbst komponiert und zuhause aufgenommen worden. 😎
+        </lsx-info-box>
+    </aside>
+</section>

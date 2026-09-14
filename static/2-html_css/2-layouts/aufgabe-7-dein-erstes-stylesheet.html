@@ -1,0 +1,407 @@
+<section data-title="Aufgabe 7: Dein erstes Stylesheet" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            url      = "1%20HTML%20und%20CSS/Aufgaben/Erstes%20Stylesheet/Aufgabe"
+            download = "1%20HTML%20und%20CSS/Aufgaben/Erstes%20Stylesheet"
+        >
+        </lsx-github-edit>
+
+        <p>
+            Kopiere den folgenden Quellcode in eine neue HTML-Datei und passe das
+            Stylesheet gemäß der Beschreibung an. Das Ergebnis sollte ungefähr wie
+            auf dem dritten Reiter aussehen.
+        </p>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="HTML-Quellcode">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8"&gt;
+                            &lt;title&gt;Mein erstes Stylesheet&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                            &lt;style&gt;
+                                /* Schreibe hier dein Stylesheet */
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;header&gt;
+                                &lt;h1&gt;Meine kleine Musiksammlung&lt;/h1&gt;
+                            &lt;/header&gt;
+                            &lt;main&gt;
+                                &lt;h2&gt;Joe Cocker&lt;/h2&gt;
+
+                                &lt;div class="album"&gt;
+                                    &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                    &lt;div class="description"&gt;
+                                        &lt;span class="title"&gt;Accross From Midnight&lt;/span&gt;
+                                        &lt;br /&gt;
+                                        1997, 12 Titel, Lieblingssong: &lt;i&gt;The Last One To Know&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="album"&gt;
+                                    &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                    &lt;div class="description"&gt;
+                                        &lt;span class="title"&gt;No Ordinary World&lt;/span&gt;
+                                        &lt;br /&gt;
+                                        1999, 12 Titel, Lieblingssong: &lt;i&gt;My Father's Son&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="album"&gt;
+                                    &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                    &lt;div class="description"&gt;
+                                        &lt;span class="title"&gt;Fire It Up&lt;/span&gt;
+                                        &lt;br /&gt;
+                                        2012, 13 Titel, Lieblingssong: &lt;i&gt;Younger&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;h2&gt;Mark Knopfler&lt;/h2&gt;
+
+                                &lt;div class="album"&gt;
+                                    &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                    &lt;div class="description"&gt;
+                                        &lt;span class="title"&gt;Golden Heart&lt;/span&gt;
+                                        &lt;br /&gt;
+                                        1996, 14 Titel, Lieblingssong: &lt;i&gt;Are We In Trouble Now&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="album"&gt;
+                                    &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                    &lt;div class="description"&gt;
+                                        &lt;span class="title"&gt;Sailing To Philadelphia&lt;/span&gt;
+                                        &lt;br /&gt;
+                                        2000, 13 Titel, Lieblingssong: &lt;i&gt;Sailing To Philadelphia&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="album"&gt;
+                                    &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                    &lt;div class="description"&gt;
+                                        &lt;span class="title"&gt;All The Roadrunning&lt;/span&gt;
+                                        &lt;br /&gt;
+                                        2006, 12 Titel, Lieblingssong: &lt;i&gt;I Dug Up A Diamond&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="album"&gt;
+                                    &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                    &lt;div class="description"&gt;
+                                        &lt;span class="title"&gt;Tracker (Deluxe Edition)&lt;/span&gt;
+                                        &lt;br /&gt;
+                                        2015, 18 Titel, Lieblingssong: &lt;i&gt;Terminal To Tribute To&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;h2&gt;Queen&lt;/h2&gt;
+
+                                &lt;div class="album"&gt;
+                                    &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                    &lt;div class="description"&gt;
+                                        &lt;span class="title"&gt;The Works&lt;/span&gt;
+                                        &lt;br /&gt;
+                                        1984, 9 Titel, Lieblingssong: &lt;i&gt;I Want To Break Free&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="album"&gt;
+                                    &lt;div class="icon"&gt;💿&lt;/div&gt;
+                                    &lt;div class="description"&gt;
+                                        &lt;span class="title"&gt;A Kind Of Magic&lt;/span&gt;
+                                        &lt;br /&gt;
+                                        1986, 9 Titel, Lieblingssong: &lt;i&gt;Friends Will Be Friends&lt;/i&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Beschreibung">
+                <h4>&lt;html&gt; und &lt;body&gt;</h4>
+                <ul>
+                    <li>
+                        Außenabstand: 0
+                    </li>
+                    <li>
+                        Innenabstand: 0
+                    </li>
+                </ul>
+
+                <h4>Der Header</h4>
+                <ul>
+                    <li>
+                        Hintergrundfabe: rgb(22, 177, 198)
+                    </li>
+                    <li>
+                        Schriftfarbe: Weiß
+                    </li>
+                    <li>
+                        Innenabstand: 0.5em
+                    </li>
+                    <li>
+                        Außenabstand nach unten: 1em
+                    </li>
+                </ul>
+
+                <h4>Der Hauptbereich</h4>
+                <ul>
+                    <li>
+                        Innenabstand: 0.5em
+                    </li>
+                    <li>
+                        Schriftfarbe der Überschriften: rgb(17, 96, 107)
+                    </li>
+                </ul>
+
+                <h4>Die einzelnen Alben</h4>
+                <ul>
+                    <li>
+                        Durchgezogener Rahmen, 1px breit, hellgrau
+                    </li>
+                    <li>
+                        Kein Innenabstand
+                    </li>
+                    <li>
+                        Außenabstand nach unten: 1em
+                    </li>
+                    <li>
+                        Breite: 35em
+                    </li>
+                    <li>
+                        Schriftgröße des Icons: 330%
+                    </li>
+                    <li>
+                        Albumtitel fettgedruckt
+                    </li>
+                    <li>
+                        Icon und Beschreibung nebeneinander (mit <src-code language="css">display: inline-block</src-code>)
+                    </li>
+                    <li>
+                        Abstand links von der Beschreibung: 0.5em
+                    </li>
+                </ul>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Vorschau">
+                <div id="css-programmieraufgabe">
+                    <style>
+                        #css-programmieraufgabe {
+                            margin: 0;
+                            padding: 0;
+                            font-size: 90%;
+                        }
+
+                        #css-programmieraufgabe * {
+                            font-family: sans-serif !important;
+                        }
+
+                        #css-programmieraufgabe header {
+                            background: rgb(22, 177, 198);
+                            color: white;
+                            font-weight: bold;
+                            text-shadow: 1px 1px 1px rgba(200, 200, 200, 0.75);
+                            padding: 0.5em;
+                            margin-bottom: 1em;
+                        }
+
+                        #css-programmieraufgabe h2 {
+                            color: white;
+                        }
+
+                        #css-programmieraufgabe .main {
+                            padding: 0.5em;
+                        }
+
+                        #css-programmieraufgabe h3 {
+                            color: rgb(17, 96, 107);
+                        }
+
+                        #css-programmieraufgabe .album {
+                            border: 1px solid lightgrey;
+                            padding: 0.5em;
+                            width: 35em;
+                            margin-bottom: 1em;
+                            color: rgba(25, 25, 25);
+                        }
+
+                        #css-programmieraufgabe .album > .icon {
+                            font-size: 330%;
+                            display: inline-block;
+                        }
+
+                        #css-programmieraufgabe .album > .description {
+                            display: inline-block;
+                            margin-left: 0.5em;
+                        }
+
+                        #css-programmieraufgabe .album .title {
+                            font-weight: bold;
+                        }
+                    </style>
+                    <header>
+                        <h2>Meine kleine Musiksammlung</h2>
+                    </header>
+                    <div class="main">
+                        <h3>Joe Cocker</h3>
+
+                        <div class="album">
+                            <div class="icon">💿</div>
+                            <div class="description">
+                                <span class="title">Accross From Midnight</span>
+                                <br />
+                                1997, 12 Titel, Lieblingssong: <i>The Last One To Know</i>
+                            </div>
+                        </div>
+
+                        <div class="album">
+                            <div class="icon">💿</div>
+                            <div class="description">
+                                <span class="title">No Ordinary World</span>
+                                <br />
+                                1999, 12 Titel, Lieblingssong: <i>My Father's Son</i>
+                            </div>
+                        </div>
+
+                        <div class="album">
+                            <div class="icon">💿</div>
+                            <div class="description">
+                                <span class="title">Fire It Up</span>
+                                <br />
+                                2012, 13 Titel, Lieblingssong: <i>Younger</i>
+                            </div>
+                        </div>
+
+                        <h3>Mark Knopfler</h3>
+
+                        <div class="album">
+                            <div class="icon">💿</div>
+                            <div class="description">
+                                <span class="title">Golden Heart</span>
+                                <br />
+                                1996, 14 Titel, Lieblingssong: <i>Are We In Trouble Now</i>
+                            </div>
+                        </div>
+
+                        <div class="album">
+                            <div class="icon">💿</div>
+                            <div class="description">
+                                <span class="title">Sailing To Philadelphia</span>
+                                <br />
+                                2000, 13 Titel, Lieblingssong: <i>Sailing To Philadelphia</i>
+                            </div>
+                        </div>
+
+                        <div class="album">
+                            <div class="icon">💿</div>
+                            <div class="description">
+                                <span class="title">All The Roadrunning</span>
+                                <br />
+                                2006, 12 Titel, Lieblingssong: <i>I Dug Up A Diamond</i>
+                            </div>
+                        </div>
+
+                        <div class="album">
+                            <div class="icon">💿</div>
+                            <div class="description">
+                                <span class="title">Tracker (Deluxe Edition)</span>
+                                <br />
+                                2015, 18 Titel, Lieblingssong: <i>Terminal To Tribute To</i>
+                            </div>
+                        </div>
+
+                        <h3>Queen</h3>
+
+                        <div class="album">
+                            <div class="icon">💿</div>
+                            <div class="description">
+                                <span class="title">The Works</span>
+                                <br />
+                                1984, 9 Titel, Lieblingssong: <i>I Want To Break Free</i>
+                            </div>
+                        </div>
+
+                        <div class="album">
+                            <div class="icon">💿</div>
+                            <div class="description">
+                                <span class="title">A Kind Of Magic</span>
+                                <br />
+                                1986, 9 Titel, Lieblingssong: <i>Friends Will Be Friends</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung">
+                <source-code language="css">
+                    html, body {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    header {
+                        background: rgb(22, 177, 198);
+                        color: white;
+                        font-weight: bold;
+                        text-shadow: 1px 1px 1px rgba(200, 200, 200, 0.75);
+                        padding: 0.5em;
+                        margin-bottom: 1em;
+                    }
+
+                    main {
+                        padding: 0.5em;
+                    }
+
+                    h2 {
+                        color: rgb(17, 96, 107);
+                    }
+
+                    .album {
+                        border: 1px solid lightgrey;
+                        width: 35em;
+                        padding: 0.5em;
+                        margin-bottom: 1em;
+                        color: rgba(25, 25, 25);
+                    }
+
+                    .album > .icon {
+                        font-size: 330%;
+                        display: inline-block;
+                    }
+
+                    .album > .description {
+                        display: inline-block;
+                        margin-left: 0.5em;
+                    }
+
+                    .album .title {
+                        font-weight: bold;
+                    }
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Hier darfst du ein wenig programmieren. Kopiere daher den HTML-Quellcode
+            in eine neue Datei und passe ihn wie beschrieben an. Eine Vorschau, wie
+            die Seite hinterher aussehen soll, siehst du im dritten Reiter. Viel Spaß
+            dabei. 🤩
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>

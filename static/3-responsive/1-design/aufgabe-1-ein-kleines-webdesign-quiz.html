@@ -1,0 +1,288 @@
+<section data-title="Aufgabe 1: Ein kleines Webdesign-Quiz" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe 1.1">
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question
+                            type = "single-choice"
+                            text = "a) Was ist die Zielsetzung von Responsive Webdesign?"
+                        >
+                            <lsx-answer>Die schnelle Entwicklung komplexer Webseiten und Anwendungen</lsx-answer>
+                            <lsx-answer>Die Entwicklung mehrsprachiger Webseiten und Anwendungen</lsx-answer>
+                            <lsx-answer correct>Die Entwicklung geräteneutraler Webseiten und Anwendungen</lsx-answer>
+                            <lsx-answer>Die besonders ansprechende Gestaltung von Webseiten und Anwendungen</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Welches Entwicklungsprinzip hat sich für Responsive Webdesign bewährt?"
+                        >
+                            <lsx-answer>Responsive Style</lsx-answer>
+                            <lsx-answer>Small to Large</lsx-answer>
+                            <lsx-answer>Mobile and Desktop</lsx-answer>
+                            <lsx-answer correct>Mobile First</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "c) Welche Vorteile verspricht man sich von diesem Entwicklungsprinzip?"
+                        >
+                            <lsx-answer correct>Leichtere Anpassung des Layouts an große und kleine Bildschirme</lsx-answer>
+                            <lsx-answer>Ausschließlich für die mobile Nutzung optimierte Seiten</lsx-answer>
+                            <lsx-answer correct>Weitgehend identische Funktionalität auf allen Endgeräten</lsx-answer>
+                            <lsx-answer>Vergleichbares Aussehen wie native Apps gängiger Betriebssysteme</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "d) Welche Nachteile können sich unter Umständen aber auch daraus ergeben?"
+                        >
+                            <lsx-answer>Eingeschränkte Kompatibilität mit unterschiedlichen Browsern</lsx-answer>
+                            <lsx-answer correct>Die mobile Darstellung bestimmt in weiten Teilen auch die Desktop-Darstellung</lsx-answer>
+                            <lsx-answer correct>Auch auf mobilen Endgeräten wird der Code für die Dekstop-Version geladen</lsx-answer>
+                            <lsx-answer>Progressive Web Apps lassen sich dadurch nur schwer realisieren</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "e) Was ist ein Media Query?"
+                        >
+                            <lsx-answer correct>Eine Fallunterscheidung zur Abfrage von Eigenschaften des Ausgabegeräts</lsx-answer>
+                            <lsx-answer>Ein spezielles Stylesheet für die Anpassung an mobile Endgeräte</lsx-answer>
+                            <lsx-answer>Eine Abfragesprache für unterschiedliche Multimedia-Inhalte</lsx-answer>
+                            <lsx-answer>Eine HTML-Anweisung zur Nutzung geräteabhängiger Medieninhalte</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "f) Was ist ein Container Query?"
+                        >
+                            <lsx-answer>Die ältere Bezeichnung für Media Queries, bevor sie standardisiert wurden</lsx-answer>
+                            <lsx-answer>Eine alternative Syntax für die CSS-Selektoren in einem Stylesheet</lsx-answer>
+                            <lsx-answer>Eine Bibliothek zur Gestaltung benutzerfreundlicher Eingabeformulare</lsx-answer>
+                            <lsx-answer correct>Eine Fallunterscheidung anhand der Eigenschaften eines HTML-Container-Elements</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 1.2">
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "a) Welcher HTML-Code ist korrekt?"
+                        >
+                            <lsx-answer>
+                                <source-code language="html">
+                                    &lt;header&gt;
+                                        &lt;media query="screen (min-height: 768px)"&gt;
+                                            &lt;img src="3-responsive/desktop-banner.jpg" /&gt;
+                                        &lt;/media&gt;
+                                    &lt;/header&gt;
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer correct>
+                                <source-code language="html">
+                                    &lt;head&gt;
+                                        &lt;link rel="stylesheet" href="all-devices.css" /&gt;
+                                        &lt;link rel="stylesheet" media="screen (max-width: 767px)" href="phone.css" /&gt;
+                                    &lt;/head&gt;
+                                </source-code>
+                            </lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "b) Welcher CSS-Code ist korrekt?"
+                        >
+                            <lsx-answer correct>
+                                <source-code language="css">
+                                    main {
+                                        background-color: white;
+                                        padding: 1em;
+                                    }
+
+                                    @media (min-width: 992px) {
+                                        main {
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: stretch;
+                                        }
+                                    }
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                <source-code language="css">
+                                    main {
+                                        background-color: white;
+                                        padding: 1em;
+
+                                        @media min-width = 992px {
+                                            display: flex;
+                                            flex-direction: column;
+                                            justify-content: center;
+                                            align-items: stretch;
+                                        }
+                                    }
+                                </source-code>
+                            </lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 1.3">
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                <p>
+                                    a) Was bewirken die folgenden CSS-Anweisungen?
+                                </p>
+                                <source-code language="css">
+                                    body {
+                                        font-size: 11pt;
+                                    }
+
+                                    @media (max-width: 30em) {
+                                        body {
+                                            font-size: 9pt;
+                                        }
+                                    }
+                                </source-code>
+                            </lsx-question-text>
+
+                            <lsx-answer>Auf Bildschirmen im Querformat wird eine größere Schriftart verwendet</lsx-answer>
+                            <lsx-answer correct>Auf kleinen Bildschirmen wird eine etwas kleinere Schriftart verwendet</lsx-answer>
+                            <lsx-answer>Auf großen Bildschirmen wird eine etwas kleinere Schriftart verwendet</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                <p>
+                                    b) Was bewirken die folgenden CSS-Anweisungen?
+                                </p>
+                                <source-code language="css">
+                                    @media all and (orientation: landscape) {
+                                        main {
+                                            background-image: url(landscape.jpg);
+                                        }
+                                    }
+
+                                    @media all and (orientation: portrait) {
+                                        main {
+                                            background-image: url(portrait.jpg);
+                                        }
+                                    }
+                                </source-code>
+                            </lsx-question-text>
+
+                            <lsx-answer correct>Geräte im Hochformat verwenden ein anderes Hintergrundbild als im Querformat</lsx-answer>
+                            <lsx-answer>Über ein Menü kann zwischen einem Landschafts- und einem Porträtbild ausgewählt werden</lsx-answer>
+                            <lsx-answer>Falls die Seite ausgedruckt wird, werden alle Hintergrundbilder deaktiviert</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                <p>
+                                    c) Was bewirken die folgenden CSS-Anweisungen?
+                                </p>
+                                <source-code language="css">
+                                    @media print {
+                                        nav, aside, footer {
+                                            display: none;
+                                        }
+
+                                        main {
+                                            color: black;
+                                            background: none;
+                                        }
+                                    }
+                                </source-code>
+                            </lsx-question-text>
+
+                            <lsx-answer>Auf kleinen Bildschirmen werden überflüssige Elemente nicht angezeigt</lsx-answer>
+                            <lsx-answer>Ausdrucke in DIN A5 oder kleiner beinhalten weniger Elemente als größere Formate</lsx-answer>
+                            <lsx-answer correct>Ein Ausdruck der Seite beinhaltet nur den Hauptbereich ohne sonstige Elemente</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 1.4">
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                a) Damit die Eigenschaften eines Elements mit einem Container Query abgefragt werden können, sollte
+                                dem Element im Stylesheet ein Container-Name zugewiesen werden.
+                            </lsx-question-text>
+
+                            <lsx-question-line>
+                                <lsx-answer correct>Wahr</lsx-answer>
+                                <lsx-answer>Falsch</lsx-answer>
+                            </lsx-question-line>
+                        </lsx-question>
+
+                        <lsx-question type="multiple-choice">
+                            <lsx-question-text>
+                                b) Elementen, deren Größe mit einem Container Query abgefragt wird, muss im Stylesheet …
+                            </lsx-question-text>
+    
+                            <lsx-answer correct>mit <code>container-name: mein-name;</code> ein Name zugewiesen werden.</lsx-answer>
+                            <lsx-answer correct>die Eigenschaft <code>container-type: size;</code> zugewiesen werden.</lsx-answer>
+                            <lsx-answer>eine explizite Breite, zum Beispiel mit <code>width</code> oder durch eine Flexbox zugewiesen werden.</lsx-answer>
+                            <lsx-answer correct>eine explizite Höhe, zum Beispiel mit <code>height</code> oder durch eine Flexbox zugewiesen werden.</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question type="multiple-choice">
+                            <lsx-question-text>
+                                <p>
+                                    c) Was bewirken die folgenden Zeilen?
+                                </p>
+                                <source-code language="css">
+                                    section {
+                                        container-type: size;
+                                        container-name: article-section;
+                                        height: 2.5em;
+                                    }
+
+                                    @container article-section (orientation: portrait) {
+                                        img {
+                                            transform: rotate(-90deg);
+                                        }
+                                    }
+                                </source-code>
+                            </lsx-question-text>
+
+                            <lsx-answer>Es wird ein Media Query definiert.</lsx-answer>
+                            <lsx-answer correct>Es wird ein Container Query definiert.</lsx-answer>
+                            <lsx-answer>Es wird die Höhe der ausgewählten Elemente geprüft.</lsx-answer>
+                            <lsx-answer correct>Es wird geprüft das Seitenverhältnis der ausgewählten Elemente geprüft.</lsx-answer>
+                            <lsx-answer correct>Wenn der Query zutrift, werden die enthaltenen Bilder im -90° gedreht.</lsx-answer>
+                            <lsx-answer>Wenn der Query zutrift, werden die enthaltenen Bilder kleiner dargestellt.</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Hast du bis hierhin gut aufgepasst? 🐘 Dann sollte das folgende
+            Quiz für dich ein Kinderspiel sein. 🎲
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>

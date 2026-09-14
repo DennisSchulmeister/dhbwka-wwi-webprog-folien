@@ -1,0 +1,402 @@
+<section data-title="Einführendes Beispiel">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Gewünschtes Ergebnis">
+                <div id="einfuehrung-screenshot2">
+                    <!-- Beispiel Start -->
+                    <style>
+                        #einfuehrung-screenshot2 header,
+                        #einfuehrung-screenshot2 footer {
+                            background-color: #0A0A0A;
+
+                            border-style: solid;
+                            border-color: black;
+                            border-width: 0;
+                            border-bottom-width: 2px;
+
+                            padding: 0.5em;
+                            color: white;
+                            font-size: 95%;
+                        }
+
+                        #einfuehrung-screenshot2 header h2 {
+                            font-size: 150%;
+                            text-align: center;
+                            margin: 0;
+
+                            color: white;
+                            text-shadow: 1px 1px 1px rgba(255,255,255, 0.5);
+                        }
+
+                        #einfuehrung-screenshot2 header nav > ul {
+                            list-style: none;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        #einfuehrung-screenshot2 header nav > ul > li {
+                            display: inline-block;
+                            margin-right: 1em;
+                        }
+
+                        #einfuehrung-screenshot2 header a,
+                        #einfuehrung-screenshot2 header a:visited {
+                            color: rgb(221, 218, 218);
+                            text-decoration: none;
+                        }
+
+                        #einfuehrung-screenshot2 header a:hover {
+                            color: white;
+                        }
+
+                        #einfuehrung-screenshot2 .main {
+                            background-color: rgb(230, 230, 230);
+                            padding: 0.5em 0.5em 5em 0.5em;
+                        }
+
+                        #einfuehrung-screenshot2 .card {
+                            display: inline-block;
+                            margin: 0.5em;
+                            width: 30%;
+
+                            border: 1px solid darkgrey;
+                            border-radius: 0.5em;
+                            background: rgba(245, 245, 245);
+                            padding: 0.5em;
+
+                            transition: transform 0.5s, background 0.5s;
+                            transform: scale(1);
+                        }
+
+                        #einfuehrung-screenshot2 .card:hover {
+                            background: white;
+                            transform: scale(1.03);
+                            cursor: pointer;
+                        }
+
+                        #einfuehrung-screenshot2 .card img {
+                            display: block;
+                            width: 100%;
+                            margin-bottom: 0.5em;
+                        }
+                    </style>
+                    <header>
+                        <h2>Faszination Klavier</h2>
+                        <nav>
+                            <ul>
+                                <li> <a>Startseite</a> </li>
+                                <li> <a>Das richtige Klavier finden</a> </li>
+                                <li> <a>Spielen mit zwei Händen</a> </li>
+                                <li> <a>Musizieren vor Publikum</a> </li>
+                                <li> <a>Impressum</a> </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <div class="main">
+                        <h3>Wählen Sie eine Kategorie</h3>
+
+                        <div class="card">
+                            <img src="2-html_css/2-layouts/einfuehrendes-beispiel/piano1.jpg" />
+                            <b>Das richtige Klavier finden</b>
+                        </div>
+                        <div class="card">
+                            <img src="2-html_css/2-layouts/einfuehrendes-beispiel/piano2.jpg" />
+                            <b>Spielen mit zwei Händen</b>
+                        </div>
+                        <div class="card">
+                            <img src="2-html_css/2-layouts/einfuehrendes-beispiel/piano3.jpg" />
+                            <b>Musizieren vor Publikum</b>
+                        </div>
+                    </div>
+                    <footer>
+                        © Online-Klavierschule Pia Nist, Karlsruhe
+                    </footer>
+                    <!-- Beispiel Ende -->
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="HTML-Quellcode">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8"&gt;
+                            &lt;title&gt;Faszination Klavier&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;!-- Kopfbereich --&gt;
+                            &lt;header&gt;
+                            &lt;!-- Name des Unternehmens --&gt;
+                                &lt;h2&gt;Faszination Klavier&lt;/h2&gt;
+
+                                &lt;!-- Navigationsmenü --&gt;
+                                &lt;nav&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt; &lt;a&gt;Startseite&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a&gt;Das richtige Klavier finden&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a&gt;Spielen mit zwei Händen&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a&gt;Musizieren vor Publikum&lt;/a&gt; &lt;/li&gt;
+                                        &lt;li&gt; &lt;a&gt;Impressum&lt;/a&gt; &lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/nav&gt;
+                            &lt;/header&gt;
+
+                            &lt;!-- Hauptbereich --&gt;
+                            &lt;main&gt;
+                                &lt;h3&gt;Wählen Sie eine Kategorie&lt;/h3&gt;
+
+                                &lt;div class="card"&gt;
+                                    &lt;img src="2-html_css/piano1.jpg" /&gt;
+                                    &lt;b&gt;Das richtige Klavier finden&lt;/b&gt;
+                                &lt;/div&gt;
+                                &lt;div class="card"&gt;
+                                    &lt;img src="2-html_css/piano2.jpg" /&gt;
+                                    &lt;b&gt;Spielen mit zwei Händen&lt;/b&gt;
+                                &lt;/div&gt;
+                                &lt;div class="card"&gt;
+                                    &lt;img src="2-html_css/piano3.jpg" /&gt;
+                                    &lt;b&gt;Musizieren vor Publikum&lt;/b&gt;
+                                &lt;/div&gt;
+                            &lt;/main&gt;
+
+                            &lt;!-- Abspann --&gt;
+                            &lt;footer&gt;
+                                © Online-Klavierschule Pia Nist, Karlsruhe
+                            &lt;/footer&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aussehen bisher">
+            <header>
+                    <h2 style="color: black">Faszination Klavier</h2>
+                </header>
+                <div>
+                    <h3>Wählen Sie eine Kategorie</h3>
+
+                    <div>
+                        <img src="2-html_css/2-layouts/einfuehrendes-beispiel/piano1.jpg" />
+                        <b>Das richtige Klavier finden</b>
+                    </div>
+                    <div>
+                        <img src="2-html_css/2-layouts/einfuehrendes-beispiel/piano2.jpg" />
+                        <b>Spielen mit zwei Händen</b>
+                    </div>
+                    <div>
+                        <img src="2-html_css/2-layouts/einfuehrendes-beispiel/piano3.jpg" />
+                        <b>Musizieren vor Publikum</b>
+                    </div>
+                </div>
+                <footer>
+                    © Die Online-Klavierschule
+                    <nav>
+                        <ul>
+                            <li> <a>Startseite</a> </li>
+                            <li> <a>Das richtige Klavier finden</a> </li>
+                            <li> <a>Spielen mit zwei Händen</a> </li>
+                            <li> <a>Musizieren vor Publikum</a> </li>
+                            <li> <a>Impressum</a> </li>
+                        </ul>
+                    </nav>
+                </footer>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Stylesheet einbinden">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            …
+                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            …
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="CSS-Quellcode">
+                <source-code language="css">
+                    html, body {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    header, footer {
+                        background-color: #0A0A0A;
+
+                        border-style: solid;
+                        border-color: black;
+                        border-width: 0;
+                        border-bottom-width: 2px;
+
+                        padding: 0.5em;
+                        color: white;
+                        font-size: 95%;
+                    }
+
+                    header h2 {
+                        font-size: 150%;
+                        text-align: center;
+                        margin: 0;
+
+                        color: white;
+                        text-shadow: 1px 1px 1px rgba(255,255,255, 0.5);
+                    }
+
+                    header nav &gt; ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    header nav &gt; ul &gt; li {
+                        display: inline-block;
+                        margin-right: 1em;
+                    }
+
+                    a, a:visited {
+                        color: rgb(221, 218, 218);
+                        text-decoration: none;
+                    }
+
+                    a:hover {
+                        color: white;
+                    }
+
+                    main {
+                        background-color: rgb(230, 230, 230);
+                        padding: 0.5em 0.5em 5em 0.5em;
+                    }
+
+                    .card {
+                        display: inline-block;
+                        margin: 0.5em;
+                        width: 30%;
+
+                        border: 1px solid darkgrey;
+                        border-radius: 0.5em;
+                        background: rgba(245, 245, 245);
+                        padding: 0.5em;
+
+                        transition: transform 0.5s, background 0.5s;
+                        transform: scale(1);
+                    }
+
+                    .card:hover {
+                        background: white;
+                        transform: scale(1.03);
+                        cursor: pointer;
+                    }
+
+                    .card img {
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 0.5em;
+                    }
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <p>
+            <small>
+                <small>
+                    Bildnachweise:
+                    <a href="https://pixabay.com/en/wooden-furniture-piano-organ-2561950/" target="_blank">Pixabay: StockSnap</a>,
+                    <a href="https://pixabay.com/en/piano-keyboard-instrument-musical-2564908/" target="_blank">Pixabay: StockSnap</a>,
+                    <a href="https://pixabay.com/en/manhattan-concert-solo-piano-park-1674404/" target="_blank">Pixabay: Robert_z_Ziemi</a>
+                </small>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            HTML wurde ursprünglich als Markupsprache für Textdokumente entwickelt, ohne Fokus
+            auf die genaue Darstellung. Solange Überschriften und Absätze grob übereinstimmten,
+            genügten die eingebauten Browser-Regeln. Diese erfüllen jedoch kaum noch die Anforderungen
+            moderner Webanwendungen. CSS ermöglicht es uns daher, die vordefinierten Browser-Stile zu
+            überschreiben und eigene Regeln festzulegen, auf diese Weise ansprechende Layouts zu gestalten.
+        </p>
+        <p>
+            Voraussetzung dafür ist allerdings eine gut strukturierte HTML-Datei. Das hier gezeigte
+            Beispiel zeigt, wie es geht. Hierfür stellen wir uns vor, die Webseite einer Klavierschule
+            zu bauen. Diese soll aus einem Kopfbereich mit dem Namen der Schule und Navigationsmenü,
+            einem Hauptbereich mit einer Überschrift und ein paar Bildern sowie einem Abspann mit den
+            Pflichtangaben und bestehen. Diese Struktur müssen wir versuchen, möglichst einfach in
+            HTML zu definieren, wobei wir hier von oben nach unten und links nach rechts vorgehen können:
+        </p>
+
+        <source-code language="html">
+            &lt;header&gt;
+                &lt;h2&gt;Faszination Klavier&lt;/h2&gt;
+                &lt;nav&gt; … &lt;/nav&gt;
+            &lt;/header&gt;
+        
+            &lt;main&gt; … &lt;/main&gt;
+            &lt;footer&gt; … &lt;/footer&gt;
+        </source-code>
+
+        <p>
+            Im hier gezeigten Beispiel wurde dabei großer Wert <b>semantischen Markup-Code</b> gelegt,
+            was bedeutet, dass die verwendeten HTML-Elemente die Intention der Darstellung möglichst
+            gut beschreiben. Dies macht den Quellcode leserlicher und hilft auch assistiven Technologien
+            wie Screenreadern, die Seitenstruktur besser zu verstehen.
+        </p>
+
+        <p>
+            Dies bildet die Grundlage für das Stylesheet, indem die Elemente im nächsten Schritt ausgewählt
+            und mit Darstellungsoptionen versehen werden können. Ohne Stylesheet sieht die Seite natürlich
+            sehr unfertig und überhaupt nicht wie gewünscht ist. Mit einfachen Regeln wie den folgenden,
+            kann dies aber leicht geändert werden.
+        </p>
+
+        <source-code language="css">
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            header, footer {
+                background-color: #0A0A0A;
+            
+                border-style: solid;
+                border-color: black;
+                border-width: 0;
+                border-bottom-width: 2px;
+            
+                padding: 0.5em;
+                color: white;
+                font-size: 95%;
+            }
+        </source-code>
+
+        <p>
+            Dabei zeigt sich auch schon die Syntax von CSS. Ein Stylesheet besteht immer aus einem oder
+            mehreren, durch geschweifte Klammern eingeschlossene Blöcke. Vor den Klammern steht ein so
+            genannter <b>Selektor</b> zur Auswahl der gewünschten HTML-Elemente. Innerhalb der Klammern
+            stehen Name-Wert-Paare zur Definition ihrer <b>Eigenschaften</b>. Diese werden immer in der
+            Form <src-code language="css">name: wert;</src-code> geschrieben.
+        </p>
+
+        <p>
+            Aktiv wird das Stylesheet allerdings erst, wenn es mit der HTML-Datei verknüpft wird,
+            wofür ein Verweis auf die CSS-Datei in den HTML-Code eingebaut werden muss. Dies erfolgt
+            mit folgenden Zeilen im Kopfteil der Seite:
+        </p>
+
+        <source-code language="html">
+            &lt;head&gt;
+                …
+                &lt;link rel="stylesheet" href="style.css" /&gt;
+            &lt;/head&gt;
+        </source-code>
+
+        <p>
+            Wenn alles gut geht, sieht das Ergebnis dann wie hier gezeigt aus. Wenn nicht: Probieren,
+            probieren, probieren. 🙃
+        </p>
+    </aside>
+</section>

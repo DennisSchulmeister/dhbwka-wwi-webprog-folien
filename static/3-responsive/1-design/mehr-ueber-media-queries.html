@@ -1,0 +1,399 @@
+<section data-title="Mehr über Media Queries">
+    <article>
+        <p>
+            Media Queries ermöglichen es, einfache Fallunterscheidungen in einem Stylesheet vorzunehmen,
+            indem die Eigenschaften des Ausgabegeräts abgefragt werden. Somit lassen sich Layoutregeln
+            speziell für Smartphones oder die Druckausgabe erzeugen.
+        </p>
+
+        <lsx-accordion>
+            <lsx-accordion-page>
+                <lsx-accordion-title>
+                    <b>Syntaxbeschreibung</b>
+                </lsx-accordion-title>
+
+                <source-code language="css">
+                    ausgabemedium (eigenschaft: wert)
+                </source-code>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ausgabemedium</th>
+                            <th>Beschreibung</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td><tt>all</tt></td>
+                        <td>Alle Geräte, keine Einschränkung</td>
+                    </tr>
+                    <tr>
+                        <td><tt>screen</tt></td>
+                        <td>Bildschirm</td>
+                    </tr>
+                    <tr>
+                        <td><tt>print</tt></td>
+                        <td>Drucker</td>
+                    </tr>
+                    <tr>
+                        <td><tt>speech</tt></td>
+                        <td>Sprachsynthesizer</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" style="padding: 1em"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Eigenschaft</th>
+                        <th>Beschreibung</th>
+                    </tr>
+                    <tr>
+                        <td><tt>width</tt></td>
+                        <td>Exakte Breite</td>
+                    </tr>
+                    <tr>
+                        <td><tt>min-width</tt></td>
+                        <td>Mindestbreite</td>
+                    </tr>
+                    <tr>
+                        <td><tt>max-width</tt></td>
+                        <td>Maximalbreite</td>
+                    </tr>
+                    <tr>
+                        <td><tt>height</tt></td>
+                        <td>Exakte Höhe</td>
+                    </tr>
+                    <tr>
+                        <td><tt>min-height</tt></td>
+                        <td>Mindesthöhe</td>
+                    </tr>
+                    <tr>
+                        <td><tt>max-height</tt></td>
+                        <td>Maximalhöhe</td>
+                    </tr>
+                    <tr>
+                        <td><tt>aspect-ratio</tt></td>
+                        <td>Seitenverhältnis</td>
+                    </tr>
+                    <tr>
+                        <td><tt>orientation</tt></td>
+                        <td><tt>portrait</tt> (Hochformat), <tt>landscape</tt> (Querformat)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">…</td>
+                    </tr>
+                </table>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page>
+                <lsx-accordion-title>
+                    <b>Beispiele</b>
+                </lsx-accordion-title>
+
+                <src-code language="css">all (min-width: 800px)</src-code>
+                <p>
+                    Alle Ausgabemedien mit einer Mindestbreite von 800 Pixeln.
+                </p>
+
+                <src-code language="css">(min-width: 800px)</src-code>
+                <p>
+                    Dasselbe wie oben. Wenn alle Medien gemeint sind, kann das <code>all</code> fehlen.
+                </p>
+
+                <src-code language="css">print</src-code>
+                <p>
+                    Ausgabe auf dem Drucker. In diesem Fall bitte alle überflüssigen Elemente mit <src-code language="css">display: none</src-code> ausblenden.
+                </p>
+
+                <src-code language="css">(orientation: landscape), (min-width: 1024px)</src-code>
+                <p>
+                    ODER-Verknüpfung mehrerer Prüfungen.
+                </p>
+
+                <src-code language="css">screen (max-width: 600px) and screen (orientation: landscape)</src-code>
+                <p>
+                    UND-Verknüpfung mehrerer Prüfungen.
+                </p>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page>
+                <lsx-accordion-title>
+                    <b>Responsive Breakpoints</b>
+                </lsx-accordion-title>
+
+                <lsx-info-box>
+                    Gute Grenzwerte zur Prüfung der Bildschirmgröße zu finden, ist nicht leicht.
+                    Die folgenden Werte, welche die Bootstrap-Entwickler durch umfangreiche Tests
+                    ermittelt haben, bieten einen guten Anhaltspunkt.
+                </lsx-info-box>
+
+                <src-code language="css">(max-width: 768px)</src-code>
+                <p>
+                    Kleine Geräte und Smartphones
+                </p>
+
+                <src-code language="css">(min-width: 768px)</src-code>
+                <p>
+                    Mittlere Geräte und Tablets
+                </p>
+
+                <src-code language="css">(min-width: 992px)</src-code>
+                <p>
+                    Sehr große Tablets oder kleine Computerbildschirme
+                </p>
+
+                <src-code language="css">(min-width: 1200px)</src-code>
+                <p>
+                    Große Computerbildschirme und Fernseher
+                </p>
+
+                <p>
+                    <small>
+                        <small>
+                            Quelle: <a href="https://getbootstrap.com/docs/4.0/layout/overview/" target="_blank">Bootstrap-Dokumentation</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-accordion-page>
+        </lsx-accordion>
+
+        <lsx-tab-pages class="mt-4">
+            <lsx-tab-page title="Gerätespezifische Stylesheets">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;!-- Automatische Verkleinerung der Seite auf mobilen Geräten deaktivieren --&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                            &lt;!-- Allgemeines Stylesheet für alle Ausgabemedien --&gt;
+                            &lt;link rel="stylesheet" href="common.css"/&gt;
+
+                            &lt;!-- Medienabhängige Stylesheets mit zusätzlichen Anweisungen --&gt;
+                            &lt;link rel="stylesheet" media="print" href="print.css"/&gt;
+                            &lt;link rel="stylesheet" media="screen and (min-width: 40em)" href="desktop.css"/&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            ...
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Gerätespezifische Regeln">
+                <source-code language="css">
+                    @import url(desktop.css) screen (min-width: 60em);
+                </source-code>
+                <p>
+                    Hier wird ein anderes Stylesheet eingelesen. Aber nur, wenn die
+                    Webseite auf einem Bildschirm mit mindestens <tt>60em</tt> Breite
+                    dargestellt wird.
+                </p>
+                <hr />
+
+                <source-code language="css">
+                    @media print {
+                        header, footer {
+                            display: block;
+                            background: none;
+                            color: black;
+                        }
+                    }
+                </source-code>
+                <p>
+                    Sorgt dafür, dass bestimmte Elemente beim Drucken untereinander
+                    stehen und keinen Hintergrund haben.
+                </p>
+                <hr />
+
+                <source-code language="css">
+                    @media screen (min-width: 800px) {
+                        #main_parent {
+                            display: flex;
+                        }
+                    }
+                </source-code>
+                <p>
+                    Schaltet für ein Element den Flexbox-Algorithmus ein, wenn der Bildschirm
+                    mindestens <tt>800px</tt> breit ist.
+                </p>
+                <hr />
+
+                <source-code language="css">
+                    @media (orientation: landscape) {
+                        html {
+                            background-image: url(landscape.jpg);
+                        }
+                    }
+                </source-code>
+                <p>
+                    Setzt ein spezielles Hintergrundbild, wenn die Webseite im Querformat angezeigt wird.
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Nachdem wir geräteabhängige Fallunterscheidungen anhand von Media Queries eben im
+            Video schon gesehen haben, sollen hier nun ihre Syntax und wesentlichen Funktionen
+            als Kurzreferenz dargestellt werden. Wir sehen hier nochmal in kompakter Weise, wie
+            spezifische CSS-Anweisungen in Abhängigkeit bestimmter Ausgabegeräte sowie derer
+            Eigenschaften aktiviert werden können. Wie wir aber auch sehen werden, kann man nicht
+            direkt abfragen, ob die Darstellung auf einem Smartphone, Tablet oder Desktop-Computer
+            erfolgt, da aus Sicht von CSS alle einen Bildschirm besitzen und man nur prüfen kann,
+            ob die Ausgabe zum Beispiel auf einem Bildschirm oder auf Papier erfolgt. Jedoch
+            lassen sich die Eigenschaften der Bildschirme abprüfen, was im Grunde genommen auch
+            die sinnvollere Variante ist.
+        </p>
+
+        <h2 class="dhbw-lightblue">Grundsätzliche Syntax</h2>
+        <p>
+            Media Queries prüfen immer zwei Dinge gleichzeitig ab: Das verwendete Ausgabegerät
+            sowie dessen Eigenschaften. Dementsprechend setzen sie sich aus dem Namen des zu
+            prüfenden Geräts und in Klammern dahinter zusätzlichen Prüfungen zusammen. Beide
+            Teile sind dabei optional, was entweder bedeutet, dass eine Eigenschaft für alle
+            möglichen Geräte geprüft oder nur das Gerät selbst ohne weitere Einschränkung
+            abgefragt wird. Die generelle Syntax für alle drei Formen ist:
+        </p>
+        <source-code language="css">
+            ausgabemedium (eigenschaft: wert)
+        </source-code>
+        <p>
+            Da beidete Teile optional sind, solange der jeweils andere Teil vorhanden ist,
+            sind aber auch folgende Varianten erlaubt:
+        </p>
+        <ul>
+            <li>
+                <src-code language="css">ausgabemedium</src-code>
+            </li>
+            <li>
+                <src-code language="css">(eigenschaft: wert)</src-code>
+            </li>
+        </ul>
+        <p>
+            Welche Ausgabemedien es gibt, und welche Eigenschaften für diese geprüft werden können,
+            steht im Hauptbereich dieser Seite. Beispielsweise steht das Gerät <code>screen</code>
+            für beliebige Bildschirme und <code>print</code> für die Ausgabe auf dem Drucker. Innerhalb
+            dieser Geräteklassen gibt es dann aber keine weitere Unterschiede mehr, so dass insbesondere
+            nicht einfach zwischen Smartphone, Tablet oder Desktop-Computer unterschieden werden kann.
+            Diese müssen stattdessen über ihre Eigenschaften ermittelt werden:
+        </p>
+        <ul>
+            <li>
+                <code>min-width</code>: Mindestbreite des Viewports<sup>1</sup>
+            </li>
+            <li>
+                <code>max-width</code>: Maximale Breite des Viewports<sup>1</sup>
+            </li>
+            <li>
+                <code>orientation</code>:
+                <code>portrait</code> (Hochformat), <code>landscape</code> (Querformat)
+            </li>
+            <li>
+                …
+            </li>
+        </ul>
+        <p>
+            Sollen mehrere Bedingungen gleichzeitig geprüft werden, können mehrere Media Queries
+            mit UND und ODER verknüpft werden:
+        </p>
+        <ul>
+            <li>
+                <p>
+                    <b>UND-Verknüpfung (mit <code>and</code>):</b> <br />
+                    <src-code language="css">(orientation: landscape) and (max-width: 600px)</src-code>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <b>ODER-Verknüpfung (mit Komma):</b> <br />
+                    <src-code language="css">(orientation: landscape), (min-width: 1024px)</src-code>
+                </p>
+            </li>
+        </ul>
+        <p>
+            <sup>1</sup>
+            <small>
+                Der Viewport entspricht dem sichtbaren Bereich einer Seite. In der Regel hat
+                dieser dieselbe Größe wie das Browserfenster. Im Responsive-Design-Modus kann
+                jedoch zum Testen nur der Viewport verkleinert werden, ohne das Browserfenster
+                zu verändern.
+            </small>
+        </p>
+
+        <h2 class="dhbw-lightblue">Verwendung im HTML-Code</h2>
+        <p>
+            Innerhalb von HTML können Media Queries nur an sehr wenigen Stellen direkt
+            verwendet werden. Die wichtigste davon ist das <code>&lt;link&gt;</code>-Element
+            zum Einbinden eines Stylesheets. Indem dort ein Media Query eingefügt wird,
+            können bestimmte Stylesheets nur für bestimmte Ausgabegeräte geladen werden:
+        </p>
+        <source-code language="html">
+            &lt;link
+                rel   = "stylesheet"
+                media = "print"
+                href  = "print.css"
+            /&gt;
+
+            &lt;link
+                rel   = "stylesheet"
+                media = "screen and (max-width: 40em)"
+                href  = "phone.css"
+            /&gt;
+        </source-code>
+        <p>
+            Meist wird diese Möglichkeit genutzt, um allgemeingültige Layoutangaben in einem
+            zentralen Stylesheet zu verpacken und zusätzlich zu diesem gerätespezische
+            Stylesheets nachzuladen. Oft wird es auch genutzt, um für die Bildschirmdarstellung
+            und Druckausgabe weitgehend eigenstängige Stylesheets zu definieren.
+        </p>
+
+        <h2 class="dhbw-lightblue">Verwendung im CSS-Code</h2>
+        <p>
+            Die meiste Verwendung finden Media Queries innerhalb von Stylesheets, da hier ganze
+            Regelblöcke dadurch ein- oder ausgeschaltet werden können. Dabei ist allerdings zu
+            beachten, dass dies nur auf der obersten Ebene in einem Stylesheet erlaubt ist und
+            insbesondere innerhalb der geschweiften Klammern eines Regelblocks keine Media Queries
+            erlaubt sind.<sup>2</sup> Die Prüfung selbst wird durch die Anweisung <code>@media</code>
+            wie im folgenden Beispiel eingeleitet:
+        </p>
+        <source-code language="css">
+            @media screen (min-width: 800px) {
+                html {
+                    font-size: 14pt;
+                }
+
+                #main_parent {
+                    display: flex;
+                }
+            }
+        </source-code>
+        <p>
+            Folgender Quellcode funktioniert stattdessen leider nicht:
+        </p>
+        <source-code language="css">
+            main {
+                background: white;
+                padding: 1em;
+                box-shadow: 0px 0px 2px rgba(0,0,0, 0.5);
+
+                @media screen (min-width: 800px) {
+                    display: flex;
+                }
+            }
+        </source-code>
+        <p>
+            Im Hauptbereich ist darüber hinaus noch eine Variante dargestellt, bei der
+            mit <code>@import</code> geräteabhängig weitere Stylesheets importiert
+            werden können.
+        </p>
+        <p>
+            <sup>2</sup>
+            <small>
+                Präprozessoren wie <a href="http://lesscss.org/" target="_blank">Less</a> und
+                <a href="https://sass-lang.com/" target="_blank">Sass</a> könne hier Abhilfe schaffen.
+            </small>
+        </p>
+    </aside>
+</section>

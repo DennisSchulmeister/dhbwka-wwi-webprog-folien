@@ -1,0 +1,325 @@
+<section data-title="Aufgabe 6: HTML-Elemente auswählen" data-background-color="rgb(231, 221, 141)">
+    <article id="aufgabe-css-selectoren">
+        <h2 class="placeholder">
+            Bitte Warten. Die Aufgabe wird geladen.
+        </h2>
+        <lsx-tab-pages class="invisible">
+            <lsx-tab-page title="Aufgabe">
+                <p>
+                    Gegeben sei folgender HTML-Code:
+                </p>
+
+                <div id="aufgabe-css-selectoren-code" class="mb-4 dhbw-source-colors">
+                    <script type="text/plain">
+                        1: Das <src-code language="html">&lt;body&gt;</src-code>-Element    : body / html body / html > body
+                        2: Kopf und Fußbereich der Seite                                    : header, footer / footer, header / body header, body footer / body footer, body header / body > header, body > footer / body > footer, body > header
+                        3: Das Bild mit der ID <tt>logo</tt>                                : #logo / img#logo / header img / header #logo / header img#logo / header > #logo / header > img / header > img#logo
+                        4: Die Überschrift innerhalb des Kopfbereichs                       : header h1 / header > h1
+                        5: Die Liste innerhalb des Navigationsbereichs                      : header ul / header nav ul / header > nav ul / header > nav > ul / nav ul / nav > ul
+                        6: Die Listenelemente innerhalb des Navigationsbereichs             : header li / header ul li / header nav li / neader nav ul li / nav li / nav ul li / header > nav li / header > nav ul li / header > nav > ul li / header > nav > ul > li
+                        7: Alle Überschriften im Hauptbereich                               : main h1 / main > h1 / body main h1 / body > main h1 / body main > h1 / body > main > h1
+                        8: Das Element mit der Klasse <tt>info-box</tt>                     : .info-box / div.info-box / main .info-box / main > .info-box / body main .info-box / body > main .info-box / body main > .info-box / body > main > .info-box
+                        9: Alle Absätze ohne die in der Infobox                             : main p / main > p / body main p / body > main p / body > main > p
+                        0: Das Emoji im Fußbereich                                          : .emoji / footer .emoji / body footer .emoji / body > footer .emoji / body footer > .emoji / body > footer > .emoji / span.emoji / footer span.emoji / footer > span.emoji / body footer span.emoji / body > footer span.emoji / body footer > span.emoji / body > footer > span.emoji
+                        ---
+                                            |<!DOCTYPE html>
+                                            |<html>
+                                            |    <head>
+                                            |        <meta charset="utf-8" />
+                                            |        <title>HTML-Elemente auswählen</title>
+                                            |        <meta name="viewport" content="width=device-width, initial-scale=1" />
+                                            |        <link rel="stylesheet" href="style.css" />
+                                            |    </head>
+                        1                   |    <body>
+                        1 2                 |        <header>
+                        1 2 3               |            <img id="logo" src="2-html_css/logo.png" alt="" />
+                        1 2   4             |            <h1>Webseiten gestalten mit Stylesheets</h1>
+                        1 2                 |            <nav>
+                        1 2     5           |                <ul>
+                        1 2     5 6         |                    <li>
+                        1 2     5 6         |                        <a href="/index.html">Startseite</a>
+                        1 2     5 6         |                    </li>
+                        1 2     5 6         |                    <li>
+                        1 2     5 6         |                        <a href="/grundlagen.html">Grundlagen zu CSS</a>
+                        1 2     5 6         |                    </li>
+                        1 2     5 6         |                    <li>
+                        1 2     5 6         |                        <a href="/responsive.html">Responsive Webdesign</a>
+                        1 2     5 6         |                    </li>
+                        1 2     5 6         |                    <li>
+                        1 2     5 6         |                        <a href="/tricks.html">Tipps und Tricks</a>
+                        1 2     5 6         |                    </li>
+                        1 2     5           |                </ul>
+                        1 2                 |            </nav>
+                        1 2                 |        </header>
+                        1                   |
+                        1                   |        <main>
+                        1           7       |            <h1>Über diese Webseite</h1>
+                        1               9   |            <p>…</p>
+                        1               9   |            <p>…</p>
+                        1                   |
+                        1                   |            <img src="2-html_css/screenshot.png" />
+                        1                   |
+                        1           7       |            <h1>Bevor wir beginnen</h1>
+                        1             8     |            <div class="info-box">
+                        1             8     |                <p>
+                        1             8     |                    Folgende Dinge benötigst du:
+                        1             8     |                </p>
+                        1             8     |                <ul>
+                        1             8     |                    <li>Einen Texteditor</li>
+                        1             8     |                    <li>Einen Browser</li>
+                        1             8     |                    <li>Etwas Zeit und Geduld</li>
+                        1             8     |                </ul>
+                        1             8     |            </div>
+                        1                   |        </main>
+                        1                   |
+                        1 2                 |        <footer>
+                        1 2                 |            © The Web Design Group – Hug your
+                        1 2               0 |            <span class="emoji">🐕</span>
+                        1 2                 |            the next time you see her.
+                        1 2                 |        </footer>
+                        1                   |    </body>
+                                            |</html>
+                    </script>
+                </div>
+
+                <p class="mb-4">
+                    Gebe die entsprechenden CSS-Selektoren ein, um folgende HTML-Elemente auszuwählen.
+                </p>
+
+                <table id="aufgabe-css-selectoren-table" class="mb-4">
+                </table>
+
+                <lsx-info-box>
+                    Bei richtiger Eingabe wird der ausgewählte HTML-Quellcode farblich hervorgehoben,
+                    so lange der Fokus auf einem der Eingabefelder steht.
+                </lsx-info-box>
+                <lsx-info-box type="warning">
+                    Versuche immer eine möglichst einfache Lösung zu finden, da die Menge der zulässigen
+                    Antworten fest einprogrammiert ist. Sonst kann es vorkommen, dass eine Antwort technisch
+                    gesehen zwar richtig ist, dennoch aber als falsch gewertet wird.
+                </lsx-info-box>
+
+                <script>
+                    window.aufgabe_css_selektoren = () => {
+                        let slideElement = document.querySelector("#aufgabe-css-selectoren");
+                        let codeElement = document.querySelector("#aufgabe-css-selectoren-code");
+                        let tableElement = document.querySelector("#aufgabe-css-selectoren-table");
+
+                        if (!slideElement || !codeElement || !tableElement) return;
+                        if (!codeElement.querySelector("script")) return;
+
+                        let code = codeElement.querySelector("script").textContent.split(/\n/);
+                        let parseHeader = true;
+                        let charCode = 96;     // a
+
+                        let cssSelectors = {
+                            // 1: ["selector", "selector", …]
+                            // 2: ["selector", "selector", …]
+                            // …
+                        };
+
+                        let inputElements = [];
+                        let checkAnswerFunctions = [];
+
+                        let iconCorrect = "<span class='icon-checkmark'></span>";
+                        let iconWrong = "<span class='icon-cross'></span>";
+
+                        let _render_table_line = (charcode, line) => {
+                            let splitted  = line.split(":");
+                            let number    = splitted[0];
+                            let question  = splitted[1];
+                            let selectors = splitted[2].split("/").map(e => e.trim());
+
+                            cssSelectors[number] = selectors;
+
+                            let trElement = document.createElement("tr");
+                            tableElement.append(trElement);
+
+                            let tdElement1 = document.createElement("td");
+                            tdElement1.innerHTML = `<b>${String.fromCharCode(charCode)})</b>`;
+                            trElement.append(tdElement1);
+
+                            let tdElement2 = document.createElement("td");
+                            tdElement2.style.textAlign = "right";
+                            tdElement2.innerHTML = `${question}:`;
+                            trElement.append(tdElement2);
+
+                            let tdElement3 = document.createElement("td");
+                            let inputElement = document.createElement("input");
+                            inputElement.setAttribute("type", "text");
+                            inputElement.classList.add("dhbw-input-source");
+                            tdElement3.append(inputElement);
+                            trElement.append(tdElement3);
+
+                            let tdElement4 = document.createElement("td");
+                            trElement.append(tdElement4);
+
+                            // Antowrt überprüfen
+                            checkAnswerFunctions.push((event) => {
+                                let correctAnswers = cssSelectors[number];
+                                let answer = event.target.value.trim().toLowerCase().replace(/\s+/g, " ");
+                                let isCorrect = answer in correctAnswers;
+
+                                codeElement.querySelectorAll(".highlight").forEach(e => e.classList.remove("highlight"));
+
+                                if (!answer) {
+                                    tdElement4.innerHTML = "";
+                                } else if (!correctAnswers.find(e => e === answer)) {
+                                    tdElement4.innerHTML = iconWrong;
+                                } else {
+                                    tdElement4.innerHTML = iconCorrect;
+                                    codeElement.querySelectorAll(`.css-${number}`).forEach(e => e.classList.add("highlight"));
+                                }
+                            });
+
+                            let checkIndex = checkAnswerFunctions.length - 1;
+
+                            inputElement.addEventListener("input", event => {
+                                checkAnswerFunctions[checkIndex](event);
+                            });
+
+                            inputElement.addEventListener("focus", event => {
+                                checkAnswerFunctions[checkIndex](event);
+                            })
+
+                            // Wechsel zwischen den Feldern mit Pfeiltasten
+                            inputElements.push(inputElement);
+                            let inputIndex = inputElements.length - 1;
+
+                            inputElement.addEventListener("keydown", event => {
+                                let focusIndex = inputIndex;
+
+                                switch (event.key) {
+                                    case "ArrowUp":
+                                        focusIndex--;
+                                        break;
+                                    case "ArrowDown":
+                                        focusIndex++;
+                                        break;
+                                }
+
+                                if (focusIndex < 0) focusIndex = inputElements.length - 1;
+                                else if (focusIndex >= inputElements.length) focusIndex = 0;
+
+                                let inputElement = inputElements[focusIndex];
+                                inputElement.focus();
+                            });
+                        };
+
+                        let _render_source_line = line => {
+                            let splitted = line.split("|");
+                            let numbers  = splitted[0].trim().split(" ");
+                            let codeline = splitted[1].replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+                            let codelineHtml = "";
+                            let nonWhitespaceSeen = false;
+
+                            if (codeline.length) {
+                                for (let i = 0; i < codeline.length; i++) {
+                                    let char = codeline[i];
+
+                                    if (!nonWhitespaceSeen) {
+                                        if (char !== " ") {
+                                            nonWhitespaceSeen = true;
+                                            codelineHtml = `${codelineHtml}<src-code language="html">${char}`;
+                                            continue;
+                                        } else {
+                                            codelineHtml = `&nbsp;&nbsp;${codelineHtml}`;
+                                        }
+                                    } else {
+                                        codelineHtml = `${codelineHtml}${char}`;
+                                    }
+                                }
+
+                                if (codelineHtml !== "") codelineHtml = `${codelineHtml}</src-code>`;
+                            } else {
+                                codelineHtml = `&nbsp;`;
+                            }
+
+                            let divElement = document.createElement("div");
+                            numbers.forEach(n => n ? divElement.classList.add(`css-${n}`) : false);
+                            divElement.innerHTML = codelineHtml;
+                            codeElement.append(divElement);
+                        };
+
+                        code.forEach(line => {
+                            line = line.trim();
+
+                            if (line === "---") {
+                                parseHeader = false;
+                                return;
+                            } else if (line === "") {
+                                return;
+                            }
+
+                            if (parseHeader) {
+                                _render_table_line(charCode++, line);
+                            } else {
+                                _render_source_line(line);
+                            }
+                        });
+
+                        window.dispatchEvent(new CustomEvent("ls-callback-html-changed", {
+                            detail: slideElement
+                        }));
+
+                        codeElement.querySelector("script").remove();
+                        slideElement.querySelector(".placeholder").remove();
+                        slideElement.querySelector(".invisible").classList.remove("invisible");
+                    };
+
+                    window.addEventListener("ls-slide-changed", () => {
+                        window.setTimeout(aufgabe_css_selektoren, 1000);
+                    });
+                </script>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung">
+                <p>
+                    a) <src-code language="css">body</src-code>
+                </p>
+                <p>
+                    b) <src-code language="css">header, footer</src-code>
+                </p>
+                <p>
+                    c) <src-code language="css">#logo</src-code>
+                </p>
+                <p>
+                    d) <src-code language="css">header h1</src-code>
+                </p>
+                <p>
+                    e) <src-code language="css">nav ul</src-code>
+                </p>
+                <p>
+                    f) <src-code language="css">nav ul li</src-code>
+                </p>
+                <p>
+                    g) <src-code language="css">main h1</src-code>
+                </p>
+                <p>
+                    h) <src-code language="css">.info-box</src-code>
+                </p>
+                <p>
+                    i) <src-code language="css">main > p</src-code>
+                </p>
+                <p>
+                    f) <src-code language="css">.emoji</src-code>
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Gleich wirst du dein erstes Stylesheet schreiben dürfen. Als Vorbereitung
+            darauf wollen wir hier aber erst die Verwendung von CSS-Selektoren zur
+            Auswahl der zu gestaltenden HTML-Elemente ausprobieren.
+        </p>
+        <img src="2-html_css/2-layouts/aufgabe-6-html-elemente-auswaehlen/mechanic.png" class="d-block w-100" style="max-width: 10em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/photos/mechanic-work-figure-funny-repair-2523250/" target="_blank">Pixabay: Alexas_Fotos</a>
+            </small>
+        </p>
+    </aside>
+</section>

@@ -1,0 +1,85 @@
+<section data-title="Übung 3: Fotobuch" data-background-color="rgb(179, 202, 223)">
+    <article>
+        <lsx-github-edit
+            class        = "mb-3"
+            url          = "3%20JavaScript/Aufgaben/Fotobuch/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/Fotobuch"
+            pages-url1   = "3%20JavaScript/Aufgaben/Fotobuch/Loesung/"
+            pages-label1 = "Musterlösung ansehen"
+        >
+        </lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Die Webseite der <a href="https://karlsruhe.dhbw.de" target="_blank">DHBW Karlsruhe</a> enthält einen
+                    schön gemachten <a href="https://www.36o.de/dhbw-karlsruhe/" target="_blank">360°-Fotorundgang</a>,
+                    auf dem man verschiedene Gebiete innerhalb und außerhalb des Campus erkunden kann. Eine dreidimensionale
+                    Projektion können wir in dieser Aufgabe zwar nicht nachbauen (auch wenn es mit
+                    <a href="https://threejs.org/" target="_blank">three.js</a> oder einer ähnlichen WebGL-Bibliothek nicht
+                    allzu schwer ist). Wir können die Seite aber wie immer als Vorlage für unsere eigenen Experimente nutzen
+                    und die wesentlichen Gestaltungsmerkmale in Form eines digitalen Fotobuchs nachbauen.
+                </p>
+
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="4-js-grundlagen/3-uebungen/bung-3-fotobuch/ub-fotobuch/screenshot-vorlage.png" caption="Vorlage"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/3-uebungen/bung-3-fotobuch/ub-fotobuch/screenshot-loesung1.png" caption="Musterlösung (Desktop)"></lsx-modal-image>
+                </div>
+
+                <p>
+                    Im unteren Bereich der Seite soll eine Reihe von Vorschaubildern zur
+                    Auswahl des aktuell sichtbaren Bildes angezeigt werden. Diese soll
+                    auf kleinen Bildschirmen auf drei Bilder bestehend aus dem aktuellen,
+                    dem vorherigen und dem nachfolgenden Bild beschränkt werden. Bei Klick
+                    auf ein Bild soll das aktuelle Hintergrundbild durch dieses Ersetzt
+                    werden, wobei der Wechsel durch eine mit CSS realisierte, animierte
+                    Überblendung erfolgen soll. Das aktuelle Vorschaubild soll visuell
+                    hervorgehoben werden, wenn die Maus darüber fährt, indem die anderen
+                    Vorschaubilder halbtransparent gemacht werden.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Vorgehensweise">
+                <p>
+                    Die zu bearbeitenden Stellen sind wie immer mit <code>TODO</code> im
+                    Quellcode gekennzeichnet und ausführlich beschrieben. Sie sollten
+                    in der durch die Nummerierung vorgegebenen Reihenfolge abgearbeitet
+                    werden:
+                </p>
+                <ol>
+                    <li>
+                        Weitere Bilder im HTML-Code deklarieren.
+                    </li>
+                    <li>
+                        Anklickbare Vorschaubilder generieren.
+                    </li>
+                    <li>
+                        Beim Start das erste Bild anzeigen.
+                    </li>
+                    <li>
+                        Hintergrundbild mit Animation wechseln.
+                    </li>
+                </ol>
+                <p>
+                    Es muss kein CSS-Code geschrieben werden. Lediglich eine Stelle im HTML-Code muss
+                    angepasst werden. Die eigentliche Arbeit liegt im JavaScript-Code, in dem einfach
+                    die TODO-Kommentare abgearbeitet werden müssen.
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Mit HTML, CSS und JavaScript kann man schon tolle Dinge machen. Im Handumdrehen entstehen
+            ansprechende User Interfaces und interaktive Anwendungen. Hier wollen wir ein kleines
+            Fotobuch zum Durchblättern von Urlaubsbildern damit programmieren. 📷
+        </p>
+        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
+            </small>
+        </p>
+    </aside>
+</section>

@@ -1,0 +1,137 @@
+<section data-title="Spaß mit Hintergrundbildern">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Gekachelter Hintergrund">
+                <source-code language="css">
+                    html {
+                        background-image: url(tiles.png);
+                    }
+                </source-code>
+                <p>
+                    Ordnet man einem beliebigen Element ein Hintergrundbild zu, wird das Bild
+                    standardmäßig wie die Kacheln im Bad so oft wiederholt, bis sie das ganze
+                    Element ausfüllen. In der Regel ordnet man es daher dem
+                    <src-code language="html">&lt;html&gt;</src-code> oder <src-code language="html">&lt;body&gt;</src-code>
+                    zu, um die ganze Seite damit auszufüllen.
+                </p>
+                <p>
+                    Vor allem in den frühen Jahren des Web hat man diesen Effekt häufig gesehen.
+                    Heute wirkt es jedoch oft altbacken und wird daher nicht mehr so oft angewendet.
+                </p>
+
+                <h3>Beispiel</h3>
+                <div class="img-thumbnail" style="height: 15em; background-image: url(2-html_css/3-fortgeschritten/spass-mit-hintergrundbildern/tiles.png);">
+                    <h4>Meine erste Webseite</h4>
+                    <p>
+                        Und sie hat sogar einen gekachelten Hintergrund, so wie früher in den 1990ern.
+                    </p>
+                    <p>
+                        Na ja, modern ist das nicht. Heute bevorzugt man eher einfarbige Hintergründe.
+                    </p>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Ein großes Hintergrundbild">
+                <source-code language="css">
+                    html {
+                        background-image: url(foto.jpg);
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: cover;
+                    }
+                </source-code>
+                <p>
+                    Die obigen CSS-Anweisungen zeigen, wie man der Seite ein Hintergrundbild zuordnen
+                    kann, das immer die volle Größe ausfüllt. Da man nicht wissen kann, welche Größe
+                    des Browserfenster später haben wird, wird um die Mitte herum alles abgeschnitten,
+                    was nicht in das Fenster passt. Das Bild wird dafür aber immer so gestreckt, dass
+                    es das ganze Fenster ausfüllt ohne zu verzerren.
+                </p>
+                <p>
+                    Dieser Effekt war in den 2010ern eine Zeit lang modern, tritt inzwischen aber
+                    nicht mehr ganz so oft auf. Wichtig ist, dass man trotz des Bildes die Schrift
+                    noch gut lesen kann.
+                </p>
+
+                <h3>Beispiel</h3>
+                <div class="img-thumbnail" style="height: 15em; background: url(2-html_css/3-fortgeschritten/spass-mit-hintergrundbildern/evening.jpg) no-repeat center center; background-size: cover;">
+                    <div style="display: inline-block; margin: 4em; background: rgba(255,255,255,0.85); border: 1px solid lightgrey; padding: 0.5em;">
+                        <h4 style="color: red; text-shadow: 1px 1px 1px darkred;">Eine moderne Seite mit Hintergrundbild</h4>
+                        Sieht irgendwie cool aus, oder?
+                    </div>
+                </div>
+
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/en/evening-tree-silhouette-background-194018/" target="_blank">Pixabay: Meitzke</a>
+                            </small>
+                    </small>
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Parallax-Effekt">
+                <source-code language="css">
+                    .ebene {
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: cover;
+                    }
+
+                    #ebene1 {
+                        background-image: url(bild1.jpg);
+                        background-attachment: fixed;
+                    }
+
+                    #ebene2 {
+                        background-image: url(bild2.jpg);
+                    }
+
+                    #ebene3 {
+                        background-image: url(bild3.jpg);
+                        background-attachment: fixed;
+                    }
+                </source-code>
+                <p>
+                    Ordnet man die Hintergrundbilder nicht der gesamten Seite sondern einzelnen
+                    untereinander stehenden Elementen zu und verwendet man dabei noch die Anweisung
+                    <src-code language="css">background-attachment: fixed;</src-code>, entsteht ein
+                    interessanter Effekt. Beim Scrollen bleibt der Hintergrunds stehen und nur der
+                    Inhalt der jeweiligen Elemente scrollt weiter. Wechselt man dabei immer ein
+                    Element mit <src-code language="css">background-attachment: fixed;</src-code>
+                    ab mit einem Element ohne diese Anweisung, entsteht ein interessanter Effekt,
+                    durch den sich ein Bild quasi über das andere schiebt.
+                </p>
+                <p>
+                    Dieser Effekt, der ebenfalls seit ca. 2010 sehr beliebt ist, nennt sich „Parallax
+                    Scrolling“. Er eignet sich am besten für One-Pager, also Webseiten, die nur aus
+                    einer langen, nach unten scrollenden Seite bestehen. Manche Webdesigner haben
+                    den Effekt mit JavaScript perfektioniert und auf die Spitze getrieben. Das Grundgerüst
+                    ist aber ziemlich einfach.
+                </p>
+                <div class="info-box">
+                    Auf mobilen Geräten funktioniert der Effekt ziemlich schlecht, da diese, um Akku
+                    zu sparen, verschiedene Optimierungen beim Scrollen anwenden, die mit
+                    <src-code language="css">background-attachment: fixed;</src-code> nicht
+                    harmonieren. Man sollte den Effekt daher durch ein „Media Query“ auf nicht-mobile
+                    Geräte beschränken.
+                </div>
+                <p>
+                    <a href="2-html_css/3-fortgeschritten/spass-mit-hintergrundbildern/parallax.html" target="_blank">Beispiel ansehen</a>
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Wenn du dich ein wenig tiefer mit CSS beschäftigen willst, siehst du hier
+            verschiedene Möglichkeiten, wie man eine Seite mit Hintergrundbildern
+            aufwerten kann.
+        </p>
+        <div class="info-box">
+            Denke aber daran, dass zu viele Hintergrundbilder die Ladezeit deiner
+            Seite erhöhen. Du solltest es daher gerade mit dem Parallax-Effekt nicht übertreiben
+            und wie zuvor gezeigt, die Dateigröße der Bilder so gut wie möglich optimieren. 🤓
+        </div>
+    </aside>
+</section>

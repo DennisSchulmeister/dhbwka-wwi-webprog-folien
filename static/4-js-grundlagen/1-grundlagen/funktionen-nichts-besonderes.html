@@ -1,0 +1,183 @@
+<section data-title="Funktionen – Nichts Besonderes">
+    <article>
+        <p>
+            Verglichen mit anderen Programmiersprachen sind Funktionen in JavaScript sehr mächtig.
+            Die Möglichkeit, eine Funktion als Referenz an eine andere Funktion zu übergeben, oder
+            Funktionen zu schreiben, die neue Funktionen als Ergebnis zurückliefern, prägen die
+            Programmierung in JavaScript nachhaltig.
+        </p>
+        <lsx-accordion class="mb-3">
+            <lsx-accordion-page title="Anatomie einer Funktionsdefinition">
+                <img src="4-js-grundlagen/1-grundlagen/funktionen-nichts-besonderes/funktionsdefinition.svg" class="b-block w-100" style="margin-bottom: 2em; max-width: 50em;" />
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Rückruffunktionen für Events">
+                <p>
+                    Häufig erwartet eine Funktion eine andere Funktion als Parameter, um
+                    diese bei Eintreten eines Ereignisses aufrufen zu können. Die aufgerufene
+                    Funktion nennt man Rückruffunktion oder auch Callback:
+                </p>
+                <source-code language="javascript">
+                    let callback = () => { … };
+                    let div = document.getElementById("theater");
+                    div.addEventListener("click", callback);
+                </source-code>
+                <p>
+                    Wichtig zu verstehen ist hier, dass die Funktion <code>callback</code> in Zeile
+                    drei nicht direkt aufgrufen, sondern als Referenz an die Methode <code>addEventListener</code>
+                    übergeben wird. Dadurch kann die Funktion zu einem späteren Zeitpunkt – wenn das überwachte
+                    Ereignis eintritt – asynchron aufgerufen werden. Da Funktionen sehr oft als Parameter an andere
+                    Funktionen übergeben oder als Event Handler eingesetzt werden müssen, lässt sich die Schreibweise
+                    noch weiter verkürzen:
+                </p>
+                <div style="margin-bottom: 2em">
+                    <source-code language="javascript">
+                        let div = document.getElementById("theater");
+                        div.addEventListener("click", () => { … });
+                    </source-code>
+                </div>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Funktionen höherer Ordnung">
+                <p>
+                    Funktionen höherer Ordnung sind Funktionen, die als Rückgabewert eine
+                    neue Funktion liefern:
+                </p>
+                <source-code language="javascript">
+                    let erzeugeFunktion = name => {
+                        return () => `Hello, ${name}!`;
+                    }
+
+                    let begruesseKitty = erzeugeFunktion("Kitty");
+                    console.log(begruesseKitty());
+                </source-code>
+                <p>
+                    Gibt auf der Konsole <tt>Hello, Kitty!</tt> aus.
+                </p>
+            </lsx-accordion-page>
+        </lsx-accordion>
+
+        <lsx-youtube video="pVnwoewvFLU"></lsx-youtube>
+        <lsx-info-box>
+            Das Video zeigt, warum Funktionen in JavaScript gewöhnliche Objekte sind und welche
+            weitreichenden Konsequenzen dies auf das gesamte Sprachdesign hat. Dies wird am Beispiel
+            von Rückruffunktionen (sog. Callbacks) für HTML-Events sowie der Definition höherer
+            Funktionen demonstriert.
+        </lsx-info-box>
+    </article>
+    <aside>
+        <p>
+            Schaust du dir die neue Schreibweise für Funktionen in JavaScript
+            genauer an, wirst du feststellen, dass sie eigentlich aus zwei
+            Teilen besteht: Einer Variablen links vom Gleichheitszeichen und
+            der eigentlichen Funktion rechts davon:
+        </p>
+        <source-code language="javascript">
+            let getBegruessung = () => {
+                let texte = [
+                    "Hallo Welt!",
+                    "Sei gegrüßt, Welt!",
+                    "Willkommen auf der Welt!",
+                    "Hi!"
+                ];
+
+                let nr = Math.floor(Math.random() * texte.length);
+                return texte[nr];
+            }
+        </source-code>
+        <p>
+            Das ist auch durchaus so beabsichtigt. Denn anders als in Java waren
+            Funktionen in JavaScript schon immer „Bürger erster Klasse“ („first-class
+            citizen“ auf englisch). Damit ist gemeint, dass Funktionen ganz normale
+            Objekte sind, die man einer Variable zuweisen oder einer anderen Funktion
+            als Parameter übergeben kann. In Java ist das nicht so. Da haben Klassen
+            und Methoden quasi einen Sonderstatus, so dass du sie zwar über ihren Namen
+            ansprechen sonst aber nichts damit machen kannst.
+        </p>
+        <p>
+            Will man in Java beispielsweise eine Methode aufrufen, deren Namen man
+            erst zur Laufzeit erfährt, muss man sich hierfür mit der „Reflection API“
+            herumschlagen. 😣 In JavaScript ist es hingegen ganz easy: 😎
+        </p>
+        <source-code language="javascript">
+            let meinObjekt = …
+            let nameDerMethode = input("Welche Methode willst du aufrufen?");
+            meinObjekt[nameDerMethode]();
+        </source-code>
+
+        <h2>Übergabe einer Rückruffunktion</h2>
+        <p>
+            Ein häufiges Muster in JavaScript ist, dass eine Funktion eine andere
+            Funktion als Parameter übergeben bekommt, um diese bei Eintreten eines
+            Ereignisses automatisch aufrufen zu können. Erinnere dich hierfür
+            zum Beispiel an den Timer aus dem <a href="#3">Vorhang-Beispiel</a>:
+        </p>
+        <source-code language="javascript">
+            window.setTimeout(
+                () => buehne.src = buehnenbilder[aktuellesBild],
+                2100
+            );
+        </source-code>
+        <p>
+            Der Methode <code>window.setTimeout</code> wird im ersten Parameter
+            eine Funktion übergeben, die nach Ablauf der Zeit automatisch aufgerufen
+            wird. Doch auch bei der Verarbeitung anderer Ereignisse kommen solche
+            Rückruffunktionen (englisch „Callbacks“) zum Einsatz:
+        </p>
+        <source-code language="javascript">
+            let image = document.getElementById("clown-image");
+            image.addEventListener("mouseover", () => image.src = "clown2.jpg");
+            image.addEventListener("mouseout", () => image.src = "clown1.jpg");
+        </source-code>
+        <img
+            src         = "4-js-grundlagen/1-grundlagen/funktionen-nichts-besonderes/clown1.jpg"
+            class       = "d-block img-responsive img-thumbnail"
+            style       = "margin: 1em 0 1em 0;"
+            onMouseOver = "event.target.src = '4-js-grundlagen/clown2.jpg'"
+            onMouseOut  = "event.target.src = '4-js-grundlagen/clown1.jpg'"
+        />
+        <p>
+            Hier wird in der ersten Zeile ein <src-code language="html">&lt;img&gt;</src-code>-Element
+            im Document Object Modul gesucht. Anschließend werden zwei Event Handler für die Ereignisse
+            <tt>mouseover</tt> (Maus fährt in das Bild hinein) und <tt>mouseout</tt> (Maus verlässt das
+            Bild wieder) registriert. Bei den Event Handlern handelt es sich dabei um an Ort und
+            Stelle definierte, namenlose Funktionen (alles ab <code>() => …</code>), die einfach den
+            Dateinamen des Bilds austauschen. So kann zum Beispiel ein Effekt realisiert werden, bei dem
+            ein weinender Clown bei Berührung zu einem lachenden Clown wird und umgekehrt. 🎭
+        </p>
+
+        <h2>Funktionen höherer Ordnung</h2>
+        <p>
+            Funktionen können noch viel mehr. Denn JavaScript ist in seinen Grundzügen
+            nicht nur objekt-orientiert sondern auch eine richtige <a href="https://de.wikipedia.org/wiki/Funktionale_Programmierung" target="_blank">
+            funktionale Programmiersprache</a>. Als solche kennt es auch Funktionen höherer
+            Ordnung, also Funktionen, die als Ergebnis eine neue Funktion zurückliefern.
+            Viele fortgeschrittene Konzepte von JavaScript basieren auf dieser Idee.
+            Zum besseren Verständnis hier ein relativ einfaches Beispiel:
+        </p>
+        <source-code language="javascript">
+            let erzeugeFunktion = (n) => {
+                return (m) => n * m;
+            }
+
+            let verdoppeln = erzeugeFunktion(2);
+            let verdreifachen = erzeugeFunktion(3);
+
+            console.log(verdoppeln(21));
+            console.log(verdreifachen(11));
+        </source-code>
+        <p>
+            Als Ergebnis gibt das Programm erst <tt>42</tt> und dann <tt>33</tt> aus.
+            Denn die Funktion <tt>erzeugeFunktion</tt> nimmt einen Paremter <tt>n</tt>
+            entgegen und erzeugt daraus eine neue Funktion, die selbst den Parameter
+            <tt>m</tt> erwartet und als Ergebnis <tt>n * m</tt> zurückliefert.
+        </p>
+        <p>
+            Dir saust der Kopf? Du findest das ziemlich kompliziert? Du hältst es
+            vielleicht sogar für höhere Magie? 🔮 Mach dir nichts daraus. Wir wollten
+            es nur mal erwähnen. Wenn dich das Thema mehr interessiert, lies dir auf
+            Wikipedia den Artikel über <a href="https://de.wikipedia.org/wiki/Closure_(Funktion)" target="_blank">
+            Closures</a> durch.
+        </p>
+    </aside>
+</section>

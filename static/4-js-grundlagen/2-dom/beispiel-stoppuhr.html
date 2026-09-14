@@ -1,0 +1,520 @@
+<section data-title="Beispiel: Stoppuhr">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Vorschau">
+                <div id="beispiel-stoppuhr-vorschau">
+                    <style>
+                        #beispiel-stoppuhr-vorschau {
+                            padding: 0;
+                            margin: 0;
+                            min-height: 100%;
+
+                            font-family: sans-serif;
+                            font-size: 14pt;
+
+                            background: linear-gradient(to bottom, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%);
+                        }
+
+                        #beispiel-stoppuhr-vorschau .toolbar {
+                            background-color: #2566A4;
+                            color: white;
+
+                            margin: 0;
+                            padding: 0;
+                            padding-left: 1rem;
+                            padding-right: 1rem;
+                        }
+
+                        #beispiel-stoppuhr-vorschau .toolbar button,
+                        #beispiel-stoppuhr-vorschau .toolbar div {
+                            background: none;
+                            border: none;
+                            outline: 0;
+
+                            color: white;
+                            font-size: 95%;
+
+                            padding: 0.75em 0.25em 0.75em 0.25em;
+                        }
+
+                        #beispiel-stoppuhr-vorschau .toolbar button:hover {
+                            background: rgba(255, 255, 255, 0.25);
+                            cursor: pointer;
+                        }
+
+                        #beispiel-stoppuhr-vorschau .toolbar button:active {
+                            padding: 0.8em 0.15em 0.7em 0.35em;
+                        }
+
+                        #beispiel-stoppuhr-vorschau .toolbar button:hover,
+                        #beispiel-stoppuhr-vorschau .toolbar button:active,
+                        #beispiel-stoppuhr-vorschau .toolbar button:focus,
+                        #beispiel-stoppuhr-vorschau .toolbar button::-moz-focus-inner {
+                            outline: 0;
+                            border: 0;
+                        }
+
+                        #beispiel-stoppuhr-vorschau .toolbar .right {
+                            float: right;
+                        }
+
+                        #beispiel-stoppuhr-vorschau .counter {
+                            text-align: center;
+                            font-size: 20em;
+                            color: darkred;
+                            text-shadow: 1px 1px 2px rgba(0,0,0,0.75);
+                        }
+                    </style>
+
+                    <script>
+                        // Aktueller Zählerstand
+                        window.beispiel_stoppuhr_vorschau_counter = 0;
+                        window.beispiel_stoppuhr_vorschau_running = false;
+                        window.beispiel_stoppuhr_vorschau_lastUpdate = 0;
+
+                        // Event Handler für den +1 Button
+                        window.beispiel_stoppuhr_vorschau_plusClicked = () => {
+                            beispiel_stoppuhr_vorschau_counter++;
+                        };
+
+                        // Event Handler für den -1 Button
+                        window.beispiel_stoppuhr_vorschau_minusClicked = () => {
+                            if (beispiel_stoppuhr_vorschau_counter > 0) {
+                                beispiel_stoppuhr_vorschau_counter--;
+                            }
+                        };
+
+                        // Event Handler für den Start/Stop-Button
+                        window.beispiel_stoppuhr_vorschau_startClicked = () => {
+                            beispiel_stoppuhr_vorschau_running = !beispiel_stoppuhr_vorschau_running;
+                            if (beispiel_stoppuhr_vorschau_running) beispiel_stoppuhr_vorschau_lastUpdate = Date.now();
+                        };
+
+                        // Funktion, die kontinuierlich die Anzeige aktualisiert
+                        // und jede Sekunde den Zähler runterzählt, wenn die Stoppuhr läuft
+                        window.beispiel_stoppuhr_vorschau_updateDisplay = () => {
+                            // Jede Sekunde den Zähler runterzählen
+                            let now = Date.now();
+
+                            if (now - beispiel_stoppuhr_vorschau_lastUpdate >= 1000) {
+                                beispiel_stoppuhr_vorschau_lastUpdate = now;
+
+                                if (beispiel_stoppuhr_vorschau_running && beispiel_stoppuhr_vorschau_counter > 0) {
+                                    beispiel_stoppuhr_vorschau_counter--;
+                                } else {
+                                    beispiel_stoppuhr_vorschau_running = false;
+                                }
+                            }
+
+                            // Aktuellen Status der Stoppuhr anzeigen
+                            let statusElement = document.querySelector("#beispiel-stoppuhr-vorschau .status");
+                            let counterElement = document.querySelector("#beispiel-stoppuhr-vorschau .counter");
+
+                            if (statusElement != null && counterElement != null) {
+                                counterElement.textContent = beispiel_stoppuhr_vorschau_counter;
+
+                                if (beispiel_stoppuhr_vorschau_running) {
+                                    statusElement.textContent = "Uhr läuft …";
+                                } else {
+                                    statusElement.textContent = "Gestoppt";
+                                }
+                            }
+
+                            // Sicherstellen, dass die Funktion kontinuierlich aufgerufen wird
+                            window.requestAnimationFrame(beispiel_stoppuhr_vorschau_updateDisplay);
+                        };
+
+                        window.requestAnimationFrame(beispiel_stoppuhr_vorschau_updateDisplay);
+                    </script>
+
+                    <div class="toolbar">
+                        <button onclick="beispiel_stoppuhr_vorschau_plusClicked()">➕ Zähler erhöhen</button>
+                        <button onclick="beispiel_stoppuhr_vorschau_minusClicked()">➖ Zähler vermindern</button>
+                        <button onclick="beispiel_stoppuhr_vorschau_startClicked()">▶ Start/Stop</button>
+
+                        <div class="status right">Gestoppt</div>
+                    </div>
+                    <div class="counter">0</div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="HTML">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Event Handler und Closures in JavaScript&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                            &lt;script src="4-js-grundlagen/script.js"&gt;&lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;div id="toolbar"&gt;
+                                &lt;button id="button-plus-one"&gt;➕ Zähler erhöhen&lt;/button&gt;
+                                &lt;button id="button-minus-one"&gt;➖ Zähler vermindern&lt;/button&gt;
+                                &lt;button id="button-start-stop"&gt;▶ Start/Stop&lt;/button&gt;
+
+                                &lt;div id="status" class="right"&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div id="counter"&gt;&lt;/div&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Stylesheet">
+                <source-code language="css">
+                    html, body {
+                        padding: 0;
+                        margin: 0;
+                        min-height: 100%;
+
+                        font-family: sans-serif;
+                        font-size: 14pt;
+                    }
+
+                    body {
+                        background: linear-gradient(to bottom, rgba(254,255,255,1) 0%,rgba(210,235,249,1) 100%);
+                    }
+
+                    #toolbar {
+                        background-color: #2566A4;
+                        color: white;
+
+                        margin: 0;
+                        padding: 0;
+                        padding-left: 1rem;
+                        padding-right: 1rem;
+                    }
+
+                    #toolbar button,
+                    #toolbar div {
+                        background: none;
+                        border: none;
+                        outline: 0;
+
+                        color: white;
+                        font-size: 95%;
+
+                        padding: 0.75em 0.25em 0.75em 0.25em;
+                    }
+
+                    #toolbar button:hover {
+                        background: rgba(255, 255, 255, 0.25);
+                        cursor: pointer;
+                    }
+
+                    #toolbar button:active {
+                        padding: 0.8em 0.15em 0.7em 0.35em;
+                    }
+
+                    #toolbar button:hover,
+                    #toolbar button:active,
+                    #toolbar button:focus,
+                    #toolbar button::-moz-focus-inner {
+                        outline: 0;
+                        border: 0;
+                    }
+
+                    #toolbar .right {
+                        float: right;
+                    }
+
+                    #counter {
+                        text-align: center;
+                        font-size: 80vmin;
+                        color: darkred;
+                        text-shadow: 1px 1px 2px rgba(0,0,0,0.75);
+                    }
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="JavaScript">
+                <source-code language="javascript">
+                    // Der Event Handler für das load-Event wird erst ausgeführt, wenn die
+                    // Seite geladen und der DOM-Baum komplett verfügbar ist.
+                    window.addEventListener("load", () =&gt; {
+                        // Lokale Variablen mit den HTML-Elementen der Seite
+                        let buttonPlusOne = document.getElementById("button-plus-one");
+                        let buttonMinusOne = document.getElementById("button-minus-one");
+                        let buttonStartStop = document.getElementById("button-start-stop");
+                        let statusElement = document.getElementById("status");
+                        let counterElement = document.getElementById("counter");
+
+                        // Aktueller Zählerstand
+                        let counter = 0;
+                        let running = false;
+                        let lastUpdate = 0;
+
+                        // Event Handler für den +1 Button
+                        buttonPlusOne.addEventListener("click", () =&gt; {
+                            counter++;
+                        });
+
+                        // Event Handler für den -1 Button
+                        buttonMinusOne.addEventListener("click", () =&gt; {
+                            if (counter &gt; 0) {
+                                counter--;
+                            }
+                        });
+
+                        // Event Handler für den Start/Stop-Button
+                        buttonStartStop.addEventListener("click", () =&gt; {
+                            running = !running;
+                            if (running) lastUpdate = Date.now();
+                        });
+
+                        // Funktion, die kontinuierlich die Anzeige aktualisiert
+                        // und jede Sekunde den Zähler runterzählt, wenn die Stoppuhr läuft
+                        let updateDisplay = () =&gt; {
+                            // Jede Sekunde den Zähler runterzählen
+                            let now = Date.now();
+
+                            if (now - lastUpdate &gt;= 1000) {
+                                lastUpdate = now;
+
+                                if (running &amp;&amp; counter &gt; 0) {
+                                    counter--;
+                                } else {
+                                    running = false;
+                                }
+                            }
+
+                            // Aktuellen Status der Stoppuhr anzeigen
+                            counterElement.textContent = counter;
+
+                            if (running) {
+                                statusElement.textContent = "Uhr läuft …";
+                            } else {
+                                statusElement.textContent = "Gestoppt";
+                            }
+
+                            // Sicherstellen, dass die Funktion kontinuierlich aufgerufen wird
+                            window.requestAnimationFrame(updateDisplay);
+                        };
+
+                        window.requestAnimationFrame(updateDisplay);
+                    });
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Hier siehst du ein komplettes Beispiel für eine einfache, kleine
+            Browser App. Unter anderem werden hier folgende Methoden verwendet:
+        </p>
+        <ul>
+            <li>
+                <src-code language="javascript">document.getElementById("…")</src-code>
+            </li>
+            <li>
+                <src-code language="javascript">window.addEventListener("load", …)</src-code>
+            </li>
+            <li>
+                <src-code language="javascript">element.addEventListener("click", …)</src-code>
+            </li>
+        </ul>
+        <p>
+            Zusätzlich siehst du hier noch folgenden Aufruf, den wir bisher noch
+            nirgends verwendet haben:
+        </p>
+        <ul>
+            <li>
+                <src-code language="javascript">window.requestAnimationFrame(…)</src-code>
+            </li>
+        </ul>
+        <p>
+            Probiere die Anwendung ruhig ein wenig aus, bevor du hier weiter liest. Wie du siehst,
+            handelt es sich um eine einfache Stoppuhr ⏰, die eine vorgegebene Anzahl an Sekunden
+            runterzählt. Mit den Knöpfen <kbd>+</kbd> und <kbd>-</kbd> kannst du die Sekunden stellen
+            und mit <kbd>▶</kbd> lässt du die Uhr laufen oder hältst sie wieder an. Ob die Uhr läuft,
+            siehst du dabei oben rechts. Sobald die Uhr auf Null steht, bleibt sie automatisch stehen.
+        </p>
+
+        <h2>Der HTML-Code</h2>
+        <p>
+            Der HTML-Code ist eigentlich ziemlich simpel. Auf der obersten Ebene gibt es gerade
+            mal zwei <src-code language="html">&lt;div&gt;</src-code>Elemente für die Toolbar
+            (der blaue Streifen am oberen Rand) und den Hauptbereich. Um sie je nach Bedarf im
+            Stylesheet oder im JavaScript-Code gezielt ansprechen zu können, haben beide eine ID.
+            Die Toolbar heißt ganz einfach „toolbar“ und der Hauptbereich heißt „counter“.
+        </p>
+        <source-code language="html">
+            &lt;div id="toolbar"&gt;
+                …
+            &lt;/div&gt;
+            &lt;div id="counter"&gt;&lt;/div&gt;
+        </source-code>
+        <p>
+            Innerhalb der Toolbar befinden sich drei Buttons zur Bedienung der Stoppuhr sowie
+            ein weiteres <src-code language="html">&lt;div&gt;</src-code>, in dem der aktuelle
+            Status (Uhr läuft oder läuft nicht) angezeigt wird. Auch diese Elemente besitzen
+            jeweils eine ID, um direkt angesprochen werden zu können.
+        </p>
+        <source-code language="html">
+            &lt;div id="toolbar"&gt;
+                &lt;button id="button-plus-one"&gt;➕ Zähler erhöhen&lt;/button&gt;
+                &lt;button id="button-minus-one"&gt;➖ Zähler vermindern&lt;/button&gt;
+                &lt;button id="button-start-stop"&gt;▶ Start/Stop&lt;/button&gt;
+
+                &lt;div id="status" class="right"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        </source-code>
+        <p>
+            Das <src-code language="html">&lt;div&gt;</src-code>-Element für den Hauptbereich ist
+            zunächst leer, da sich der Zählerstand der Uhr ja laufend ändert. Der Inhalt des Elements
+            kommt daher von JavaScript.
+        </p>
+        <source-code language="html">
+            &lt;div id="counter"&gt;&lt;/div&gt;
+        </source-code>
+
+        <h2>Das Stylesheet</h2>
+        <p>
+            Das Stylehsset schauen wir uns nicht weiter an. Schließlich ist JavaScript hier
+            der Star 🌟 und die meisten CSS-Anweisungen solltest du ganz gut nachvollziehen können.
+            Lediglich die Anweisung <src-code language="css">outline: 0</src-code> ist etwas
+            ungewöhnlich. Sie sorgt dafür, dass die Buttons in manchen Browsern keinen gestrichelten
+            Rahmen erhalten, sobald man sie anklickt.
+        </p>
+
+        <h2>Der JavaScript-Code</h2>
+        <p>
+            Das eigentlich Interessante ist der JavaScript-Code. Denn der besteht nicht, wie du
+            es vielleicht erwartet hättest, aus ein paar Funktionen und globalen Variablen, sondern
+            eigentlich nur aus einer großen Funktion, die gleich zu Anfang an das <tt>load</tt>-Ereignis
+            des <code>window</code>-Objekts gebunden wird. Davor und danach passiert nichts:
+        </p>
+        <source-code language="javascript">
+            window.addEventListener("load", () => {
+                // Hier spielt die Musik
+                …
+            });
+        </source-code>
+        <p>
+            Dadurch wird sichergestellt, dass der in der Funktion enthaltene Quellcode erst losläuft,
+            wenn die Seite vollständig geladen wurde und alle HTML-Elemente im Document Object Model
+            (dem DOM-Baum) zur Verfügung stehen. Andernfalls gäbe es eine Race Condition 🏎️, da der
+            JavaScript-Code sofort losläuft, sobald der Browser das <src-code language="html">&lt;script&gt;</src-code>-Tag
+            entdeckt. Alle HTML-Elemente nach dem <src-code language="html">&lt;script&gt;</src-code>-Tag
+            hat der Browser zu diesem Zeitpunkt aber noch nicht gesehen und daher auch noch nicht in
+            den DOM-Baum eingefügt. Das <tt>load</tt>-Ereignis wird daher erst ausgelöst, wenn alle
+            Elemete im DOM-Baum 🌴 enthalten sind.
+        </p>
+        <p>
+            Am Anfang der Funktion werden daher erst einmal alle HTML-Elemente ermittelt, die für den
+            weiteren Ablauf benötigt werden. Dies passiert hier einmalig am Anfang, da sich die Elemente
+            im weiteren Verlauf ja nicht mehr ändern und es daher Zeitverschwendung wäre, sie später immer
+            wieder aufs Neue auszulesen.¹ Die HTML-Objekte werden hierfür einfach in verschiedene, lokale
+            Variablen geschrieben:
+        </p>
+        <source-code language="javascript">
+            let buttonPlusOne = document.getElementById("button-plus-one");
+            let buttonMinusOne = document.getElementById("button-minus-one");
+            …
+        </source-code>
+        <p>
+            <small>
+                ¹ In der Praxis macht sich das allerdings kaum bemerkbar. So gesehen ist der
+                wahre Vorteil, dass der Quellcode dadurch ein wenig übersichtlicher wird.
+            </small>
+        </p>
+        <p>
+            Als nächstes folgen ein paar weitere Variablen mit dem Zustand der Stoppuhr:
+        </p>
+        <ul>
+            <li>
+                <tt><b>counter</b></tt>: Die aktuelle Sekundenzahl
+            </li>
+            <li>
+                <tt><b>running</b></tt>: Flag, ob die Uhr gerade läuft
+            </li>
+            <li>
+                <tt><b>lastUpdate</b></tt>: Zeitpunkt (in Millisekunden seit dem 01.01.1970, 0:00 Uhr), wann
+                die Anzeige zuletzt aktualisiert wurde. Diese Variable wird benötigt, um zu erkennen, wann eine
+                weitere Sekunde vergangen ist.
+            </li>
+        </ul>
+        <p>
+            Als nächstes kommen drei Event Handler für die drei Toolbar-Buttons. Zum Beispiel:
+        </p>
+        <source-code language="javascript">
+            buttonPlusOne.addEventListener("click", () =&gt; {
+                counter++;
+            });
+        </source-code>
+        <p>
+            Das Besondere hieran ist, dass innerhalb der Event-Handler-Funktionen die Variablen der äußeren Funktion
+            direkt verwendet werden können. Mit <src-code language="html">counter++</src-code> wird daher tatsächlich
+            die Sekundenzahl der Stoppuhr hochgezählt, obwohl es sich bei <tt>counter</tt> eigentlich um eine lokale
+            Variable der äußeren Funktion handelt, die der reinen Lehre nach eigentlich gar nicht mehr existieren dürfte,
+            wenn der Button angeklickt wird. 🤔 Denn eigentlich verschwinden lokale Variablen ja wieder, sobald die
+            Funktion, in der sie definiert wurden, zu Ende gelaufen ist. Dass das hier nicht so ist, liegt daran, dass
+            JavaScript <a href="https://de.wikipedia.org/wiki/Closure_(Funktion)" target="_blank">Closures</a> unterstützt
+            und deshalb erkennt, dass die Variablen auch nach dem Ende der <tt>load</tt>-Funktion noch benötigt werden.
+            Dies ist einer der Hauptunterschiede zu Java und macht viele Dinge möglich, die in Java wesentlich umständlicher
+            sind.
+        </p>
+        <p>
+            Zum Schluss kommt dann die Funktion <tt>updateDisplay</tt>, die dafür sorgt, dass die Anzeige regelmäßig
+            aktualisiert wird. Sie wird durch folgenden Kunstgriff immer wieder aufgerufen:
+        </p>
+        <source-code language="javascript">
+            let updateDisplay = () =&gt; {
+                …
+                window.requestAnimationFrame(updateDisplay);
+            }
+
+            window.requestAnimationFrame(updateDisplay);
+        </source-code>
+        <p>
+            Diesen Trick solltest du dir merken, wenn du zum Beispiel Spiele in JavaScript entwickeln willst
+            oder wenn du Animationen programmieren willst, für die CSS alleine nicht ausreicht. Was hier passiert
+            ist folgendes:
+        </p>
+        <p>
+            Der Browser hat intern eine feste Bildrate, wie oft die Anzeige pro Sekunde aktualisiert wird. Alle
+            Anzeigeänderungen und alle Animationen folgen dieser magischen Geschwindigkeit. 🎩 Mit <src-code language="javascript">
+            window.requestAnimationFrame(…);</src-code> kann daher eine JavaScript-Funktion eingeplant werden, die vor dem
+            nächsten Bildaufbau aufgerufen wird. Dadurch wird die Funktion genau einmal ausgeführt. Da unsere Stoppuhr aber
+            permanent laufen muss, plant sich die Funktion einfach immer wieder selbst ein. Dadurch wird sichergestellt, dass
+            JavaScript und das Rendering immer synchron laufen und dass gleichzeitig der Hauptthread des Browsers nicht blockiert.
+        </p>
+        <p>
+            Der Rest der <tt>updateDisplay</tt>-Funktion ist eigentlich ziemlich einfach. Im oberen Teil wird einfach die aktuelle
+            Zeit mit der Zeit des letzten Updates verglichen (Variable <tt>lastUpdate</tt>) und immer, wenn eine Sekunde vorüber
+            ist, die Stoppuhr eins runter gezählt. Ist die Stoppuhr bei Null angekommen, bleibt sie stehen und das Flag <tt>running</tt>
+            wird wieder auf <code>false</code> gesetzt.
+        </p>
+        <source-code language="javascript">
+            let now = Date.now();
+
+            if (now - lastUpdate &gt;= 1000) {
+                lastUpdate = now;
+
+                if (running &amp;&amp; counter &gt; 0) {
+                    counter--;
+                } else {
+                    running = false;
+                }
+            }
+        </source-code>
+        <p>
+            Danach folgen dann ein paar Zeilen, die einfach eine kleine Statusmeldung sowie die aktuelle Sekundenzahl anzeigen.
+            Hierfür wird das Attribut <code>textContent</code> der HTML-Elemente überschrieben, dessen Funktion auf der nächsten
+            Seite nochmal genauer erklärt wird.
+        </p>
+        <source-code language="javascript">
+            counterElement.textContent = counter;
+
+            if (running) {
+                statusElement.textContent = "Uhr läuft …";
+            } else {
+                statusElement.textContent = "Gestoppt";
+            }
+        </source-code>
+    </aside>
+</section>

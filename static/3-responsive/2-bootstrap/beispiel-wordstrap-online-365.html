@@ -1,0 +1,500 @@
+<section data-title="Beispiel: Wordstrap Online 365">
+    <article>
+        <style>
+            #wordstrap-beispiel .my-rp-background {
+                background-image: url(3-responsive/2-bootstrap/beispiel-wordstrap-online-365/wordstrap-bg.jpg);
+            }
+        </style>
+
+        <script>
+            if (!window._wordstrapShowCode) {
+                window._wordstrapShowCode = true;
+
+                window.addEventListener("message", event => {
+                    if (!event.data.command == "wordstrap-show-code") return;
+    
+                    let overlay = document.createElement("div");
+                    overlay.classList.add("lsx-modal");
+    
+                    let box = document.createElement("div");
+                    box.classList.add("p-4");
+                    box.classList.add("bg-white");
+                    box.classList.add("border");
+                    box.classList.add("shadow");
+                    box.style.overflow  = "auto";
+                    box.style.maxWidth  = "100vw";
+                    box.style.maxHeight = "100vh";
+                    overlay.appendChild(box);
+
+                    let title = document.createElement("h5");
+                    title.classList.add("mb-4");
+                    title.textContent = event.data.title;
+                    box.appendChild(title);
+
+                    let sourceCode = document.createElement("source-code");
+                    sourceCode.setAttribute("language", event.data.language);
+                    sourceCode.textContent = event.data.code;
+                    box.appendChild(sourceCode);
+    
+                    overlay.addEventListener("click", () => overlay.remove());
+    
+                    document.body.appendChild(overlay);
+                    window.dispatchEvent(new CustomEvent("ls-callback-html-changed", {detail: overlay}));
+                });
+            }
+        </script>
+
+        <lsx-ul emoji="💾">
+            <li>
+                Bootstrap bietet alle Komponenten zur Gestaltung komplexer Anwendungs-UIs.
+            </li>
+            <li>
+                Hierfür müssen HTML-Struktur und CSS-Klassen gemäß den Bootstrap-Vorgaben erstellt werden.
+            </li>
+            <li>
+                Zusätzlich können die meisten CSS-Klassen auf einzelne Geräterklassen beschränkt werden.
+            </li>
+        </lsx-ul>
+
+        <lsx-tab-pages id="wordstrap-beispiel" class="my-responsive-preview mb-1">
+            <lsx-tab-page title="Großer Bildschirm">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-screen" src="3-responsive/2-bootstrap/beispiel-wordstrap-online-365/wordstrap/index.html"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Kleiner Bildschirm">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-phone" src="3-responsive/2-bootstrap/beispiel-wordstrap-online-365/wordstrap/index.html"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="HTML-Code">
+                <!-- Bootstrap 5.3.3 -->
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="de"&gt;
+                        &lt;head&gt;
+                            &lt;title&gt;Wordstrap Online 365 – Neues Dokument&lt;/title&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+                    
+                            &lt;!-- Bootstrap --&gt;
+                            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" /&gt;
+                            &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+                    
+                            &lt;!-- Bootstrap Icons --&gt;
+                            &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" /&gt;
+                    
+                            &lt;!-- Eigenes Stylesheet --&gt;
+                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                            &lt;link rel="shortcut icon" href="favicon.svg"&gt;
+                        &lt;/head&gt;
+                        &lt;body class="user-select-none overflow-hidden
+                                    d-flex flex-column justify-content-between vh-100"&gt;
+                            &lt;!-- Kopfbereich --&gt;
+                            &lt;header&gt;
+                                &lt;!-- Titelzeile --&gt;
+                                &lt;div id="titlebar"
+                                    class="d-md-flex justify-content-between align-items-center
+                                            bg-primary text-white
+                                            p-2"
+                                    data-show-source-code&gt;
+                                    &lt;!-- App-Titel --&gt;
+                                    &lt;div id="app-title" class="fs-5 mb-2 mb-md-0"&gt;
+                                        &lt;i class="bi bi-file-earmark-richtext fs-3"&gt;&lt;/i&gt;
+                                        &lt;span class="fw-bold"&gt;Wordstrap Online 365&lt;/span&gt;
+                                    &lt;/div&gt;
+                    
+                                    &lt;!-- Dokumententitel --&gt;
+                                    &lt;div id="doc-title" class="text-md-end"&gt;
+                                        &lt;div id="doc-name" class="fw-bold" contenteditable="true"&gt;Neues Dokument&lt;/div&gt;
+                                        &lt;div id="doc-status" class="text-white-50"&gt;Ungesicherte Änderungen&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                    
+                                &lt;!-- Toolbar-Menü --&gt;
+                                &lt;div id="toolbar"&gt;
+                                    &lt;!-- Menü zum Umschalten der Toolbar --&gt;
+                                    &lt;ul class="nav nav-tabs border-0" role="tablist" data-show-source-code&gt;
+                                        &lt;li class="nav-item" role="presentation"&gt;
+                                            &lt;button id="tab-file"
+                                                    class="nav-link"
+                                                    role="tab" data-bs-toggle="offcanvas"
+                                                    data-bs-target="#menu-file" aria-controls="menu-file"&gt;
+                                                Datei
+                                            &lt;/button&gt;
+                                        &lt;/li&gt;
+                                        &lt;li class="nav-item" role="presentation"&gt;
+                                            &lt;button id="tab-start"
+                                                    class="nav-link active"
+                                                    role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#tbar-start" aria-controls="tbar-start" aria-selected="false"&gt;
+                                                Start
+                                            &lt;/button&gt;
+                                        &lt;/li&gt;
+                                        &lt;li class="nav-item" role="presentation"&gt;
+                                            &lt;button id="tab-insert"
+                                                    class="nav-link"
+                                                    role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#tbar-insert" aria-controls="tbar-insert" aria-selected="false"&gt;
+                                                Einfügen
+                                            &lt;/button&gt;
+                                        &lt;/li&gt;
+                                        &lt;li class="nav-item" role="presentation"&gt;
+                                            &lt;button id="tab-layout"
+                                                    class="nav-link"
+                                                    role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#tbar-layout" aria-controls="tbar-layout" aria-selected="false"&gt;
+                                                Layout
+                                            &lt;/button&gt;
+                                        &lt;/li&gt;
+                                        &lt;li class="nav-item" role="presentation"&gt;
+                                            &lt;button id="tab-help"
+                                                    class="nav-link"
+                                                    role="tab" data-bs-toggle="tab"
+                                                    data-bs-target="#tbar-help" aria-controls="tbar-help" aria-selected="true"&gt;
+                                                Hilfe
+                                            &lt;/button&gt;
+                                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                    
+                                    &lt;!-- Mit dem Menü umgeschaltete Toolbars --&gt;
+                                    &lt;div class="tab-content p-2"&gt;
+                                        &lt;!-- Toolbar: Start --&gt;
+                                        &lt;div id="tbar-start"
+                                            class="tab-pane show active"
+                                            role="tabpanel" aria-labelledby="tab-start"
+                                            data-show-source-code&gt;
+                                            &lt;div class="btn-toolbar" role="toolbar" aria-label="Toolbar: Start"&gt;
+                                                &lt;select id="sel-partype" class="form-select w-auto me-1" aria-label="Absatzformat"&gt;
+                                                    &lt;option value="p" selected&gt;Absatz&lt;/option&gt;
+                                                    &lt;option value="h1"&gt;Überschrift 1&lt;/option&gt;
+                                                    &lt;option value="h2"&gt;Überschrift 2&lt;/option&gt;
+                                                    &lt;option value="h3"&gt;Überschrift 3&lt;/option&gt;
+                                                &lt;/select&gt;
+                    
+                                                &lt;select id="sel-font" class="form-select w-auto me-1" aria-label="Schriftart"&gt;
+                                                    &lt;option value="sans-serif" selected&gt;Sans Serif&lt;/option&gt;
+                                                    &lt;option value="serif"&gt;Serif&lt;/option&gt;
+                                                    &lt;option value="cursive"&gt;Cursive&lt;/option&gt;
+                                                    &lt;option value="monospace"&gt;Monospace&lt;/option&gt;
+                                                &lt;/select&gt;
+                    
+                                                &lt;select id="sel-fontsize" class="form-select w-auto" aria-label="Schriftgröße"&gt;
+                                                    &lt;option value="8"&gt;8 pt&lt;/option&gt;
+                                                    &lt;option value="10" selected&gt;10 pt&lt;/option&gt;
+                                                    &lt;option value="12"&gt;12 pt&lt;/option&gt;
+                                                    &lt;option value="14"&gt;14 pt&lt;/option&gt;
+                                                    &lt;option value="16"&gt;16 pt&lt;/option&gt;
+                                                &lt;/select&gt;
+                    
+                                                &lt;!-- Toogle-Button für mobile Ansicht --&gt;
+                                                &lt;button id="btn-start-toggle" class="btn d-md-none" aria-label="Weitere Aktionen"
+                                                        data-bs-toggle="collapse" data-bs-target="#tbar-start-collapse"
+                                                        aria-controls="tbar-start-collapse" aria-expanded="false"&gt;
+                                                    &lt;i class="bi bi-three-dots"&gt;&lt;/i&gt;
+                                                &lt;/button&gt;
+                    
+                                                &lt;div id="tbar-start-collapse" class="collapse btn-toolbar d-md-flex"&gt;
+                                                    &lt;button id="btn-fontsize-inc" class="btn" aria-label="Schriftgröße vergrößern"&gt;
+                                                        &lt;i class="bi bi-plus"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;button id="btn-fontsize-dec" class="btn" aria-label="Schriftgröße verkleinern"&gt;
+                                                        &lt;i class="bi bi-dash"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;button id="btn-bold" class="btn" aria-label="Fett"&gt;
+                                                        &lt;i class="bi bi-type-bold"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;button id="btn-italic" class="btn" aria-label="Kursiv"&gt;
+                                                        &lt;i class="bi bi-type-italic"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;button id="btn-underline" class="btn" aria-label="Unterstrichen"&gt;
+                                                        &lt;i class="bi bi-type-underline"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;div class="vr ms-2 me-2"&gt;&lt;/div&gt;
+                    
+                                                    &lt;button id="btn-list-ul" class="btn" aria-label="Liste"&gt;
+                                                        &lt;i class="bi bi-list-ul"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;button id="btn-list-ol" class="btn" aria-label="Aufzählung"&gt;
+                                                        &lt;i class="bi bi-list-ol"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;button id="btn-indent-left" class="btn" aria-label="Einzug vergrößern"&gt;
+                                                        &lt;i class="bi bi-text-indent-left"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;button id="btn-indent-right" class="btn" aria-label="Einzug verringern"&gt;
+                                                        &lt;i class="bi bi-text-indent-right"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;div class="vr ms-2 me-2"&gt;&lt;/div&gt;
+                    
+                                                    &lt;button id="btn-undo" class="btn" aria-label="Rückgängig"&gt;
+                                                        &lt;i class="bi bi-arrow-90deg-left"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                    
+                                                    &lt;div class="dropdown" role="group"&gt;
+                                                        &lt;button id="btn-clipboard" class="btn dropdown-toggle" aria-label="Zwischenablage"
+                                                                data-bs-toggle="dropdown" aria-expanded="false"&gt;
+                                                            &lt;i class="bi bi-clipboard"&gt;&lt;/i&gt;
+                                                        &lt;/button&gt;
+                                                        &lt;ul class="dropdown-menu" aria-labelledby="btn-clipboard"&gt;
+                                                            &lt;li&gt;
+                                                                &lt;a id="btn-cut" class="dropdown-item" href="#"&gt;Ausschneiden&lt;/a&gt;
+                                                            &lt;/li&gt;
+                                                            &lt;li&gt;
+                                                                &lt;a id="btn-copy" class="dropdown-item" href="#"&gt;Kopieren&lt;/a&gt;
+                                                            &lt;/li&gt;
+                                                            &lt;li&gt;
+                                                                &lt;a id="btn-paste" class="dropdown-item" href="#"&gt;Einfügen&lt;/a&gt;
+                                                            &lt;/li&gt;
+                                                        &lt;/ul&gt;
+                                                    &lt;/div&gt;
+                    
+                                                    &lt;button id="btn-format" class="btn" aria-label="Format übertragen"&gt;
+                                                        &lt;i class="bi bi-brush"&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                    
+                                        &lt;!-- Toolbar: Einfügen --&gt;
+                                        &lt;div id="tbar-insert"
+                                            class="tab-pane"
+                                            role="tabpanel" aria-labelledby="tab-insert"&gt;
+                                            &lt;div class="btn-toolbar" role="toolbar" aria-label="Toolbar: Einfügen"&gt;
+                                                EINFÜGEN
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                    
+                                        &lt;!-- Toolbar: Layout --&gt;
+                                        &lt;div id="tbar-layout"
+                                            class="tab-pane"
+                                            role="tabpanel" aria-labelledby="tab-layout"&gt;
+                                            &lt;div class="btn-toolbar" role="toolbar" aria-label="Toolbar: Layout"&gt;
+                                                LAYOUT
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                    
+                                        &lt;!-- Toolbar: Hilfe --&gt;
+                                        &lt;div id="tbar-help"
+                                            class="tab-pane"
+                                            role="tabpanel" aria-labelledby="tab-help"&gt;
+                                            &lt;div class="btn-toolbar" role="toolbar" aria-label="Toolbar: Hilfe"&gt;
+                                                HILFE
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                    
+                                &lt;!-- Offcanvas-Menü: Datei --&gt;
+                                &lt;div id="menu-file"
+                                    class="offcanvas offcanvas-start"
+                                    tabindex="-1" aria-labelledby="tab-file"&gt;
+                                    &lt;div class="offcanvas-header"&gt;
+                                        &lt;h5 class="offcanvas-title"&gt;Datei&lt;/h5&gt;
+                                        &lt;button class="btn-close text-reset"
+                                                data-bs-dismiss="offcanvas"
+                                                aria-label="Schließen"&gt;
+                                        &lt;/button&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="offcanvas-body" data-show-source-code="#menu-file"&gt;
+                                        &lt;ul class="nav flex-column"&gt;
+                                            &lt;li class="nav-item"&gt;
+                                                &lt;a id="btn-new" class="nav-link ps-0 pe-0" href="#"&gt;
+                                                    Neues Dokument
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class="nav-item"&gt;
+                                                &lt;a id="btn-save-as" class="nav-link ps-0 pe-0" href="#"&gt;
+                                                    Speichern unter …
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class="nav-item"&gt;
+                                                &lt;a id="btn-export" class="nav-link ps-0 pe-0" href="#"&gt;
+                                                    Exportieren …
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class="nav-item"&gt;
+                                                &lt;a id="btn-print" class="nav-link ps-0 pe-0" href="#"&gt;
+                                                    Drucken …
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+                    
+                                        &lt;h6 class="mt-4"&gt;Zuletzt verwendet&lt;/h6&gt;
+                                        &lt;ul class="nav flex-column"&gt;
+                                            &lt;li class="nav-item"&gt;
+                                                &lt;a class="nav-link ps-0 pe-0" href="#"&gt;
+                                                    &lt;i class="bi bi-file-earmark-richtext me-1"&gt;&lt;/i&gt;
+                                                    Grundlagen des Web
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class="nav-item"&gt;
+                                                &lt;a class="nav-link ps-0 pe-3" href="#"&gt;
+                                                    &lt;i class="bi bi-file-earmark-richtext me-1"&gt;&lt;/i&gt;
+                                                    HTML und CSS
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class="nav-item"&gt;
+                                                &lt;a class="nav-link ps-0 pe-0" href="#"&gt;
+                                                    &lt;i class="bi bi-file-earmark-richtext me-1"&gt;&lt;/i&gt;
+                                                    Responsive Webdesign
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class="nav-item"&gt;
+                                                &lt;a class="nav-link ps-0 pe-0" href="#"&gt;
+                                                    &lt;i class="bi bi-file-earmark-richtext me-1"&gt;&lt;/i&gt;
+                                                    Einführung in JavaScript
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                            &lt;li class="nav-item"&gt;
+                                                &lt;a class="nav-link ps-0 pe-0" href="#"&gt;
+                                                    &lt;i class="bi bi-file-earmark-richtext me-1"&gt;&lt;/i&gt;
+                                                    App-Entwicklung mit JavaScript
+                                                &lt;/a&gt;
+                                            &lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/header&gt;
+                    
+                            &lt;!-- Bearbeitetes Dokument --&gt;
+                            &lt;main class="flex-fill p-md-3 overflow-auto
+                                        bg-secondary border-top border-bottom"
+                                data-show-source-code&gt;
+                                &lt;section class="page bg-white border m-auto p-5" contenteditable="true"&gt;
+                                    Seite 1
+                                &lt;/section&gt;
+                                &lt;section class="page bg-white border m-auto mt-3 p-5" contenteditable="true"&gt;
+                                    Seite 2
+                                &lt;/section&gt;
+                            &lt;/main&gt;
+                    
+                            &lt;!-- Statuszeile --&gt;
+                            &lt;footer class="bg-light text-muted p-2" data-show-source-code&gt;
+                                &lt;!-- Toogle-Button für mobile Ansicht --&gt;
+                                &lt;button class="navbar-toggler d-md-none"
+                                        data-bs-toggle="collapse" data-bs-target="#statusbar-content"
+                                        aria-controls="statusbar-content" aria-expanded="false"
+                                        aria-label="Statuszeile ein-/ausblenden"&gt;
+                                    &lt;i class="bi bi-list"&gt;&lt;/i&gt;
+                                &lt;/button&gt;
+                    
+                                &lt;!-- Eigentlicher Inhalt der Statuszeile --&gt;
+                                &lt;div id="statusbar-content" class="collapse d-md-block"&gt;
+                                    &lt;div class="d-flex flex-column flex-md-row align-items-end gap-md-5"&gt;
+                                        &lt;!-- Anzahl Seiten --&gt;
+                                        &lt;div&gt;
+                                            Seite &lt;span id="page-number"&gt;1&lt;/span&gt;
+                                            von &lt;span id="page-count"&gt;2&lt;/span&gt;
+                                        &lt;/div&gt;
+                    
+                                        &lt;!-- Anzahl Wörter --&gt;
+                                        &lt;div&gt;
+                                            &lt;span id="word-count"&gt;4&lt;/span&gt; Wörter
+                                        &lt;/div&gt;
+                    
+                                        &lt;!-- Sprache --&gt;
+                                        &lt;div id="doc-language"&gt;
+                                            Deutsch (Deutschland)
+                                        &lt;/div&gt;
+                    
+                                        &lt;!-- Zoom Level --&gt;
+                                        &lt;div class="dropup ms-md-auto"&gt;
+                                            &lt;div id="zoom-level"
+                                                data-bs-toggle="dropdown" aria-expanded="false"
+                                                class="dropdown-toggle"
+                                                style="cursor: pointer;"&gt;
+                                                100%
+                                            &lt;/div&gt;
+                                            &lt;ul class="dropdown-menu" aria-labelledby="zoom-level"&gt;
+                                                &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;50%&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;75%&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;100%&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;125%&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;150%&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;175%&lt;/a&gt;&lt;/li&gt;
+                                                &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;200%&lt;/a&gt;&lt;/li&gt;
+                                            &lt;/ul&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/footer&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;                
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Stylesheet">
+                <source-code language="css">
+                    body {
+                        --bs-secondary-rgb: 240, 240, 240;
+                    }
+                    
+                    .page {
+                        max-width: calc(21.0em * 3.5);
+                        height: calc(29.7em * 3.5);
+                    }
+                    
+                    .nav-link.active {
+                        font-weight: bold;
+                    
+                        border: 0 solid rgb(var(--bs-primary-rgb)) !important;
+                        border-bottom-width: 3px !important;
+                    }
+                    
+                    #toolbar {
+                        position: relative;
+                        z-index: 100;
+                        box-shadow: 0px 1px 4px rgba(0,0,0, 0.2);
+                    }
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <p>
+            <small>
+                <small>
+                    Bildnachweis für den Hintergrund:
+                    <a href="https://pixabay.com/photos/desk-laptop-office-notebook-mac-1284085/" target="_blank">Pixabay: Pexels</a>
+                </small>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Bootstrap eignet sich hervorragend dazu, auch komplexe Anwendugns-UIs zu gestalten,
+            wie das folgende Beispiel zeigt. Hier haben wir die Benutzungsoberfläche einer typischen
+            Textverarbeitung wie Word oder LibreOffice Writer mit Bootstrap nachgebaut. Die Besonderheit
+            dabei ist, dass das Beispiel fast vollständig mit HTML ohne eigenen CSS-Code programmiert
+            wurde. Möglich machen dies die vielen CSS-Klassen von Bootstrap, mit denen die Gestaltung
+            eines HTML-Elements mit dem <code>class</code>-Attribut direkt im HTML-Quellcode erfolgen
+            und dabei sogar die aktuelle Bildschirmgröße berücksichtigen kann.
+        </p>
+        <p>
+            Natürlich macht ist der HTML-Code hier sehr viel unübersichtlicher als bei einer Version
+            mit klassischem Stylesheet. Jedoch kann man argumentieren, dass es bei komplexen Layouts
+            einfacher ist, Inhalt und Darstellung zusammen zu definieren, anstatt mit HTML und CSS
+            zwei umfangreiche, getrennte Quellcode-Dateien bearbeiten zu müssen. Moderne Frameworks
+            wie Bootstrap oder TailwindCSS gehen daher diesen Weg. Letztlich bleibt es aber eine
+            Geschmacksfrage, welchen Weg man bevorzugt.
+        </p>
+        <lsx-info-box>
+            Fahre mit der Maus über die einzelnen Bereiche des Beispiels. Wenn diese dabei farblich
+            hervorgehoben werden, kannst du sie anklicken, um ihren Quellcode zu sehen.
+        </lsx-info-box>
+    </aside>
+</section>

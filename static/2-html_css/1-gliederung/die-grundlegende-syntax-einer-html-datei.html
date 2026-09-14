@@ -1,0 +1,187 @@
+<section data-title="Die grundlegende Syntax einer HTML-Datei">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beispiel">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Beispiel für eine einfache HTML-Datei&lt;/title&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h1&gt;Eine einfache Webseite&lt;/h1&gt;
+                            &lt;p&gt;
+                                Dies ist eine &lt;u&gt;einfache&lt;/u&gt; HTML-Seite zur Verdeutlichung
+                                der grundlegenden HTML-Syntax. Wie man gut sehen kann, handelt
+                                es sich bei HTML um ein einfaches Format, das man auch ohne
+                                große Erklärungen schnell versteht.
+                            &lt;/p&gt;
+                            &lt;hr /&gt;
+                            &lt;p&gt;
+                                Programmiersprachen, die der Strukturierung einer Textdatei durch
+                                in den Text eingebettete, für Menschen lesbare Steuerinformationen
+                                dienen, nennt man &lt;a href="https://de.wikipedia.org/wiki/Auszeichnungssprache"&gt;
+                                Markup Languages&lt;/a&gt; oder Auszeichnungssprachen.
+                            &lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufbau einer Webseite">
+                <lsx-youtube video="Kkimbj_cvo4"></lsx-youtube>
+                <lsx-info-box>
+                    Das Video zeigt den grundlegenden Aufbau einer Webseite und wie beim Anlegen eines neuen
+                    Webprojekts vorgegangen werden muss.
+                </lsx-info-box>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Webseiten lokal testen">
+                <lsx-youtube video="FijXwFMqrVc"></lsx-youtube>
+                <lsx-info-box>
+                    Dieses Video zeigt, wie Webseiten mit einem lokalen Webserver getestet werden können.
+                    Denn spätestens bei der Programmierung mit JavaScript lassen sich bestimmte Funktionen
+                    nur nutzen, wenn die Seiteb tatsächlich über einen Server abgerufen und nicht einfach
+                    per Doppelklick als Datei aufgerufen werden.
+                </lsx-info-box>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Wie du siehst, ist HTML wirklich ein einfaches Format. Auch ohne ausschweifende Erklärungen
+            musst du dir nur ein wenig das Beispiel anschauen und du siehst sofort, was die wichtigsten
+            Eigenheiten sind. Sicherheitshalber erklären wir es hier aber nochmal.
+        </p>
+        <p>
+            HTML ist eine sogenannte <a href="https://de.wikipedia.org/wiki/Auszeichnungssprache" target="_blank">Markup Language</a>
+            (Auszeichnungssprache). Damit ist gemeint, dass HTML-Dateien einfache Textdateien sind, wie sie
+            mit einem einfachen Texteditor (zum Beispiel <a href="https://en.wikipedia.org/wiki/Microsoft_Notepad" target="_blank">Notepad</a>)
+            erstellt und bearbeitet werden können. Neben Buchstaben, Zahlen und Zeilenumbrüchen beinhalten
+            sie noch für Mensch und Computer lesbare Steueranweisungen, die einzelnen Abschnitten eine Bedeutung
+            zuweisen und dem Text dadurch eine Struktur geben. Weitere Beispiele für solche Sprachen sind:
+        </p>
+        <ul>
+            <li><a href="https://de.wikipedia.org/wiki/LaTeX" target="_blank">TeX und LaTeX</a></li>
+            <li><a href="http://docutils.sourceforge.net/rst.html" target="_blank">ReStructuredText</a></li>
+            <li><a href="http://markdown.de/" target="_blank">Markdown</a></li>
+            <li><a href="https://txstyle.org/" target="_blank">Textile</a></li>
+            <li><a href="https://de.wikipedia.org/wiki/Wikitext" target="_blank">Wikitext</a></li>
+            <li><a href="https://de.wikipedia.org/wiki/PostScript" target="_blank">PostScript</a></li>
+            <li><a href="https://de.wikipedia.org/wiki/Rich_Text_Format" target="_blank">Rich Text Format</a></li>
+            <li>…</li>
+        </ul>
+        <p>
+            Auszeichnungssprachen stehen im Gegensatz zu
+            <a href="https://de.wikipedia.org/wiki/Bin%C3%A4rdatei" target="_blank">Binärdateien</a>,
+            wie sie von <a href="https://de.wikipedia.org/wiki/Microsoft_Word" target="_blank">Microsoft Word</a>,
+            <a href="https://de.wikipedia.org/wiki/LibreOffice" target="_blank">Libre Office</a>
+            und anderen Programmen erstellt werden. Denn diese lassen sich nicht in einem Texteditor
+            öffnen und beinhalten auch keinen lesbaren „Quellcode“, der von Hand editiert werden kann.
+            Die Syntaxregeln von HTML sind eigentlich ganz einfach. Es gibt eigentlich nur Tags
+            (englisch „Tägs“ ausgesprochen, machmal auch HTML-Elemente genannt), die in spitzen
+            Klammern stehen, und Fließtext. Allerdings muss zwischen drei Arten von Tags unterschieden
+            werden:
+        </p>
+        <ul>
+            <li>
+                <b>Öffnende Tags:</b> Bestehen aus einem Befehl in spitzen Klammern und markieren
+                den Anfang eines Bereichs. Zum Beispiel <src-code language="html">&lt;title&gt;</src-code>,
+                <src-code language="html">&lt;body&gt;</src-code> oder
+                <src-code language="html">&lt;h1&gt;</src-code>.
+            </li>
+            <li>
+                <b>Schließende Tags:</b> Zu jedem öffnenden Tag gehört ein schließendes
+                Tag mit genau demselben Namen. Vor dem Namen steht jedoch ein Schrägstrich.
+                Sie markieren damit das Ende eines Bereichs. Zum Beispiel
+                <src-code language="html">&lt;/body&gt;</src-code>. Bei der Reihenfolge ist
+                ist auf eine korrekte Schachtelung zu achten. Dass heißt die Tags müssen immer
+                in der umgekehrten Reihenfolge geschlossen werden, wie sie geöffnet wurden.
+            </li>
+            <li>
+                <b>Sich selbst schließende Tags:</b> Ein Sonderfall sind die sich selbst
+                schließenden Tags. Dabei handelt es sich um spezielle Tags, auf die kein
+                schließendes Tag folgt. Oft erkennt man sie einem Schrägstrich hinter dem
+                Namen, der in HTML allerdings auch wegbleiben darf. Deshalb sind sowohl
+                <src-code language="html">&lt;br/&gt;</src-code> als auch
+                <src-code language="html">&lt;br&gt;</src-code> gültige, sich selbst
+                schließende Tags.
+            </li>
+        </ul>
+        <p>
+            Neben dem Namen eines Elements können (außer bei schließenden Tags) innerhalb
+            der spitzen Klammer auch Attribute stehen, die sozusagen Parameter für den
+            jeweiligen Befehl darstellen. Beispielsweise dient das Attribut <tt>href</tt>
+            beim <src-code language="html">&lt;a&gt;</src-code>-Element dazu, das Ziel
+            eines Links zu definieren.
+        </p>
+        <p>
+            Die Groß- und Kleinschreibung der Tagnamen und Attribute ist egal. Inzwischen
+            hat sich aber die Kleinschreibung als allgemeine Form eingebürgert, obwohl bis
+            Anfang der 2000er-Jahre weitgehend Großschreibung vorherrschte.
+            <a href="https://www.youtube.com/watch?v=L9EKqQWPjyo" target="_blank">Things
+            have changed</a>.
+        </p>
+        <p>
+            Darüber hinaus hat jedes HTML-Dokument einen festen Aufbau, der in der folgenden
+            Abbildung dargestellt ist:
+        </p>
+
+        <img src="2-html_css/1-gliederung/die-grundlegende-syntax-einer-html-datei/html_syntax.svg" class="d-block" style="width: 100%; margin-bottom: 1em"/>
+
+        <p>
+            Die erste Zeile sollte immer <src-code language="">&lt;!DOCTYPE html&gt;</src-code>
+            lauten. Dadurch wird definiert, dass es sich um eine HTML5-Datei unter Ausnutzung
+            aller aktuellen Browserfeatures handelt. Früher wurde diese Zeile dazu genutzt,
+            verschiedene, teilweise inkompatible HTML-Versionen zu kennzeichnen. Heutzutage ist
+            dies glücklicherweise nicht mehr erforderlich.
+        </p>
+        <p>
+            Das erste richtige Tag einer HTML-Datei ist immer das <src-code language="html">&lt;html&gt;</src-code>-Tag.
+            Man nennt es auch das Wurzelelement, da sich durch die dadurch immer eine Baumstruktur mit nur einem
+            Oberknoten ergibt. Folgerichtig muss <src-code language="html">&lt;/html&gt;</src-code> immer das letzte
+            Tag einer HTML-Datei sein. <src-code language="html">&lt;head&gt;…&lt;/head&gt;</src-code> und
+            <src-code language="html">&lt;body&gt;…&lt;/body&gt;</src-code> sind dann in genau dieser Reihenfolge
+            die einzigen beiden Elemente auf zweiter Ebene, da sie die (meist nicht sichtbaren) Metadaten sowie den
+            anzuzeigenden Inhalt einer Seite kennzeichnen.
+        </p>
+        <p>
+            Mehr Regeln gibt es im Prinzip nicht, außer dass die Zeichen <code>&lt;</code> und <code>&gt;</code> nicht
+            außerhalb von Tags vorkommen dürfen. Sie müssen stattdessen durch eine „Entitäten“ genannte
+            Ersatzschreibweise ersetzt werden:
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Zeichen</th>
+                    <th>Ersatzschreibweise</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    <code>&lt;</code>
+                </td>
+                <td>
+                    <src-code language="html">&amp;lt;</src-code>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>&gt;</code>
+                </td>
+                <td>
+                    <src-code language="html">&amp;gt;</src-code>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>&amp;</code>
+                </td>
+                <td>
+                    <src-code language="html">&amp;amp;</src-code>
+                </td>
+            </tr>
+        </table>
+    </aside>
+</section>

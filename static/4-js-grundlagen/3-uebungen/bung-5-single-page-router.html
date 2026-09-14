@@ -1,0 +1,118 @@
+<section data-title="Übung 5: Single Page Router" data-background-color="rgb(179, 202, 223)">
+    <article>
+        <lsx-github-edit
+            class        = "mb-3"
+            url          = "3%20JavaScript/Aufgaben/SPA-Router/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/SPA-Router"
+            pages-url1   = "3%20JavaScript/Aufgaben/SPA-Router/Loesung/"
+            pages-label1 = "Musterlösung ansehen"
+        >
+        </lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Streng genommen ist jede interaktive Webanwendung, die nur einmal beim Aufruf
+                    eine komplette HTML-Seite vom Server lädt und ab dann mit JavaScript im Browser
+                    läuft, eine <b>Single Page App</b>. Gemeint ist, dass nach dem ersten Aufruf nur
+                    noch Rohdaten oder Seitenfragmente vom Server abgeholt werden, die eigentliche
+                    Seite im Browser aber bestehen bleibt und zu keinem Zeitpunkt neugeladen wird.
+                </p>
+                <p>
+                    Gute Single Page Apps ändern daher  jedem Wechsel der Ansicht die in der
+                    Adresszeile des Browsers angezeigte URL und werten diese aus, um bei einem
+                    Aufruf der Anwendung sofort an die richtige Stelle zu springen. Das erhöht
+                    den Nutunzgskomfort und vereinfacht oft sogar den Quellcode, da die gesamte
+                    Navigation an zentraler Stelle abgehandelt werden kann. ♻️ Und auch die Anzeige
+                    einer Fehlerseite bei dem Versuch, eine unbekannte URL aufzurufen, lässt sich
+                    mit ganz einfach realisieren.
+                </p>
+        
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="4-js-grundlagen/3-uebungen/bung-5-single-page-router/ub-spa-router/screenshot1.png" caption="Startseite /"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/3-uebungen/bung-5-single-page-router/ub-spa-router/screenshot2.png" caption="Seite /other/"></lsx-modal-image>
+                    <lsx-modal-image src="4-js-grundlagen/3-uebungen/bung-5-single-page-router/ub-spa-router/screenshot3.png" caption="Unbekannte Seite"></lsx-modal-image>
+                </div>
+
+                <p>
+                    Die Zuordnung der darzustellenden Ansicht zu einer URL wird Routing und die
+                    Komponente, die diese Zuordnung vornimmt, wird Router oder URL-Router genannt.
+                    Single Page Apps nutzen daher einen „Single Page App Router” (kurz SPA-Router),
+                    der genau diese Aufgabe übernimmt. Jedes auf die Entwicklung von Single Page Apps
+                    spezialisierte Framework bringt einen solchen Router mit. Wie sich herausstellt,
+                    lässt sich dieser aber auch ohne Framework sehr einfach selbst realisieren,
+                    wenn man dabei auf den alten Trick zurückgreift, dass der Browser eine Seite
+                    nicht neu lädt, sofern sich an der URL nur der Anker, also der Teil nach dem
+                    ersten #-Zeichen, ändert. Die bereits fertig ausprogrammierte Klasse
+                    <code>Router</code> in dieser Aufgabe, zeigt wie das geht.
+                </p>
+                <lsx-info-box title="Hinweis">
+                    Mit etwas mehr Logik lassen sich mit derselben Technik auch URLs ohne <tt>#</tt>-Zeichen
+                    behandeln. Dies setzt allerdings einen entsprechend konfigurierten Webserver voraus, der
+                    immer den HTML-Code der Startseite liefert, auch wenn scheinbar ein Unterverzeichnis angefragt
+                    wurde. Anstelle des <code>hashchange</code>-Events müsste dann das <code>popstate</code>-Event
+                    behandelt werden.
+                </lsx-info-box>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Vorgehensweise">
+                <p>
+                    Die Nutzung der Klasse ist relativ leicht. Sie muss beim Laden der Seite instantiiert
+                    und mit einer Liste von URL-Routen versorgt werden. Jede Route beseht dabei aus einem
+                    regulären Ausdruck zum Matchen der URL sowie einer Funktion, die den angezeigten Inhalt
+                    verändert. Der Aufruf der <code>start()</code>-Methode führt dann dazu, dass die aktuelle
+                    URL ausgewertet und auf jede zukünftige URL-Änderung reagiert wird.
+                </p>
+                <p>
+                    Soll innerhalb der Anwendung die Ansicht gewechselt werden, kann das ab diesem Moment
+                    entweder durch Überschreiben von <code>location.hash</code> in JavaScript oder durch
+                    einen Link in HTML ausgelöst werden:
+                </p>
+        
+                <lsx-grid-fluid>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <lsx-info-box title="Seite wechseln in JavaScript">
+                                <source-code language="javascript">
+                                    location.hash = "other";
+                                </source-code>
+                            </lsx-info-box>
+                        </lsx-col>
+
+                        <lsx-col size="md">
+                            <lsx-info-box title="Link in HTML">
+                                <source-code language="html">
+                                    &lt;a href="#/other/"&gt;Ansicht wechseln&lt;/a&gt;
+                                </source-code>
+                            </lsx-info-box>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+
+        
+                <p>
+                    In dieser Aufgabe sollst du dies einmal selbst ausprobieren. Die Grundstruktur
+                    der Seite wurde hierfür bereits vorbereitet. Du musst lediglich die Router-Klasse
+                    wie oben beschrieben initialisieren und ein paar alternative Ansichten mit Verlinkungen
+                    untereinander realisieren. 🔗 Wie das geht, steht wie immer als Kommentar im Quellcode.
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Das sog. URL-Routing ist enscheidung für eine gut gemachte Single Page App. Denn dadurch
+            können die Unterseiten der Anwendung direkt eine URL aufgerufen und somit zum Beispiel als
+            Link per Mail verschickt oder als Lesezeichen gespeichert werden. Diese Aufgabe zeigt, wie
+            es geht, anhand einer selbstgeschriebenen <code>Router</code>-Klasse, die einfach aber
+            flexibel einsetzbar ist.
+        </p>
+        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
+            </small>
+        </p>
+    </aside>
+</section>

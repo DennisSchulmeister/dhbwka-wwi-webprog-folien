@@ -1,0 +1,350 @@
+<section data-title="Die Bestandteile des World Wide Web">
+    <article>
+        <lsx-accordion>
+            <lsx-accordion-page title="Die wichtigsten Webtechnologien heute" active>
+                <lsx-grid-fluid class="p-0">
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <h3>Von Tim Berners-Lee erfunden</h3>
+                            <ul class="dhbw-ls-none">
+                                <li>
+                                    <b>HTML:</b> Beschreibungssprache für die Dokumente und Inhalte im Web
+                                </li>
+
+                                <li>
+                                    <b>URL:</b> Formales Schema zur Adressierung aller Web-Ressourcen
+                                </li>
+
+                                <li>
+                                    <b>HTTP:</b> Übertragungsprotokoll zum Abruf der Inhalte von einem Server
+                                </li>
+                            </ul>
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <h3>Nachträglich hinzugefügt</h3>
+                            <ul class="dhbw-ls-none">
+                                <li>
+                                    <b>CSS:</b> Stylesheet-Sprache zur visuellen Gestaltung von HTML-Seiten
+                                </li>
+
+                                <li>
+                                    <b>JavaScript:</b> Programmiersprache für Anwendungslogik
+                                </li>
+
+                                <li>
+                                    <b>WebSockets:</b> Protokoll für bidirektionalen Datenaustausch
+                                </li>
+                            </ul>
+                        </lsx-col>
+                    </lsx-row>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="1-intro/2-grundlagen/die-bestandteile-des-world-wide-web/tim_berners_lee.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            Tim Berners-Lee im Jahr 2014
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://de.wikipedia.org/wiki/Tim_Berners-Lee#/media/File:Sir_Tim_Berners-Lee.jpg" target="_blank">Wikipedia</a>
+                                </small>
+                            </p>
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="1-intro/2-grundlagen/die-bestandteile-des-world-wide-web/first_web_server.jpg" class="img-thumbnail d-block" style="width: 100%" />
+                            Der erste Webserver der Welt.
+                            <p class="dhbw-fontsize-tiny">
+                                <small>
+                                    Bildnachweis: <a href="https://upload.wikimedia.org/wikipedia/commons/d/d1/First_Web_Server.jpg" target="_blank">Wikipedia</a>
+                                </small>
+                            </p>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Aufbau und Funktion von URLs">
+                <lsx-ul emoji="🧭" class="mb-4">
+                    <li>
+                        URLs adressieren die <b>aufrufbaren Ressourcen</b> des World Wide Web (oft als Dateien einer Webseite).
+                    </li>
+                    <li>
+                        Hierfür beinhalten sie die <b>Adresse eines Hosts</b> sowie den <b>Pfad</b> einer darauf befindlichen Resource.
+                    </li>
+                    <li>
+                        Zusätzlich beinhalten sie den Namen des zu verwendenden <b>Übertragungsprotokolls</b> sowie dessen <b>Portnummer</b>.
+                    </li>
+                    <li>
+                        Optional können Sie noch vom Server ausgewertete Anfrageparameter (sog. URL-Parameter) und einen Anker beinhalten.
+                    </li>
+                    <li>
+                        Namen und Bedeutung der <b>Anfrageparameter</b> können dabei vom Server beliebig interpretiert werden.
+                    </li>
+                    <li>
+                        Der <b>Anker</b> wird vom Server in der Regel ignoriert und nur vom Client ausgewertet.
+                    </li>
+                </lsx-ul>
+
+                <table class="table table-bordered mb-4">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>
+                                Protokoll
+                            </th>
+                            <th>
+                                Host
+                            </th>
+                            <th>
+                                Port
+                            </th>
+                            <th>
+                                Pfad
+                            </th>
+                            <th>
+                                Parameter
+                            </th>
+                            <th>
+                                Anker
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="dhbw-optional">
+                                <tt>https://</tt>
+                            </td>
+                            <td>
+                                <tt>karlsruhe.dhbw.de</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                <tt>:443</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                <tt>/</tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="dhbw-optional">
+                                <tt>https://</tt>
+                            </td>
+                            <td>
+                                <tt>www.wpvs.de</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                :443
+                            </td>
+                            <td>
+                                <tt>/repo/webprog/folien/<span class="dhbw-optional">index.html</span></tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <tt>http://</tt>
+                            </td>
+                            <td>
+                                <tt>localhost</tt>
+                            </td>
+                            <td>
+                                <tt>:8080</tt>
+                            </td>
+                            <td>
+                                <tt>/<span class="dhbw-optional">index.html</span></tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="dhbw-optional">
+                                <tt>https://</tt>
+                            </td>
+                            <td>
+                                <tt>www.google.de</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                <tt>:443</tt>
+                            </td>
+                            <td>
+                                <tt>/search</tt>
+                            </td>
+                            <td>
+                                <tt>?q=HTTP</tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="dhbw-optional">
+                                <tt>https://</tt>
+                            </td>
+                            <td>
+                                <tt>de.wikipedia.org</tt>
+                            </td>
+                            <td class="dhbw-optional">
+                                <tt>:443</tt>
+                            </td>
+                            <td>
+                                <tt>/wiki/Hypertext_Transfer_Protocol</tt>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                <tt>#Aufbau</tt>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    Optionale Bestandteile (in der Tabelle hellgrau):
+                </p>
+
+                <ul>
+                    <li>
+                        <b>Protokoll:</b> Fehlt dieses, wird HTTP oder HTTPS angenommen.
+                    </li>
+                    <li>
+                        <b>Port:</b> Fehlt dieser, wird die Standardportnummer des Protokolls verwendet.
+                    </li>
+                    <li>
+                        <b>Pfad:</b> Fehlt dieser, wird das Wurzelement <tt>/</tt> angenommen.
+                    </li>
+                    <li>
+                        <b>Datei:</b> Wird nur ein Verzeichnis angegeben, wird meist die Datei <tt>index.html</tt> gesucht.
+                    </li>
+                    <li>
+                        <b>Parameter:</b> Haben keinen Standardwert
+                    </li>
+                    <li>
+                        <b>Anker:</b> Hat keinen Standardwert
+                    </li>
+                </ul>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Ein kurzer Blick auf HTML">
+                <lsx-info-box>
+                    Drücke <kbd>Strg</kbd>+<kbd>U</kbd>, um den Quellcode dieser Seite als Beispiel anzuzeigen.
+                </lsx-info-box>
+                <img class="d-block w-100 dhbw-border" src="1-intro/2-grundlagen/die-bestandteile-des-world-wide-web/html_code.png" />
+            </lsx-accordion-page>
+        </lsx-accordion>
+    </article>
+    <aside>
+        <h2>Ursprünge des Web</h2>
+        <p>
+            In den folgenden Jahren machte sich Tim Berners-Lee daran, seine
+            Vision umzusetzen. Er ging also wirklich her und hat angefangen,
+            sowohl einen Webserver als auch einen Browser zu entwickeln.
+            Als Entwicklungsmaschine nutzte er hierfür einen
+            <a href="https://de.wikipedia.org/wiki/NeXTcube" target="_blank">NeXTcube</a>,
+            der für sich genommen schon eine interessante Geschichte wert
+            wäre. So viel sei an dieser Stelle aber zum NeXTcube und der Firma
+            NeXT verraten: Als Steve Jobs die von ihm mitgegründete Firma
+            Apple 1985 im Streit verließ, gründete er kurzerhand einfach
+            einen neuen Computerhersteller. 1996 wurde dieser von Apple
+            übernommen und Steve Jobs kehrte zu seiner ersten Firma zurück.
+        </p>
+        <p>
+            Doch zurück zum Thema. Bereits in seinem Aufsatz von 1989 beschreibt
+            Tim Berners-Lee die drei wesentlichen Elemente, die zusammengenommen
+            das World Wide Web ergeben (vom Internet einmal abgesehen):
+        </p>
+        <ul>
+            <li>
+                <b>HTML</b> (Hypertext Markup Language) als Beschreibungssprache zum
+                Verfassen von Webseiten. Wobei damit anfangs eher Textdokumente wie
+                zum Beispiel wissenschaftliche Artikel oder Anleitungen und weniger
+                Webseiten in modernen Sinne gemeint waren. Als Grundlage wählte er
+                daher eine bereits vorhandene Beschreibungssprache namens SGML und
+                vereinfachte diese.
+            </li>
+            <li>
+                <b>URL</b> (Uniform Resource Locator) als das formale Schema zur
+                Adressierung jener Dokumente im Web. Jedes Dokument sollte damit
+                eine weltweit eindeutige Adresse bekommen, unter der aus gefunden
+                und abgerufen werden kann.
+            </li>
+            <li>
+                <b>HTTP</b> (HyperText Transfer Protocol) als Übertragunsprotokoll,
+                mit dem Verbindung zu einem Server hergestellt werden konnte, um
+                die gewünschten Dokumente abzurufen. Im Vergleich zu heute war das
+                Protokoll dabei fast schon trivial einfach: Nach erfolgtem
+                Verbindungsaufbau sollte einfach das Wort <tt>GET</tt> gefolgt vom
+                Namen der gewünschten Datei gesendet werden, woraufhin der Server
+                mit dem Inhalt der Datei antwortete und die Verbindung beendete.
+            </li>
+        </ul>
+        <p>
+            1991 war es endlich soweit. Eine erste lauffähige Version der Software
+            war vorhanden und Tom Berners-Lee setzte den ersten Webserver mit der
+            ersten Webseite auf. Diese hatte die Adresse
+            <a href="http://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank">http://info.cern.ch/hypertext/WWW/TheProject.html</a>
+            und beschrieb einfach nur „das Projekt“, wie er es damals nannte.
+        </p>
+
+        <h2>Die Entwicklung danach</h2>
+        <p>
+            Mit dem World Wide Web hatte Tim Berners-Lee einen Zeitgeist getroffen.
+            Zwar gab es für ein paar Jahre mit <a href="https://de.wikipedia.org/wiki/Gopher" target="_blank">Gopher</a>
+            einen alternativen Informationsdienst im Internet, dieser konnte sich
+            jedoch nicht gegen die neuen multimedialen Fähigkeiten des Web durchsetzen.
+            Und so kam es, dass 1993, noch im selben Jahr, als Berners-Lee die Software
+            der Allgemeinheit zur Verfügung stellte, weltweit bereits über 500 Webserver
+            online gingen.
+        </p>
+        <p>
+            In den Folgejahren entwickelte sich eine immer größere Fangemeinde rund um das
+            Web und Tim Bernes-Lee verließ irgendwann das CERN, um das
+            <a href="https://www.w3.org/" target="_blank">W3C</a> zur Koordination
+            aller weiteren Tätigkeiten zu gründen. Das Web entwickelte sich daraufhin
+            rapide weiter, so dass gerade in den Anfangsjahren öfters neue Versionen
+            der zugrunde liegenden Technologien erschienen. Dabei hat sich natürlich
+            nicht jede Idee durchgesetzt, auch weil es oft konkurrierende Umsetzungen
+            gab. Beispielsweise gab es vor CSS mehrere Stylesheetsprachen, mit denen
+            der/die <b>Besucher*in</b> das Aussehen einer Webseite definieren konnte.
+            Aber erst die Idee, dass dies durch den/die <b>Betreiber*in</b> erfolgen
+            sollte, konnte letztlich überzeugen.
+        </p>
+        <p>
+            Für interaktive Elemente innerhalb einer Webseite wurde 1995 dann die
+            Programmiersprache <b>JavaScript</b> erfunden und im Netscape Communicator
+            (heute Firefox) eingebunden. Syntax und Namen orientieren sich an der
+            damals ebenfalls neuen Programmiersprache Java. Einsatzgebiet sollte
+            aber nicht Entwicklung plattformneutraler Anwendungen sondern die
+            anreicherung einfacher Webseiten sein. Andere Browserhersteller zogen
+            deshalb bald nach, leisteten sich aber im Falle von Microsoft auch
+            inkompatible Implementierungen, in der Hoffnung, dadurch mehr Benutzer*innen
+            zu generieren. Unterdessen setzte aber auch eine Standardisierung ein,
+            wodurch die Browser mit jeder Version immer kompatibler wurden.
+        </p>
+        <p>
+            Viele Jahre später – wir sind nun mitten in der 2000ern angekommen –
+            gab es dann nochmal eine kleine Revolution. <b>WebSockets</b> lösten
+            das bis dahin existierende Problem der bidirektionalen Kommunikation
+            zwischen Client und Server. Denn bisher konnte der Server immer nur
+            dann Daten liefern, wenn diese durch den Client durch eine HTTP-Anfrage
+            explizit angefordert wurden. WebSockets erlauben darüber hinaus aber
+            auch, eine dauerhafte Verbindung offen zu halten, so dass beide Seiten
+            jederzeit proaktiv Daten übermitteln können. Push-Nachrichten,
+            Mehrbenutzer-Chats und Browserspiele und viele mehr lassen sich dadurch
+            wesentlich einfacher als bisher realisieren.
+        </p>
+        <p>
+            Und der Rest, heißt es so schön, ist Geschichte!
+        </p>
+    </aside>
+</section>

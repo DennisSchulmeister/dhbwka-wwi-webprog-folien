@@ -1,0 +1,614 @@
+<section data-title="Änderungen an der DOM-Struktur vornehmen">
+    <article>
+        <p>
+            Die Struktur des Document Object Model kann jederzeit verändert werden. <br />
+            Der Browser stellt die Änderungen sofort auf dem Bildschirm dar.
+        </p>
+
+        <lsx-accordion>
+            <lsx-accordion-page title="Das Aussehen eines Elements verändern" active>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="javascript">mainElement.style.display = "block";</src-code> <br />
+                                <src-code language="javascript">mainElement.style.marginTop = "1em";</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em;">
+                                <p>
+                                    Jedes HTML-Element besitzt in JavaScript das Attribut <code>style</code> zur direkten
+                                    Beeinflussung seiner Darstellung. Das <code>style</code>-Attribut besitzt für jede
+                                    CSS-Anweisung ein Unterelement, mit dem Wert der entsprechenden Anweisung ausgelesen
+                                    oder überschrieben werden kann.
+                                </p>
+                                <p>
+                                    CSS-Anweisungen, die im Stylesheet mit Bindestrich geschrieben werden (zum Beispiel
+                                    <code>font-size</code>), werden in JavaScript zusammen als „Camel Case„ geschrieben
+                                    (also <code>fontSize</code>).
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">alertElement.classList.add("visible");</src-code> <br />
+                                <src-code language="javascript">alertElement.classList.remove("warning");</src-code> <br />
+                                <src-code language="javascript">if (alertElement.classList.contains("fade-in")) { … }</src-code>
+                            </dt>
+                            <dd>
+                                <p>
+                                    Nicht nur innerhalb des HTML-Codes können jedem Element beliebig viele Klasse zugeordnet
+                                    werden (über das <code>class</code>-Attribut, zum Beispiel so:
+                                    <src-code language="html">&lt;div class="container blue-background"</src-code>).
+                                    Dasselbe geht auch über das <code>classList</code>-Attribut in JavaScript. Es handelt
+                                    sich dabei um ein Objekt mit den oben gezeigten Methoden, um weitere Klassen hinzuzufügen,
+                                    zu entfernen oder zu prüfen, ob sie vorhanden sind.
+                                </p>
+                                <p>
+                                    Im Zusammenhang mit einem guten CSS-Stylesheet ist diese Variante der direkten Manipulation
+                                    des <code>style</code>-Attributs vorzuziehen. Denn nach jeder Änderung der <code>classList</code>
+                                    wertet der Browser die Stylesheets neu aus und macht sich ergebende Änderungen an der Darstellung
+                                    sofort sichtbar. Auf Wunsch sogar animiert, wenn das Stylesheet die <code>transition</code>-
+                                    oder <code>animation</code>-Anweisung enthält.
+                                </p>
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8" /&gt;
+                                    &lt;title&gt;Aussehen verändern mit JavaScript&lt;/title&gt;
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                                    &lt;style&gt;
+                                        img {
+                                            display: block;
+                                            width: 24em;
+                                            transition: width 0.5s;
+
+                                            padding: 0.25em;
+                                            background: #F0F0F0;
+                                            border: 1px solid #A0A0A0;
+
+                                            margin-bottom: 1em;
+                                        }
+
+                                        body {
+                                            transition: background-color 0.5s, color 0.5s;
+                                        }
+                                        body.dark {
+                                            background: black;
+                                            color: white;
+                                        }
+                                        body.dark img {
+                                            background: #A0A0A0;
+                                            border-color: white;
+                                        }
+                                    &lt;/style&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Aussehen verändern mit JavaScript&lt;/h1&gt;
+
+                                    &lt;img src="4-js-grundlagen/img/preview1.jpg" /&gt;
+                                    &lt;button onclick="resizeImage(2)"&gt;Größer&lt;/button&gt;
+                                    &lt;button onclick="resizeImage(-2)"&gt;Kleiner&lt;/button&gt;
+                                    &lt;button onclick="toggleBackground(event)"&gt;Licht aus!&lt;/button&gt;
+
+                                    &lt;script&gt;
+                                        // Am Anfang ist das Bild laut Stylesheet 24em breit
+                                        let width = 24;
+
+                                        // Funktion zum Vergrößern oder Verkleinern des Bilds
+                                        let resizeImage = delta =&gt; {
+                                            width += delta;
+                                            width = Math.max(width, 10);
+
+                                            let imageElement = document.querySelector("img");
+                                            imageElement.style.width = width + "em";
+                                        };
+
+                                        // Funktion zum Umschalten des Hintergrunds
+                                        let toggleBackground = event =&gt; {
+                                            let bodyElement = document.querySelector("body");
+
+                                            if (bodyElement.classList.contains("dark")) {
+                                                bodyElement.classList.remove("dark");
+                                                event.target.textContent = "Licht aus!";
+                                            } else {
+                                                bodyElement.classList.add("dark");
+                                                event.target.textContent = "Licht an!";
+                                            }
+                                        };
+                                    &lt;/script&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="dom-aendern-aussehen-ergebnis">
+                            <style>
+                                #dom-aendern-aussehen-ergebnis img {
+                                    display: block;
+                                    width: 24em;
+                                    transition: width 0.5s;
+
+                                    padding: 0.25em;
+                                    background: #F0F0F0;
+                                    border: 1px solid #A0A0A0;
+
+                                    margin-bottom: 1em;
+                                }
+
+                                #dom-aendern-aussehen-ergebnis {
+                                    padding: 0.5em;
+                                    transition: background-color 0.5s, color 0.5s;
+                                }
+                                #dom-aendern-aussehen-ergebnis.dark {
+                                    background: black;
+                                    color: white;
+                                }
+                                #dom-aendern-aussehen-ergebnis.dark img {
+                                    background: #A0A0A0;
+                                    border-color: white;
+                                }
+                            </style>
+
+                            <script>
+                                // Am Anfang ist das Bild laut Stylesheet 24em breit
+                                window.dom_aendern_aussehen_ergebnis_width = 24;
+
+                                // Funktion zum Vergrößern oder Verkleinern des Bilds
+                                window.dom_aendern_aussehen_ergebnis_resizeImage = delta => {
+                                    dom_aendern_aussehen_ergebnis_width += delta;
+                                    dom_aendern_aussehen_ergebnis_width = Math.max(dom_aendern_aussehen_ergebnis_width, 10);
+
+                                    let imageElement = document.querySelector("#dom-aendern-aussehen-ergebnis img");
+                                    imageElement.style.width = dom_aendern_aussehen_ergebnis_width + "em";
+                                };
+
+                                // Funktion zum Umschalten des Hintergrunds
+                                window.dom_aendern_aussehen_ergebnis_toggleBackground = event => {
+                                    let bodyElement = document.querySelector("#dom-aendern-aussehen-ergebnis");
+
+                                    if (bodyElement.classList.contains("dark")) {
+                                        bodyElement.classList.remove("dark");
+                                        event.target.textContent = "Licht aus!";
+                                    } else {
+                                        bodyElement.classList.add("dark");
+                                        event.target.textContent = "Licht an!";
+                                    }
+                                };
+                            </script>
+
+                            <h1>Aussehen verändern mit JavaScript</h1>
+
+                            <img src="shared/dom_ereignisse_img1.jpg" />
+                            <button onclick="dom_aendern_aussehen_ergebnis_resizeImage(2)">Größer</button>
+                            <button onclick="dom_aendern_aussehen_ergebnis_resizeImage(-2)">Kleiner</button>
+                            <button onclick="dom_aendern_aussehen_ergebnis_toggleBackground(event)">Licht aus!</button>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Den Inhalt eines Elements überschreiben">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="javascript">alertElement.innerHTML = "&lt;b&gt;Wichtige Frage:&lt;/b&gt; Kennen Sie schon unsere Sparangebote?"</src-code>
+                            </dt>
+                            <dd>
+                                <p>
+                                    Die einfachste Art, den Inhalt eines Elements zu verändern, ist seinem <code>innerHTML</code>-Attribut
+                                    einen neuen Wert zuzuweisen. Dadurch wird der Inhalt des Elements so verändert, als stünde der neue
+                                    Wert innerhalb des Elements direkt im HTML-Code. Auf diese Weise können daher auch weitere HTML-Elemente
+                                    in die Seite eingefügt werden.
+                                </p>
+                                <p>
+                                    Aus Sicherheitsgründen sollte man aber aufpassen, wie sich der neue Wert für <code>innerHTML</code>
+                                    zusammensetzt. Werden dabei Inhalte von nicht vertrauenswürdigen Quellen zugelassen (zum Beispiel
+                                    Benutzereingaben), kann dies eine <a href="https://www.owasp.org/index.php/DOM_Based_XSS" target="_blank">
+                                    DOM-based Cross Site Scripting</a>-Lücke verursachen. 😔
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">alertElement.textContent = "Bitte akzeptieren Sie erst die AGBs.";</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em;">
+                                <p>
+                                    Bist du dir sicher, dass der neue Inhalt eines Elements keine HTML-Anweisungen beinhalten darf, solltest
+                                    du anstelle von <code>innerHTML</code> das <code>textContent</code>-Attribut verwenden. Denn hier werden
+                                    alle spitzen Klammern als Text interpretiert und genau so auf der Seite angezeigt. Die Gefahr für
+                                    Sicherheitslücken ist dadurch deutlich geringer.
+                                </p>
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8" /&gt;
+                                    &lt;title&gt;Inhalte verändern mit JavaScript&lt;/title&gt;
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                                    &lt;style&gt;
+                                        #preview {
+                                            display: inline-block;
+                                            margin-bottom: 1em;
+
+                                            border: 1px solid black;
+                                            padding: 0.25em;
+                                            background: #303030;
+                                            color: #87AE87;
+                                        }
+                                    &lt;/style&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Inhalte verändern mit JavaScript&lt;/h1&gt;
+
+                                    &lt;div id="preview"&gt;&lt;/div&gt;
+                                    &lt;br /&gt;
+
+                                    &lt;button onclick="setInnerHtml()"&gt;innerHTML setzen&lt;/button&gt;
+                                    &lt;button onclick="setTextContent()"&gt;textContent setzen&lt;/button&gt;
+                                    &lt;button onclick="clearPreview()"&gt;Vorschau zurücksetzen&lt;/button&gt;
+
+                                    &lt;script&gt;
+                                        let previewElement = document.getElementById("preview");
+
+                                        let newContent = "&lt;ol&gt;\n"
+                                                        + "    &lt;li&gt;Asterix der Galier&lt;/li&gt;"
+                                                        + "    &lt;li&gt;Asterix und Kleopatra&lt;/li&gt;"
+                                                        + "    &lt;li&gt;Asterix erobert Rom&lt;/li&gt;"
+                                                        + "    &lt;li&gt;Asterix - Sieg über Cäsar&lt;/li&gt;"
+                                                        + "    &lt;li&gt;Asterix bei den Briten&lt;/li&gt;"
+                                                        + "    &lt;li&gt;Asterix - Operation Hinkelstein&lt;/li&gt;"
+                                                        + "    &lt;li&gt;Asterix in Amerika&lt;/li&gt;"
+                                                        + "    &lt;li&gt;Asterix und die Wikinger&lt;/li&gt;"
+                                                        + "    &lt;li&gt;Asterix im Land der Götter&lt;/li&gt;"
+                                                        + "&lt;/ol&gt;\n";
+
+                                        let setInnerHtml = () =&gt; previewElement.innerHTML = newContent;
+                                        let setTextContent = () =&gt; previewElement.textContent = newContent;
+                                        let clearPreview = () =&gt; previewElement.innerHTML = "";
+                                    &lt;/script&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="dom-aendern-inhalt-ergebnis">
+                            <style>
+                                #dom-aendern-inhalt-ergebnis .preview {
+                                    display: inline-block;
+                                    margin-bottom: 1em;
+
+                                    border: 1px solid black;
+                                    padding: 0.25em;
+                                    background: #303030;
+                                    color: #87AE87;
+                                }
+                            </style>
+
+                            <script>
+                                window.dom_aendern_inhalt_ergebnis_newContent = "<ol>\n"
+                                                + "    <li>Asterix der Galier</li>"
+                                                + "    <li>Asterix und Kleopatra</li>"
+                                                + "    <li>Asterix erobert Rom</li>"
+                                                + "    <li>Asterix - Sieg über Cäsar</li>"
+                                                + "    <li>Asterix bei den Briten</li>"
+                                                + "    <li>Asterix - Operation Hinkelstein</li>"
+                                                + "    <li>Asterix in Amerika</li>"
+                                                + "    <li>Asterix und die Wikinger</li>"
+                                                + "    <li>Asterix im Land der Götter</li>"
+                                                + "</ol>\n";
+
+                                window.dom_aendern_inhalt_ergebnis_setInnerHtml = () => {
+                                    let previewElement = document.querySelector("#dom-aendern-inhalt-ergebnis .preview");
+                                    previewElement.innerHTML = dom_aendern_inhalt_ergebnis_newContent;
+                                }
+
+                                window.dom_aendern_inhalt_ergebnis_setTextContent = () => {
+                                    let previewElement = document.querySelector("#dom-aendern-inhalt-ergebnis .preview");
+                                    previewElement.textContent = dom_aendern_inhalt_ergebnis_newContent;
+                                }
+
+                                window.dom_aendern_inhalt_ergebnis_clearPreview = () => {
+                                    let previewElement = document.querySelector("#dom-aendern-inhalt-ergebnis .preview");
+                                    previewElement.innerHTML = "";
+                                }
+                            </script>
+
+                            <h1>Inhalte verändern mit JavaScript</h1>
+
+                            <div class="preview"></div>
+                            <br />
+
+                            <button onclick="dom_aendern_inhalt_ergebnis_setInnerHtml()">innerHTML setzen</button>
+                            <button onclick="dom_aendern_inhalt_ergebnis_setTextContent()">textContent setzen</button>
+                            <button onclick="dom_aendern_inhalt_ergebnis_clearPreview()">Vorschau zurücksetzen</button>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Größere Änderungen an der DOM-Struktur">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="javascript">let pElement = document.createElement("p");</src-code> <br />
+                                <src-code language="javascript">let pContent = document.createTextNode("Es war einmal vor langer, langer Zeit …");</src-code> <br />
+                            </dt>
+                            <dd style="margin-bottom: 0.75em;">
+                                <p>
+                                    Auf hoch offiziellem Wege, ohne dabei die Attribute <code>innerHTML</code> und <code>textContent</code>
+                                    zu benutzen, neue Elemente erzeugen kannst du mit diesen beiden Methoden. Sie erzeugen ein neues HTML-Element
+                                    bzw. einen Textknoten (enthält nur Text ohne HTML-Code), die du in das Document Object Model einfügen kannst,
+                                    um sie anzuzeigen.
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">pElement.appendChild(pContent);</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em;">
+                                <p>
+                                    Jedes Element besitzt daher die Methode <code>appendChild</code>, mit der ihm weitere Unterelemente
+                                    hinzugefügt werden können. Handelt es sich dabei um bereits vorhandene Elemente, die schon im Dokument
+                                    vorhanden sind, müssen sie erst aus dem Dokument entfernt werden, bevor sie neu eingefügt werden können.
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">let pElement = pContent.parentNode;</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em;">
+                                <p>
+                                    Über das Attribut <code>parentNode</code> kommt man immer von einem Element zu seinem übergeordneten Elternelement.
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">h1Element = mainElement.childNodes[0];</src-code> <br />
+                                <src-code language="javascript">mainElement.childNodes.forEach(child => …);</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em;">
+                                <p>
+                                    Und hier siehst du, wie du auf die Kindelemente eines HTML-Elements zugreifen kannst. Hier gilt
+                                    wieder, dass es sich bei <code>childNodes</code> um ein <code>NodeList</code>-Objekt und nicht
+                                    um ein vollwertiges Array handelt.
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">pElement.removeChild(pContent);</src-code>
+                            </dt>
+                            <dd>
+                                <p>
+                                    Und last but not least, haben wir hier ein wunderschönes Exemplar der <code>removeChild</code>-Methode.
+                                    Wie der Name bereits sagt, wird damit ein Element aus der DOM-Struktur entfernt. Dementsprechend
+                                    verschwindet es dann auch vom Bildschirm und kann bei Bedarf an anderer Stelle wieder eingefügt werden.
+                                </p>
+                                <p>
+                                    Kennst du nur das Element selbst, dass du entfernen willst (hier <code>pElement</code>), kannst du es über
+                                    folgendem Umweg entfernen:
+                                </p>
+                                <p>
+                                    <src-code language="javascript">pElemenet.parentNode.removeChild(pElement);</src-code>
+                                </p>
+                                <p>
+                                    Oder inzwischen noch einfacher mit:
+                                </p>
+                                <p>
+                                    <src-code language="javascript">pElemenet.remove();</src-code>
+                                </p>
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8" /&gt;
+                                    &lt;title&gt;Die DOM-Objektstruktur bearbeiten&lt;/title&gt;
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                                    &lt;style&gt;
+                                        #preview &gt; div {
+                                            display: inline-block;
+                                            border: 1px solid #A0A0A0;
+                                            background: #F0F0F0;
+                                            padding: 0.3em;
+                                            box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+
+                                            margin-right: 1em;
+                                            margin-bottom: 1em;
+                                        }
+
+                                        #preview &gt; div:last-child {
+                                            margin-right: 0;
+                                        }
+
+                                        #preview &gt; div &gt; img {
+                                            display: block;
+                                        }
+                                    &lt;/style&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Die DOM-Objektstruktur bearbeiten&lt;/h1&gt;
+
+                                    &lt;div id="preview"&gt;&lt;/div&gt;
+                                    &lt;div id="html-code"&gt;&lt;/div&gt;
+                                    &lt;br /&gt;
+
+                                    &lt;button onclick="createContent()"&gt;Inhalt generieren&lt;/button&gt;
+                                    &lt;button onclick="removeContent()"&gt;Inhalt verwerfen&lt;/button&gt;
+
+                                    &lt;script&gt;
+                                        let previewElement = document.getElementById("preview");
+                                        let htmlCodeElement = document.getElementById("html-code");
+
+                                        let images = [
+                                            {src: "img/preview1.jpg", text: "Küste in Egmont, British Columbia"},
+                                            {src: "img/preview2.jpg", text: "Boote an der Küste Egmonts"},
+                                            {src: "img/preview3.jpg", text: "Kajaks auf dem Skookumchuk in Egmont"},
+                                        ];
+
+                                        // Funktion zum Generieren der Inhalte
+                                        let createContent = () =&gt; {
+                                            // Alten Inhalt entfernen
+                                            removeContent();
+
+                                            // Bilder mit Beschreibung einfügen
+                                            images.forEach(image =&gt; {
+                                                let divElement = document.createElement("div");
+                                                previewElement.appendChild(divElement);
+
+                                                let imgElement = document.createElement("img");
+                                                imgElement.src = image.src;
+                                                divElement.appendChild(imgElement);
+
+                                                let txtNode = document.createTextNode(image.text);
+                                                divElement.appendChild(txtNode);
+                                            });
+
+                                            // Generierten HTML-Code anzeigen
+                                            htmlCodeElement.innerHTML = "Erzeugter HTML-Code:&lt;br /&gt;";
+                                            let preElement = document.createElement("pre");
+                                            htmlCodeElement.appendChild(preElement);
+
+                                            let textNode = document.createTextNode(previewElement.innerHTML);
+                                            preElement.appendChild(textNode);
+                                        };
+
+                                        // Funktion zum Entfernen der Inhalte
+                                        let removeContent = () =&gt; {
+                                            previewElement.innerHTML = "";
+                                            htmlCodeElement.innerHTML = "";
+                                        };
+                                    &lt;/script&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="dom-aendern-struktur-ergebnis">
+                            <style>
+                                #dom-aendern-struktur-ergebnis .preview > div {
+                                    display: inline-block;
+                                    border: 1px solid #A0A0A0;
+                                    background: #F0F0F0;
+                                    padding: 0.3em;
+                                    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+
+                                    margin-right: 1em;
+                                    margin-bottom: 1em;
+                                }
+
+                                #dom-aendern-struktur-ergebnis .preview > div:last-child {
+                                    margin-right: 0;
+                                }
+
+                                #dom-aendern-struktur-ergebnis .preview > div > img {
+                                    display: block;
+                                }
+                            </style>
+
+                            <script>
+                                window.dom_aendern_struktur_ergebnis_images = [
+                                    {src: "shared/dom_ereignisse_img1.jpg", text: "Küste in Egmont, British Columbia"},
+                                    {src: "shared/dom_ereignisse_img2.jpg", text: "Boote an der Küste Egmonts"},
+                                    {src: "shared/dom_ereignisse_img3.jpg", text: "Kajaks auf dem Skookumchuk in Egmont"},
+                                ];
+
+                                // Funktion zum Generieren der Inhalte
+                                window.dom_aendern_struktur_ergebnis_createContent = () => {
+                                    let previewElement = document.querySelector("#dom-aendern-struktur-ergebnis .preview");
+                                    let htmlCodeElement = document.querySelector("#dom-aendern-struktur-ergebnis .html-code");
+
+                                    // Alten Inhalt entfernen
+                                    dom_aendern_struktur_ergebnis_removeContent();
+
+                                    // Bilder mit Beschreibung einfügen
+                                    dom_aendern_struktur_ergebnis_images.forEach(image => {
+                                        let divElement = document.createElement("div");
+                                        previewElement.appendChild(divElement);
+
+                                        let imgElement = document.createElement("img");
+                                        imgElement.src = image.src;
+                                        divElement.appendChild(imgElement);
+
+                                        let txtNode = document.createTextNode(image.text);
+                                        divElement.appendChild(txtNode);
+                                    });
+
+                                    // Generierten HTML-Code anzeigen
+                                    let htmlCode = previewElement.innerHTML;
+                                    htmlCode = htmlCode.replace("dom_ereignisse_img", "img/preview");
+
+                                    htmlCodeElement.innerHTML = "Erzeugter HTML-Code:<br />";
+                                    let preElement = document.createElement("pre");
+                                    htmlCodeElement.appendChild(preElement);
+
+                                    let textNode = document.createTextNode(htmlCode);
+                                    preElement.appendChild(textNode);
+                                };
+
+                                // Funktion zum Entfernen der Inhalte
+                                window.dom_aendern_struktur_ergebnis_removeContent = () => {
+                                    let previewElement = document.querySelector("#dom-aendern-struktur-ergebnis .preview");
+                                    let htmlCodeElement = document.querySelector("#dom-aendern-struktur-ergebnis .html-code");
+
+                                    previewElement.innerHTML = "";
+                                    htmlCodeElement.innerHTML = "";
+                                };
+                            </script>
+
+                            <h1>Die DOM-Objektstruktur bearbeiten</h1>
+
+                            <div class="preview"></div>
+                            <div class="html-code"></div>
+                            <br />
+
+                            <button onclick="dom_aendern_struktur_ergebnis_createContent()">Inhalt generieren</button>
+                            <button onclick="dom_aendern_struktur_ergebnis_removeContent()">Inhalt verwerfen</button>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+        </lsx-accordion>
+    </article>
+    <aside>
+        <p>
+            Hier kommt nun die zweite wichtige Seite dieses Kapitels. 📚 Denn hier zeigen wir dir,
+            was du mit den DOM-Objekten machen kannst, sobald du sie ermittelt hast. Das heißt,
+            hier siehst du, wie du die Darstellung eines Elements oder auch seinen Inhalt mit
+            JavaScript überschreiben kannst. Zusätzlich siehst du hier, wie du im JavaScript-Code
+            neue HTML-Elemente erzeugen und in die Seite einbauen kannst.
+        </p>
+        <img src="4-js-grundlagen/2-dom/nderungen-an-der-dom-struktur-vornehmen/referenz2.jpg" class="d-block img-thumbnail" style="width: 100%" />
+        <p>
+            <small>
+                <small>
+                    Bildnachweis: <a href="https://pixabay.com/de/regal-innenraum-b%C3%BCcherregal-315802/" target="_blank">Pixabay: PublicDomainPictures</a>
+                </small>
+            </small>
+        </p>
+        <p>
+            Auch hier würde sich ein Lesezeichen lohnen. 😉
+        </p>
+    </aside>
+</section>

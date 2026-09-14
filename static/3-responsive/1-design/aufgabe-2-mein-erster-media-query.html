@@ -1,0 +1,224 @@
+<section data-title="Aufgabe 2: Mein erster Media Query" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            url      = "2%20Responsive%20Webdesign/Aufgaben/Media%20Query/Aufgabe"
+            download = "2%20Responsive%20Webdesign/Aufgaben/Media%20Query"
+        >
+        </lsx-github-edit>
+
+        <p>
+            Passe die folgende HTML-Seite gemäß der Beschreibung so an, dass sie sowohl
+            auf Smartphones als auch größeren Bildschirmen lesbar ist.
+        </p>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="HTML-Code">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;🎁 Mein erster Media Query&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                            &lt;style&gt;
+                                html {
+                                    font-family: sans-serif;
+                                    font-size: 12pt;
+
+                                    /* https://pixabay.com/photos/gifts-packages-made-loop-570821/ */
+                                    background-image: url(hintergrund.jpg);
+                                    background-repeat: no-repeat;
+                                    background-position: center center;
+                                    background-size: cover;
+                                }
+
+                                h1 {
+                                    color: crimson;
+                                    text-shadow: 0px 0px 1px rgba(0,0,0, 0.5),
+                                                    0px 1px 1px rgba(0,0,0, 0.5),
+                                                    1px 0px 1px rgba(0,0,0, 0.5),
+                                                    1px 1px 1px rgba(0,0,0, 0.5);
+                                }
+
+                                main {
+                                    text-align: center;
+                                }
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;main&gt;
+                                &lt;h1&gt;Das Gedicht vom Älter werden&lt;/h1&gt;
+
+                                &lt;p&gt;
+                                    Das große Glück, noch klein zu sein, &lt;br /&gt;
+                                    Sieht mancher Mensch als Kind nicht ein. &lt;br /&gt;
+                                    Und möchte, dass er ungefähr &lt;br /&gt;
+                                    So 16 oder 17 wär'.
+                                &lt;/p&gt;
+
+                                &lt;p&gt;
+                                    Doch schon mit 18 denkt er: „Halt! &lt;br /&gt;
+                                    Wer über 20 ist, ist alt.“ &lt;br /&gt;
+                                    Warum? Die 20 sind vergnüglich – &lt;br /&gt;
+                                    Auch sind die 30 noch vorzüglich.
+                                &lt;/p&gt;
+
+                                &lt;p&gt;
+                                    Zwar in den 40, welche Wende, &lt;br /&gt;
+                                    Da gilt die 50 fast als Ende. &lt;br /&gt;
+                                    Doch in den 50, peu à peu, &lt;br /&gt;
+                                    Schraubt man das Ende in die Höh'!
+                                &lt;/p&gt;
+
+                                &lt;p&gt;
+                                    Die 60 scheinen noch passabel &lt;br /&gt;
+                                    Und erst die 70 miserabel. &lt;br /&gt;
+                                    Mit 70 aber hofft man still: &lt;br /&gt;
+                                    „Ich schaff' die 80, so Gott will.“
+                                &lt;/p&gt;
+
+                                &lt;p&gt;
+                                    Wer dann die 80 biblisch überlebt, &lt;br /&gt;
+                                    Zielsicher auf die 90 strebt. &lt;br /&gt;
+                                    Dort angelangt, sucht er geschwind &lt;br /&gt;
+                                    Nach Freunden, die noch älter sind.
+                                &lt;/p&gt;
+
+                                &lt;p&gt;
+                                    Doch hat die Mitte 90 man erreicht &lt;br /&gt;
+                                    – Die Jahre, wo einen nichts mehr wundert –, &lt;br /&gt;
+                                    Denkt man mituntner: „Na, vielleicht &lt;br /&gt;
+                                    Schaffst du mit Gottes Hilfe auch die 100.“
+                                &lt;/p&gt;
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Smartphone-Ansicht">
+                <img src="3-responsive/1-design/aufgabe-2-mein-erster-media-query/aufgabe2_smartphone.jpg" class="d-block w-100 dhbw-border" />
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Desktop-Ansicht">
+                <img src="3-responsive/1-design/aufgabe-2-mein-erster-media-query/aufgabe2_browser.jpg" class="d-block w-100 dhbw-border" />
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Beschreibung">
+                <h2>Auf dem Smartphone</h2>
+                <ul>
+                    <li>
+                        Auf dem Smartphone soll einfach nur das Gedicht angezeigt werden.
+                    </li>
+                    <li>
+                        Der Text soll über die gesamte Bildschirmbreite zentriert werden.
+                    </li>
+                    <li>
+                        Es soll kein Hintergrundbild angezeigt werden.
+                    </li>
+                </ul>
+
+                <h2>Für Bildschirme ab 50em</h2>
+                <ul>
+                    <li>
+                        Das in der HTML-Datei vordefinierte Hintergrundbild soll sichtbar sein.
+                    </li>
+                    <li>
+                        Das HTML-Element mit dem Text des Gedichts soll exakt <code>40em</code> breit sein.
+                    </li>
+                    <li>
+                        Innerhalb des Elements soll <code>1em</code> Abstand zum Text bleiben.
+                    </li>
+                    <li>
+                        Das Element soll einen weißen Hintergrund und einen dezenten Rahmen besitzen.
+                    </li>
+                    <li>
+                        Das Gedicht soll mit Hilfe des Flexbox-Algorithmus mittig auf dem Bildschirm platziert werden.
+                    </li>
+                </ul>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;🎁 Mein erster Media Query&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                            &lt;style&gt;
+                                html, body {
+                                    margin: 0;
+                                    padding: 0;
+                                    min-height: 100%;
+                                }
+
+                                html {
+                                    font-family: sans-serif;
+                                    font-size: 12pt;
+                                }
+
+                                h1 {
+                                    color: crimson;
+                                    text-shadow: 0px 0px 1px rgba(0,0,0, 0.5),
+                                                    0px 1px 1px rgba(0,0,0, 0.5),
+                                                    1px 0px 1px rgba(0,0,0, 0.5),
+                                                    1px 1px 1px rgba(0,0,0, 0.5);
+                                }
+
+                                main {
+                                    text-align: center;
+                                }
+
+                                @media (min-width: 50em) {
+                                    html {
+                                        /* https://pixabay.com/photos/gifts-packages-made-loop-570821/ */
+                                        background-image: url(hintergrund.jpg);
+                                        background-repeat: no-repeat;
+                                        background-position: center center;
+                                        background-size: cover;
+
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                    }
+
+                                    main {
+                                        width: 40em;
+                                        padding: 1em;
+
+                                        background: white;
+                                        border: 1px solid #e5e5e5;
+                                        box-shadow: 1px 1px 2px #bfbfbf;
+                                    }
+                                }
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;main&gt;
+                                …
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Hier kannst du dich mit Media Queries ein wenig vertraut machen. Die Aufgabe
+            ist ganz einfach, versprochen. Wenn du alles richtig machst, hast du hinterher
+            aber trotzdem eine echte „Mobile First“-Seite erstellt. 🐊
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>

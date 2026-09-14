@@ -1,0 +1,417 @@
+<section data-title="Von Arrays und Objekten">
+    <article>
+        <lsx-accordion>
+            <lsx-accordion-page title="Arrays (bzw. Listen)" active>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="JavaScript">
+                        <p>
+                            Arrays in JavaScript beinhalten einfach eine beliebige Anzahl von Einträgen.
+                            Üblicherweise haben alle Einträge denselben Datentyp, dies ist aber kein Muss.
+                            Um einen Eintrag anzusprechen, muss man seinen Index kennen, der genau wie in
+                            Java bei <tt>0</tt> beginnt.
+                        </p>
+                        <source-code language="javascript">
+                            let einkaufsliste = ["Brot", "Milch", "Kaffee", "Nutella",];
+                            let lottozahlen = [3, 12, 24, 28, 31,];
+                        </source-code>
+                        <p>
+                            Im folgenden Beispiel sieht man, dass ein Array wie wild alle möglichen Datentypen
+                            mischen kann. Das Array beinhaltet zum Beispiel die Namen zweier Spieler sowie drei
+                            weitere Arrays, die zusammen ein Tic-Tac-Toe-Spielfeld simulieren, und ein Boolean.
+                        </p>
+                        <source-code language="javascript">
+                            let ticTacToe = [
+                                "Spieler 1",
+                                "Spieler 2",
+                                [2,0,1],
+                                [2,1,0],
+                                [1,0,0],
+                                false,
+                            ];
+                        </source-code>
+                        <p>
+                            Um einen Eintrag aus einem Array zu holen, benötigt man seinen Index. Zum Beispiel
+                            <src-code language="javascript">einkaufsliste[1]</src-code>. Mit einer einfachen
+                            <code>for</code>-Schleife oder der <code>forEach</code>-Methode kann man alle
+                            Einträge eines Arrays abarbeiten.
+                        </p>
+                        <source-code language="javascript">
+                            for (let i = 0; i &lt; einkaufsliste.length; i++) {
+                                console.log(einkaufsliste[i]);
+                            }
+
+                            lottozahlen.forEach(zahl => {
+                                console.log(zahl);
+                            })
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Java">
+                        <p>
+                            Arrays in Java beinhalten ebenfalls eine beliebige Anzahl von Einträgen, die über
+                            ihren Index angesprochen werden. Jedoch müssen alle Inhalte denselben Datentyp
+                            besitzen. Man kann zum Beispiel nicht ohne weiteres Strings und Integer in einem
+                            Array mischen. Außerdem ist auch die Syntax viel komplizierter.
+                        </p>
+                        <source-code language="java">
+                            String[] einkaufsliste = {"Brot", "Milch", "Kaffee", "Nutella",};
+                            int[] lotozahlen = {3, 12, 24, 28, 31};
+
+                            int[][] ticTacToeSpielfeld = {
+                                new int[] {2, 0, 1},
+                                new int[] {2, 1, 0},
+                                new int[] {1, 0, 0},
+                            }
+                        </source-code>
+                        <p>
+                            Der Zugriff erfolgt entweder per Index oder über eine For-Each-Schleife:
+                        </p>
+                        <source-code language="java">
+                            for (int i = 0; i &lt; einkaufsliste.length; i++) {
+                                System.println(einkfaufsliste[i]);
+                            }
+
+                            for (String eintrag : einkaufsliste) {
+                                System.println(eintrag);
+                            }
+                        </source-code>
+                        <p>
+                            Seit Java 8 kann man auch eine Lambda-Funktion nutzen:
+                        </p>
+                        <source-code language="java">
+                            import java.util.Arrays;
+
+                            Arrays.stream(einkaufsliste).forEach((eintrag) -> {
+                                System.println(eintrag);
+                            })
+                        </source-code>
+                        <p>
+                            Die direkte Verwendung von Arrays ist in Java allerdings schon lange eher
+                            unerwünscht. Stattdessen sollte man eine der verschiedenen Collection-Klassen
+                            verwenden, zum Beispiel eine Linked List:
+                        </p>
+                        <source-code>
+                            import java.util.LinkedList;
+                            import java.util.List;
+
+                            List&lt;String&gt; einkaufsliste = new LinkedList&lt;&gt;();
+                            einkaufsliste.add("Brot");
+                            einkaufsliste.add("Milch");
+                            einkaufsliste.add("Kaffee");
+                            einkaufsliste.add("Nutella");
+
+                            for (String eintrag : einkaufsliste) {
+                                System.out.println(eintrag);
+                            }
+
+                            einkaufsliste.forEach((eintrag) -> {
+                                System.out.println(eintrag);
+                            });
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Objekte">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="JavaScript">
+                        <p>
+                            Objekte in JavaScript werden auch Dictionaries genannt. Sie dienen einfach der
+                            Gruppierung mehrerer Werte zu einem Datensatz. Die Attribute eines Objekts
+                            werden über einen frei wählbaren Namen angesprochen, der immer ein String sein
+                            muss, und haben keine feste Reihenfolge.
+                        </p>
+                        <source-code language="javascript">
+                            const mulder = {
+                                vorname: "Fox",
+                                nachname: "Mulder",
+                                beruf: "Special Agent FBI",
+                                vorgesetzter: "Walter Skinner",
+                                partner: "Dana Scully",
+                            };
+                        </source-code>
+                        <p>
+                            Die Syntax, um einen einzelnen Wert auszulesen ist dieselbe wie bei einer Liste,
+                            nur mit einem Namen anstelle des Index:
+                        </p>
+                        <source-code language="javascript">
+                            let vorname = mulder["vorname"];
+                            mulder["vorgesetzter"] = "Assistant Director Walter Skinner";
+                        </source-code>
+                        <p>
+                            Da Dictionaries und Objekte exakt dasselbe sind, kann man anstelle der eckigen
+                            Klammern auch einfach einen Punkt verwenden:
+                        </p>
+                        <source-code language="javascript">
+                            let vollerName = `${mulder.vorname} ${mulder.nachname}`
+                            mulder.partner = "Dana Katherine Scully";
+                        </source-code>
+                        <p>
+                            Auch über die Einträge eines Dictionaries kann man iterieren. Der <code>in</code>-Operator
+                            liefert hierfür die Namen aller Einträge zurück:
+                        </p>
+                        <source-code language="javascript">
+                            for (let key in mulder) {
+                                console.log(mulder[key]);
+                            }
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Java">
+                        <p>
+                            Objekte lassen sich in Java nicht direkt definieren. Man muss immer erst
+                            eine Klasse schreiben und diese dann instantiieren:
+                        </p>
+                        <source-code language="java">
+                            public class Person {
+                                public String vorname = "";
+                                public String nachname = "";
+                                public String beruf = "";
+                                public String vorgesetzter = "";
+                                public String partner = "";
+                            }
+
+                            Person mulder = new Person();
+                            mulder.vorname = "Fox";
+                            mulder.nachname = "Mulder";
+                            mulder.beruf = "Special Agent FBI";
+                            mulder.vorgesetzter = "Walter Skinner";
+                            mulder.partner = "Dana Scully";
+                        </source-code>
+                        <p>
+                            Allerdings gibt es mit der <code>Map</code> etwas ähnliches wie Dictionaries.
+                            Denn eine <code>Map</code> bildet einen beliebigen Schlüsselwert auf ein beliebiges
+                            Objekt ab. Dictionaries entsprechen daher am ehestem folgendem Konstrukt in Java:
+                        </p>
+                        <source-code language="java">
+                            import java.Util.HashMap;
+                            import java.util.Map;
+
+                            Map&lt;String, Object&gt; mulder = new HashMap&lt;&gt;();
+                            mulder.put("vorname", "Fox");
+                            mulder.put("nachname", "Mulder");
+                            mulder.put("beruf", "Special Agent FBI");
+                            …
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Komplexe Strukturen mit Arrays und Dictionaries">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="JavaScript">
+                        <p>
+                            Indem man Arrays und Objekte kombiniert, kann man beliebig komplexe
+                            Datenstrukturen zusammensetzen. Das Format ist dabei so beliebt, dass es
+                            auch unter dem Namen <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation" target="_blank">
+                            JSON</a>¹ als eigenständiges Datenformat existiert und unter anderem zum
+                            Datenaustausch mit dem Server genutzt werden kann. Hier ein Beispiel mit
+                            einem <a href="https://www.youtube.com/watch?v=dzByEbMfDmc" target="_blank">
+                            alten Disney-Klassiker</a>: 🦁
+                        </p>
+
+                        <source-code language="javascript">
+                            let dieTollkuehneHexe = {
+                                titel: "Die Tollkühne Hexe in ihrem fliegenden Bett",
+                                originalTitel: "Bedknobs and Broomsticks",
+                                land: "USA",
+                                originalSprache: "englisch",
+                                jahr: 1971,
+                                darsteller: [
+                                    "Angela Lansbury",
+                                    "David Tomlinson",
+                                    "Roddy McDowall",
+                                    "Sam Jaffe",
+                                    "John Ericson",
+                                    "Bruce Forsyth",
+                                    "Cindy O’Callaghan",
+                                    "Roy Snart",
+                                    "Ian Weighill",
+                                    "Tessie O’Shea",
+                                    "Arthur Gould-Porter",
+                                    "Reginald Owen",
+                                    "Ben Wrigley",
+                                    "Cyril Delevantiv",
+                                ],
+                            };
+                        </source-code>
+                        <p>
+                            Will man nun den Namen von Angela Lansbury auslesen, kann man mit folgenden
+                            Ausdrücken darauf zugreifen:
+                        </p>
+                        <ul>
+                            <li>
+                                <src-code language="javascript">dieTollkuehneHexe["darsteller"][0]</src-code>
+                            </li>
+                            <li>
+                                <src-code language="javascript">dieTollkuehneHexe.darsteller[0]</src-code>
+                            </li>
+                        </ul>
+                        <p>
+                            Natürlich kann man auch ein Array mit Dictionaries drin definieren:
+                        </p>
+                        <source-code language="javascript">
+                            let filme = [
+                                {
+                                    titel: "Die tollkühne Hexe in ihrem fliegenden Bett",
+                                    land: "USA",
+                                    jahr: 1971,
+                                    darsteller: [
+                                        "Angela Lansbury",
+                                        "David Tomlinson",
+                                        "Roddy McDowall",
+                                        …
+                                    ]
+                                },
+                                {
+                                    titel: "Spaceballs",
+                                    land: "USA",
+                                    jahr: 1987,
+                                    darsteller: [
+                                        "Mel Brooks",
+                                        "John Candy",
+                                        "Rick Moranis",
+                                        …
+                                    ]
+                                },
+                                {
+                                    titel: "M - Eine Stadt sucht einen Mörder",
+                                    land: "Deutschland",
+                                    jahr: 1931,
+                                    darsteller: [
+                                        "Peter Lorre",
+                                        "Inge Landgut",
+                                        "Ellen Widmann",
+                                        …
+                                    ]
+                                }
+                            ];
+                        </source-code>
+                        <p>
+                            Du siehst, das ganze ist wahnsinnig flexibel und auch noch einfach zu schreiben. 👍
+                        </p>
+
+                        <p>
+                            <small>
+                                ¹ JavaScript Object Notation
+                            </small>
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Java">
+                        <p>
+                            Vergiss es. Ohne Klassen läuft in Java nichts. 😛 Diese müssen wir erst einmal
+                            definieren. Zum Glück speichern wir bei den Darstellern nur die Namen. Denn sonst
+                            hätten wir dafür auch nochmal eine Klasse gebraucht. Typischerweise sieht das
+                            so aus:
+                        </p>
+                        <source-code language="java">
+                            import java.util.ArrayList;
+                            import java.util.List;
+
+                            public class Film {
+                                private String titel = "";
+                                private String originalTitel = "";
+                                private String land = "";
+                                private String originalSprache = "";
+                                private int jahr = 0
+                                private List&lt;String&gt; darsteller = new ArrayList&lt;&gt;();
+
+                                public void setTitel(String titel) {
+                                    this.titel = titel;
+                                }
+
+                                public String getTitel() {
+                                    return this.titel;
+                                }
+
+                                … gefühlte 1000 Zeilen später …
+                            }
+                        </source-code>
+                        <p>
+                            Erst dann kann man ein Objekt erzeugen:
+                        </p>
+                        <source-code language="java">
+                            Film dieTollkuehneHexe = new Film();
+                            dieTollkuehneHexe.setTitel("Die tollkühne Hexe in ihrem fliegenden Bett");
+                            dieTollkuehneHexe.setOriginalTitel("Beknobs and Broomsticks");
+                            dieTollkuehneHexe.setLand("USA");
+                            dieTollkuehneHexe.setOriginalSprache("Englisch");
+                            dieTollkuehneHexe.setJahr(1971);
+                            dieTollkuehneHexe.darsteller.add("Angela Lansbury");
+                            dieTollkuehneHexe.darsteller.add("David Tomlinson");
+                            dieTollkuehneHexe.darsteller.add("Roddy McDowall");
+                            dieTollkuehneHexe.darsteller.add("Sam Jaffe");
+                            …
+                        </source-code>
+                        <p>
+                            Seit Java 14 kann die Schreibarbeit mit
+                            <a href="https://www.baeldung.com/java-record-keyword" target="_blank">Record Classes</a>
+                            immerhin deutlich vereinfacht werden:
+                        </p>
+                        <source-code language="java">
+                            public record Film(
+                                String titel,
+                                String originalTitel,
+                                String land,
+                                String originalSprache,
+                                int jahr,
+                                List&lt;String&gt; darsteller
+                            ) {
+                                // Hier kein Quellcode
+                            }
+                        </source-code>
+                        <p>
+                            Die so angelegten Klassen besitzen automatisch einen Konstruktor zur Vorbelegung
+                            der Attribute sowie passende Getter und Setter (ohne den Prefix <src-code>set</src-code>
+                            bzw. <src-code>get</src-code>):
+                        </p>
+                        <source-code language="java">
+                            Film dieTollkuehneHexe(
+                                /* titel           */  "Die Tollkühne Hexe und das fliegende Bett",
+                                /* originalTitel   */  "Beknobs and Broomsticks",
+                                /* land            */  "USA",
+                                /* originalSprache */  "Englisch",
+                                /* jahr            */  1971,
+                                /* darsteller      */  Arrays.asList("Angela Lansbury", "David Tomlinson")
+                            );
+
+                            System.out.println(dieTollkuehneHexe.titel());
+                        </source-code>
+                        <p>
+                            So oder so ist es jedoch viel aufwändiger und weniger flexibel als in JavaScript. 🙃
+                        </p>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+        </lsx-accordion>
+    </article>
+    <aside>
+        <p>
+            Ab hier kannst du dich freuen. Wir sind mit unserer Rundschau zu
+            JavaScript am Ende angekommen. Neben ein paar kleineren Aufgaben
+            schauen wir uns nur noch Arrays und Objekte an:
+        </p>
+        <p>
+            Neben den einfachen Datentypen wie zum Beispiel Strings und Zahlen
+            kennt JavaScript zwei komplexe Datentypen, mit denen sich beliebig
+            große Datenstrukturen abbilden lassen: Genau, Arrays und Dictionaries.
+            Wie sie funktionieren und was du damit machen kannst, siehst du auf
+            dieser Seite.
+        </p>
+        <p>
+            Keine Panik, wenn das jetzt alles ein wenig abstrakt und kompliziert
+            ist. 😳 Ganz am Ende der Seite sind ein paar Beispiele, die eigentlich
+            alles Wesentliche zeigen und schnell zu verstehen sind. Wenn wir
+            dann später mal Daten mit dem Server austauschen, wirst du sehen, dass
+            das <a href="https://de.wikipedia.org/wiki/JavaScript_Object_Notation" target="_blank">
+            JSON-Format</a>, wie es auch genannt wird, ziemlich nützlich sein kann.
+        </p>
+
+        <lsx-youtube video="EIgsvBndlYY"></lsx-youtube>
+        <lsx-info-box>
+            Das Video zeigt anhand einfacher Beispiele, wie einfach tiefe Datenstrukturen in
+            JavaScript bzw. in JSON definiert und genutzt werden können.
+        </lsx-info-box>
+    </aside>
+</section>

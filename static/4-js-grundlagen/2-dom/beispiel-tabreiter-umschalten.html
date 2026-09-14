@@ -1,0 +1,787 @@
+<section data-title="Beispiel: Tabreiter umschalten">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Vorschau">
+                <div id="beispiel-tabreiter-vorschau">
+                    <!-- common.css -->
+                    <style>
+                        #beispiel-tabreiter-vorschau {
+                            background: white;
+                        }
+
+                        #beispiel-tabreiter-vorschau header {
+                            background-image: url(4-js-grundlagen/2-dom/beispiel-tabreiter-umschalten/tabs_header.jpg);
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            background-size: cover;
+
+                            padding-bottom: 7%;
+                            position: relative;
+                        }
+
+                        #beispiel-tabreiter-vorschau header .xx-tab-items {
+                            position: absolute;
+                            bottom: 0;
+                        }
+
+                        #beispiel-tabreiter-vorschau header h1,
+                        #beispiel-tabreiter-vorschau header h2 {
+                            margin: 0;
+                            color: white;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-container {
+                            width: 100%;
+                            max-width: 70em;
+                            margin: 0 auto;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-padding-1 {
+                            padding: 1em;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-button {
+                            display: inline-block;
+                            background-color: darkred;
+                            transition: background-color 0.1s;
+                            color: white;
+
+                            text-decoration: none;
+                            font-weight: bold;
+
+                            padding: 0.75em;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-button:hover {
+                            background-color: #c70000;
+                        }
+                    </style>
+
+                    <!-- tabpages.css -->
+                    <style>
+                        /* Container mit den Tablaschen */
+                        #beispiel-tabreiter-vorschau .xx-tab-items {
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+                        }
+
+                        /* Eine einzelne Tablasche */
+                        #beispiel-tabreiter-vorschau .xx-tab-item {
+                            display: block;
+                            margin: 0;
+                            padding: 0.75em;
+                            min-width: 10em;
+
+                            background: black;
+
+                            border: 0px solid grey;
+                            border-bottom-width: 1px;
+
+                            text-transform: uppercase;
+
+                            cursor: pointer;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-tab-item,
+                        #beispiel-tabreiter-vorschau .xx-tab-item a,
+                        #beispiel-tabreiter-vorschau .xx-tab-item a:visited {
+                            color: #d0d0d0;
+                            text-decoration: none;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-tab-item:last-child {
+                            border-bottom-width: 0;
+                            border-right-width: 0;
+                        }
+
+                        @media all and (min-width: 30em) {
+                            #beispiel-tabreiter-vorschau .xx-tab-items {
+                                display: flex;
+                            }
+
+                            #beispiel-tabreiter-vorschau .xx-tab-item {
+                                border-bottom-width: 0;
+                                border-right-width: 1px;
+                            }
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-tab-item:hover,
+                        #beispiel-tabreiter-vorschau .xx-tab-item:hover a,
+                        #beispiel-tabreiter-vorschau .xx-tab-item:hover a:visited {
+                            color: white;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-tab-item .xx-tab-indicator {
+                            margin-top: 0.5em;
+                            width: 3em;
+                            height: 0.3em;
+                            background-color: #b0b0b0;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-tab-item:hover .xx-tab-indicator {
+                            background-color: white;
+                        }
+
+                        /* Aktive Tablasche */
+                        #beispiel-tabreiter-vorschau .xx-tab-item.xx-active {
+                            background: white;
+                            font-weight: bold;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-tab-item.xx-active,
+                        #beispiel-tabreiter-vorschau .xx-tab-item.xx-active a,
+                        #beispiel-tabreiter-vorschau .xx-tab-item.xx-active a:visited {
+                            color: #404040;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-tab-item.xx-active:hover,
+                        #beispiel-tabreiter-vorschau .xx-tab-item.xx-active:hover a,
+                        #beispiel-tabreiter-vorschau .xx-tab-item.xx-active:hover a:visited {
+                            color: black;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-tab-item.xx-active .xx-tab-indicator {
+                            background-color: darkred;
+                        }
+
+                        #beispiel-tabreiter-vorschau .xx-tab-item.xx-active:hover .xx-tab-indicator {
+                            background-color: #c70000;
+                        }
+
+                        /* Klasse zum Ausblenden der unsichtbaren Tabreiter */
+                        #beispiel-tabreiter-vorschau .xx-tab-page {
+                            display: none;
+                        }
+                    </style>
+
+                    <!-- tabpages.js -->
+                    <script>
+                        window.beispiel_tabreiter_vorschau_switchTabPage = (clickedTabItem) => {
+                            // Erst mal alle Tabseiten ausblenden
+                            clickedTabItem.parentNode.childNodes.forEach(tabItem => {
+                                if (tabItem.nodeType != Node.ELEMENT_NODE) return;
+
+                                tabItem.classList.remove("xx-active");
+                                let tabContent = document.querySelector(tabItem.dataset.tabContent);
+
+                                if (tabContent != null) {
+                                    tabContent.classList.add("xx-tab-page");
+                                }
+                            });
+
+                            // Dann die ausgewählte Tabseite anzeigen
+                            clickedTabItem.classList.add("xx-active");
+                            let tabContent = document.querySelector(clickedTabItem.dataset.tabContent);
+
+                            if (tabContent != null) {
+                                tabContent.classList.remove("xx-tab-page");
+                            }
+                        };
+                    </script>
+
+                    <header>
+                        <div class="xx-container xx-padding-1">
+                            <h1>DER HUND</h1>
+                            <h2>Der beste Freund des Menschen</h2>
+
+                            <ul class="xx-tab-items">
+                                <!-- Lasche 1: Über den Haushund -->
+                                <li class="xx-tab-item xx-active" data-tab-content="#beispiel-tabreiter-vorschau .page-1" onclick="beispiel_tabreiter_vorschau_switchTabPage(event.target)">
+                                    Über den Haushund
+                                    <div class="xx-tab-indicator"></div>
+                                </li>
+                                <!-- Lasche 2: Hunderassen -->
+                                <li class="xx-tab-item" data-tab-content="#beispiel-tabreiter-vorschau .page-2" onclick="beispiel_tabreiter_vorschau_switchTabPage(event.target)">
+                                    Hunderassen
+                                    <div class="xx-tab-indicator"></div>
+                                </li>
+                                <!-- Lasche 3: Ernährung -->
+                                <li class="xx-tab-item" data-tab-content="#beispiel-tabreiter-vorschau .page-3" onclick="beispiel_tabreiter_vorschau_switchTabPage(event.target)">
+                                    Ernährung
+                                    <div class="xx-tab-indicator"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="xx-container xx-padding-1">
+                        <!-- Erste Seite: Über den Haushund -->
+                        <div class="page-1">
+                            <h2>Wie der Mensch, so der Hund</h2>
+                            <p>
+                                Der Haushund (Canis lupus familiaris) ist ein Haustier und wird als Heim- und Nutztier gehalten. Seine wilde Stammform ist der Wolf, dem er als Unterart zugeordnet wird. Wann die Domestizierung stattfand, ist umstritten; wissenschaftliche Schätzungen variieren zwischen 15.000 und 100.000 Jahren vor unserer Zeit.
+                            </p>
+                            <p>
+                                Im engeren Sinn bezeichnet man als Haushund die Hunde, die überwiegend im Haus gehalten werden, und kennzeichnet damit also eine Haltungsform. Historisch wurde ein Hund, der zur Bewachung des Hauses gehalten wird, als Haushund bezeichnet. Eine weitere Verwendung des Begriffs ist die Einschränkung auf sozialisierte (Haus-)Hunde, also Hunde, die an das Zusammenleben mit Menschen in der menschlichen Gesellschaft gewöhnt und an dieses angepasst sind. Damit wird der Haushund abgegrenzt gegen wild lebende, verwilderte oder streunende Hunde, die zwar auch domestiziert, aber nicht sozialisiert sind.
+                            </p>
+                            <p>
+                                Der Dingo ist ebenfalls ein Haushund, wird jedoch provisorisch als eigenständige Unterart des Wolfes geführt.
+                            </p>
+                            <a class="xx-button" href="#">
+                                Weitere Informationen
+                            </a>
+                        </div>
+                        <!-- Zweite Seite: Hunderassen -->
+                        <div class="page-2 xx-tab-page">
+                            <h2>Einige Hunderassen</h2>
+                            <p>
+                                Zu den kleinsten anerkannten Hunderassen gehört der Chihuahua (FCI-Nr. 218) mit einem Gewicht von 0,5 bis 3,0 kg und einer Widerristhöhe von unter 20 cm; zu den größten Hunderassen zählen die Deutsche Dogge (FCI-Nr. 235) mit einer Widerristhöhe von mindestens 80 cm bei Rüden und der Irish Wolfhound (FCI-Nr. 160) mit bis zu 95 cm. Zu den seltenen Rassen zählt der Curly Coated Retriever oder auch der aus chinesischer Abstammung hervorgehende und seit mehr als 2000 Jahren dokumentierte Shar Pei.
+                            </p>
+                        </div>
+                        <!-- Dritte Seite: Ernährung -->
+                        <div class="page-3 xx-tab-page">
+                            <h2>Die richtige Ernährung ist wichtig</h2>
+                            <p>
+                                Hunde sind, wie Wölfe, in der Lage, ihre Ernährung in Grenzen an das Nahrungsangebot anzupassen. Schon Wölfe ernähren sich nicht ausschließlich von Beutetieren (wobei diese, weitgehend vollständig gefressen, bereits pflanzliche Nährstoffe enthalten), sondern fressen – je nach Futterangebot – auch pflanzliche Nahrung wie Wurzeln, Blätter, Gräser oder Früchte. Im Verlaufe seines Zusammenlebens mit dem Menschen hat sich der Hund zunehmend an dessen Ernährung angepasst und wurde zum Allesfresser. Fleisch als alleiniges Futtermittel für Hunde ist daher unangemessen.
+                            </p>
+                            <p>
+                                Eine vollwertige Ernährung der Hunde erfolgt am einfachsten mit qualitativ hochwertigem (industriell gefertigtem) Hundefutter. Diese Fütterung versorgt die Tiere mit allen essentiellen Nahrungsbestandteilen. Manche Hundehalter praktizieren eine Hundeernährung mit spezieller Frischkost (BARF). Ernährungsphysiologisch fragwürdig ist die Ernährung mit Speiseresten, da sie Mangelzustände bewirken kann.
+                            </p>
+                            <p>
+                                Viele menschliche Nahrungs- und Genussmittel sind für Hunde mehr oder wenig giftig, so zum Beispiel Schokolade aufgrund des enthaltenen Theobromins, aber auch Speisezwiebeln, Weintrauben und Rosinen.
+                            </p>
+                            <a class="xx-button" href="#">
+                                Jetzt Hundefutter kaufen
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="HTML">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;🐶 Tabreiter nachbauen mit JavaScript&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                            &lt;link rel="stylesheet" href="common.css" /&gt;
+                            &lt;link rel="stylesheet" href="tabpages.css" /&gt;
+                            &lt;script src="4-js-grundlagen/tabpages.js"&gt;&lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;header&gt;
+                                &lt;div class="container padding-1"&gt;
+                                    &lt;h1&gt;DER HUND&lt;/h1&gt;
+                                    &lt;h2&gt;Der beste Freund des Menschen&lt;/h2&gt;
+
+                                    &lt;ul class="tab-items"&gt;
+                                        &lt;!-- Lasche 1: Über den Haushund --&gt;
+                                        &lt;li class="tab-item active" data-tab-content="#tabpage-1"&gt;
+                                            Über den Haushund
+                                            &lt;div class="tab-indicator"&gt;&lt;/div&gt;
+                                        &lt;/li&gt;
+                                        &lt;!-- Lasche 2: Hunderassen --&gt;
+                                        &lt;li class="tab-item" data-tab-content="#tabpage-2"&gt;
+                                            Hunderassen
+                                            &lt;div class="tab-indicator"&gt;&lt;/div&gt;
+                                        &lt;/li&gt;
+                                        &lt;!-- Lasche 3: Ernährung --&gt;
+                                        &lt;li class="tab-item" data-tab-content="#tabpage-3"&gt;
+                                            Ernährung
+                                            &lt;div class="tab-indicator"&gt;&lt;/div&gt;
+                                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/div&gt;
+                            &lt;/header&gt;
+                            &lt;main&gt;
+                                &lt;div class="container padding-1"&gt;
+                                    &lt;!-- Erste Seite: Über den Haushund --&gt;
+                                    &lt;div id="tabpage-1" class="tab-page"&gt;
+                                        &lt;h2&gt;Wie der Mensch, so der Hund&lt;/h2&gt;
+                                        &lt;p&gt;
+                                            Der Haushund (Canis lupus familiaris) ist …
+                                        &lt;/p&gt;
+                                        &lt;a class="button" href="#"&gt;
+                                            Weitere Informationen
+                                        &lt;/a&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;!-- Zweite Seite: Hunderassen --&gt;
+                                    &lt;div id="tabpage-2" class="tab-page"&gt;
+                                        &lt;h2&gt;Einige Hunderassen&lt;/h2&gt;
+                                        &lt;p&gt;
+                                            Zu den kleinsten anerkannten Hunderassen gehört …
+                                        &lt;/p&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;!-- Dritte Seite: Ernährung --&gt;
+                                    &lt;div id="tabpage-3" class="tab-page"&gt;
+                                        &lt;h2&gt;Die richtige Ernährung ist wichtig&lt;/h2&gt;
+                                        &lt;p&gt;
+                                            Hunde sind, wie Wölfe, in der Lage, …
+                                        &lt;/p&gt;
+                                        &lt;a class="button" href="#"&gt;
+                                            Jetzt Hundefutter kaufen
+                                        &lt;/a&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Allgemeines Stylesheet">
+                <source-code language="css">
+                    html, body {
+                        font-family: sans-serif;
+                        font-size: 12pt;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    header {
+                        background-image: url(img/header.jpg);
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: cover;
+
+                        padding-bottom: 7%;
+                        position: relative;
+                    }
+
+                    header .tab-items {
+                        position: absolute;
+                        bottom: 0;
+                    }
+
+                    header h1,
+                    header h2 {
+                        margin: 0;
+                        color: white;
+                    }
+
+                    .container {
+                        width: 100%;
+                        max-width: 70em;
+                        margin: 0 auto;
+                    }
+
+                    .padding-1 {
+                        padding: 1em;
+                    }
+
+                    .button {
+                        display: inline-block;
+                        background-color: darkred;
+                        transition: background-color 0.1s;
+                        color: white;
+
+                        text-decoration: none;
+                        font-weight: bold;
+
+                        padding: 0.75em;
+                    }
+
+                    .button:hover {
+                        background-color: #c70000;
+                    }
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Tabreiter-Stylesheet">
+                <source-code language="css">
+                    /* Container mit den Tablaschen */
+                    .tab-items {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    /* Eine einzelne Tablasche */
+                    .tab-item {
+                        display: block;
+                        margin: 0;
+                        padding: 0.75em;
+                        min-width: 10em;
+
+                        background: black;
+
+                        border: 0px solid grey;
+                        border-bottom-width: 1px;
+
+                        text-transform: uppercase;
+
+                        cursor: pointer;
+                    }
+
+                    .tab-item,
+                    .tab-item a,
+                    .tab-item a:visited {
+                        color: #d0d0d0;
+                        text-decoration: none;
+                    }
+
+                    .tab-item:last-child {
+                        border-bottom-width: 0;
+                        border-right-width: 0;
+                    }
+
+                    @media all and (min-width: 30em) {
+                        .tab-items {
+                            display: flex;
+                        }
+
+                        .tab-item {
+                            border-bottom-width: 0;
+                            border-right-width: 1px;
+                        }
+                    }
+
+                    .tab-item:hover,
+                    .tab-item:hover a,
+                    .tab-item:hover a:visited {
+                        color: white;
+                    }
+
+                    .tab-item .tab-indicator {
+                        margin-top: 0.5em;
+                        width: 3em;
+                        height: 0.3em;
+                        background-color: #b0b0b0;
+                    }
+
+                    .tab-item:hover .tab-indicator {
+                        background-color: white;
+                    }
+
+                    /* Aktive Tablasche */
+                    .tab-item.active {
+                        background: white;
+                        font-weight: bold;
+                    }
+
+                    .tab-item.active,
+                    .tab-item.active a,
+                    .tab-item.active a:visited {
+                        color: #404040;
+                    }
+
+                    .tab-item.active:hover,
+                    .tab-item.active:hover a,
+                    .tab-item.active:hover a:visited {
+                        color: black;
+                    }
+
+                    .tab-item.active .tab-indicator {
+                        background-color: darkred;
+                    }
+
+                    .tab-item.active:hover .tab-indicator {
+                        background-color: #c70000;
+                    }
+
+                    /* Klasse zum Ausblenden der unsichtbaren Tabreiter */
+                    .tab-page {
+                        display: none;
+                    }
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="JavaScript">
+                <source-code language="javascript">
+                    /**
+                        * Hier werden nach dem Laden der Seite alle .tab-items gesucht und mit Event
+                        * Handlern zum Umschalten der Tabreiter versehen. Außerdem wird der erste
+                        * aktive Tabreiter (gekennzeichnet durch .active) angezeigt.
+                        */
+                    window.addEventListener("load", () =&gt; {
+                        // Funktion zum Umschalten der Tabreiter
+                        let switchTabPage = (clickedTabItem) =&gt; {
+                            // Erst mal alle Tabseiten ausblenden
+                            clickedTabItem.parentNode.childNodes.forEach(tabItem =&gt; {
+                                if (tabItem.nodeType != Node.ELEMENT_NODE) return;
+
+                                tabItem.classList.remove("active");
+                                let tabContent = document.querySelector(tabItem.dataset.tabContent);
+
+                                if (tabContent != null) {
+                                    tabContent.classList.add("tab-page");
+                                }
+                            });
+
+                            // Dann die ausgewählte Tabseite anzeigen
+                            clickedTabItem.classList.add("active");
+                            let tabContent = document.querySelector(clickedTabItem.dataset.tabContent);
+
+                            if (tabContent != null) {
+                                tabContent.classList.remove("tab-page");
+                            }
+                        }
+
+                        // Alle Tablaschen in der Seite suchen
+                        let tabItems = document.querySelectorAll(".tab-item");
+
+                        // Event Handler registrieren und erste Tabseite anzeigen
+                        tabItems.forEach(tabItem =&gt; {
+                            // Bist du eine aktive Tablasche? Dann Inhalt anzeigen.
+                            if (tabItem.classList.contains("active")) {
+                                switchTabPage(tabItem);
+                            }
+
+                            // Aktive Seite bei Klick auf die Lasche wechseln
+                            tabItem.addEventListener("click", event =&gt; {
+                                switchTabPage(event.target);
+                            });
+                        });
+                    });
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+        <p>
+            <small>
+                <small>
+                    Bildnachweis: <a href="https://pixabay.com/de/hund-traurig-warten-boden-2785074/" target="_blank">Pixabay: Fran_F</a>,
+                    Textnachweis: <a href="https://de.wikipedia.org/wiki/Haushund" target="_blank">Wikipedia: Haushund</a>,
+                    Layoutidee: <a href="https://www.redhat.com/en/technologies/mobile/application-platform" target="_blank">RedHat</a>
+                </small>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Nach all den vielen Detailinformationen und den total frei erfundenen Mini-Beispielen
+            freuen wir uns, dir hier nun ein absolut praxistaugliches Beispiel zeigen zu können,
+            wofür JavaScript in einer echten Webseite 💰 genutzt werden kann: Zum Ein- und Ausblenden
+            einzelner Inhalte, um somit Tabreiter zu realisieren. Denn, wie du sicher weißt, kennt
+            HTML zwar alle möglichen Elemente, aber eben keine Tabreiter. Und vor allem auch keine,
+            die so gut aussehen, wie in diesem Beispiel hier. 🤖
+        </p>
+        <p>
+            Vorneweg aber ein kleiner Hinweis: Falls du <a href="http://getbootstrap.com/" target="_blank">
+            Bootstrap</a> benutzt, musst du keine eigenen Tabreiter programmieren. Bootstrap hat schon
+            fix und fertig implementierte Tabreiter an Board, die du nur benutzen musst. Wie sie aussehen,
+            siehst du schon die ganze Zeit, da auch diese Seite hier Bootstrap nutzt und sich vor Tabreitern
+            kaum retten kann. Mehr dazu findest du in der <a href="https://getbootstrap.com/docs/4.0/components/navs/#javascript-behavior"
+            target="_blank">Dokumentation von Bootstrap</a>.
+        </p>
+        <p>
+            So, jetzt aber zurück zu unserem Beispiel. Wie immer, besteht der ganze Zauber aus dem
+            geschickten Zusammenspiel von HTML, CSS und JavaScript. Das CSS wollen wir an dieser
+            Stelle aber mal außen vor lassen und uns nur den HTML- und JavaScript-Code anschauen.
+            Wenn du willst, kannst du die Stylesheets ja trotzdem studieren.
+        </p>
+
+        <h2>Der HTML-Quellcode</h2>
+        <p>
+            Die HTML-Struktur besteht eigentlich aus zwei voneinander unabhängigen Teilen: Den anklickbaren
+            Feldern (auch Reiter genannt, hier im Beispiel sind das die schwarzen und weißen „Kasten“ mit den
+            Namen darin) und den durch sie umgeschalteten Inhalten (den Seiten). Beide Teile werden im HTML-Code
+            an unterschiedlichen Stellen definiert, da sie nicht wirklich ein großes, untrennbares Element bilden,
+            wie du es vielleicht von anderen Programmen her kennst:
+        </p>
+        <img src="4-js-grundlagen/2-dom/beispiel-tabreiter-umschalten/gtk_notebook.png" class="d-block" style="max-width: 100%;" />
+        <p>
+            <small>
+                Bildnachweis: <a href="https://developer.gnome.org/gtk3/2.90/GtkNotebook.html" target="_blank">Gtk+ 2.90 Reference Manual</a>
+            </small>
+        </p>
+        <p>
+            Stattdessen sind die Umschaltknöpfe einfach nur in der Nähe des Inhalts platziert, damit für den Betrachter
+            der Eindruck entsteht, sie würden zusammengehören. Ein häufig genutzter Trick dabei ist, den gerade aktiven
+            Umschalter in derselben Farbe wie der Seite darzustellen und die Schalter direkt oberhalb des Inhalts zu
+            platzieren. So wie hier im Beispiel, wo der aktive Reiter weiß ist und durch seine Position scheinbar mit
+            dem Inhalt verschmilzt.
+        </p>
+        <p>
+            Die Definition der Reiter (hier innerhalb des Headers) sieht wie folgt aus:
+        </p>
+        <source-code language="html">
+            &lt;ul class="tab-items"&gt;
+                &lt;li class="tab-item active" data-tab-content="#tabpage-1"&gt;
+                    Über den Haushund
+                    &lt;div class="tab-indicator"&gt;&lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class="tab-item" data-tab-content="#tabpage-2"&gt;
+                    Hunderassen
+                    &lt;div class="tab-indicator"&gt;&lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class="tab-item" data-tab-content="#tabpage-3"&gt;
+                    Ernährung
+                    &lt;div class="tab-indicator"&gt;&lt;/div&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        </source-code>
+        <p>
+            In Wirklichkeit handelt es sich also um eine einfache Liste, die durch die beiden Klassen <code>tab-items</code>
+            für die Liste selbst und <code>tab-item</code> für die Einträge drastisch umgestaltet wird. Zusätzlich enthält jeder
+            Eintrag noch ein <src-code language="html">&lt;div"&gt;</src-code>, mit dem eine kleine Verzierung unterhalb der
+            Beschriftung dargestellt wird.
+        </p>
+        <p>
+            Die aktive Lasche ist zusätzlich noch mit der Klasse <code>active</code> gekennzeichnet, damit sie sich optisch
+            von den anderen unterscheidet. Eine Aufgabe des JavaScript-Codes wird es daher sein, der aktiven Lasche diese
+            Klasse zuzuordnen und sicherzustellen, dass die anderen Laschen die Klasse nicht besitzen.
+        </p>
+        <p>
+            Über das <code>data-tab-content</code>-Attribut sind die Listeneinträge mit den HTML-Elementen verknüpft, deren
+            Inhalte ein- oder ausgeblendet werden sollen. <tt>#tabpage-1</tt> heißt dabei, dass das Element mit der ID <tt>tabpage-1</tt>
+            immer dann sichtbar sein soll, wenn die dazugehörige Lasche aktiv ist. Alle anderen Elemente sollen dann unsichtbar
+            sein. Die zweite Aufgabe des JavaScript-Codes ist daher, die hier angegebenen Elemente sichtbar oder unsichtbar
+            zu schalten.
+        </p>
+        <p>
+            Weiter unten im HTML-Code befinden sich hierfür deshalb drei <src-code language="html">&lt;div&gt;</src-code>-Elemente:
+        </p>
+        <source-code>
+            &lt;div id="tabpage-1" class="tab-page"&gt;
+                …
+            &lt;/div&gt;
+            &lt;div id="tabpage-2" class="tab-page"&gt;
+                …
+            &lt;/div&gt;
+            &lt;div id="tabpage-3" class="tab-page"&gt;
+                …
+            &lt;/div&gt;
+        </source-code>
+        <p>
+            Sie besitzen jeweils die Klasse <tt>tab-page</tt>, um auch hier nochmal zu kennzeichnen, dass es sich um die Inhalte zu
+            unseren Tabreitern handelt. Außerdem sorgt das Stylesheet dafür, dass alle Elemente mit dieser Klasse unsichtbar sind.
+            Alles, was der JavaScript-Code daher tun muss, um eine Seite anzuzeigen, ist die Klasse <tt>tab-page</tt> zu entfernen.
+            Später muss dann einfach die Klasse wieder zugeordnet werden, um die Seite auszublenden.
+        </p>
+
+        <h2>Der JavaScript-Code</h2>
+        <p>
+            Eine billige Lösung, um die Inhalte bei Klick auf einen Reiter zu wechseln, wäre die Verwendung des <code>onclick</code>-Attributs
+            im HTML, ungefähr so:
+        </p>
+        <source-code language="html">
+            &lt;ul class="tab-items"&gt;
+                &lt;li
+                    class="tab-item active"
+                    data-tab-content="#tabpage-1"
+                    onclick="switchTabPage(event.target)"
+                &gt;
+                    Über den Haushund
+                    &lt;div class="tab-indicator"&gt;&lt;/div&gt;
+                &lt;/li&gt;
+                …
+            &lt;/ul&gt;
+        </source-code>
+        <p>
+            Man bräuchte dann nur noch eine <code>switchTabPage()</code>-Funktion definieren, in der alle notwendigen Anpassungen am DOM
+            vorgenommen werden. Jedoch wäre das keine sonderlich schöne Lösung, da der HTML-Code dadurch nur unnötig unübersichtlich
+            und unsemantisch wird. Viel besser ist es daher, die Tabreiter beim Laden der Seite automatisch zu erkennen und mit Event
+            Handlern zu versehen. Aus diesem Grund beginnt auch dieser JavaScript-Code wieder mit dem gut alten <tt>load</tt>-Event des
+            <code>window</code>-Objekts:
+        </p>
+        <source-code language="javascript">
+            window.addEventListener("load", () => {
+                // Hier kümmern wir uns um alles
+                …
+            });
+        </source-code>
+        <p>
+            Innerhalb der Load-Funktion passiert dann folgendes:
+        </p>
+        <ol>
+            <li>
+                Am Anfang steht die innere Funktion <code>switchTabPage()</code>, mit der die sichtbaren
+                Inhalte umgeschaltet werden.
+            </li>
+            <li>
+                Dann werden alle Tablaschen im HTML-Dokument gesucht und in der Variablen <tt>tabItems</tt>
+                abgelegt.
+            </li>
+            <li>
+                Zum Schluss geht das Programm über alle gefundenen Laschen drüber und prüft für jede, ob sie
+                aktiv ist und daher ihr Inhalt angezeigt werden soll. Zusätzlich wird jede Lasche mit einem
+                Event Handler für das <tt>click</tt>-Ereignis versehen.
+            </li>
+        </ol>
+        <p>
+            Insgesamt hat die Load-Funktion daher folgenden, groben Aufbau:
+        </p>
+        <source-code language="javascript">
+            window.addEventListener("load", () => {
+                // Funktion zum Umschalten der Tabreiter
+                let switchTabPage = (clickedTabItem) =&gt; {
+                    …
+                }
+
+                // Alle Tablaschen in der Seite suchen
+                let tabItems = document.querySelectorAll(".tab-item");
+
+                // Event Handler registrieren und erste Tabseite anzeigen
+                tabItems.forEach(tabItem =&gt; {
+                    // Bist du eine aktive Tablasche? Dann Inhalt anzeigen.
+                    if (tabItem.classList.contains("active")) {
+                        switchTabPage(tabItem);
+                    }
+
+                    // Aktive Seite bei Klick auf die Lasche wechseln
+                    tabItem.addEventListener("click", event =&gt; {
+                        switchTabPage(event.target);
+                    });
+                });
+            });
+        </source-code>
+        <p>
+            Die <code>switchTabPage()</code>-Funktion bekommt als ersten Parameter immer das angeklickte
+            <src-code language="html">&lt;li&gt;</src-code>-Element übergeben. Ausgehend davon passiert
+            in der Funktion daher folgendes:
+        </p>
+        <source-code language="javascript">
+            // Ausgehend vom angeklickten &lt;li&gt;-Element suche alle
+            // anderen &lt;li&gt;-Elemente, indem du die Kinder seines
+            // Elternelements untersuchst
+            clickedTabItem.parentNode.childNodes.forEach(tabItem =&gt; {
+                // Nur weiter machen, wenn des gefundene Element ein
+                // HTML-Element ist. Denn neben den HTML-Elementen
+                // bekommen wir hier auch verschiedene Textknoten zu
+                // Gesicht, in denen die Leerzeichen und Zeilenumbrüche
+                // zwischen den &lt;li&gt; enthalten sind. Diese
+                // interessieren uns aber nicht.
+                if (tabItem.nodeType != Node.ELEMENT_NODE) return;
+
+                // tabItem ist das aktuelle, gefundene &lt;li&gt;-Element.
+                // Mache es zunächst inaktiv, indem du die Klasse „active“
+                // entfernst.
+                tabItem.classList.remove("active");
+
+                // „tabItem.dataset.tabContent“ beinhaltet den Wert aus
+                // dem „data-tab-content“-Attribut des HTML-Codes. Dabei
+                // handelt es sich um einen Verweis in CSS-Selektor-Syntax,
+                // der auf das HTML-Element mit dem Inhalt zeigt. Dieses
+                // HTML-Element besorgen wir uns hier.
+                let tabContent = document.querySelector(tabItem.dataset.tabContent);
+
+                // Falls im HTML-Code noch ein Fehler ist, liefert die
+                // obige Zeile den Wert „null“ anstelle des gesuchten
+                // Elements zurück. Darauf müssen wir vorbereitet sein.
+                if (tabContent != null) {
+                    // Setze die Klasse „tab-page“, um das Element somit
+                    // unsichtbar zu machen.
+                    tabContent.classList.add("tab-page");
+                }
+            });
+
+            // Nachdem nun alle Tabreiter ausgeblendet wurden, wird es
+            // Zeit, den aktiven Reiter anzuzeigen. Hier wird seiner
+            // Lasche daher die Klasse „active“ gegeben, damit sie sich
+            // von den anderen hervorhebt.
+            clickedTabItem.classList.add("active");
+
+            // Hier wieder der Trick mit dem „data-tab-content“-Attribut
+            // aus dem HTML-Code. Wir besorgen uns damit das HTML-Element,
+            // dessen Inhalt sichtbar sein soll.
+            let tabContent = document.querySelector(clickedTabItem.dataset.tabContent);
+
+            // Wie immer mit Sicherheitsabfrage, falls das HTML
+            // fehlerhaft ist.
+            if (tabContent != null) {
+                // Entferne die Klasse „tab-page“ und mache das Element
+                // somit sichtbar.
+                tabContent.classList.remove("tab-page");
+            }
+        </source-code>
+        <p>
+            Das ist alles. Eigentlich gar nicht so kompliziert. 🤗
+        </p>
+    </aside>
+</section>

@@ -1,0 +1,254 @@
+<section data-title="Übung 1: Dashboard-Kacheln" data-background-color="rgb(179, 202, 223)">
+    <article>
+        <lsx-github-edit
+            class        = "mb-3"
+            url          = "1%20HTML%20und%20CSS/Aufgaben/Dashboard-Kacheln/Aufgabe"
+            download     = "1%20HTML%20und%20CSS/Aufgaben/Dashboard-Kacheln"
+            pages-url1   = "1%20HTML%20und%20CSS/Aufgaben/Dashboard-Kacheln/Loesung/"
+            pages-label1 = "Musterlösung ansehen"
+        >
+        </lsx-github-edit>
+
+        <style>
+            #pr-dashboard {
+                .teilaufgabe {
+                    font-weight: bold;
+                }
+    
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-bottom: 1em;
+                    text-align: left;
+                }
+    
+                table thead {
+                    background-color: lightsteelblue;
+                }
+    
+                table th,
+                table td {
+                    padding: 0.5em;
+                    border: 1px solid black;
+                }
+    
+                table td.given {
+                    background-color: oldlace;
+                }
+    
+                table td[contenteditable="true"] {
+                    background: white;
+                    color: darkblue;
+                }
+    
+                table td.code {
+                    font-family: monospace;
+                }
+            }
+        </style>
+
+        <lsx-tab-pages id="pr-dashboard">
+            <lsx-tab-page title="Vorlage">
+                <p>
+                    HTML wurde zwar zum Schreiben wissenschaftlicher Aufsätze und ähnlicher Dokumente erfunden,
+                    kann tatsächlich aber für alle Arten von Bildschirminhalten verwendet werden. Schon bald
+                    richtete sich die Aufmerksamkeit daher auf die Beschreibung komplexer UI-Layouts mit HTML
+                    und CSS. Wurden diese zunächst noch „traditionell“ per URL im Browser aufgerufen, können
+                    heute sogar Mobile Apps, Desktop-Anwendungen und mehr mit den Webtechnologien erstellt werden.
+                    In dieser Aufgabe wollen wir daher ein kleines Dashboard für eine fiktive Aufgaben-App bauen.
+                </p>
+        
+                <div class="d-flex gap-2 align-items-center justify-content-center mt-4 mb-4 flex-column flex-md-row align-items-md-end">
+                    <lsx-modal-image src="2-html_css/4-uebungen/bung-1-dashboard-kacheln/ub-dashboard/screenshot.png" caption="Screenshot der zu erstellenden Ansicht"></lsx-modal-image>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="HTML und CSS">
+                <p>
+                    Bespreche die folgenden Fragen zu HTML und CSS mit deine*r Sitznachbar*in
+                    oder dem freundlichen KI-Chatbot von nebenan. Versucht anschließend, die
+                    Kernaussagen in eigenen Worten zusammenzufassen.
+                </p>
+          
+                <table class="margin-bottom: 0.5em;">
+                    <colgroup>
+                        <col style="width: 50%" />
+                        <col style="width: 50%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                        <th>Frage</th>
+                        <th>Antwort</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="given">
+                        Die Abkürzung HTML steht für „Hypertext Markup Language”. Was ist
+                        damit konkret gemeint?
+                        </td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="given">
+                        Kann CSS ebenfalls als Markup-Sprache bezeichnet werden? Begründe
+                        deine Antwort.
+                        </td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="given">Welche Arten von HTML-Elementen gibt es?</td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="given">
+                        Was ist der Unterschied zwischen Block- und Inline-Elementen?
+                        </td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="given">
+                        Müssen CSS und HTML immer in derselben Codedatei untergebracht
+                        werden?
+                        </td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td class="given">
+                        Wie ist die grundlegende Syntax eines CSS-Stylesheets?
+                        </td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                </table>
+        
+                <p>
+                    <small>
+                        In die weiße Spalte klicken, um etwas einzutragen.
+                    </small>
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Quellcode-Struktur">
+                <p>
+                    <span class="teilaufgabe">a)</span>
+                    Angenommen, wir wollten die Gestaltung der oben gezeigten Webanwendung
+                    nachprogrammieren. Wie müsste im ersten Schritt der HTML-Code (noch
+                    ohne Stylesheet) aussehen? Erarbeitet im Kurs ein Grundgerüst für den
+                    HTML-Code und diskutiert dieses.
+                </p>
+        
+                <p>
+                    <span class="teilaufgabe">b)</span>
+                    Fülle auf Grundlage des eben erarbeiteten HTML-Codes folgende Tabelle
+                    aus, um den Inhalt des Styleheets grob vorzubereiten.
+                </p>
+        
+                <table>
+                    <colgroup>
+                        <col style="width: 30%" />
+                        <col style="width: 25%" />
+                        <col style="width: 55%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                        <th>Element</th>
+                        <th>CSS-Selektor</th>
+                        <th>Gestaltung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="given">Wurzelelement der Seite</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Kopfbereich der Seite</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Titel der Anwendung</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Das Wort „Aufgabenliste”</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Das Wort „Dashboard”</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Das Navigationsmenü</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Links/ Navigationselemente</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Überschriften im Hauptbereich</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Sämtliche Kacheln</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Alle gelben Kacheln</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Kacheln mit dem Text „Alle”</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Der Text in den Kacheln</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Die Nummer in den Kacheln</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Das Icon in den Kacheln</td>
+                            <td class="code" contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    <small>
+                        In die weißen Spalten klicken, um etwas einzutragen.
+                    </small>
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Nicht nur statische Webseiten, auch moderne App UIs lassen sich mit HTML und CSS bauen,
+            wie diese Aufgabe zeigt. In diesem Projekt baust du deshalb ein einfaches Dashboard
+            für eine TODO-Anwendung. 📅
+        </p>
+        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
+            </small>
+        </p>
+    </aside>
+</section>

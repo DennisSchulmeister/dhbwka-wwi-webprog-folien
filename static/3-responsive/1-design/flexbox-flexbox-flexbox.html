@@ -1,0 +1,396 @@
+<section data-title="Flexbox, Flexbox, Flexbox">
+    <article>
+        <p>
+            Der Flexbox-Algorithmus ermöglicht es, auf elegante Weise mit wenigen Code-Zeilen komplexe Layouts zu definieren.
+        </p>
+        <lsx-ul class="mb-4">
+            <li>
+                Elemente können sowohl horizontal als auch vertikal einfach zentriert und verteilt werden.
+            </li>
+            <li>
+                Die Kinder einer Flexbox passen sich automatisch an den verfügbaren Platz an und können wachsen oder schrumpfen.
+            </li>
+            <li>
+                Die Reihenfolge der Flex-Items lässt sich unabhängig von der Reiihenfolge im HTML anpassen.
+            </li>
+            <li>
+                Elemente können bei Platzmangel automatisch in neue Zeilen bzw. Spalten umbrechen.
+            </li>
+        </lsx-ul>
+
+        <lsx-accordion class="mb-4">
+            <lsx-accordion-page title="CSS-Eigenschaften des Containers" bold>
+                <p>
+                    Um den Flexbox-Algorithmus zu aktivieren, muss ein HTML-Element mit der CSS-Eigenschaft
+                    <code>display</code> entsprechend gekennzeichnet werden. Hinzu kommen dann noch weitere
+                    Eigenschaften, die das Verhalten der Flexbox beeinflussen. Nachfolgend sind die wichtigsten
+                    davon genannt. Eine vollständige Übersicht gibt es auf
+                    <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">css-tricks.com</a>.
+                </p>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="display">
+                        <p>
+                            Aktiviert mit dem richtigen Wert den Flexbox-Algorithmus für ein HTML-Element und
+                            macht es somit zu einem Flexbox-Container.
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>flex</code>
+                                </td>
+                                <td>
+                                    Der Container wird zu einem <b>Block-Element mit Flexbox-Verhalten</b>. Das bedeutet, er nimmt standardmäßig
+                                    die volle Breite ein, verhält sich wie ein Block-Level-Element, und seine Kinder werden zu Flex-Items.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>inline-flex</code>
+                                </td>
+                                <td>
+                                    Der Container wird zu einem <b>Inline-Element mit Flexbox-Verhalten</b>. Das heißt, er verhält sich in Bezug
+                                    auf umliegenden Text oder andere Inline-Elemente wie ein Inline-Block, ordnet seine Kinder aber trotzdem als
+                                    Flex-Items an.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i>Alle anderen</i>
+                                </td>
+                                <td>
+                                    Der Container ist keine Flexbox.
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="flex-direction">
+                        <p>
+                            Ändert die Richtung, in welcher die Flexbox ihre Inhalte anordnet, indem festgelegt
+                            wird, welche Achse die Hauptachse ist (<code>justify-content</code>). Die andere Achse
+                            ist dann automatisch die Nbenachse (<code>align-items</code>).
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>row</code>
+                                </td>
+                                <td>
+                                    (Standardwert) Ordnet die Flex-Items in einer horizontalen Reihe von links nach rechts an.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>column</code>
+                                </td>
+                                <td>
+                                    Stapelt die Flex-Items vertikal von oben nach unten.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>row-reverse</code>
+                                </td>
+                                <td>
+                                    Ordnet die Flex-Items in einer Reihe von rechts nach links an.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>column-reverse</code>
+                                </td>
+                                <td>
+                                    Stapelt die Flex-Items vertikal von unten nach oben.
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="justify-content">
+                        <p>
+                            Bestimmt die Anordnung der Kind-Elemente entlang der Hauptachse der Flexbox.
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>flex-start</code>
+                                </td>
+                                <td>
+                                    (Standardwert) Die Flex-Items beginnen am Anfang der Hauptachse.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>flex-end</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items beginnen am Anfang der Hauptachse.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>center</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden in der Mitte der Hauptachse zentriert.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>space-between</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden mit gleichmäßigem Abstand dazwischen verteilt, ohne Randabstand.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>space-around</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items haben einen gleichmäßigen Abstand, auch zum Rand des Containers.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>space-evenly</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items und Ränder haben überall denselben Abstand.
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="align-items">
+                        <p>
+                            Bestimmt die Anordnung der Kind-Elemente entlang der Neben der Flexbox.
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>stretch</code>
+                                </td>
+                                <td>
+                                    (Standardwert) Die Flex-Items werden so gestreckt, dass sie die Nebenachse des Containers ausfüllen.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>flex-start</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden am Anfang der Nebenachse des Containers ausgerichtet.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>flex-end</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden am Ende der Nebenachse des Containers ausgerichtet.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>center</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden in der Mitte der Nebenachse des Containers ausgerichtet.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>baseline</code>
+                                </td>
+                                <td>
+                                    Die Flex-Items werden entlang ihrer Textgrundlinie ausgerichtet.
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="flex-wrap">
+                        <p>
+                            Legt fest, ob die Flexbox ihre Items bei zu wenig Platz in eine neue Zeile bzw.
+                            eine neue Spalte umbrechen darf. Standardmäßist ist dies deaktiviert, wodurch die
+                            Items unter Umständen sehr gequetscht werden.
+                        </p>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 9em;">
+                                    <code>nowrap</code>
+                                </td>
+                                <td>
+                                    (Standardwert) Alle Flex-Items bleiben in einer Zeile, auch wenn sie dabei
+                                    über den Container hinausragen oder zusammengedrückt werden.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>wrap</code>
+                                </td>
+                                <td>
+                                    Flex-Items brechen in eine neue Zeile/Spalte um, wenn nicht genug Platz vorhanden ist.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <code>wrap-reverse</code>
+                                </td>
+                                <td>
+                                    Wie <code>wrap</code>, nur dass die neuen Zeilen in umgekehrter Richtung angeordnet werden
+                                    (z. B. oberhalb statt unterhalb).
+                                </td>
+                            </tr>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="gap">
+                        <p>
+                            Definiert den Abstand zwischen den Flex-Items, zum Beispiel:
+                        </p>
+                        <source-code language="css">
+                            .my-flexbox {
+                                display: flex;
+                                gap: 1em;
+                            }
+                        </source-code>
+                        <p>
+                            Spezielle Varianten existieren für den horizontalen und den vertikalen
+                            Abstand, wenn diese nicht einheitlich sein sollen:
+                        </p>
+                        <ul>
+                            <li><code>row-gap</code>: Horizontaler Abstand zwischen den Flex-Items</li>
+                            <li><code>column-gap</code>: Vertikaler Abstand zwischen den Flex-Items</li>
+                        </ul>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="CSS-Eigenschaften der Flex-Items" bold>
+                <p>
+                    Bei Flexbox gibt es nicht nur Eigenschaften für den Container, sondern auch spezielle
+                    Eigenschaften, die direkt an den Flex-Items (also den Kindelementen) gesetzt werden können.
+                    Damit steuert man, wie sich jedes einzelne Element innerhalb des Flex-Containers verhält,
+                    z.B. wie groß es werden darf oder wie es sich beim Verteilen des Platzes verhält.
+                </p>
+                <table class="table">
+                    <tr>
+                        <td style="width: 9em;">
+                            <code>flex-grow</code>
+                        </td>
+                        <td>
+                            Bestimmt, wie stark ein Item wächst, wenn im Container zusätzlicher Platz vorhanden ist.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>flex-shrink</code>
+                        </td>
+                        <td>
+                            Bestimmt, wie stark ein Item schrumpft, wenn der Platz im Container nicht ausreicht.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>flex-basis</code>
+                        </td>
+                        <td>
+                            Gibt die Ausgangsgröße eines Items an, bevor Wachsen oder Schrumpfen angewendet werden.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>flex</code>
+                        </td>
+                        <td>
+                            Kurzschreibweise für <code>flex-grow</code>, <code>flex-shrink</code> und <code>flex-basis</code>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>align-self</code>
+                        </td>
+                        <td>
+                            Überschreibt die vertikale Ausrichtung (<code>align-items</code>) für ein einzelnes Item.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>order</code>
+                        </td>
+                        <td>
+                            Übersteuert die Reihenfolge, in der die Items im Container angezeigt werden.
+                        </td>
+                    </tr>
+                </table>
+            </lsx-accordion-page>
+        </lsx-accordion>
+
+        <iframe src="3-responsive/1-design/flexbox-flexbox-flexbox/flexbox/index.html" class="dhbw-border" style="width: 100%; height: 55%;"></iframe>
+    </article>
+    <aside>
+        <p>
+            Moderne Webseiten verhalten sich immer weniger wie einfache Textdokumente, sondern immer mehr wie
+            vollwertige Anwendungen mit einer richtigen Benutzeroberfläche. Im Laufe der Zeit haben sich daher
+            gängige Layouts wie die Verwendung eines komplexen Headers oder einer Sidebar herausgebildet, die
+            früher so nur von großen Desktopanwendungen bekannt werden. Doch leider konnten diese Layouts mit
+            den Boardmitteln von HTML und CSS nur sehr umständlich und fehleranfällig nachgebaut werden. Oft
+            musst man auf unschöne Tricks wie der Verwendung Floats und Tabellen zugreifen, um das gewünschte
+            Ergebnis irgendwie hinzubekommen. 🥲
+        </p>
+        <p>
+            Und dann kam die Flexbox und alles wurde anders. 🚀 Es handelt sich dabei um ein neues Layout-Modul
+            für CSS, das es ermöglicht, die Elemente eines Containers (die so genannten Flex-Items) einfach und
+            kontrolliert anzuordnen. Elemente zentrieren, Fußzeilen immer am unteren Bildschirmende platzieren,
+            Sidebards, … war plötzlich alles ganz leicht.
+        </p>
+        <p>
+            Die grundlegende Funktionsweise von Flexbox ist, dass man einen Container als „flexible Box“ definiert.
+            Dieser Container bestimmt dann, wie sich die enthaltenen Elemente, die Flex-Items, anordnen. Statt dass
+            man für jedes Element komplizierte Positionierungen schreibt, reicht es, dem übergeordneten Container
+            bestimmte Regeln zu geben, zum Beispiel ob die Elemente nebeneinander oder untereinander stehen sollen,
+            ob sie links, rechts oder zentriert ausgerichtet werden, und so weiter.
+        </p>
+        <p>
+            Ein einfaches Beispiel soll diese Grundprinzip dahinter verdeutlichen. Angenommen, wir haben einen
+            Container mit drei Boxen:
+        </p>
+        <source-code language="html">
+            &lt;div class="container"&gt;
+                &lt;div class="item"&gt;Box 1&lt;/div&gt;
+                &lt;div class="item"&gt;Box 2&lt;/div&gt;
+                &lt;div class="item"&gt;Box 3&lt;/div&gt;
+            &lt;/div&gt;
+        </source-code>
+        <p>
+            Mit nur wenigen Zeilen CSS kann man steuern, dass sie nebeneinander in einer Reihe erscheinen und gleichmäßig
+            verteilt werden:
+        </p>
+        <source-code language="css">
+            .container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        </source-code>
+        <p>
+            In diesem Beispiel wird durch <src-code language="css">display: flex</src-code> der Container zum Flexbox-Container.
+            Die Eigenschaft <code>justify-content</code> sorgt dafür, dass die Boxen mit gleichmäßigem Abstand verteilt werden,
+            und <code>align-items</code> richtet sie vertikal mittig innerhalb des Containers aus. Damit entsteht schnell ein Layout,
+            das sich flexibel anpasst und ohne komplizierte Tricks auskommt – in Kombination mit Media oder Container Queries
+            unschlagbar!
+        </p>
+        <p>
+            Für ihre Anordnung unterscheidet die Flexbox zwischen ihrer Hauptachse (<code>justify-content</code>) und ihrer
+            Nebenachse (<code>align-items</code>). Standardmäßig werden die Flex-Items entlang einer Reihe angeordnet, so
+            dass die X-Achste die Hauptachse und die Y-Achse die Nebenachse ist. Mit <code>flex-direction</code> kann dies
+            aber umgeschaltet werden, um die Elemente beispielsweise untereinander anordnen zu können.
+        </p>
+        <p>
+            Die Seite reichts zeigt ein interaktives Beispiel sowie die wichtigsten CSS-Eigenschaften. Mehr Details findet
+            man schön visualisiert hingegen auf <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">css-tricks.com</a>.
+        </p>
+    </aside>
+</section>

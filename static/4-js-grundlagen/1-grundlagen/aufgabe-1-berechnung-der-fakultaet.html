@@ -1,0 +1,108 @@
+<section data-title="Aufgabe 1: Berechnung der Fakultät" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <div class="mb-3">
+            <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">
+                <button class="btn btn-dark">
+                    JS.Scratch
+                </button>
+            </a>
+        </div>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe">
+                <p>
+                    Aus dem Mathematikunterricht kennst du sicher noch die <a href="https://de.wikipedia.org/wiki/Fakult%C3%A4t_(Mathematik)" target="_blank">Fakultätfunktion</a>.
+                    Sie ist so definiert, dass sie einer natürlichen Zahl <tt>𝑛 &gt; 0</tt> das
+                    Produkt aller natürlichen Zahlen von <tt>𝑛 … 1</tt> zuordnet. Am einfachsten
+                    lässt sich das an einem Beispiel zeigen:
+                </p>
+                <p>
+                    <tt>5! = 5 × 4 × 3 × 2 × 1 = 120</tt> <br />
+                    <tt>10! = 10 × 9 × 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 = 3.628.800</tt>
+                </p>
+                <p>
+                    Alles klar? Deine Aufgabe lautet, eine JavaScript-Funktion zu schreiben,
+                    mit der die Fakultät einer beliebigen Zahl berechnet werden kann. Du
+                    kannst die Funktion dabei entweder rekursiv durch Aufruf von sich selbst
+                    oder iterativ mit einer Schleife programmieren. In jedem Fall solltest
+                    du aber prüfen, ob die übergebene Zahl größer <tt>0</tt> ist und den Wert
+                    <tt>NaN</tt>¹ zurück liefern, falls nicht.
+                </p>
+                <p>
+                    Zum Ausprobieren, kannst du die Funktion direkt in <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a>
+                    aufrufen. um Beispiel so:
+                </p>
+                <source-code language="javascript">
+                    let faktultaet = n => {
+                        return …
+                    };
+                </source-code>
+                <pre>fakultaet(5);<br /><b>number 120</b></pre>
+                <p>
+                    <small>
+                        ¹ <tt>NaN</tt> steht für „Not A Number“.
+                    </small>
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung 1">
+                <source-code language="javascript">
+                    let fakultaet = n => {
+                        if (n &lt; 1) {
+                            return NaN;
+                        } else if (n == 1) {
+                            return 1;
+                        } else {
+                            return n * fakultaet(n-1);
+                        }
+                    };
+                </source-code>
+
+                <p>
+                    <b>Vorsicht:</b> Diese Lösung nutzt Rekursion und kann daher nur für relativ
+                    kleine Zahlen verwendet werden. Ist die Zahl <tt>𝑛</tt> zu groß, kommt es
+                    möglicherweise zu einem Abbruch.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung 2">
+                <source-code language="javascript">
+                    let fakultaet = n => {
+                        if (n &lt; 1) {
+                            return NaN;
+                        }
+
+                        let ergebnis = 1;
+
+                        for (let i = 1; i &lt;= n; i++) {
+                            ergebnis *= i;
+                        }
+
+                        return ergebnis;
+                    };
+                </source-code>
+                <p>
+                    Diese Lösung nutzt anstelle der Rekursion eine Schleife und funktioniert daher
+                    mit allen Zahlen.
+                </p>
+                <p>
+                    <b>Hinweis:</b> <src-code language="javascript">ergebnis *= i</src-code>
+                    ist dasselbe wie <src-code language="javascript">ergebnis = ergebnis * i</src-code>.
+                    Analog dazu gibt es noch <code>+=</code>, <code>-=</code> und <code>/=</code>.
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Aah, endlich. Genug der schönen Worte und her mit dem JavaScript-Editor. Rufe JS.Scratch auf
+            und probiere, die folgende Aufgabe zu lösen. Wie wünschen dir viel Erfolg dabei! 🐞
+        </p>
+        <img src="shared/js.scratch.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Screenshot: <a href="https://github.com/DennisSchulmeister/js.scratch" target="_blank">JS.Scratch</a>
+            </small>
+        </p>
+    </aside>
+</section>

@@ -1,0 +1,93 @@
+<section data-title="Unsichtbare HTML-Elemente">
+    <article>
+        <lsx-tab-pages id="tabs-unsichtbar">
+            <!-- Übersicht -->
+            <lsx-tab-page title="Übersicht">
+                <h2>Grundstruktur eines HTML-Dokuments</h2>
+
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;...&lt;/head&gt;
+                        &lt;body&gt;...&lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+                <p style="margin-top: -0.5em; margin-bottom: 1em">
+                    Siehe <a href="#3.1.3">vorletzte Seite</a>. 😎
+                </p>
+
+                <h2>Elemente innerhalb des Kopfbereichs</h2>
+
+                <dl>
+                    <dt>
+                        <src-code language="html">
+                            &lt;title&gt;Meine erste Webseite&lt;/title&gt;
+                        </src-code>
+                    </dt>
+                    <dd>
+                        Legt den Dokumenttitel fest, der in der Titelzeile des Browsers angezeigt wird.
+                    </dd>
+
+                    <dt>
+                        <src-code language="html">
+                            &lt;meta name="name" content="wert" /&gt;
+                        </src-code>
+                    </dt>
+                    <dd>
+                        Erlaubt es, verschiedene Metadaten wie den Autor der Seite oder Schlagwörter zu ihrem
+                        Inhalt zu definieren. Diese Informationen werden von den Suchmaschinen praktisch aber
+                        nicht mehr ausgewertet.
+                    </dd>
+
+                    <dt>
+                        <src-code language="html">
+                            &lt;meta charset="utf-8" /&gt;
+                        </src-code>
+                    </dt>
+                    <dd>
+                        Sonderform des <src-code language="html">&lt;meta&gt;</src-code>-Tags zur Definition
+                        des Zeichensatzes der Seite. Der Standardwert lautet <code>utf-8</code>, sollte aber
+                        trotzdem immer mitgegeben werden, damit Umlaute und Sonderzeichen richtig dargestellt
+                        werden.
+                    </dd>
+
+                    <dt>
+                        <src-code language="html">
+                            &lt;link rel="shortcut icon" href="favicon.svg" /&gt;
+                        </src-code>
+                    </dt>
+                    <dd>
+                        Ordnet der Seite ein Icon zu, das neben ihrem Titel angezeigt wird.
+                    </dd>
+                </dl>
+            </lsx-tab-page>
+
+            <!-- Beispiel -->
+            <lsx-tab-page title="Beispiel">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Meine erste Webseite&lt;/title&gt;
+                            &lt;link rel="shortcut icon" href="favicon.svg" /&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            ...
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Auf dieser und der nächsten Seite siehst du ein paar der wichtigsten HTML-Elemente.
+            Mit ihnen kannst du schon kleine Webseiten wie in den Anfangstagen des Web erzeugen.
+            Im <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">
+            Mozilla Developer Network</a> gibt es darüber hinaus eine sehr gute Übersicht, die
+            auch spezielle Tags zum Beispiel zur Kennzeichnung von Zitaten oder Tastatureingaben
+            beinhaltet.
+        </p>
+    </aside>
+</section>

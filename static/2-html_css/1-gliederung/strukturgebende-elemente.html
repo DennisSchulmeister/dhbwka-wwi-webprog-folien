@@ -1,0 +1,446 @@
+<section data-title="Strukturgebende Elemente">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Übersicht">
+                <lsx-ul emoji="🖊️">
+                    <li>
+                        Die meisten HTML-Elemente besitzen kein spezielles Aussehen, sondern erhalten dieses
+                        erst durch ein Stylesheet.
+                    </li>
+                    <li>
+                        Jedoch unterscheiden sich die Elemente in der Art, wie sie auf dem Bildschirm
+                        angeordnet werden:
+                    </li>
+                    <li>
+                        <b>Blockelemente</b> umschließen einen größeren Bereich mit beliebig viel Inhalt.
+                    </li>
+                    <li>
+                        <b>Inline-Elemente</b> sind Teil des Fließtexts und werden innerhalb dessen platziert.
+                    </li>
+                </lsx-ul>
+
+                <h3>Anordnung von Blockelementen</h3>
+                <p>
+                    Die meisten HTML-Elemente sind Blockelemente. Sie stehen in der Regel untereinander
+                    und nehmen immer eine maximale Breite in Anspruch. Die Breite wird dabei durch das
+                    sie umgebende Elternelement begrenzt. Beispiele hierfür sind:
+                </p>
+                <source-code language="html">
+                    &lt;div&gt;…&lt;/div&gt;
+                    &lt;header&gt;…&lt;/header&gt;
+                    &lt;footer&gt;…&lt;/footer&gt;
+                    &lt;main&gt;…&lt;/main&gt;
+                    &lt;section&gt;…&lt;/section&gt;
+                    &lt;nav&gt;…&lt;/nav&gt;
+                    &lt;h1&gt;…&lt;/h1&gt;
+                    &lt;h2&gt;…&lt;/h2&gt;
+                    &lt;h3&gt;…&lt;/h3&gt;
+                    &lt;h4&gt;…&lt;/h4&gt;
+                    &lt;h5&gt;…&lt;/h5&gt;
+                    &lt;h6&gt;…&lt;/h6&gt;
+                    &lt;p&gt;…&lt;/p&gt;
+                </source-code>
+                <p>
+                    Werden Blockelemente ineinander geschachtelt, wird auch ihr Inhalt geschachtelt
+                    dargestellt. Blockelemente eignen sich daher hervorragend, die Gesamtstruktur
+                    einer Seite zu definieren.
+                </p>
+
+                <h3>Anordnung von Inline-Elementen</h3>
+                <p>
+                    Inline-Elemente werden als Teil des Fließtextes angeordnet, ganz so als ob es
+                    Buchstaben wären. Sie stehen daher mit dem sie umgebenden Text in einer Linie
+                    und werden (wie der Text auch) bei Bedarf in eine neue Zeile umgebrochen.
+                    Der Zeilenumbruch kann dabei sogar innerhalb eines Inline-Elements erfolgen,
+                    so dass Teile davon am Ende der einen Zeile und der Rest am Anfang der nächsten
+                    Zeile stehen. Davon abgesehen richten sich Höhe und Breite nach dem Inhalt,
+                    so dass ein Inline-Element immer nur gerade so groß ist, dass es seinen Inhalt
+                    umschließen kann. Beispiele für Inline-Elemente sind:
+                </p>
+                <source-code language="html">
+                    &lt;span&gt;…&lt;/span&gt;
+                    &lt;a&gt;…&lt;/a&gt;
+                    &lt;b&gt;…&lt;/b&gt;
+                    &lt;u&gt;…&lt;/u&gt;
+                    &lt;i&gt;…&lt;/i&gt;
+                    &lt;button&gt;…&lt;/button&gt;
+                    &lt;input&gt;…&lt;/input&gt;
+                    &lt;img/&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Beispiel">
+                <div id="sge-screenshot">
+                    <style>
+                        /*
+                            * Hover-Effekt zur Ermittlung der Größe eines Elements
+                            */
+                        #sge-screenshot header *,
+                        #sge-screenshot main *,
+                        #sge-screenshot footer *,
+                        #sge-screenshot header,
+                        #sge-screenshot footer {
+                            border: 2px solid transparent;
+                            box-sizing: border-box;
+                        }
+
+                        #sge-screenshot header *:hover,
+                        #sge-screenshot main *:hover,
+                        #sge-screenshot footer *:hover,
+                        #sge-screenshot header:hover,
+                        #sge-screenshot footer:hover {
+                            border-color: red;
+                        }
+
+                        /*
+                            * Grundlayout mit Fußzeile am unteren Ende
+                            */
+                        #sge-screenshot .body {
+                            border: 1px solid black;
+
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                        }
+
+                        /*
+                            * Gestaltung der einzelnen Abschnitte
+                            */
+                        #sge-screenshot .body {
+                            hyphens: auto;
+                        }
+
+                        #sge-screenshot p {
+                            text-align: justify;
+                        }
+
+                        #sge-screenshot header,
+                        #sge-screenshot .section,
+                        #sge-screenshot footer {
+                            padding: 1rem;
+                        }
+
+                        #sge-screenshot header,
+                        #sge-screenshot footer {
+                            background: rgb(30,30,30);
+                            color: rgb(240,240,240);
+                        }
+
+                        #sge-screenshot .banner {
+                            font-family: 'Lobster', cursive;
+
+                            font-size: 3em;
+                            text-align: center;
+                            color: rgb(205, 23, 23);
+                            text-shadow:
+                                0px 0px 0px black,
+                                0px 1px 0px black,
+                                1px 0px 0px black,
+                                1px 1px 0px black,
+                                2px 2px 2px rgba(0,0,0, 0.5);
+
+                            background-image: url(2-html_css/1-gliederung/strukturgebende-elemente/sge-rocket.jpg);
+                            background-size: cover;
+                            background-position: center;
+                            background-attachment: fixed;
+
+                            min-height: 7em;
+                        }
+
+                        #sge-screenshot .content {
+                            background: white;
+                        }
+
+                        /*
+                            * Fußbereich
+                            */
+                        #sge-screenshot footer {
+                            text-align: center;
+                        }
+
+                        #sge-screenshot footer > img {
+                            height: 5em;
+                            vertical-align: middle;
+                            margin-right: 1em;
+                        }
+
+                        #sge-screenshot .heart {
+                            color: crimson;
+                        }
+                    </style>
+                    <div class="body">
+                        <header>
+                            Fahre mit der Maus über ein Element, um seine wahre Größe zu sehen.
+                        </header>
+                        <main>
+                            <div class="section banner">
+                                <b>Webprogrammierung ganz leicht</b>
+                                <br />
+                                (versprochen)
+                            </div>
+                            <div class="section content">
+                                <h3>Strukturierung des HTML-Codes</h3>
+                                <p>
+                                    Die größte Kunst beim Erstellen einer HTML-Seite ist es, eine gute
+                                    Struktur für den HTML-Code zu finden, die einerseits möglichst einfach
+                                    das gewünschte Layout erzielt und andererseits auch übersichtlich und
+                                    leicht zu verstehen ist. Damit dies gelingt ist es daher wichtig, die
+                                    Layoutalgorithmen des Browsers zu verstehen und zu wissen, wie welches
+                                    Element auf dem Bildschirm angeordnet wird. Zwar kann die Anordnung im
+                                    Stylesheet nachträglich verändert werden, der gesamte Quellcode wird
+                                    dadurch aber sehr komplex und fehleranfällig.
+                                </p>
+
+                                <h3>Zusammenspiel mit dem Stylesheet</h3>
+                                <p>
+                                    Idealerweise sollte der HTML-Code nur die darzustellenden Inhalte und
+                                    die grobe Struktur der Seite beinhalten. Die Layoutregeln des Browsers
+                                    sollten dabei so ausgenutzt werden, dass auch ohne Stylesheet die
+                                    Anzeige näherungsweise schon dem gewünschten Ergebnis entspricht. In
+                                    dem (oder den) Stylesheet(s) sollten dann kosmetische Anpassungen
+                                    vorgenommen werden, um die Details des Layouts zu optimieren.
+                                </p>
+                                <p>
+                                    Allerdings ist dies nicht immer möglich. Immer dann, wenn der
+                                    voreingestellte Layoutalgorithmus des Browsers nicht das gewünschte
+                                    Ergebnis liefern kann (beispielsweise wenn mehrere Blockelemente
+                                    nebeneinander stehen sollen), muss im Stylesheet aktiv ein anderer
+                                    Layoutalgorithmus ausgewählt werden. Beispiele hierfür sind:
+                                </p>
+                                <ul>
+                                    <li>
+                                        Aboslute oder relative Positionierung
+                                    </li>
+                                    <li>
+                                        Tabellarische Darstellung
+                                    </li>
+                                    <li>
+                                        „Sticky“ Elemente (bleiben beim Scrollen oben oder unten kleben)
+                                    </li>
+                                    <li>
+                                            „Fixe“ Elemente (verändern ihre Position auch beim Scrollen nicht)
+                                    </li>
+                                    <li>
+                                        Flexbox (zur Ausrichtung mehrerer Elemente neben- oder untereinander)
+                                    </li>
+                                    <li>
+                                        Grid Layout (für UI-artige Layouts mit Sidebar usw.)
+                                    </li>
+                                </ul>
+                            </div>
+                        </main>
+                        <footer>
+                            <img src="2-html_css/1-gliederung/strukturgebende-elemente/sge-logo.png" />
+                            <span>
+                                Made with <span class="heart">❤️</span> by Beaver Productions
+                            </span>
+                        </footer>
+                    </div>
+                </div>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="HTML-Code">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="de"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Webprogrammierung ganz leicht&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;header&gt;
+                                Fahre mit der Maus über ein Element, um seine wahre Größe zu sehen.
+                            &lt;/header&gt;
+
+                            &lt;main&gt;
+                                &lt;section id="banner"&gt;
+                                    &lt;h1&gt;Webprogrammierung ganz leicht&lt;/h1&gt;
+                                    (versprochen)
+                                &lt;/section&gt;
+
+                                &lt;section id="content"&gt;
+                                    &lt;h3&gt;Strukturierung des HTML-Codes&lt;/h3&gt;
+                                    &lt;p&gt;
+                                        Die größte Kunst beim Erstellen einer HTML-Seite ist es, eine gute
+                                        Struktur für den HTML-Code zu finden, die einerseits möglichst einfach
+                                        das gewünschte Layout erzielt und andererseits auch übersichtlich und
+                                        leicht zu verstehen ist. Damit dies gelingt ist es daher wichtig, die
+                                        Layoutalgorithmen des Browsers zu verstehen und zu wissen, wie welches
+                                        Element auf dem Bildschirm angeordnet wird. Zwar kann die Anordnung im
+                                        Stylesheet nachträglich verändert werden, der gesamte Quellcode wird
+                                        dadurch aber sehr komplex und fehleranfällig.
+                                    &lt;/p&gt;
+
+                                    &lt;h3&gt;Zusammenspiel mit dem Stylesheet&lt;/h3&gt;
+                                    &lt;p&gt;
+                                        Idealerweise sollte der HTML-Code nur die darzustellenden Inhalte und
+                                        die grobe Struktur der Seite beinhalten. Die Layoutregeln des Browsers
+                                        sollten dabei so ausgenutzt werden, dass auch ohne Stylesheet die
+                                        Anzeige näherungsweise schon dem gewünschten Ergebnis entspricht. In
+                                        dem (oder den) Stylesheet(s) sollten dann kosmetische Anpassungen
+                                        vorgenommen werden, um die Details des Layouts zu optimieren.
+                                    &lt;/p&gt;
+                                    &lt;p&gt;
+                                        Allerdings ist dies nicht immer möglich. Immer dann, wenn der
+                                        voreingestellte Layoutalgorithmus des Browsers nicht das gewünschte
+                                        Ergebnis liefern kann (beispielsweise wenn mehrere Blockelemente
+                                        nebeneinander stehen sollen), muss im Stylesheet aktiv ein anderer
+                                        Layoutalgorithmus ausgewählt werden. Beispiele hierfür sind:
+                                    &lt;/p&gt;
+                                    &lt;ul&gt;
+                                        &lt;li&gt;
+                                            Aboslute oder relative Positionierung
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                            Tabellarische Darstellung
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                            „Sticky“ Elemente (bleiben beim Scrollen oben oder unten kleben)
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                                „Fixe“ Elemente (verändern ihre Position auch beim Scrollen nicht)
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                            Flexbox (zur Ausrichtung mehrerer Elemente neben- oder untereinander)
+                                        &lt;/li&gt;
+                                        &lt;li&gt;
+                                            Grid Layout (für UI-artige Layouts mit Sidebar usw.)
+                                        &lt;/li&gt;
+                                    &lt;/ul&gt;
+                                &lt;/section&gt;
+                            &lt;/main&gt;
+
+                            &lt;footer&gt;
+                                &lt;img src="2-html_css/img/logo.png" /&gt;
+                                &lt;span&gt;
+                                    Made with &lt;span class="heart"&gt;❤️&lt;/span&gt; by Beaver Productions
+                                &lt;/span&gt;
+                            &lt;/footer&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Erklärung">
+                <lsx-youtube video="OE6yR7qzsYc"></lsx-youtube>
+                <lsx-info-box>
+                    Im Video werden der Unterschied zwischen Block- und Inlineelementen sowie der
+                    Quellcode des Beispiels besprochen.
+                </lsx-info-box>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Was wir bis hierher gemacht haben, war ja schon alles ganz schön. Aber so
+            wirklich modern hat es noch nicht ausgesehen. 🙄 Wie bekommen wir denn jetzt
+            die ganzen tollen Layouts hin, die am Anfang des Kapitels die Vielfalt
+            von HTML zur Schau stellen? Mit Absätzen und Aufzählungen scheint es ja
+            nicht so recht hinzuhauen. 😕
+        <!-- </p>
+        <p> -->
+            Tatsächlich brauchen wir gar nicht mehr so viel. Eigentlich müssen wir uns nur
+            noch anschauen, was man mit Stylesheets so alles machen kann und welche etwas
+            allgemeineren HTML-Elemente es gibt, die ganz einfach nur einen Bereich mit
+            beliebigem Inhalt definieren. Hier schauen wir uns die benötigten HTML-Elemente
+            an. Wie das mit den Stylesheets funktioniert, erfährst du im nächsten Teilkapitel.
+        </p>
+
+        <h2>Block- und Inlineelemente</h2>
+        <p>
+            Was wir dir bisher noch nicht erklärt haben ist, wie der Browser die HTML-Elemente
+            eigentlich auf dem Bildschirm anordnet. Zeit das nachzuholen. Im Prinzip ist es auch
+            ganz einfach: Da HTML-Seiten ursprünglich ja nur aus formatiertem Text bestanden,
+            geht der Browser zeilenweise von oben nach unten, von links nach rechts vor.
+            Eben genauso, wie wir in der westlichen Welt schreiben und lesen.
+        <!-- </p>
+        <p> -->
+            Dabei unterscheidet der Browser bei jedem Element, ob es sich um ein <b>Blockelement</b>
+            oder um eine <b>Inlineelement</b> handelt. Blockelemente stehen nämlich immer in einer
+            eigenen Zeile und sind immer so breit wie möglich. Vor und nach einem Blockelement fügt
+            der Browser daher automatisch einen Zeilenumbruch ein. Beispiele hierfür sind:
+        </p>
+        <ul>
+            <li>Überschriften</li>
+            <li>Absätze</li>
+            <li>Listen und Aufzählungen</li>
+            <li>…</li>
+        </ul>
+        <p>
+            Inlineelemente hingegen erzeugen keinen automatischen Zeilenumbruch. Sie werden stattdessen
+            auf einer Linie (der Basislinie des Textes) so lange nebeneinander angeordnet, bis rechts
+            kein Platz mehr ist und die folgenden Elemente in die nächste Zeile rutschen. Dies ist auch
+            der Grund, warum Inlineelemente etwas sparsamer mit dem Platz umgehen. Bei ihnen richtet sich
+            nicht nur die Höhe nach ihrem Inhalt (wie bei Blockelementen), sondern auch ihre Breite. Das heißt,
+            Inlineelemente sind immer „so klein wie möglich und so groß wie nötig“. Beispiele hierfür sind:
+        </p>
+        <ul>
+            <li>Bilder</li>
+            <li>Links</li>
+            <li>Einzelne Wörter</li>
+            <li>Fettgedruckte Bereiche</li>
+            <li>Kursive Bereiche</li>
+            <li>…</li>
+        </ul>
+
+        <h2>Allgemeingültige HTML-Elemente</h2>
+        <p>
+            Natürlich kann man damit jetzt noch nicht so wirklich komplizierte Layouts gestalten.
+            Denn dafür funktioniert das Ganze noch viel zu sehr wie eine alte Schreibmaschine.
+            Eben weil die meisten HTML-Elemente von sich aus kein Aussehen besitzen, sondern einfach
+            nur ihren Inhalt auf dem Bildschirm platzieren. Neben der Anordnung auf dem Bildschirm
+            sind sie aber trotzdem für die Gestaltung einer Seite wichtig, da ihr Aussehen in
+            so genannten Stylesheets sehr flexibel definiert werden kann. Die zwei wichtigsten
+            Vertreter dieser Art sind die Elemente
+            <src-code language="html">&lt;div&gt;</src-code> und <src-code language="html">&lt;span&gt;</src-code>:
+        </p>
+        <ul>
+            <li>
+                <src-code language="html">&lt;div&gt;…&lt;/div&gt;</src-code>:
+                Definiert ein ganz allgemeines Blockelement. Das Tag hat darüber hinaus keine tiefere
+                Bedeutung. Kritiker behaupten deshalb auch, es stehe für den „diversen Kram“, den die
+                Leute dort hinein packen.
+            </li>
+            <li>
+                <src-code language="html">&lt;span&gt;…&lt;/span&gt;</src-code>:
+                Definiert ein allgemeines Inlineelement. Genau wie <src-code language="html">&lt;div&gt;</src-code>
+                hat es darüber hinaus keine Bedeutung.
+            </li>
+        </ul>
+        <p>
+            Da der Quellcode einer Seite mit vielen <src-code language="html">&lt;div&gt;</src-code>-Elementen
+            schnell unübersichtlich wird, wurden mit HTML5 eine ganze Reihe weiterer Tags eingeführt, die sich
+            genau gleich verhalten. Nur mit dem Unterschied, dass man an ihrem Namen ihre ungefähre Bedeutung
+            ablesen kann:
+        </p>
+        <ul>
+            <li>
+                <src-code language="html">&lt;header&gt;…&lt;/header&gt;</src-code>:
+                Definiert den Kopfbereich der Seite, bzw. einen Bereich der oberhalb eines anderen steht,
+                mit diesem aber fest verbunden ist.
+            </li>
+            <li>
+                <src-code language="html">&lt;footer&gt;…&lt;/footer&gt;</src-code>:
+                Definiert den Fußbereich der Seite, bzw. einen Bereich der unterhalb eines anderen steht.
+            </li>
+            <li>
+                <src-code language="html">&lt;section&gt;…&lt;/section&gt;</src-code>:
+                Unterteilt einen Bereich in beliebig viele, eigenständige Abschnitte.
+            </li>
+            <li>
+                <src-code language="html">&lt;nav&gt;…&lt;/nav&gt;</src-code>:
+                Kennzeichnet einen Navigationsbereich. Also einen Bereich, in dem anklickbare Elemente
+                enthalten sind, mit denen man sich innerhalb der Seite bewegen kann.
+            </li>
+            <li>
+                <b>Und so weiter:</b> Es gibt noch einige mehr.
+            </li>
+        </ul>
+        <p>
+            Damit lässt sich eine Seite beliebig unterteilen, um zusammen mit CSS ihr Layout zu definieren. 👍
+        </p>
+    </aside>
+</section>

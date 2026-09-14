@@ -1,0 +1,500 @@
+<section data-title="Zugriff auf vorhandene HTML-Elemente">
+    <article>
+        <p>
+            Auf HTML-Elemente wird über das Document Object Model zugegriffen. <br />
+            Das <code>document</code>-Objekt dient hierfür als zentraler Einstiegspunkt.
+        </p>
+
+        <lsx-accordion>
+            <lsx-accordion-page title="Einzelne HTML-Elemente auslesen" active>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="javascript">let mainContentElement = document.getElementById("main-content");</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em;">
+                                <p>
+                                    Gibt ein einzelnes HTML-Element mit der gesuchten ID (Attribut <code>id</code>) zurück. Gibt es kein
+                                    solches Element, ist die Antwort stattdessen <code>null</code>.
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">let firstImage = document.querySelector("main &gt; img:first-child");</src-code>
+                            </dt>
+                            <dd>
+                                <p>
+                                    Führt den übergebenen CSS-Selektor aus und gibt das erste HTML-Element zurück, auf das die Suche zutrifft.
+                                    Wurde kein passendes Element gefunden, ist die Antwort ebenfalls <code>null</code>.
+                                </p>
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8" /&gt;
+                                    &lt;title&gt;Einzelne DOM-Elemente auslesen&lt;/title&gt;
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Einzelne DOM-Elemente auslesen&lt;/h1&gt;
+                                    &lt;p id="hinweis"&gt;
+                                        Klicke einen der beiden Knöpfe.
+                                    &lt;/p&gt;
+
+                                    &lt;button onclick="getElementByIdClicked()"&gt;Element mit ID „hinweis“&lt;/button&gt;
+                                    &lt;button onclick="querySelectorClicked1()"&gt;Das erste &amp;lt;h1&amp;gt;&lt;/button&gt;
+                                    &lt;button onclick="querySelectorClicked2()"&gt;Das erste &amp;lt;h2&amp;gt;&lt;/button&gt;
+
+                                    &lt;script&gt;
+                                        getElementByIdClicked = () =&gt; {
+                                            let hinweis = document.getElementById("hinweis");
+                                            alert(hinweis.outerHTML);
+                                        }
+
+                                        querySelectorClicked1 = () =&gt; {
+                                            let heading = document.querySelector("h1");
+                                            alert(heading.outerHTML);
+                                        }
+
+                                        querySelectorClicked2 = () =&gt; {
+                                            let heading = document.querySelector("h2");
+                                            // heading ist null !!
+                                            alert(heading);
+                                        }
+                                    &lt;/script&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="dom-auslesen-einzeln-ergebnis">
+                            <h1>Einzelne DOM-Elemente auslesen</h1>
+                            <p id="dom-auslesen-einzeln-ergebnis-hinweis">
+                                Klicke einen der beiden Knöpfe.
+                            </p>
+
+                            <button onclick="dom_auslesen_einzeln_getElementByIdClicked()">Element mit ID „hinweis“</button>
+                            <button onclick="dom_auslesen_einzeln_querySelectorClicked1()">Das erste &lt;h1&gt;</button>
+                            <button onclick="dom_auslesen_einzeln_querySelectorClicked2()">Das erste &lt;h2&gt;</button>
+
+                            <script>
+                                window.dom_auslesen_einzeln_getElementByIdClicked = () => {
+                                    let hinweis = document.getElementById("dom-auslesen-einzeln-ergebnis-hinweis");
+                                    alert(hinweis.outerHTML.replace("dom-auslesen-einzeln-ergebnis-hinweis", "hinweis"));
+                                }
+
+                                window.dom_auslesen_einzeln_querySelectorClicked1 = () => {
+                                    let heading = document.querySelector("#dom-auslesen-einzeln-ergebnis h1");
+                                    alert(heading.outerHTML);
+                                }
+
+                                window.dom_auslesen_einzeln_querySelectorClicked2 = () => {
+                                    let heading = document.querySelector("#dom-auslesen-einzeln-ergebnis h2");
+                                    alert(heading);
+                                }
+                            </script>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Mehrere HTML-Elemente auslesen">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="javascript">let containerElements = document.getElementsByClassName("container");</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em;">
+                                <p>
+                                    Liefert eine Liste aller HTML-Elemente, denen die Klasse <tt>container</tt> zugewiesen wurde.
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">let allThumbnails = document.querySelectorAll("img.thumbnail");</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em;">
+                                <p>
+                                    Liefert alle <src-code language="html">&lt;img&gt;</src-code>-Elemente, die gleichzeitig noch die
+                                    Klasse <tt>thumbnail</tt> besitzen. Die Syntax für den Abfrageparameter ist dieselbe wie für
+                                    CSS-Selektoren.
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">let firstThumbnail = allThumbnails[0];</src-code> <br />
+                                <src-code language="javascript">allThumbnails.forEach(element => …);</src-code>
+                            </dt>
+                            <dd>
+                                <p>
+                                    Auch wenn man es zunächst denken würde, aber das Ergebnis der Methoden <code>getElementsByClassName</code>
+                                    und <code>querySelectorAll</code> ist kein Array. <code>getElementsByClassName</code> liefert eine
+                                    <code>HTMLCollection</code> und <code>querySelectorAll</code> ein <code>NodeList</code>-Objekt. Beide
+                                    verhalten sich ähnlich wie Arrays, besitzen aber nicht ganz dieselben Methoden. Die <code>forEach</code>-Methode
+                                    zum Beispiel funktioniert nur beim Ergebnis von <code>querySelectorAll</code>. 😕
+                                </p>
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8" /&gt;
+                                    &lt;title&gt;Mehrere DOM-Elemente auslesen&lt;/title&gt;
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Mehrere DOM-Elemente auslesen&lt;/h1&gt;
+                                    &lt;ol&gt;
+                                        &lt;li class="erledigt"&gt;
+                                            Einführung in die Vorlesung
+                                        &lt;/li&gt;
+                                        &lt;li class="erledigt"&gt;
+                                            Grundlagen des Web
+                                        &lt;/li&gt;
+                                        &lt;li class="erledigt"&gt;
+                                            Einstieg in HTML
+                                        &lt;/li&gt;
+                                        &lt;li class="in-arbeit"&gt;
+                                            Layouts erstellen mit CSS
+                                        &lt;/li&gt;
+                                        &lt;li class="in-arbeit"&gt;
+                                            Responsive Webdesign
+                                        &lt;/li&gt;
+                                    &lt;/ol&gt;
+
+                                    &lt;button onclick="getElementsByClassNameClicked()"&gt;Alle mit Klasse „erledigt“&lt;/button&gt;
+                                    &lt;button onclick="querySelectorAllClicked1()"&gt;Alle li.in-arbeit&lt;/button&gt;
+                                    &lt;button onclick="querySelectorAllClicked2()"&gt;Alle li.nicht-in-arbeit&lt;/button&gt;
+
+                                    &lt;script&gt;
+                                        getElementsByClassNameClicked = () =&gt; {
+                                            let result = document.getElementsByClassName("erledigt");
+                                            showResult(result);
+                                        }
+
+                                        querySelectorAllClicked1 = () =&gt; {
+                                            let result = document.querySelectorAll("li.in-arbeit");
+                                            showResult(result);
+                                        }
+
+                                        querySelectorAllClicked2 = () =&gt; {
+                                            let result = document.querySelectorAll("li.nicht-in-arbeit");
+                                            showResult(result);
+                                        }
+
+                                        showResult = domNodes =&gt; {
+                                            console.log(domNodes);
+                                            let text = `Anzahl gefunden: ${domNodes.length}\n\n`;
+
+                                            for (let i = 0; i &lt; domNodes.length; i++) {
+                                                text += domNodes.item(i).outerHTML + "\n\n";
+                                            }
+
+                                            alert(text)
+                                        }
+                                    &lt;/script&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="dom-auslesen-mehrere-ergebnis">
+                            <h1>Mehrere DOM-Elemente auslesen</h1>
+                            <ol>
+                                <li class="erledigt">
+                                    Einführung in die Vorlesung
+                                </li>
+                                <li class="erledigt">
+                                    Grundlagen des Web
+                                </li>
+                                <li class="erledigt">
+                                    Einstieg in HTML
+                                </li>
+                                <li class="in-arbeit">
+                                    Layouts erstellen mit CSS
+                                </li>
+                                <li class="in-arbeit">
+                                    Responsive Webdesign
+                                </li>
+                            </ol>
+
+                            <button onclick="dom_auslesen_mehrere_getElementsByClassNameClicked()">Alle mit Klasse „erledigt“</button>
+                            <button onclick="dom_auslesen_mehrere_querySelectorAllClicked1()">Alle li.in-arbeit</button>
+                            <button onclick="dom_auslesen_mehrere_querySelectorAllClicked2()">Alle li.nicht-in-arbeit</button>
+
+                            <script>
+                                window.dom_auslesen_mehrere_getElementsByClassNameClicked = () => {
+                                    let result = document.querySelectorAll("#dom-auslesen-mehrere-ergebnis .erledigt");
+                                    dom_auslesen_mehrere_showResult(result);
+                                }
+
+                                window.dom_auslesen_mehrere_querySelectorAllClicked1 = () => {
+                                    let result = document.querySelectorAll("#dom-auslesen-mehrere-ergebnis li.in-arbeit");
+                                    dom_auslesen_mehrere_showResult(result);
+                                }
+
+                                window.dom_auslesen_mehrere_querySelectorAllClicked2 = () => {
+                                    let result = document.querySelectorAll("#dom-auslesen-mehrere-ergebnis li.nicht-in-arbeit");
+                                    dom_auslesen_mehrere_showResult(result);
+                                }
+
+                                window.dom_auslesen_mehrere_showResult = domNodes => {
+                                    console.log(domNodes);
+                                    let text = `Anzahl gefunden: ${domNodes.length}\n\n`;
+
+                                    for (let i = 0; i < domNodes.length; i++) {
+                                        text += domNodes.item(i).outerHTML + "\n\n";
+                                    }
+
+                                    alert(text)
+                                }
+                            </script>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Ereignisse abfangen und behandeln">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <dl>
+                            <dt>
+                                <src-code language="javascript">saveButton.addEventListener("click", …);</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                <p>
+                                    Jedes HTML-Element kann eine Reihe von Ereignissen auslösen, auf die man mit JavaScript
+                                    reagieren kann. Hierfür besitzt jedes Element die Methode <code>addEventListener</code>.
+                                    Der erste Parameter ist der Name des Ereignisses, der zweite Parameter eine Funktion, die
+                                    bei Eintreten des Ereignisses aufgerufen wird.
+                                </p>
+                                <div class="info-box" style="margin-bottom: 0.5em;">
+                                    Funktionen können – ohne dabei aufgerufen zu werden – in Variablen abgelegt oder
+                                    als Parameter an andere Funktionen übergeben werden. Man kann sich vorstellen,
+                                    dass dabei eine Art „Referenz“ auf eine Funktion genutzt wird.
+                                </div>
+                                <div class="info-box critical">
+                                    Da JavaScript den gesamten Code in einem einzigen Thread ausführt, dürfen
+                                    die Event-Handler-Funktionen nicht lange laufen. Sonst friert der gesamte
+                                    Tabreiter im Browser ein, weil im selben Thread auch alle Benutzereingaben
+                                    verarbeitet und die Bildschirmausgabe erzeugt wird.
+                                </div>
+                                <p>
+                                </p>
+                                <table style="margin: 0.75em 0 0.75em 0;">
+                                    <thead>
+                                        <tr>
+                                            <th class="dhbw-lightblue">Ereignis</th>
+                                            <th class="dhbw-lightblue">Bedeutung</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td><tt>click</tt></td>
+                                        <td>Einfacher Linksklick mit der Maus oder dem Touchscreen</td>
+                                    </tr>
+                                    <tr>
+                                        <td><tt>mouseover</tt></td>
+                                        <td>Der Mauszeiger befindet sich innerhalb des Elements.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><tt>mouseout</tt></td>
+                                        <td>Der Mauszeiger befindet sich nicht mehr über dem Element.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><tt>keydown</tt></td>
+                                        <td>Beginn eines Tastendrucks auf der Tastatur. Die Taste wurde herunter gedrückt.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><tt>keyup</tt></td>
+                                        <td>Ende eines Tastendrucks auf der Tastatur. Die Taste wurde wieder losgelassen.</td>
+                                    </tr>
+                                </table>
+                                <p>
+                                    Eine gute Übersicht gibt es im <a href="https://developer.mozilla.org/de/docs/Web/Events" target="_blank">
+                                    Mozilla Developer Network.</a> Da der Browser aber keine komplexen Gesten erkenn kann (Swipe Left,
+                                    Double Tap, …) muss man hierfür externe Bibliotheken wie
+                                    <a href="http://hammerjs.github.io/" target="_blank">Hammer.JS</a> verwenden.
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">saveButton.addEventListener("click", event => …);</src-code>
+                            </dt>
+                            <dd style="margin-bottom: 0.75em">
+                                <p>
+                                    Jeder Event Listener bekommt als ersten Parameter ein <code>Event</code>-Objekt übergeben.
+                                    In <src-code language="javascript">event.target</src-code> findet sich dann zum Beispiel
+                                    das HTML-Element, das das Ereignis ausgelöst hat. Es gibt aber noch weitere, interessante
+                                    Methoden, die gelegentlich nützlich sein können.
+                                </p>
+                            </dd>
+
+                            <dt>
+                                <src-code language="javascript">window.addEventListener("load", …)</src-code>
+                            </dt>
+                            <dd>
+                                <p>
+                                    Ein besonders häufig genutztes Ereignis ist das <tt>load</tt>-Ereignis des <code>window</code>-Objekts.
+                                    Es zeigt an, dass die HTML-Seite komplett geladen wurde und nun auf das Document Object Model zugegriffen
+                                    werden kann. Denn der Quellcode aller <src-code language="html">&lt;script&gt;</src-code>-Elemente wird
+                                    sofort ausgeführt, sobald der Browser sie findet. In der Regel ist die Seite zu diesem Zeitpunkt aber
+                                    noch gar nicht komplett geladen und Zugriffe auf das Document Object Model schlagen fehl.¹
+                                </p>
+                                <p>
+                                    Will man daher beim Laden der Seite zuverlässig auf das Document Object Model zugreifen, muss man erst
+                                    das <tt>load</tt>-Ereignis abwarten und in dessen Event Handler alle weiteren Schritte ausführen.
+                                </p>
+                                <p>
+                                    <small>
+                                        <small>
+                                            ¹ Man nennt das eine „Race Condition“, da der JavaScript-Code mit dem Browser um die Wette läuft.
+                                        </small>
+                                        🏃🏃
+                                    </small>
+                                </p>
+                            </dd>
+                        </dl>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <source-code language="html">
+                            &lt;!DOCTYPE html&gt;
+                            &lt;html&gt;
+                                &lt;head&gt;
+                                    &lt;meta charset="utf-8" /&gt;
+                                    &lt;title&gt;Auf Ereignisse reagieren&lt;/title&gt;
+                                    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                                    &lt;style&gt;
+                                        #preview {
+                                            display: block;
+                                            width: 25em;
+
+                                            padding: 0.25em;
+                                            background: #F0F0F0;
+                                            border: 1px solid #A0A0A0;
+
+                                            margin-bottom: 1em;
+                                        }
+                                    &lt;/style&gt;
+                                &lt;/head&gt;
+                                &lt;body&gt;
+                                    &lt;h1&gt;Auf Ereignisse reagieren&lt;/h1&gt;
+
+                                    &lt;img id="preview" /&gt;
+                                    &lt;button id="next-button"&gt;Weiter&lt;/button&gt;
+                                    &lt;button id="prev-button"&gt;Zurück&lt;/button&gt;
+
+                                    &lt;script&gt;
+                                        window.addEventListener("load", () =&gt; {
+                                            let previewElement = document.getElementById("preview");
+                                            let nextButton = document.getElementById("next-button");
+                                            let prevButton = document.getElementById("prev-button");
+
+                                            let images = [
+                                                "img/preview1.jpg",
+                                                "img/preview2.jpg",
+                                                "img/preview3.jpg"
+                                            ];
+
+                                            let index = -1;
+
+                                            switchImage = direction =&gt; {
+                                                index += direction;
+                                                if (index &gt;= images.length) index = 0;
+                                                if (index &lt; 0) index = images.length - 1;
+
+                                                previewElement.src = images[index];
+                                            }
+
+                                            switchImage(1);
+
+                                            nextButton.addEventListener("click", () =&gt; switchImage(1));
+                                            prevButton.addEventListener("click", () =&gt; switchImage(-1));
+                                        });
+                                    &lt;/script&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="dom-auslesen-ereignisse-ergebnis">
+                            <style>
+                                #dom-auslesen-ereignisse-ergebnis .preview {
+                                    display: block;
+                                    width: 25em;
+                                    max-width: 100%;
+
+                                    padding: 0.25em;
+                                    background: #F0F0F0;
+                                    border: 1px solid #A0A0A0;
+
+                                    margin-bottom: 1em;
+                                }
+                            </style>
+
+                            <h1>Auf Ereignisse reagieren</h1>
+
+                            <img class="preview" src="shared/dom_ereignisse_img1.jpg" />
+                            <button onclick="dom_auslesen_ereignisse_ergebnis_switchImage(1)">Weiter</button>
+                            <button onclick="dom_auslesen_ereignisse_ergebnis_switchImage(-1)">Zurück</button>
+
+                            <script>
+                                window.dom_auslesen_ereignisse_ergebnis_images = [
+                                    "shared/dom_ereignisse_img1.jpg",
+                                    "shared/dom_ereignisse_img2.jpg",
+                                    "shared/dom_ereignisse_img3.jpg"
+                                ];
+
+                                window.dom_auslesen_ereignisse_ergebnis_index = 0;
+
+                                window.dom_auslesen_ereignisse_ergebnis_switchImage = direction => {
+                                    dom_auslesen_ereignisse_ergebnis_index += direction;
+                                    if (dom_auslesen_ereignisse_ergebnis_index >= dom_auslesen_ereignisse_ergebnis_images.length) dom_auslesen_ereignisse_ergebnis_index = 0;
+                                    if (dom_auslesen_ereignisse_ergebnis_index < 0) dom_auslesen_ereignisse_ergebnis_index = dom_auslesen_ereignisse_ergebnis_images.length - 1;
+
+                                    let previewElement = document.querySelector("#dom-auslesen-ereignisse-ergebnis .preview");
+                                    previewElement.src = dom_auslesen_ereignisse_ergebnis_images[dom_auslesen_ereignisse_ergebnis_index];
+                                }
+                            </script>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+        </lsx-accordion>
+    </article>
+    <aside>
+        <p>
+            Hier ist sie nun: Die erste der zwei wirklich wichtigen Seiten in diesem Kapitel. 📝
+            Hier siehst du auf kleinstem Raum eine Zusammenfassung aller wichtigen DOM-Methoden,
+            die du brauchst, um auf die HTML-Elemente einer Seite zuzugreifen. Hier erfährst du,
+            welche Möglichkeiten es gibt, das Document Object Model abzufragen und wie du auf
+            Ereignisse wie Mausklicks und Tastatureingaben reagieren kannst.
+        </p>
+        <img src="4-js-grundlagen/2-dom/zugriff-auf-vorhandene-html-elemente/referenz1.jpg" class="d-block img-thumbnail" style="width: 100%" />
+        <p>
+            <small>
+                <small>
+                    Bildnachweis: <a href="https://pixabay.com/de/buch-hardcover-text-seiten-bildung-1798/" target="_blank">Pixabay: PublicDomainPictures</a>
+                </small>
+            </small>
+        </p>
+        <p>
+            Am besten speicherst du dir gleich ein Lesezeichen. 🔖 Für den Aufgaben wirst du hier sicher öfters reinschauen.
+        </p>
+    </aside>
+</section>

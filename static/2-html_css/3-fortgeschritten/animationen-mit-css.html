@@ -1,0 +1,187 @@
+<section data-title="Animationen mit CSS">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Übersicht">
+                <dl>
+                    <dt>
+                        <src-code language="css">
+                            transition: width 0.7s, height 0.7s;
+                        </src-code>
+                    </dt>
+                    <dd style="margin-bottom: 1em">
+                        Legt fest, welche Eigenschaften animiert werden sollen und wie lange
+                        die Animation jeweils dauern soll. Mehrere Animationen können durch
+                        Komma getrennt definiert werden. Abgespielt werden den Animationen,
+                        wenn sich die jeweilige Eigenschaft verändert. Hierfür braucht man
+                        eigentlich JavaScript, einfache Mausereignisse gehen aber auch ohne.
+                    </dd>
+
+                    <dt>
+                        <source-code language="css">
+                            @keyframes hin-und-her {
+                                0% {
+                                    transform: rotate(-4deg);
+                                }
+                                100% {
+                                    transform: rotate(4deg);
+                                }
+                            }
+                        </source-code>
+                    </dt>
+                    <dd style="margin-bottom: 1em">
+                        Keyframe-Animationen werden mit <src-code language="css">@keyframe</src-code> definiert,
+                        wobei der Animation ein eindeutiger Namen gegeben werden muss. Die einzelnen Zeitpunkte
+                        innerhalb der Animation werden in Prozent von 0% bis 100% angegeben. Wie lange die
+                        Animation dauert und wie schnell die Zeitpunkte erreicht sind, hängt von der Geschwindigkeit
+                        ab, die man ihr später gibt.
+                    </dd>
+
+                    <dt>
+                        <source-code language="css">
+                            .wackelpeter {
+                                animation: hin-und-her 0.7s alternate infinite;
+                            }
+                        </source-code>
+                    </dt>
+                    <dd>
+                        Über die <src-code language="css">animation</src-code>-Anweisung und ihre Ableger wird
+                        eine benannte Keyframe-Animation an ein Element gebunden. Die Animation fängt sofort an
+                        zu laufen und muss nicht zuvor aktiviert werden.
+                    </dd>
+                </dl>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Beispiel">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Einfache Animationen mit CSS&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+                            &lt;style&gt;
+                                /** Transition, wenn die Maus drüber fährt */
+                                .icon {
+                                    font-size: 330%;
+                                    transition: font-size 0.4s;
+                                }
+
+                                .icon:hover {
+                                    font-size: 450%;
+                                }
+
+                                /** Dauerhafte Keyframe-Animation */
+                                @keyframes a1 {
+                                    0% {
+                                        transform: rotate(-4deg);
+                                    }
+                                    100% {
+                                        transform: rotate(4deg);
+                                    }
+                                }
+
+                                .wackeln {
+                                    font-size: 330%;
+                                    display: inline-block;
+                                    transform-origin: 50% 50%;
+                                    animation: a1 0.5s alternate infinite;
+                                    animation-timing-function: linear;
+                                }
+                            &lt;/style&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;p&gt;
+                                &lt;span class="icon"&gt;📸&lt;/span&gt;
+                                &lt;span class="icon"&gt;🔭&lt;/span&gt;
+                                &lt;span class="icon"&gt; 💾&lt;/span&gt;
+                            &lt;/p&gt;
+                            &lt;p&gt;
+                                &lt;div class="wackeln"&gt;🎹&lt;/div&gt;
+                                &lt;div class="wackeln"&gt;🎸&lt;/div&gt;
+                                &lt;div class="wackeln"&gt;🥁&lt;/div&gt;
+                                &lt;div class="wackeln"&gt;🎷&lt;/div&gt;
+                            &lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Ergebnis">
+                <div id="animationen-screenshot">
+                    <style>
+                        #animationen-screenshot .icon {
+                            font-size: 330%;
+                            transition: font-size 0.4s;
+                        }
+
+                        #animationen-screenshot .icon:hover {
+                            font-size: 450%;
+                        }
+
+                        @keyframes a1 {
+                            0% {
+                                transform: rotate(-4deg);
+                            }
+                            100% {
+                                transform: rotate(4deg);
+                            }
+                        }
+
+                        #animationen-screenshot .wackeln {
+                            font-size: 330%;
+                            display: inline-block;
+                            transform-origin: 50% 50%;
+                            animation: a1 0.5s alternate infinite;
+                            animation-timing-function: linear;
+                        }
+                    </style>
+                    <p>
+                        <span class="icon">📸</span>
+                        <span class="icon">🔭</span>
+                        <span class="icon"> 💾</span>
+                    </p>
+                    <p>
+                        <div class="wackeln">🎹</div>
+                        <div class="wackeln">🎸</div>
+                        <div class="wackeln">🥁</div>
+                        <div class="wackeln">🎷</div>
+                    </p>
+                </div>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Mit CSS ist es problemlos möglich, einfache Animationen zu erstellen.
+            Klar, die großen Walt Disney Meisterwerke wirst du damit nicht imitieren
+            können, aber für einfache, bewegliche User Interfaces reicht es allemal. 🎥🎞🎬
+            Hierfür kennt CSS zwei Arten von Animationen:
+        </p>
+        <ul>
+            <li>transition</li>
+            <li>keyframes</li>
+        </ul>
+        <p>
+            Mit der Anweisung <src-code language="css">transition</src-code> lassen sich,
+            wie der Name bereits andeutet, die Übergänge von einem Zustand zum anderen
+            animieren. Beispielsweise kann ein Element, wenn die Maus darüber fährt,
+            eine leichte Drehung vollziehen oder einen etwas helleren Hintergrund annehmen.
+            Gerade im Zusammenhang mit JavaScript ist das eine sehr einfache und wirkungsvolle
+            Art, dem Anwender visuelles Feedback zu geben.
+        </p>
+        <p>
+            Für komplexere Animationen, bei denen mehrere Werte gleichzeitig verändert werden
+            sollen und die nicht einfach nur von Wert A nach Wert B überblenden, gibt es
+            <src-code language="css">keyframe</src-code>-Animationen. Der Begriff Keyframe stammt
+            dabei aus der alten Zeichentrickschule und meint, dass man mehrere Zeitpunkte markieren
+            kann und dann festlegt, welchen Wert bestimmte Eigenschaften jeweils haben sollen.
+            Um die Zwischenschritte zwischen den Keyframes kümmert sich CSS automatisch. 📺
+        </p>
+        <p>
+            Auf dieser Seite findest du für beide Techniken ein kleines Beispiel.
+            Für weitere Infos über Keyframe-Animationen empfehlen wir dir den passenden
+            Artikel auf <a href="https://css-tricks.com/snippets/css/keyframe-animation-syntax/" target="_blank">css-tricks.com</a>.
+        </p>
+    </aside>
+</section>

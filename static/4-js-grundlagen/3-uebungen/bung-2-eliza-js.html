@@ -1,0 +1,152 @@
+<section data-title="Übung 2: Eliza.js" data-background-color="rgb(179, 202, 223)">
+    <article>
+        <lsx-github-edit
+            class        = "mb-3"
+            url          = "3%20JavaScript/Aufgaben/Eliza.js/Aufgabe"
+            download     = "3%20JavaScript/Aufgaben/Eliza.js"
+            pages-url1   = "3%20JavaScript/Aufgaben/Eliza.js/Loesung/"
+            pages-label1 = "Musterlösung ansehen"
+        >
+        </lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Im Einführungsvideo zu <a href="https://www.wpvs.de/repo/js.scratch/app/" target="_blank">JS.Scratch</a>
+                    haben wir einen kleinen Chatbot programmiert, der in dieser Aufgabe nun zu Ende gebaut werden soll: Eliza.js,
+                    benannt nach dem <a href="https://sites.google.com/view/elizaarchaeology/home" target="_blank">berühmten Vorbild
+                    von Joseph Weizenbaum</a>. Die Grundidee ist ganz einfach: Der Chatbot simuliert ein intelligentes Gespräch,
+                    indem er auf bestimmte Schlüsselwörter reagiert und dazu passende Antworten generiert. Mit der Original-ELIZA
+                    oder gar ChatGPT kann er es zwar nicht aufnehmen. Aber zum Kennenlernen von JavaScript ist er ideal.
+                </p>
+
+                <div class="d-flex gap-2 align-items-end justify-content-center mt-4 mb-4">
+                    <lsx-modal-image src="4-js-grundlagen/3-uebungen/bung-2-eliza-js/ub-eliza/screenshot.png" caption="Screenshot der Musterlösung"></lsx-modal-image>
+                </div>
+
+                <p>
+                    Das Grundgerüst der Anwendung ist bereits fertiggestellt. Der Quellcode enthält aber noch sehr
+                    viele Lücken, die erst noch fertig programmiert werden wollen, bevor der Chatbot wirklich mit
+                    uns spricht.
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Vorgehensweise">
+                <p>
+                    Die zu ändernden Stellen sind im Quellcode wie üblich mit dem Hinweis
+                    <code>TODO</code> gekennzeichnet. Sie alle befinden sich innerhalb
+                    der Datei <code>index.js</code>. Weitere Dateien sind dieses Mal
+                    nicht zu bearbeiten:
+                </p>
+                <ol class="dhbw-list-spacious">
+                    <li>
+                        Die Variablen <code>messagesElement</code> und
+                        <code>inputElement</code> müssen mit den jeweiligen
+                        HTML-Elementen aus dem DOM-Baum versorgt werden.
+                    </li>
+                    <li>
+                        Die Struktur <code>chatbotKeywords</code> muss um weitere
+                        Schlüsselwörter und mögliche Antworten ergänzt werden.
+                    </li>
+                    <li>
+                        Die Funktion <code>postMessage()</code> muss wie in den Kommentaren
+                        beschrieben zu Ende programmiert werden, um die Nachrichten der beiden
+                        Chatteilnehmer anzuzeigen.
+                    </li>
+                    <li>
+                        Die Anzeige der vom manuell eingegebenen Nachrichten muss innerhalb des
+                        <code>keyup</code>-Event-Handlers vorgenommen werden. In derselben
+                        Funktion müssen auch die Antworten des Chatbots angefordert und angezeigt
+                        werden.
+                    </li>
+                    <li>
+                        Schlussendlich muss dann noch die Funktion <code>generateBotAnswer()</code>
+                        wie in den Kommentaren beschrieben vervollständigt werden. Dort muss die empfangene
+                        Nachricht auf bekannten Schlüsselwörter abgeklopft werden. Bei einer Übereinstimmung
+                        muss die Liste der möglichen Antworten entsprechend verlängert werden, bevor ganz am
+                        Ende dann eine zufällige Auswahl erfolgt.
+                    </li>
+                </ol>
+                <p>
+                    Viel Spaß bei der Umsetzung und gute Unterhaltung mit Eliza! 🤖
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Weitere Seiten laden">
+                <p>
+                    Mit Hilfe der JavaScript-Bibliothek <a href="https://htmx.org/" target="_blank">htmx</a>
+                    lässt sich die Anwendung ganz leicht um weitere Seiten erweitern. Die Bibliothek sorgt
+                    dabei dafür, dass diese die geladene HTML-Datei im Browser nicht ersetzen (und dadurch
+                    auch den JavaScript-Code neustarten), sondern dass sie in die bestehende Seite nachgeladen
+                    werden. Hierfür sind im HTML-Code lediglich folgende Anpassungen notwendig:
+                </p>
+
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;title&gt;🤖 Eliza.js&lt;/title&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    
+                            &lt;!-- HTMX als einfache Lösung für Single Page Apps --&gt;
+                            &lt;script src="https://unpkg.com/htmx.org@2.0.3"&gt;&lt;/script&gt;
+                    
+                            &lt;!-- Eigene Skripte --&gt;
+                            &lt;link rel="stylesheet" href="style.css"/&gt;
+                            &lt;script src="index.js"&gt;&lt;/script&gt;
+                    
+                            &lt;!-- Ein- und Ausblenden des Chats --&gt;
+                            &lt;script&gt;
+                                function showChat() {
+                                    htmx.find('#chat-area').classList.remove("hidden");
+                                    htmx.find('#page-content').classList.add("hidden");
+                                }
+                    
+                                function hideChat() {
+                                    htmx.find('#chat-area').classList.add("hidden");
+                                    htmx.find('#page-content').classList.remove("hidden");
+                                }
+                            &lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;!-- Navigationslinks --&gt;
+                            &lt;nav&gt;
+                                &lt;a hx-on:click="showChat()"&gt;Chat&lt;/a&gt;
+                                &lt;a hx-get="pages/settings.html" hx-target="#page-content" hx-on:click="hideChat()"&gt;Einstellungen&lt;/a&gt;
+                                &lt;a hx-get="pages/about.html" hx-target="#page-content" hx-on:click="hideChat()"&gt;Informationen&lt;/a&gt;
+                            &lt;/nav&gt;
+                    
+                            &lt;main id="chat-area"&gt;
+                                &lt;div class="banner"&gt;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&lt;/div&gt;
+                                &lt;div class="banner"&gt;Eliza.js – Chatten bis der Arzt kommt!&lt;/div&gt;
+                                &lt;div class="banner"&gt;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&lt;/div&gt;
+                            
+                                &lt;div class="messages"&gt;&lt;/div&gt;
+                                &lt;input autofocus /&gt;
+                            &lt;/main&gt;
+                    
+                            &lt;!-- Bereich für die nachgeladenen Seiteninhalte --&gt;
+                            &lt;main id="page-content" class="hidden"&gt;&lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;                
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Hier wollen wir eine echte kleine JavaScript-Anwendung bauen. Einen Chatbot, der zwar nicht
+            besonders intelligent ist. Aber anhand dessen wir uns ein paar Besonderheiten von JavaScript
+            sowie den Zugriff auf das Document Object Model praktisch anschauen können.
+        </p>
+        <img src="4-js-grundlagen/3-uebungen/bung-2-eliza-js/eliza.jpg" class="img-fluid d-block" />
+        <p>
+            <small>
+                Bildnachweise:
+                <a href="https://sites.google.com/view/elizaarchaeology/try-eliza" target="_blank">ELIZA Archaeology</a>,
+                <a href="https://upload.wikimedia.org/wikipedia/commons/a/a4/TSD_Computer_-%2CSchreib_und_B%C3%BCrotechnik_DEC_ASCII_Computer-Terminal_digital_VT_100.jpg" target="blank">Wikimedia Commons</a>
+            </small>
+        </p>
+    </aside>
+</section>

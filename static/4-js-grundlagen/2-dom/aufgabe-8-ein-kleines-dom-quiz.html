@@ -1,0 +1,255 @@
+<section data-title="Aufgabe 8: Ein kleines DOM-Quiz" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <lsx-quiz prefix="Aufgabe 8.#:">
+            <lsx-exercise title="HTML-Elemente auslesen">
+                <lsx-question
+                    type = "single-choice"
+                    text = "a) Welche Methode liefert alle Elemente mit derselben Klasse?"
+                >
+                    <lsx-answer>
+                        <src-code language="javascript">document.getElementsByName("…")</src-code>
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        <src-code language="javascript">document.getElementsByClassName("…")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">document.getElementById("…")</src-code>
+                    </lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "multiple-choice"
+                    text = "b) Welche Methoden liefern das Element mit der ID „toolbar“ zurück?"
+                >
+                    <lsx-answer correct>
+                        <src-code language="javascript">document.getElementById("toolbar")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">document.querySelector("toolbar")</src-code>
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        <src-code language="javascript">document.querySelector("#toolbar")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">document.querySelectorAll("toolbar")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">document.querySelectorAll("#toolbar")</src-code>
+                    </lsx-answer>
+                </lsx-question>
+
+                <lsx-question type="single-choice">
+                    <lsx-question-text>
+                        c) Was liefert die Methode <src-code language="javascript">document.getElementById</src-code>
+                        als Ergebnis, wenn das gesuchte Element nicht gefunden wurde?
+                    </lsx-question-text>
+
+                    <lsx-answer>
+                        <src-code language="javascript">false</src-code>
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        <src-code language="javascript">undefined</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">null</src-code>
+                    </lsx-answer>
+                </lsx-question>
+
+                <lsx-question type="single-choice">
+                    <lsx-question-text>
+                        d) Was liefert die Methode <src-code language="javascript">document.querySelectorAll</src-code>
+                        als Ergebnis, wenn die gesuchten Elemente nicht gefunden wurden?
+                    </lsx-question-text>
+
+                    <lsx-answer>
+                        Nichts
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        Eine leere Menge mit null Einträgen
+                    </lsx-answer>
+                    <lsx-answer>
+                        Den Wert <src-code language="javascript">false</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        Die Zahl <src-code language="javascript">0</src-code>
+                    </lsx-answer>
+                </lsx-question>
+            </lsx-exercise>
+
+            <lsx-exercise title="Inhalte verändern und erzeugen">
+                <lsx-question
+                    type = "multiple-choice"
+                    text = "a) Wie kann die CSS-Eigenschaft „border-bottom-width“ eines HTML-Elements mit JavaScript verändert werden?"
+                >
+                    <lsx-answer>
+                        <src-code language="javascript">element.style.set("border-bottom-widht", "1px")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element.style.border-bottom-width = "1px"</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element.style.border_bottom_width = "1px"</src-code>
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        <src-code language="javascript">element.style.borderBottomWidth = "1px"</src-code>
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        <src-code language="javascript">element.style["borderBottomWidth"] = "1px"</src-code>
+                    </lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "single-choice"
+                    text = "b) Wie kann einem HTML-Element die Klasse „invisible“ hinzugefügt werden?"
+                >
+                    <lsx-answer>
+                        <src-code language="javascript">document.classListAdd("invisible")</src-code>
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        <src-code language="javascript">element.classList.add("invisible")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element.classList.invisible = true</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element.styleList.add("invisible")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element.style.invisible = true</src-code>
+                    </lsx-answer>
+                </lsx-question>
+
+                <lsx-question type="single-choice">
+                    <lsx-question-text>
+                        c) Was passiert, wenn man dem Attribut <code>innerHTML</code> einen String mit
+                        Text und HTML-Elemente
+                    </lsx-question-text>
+
+                    <lsx-answer>
+                        Der Text wird genau so angezeigt, wie er übergeben wurde. Die sptizen Klammern
+                        werden auf dem Bildschirm angezeigt.
+                    </lsx-answer>
+                    <lsx-answer>
+                        Der Text wird genau so angezeigt, wie er übergeben wurde, jedoch werden alle
+                        spitzen Klammern entfernt.
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        Der Text wird als HTML-Code interpretiert. Auf dem Bildschirm sieht man daher
+                        das Ergebnis der HTML-Elemente. Ganz so, als wären sie von Anfang an im Quellcode
+                        der Seite gestanden.
+                    </lsx-answer>
+                </lsx-question>
+
+                <lsx-question type="single-choice">
+                    <lsx-question-text>
+                        d) Was passiert, wenn man dem Attribut <code>textContent</code> einen String mit
+                        Text und HTML-Elementen übergibt?
+                    </lsx-question-text>
+
+                    <lsx-answer correct>
+                        Der Text wird genau so angezeigt, wie er übergeben wurde. Die spitzen Klammern
+                        werden auf dem Bildschirm angezeigt.
+                    </lsx-answer>
+                    <lsx-answer>
+                        Der Text wird genau so angezeigt, wie er übergeben wurde, jedoch werden alle
+                        spitzen Klammern entfernt.
+                    </lsx-answer>
+                    <lsx-answer>
+                        Der Text wird als HTML-Code interpretiert. Auf dem Bildschirm sieht man daher
+                        das Ergebnis der HTML-Elemente. Ganz so, als wären sie von Anfang an im Quellcode
+                        der Seite gestanden.
+                    </lsx-answer>
+                </lsx-question>
+            </lsx-exercise>
+
+            <lsx-exercise title="Arbeiten mit der DOM-Struktur">
+                <lsx-question
+                    type = "single-choice"
+                    text = "a) Mit welchem Attribut kann auf das Elternelement eines HTML-Elements zugegriffen werden?"
+                >
+                    <lsx-answer>
+                        <src-code language="javascript">element.p</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element.parent</src-code>
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        <src-code language="javascript">element.parentNode</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element.parentNodes</src-code>
+                    </lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "multiple-choice"
+                    text = "b) Wie kann ein Element aus dem DOM-Baum entfernt werden?"
+                >
+                    <lsx-answer correct>
+                        <src-code language="javascript">element.remove()</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element.discard()</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element.parentNode.removeChild()</src-code>
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        <src-code language="javascript">element.parentNode.removeChild(element)</src-code>
+                    </lsx-answer>
+                </lsx-question>
+
+                <lsx-question type="single-choice">
+                    <lsx-question-text>
+                        c) Welcher Aufruf erzeugt ein neues <src-code language="html">&lt;div&gt;</src-code>-Element?
+                    </lsx-question-text>
+
+                    <lsx-answer correct>
+                        <src-code language="javascript">document.createElement("div")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">document.createElement("&lt;div&gt;")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">document.createHtml("&lt;div&gt;")</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">document.createTextNode("div")</src-code>
+                    </lsx-answer>
+                </lsx-question>
+
+                <lsx-question
+                    type = "single-choice"
+                    text = "d) Welcher Aufruf fügt ein neues Element in den DOM-Baum ein?"
+                >
+                    <lsx-answer>
+                        <src-code language="javascript">document.insert(element)</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">document.append(element)</src-code>
+                    </lsx-answer>
+                    <lsx-answer correct>
+                        <src-code language="javascript">element1.insertChild(element1, element2)</src-code>
+                    </lsx-answer>
+                    <lsx-answer>
+                        <src-code language="javascript">element1.appendChild(element2)</src-code>
+                    </lsx-answer>
+                </lsx-question>
+            </lsx-exercise>
+        </lsx-quiz>
+    </article>
+    <aside>
+        <p>
+            Glückwunsch, du hast es bis zum Ende des Kapitels geschafft. 🍾
+            Hier kommen nur noch ein paar einfache Wiederholungsfragen und
+            schon darfst du selbst etwas programmieren. 🥂
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>

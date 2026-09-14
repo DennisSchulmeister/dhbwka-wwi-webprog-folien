@@ -1,0 +1,353 @@
+<section data-title="Das ist ja gar nicht so anders">
+    <article>
+        <lsx-accordion>
+            <lsx-accordion-page title="Variablen deklarieren" active>
+                <lsx-tab-pages>
+                    <lsx-tab-page title="JavaScript">
+                        <p>
+                            Variablen werden in JavaScript nicht wirklich deklariert. Sie entstehen
+                            einfach, sobald man ihnen einen Wert zuweist. Nicht vorhandene Variablen
+                            führen auch nicht zu einem Fehler, sondern liefern immer den Wert
+                            <tt>undefined</tt>.
+                        </p>
+                        <source-code language="javascript">
+                            meinName = "Arthur Dent";
+                            let meinAlter = 31;
+                            const telefonnummer = "+49 721 12345";
+                        </source-code>
+                        <p>
+                            Etwas ungewöhnlich ist, dass Variablen automatisch globale Variablen sind,
+                            wenn man ihnen nicht <tt>const</tt> oder <tt>let</tt> voranstellt. Hier musst
+                            du also wirklich aufpassen, damit es nicht zu diffizilen, schwer zu findenden
+                            Fehlern kommt. Älterer Code nutzt noch <tt>var</tt>, neuer Code sollte
+                            stattdessen aber immer <tt>let</tt> verwenden, <a href="https://davidwalsh.name/for-and-against-let" target="_blank">
+                            da es die Gültigkeit der Variablen noch mehr eingrenzt</a>. Mit <tt>const</tt>
+                            kannst du im Gegensatz zu <tt>let</tt> Konstanten definieren. Eine Variable,
+                            deren Wert nicht neu zugewiesen wird, sollte als Konstante definiert werden.
+                            Kann der Wert überschriben werden, verwende <tt>let</tt>.
+                        </p>
+                        <source-code language="javascript">
+                            let fisch = "Wanda The Fish";
+                            fisch = 27;
+                        </source-code>
+                        <p>
+                            Da JavaScript keine wirkliche Deklaration von Variablen kennt, wird auch ihr
+                            Typ nicht fest vorgegeben. Stattdessen hängt es immer davon ab, was man gerade
+                            in eine Variable reinschreibt. Im obigen Beispiel handelt es sich bei der Variable
+                            erst um einen String und dann um eine Zahl. Das ist zwar nicht schön, aber durchaus
+                            erlaubt.
+                        </p>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Java">
+                        <source-code language="java">
+                            String meinName = "Arthur Dent";
+                            int meinAlter = 31;
+                            String telefonnummer = "+49 721 12345";
+                        </source-code>
+                        <p>
+                            Java kennt keine globalen Variablen. Jede Variable gilt nur innerhalb der
+                            Klasse oder Methode, in der sie definiert wurde. Dafür müssen Variablen
+                            immer erst deklariert werden, bevor sie verwendet werden können. Üblicherweise
+                            wird den Variablen bei der Deklaration allerdings gleich ein Wert zugewiesen.
+                            Der obige Quellcode hätte daher auch so geschrieben werden können:
+                        </p>
+                        <source-code language="java">
+                            String meinName, telefonnummer;
+                            int meinAlter;
+
+                            meinName = "Arthur Dent";
+                            meinAlter = 31;
+                            telefonnummer = "+49 721 12345";
+                        </source-code>
+                        <p>
+                            Im Gegensatz zu JavaScript wird der Typ einer Variable durch ihre Deklaration
+                            bestimmt. In JavaScript hingegen ergibt sich der Typ aus dem Inhalt der Variable
+                            und kann sich jederzeit ändern. Für das zweite JavaScript-Beispiel gibt es daher
+                            keine wirkliche Entsprechung in Java. Nur eine weit hergeholte Version mit den
+                            so genannten Boxed Types:
+                        </p>
+                        <source-code language="java">
+                            Object fisch = new String("Wanda The Fish");
+                            fisch = new Integer(31);
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Funktionen und Methoden aufrufen">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="JavaScript">
+                        <p>
+                            Funktionen und Methoden werden in JavaScript genauso aufgerufen wie in Java.
+                            Nur mit dem einen Unterschied, dass Java keine Funktionen (Methoden ohne Klassen)
+                            kennt.
+                        </p>
+                        <source-code language="javascript">
+                            let startButton = document.getElementById("start");
+                            showGameOverScreen("Game Over", "Nochmal versuchen", true);
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Java">
+                        <source-code language="java">
+                            DOMNode startButton = document.getElementById("start");
+                            this.showGameOverScreen("Game Over", "Nochmal versuchen", true);
+                        </source-code>
+                        <p>
+                            Das sieht fast gleich wie bei JavaScript aus. Nur, dass der Variable
+                            <tt>startButton</tt> ein expliziter Typ mitgegeben werden muss und dass
+                            Java keine Methoden ohne Klassen kennt. Zwar wäre die folgende Zeile
+                            durchaus zulässig:
+                        </p>
+                        <source-code language="java">
+                            showGameOverScreen("Game Over", "Nochmal versuchen", true);
+                        </source-code>
+                        <p>
+                            Sie ist aber nichts anderes als folgende Zeile:
+                        </p>
+                        <source-code language="java">
+                            this.showGameOverScreen("Game Over", "Nochmal versuchen", true);
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Fallunterscheidungen">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="JavaScript">
+                        <source-code language="javascript">
+                            if (alter &lt; 18) {
+                                …
+                            } else if (alter &lt; 60) {
+                                …
+                            } else {
+                                …
+                            }
+                        </source-code>
+                        <p>
+                            Hier gibt es fast gar keine Unterschiede zu Java. Lediglich
+                            den Operator <tt>===</tt> kennt Java nicht: Er prüft nicht nur, ob
+                            zwei Variablen inhaltlich gleich sind, sondern auch ob sie denselben
+                            Typ haben:
+                        </p>
+                        <source-code language="javascript">
+                            if (42 == "42") {
+                                // Trifft tatsächlich zu
+                            }
+
+                            if (42 === "42") {
+                                // Trifft nicht zu
+                            }
+                        </source-code>
+                        <p>
+                            An diesem Beispiel siehst du auch, dass JavaScript Strings direkt
+                            vergleichen kann. Eine <code>equals()</code>-Methode brauchen
+                            wir hierfür nicht:
+                        </p>
+                        <source-code language="javascript">
+                            let person1 = "Willy";
+                            let person2 = "Alf";
+
+                            if (person1 === person2) {
+                                …
+                            } else if (person1 != person2) {
+                                …
+                            }
+                        </source-code>
+                        <p>
+                            Das <code>switch</code>-Statement hingegen sieht genau wie in Java aus:
+                        </p>
+                        <source-code language="javascript">
+                            switch (event.type) {
+                                case "keydown":
+                                    …
+                                    break;
+                                case "click":
+                                    …
+                                    break;
+                                default;
+                                    …
+                            }
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Java">
+                        <source-code language="java">
+                            if (alter &lt; 18) {
+                                …
+                            } else if (alter &lt; 60) {
+                                …
+                            } else {
+                                …
+                            }
+                        </source-code>
+                        <p>
+                            <code>if</code>-Abfragen sehen genau wie in JavaScript aus, nur dass es
+                            den <tt>===</tt>-Operator nicht gibt und dass zwei Strings über ihre
+                            <code>equals()</code>- bzw. <code>equalsIgnoreCase()</code>-Methoden
+                            verglichen werden müssen.
+                        </p>
+                        <source-code language="java">
+                            if (42 == "42") {
+                                // Kann nie zutruffen
+                            }
+
+                            String person1 = "Willy";
+                            String person2 = "Alf";
+
+                            if (person1.equals(person2)) {
+                                …
+                            } else if (!person1.equals(person2)) {
+                                …
+                            }
+                        </source-code>
+                        <p>
+                            <code>switch</code>/<code>case</code> sieht genau gleich aus:
+                        </p>
+                        <source-code language="java">
+                            switch (event.type) {
+                                case "keydown":
+                                    …
+                                    break;
+                                case "click":
+                                    …
+                                    break;
+                                default;
+                                    …
+                            }
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Schleifen">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="JavaScript">
+                        <source-code language="javascript">
+                            while (i > 0) {
+                                …
+                                i--;
+                            }
+
+                            do {
+                                …
+                                i--;
+                            } while (i > 0);
+
+                            for (let i = 0; i &lt; 100; i++) {
+                                …
+                            }
+                        </source-code>
+                        <p>
+                            <code>while</code>,- <code>do</code>- und <code>for</code>-Schleifen
+                            sehen alle wie in Java aus. For-Each-Schleifen funktionieren jedoch
+                            anders:
+                        </p>
+                        <source-code language="javascript">
+                            let kontakte = ["Bernd", "Michael", "Stéphane", "Luis"];
+
+                            for (let i in kontakte) {
+                                let kontakt = kontakte[i];
+                                …
+                            }
+                        </source-code>
+                        <p>
+                            Noch moderner geht es mit einer Lambda-Funktion, was Java inzwischen auch kann:
+                        </p>
+                        <source-code language="javascript">
+                            kontakte.forEach(kontakt => {
+                                …
+                            });
+                        </source-code>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Java">
+                        <source-code language="java">
+                            while (i > 0) {
+                                …
+                                i--;
+                            }
+
+                            do {
+                                …
+                                i--;
+                            } while (i > 0);
+
+                            for (int i = 0; i &lt; 100; i++) {
+                                …
+                            }
+                        </source-code>
+                        <p>
+                            Bis hierhin alles beim Alten. Lediglich innerhalb der <code>for</code>-Schleife
+                            wurde das <code>let</code> durch <code>int</code> ersetzt. For-Each-Schleifen
+                            sehen in Java hingegen so aus:
+                        </p>
+                        <source-code language="java">
+                            String kontakte[] = {"Bernd", "Michael", "Stéphane", "Luis"};
+
+                            for (String kontakt : kontakte) {
+                                …
+                            }
+                        </source-code>
+                        <p>
+                            Das andere Konstrukt mit der <code>forEach()</code>-Methode gibt es seit Java 8 auch:
+                        </p>
+                        <source-code language="java">
+                            import java.util.Arrays;
+
+                            Arrays.stream(kontakte).forEach((kontakt) -> {
+                                …
+                            });
+                        </source-code>
+                        <p>
+                            Noch schöner ist es allerdings, wenn die Daten von Anfang an als Collection vorliegen.
+                            Dann spart man sich die Umwandlung des Arrays in einen Stream:
+                        </p>
+                        <source-code language="java">
+                            import java.util.ArrayList;
+                            import java.util.List;
+
+                            List&lt;String&gt; kontakte = new ArrayList&lt;&gt;();
+                            kontakte.put("Bernd");
+                            kontakte.put("Michael");
+                            kontakte.put("Stéphane");
+                            kontakte.put("Luis");
+
+                            kontakte.forEach((kontakt) -> {
+                                …
+                            });
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+        </lsx-accordion>
+    </article>
+    <aside>
+        <p>
+            Java und JavaScript haben in vielen Dingen eine ähnliche Syntax. Kein Wunder,
+            gehören sie doch beide zu den so genannten
+            <a href="https://en.wikipedia.org/wiki/List_of_C-family_programming_languages" target="_blank">
+            C-ähnlichen Sprachen</a>. Beide Sprachen haben sozusagen vom selben Nachbarn
+            abgeschrieben. Auch ohne tiefe Kenntnisse solltest du JavaScript-Code daher
+            relativ einfach lesen können. 📕 Für einen tieferen Einstieg in JavaScript empfehlen
+            wir dir die <a href="https://developer.mozilla.org/de/docs/Web/JavaScript" target="_blank">
+            JavaScript-Übersicht</a> im Mozilla Developer Network.
+        </p>
+
+        <img src="4-js-grundlagen/1-grundlagen/das-ist-ja-gar-nicht-so-anders/javascript-java.jpg" class="b-block" style="width: 100%" />
+        <p>
+            <small>
+                <small>
+                    Bildnachweis: <a href="https://coderanch.com/t/456377/Java-JavaScript-ham-hamster" target="_blank">coderanch.com</a>
+                </small>
+            </small>
+        </p>
+
+        <lsx-youtube video="WD63LeEJ7dM"></lsx-youtube>
+        <lsx-info-box>
+            Das Video zeigt anhand eines einfachen Chatbots die grundlegen Eigenheiten von JavaScript
+            und vergleicht diese mit Java.
+        </lsx-info-box>
+    </aside>
+</section>

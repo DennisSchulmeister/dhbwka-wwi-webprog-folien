@@ -1,0 +1,311 @@
+<section data-title="Container Queries als moderne Alternative">
+    <article>
+        <lsx-ul class="mb-4">
+            <li>Container Queries reagieren auf die Größe eines Elternelements, nicht auf das gesamte Viewport-Fenster.</li>
+            <li>Sie machen HTML-Komponenten unabhängig vom globalen Layout und fördern ihre Wiederverwendbarkeit.</li>
+            <li>Sie sind daher besonders nützlich für komplexe, modulare Layouts wie Karten, Widgets oder wiederverwendbare UI-Komponenten.</li>
+            <li>Allerdings muss das Elternelement mit <code>container-type</code> als Container deklariert werden.</li>
+            <li>Für so gekennzeichnete Elternelemente gelten dann andere Regeln, wie ihre Breite/Höhe ausgerechnet wird.</li>
+        </lsx-ul>
+
+        <lsx-tab-pages class="my-responsive-preview">
+            <lsx-tab-page title="Beispiel">
+                <div class="my-rp-background">
+                    <div class="my-rp-content">
+                        <iframe class="my-rp-size-screen" src="3-responsive/1-design/container-queries-als-moderne-alternative/container-queries/index.html"></iframe>
+                    </div>
+                </div>
+            </lsx-tab-page>
+            <lsx-tab-page title="HTML-Code">
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="de"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Container-Queries&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+
+                            &lt;!-- Eigenes Stylesheet --&gt;
+                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;!-- Header --&gt;
+                            &lt;header&gt;
+                                &lt;img src="logo.svg" alt="Container Queries"&gt;
+                            &lt;/header&gt;
+
+                            &lt;!-- Fotogalerie --&gt;
+                            &lt;main class="max-width"&gt;
+                                &lt;section id="gallery"&gt;
+                                    &lt;img src="gallery/guitar1.jpg"&gt;
+                                    &lt;img src="gallery/guitar2.jpg"&gt;
+                                    &lt;img src="gallery/guitar3.jpg"&gt;
+                                    &lt;img src="gallery/guitar4.jpg"&gt;
+                                    &lt;img src="gallery/guitar5.jpg"&gt;
+                                    &lt;img src="gallery/guitar6.jpg"&gt;
+                                    &lt;img src="gallery/guitar7.jpg"&gt;
+                                    &lt;img src="gallery/guitar8.jpg"&gt;
+                                    &lt;img src="gallery/guitar9.jpg"&gt;
+                                    &lt;img src="gallery/guitar10.jpg"&gt;
+                                    &lt;img src="gallery/guitar11.jpg"&gt;
+                                    &lt;img src="gallery/guitar12.jpg"&gt;
+                                    &lt;img src="gallery/guitar13.jpg"&gt;
+                                &lt;/section&gt;
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-tab-page>
+            <lsx-tab-page title="Stylesheet">
+                <source-code language="css">
+                    /***********************
+                    * HEADER-BAR MIT LOGO *
+                    ***********************/
+                    header {
+                        /* Allgemeine Gestaltung */
+                        ...
+
+                        /*
+                        * Container Queries gegen dieses Element erlauben 
+                        *
+                        * WICHTIG: Dem Element muss eine explizite Größe zugewiesen werden, da Elemente
+                        * die in Container Queries abgefragt werden können, ihre Höhe nicht mehr automatisch
+                        * aus ihren Inhalten ableiten. Deshalb wird hier mit `flex-basis` die Größe gesetzt.
+                        * `flex-basis` ist die Höhe innerhalb einer horizontalen Flexbox und die Breite
+                        * in einer vertikalen Flexbox.
+                        */
+                        container-type: size;
+                        container-name: header-bar;
+                        flex-basis: var(--image-height);
+                    }
+
+                    @container header-bar (orientation: portrait) {
+                        /* Logo drehen, wenn der Header hochkant steht */
+                        img {
+                            transform: rotate(-90deg);
+                        }
+                    }
+
+                    /***************
+                    * FOTOGALERIE *
+                    ***************/
+                    main {
+                        /* Allgemeine Gestaltung */
+                        ...
+                        
+                        /* Container Queries gegen dieses Element erlauben */
+                        container-type: inline-size;
+                        container-name: main;
+                    }
+
+                    @container main (min-width: 50em) {
+                        /* Bilder in einem großen Container nebeneinander statt untereinander anordnen */
+                        #gallery {
+                            display: flex;
+                            align-items: stretch;
+                        }
+
+                        img {
+                            height: 100% !important;
+                            width: 7.8vw !important;
+                            transition: width 0.5s !important;
+                        }
+
+                        img:hover {
+                            width: 30vh !important;
+                        }
+                    }
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <h2 class="dhbw-lightblue">Problemstellung</h2>
+        <p>
+            Media Queries zählen seit ihrer Einführung zu den Arbeitspferden des Responsive Webdesign.
+            Endlich war es auf einfache Weise möglich, die Eigenschaften des Ausgabegeräts abzufragen
+            und das Layout einer Webseite dynamisch an diese anzupassen, anstatt wie bisher üblich,
+            mehrere Versionen derselben Seite für unterschiedliche Geräte zu programmieren. Doch genau
+            hier liegt auch das Problem von Media Queries: Die prüfen das Ausgabegerät, in der Regel
+            also den Bildschirm bzw. den Viewport des Browsers<sup>1</sup>, nicht aber den Platz, den
+            ein konkretes Element an seiner konkreten Position tatsächlich zur Verfügung hat.
+        </p>
+        <p>
+            Warum ist das ein Problem? Baut man eine vergleichsweise einfache Webseite aus einem Guss,
+            so wie wir das bisher immer gemacht haben, kommt man mit Media Queries tatsächlich sehr weit.
+            Man hat ein bestimmtes Layout vor Augen und weiß genau, wie viel Platz für welche Inhalte
+            an welcher Stelle vorgesehen ist. Mit Media Queries stellt man lediglich sicher, dass das
+            Layout nur dann angewandt wird, wenn in der Regel der Bildschirm groß genug dafür ist.
+            Problematisch wird es allerdings, wenn das Layout selbst gar nicht statisch ist, sondern
+            sich zum Beispiel durch Ein- und Ausblenden optionaler Inhalte selbst verändern kann.
+            Weil dann kann es sein, dass durch die zusätzlich eingeblendeten Inhalte der für ein
+            Element zur Verfügung stehende Platz nicht mehr ausreicht – ein Fall, der mit Media Queries
+            nicht abgefragt werden kann. Die Bildschirmgröße bleibt ja immer gleich.
+        </p>
+        <p>
+            Hinzu kommt, dass man in der Realität häufig gar nicht weiß, an welcher Stelle ein
+            bestimmter Inhalt später angezeigt werden wird und wie viel Platz dann zur Verfügung
+            steht. Als Beispiel stelle man sich hier die Teilen-Funktion von Youtube vor, die es
+            ermöglicht, ein Video mit einem HTML-Schnippsel in fremde Webseiten einzubetten. Oder
+            die Teilen-Funktion von Facebook, X und Instagram, mit denen ein Socal Media Post in
+            eine Webseite eingebettet werden kann. Aber auch, wenn man mit einem Komponenten-Framework
+            wie Angular oder React quasi seine eigenen HTML-Elemente baut<sup>2</sup>, kann es sein,
+            dass man während der Entwicklung noch nicht weiß, wer diese Elemente wo einsetzen wird.
+        </p>
+        <p>
+            Container Queries, die seit dem Jahr 2023 von allen gängigen Browsern unterstützt werden,
+            können helfen, diese Probleme zu lösen. Denn sie prüfen nicht das Ausgabemedium oder den
+            Viewport des Browsers, sondern konkrete HTML-Elemente, so wie sie tatsächlich auf einer
+            Seite dargestellt werden. Dadurch wird es möglich, CSS-Regeln zu definieren, die von Fragen
+            abhängen wie:
+        </p>
+        <ul>
+            <li>
+                Habe ich an dieser Stelle genügend Platz für den Inhalt?
+            </li>
+            <li>
+                Ist der zur Verfügung stehende Bereich höher wie breit oder breiter wie hoch?
+            </li>
+            <li>
+                Und viele mehr, die sich auf das gewünschte Elternelement beziehen.
+            </li>
+        </ul>
+        <p>
+            Der Vorteil: Komponenten können flexibel in unterschiedlichen Kontexten wiederverwendet werden.
+            Zum Beispiel kann so eine Karten-Komponente innerhalb einer schmalen Sidebar anders an als im
+            breiten Hauptbereich dargestellt werden, ganz egal, auf welchem Bildschirm dies später erfolgt –
+            es zählt nur der Platz, den man für die Kartendarstellung tatsächlich gerade zur Verfügung hat.
+        </p>
+        <p>
+            <sup>1</sup>
+            <small>
+                Der Viewport ist der Anzeigebereich im Browser, innerhalb dessen die Webseite dargestellt wird.
+            </small>
+        </p>
+        <p>
+            <sup>2</sup>
+            <small>
+                Stark vereinfachte Darstellung. 🙂
+            </small>
+        </p>
+
+        <h2 class="dhbw-lightblue">Grundlegende Syntax</h2>
+        <p>
+            Die grundlegende Syntax von Container Queries ist dieselbe wie bei Media Queries. Lediglich statt
+            <code>@media</code> schreibt man <code>@container</code> und hängt dann die zu prüfenden Eigenschaften
+            an. Zum Beispiel:
+        </p>
+        <source-code language="css">
+            .goolge-maps {
+                /* CSS-Regeln für die KLEINE Kartendarstellung */
+            }
+
+            @container (min-width: 30em) {
+                .goolge-maps {
+                    /* CSS-Regeln für die GROSSE Kartendarstellung */
+                }
+            }
+        </source-code>
+        <p>
+            Doch auf welches HTML-Element bezieht sich diese Prüfung? Die Größe von welchem Element wird damit geprüft?
+            Tatsächlich, so wie es dasteht, von keinem. Denn, das zu prüfende Elemente muss zusätzlich markiert werden,
+            damit klar ist, um welches Element es sich handelt und welche Eigenschaften tatsächlich davon abgefragt
+            werden dürfen. Dies geschieht mit der CSS-Eigenschaft <code>container-type</code>. Das vollständige Beispiel
+            lautet daher:
+        </p>
+        <source-code language="css">
+            main {
+                /* Von diesem Element kann die Breite geprüft werden */
+                container-type: inline-size;
+            }
+
+            .goolge-maps {
+                /* CSS-Regeln für die KLEINE Kartendarstellung */
+            }
+
+            @container (min-width: 30em) {
+                .goolge-maps {
+                    /* CSS-Regeln für die GROSSE Kartendarstellung */
+                }
+            }
+        </source-code>
+        <p>
+            Die Eigenschaft <code>container-type</code> besitzt dabei folgende Ausprägungen:
+        </p>
+        <table class="table">
+            <tr>
+                <td style="width: 7em;">
+                    <code>normal</code>
+                </td>
+                <td>
+                    Standardwert – das Element ist <b>kein Container</b> und kann nicht für Container Queries genutzt werden.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>size</code>
+                </td>
+                <td>
+                    Das Element ist ein <b>voller Container</b>: Sowohl Breite als auch Höhe können abgefragt werden.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>inline-size</code>
+                </td>
+                <td>
+                    Das Element ist ein <b>einfacher Container</b>, der nur die <b>Inline-Achse (meist die Breite)</b> berücksichtigt.
+                    Dies ist der in der Praxis am häufigsten genutzte Wert.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <code>block-size</code>
+                </td>
+                <td>
+                    Beobachtet nur die <b>Block-Achse (meist die Höhe)</b>.
+                </td>
+            </tr>
+        </table>
+        <p>
+            Diese Kennzeichnung ist notwendig, weil die Breite und Höhe eines Element meistens von seinem Inhalt abhängen.
+            Doch hier willen wir ja gerade den Inhalt anders darstellen, abhängig davon wie Breit oder Hoch das Element ist.
+            Die Kennzeichnung sorgt dafür, dass die gewünschten Eigenschaften abgefragt werden können, dafür aber nicht mehr
+            vom Inhalt des Elements abhängen. Stattdessen müssen die Breite und die Höhe dann explizit gesetzt werden, entweder
+            mit den entsprechenden CSS-Eigenschaften (<code>width</code>, <code>height</code>, …) oder durch eine umgebende
+            Flexbox etc.
+        </p>
+
+        <h2 class="dhbw-lightblue">Mehrere benannte Container</h2>
+        <p>
+            Häufig kommt es vor, dass man nicht <i>den</i> Container Query zur Prüfung <i>des</i> Elternelements benötigt,
+            sondern mehrere Queries zur Prüfung mehrerer Elternelemente. Eben, weil es mehrere Stellen in einer Webseite
+            gibt, an denen sich der zur Verfügung stehende Platz dynamisch ändern kann. Dies würde mit der oben gezeigten
+            Syntax nicht unterstützt werden, da die einzelnen Bereiche nicht außeinander gehalten werden könnten. Die
+            Lösung hierfür bietet die CSS-Eigenschaft <code>container-name</code>, wie im folgenden Beispiel gezeigt:
+        </p>
+        <source-code language="css">
+            #sidebar {
+                container-name: sidebar;
+                container-type: inline-size;
+            }
+
+            main {
+                container-name: main;
+                container-type: inline-size;
+            }
+
+            @container sidebar (min-width: 25em) {
+                /* Sidebar ist mindestens 25em breit */
+            }
+
+            @container main (min-width: 60em) {
+                /* Hauptbereich ist mindestens 60em breit */
+            }
+        </source-code>
+        <p>
+            Wie man sieht, kann den Containern mit <code>container-name</code> ein eindeutiger Name gegeben werden,
+            aufden sich die eigentliche <code>@container</code>-Anweisung später beziehen kann.
+        </p>
+    </aside>
+</section>

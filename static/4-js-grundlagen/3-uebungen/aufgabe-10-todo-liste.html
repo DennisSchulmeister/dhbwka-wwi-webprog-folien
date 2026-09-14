@@ -1,0 +1,103 @@
+<section data-title="Aufgabe 10: TODO-Liste" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <lsx-github-edit
+            class    = "mb-3"
+            url      = "3%20JavaScript/Aufgaben/Einfache%20TODO-Liste/Aufgabe"
+            download = "3%20JavaScript/Aufgaben/Einfache%20TODO-Liste"
+        ></lsx-github-edit>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Beschreibung">
+                <p>
+                    Lade dir den Quellcode zu dieser Aufgabe herunter und schaue ihn dir an. Es handelt sich
+                    dabei um eine einfache TODO-Liste mit nur zwei Funktionen: Einträge hinzufügen und Einträge
+                    löschen. Der Quellcode ist auch schon fast fertig. Es fehlen nur noch ein paar Kleinigkeiten:
+                </p>
+                <ol>
+                    <li>
+                        Im HTML-Code findest du zwischen den Kommentaren ein Beispiel für eine Notiz. Das
+                        Beispiel soll dir als Vorlage für den JavaScript-Code dienen, muss aus dem HTML aber
+                        ausgebaut werden.
+                    </li>
+                    <li>
+                        Im JavaScript-Code musst du stattdessen die <code>insertMemo</code>-Funktion so
+                        ausprogrammieren, dass sie die Seite nach dem vorgegebenen Beispiel erweitert, um
+                        ein neues Memo anzuzeigen.
+                    </li>
+                    <li>
+                        Jedes Memo soll einen Link zum Entfernen des Memos besitzen.
+                    </li>
+                    <li>
+                        Beim Start der Anwendung soll automatisch ein Beispielmemo angelegt werden.
+                    </li>
+                </ol>
+                <img src="4-js-grundlagen/3-uebungen/aufgabe-10-todo-liste/aufgabe-todo-liste.jpg" class="d-block" style="width: 100%;" />
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung: HTML">
+                <p>
+                    Im HTML-Code muss lediglich die Beispielnotiz entfernt werden. Der <src-code language="html">
+                    &lt;body&gt;</src-code> sieht danach daher so aus:
+                </p>
+                <source-code language="html">
+                    &lt;body&gt;
+                        &lt;div id="toolbar"&gt;
+                            &lt;button id="button-new"&gt;
+                                Neue Notiz anlegen
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+
+                        &lt;main&gt;
+                            &lt;ul&gt;&lt;/ul&gt;
+                        &lt;/main&gt;
+                    &lt;/body&gt;
+                </source-code>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung: JavaScript">
+                <p>
+                    Die <code>insertMemo</code>-Funktion muss wie folgt ausprogrammiert werden:
+                </p>
+                <source-code language="javascript">
+                    let insertMemo = text =&gt; {
+                        let liElement = document.createElement("li");
+                        memoList.appendChild(liElement);
+
+                        let memoTextElement = document.createElement("p");
+                        memoTextElement.textContent = text;
+                        liElement.appendChild(memoTextElement);
+
+                        let deleteElement = document.createElement("a");
+                        deleteElement.textContent = "Löschen";
+                        deleteElement.classList.add("delete");
+                        liElement.appendChild(deleteElement);
+
+                        deleteElement.addEventListener("click", () =&gt; {
+                            liElement.parentNode.removeChild(liElement);
+                        });
+                    };
+                </source-code>
+                <p>
+                    Eine neue Beispielnotiz lässt sich mit folgendem Aufruf erzeugen:
+                </p>
+                <source-code language="javascript">
+                    insertMemo("Klicke auf „Neue Notiz“, um eine neue Notiz anzulegen …");
+                </source-code>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Na, das hat doch Spaß gemacht, oder? Dann machen wir doch gleich mal
+            weiter. Hier darfst du eine kleine TODO-Liste programmieren. 🖋️
+            So etwas braucht man schließlich immer wieder.
+        </p>
+        <img src="shared/github_atom.png" class="img-fluid d-block"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://atom.io/" target="_blank">Atom Webseite</a>
+            </small>
+        </p>
+    </aside>
+</section>

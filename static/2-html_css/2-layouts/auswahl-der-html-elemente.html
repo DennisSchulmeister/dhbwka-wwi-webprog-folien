@@ -1,0 +1,776 @@
+<section data-title="Auswahl der HTML-Elemente">
+    <article>
+        <h3>Das Document Object Model</h3>
+        <lsx-ul class="dhbw-list-spacious_">
+            <li>
+                Das DOM ist die Datenstruktur, die im Browser aus dem HTML-Code einer Webseite erstellt wird.
+            </li>
+            <li>
+                Es enthält Datenobjekte für alle HTML-Elemente des Dokuments (Überschriften, Absätze etc.).
+            </li>
+            <li>
+                Jedes Objekt beschreibt dabei Inhalt und Eigenschaften eines Elements.
+            </li>
+            <li>
+                Mit JavaScript kann die DOM-Struktur und somit der Inhalt einer Seite verändert werden.
+            </li>
+            <li>
+                Mit CSS kann daruf zugegriffen werden, um das Aussehen der HTML-Elemente zu definieren.
+            </li>
+        </lsx-ul>
+        
+        <div class="d-flex flex-column justify-content-between align-items-start align-items-lg-center flex-lg-row" style="margin-top: 2em; margin-bottom: 2em">
+            <div class="dhbw-border bg-white shadow-sm p-2">
+                <source-code language="html">
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;title&gt;Titel der Seite&lt;/title&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;h1&gt;Eine Überschrift&lt;/h1&gt;
+                            &lt;p class="main"&gt;Hier steht ein Absatz.&lt;/p&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </div>
+
+            <img src="2-html_css/2-layouts/auswahl-der-html-elemente/pfeil-rechts.svg" class="d-none d-lg-block"/>
+            <img src="2-html_css/2-layouts/auswahl-der-html-elemente/pfeil-runter.svg" class="d-lg-none align-self-center"/>
+            <img src="2-html_css/2-layouts/auswahl-der-html-elemente/dom_baum.svg" class="img-fluid d-block mt-5 mt-lg-0" style="height: 20em;" />
+        </div>
+
+        <h3>Auswahl von DOM-Objekten im Stylesheet</h3>
+
+        <lsx-accordion>
+            <lsx-accordion-page title="Einfache CSS-Selektoren">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <table class="table border">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Syntax</th>
+                                    <th scope="col">Beispiel</th>
+                                    <th scope="col">Funktion</th>
+                                    <th scope="col">Ergebnis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Alle Elemente -->
+                                <tr>
+                                    <td>
+                                        <code>*</code>
+                                    </td>
+                                    <td>
+                                        <code>*</code>
+                                    </td>
+                                    <td>
+                                        Auswahl aller Elemente
+                                    </td>
+                                    <td>
+                                        Alle HTML-Elemente der gesamten Seite
+                                    </td>
+                                </tr>
+
+                                <!-- Vereinigung -->
+                                <tr>
+                                    <td>
+                                        <i>Elementname</i>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">h1</src-code>
+                                    </td>
+                                    <td>
+                                        Auswahl nach HTML-Elementname
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;h1&gt;</src-code>-Elemente
+                                    </td>
+                                </tr>
+
+                                <!-- ID -->
+                                <tr>
+                                    <td>
+                                        <code>#</code><i>id</i>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">#logo</src-code>
+                                    </td>
+                                    <td>
+                                        Auswahl nach Attribut <code>id</code>
+                                    </td>
+                                    <td>
+                                        Das eine Element mit <src-code language="html">&lt;… id="logo" …&gt;</src-code>
+                                    </td>
+                                </tr>
+
+                                <!-- Klasse -->
+                                <tr>
+                                    <td>
+                                        <code>.</code><i>klasse</i>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">.card</src-code>
+                                    </td>
+                                    <td>
+                                        Auswahl nach Attribut <code>class</code>
+                                    </td>
+                                    <td>
+                                        Alle Elemente mit <src-code language="html">&lt;… class="… card …" …&gt;</src-code>
+                                    </td>
+                                </tr>
+
+                                <!-- Attribut -->
+                                <tr>
+                                    <td>
+                                        <code>[</code><i>attribut</i><code>]</code>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">[readonly]</src-code>
+                                    </td>
+                                    <td>
+                                        Auswahl nach Attribut (Wert egal)
+                                    </td>
+                                    <td>
+                                        Alle Elemente mit <src-code language="html">&lt;… readonly …&gt;</src-code>
+                                    </td>
+                                </tr>
+
+                                <!-- Attributwert -->
+                                <tr>
+                                    <td>
+                                        <code>[</code><i>attribut</i><code>="</code><i>wert</i><code>"]</code>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">[type="button"]</src-code>
+                                    </td>
+                                    <td>
+                                        Auswahl nach Attribut mit Wert
+                                    </td>
+                                    <td>
+                                        Alle Elemente mit <src-code language="html">&lt;… type="button" …&gt;</src-code>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </lsx-tab-page>
+                    
+                    <lsx-tab-page title="Beispiel">
+                        <div class="d-flex flex-column gap-2 justify-content-between flex-lg-row">
+                            <div class="flex-grow-1 flex-shrink-1 dhbw-vertical-divider">
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;img id="preview" src="produkt1.jpg"&gt;
+
+                                            &lt;img class="thumbnail" src="produkt2.jpg"&gt;
+                                            &lt;img class="thumbnail" src="produkt3.jpg"&gt;
+                                            &lt;img class="thumbnail" src="produkt4.jpg"&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </div>
+
+                            <div class="flex-grow-1 flex-shrink-1"></div>
+
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    img {
+                                        margin: 1em;
+        
+                                        border: 1px solid grey;
+                                        padding: 0.25em;
+                                        background: white;
+                                    }
+        
+                                    #preview {
+                                        display: block;
+                                        max-width: 24em;
+                                    }
+        
+                                    .thumbnail {
+                                        width: 8em;
+                                    }
+                                </source-code>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div id="css-selektoren-einfach-screenshot">
+                            <style>
+                                #css-selektoren-einfach-screenshot {
+                                    img {
+                                        margin: 1em;
+
+                                        border: 1px solid lightgrey;
+                                        padding: 0.25em;
+                                        background: white;
+                                    }
+                                    #my-preview {
+                                        display: block;
+                                        max-width: 24em;
+                                    }
+
+                                    .my-thumbnail {
+                                        width: 8em;
+                                    }
+                                }
+                            </style>
+                            
+                            <img id="my-preview" src="2-html_css/2-layouts/auswahl-der-html-elemente/produkt1.jpg">
+
+                            <img class="my-thumbnail" src="2-html_css/2-layouts/auswahl-der-html-elemente/produkt2.jpg">
+                            <img class="my-thumbnail" src="2-html_css/2-layouts/auswahl-der-html-elemente/produkt3.jpg">
+                            <img class="my-thumbnail" src="2-html_css/2-layouts/auswahl-der-html-elemente/produkt4.jpg">
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Zusammengesetzte CSS-Selektoren">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <table class="table border">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Syntax</th>
+                                    <th scope="col">Beispiel</th>
+                                    <th scope="col">Funktion</th>
+                                    <th scope="col">Ergebnis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Vereinigung -->
+                                <tr>
+                                    <td>
+                                        <i>Selektor</i>
+                                        <code>,</code>
+                                        <i>Selektor</i>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">h1, h2, h3</src-code>
+                                    </td>
+                                    <td>
+                                        Vereinigungsmenge
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;h1&gt;</src-code> und
+                                        alle <src-code language="html">&lt;h2&gt;</src-code> und
+                                        alle <src-code language="html">&lt;h3&gt;</src-code>
+                                    </td>
+                                </tr>
+
+                                <!-- Kombination -->
+                                <tr>
+                                    <td>
+                                        <i>Selektor</i><i>Selektor</i>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">section.warning</src-code>
+                                    </td>
+                                    <td>
+                                        Einschränkung
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;section class="… warning …"&gt;</src-code>
+                                    </td>
+                                </tr>
+
+                                <!-- Eltern/Kind (transitiv) -->
+                                <tr>
+                                    <td>
+                                        <i>Selektor</i>
+                                        <i>Selektor</i>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">nav ul</src-code>
+                                    </td>
+                                    <td>
+                                        Rekursiver Abstieg
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;ul&gt;</src-code> innerhalb
+                                        eines <src-code language="html">&lt;nav&gt;</src-code>
+                                    </td>
+                                </tr>
+
+                                <!-- Direkte Kindelemente -->
+                                <tr>
+                                    <td>
+                                        <i>Selektor</i>
+                                        <code>&gt;</code>
+                                        <i>Selektor</i>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">section &gt; h1</src-code>
+                                    </td>
+                                    <td>
+                                        Direkte Kindelemente
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;h1&gt;</src-code> mit Elternelement
+                                        <src-code language="html">&lt;section&gt;</src-code>
+                                    </td>
+                                </tr>
+
+                                <!-- Nächstes Geschwisterelement -->
+                                <tr>
+                                    <td>
+                                        <i>Selektor</i>
+                                        <code>+</code>
+                                        <i>Selektor</i>
+                                    </td>
+                                    <td>
+                                        <src-code language="css">h1 + p</src-code>
+                                    </td>
+                                    <td>
+                                        Nächstes Geschwisterelement
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;p&gt;</src-code>, die unmittelbar auf ein
+                                        <src-code language="html">&lt;h1&gt;</src-code> folgen
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <div class="d-flex flex-column gap-2 justify-content-between flex-lg-row">
+                            <div class="flex-grow-1 flex-shrink-1 dhbw-vertical-divider">
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;nav&gt;
+                                                &lt;ul&gt;
+                                                    &lt;li&gt;Startseite&lt;/li&gt;
+                                                    &lt;li&gt;Kontakt&lt;/li&gt;
+                                                    &lt;li&gt;Impressum&lt;/li&gt;
+                                                &lt;/ul&gt;
+                                            &lt;/nav&gt;
+                                            
+                                            &lt;main&gt;
+                                                &lt;p&gt;
+                                                    Astructio Retis ist die älteste Webdesign-Agentur
+                                                    der Welt. Gegründet im antiken Rom stehen wir seit
+                                                    50 v. Chr. für:
+                                                &lt;/p&gt;
+
+                                                &lt;ul&gt;
+                                                    &lt;li&gt;Modernes Webdesign&lt;/li&gt;
+                                                    &lt;li&gt;Hohe Qualität&lt;/li&gt;
+                                                    &lt;li&gt;Schnelle Umsetzung&lt;/li&gt;
+                                                &lt;/ul&gt;
+                                            &lt;/main&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </div>
+
+                            <div class="flex-grow-1 flex-shrink-1"></div>
+
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    nav {
+                                        background: rgb(174, 9, 9);
+                                        border: 0 solid black;
+                                        border-bottom-width: 1px;
+                                        color: white;
+                                    }
+
+                                    nav ul {
+                                        list-style: none;
+                                        padding: 0;
+                                        margin: 0;
+                                        display: flex;
+                                        gap: 2em;
+                                    }
+
+                                    nav li:hover {
+                                        cursor: pointer;
+                                        text-decoration: underline;
+                                    }
+
+                                    nav, main {
+                                        padding: 0.5em;
+                                    }
+                                </source-code>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div class="border" id="css-selektoren-zusammengesetzt-screenshot">
+                            <style>
+                                #css-selektoren-zusammengesetzt-screenshot {
+                                    nav {
+                                        background: rgb(174, 9, 9);
+                                        border: 0 solid black;
+                                        border-bottom-width: 1px;
+                                        color: white;
+                                    }
+
+                                    nav ul {
+                                        list-style: none;
+                                        padding: 0;
+                                        margin: 0;
+                                        display: flex;
+                                        gap: 2em;
+                                    }
+
+                                    nav li:hover {
+                                        cursor: pointer;
+                                        text-decoration: underline;
+                                    }
+
+                                    nav, .main {
+                                        padding: 0.5em;
+                                    }
+
+                                    .main {
+                                        background: white;
+                                    }
+                                }
+                            </style>
+
+                            <nav>
+                                <ul>
+                                    <li>Startseite</li>
+                                    <li>Kontakt</li>
+                                    <li>Impressum</li>
+                                </ul>
+                            </nav>
+                        
+                            <div class="main">
+                                <p>
+                                    Astructio Retis ist die älteste Webdesign-Agentur
+                                    der Welt. Gegründet im antiken Rom stehen wir seit
+                                    50 v. Chr. für:
+                                </p>
+                                <ul>
+                                    <li>Modernes Webdesign</li>
+                                    <li>Hohe Qualität</li>
+                                    <li>Schnelle Umsetzung</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+
+            <lsx-accordion-page title="Geschachtelte CSS-Regeln">
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Übersicht">
+                        <table class="table border">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Syntax</th>
+                                    <th scope="col">Beispiel</th>
+                                    <th scope="col">Funktion</th>
+                                    <th scope="col">Ergebnis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Eltern/Kind -->
+                                <tr>
+                                    <td>
+                                        <source-code language="css">
+                                            selektor {
+                                                selektor { … }
+                                            }
+                                        </source-code>
+                                    </td>
+                                    <td>
+                                        <source-code language="css">
+                                            ul {
+                                                li { … }
+                                            }
+                                        </source-code>
+                                    </td>
+                                    <td>
+                                        Rekursiver Abstieg
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;li&gt;</src-code> innerhalb
+                                        eines <src-code language="html">&lt;ul&gt;</src-code>
+                                    </td>
+                                </tr>
+                               
+                                <!-- Eltern/Kind mit &-Selektor -->
+                                <tr>
+                                    <td>
+                                        <source-code language="css">
+                                            selektor {
+                                                & selektor { … }
+                                            }
+                                        </source-code>
+                                    </td>
+                                    <td>
+                                        <source-code language="css">
+                                            ul {
+                                                & li { … }
+                                            }
+                                        </source-code>
+                                    </td>
+                                    <td>
+                                        Alternative Schreibweise
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;li&gt;</src-code> innerhalb
+                                        eines <src-code language="html">&lt;ul&gt;</src-code>
+                                    </td>
+                                </tr>
+
+                                <!-- Elternkontext -->
+                                <tr>
+                                    <td>
+                                        <source-code language="css">
+                                            selektor {
+                                                selektor & { … }
+                                            }
+                                        </source-code>
+                                    </td>
+                                    <td>
+                                        <source-code language="css">
+                                            li {
+                                                ul & { … }
+                                            }
+                                        </source-code>
+                                    </td>
+                                    <td>
+                                        Elternkontext
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;li&gt;</src-code> innerhalb
+                                        eines <src-code language="html">&lt;ul&gt;</src-code>
+                                    </td>
+                                </tr>
+
+                                <!-- Einschränkung mit &-Selektor -->
+                                <tr>
+                                    <td>
+                                        <source-code language="css">
+                                            selektor {
+                                                &selektor { … }
+                                            }
+                                        </source-code>
+                                    </td>
+                                    <td>
+                                        <source-code language="css">
+                                            section {
+                                                &.warning { … }
+                                            }
+                                        </source-code>
+                                    </td>
+                                    <td>
+                                        Einschränkung
+                                    </td>
+                                    <td>
+                                        Alle <src-code language="html">&lt;section class="… warning …"&gt;</src-code>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Beispiel">
+                        <div class="d-flex flex-column gap-2 justify-content-between flex-lg-row">
+                            <div class="flex-grow-1 flex-shrink-1 dhbw-vertical-divider">
+                                <h5>HTML-Code</h5>
+                                <source-code language="html">
+                                    &lt;html&gt;
+                                        &lt;head&gt;
+                                            &lt;meta charset="utf-8" /&gt;
+                                            &lt;link rel="stylesheet" href="style.css" /&gt;
+                                            &lt;title&gt;Beispiel&lt;/title&gt;
+                                        &lt;/head&gt;
+                                        &lt;body&gt;
+                                            &lt;nav&gt;
+                                                &lt;ul&gt;
+                                                    &lt;li&gt;Startseite&lt;/li&gt;
+                                                    &lt;li&gt;Kontakt&lt;/li&gt;
+                                                    &lt;li&gt;Impressum&lt;/li&gt;
+                                                &lt;/ul&gt;
+                                            &lt;/nav&gt;
+                                            
+                                            &lt;main&gt;
+                                                &lt;p&gt;
+                                                    Astructio Retis ist die älteste Webdesign-Agentur
+                                                    der Welt. Gegründet im antiken Rom stehen wir seit
+                                                    50 v. Chr. für:
+                                                &lt;/p&gt;
+
+                                                &lt;ul&gt;
+                                                    &lt;li&gt;Modernes Webdesign&lt;/li&gt;
+                                                    &lt;li&gt;Hohe Qualität&lt;/li&gt;
+                                                    &lt;li&gt;Schnelle Umsetzung&lt;/li&gt;
+                                                &lt;/ul&gt;
+                                            &lt;/main&gt;
+                                        &lt;/body&gt;
+                                    &lt;/html&gt;
+                                </source-code>
+                            </div>
+
+                            <div class="flex-grow-1 flex-shrink-1"></div>
+
+                            <div class="flex-grow-1 flex-shrink-1">
+                                <h5>Stylesheet</h5>
+                                <source-code language="css">
+                                    nav {
+                                        background: rgb(174, 9, 9);
+                                        border: 0 solid black;
+                                        border-bottom-width: 1px;
+                                        color: white;
+                                        
+                                        ul {
+                                            list-style: none;
+                                            padding: 0;
+                                            margin: 0;
+                                            display: flex;
+                                            gap: 2em;
+                                        }
+
+                                        li {
+                                            &amp;:first-child {
+                                                font-weight: bold;
+                                            }
+
+                                            &amp:hover {
+                                                cursor: pointer;
+                                                text-decoration: underline;
+                                            }
+                                        }
+                                    }
+
+                                    nav, main {
+                                        padding: 0.5em;
+                                    }
+                                </source-code>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Ergebnis">
+                        <div class="border" id="css-selektoren-geschachtelt-screenshot">
+                            <style>
+                                #css-selektoren-geschachtelt-screenshot {
+                                    nav {
+                                        border: 0 solid black;
+                                        border-bottom-width: 1px;
+                                        
+                                        &.top-menu {
+                                            color: white;
+                                            background: rgb(174, 9, 9);
+                                        }
+
+                                        ul {
+                                            list-style: none;
+                                            padding: 0;
+                                            margin: 0;
+                                            display: flex;
+                                            gap: 2em;
+                                        }
+    
+                                        li {
+                                            &:first-child {
+                                                font-weight: bold;
+                                            }
+
+                                            &:hover {
+                                                cursor: pointer;
+                                                text-decoration: underline;
+                                            }
+                                        }
+                                    }
+
+                                    nav, .main {
+                                        padding: 0.5em;
+                                    }
+
+                                    .main {
+                                        background: white;
+                                    }
+                                }
+                            </style>
+
+                            <nav class="top-menu">
+                                <ul>
+                                    <li>Startseite</li>
+                                    <li>Kontakt</li>
+                                    <li>Impressum</li>
+                                </ul>
+                            </nav>
+                        
+                            <div class="main">
+                                <p>
+                                    Astructio Retis ist die älteste Webdesign-Agentur
+                                    der Welt. Gegründet im antiken Rom stehen wir seit
+                                    50 v. Chr. für:
+                                </p>
+                                <ul>
+                                    <li>Modernes Webdesign</li>
+                                    <li>Hohe Qualität</li>
+                                    <li>Schnelle Umsetzung</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-accordion-page>
+        </lsx-accordion>
+
+        <p class="mt-2">
+            <small>
+                <small>
+                    Bildnachweise:
+                    <a href="https://pixabay.com/photos/perfume-fragrance-3640056/" taget="_blank">Pixabay: Sponchia</a>,
+                    <a href="https://pixabay.com/photos/perfume-cologne-glass-product-6518634/" taget="_blank">Pixabay: angelicavaihel</a>,
+                    <a href="https://pixabay.com/photos/clock-watch-time-accessory-fashion-6518632/" taget="_blank">Pixabay: angelicavaihel</a>,
+                    <a href="https://pixabay.com/photos/clock-time-product-jewelry-6830535/" taget="_blank">Pixabay: DanutaP</a>
+                </small>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Wie wir in den gerade gezeigten Beispielen gesehen haben, werden Stylesheets verwendet,
+            um die Darstellungsoptionen einzelner HTML-Elemente zu definieren. Hierzu bestehen die
+            Stylesheets aus einer Reihe von Blöcken, in denen jeweils die zu gestaltenden Elemente
+            ausgewählt und deren Eigenschaften festgelegt werden. Ermöglicht wird dies durch das
+            <b>Document Object Model</b> (kurz DOM), das der Browser beim Laden einer Seite aus
+            dem HTML-Code erzeugt und solange im Speicher behält, wie die Seite geöffnet ist.
+            Es beinhaltet, vereinfacht gesagt, eine Baumstruktur mit den HTML-Elementen der Seite,
+            auf die mit CSS und JavaScript zugegriffen werden kann, um den angezeigten Seiteninhalt
+            zu beinflussen:
+        </p>
+        <ul>
+            <li>
+                Mit JavaScript kann die Baumstruktur selbst verändert werden, um zur Laufzeit nachträglich
+                neue Inhalte einzufügen oder alte Inhalte zu entfernen.
+            </li>
+            <li>
+                Mit CSS können über so genennte <b>Selektoren</b> die Einträge ausgewählt und
+                ihre Darstellung festgelegt werden.
+            </li>
+        </ul>
+        <p>
+            Die Selektoren zur Auswahl der HTML-Elemente sind sehr flexibel und können sowohl
+            einzelne als auch mehrere Objekte gleichzeitig auswählen. Auf dieser Seite werden die
+            wichtigsten Möglichkeiten kurz vorgestellt.
+        </p>
+    </aside>
+</section>

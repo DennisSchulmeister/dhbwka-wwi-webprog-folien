@@ -1,0 +1,241 @@
+<section data-title="Übung 1: TwoStep" data-background-color="rgb(179, 202, 223)">
+    <article>
+        <style>
+            table.twostep {
+                border-collapse: collapse;
+                width: 100%;
+                margin-bottom: 1em;
+                text-align: left;
+            }
+
+            table.twostep thead {
+                background-color: lightsteelblue;
+            }
+
+            table.twostep th,
+            table.twostep td {
+                padding: 0.5em;
+                border: 1px solid black;
+            }
+
+            table.twostep td.given {
+                background-color: oldlace;
+            }
+
+            table.twostep td[contenteditable="true"] {
+                color: darkblue;
+            }
+
+            table.twostep td.code {
+                background-color: white;
+                font-family: monospace;
+            }
+
+            pre.twostep {
+                border: 1px solid black;
+                background: #333333;
+                color: mediumseagreen;
+                padding: 0.5em;
+            }
+        </style>
+
+        <lsx-tab-pages>
+            <lsx-tab-page title="Einleitung">
+                <p>
+                    In dieser Aufgabe wollen wir eine kleine Musikdatenbank mit klassischen Ragtime-Stücken
+                    modellieren. Würden wir hierfür eine relationale Datenbank nutzen, würden die Tabellen
+                    in etwa so aussehen:
+                </p>
+        
+                <h4 class="dhbw-lightblue">Komponisten</h4>
+                <table class="twostep">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Geboren</th>
+                            <th>Gestorben</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="given key">1</td>
+                            <td class="given">Scott Joplin</td>
+                            <td class="given">1867</td>
+                            <td class="given">1917</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">2</td>
+                            <td class="given">James Scott</td>
+                            <td class="given">1886</td>
+                            <td class="given">1938</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">3</td>
+                            <td class="given">Luckey Roberts</td>
+                            <td class="given">1887</td>
+                            <td class="given">1968</td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+                <h4 class="dhbw-lightblue">Musikstücke</h4>
+                <table class="twostep">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Komponist</th>
+                            <th>Titel</th>
+                            <th>Jahr</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="given key">1</td>
+                            <td class="given">1</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=e01ulR5KMWI" target="_blank">The Entertainer</a>
+                            </td>
+                            <td class="given">1902</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">2</td>
+                            <td class="given">1</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=bCxLAr_bwpA" target="_blank">Maple Leaf Rag</a>
+                            </td>
+                            <td class="given">1899</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">3</td>
+                            <td class="given">2</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=kLCf6jDf4jM" target="_blank">Grace and Beauty</a>
+                            </td>
+                            <td class="given">1909</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">4</td>
+                            <td class="given">3</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=Di6qAAJD_aI" target="_blank">Pork and Beans</a>
+                            </td>
+                            <td class="given">1913</td>
+                        </tr>
+                        <tr>
+                            <td class="given key">5</td>
+                            <td class="given">3</td>
+                            <td class="given">
+                                <a href="https://www.youtube.com/watch?v=UXyTOypYDAM" target="_blank">The Music Box Rag</a>
+                            </td>
+                            <td class="given">1914</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Arrays und Objekte">
+                <p>
+                    <b>a)</b>
+                    Öffne den JS.Scratch-Editor aus der Vorlesung und schreibe eine JavaScript-Datei,
+                    die exakt dieselben Daten enthält. Die Werte sollen dabei in einer Variable mit
+                    einer tiefen Datenstruktur gespeichert werden.
+                </p>
+
+                <pre class="twostep" contenteditable="true"><code>Lösung kann hier eingetragen werden.</code></pre>
+
+                <p>
+                    <b>b)</b>
+                    Mit welcher Syntax kann auf die folgenden Werte zugegriffen werden?
+                </p>
+
+                <table class="twostep">
+                    <colgroup>
+                        <col style="width: 50%" />
+                        <col style="width: 50%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>JavaScript-Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="given">Alle Daten zum Komponisten „Scott Joplin“</td>
+                            <td class="code" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Auf das Geburtsjahr von „Luckey Roberts“</td>
+                            <td class="code" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Auf das Musikstück „The Entertainer“</td>
+                            <td class="code" contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td class="given">Auf das Erscheinungsjahr von „The Music Box Rag“</td>
+                            <td class="code" contenteditable="true"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center;">
+                    <small>
+                        In die weißen Spalten klicken, um etwas einzutragen.
+                    </small>
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Werte ausgeben">
+                <p>
+                    JavaScript kennt mehrere Möglichkeiten, eine Schleife über alle Werte eines Arrays zu bilden:
+                </p>
+                <ol>
+                    <li>
+                        <src-code language="javascript">for (let i = 0; i < liste.length; i++)</tt>
+                    </li>
+                    <li>
+                        <src-code language="javascript">for (let i in liste)</src-code>
+                    </li>
+                    <li>
+                        <src-code language="javascript">for (let element of liste)</src-code>
+                    </li>
+                    <li>
+                        <src-code language="javascript">list.forEach(element => …)</src-code>
+                    </li>
+                </ol>
+                <p>
+                    Probiere alle drei Varianten aus und versuche damit, alle Songtitel von allen Komponisten
+                    auf der Konsole auszugeben. Das Ergebnis sollte in etwa so aussehen:
+                </p>
+
+                <source-code language="text">
+                    The Entertainer
+                    Maple Leaf Rag
+                    Grace and Beauty
+                    Pork and Beans
+                    The Music Box Rag
+                </source-code>
+
+                <pre class="twostep" contenteditable="true"><code>Lösung kann hier eingetragen werden.</code></pre>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+    </article>
+    <aside>
+        <p>
+            Was gibt es schöneres als Musik? Zum Kennenlernen von JavaScript wollen wir daher
+            eine kleine Musikdatenbank entwickeln und ein paar bekannte RagTime-Kompositionen
+            als Vorlage verwenden. Denn mit Musik geht alles viel besser. 🎵
+        </p>
+        <img src="shared/coding.svg" class="img-fluid d-block" style="width: 15em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/vectors/symbol-gui-internet-internet-page-2485367/" target="_blank">pixabay: janjf93</a>
+            </small>
+        </p>
+
+        <lsx-youtube video="FrKtuX3YbyI"></lsx-youtube>
+    </aside>
+</section>

@@ -1,0 +1,234 @@
+<section data-title="Vom Browser zum Server und zurück">
+    <article>
+        <lsx-carousel id="server-und-zurueck">
+            <lsx-carousel-page>
+                <p>
+                    Eigentlich solltest du ja lernen. Du kannst dich aber gerade nicht motivieren.
+                </p>
+                <img class="active d-block w-100" src="1-intro/2-grundlagen/vom-browser-zum-server-und-zurueck/ablauf_01.jpg" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/de/laptop-frau-bildung-studie-jung-3087585/" target="_blank">Pixabay: JESHOOTScom</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Du startest daher einen Browser und rufst YouTube auf.
+                </p>
+                <img class="active d-block w-100" src="1-intro/2-grundlagen/vom-browser-zum-server-und-zurueck/ablauf_02.jpg" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/de/youtube-laptop-notebook-online-1158693/" target="_blank">Pixabay: TymonOziemblewski</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Der Browser sendet daraufhin eine HTTP-Anfrage an den Server von YouTube.
+                </p>
+                <source-code language="http">
+                    GET / HTTP/1.1
+                    Host: www.youtube.com
+                    User-Agent: Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0
+                    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+                    Accept-Language: de-DE,en-US;q=0.7,en;q=0.3
+                    Accept-Encoding: gzip, deflate, br
+                    Connection: keep-alive
+                    Upgrade-Insecure-Requests: 1
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Der Server verarbeitet die Anfrage und sendet eine HTTP-Antwort zurück.
+                </p>
+                <source-code language="http">
+                    HTTP/1.1 200 Connection established
+                    Content-Type: text/html; charset=utf-8
+                    Cache-Control: no-cache
+                    Expires: Tue, 27 Apr 1971 19:44:06 EST
+                    Date: Wed, 22 Aug 2018 00:28:14 GMT
+                    Server: YouTube Frontend Proxy
+
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        ...
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Im Datenteil der Antwort befindet sich die geforderte HTML-Seite.
+                </p>
+                <source-code language="html">
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;YouTube&lt;/title&gt;
+
+                            &lt;link rel="shortcut icon" href="favicon.svg" /&gt;
+                            &lt;link rel="stylesheet" href="startpage.css" /&gt;
+                            &lt;link rel="stylesheet" href="video_preview.css" /&gt;
+                            &lt;link rel="stylesheet" href="social_plugins.css" /&gt;
+
+                            &lt;script src="1-intro/2-grundlagen/video_loader.js"&gt;&lt;/script&gt;
+                            &lt;script src="1-intro/2-grundlagen/video_add_player.js"&gt;&lt;/script&gt;
+                            &lt;script src="1-intro/2-grundlagen/comments_and_likes.js"&gt;&lt;/script&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                            &lt;nav id="sidebar"&gt;
+                                &lt;div id="nav-start" class="menu-item"&gt;Start&lt;/div&gt;
+                                &lt;div id="nav-trends" class="menu-item"&gt;Trends&lt;/div&gt;
+                                &lt;div id="nav-abos" class="menu-item"&gt;Abos&lt;/div&gt;
+                                …
+                            &lt;/nav&gt;
+                            &lt;main&gt;
+                                &lt;h2&gt;Empfohlen&lt;/h2&gt;
+                                …
+                            &lt;/main&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Durch weitere HTTP-Aufrufe werden die Stylesheets mit den Darstellungsangaben geladen.
+                </p>
+                <source-code language="css">
+                    /*
+                     * Basic screen layout with header and main body
+                     */
+                    html, body {
+                        min-height: 100vh;
+                    }
+
+                    body {
+                        display: flex;
+                        flex-direction: column;
+
+                        header {
+                            margin: @padding @padding 0 @padding;
+                        }
+
+                        main {
+                            margin: @padding;
+                            margin-top: @padding / 2;
+                            flex-grow: 1;
+                        }
+
+                        .fullscreen {
+                            margin: 0;
+                        }
+
+                        …
+                    }
+                    …
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Ebenso wie der JavaScript-Code für die interaktiven Seitenelemente.
+                </p>
+                <source-code language="javascript">
+                    "use strict";
+
+                    // Built-in plugins
+                    import I18nPlugin from "./i18n.js";
+                    import BreadcrumbPlugin from "./breadcrumb.js";
+                    import IconLinkPlugin from "./icon_link.js";
+                    import ToastPlugin from "./toast.js";
+                    import RedirectHomePlugin from "./home.js";
+                    import The500ScreenPlugin from "./screens/500.js";
+                    import The404ScreenPlugin from "./screens/404.js";
+                    import RouterPlugin from "./router.js";
+                    import VideoPlayerPlugin from "./video_player.js";
+
+                    // Local configuration (may contain extra plugins)
+                    import config from "shared/config.js";
+
+                    // Instantiate all plugins
+                    let pluginClasses = [
+                        I18nPlugin,
+                        BreadcrumbPlugin,
+                        IconLinkPlugin,
+                        ToastPlugin,
+                        SyntaxHighlightPlugin,
+                        RedirectHomePlugin,
+                        The500ScreenPlugin,
+                        The404ScreenPlugin,
+                        RouterPlugin,
+                        VideoPlayer,
+                    ];
+
+                    let plugins = {};
+                    let instances = [];
+
+                    pluginClasses.forEach(pluginClass =&gt; {
+                        let plugin = new pluginClass();
+                        let name = plugin.name ? plugin.name : pluginClass.name;
+                        plugins[name] = plugin;
+                        instances.push(plugin)
+                    });
+
+                    export default plugins;
+                </source-code>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Sie alle werden vom Browser ausgeführt, wodurch die Seite auf
+                    dem Bildschirm erscheint.
+                </p>
+                <img class="active d-block w-100 dhbw-border" src="1-intro/2-grundlagen/vom-browser-zum-server-und-zurueck/youtube-screenshot.jpg" />
+                <p>
+                    <small>
+                        <small>
+                            Screenshot von youtube.com erstellt am 02.08.2020
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+            <lsx-carousel-page>
+                <p>
+                    Die Ablenkung hat echt gut getan. 🐕 Mit frischem Schwung gehst du nun an deine Hausaufgaben.
+                </p>
+                <img class="active d-block w-25 m-auto" src="shared/finish.svg" />
+                <p>
+                    <small>
+                        <small>
+                            Bildnachweis: <a href="https://pixabay.com/en/symbol-gui-internet-internet-page-2480163/" target="_blank">Pixabay: janf93</a>
+                        </small>
+                    </small>
+                </p>
+            </lsx-carousel-page>
+        </lsx-carousel>
+    </article>
+    <aside>
+        <p>
+            Erst die Summe aus URLs, HTTP, HTML, CSS und JavaScript macht das WWW zu dem, was es heute ist.
+            Indem all jene Technologien hervorragend aufeinander abgestimmt sind und daher stets Hand in Hand
+            zusammenarbeiten, lässt sich damit jede fast beliebige Webanwendung realisieren. Zum Beispiel
+            wie bei YouTube oder anderen bekannten Webportalen. 🎥
+        </p>
+
+        <lsx-youtube video="G7Ygtcpgcf8"></lsx-youtube>
+
+        <p>
+            Der Abruf der Daten wird immer durch den Browser initiiert und erfolgt durch Senden einer
+            <b>HTTP-Anfrage</b> an den Server. Der Server nimmt die Anfrage entgegen, verarbeitet sie,
+            indem er beispielsweise verschiedene Daten in einer Datenbank sucht und generiert daraus
+            eine <b>HTML-Seite</b>. Diese wird dann mit der <b>HTTP-Antwort</b> an den Browser geschickt
+            und von diesem dargestellt.
+        </p>
+        <p>
+            Allerdings reicht der HTML-Code alleine meist noch nicht aus, um die Seite vollständig
+            anzeigen und ausführen zu können. Innerhalb des HTML-Codes befinden sich meist noch Verweise
+            auf Stylesheets und JavaScript-Dateien, die über eigene HTTP-Anfragen ebenfalls abgerufen
+            werden sollen. Danach führt der Browser die empfangenen Quellcodes aus.
+        </p>
+    </aside>
+</section>

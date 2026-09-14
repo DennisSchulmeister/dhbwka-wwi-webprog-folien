@@ -1,0 +1,143 @@
+<section data-title="Kekse frisch serviert">
+    <article>
+        <p>
+            Cookies sind kleine Informationsmengen, die als <b>Key-Value-Paare</b> im Browser gespeichert werden.
+            Sie werden vom Server über den Response Header <tt>Set-Cookie</tt> gesetzt und bei jeder Folgeanfrage
+            an die gleiche Domain im Request Header <tt>Cookie</tt> an den Server zurückgespielt.
+        </p>
+
+        <img src="1-intro/2-grundlagen/kekse-frisch-serviert/cookies.svg" class="d-block mx-auto w-100" style="max-width: 50em; margin-top: 3em; margin-bottom: 3em;" alt="HTTP-Konversation mit Cookies"/>
+
+        <h3 class="dhbw-lightblue">Anwendungsfälle</h3>
+
+        <lsx-ul>
+            <li>
+                Sitzungsinformation nach Anmeldung auf einer Webseite mit Nutzername und Passwort
+            </li>
+            <li>
+                Zwischenspeichern von Warenkörben bevor man sich in einem Onlineshop registriert
+            </li>
+            <li>
+                Speichern von Nutzereinstellungen einer Webseite ohne Benutzeranmeldung (z.B. das bevorzugte Farbschema)
+            </li>
+            <li>
+                Aber leider auch umfangreiches Profiling und Tracking von Seitenbesuchern. 😢
+            </li>
+        </lsx-ul>
+
+        <h3 class="dhbw-lightblue" style="margin-top: 1.5em;">Fallbeispiele</h3>
+
+        <lsx-grid-fluid>
+            <lsx-row>
+                <lsx-col size="md-8">
+                    <img src="1-intro/2-grundlagen/kekse-frisch-serviert/cookies-dhbw.png" class="img-thumbnail d-block" />
+                    <p>
+                        <small>
+                            Cookies auf der Webseite der DHBW Karlsruhe. Lediglich sechs Stück, die meisten für eingebettete
+                            YouTube und Google Maps Inhalte.
+                        </small>
+                    </p>
+                </lsx-col>
+                <lsx-col size="md-4">
+                    <img src="1-intro/2-grundlagen/kekse-frisch-serviert/cookies-welt.png" class="img-thumbnail d-block" />
+                    <p>
+                        <small>
+                            14 verschiedene Werbenetzwerke und Personentracker auf welt.de! Die Werbung nimmt fast
+                            genau so viel Platz ein, wie der Content. Dies ist heute der traurige Standard.
+                        </small>
+                    </p>
+                </lsx-col>
+            </lsx-row>
+        </lsx-grid-fluid>
+    </article>
+    <aside class="markdown">
+        Jeder kennt sie, keiner mag sie: Die Cookie-Banner und **Consent Management Systeme**, die beim
+        Aufruf einer neuen Webseite erscheinen und erst einmal um Erlaubnis fragen, Daten zu erheben und
+        mit fremden Unternehmen zu teilen. Doch warum gibt es diese Abfragen überhaupt und was ist der
+        technische Hintergrund hierzu? Um diese Fragen zu beantworten, muss man verstehen, dass HTTP
+        ursprünglich lediglich zum Abruf von Webseiten und somit sehr, sehr einfach konzipiert wurde:
+        Der Browser stellt eine Verbindung zum Server her, fordert eine Ressource an und erhält diese
+        (oder eine Fehlermeldung). Ende gut, alles gut. Oder etwa doch nicht?
+
+        Denn in dieser Variante handelt es sich bei HTTP um ein sog. **zustandsloses Protokoll**, bei
+        dem der Server keinerlei Informationen über den Client speichern und verarbeiten kann. Der Server
+        kann dadurch sehr einfach implementiert werden und sehr gut skallieren (mit vielen unabhängigen
+        Anfragen gleichzeitig umgehen). Jedoch werden viele moderne Anwendungsfälle dadurch unmöglich,
+        weshalb der Server manchmal eben doch Informationen über einen Client speichern und bei einer
+        wiederkehrenden Anfrage richtig zuordnen muss. Beispielsweise um zu erkennen, ob man bei einer
+        Webanwenddung eingeloggt ist oder welche Artikel man im Warnekorb eines Webshops liegen hat.
+        
+        Dies erkannten auch die Väter von HTTP, konnten zu diesem Zeitpunkt seine grundlegende Funktionsweise
+        jedoch nicht mehr ändern. Als Lösung führten Sie **Cookies** (zu deutsch Kekse) ein. Dabei handelt
+        es sich um kleine Mengen von Informationen in Form von **Key-Value-Paaren**, die ein Server zwischenspeichern
+        und einem Client auch bei wiederkehrenden Anfragen eindeutig zuordnen will. Meistens, um sich den Zustand einer
+        „Sitzung“ (auf englisch **session**) zu merken. Also eben genau, wann man sich mit welchem Benutzernamen zuletzt
+        eingeloggt hat und ob diese Sitzung noch aktiv ist. Da man hierfür aber vor allem die Serverseite nicht grundlegend
+        umgestallten wollte, bediente man sich einem Trick:
+
+        <lsx-ul>
+            <li>
+                Cookies werden vom Server durch das Header Field <tt>Set-Cookie</tt> innerhalb einer
+                HTTP-Antwort gesetzt.
+            </li>
+            <li>
+                Die auf diese Weise empfangenen Inhalte werden daraufhin clientseitig im Browser
+                gespeichert, wodurch die Zustandslosigkeit von HTTP weiterhin gewahrt bleiben kann.
+            </li>
+            <li>
+                Bei jeder Folgeanfragen an den gleichen Server (genauer: an die gleiche Domain),
+                sendet der Browser die Cookies mit dem Request Header <tt>Cookie</tt> an den
+                Server zurück.
+            </li>
+        </lsx-ul>
+
+        Alternativ können Cookies auch mit JavaScript rein clientseitig angelegt und/oder ausgelesen
+        werden. Meistens bieten sich in JavaScript jedoch andere Verfahren wie **Local Storage**
+        oder **Session Storage** zum Speichern lokaler Daten an.
+
+        Cookies werden hingegen häufig genutzt, um eine sog. Session ID zu speichern, die einen
+        erfolgreichen Login-Vorgang mit einem bestimmten Benutzerkonto repräsentiert. Denn auf
+        diese Weise müssen die Anmeldedaten nur einmalig (während dem Login) übermittelt werden
+        und die Sitzung kann durch Wiederrufen der Session ID jederzeit beendet werden.
+
+        Sicher ist Ihnen schon aufgefallen, dass man bei manchen Webseiten auch nach Tagen noch
+        eingeloggt ist, selbst wenn man das Browserfenster dazwischen schließt und den Rechner
+        neustartet. Das liegt daran, dass der Server eine „maximale Lebenszeit“ für ein Cookie
+        vorgeben kann, innerhalb derer es gespeichert bleibt. Diese kann bis zu 400 Tage betragen,
+        wobei es keine Garantie hierfür gibt. Denn die Nutzer*innen können die gespeicherten
+        Cookies einzeln manuell löschen, den Browser Cache leeren oder einfach den **Privat/Inkognito-Modus**
+        aktivieren, bei dem alle Cookies nach Schließen des Browser-Tabs automatisch gelöscht werden.
+
+        Dies können Sie auf folgender Seite leicht ausprobieren. Die Testseite [https://kekse.el-decker.de/](https://kekse.el-decker.de/)
+        speichert zwei Cookies mit dem Datum des letzten Besuchs sowie der bisherigen Anzahl von
+        Besuchen und zeigt ihren Inhalt an. In den Entwicklungswerkzeugen des Browsers können
+        Sie die Cookies bearbeiten oder gar löschen. Anschließend sieht es für die Webseite so
+        aus, als würden Sie sie zum ersten mal besuchen.
+
+        <p>
+            <img src="1-intro/2-grundlagen/kekse-frisch-serviert/cookies-chrome.png" class="img-fluid img-thumbnail mx-auto d-block" alt="Cookies in Chrome"/>
+        </p>
+
+        <p>
+            <img src="1-intro/2-grundlagen/kekse-frisch-serviert/cookies-firefox.png" class="img-fluid img-thumbnail mx-auto d-block" alt="Cookies in Firefox"/>
+        </p>
+
+        Bis hierhin handelt es sich um durchaus legitime Anwendungsfälle. Der Grund, warum wir
+        aber dennoch auf nahezu jeder Webseite der Verwendung von Cookies zustimmen müssen, ist,
+        dass Cookies heuetzutage zur Anlage umfangreicher Personenprofile genutzt werden. Viele
+        Webseiten blenden Werbung aus so genannten **Werbenetzwerken** ein, die nicht unter der
+        Domain der eigentlichen Webseite gehostet werden. Hierbei werden unter anderem auch Cookies
+        gestzt, um die „Zuschauer“ der Werbung zu identifzieren. Da viele Webseiten auf dieselben
+        Werbenetzwerke zugreifen, können somit umfangreiche Personenprofile erstellt werden.
+        Die Werbeanbieter können genau nachvollziehen, wann Sie wie oft welche Webseite mit welchen
+        Inhalten betrachten und die ausgespielte Werbung darauf ausrichten!
+        
+        Die durchaus nachvollziehbare Idee dahinter ist, nur Werbung auszuspielen, die tatsächlich
+        relevant und interessant ist. Da aber immer mehr Aktivitäten des täglichen Lebens online erfolgen,
+        erlangen die Werbetreibenden dadurch auch Informationen, die durchaus sensibel sein können.
+        Beispielsweise, wenn Sie nach bestimmten Krankheiten suchen. Aus diesem Grund hat die europäische
+        Union in Artikel 6 der DSGVO (Datenschutzgrundverordnung) festgelegt, dass hierfür eine explizite
+        Zustimmung erforderlich ist. Und diese wird durch die Cookie Banner und Consent Management Systeme
+        abgefragt.
+    </aside>
+</section>

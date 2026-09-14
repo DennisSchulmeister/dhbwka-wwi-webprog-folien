@@ -1,0 +1,140 @@
+<section data-title="Aufgabe 6: Talk JSON to me" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe">
+                <p style="margin-bottom: 2em;">
+                    Angenommen du hast eine Datenbank mit folgenden Tabellen. Wie können
+                    dieselben Daten in JavaScript beschrieben werden?
+                </p>
+
+                <h4>Alben</h4>
+                <table class="table table-striped dhbw-border" style="margin-bottom: 2em;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Albumtitel</th>
+                            <th>Künstler</th>
+                            <th>Jahr</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Tracker</td>
+                            <td>Mark Knopfler</td>
+                            <td>2015</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>X</td>
+                            <td>Ed Sheran</td>
+                            <td>2014</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Liquid Spirit</td>
+                            <td>Gregory Porter</td>
+                            <td>2013</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Titel</h4>
+                <table class="table table-striped dhbw-border" style="margin-bottom: 2em;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Album ID</th>
+                            <th>Track</th>
+                            <th>Songtitel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>Laughs And Jokes And Drinks And Smokes</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>Basil</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>One</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>I'm A Mess</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>No Love Dying</td>
+                        </tr>
+                        <tr>
+                            <td>…</td>
+                            <td>…</td>
+                            <td>…</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    a) Schreibe eine JavaScript/JSON-Datei, die exakt dieselben Daten enthält.
+                    Anstelle von zwei Listen solltest du jedoch nur eine Liste haben, in der
+                    sowohl die Alben als auch ihre Titel enthalten sind.
+                </p>
+                <p>
+                    b) Wie kann anschließend auf den Songtitel „Basil“ zugegriffen werden?
+                </p>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Lösung">
+                <p>
+                    a) <b>Anmerkung:</b> Das ist nur eine mögliche Lösung. Statt des Arrays auf oberster Ebene
+                    wäre auch ein Dictionary denkbar, bei dem die Album-ID als Schlüsselwert benutzt wird.
+                    Die Songtitel sollten sinnvollerweise auf jeden Fall in einem Array gespeichert werden.
+                    Das Array könnte aber anstatt der Strings auch Dictionaries enthalten, so dass zu jedem
+                    Songtitel noch weitere Daten gespeichert werden könnten.
+                </p>
+                <source-code language="javascript">
+                    let alben = [
+                        {
+                            id: 1,
+                            albumtitel: "Tracker",
+                            kuenstler: "Mark Knopfler",
+                            jahr: 2015,
+                            songtitel: ["Laughs And Jokes And Drinks And Smokes", "Basil", …],
+                        },
+                        {
+                            id: 2,
+                            albumtitel: "X",
+                            kuenstler: "Ed Shearn",
+                            jahr: 2014,
+                            songtitel: ["One", "I'm A Mess", … ],
+                        },
+                        {
+                            id: 3,
+                            albumtitel: "Liquid Spirit",
+                            kuenstler: "Gergory Porter",
+                            jahr: 2013,
+                            songtitel: ["No Love Dying",  … ],
+                        },
+                    ];
+                </source-code>
+                <p>
+                    b) Auf den Titel „Basil“ kann mit <src-code language="javascript">alben[0]["songtitel"][1]</src-code>
+                    zugegriffen werden.
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        Um später AJAX-Aufrufe an den Server schicken zu können, solltest du
+        sattelfest in JSON sein. Hier kannst du daher gleich ausprobieren, ob
+        du auch komplexe Daten im JavaScript/JSON-Format beschreiben kannst. 📄
+    </aside>
+</section>

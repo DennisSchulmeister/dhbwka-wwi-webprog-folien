@@ -1,0 +1,306 @@
+<section data-title="Aufgabe 3: Ein kleines Bootstrap-Quiz" data-background-color="rgb(231, 221, 141)">
+    <article>
+        <lsx-tab-pages>
+            <lsx-tab-page title="Aufgabe 3.1">
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <!-- <lsx-hint>
+                            <lsx-info-box>
+                                Nicht alle Antworten stehen im Skript. Manche Dinge musst du recherchieren.
+                            </lsx-info-box>
+                        </lsx-hint> -->
+                        <lsx-question
+                            type = "single-choice"
+                            text = "a) Was ist Bootstrap?"
+                        >
+                            <lsx-answer>Eine bekannte Webseite zur Dokumentation gängiger Webstandards</lsx-answer>
+                            <lsx-answer>Ein HTML-Vorlageprojekt, das als Grundlage für eigene Projekte dient</lsx-answer>
+                            <lsx-answer correct>Ein clientseitiges Webframework zur einfacheren Umsetzung gängiger UI-Patterns</lsx-answer>
+                            <lsx-answer>Eine weit verbreitete Bibliothek zusätzlicher HTML-Elemente, so genannter Web Components</lsx-answer>
+                            <lsx-answer>Ein Präprozessor, welcher die Syntax von HTML und CSS um weitere Anweisungen ergänzt</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Unter welcher Lizenz steht Bootstrap?"
+                        >
+                            <lsx-answer>Apache 2.0</lsx-answer>
+                            <lsx-answer>BSD 2-clause</lsx-answer>
+                            <lsx-answer>BSD 3-clause</lsx-answer>
+                            <lsx-answer>CC-BY-ND 4.0</lsx-answer>
+                            <lsx-answer>GPL 2.0</lsx-answer>
+                            <lsx-answer>GPL 3.0</lsx-answer>
+                            <lsx-answer>LGPL 2.1</lsx-answer>
+                            <lsx-answer correct>MIT</lsx-answer>
+                            <lsx-answer>Zlib License</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) In welchen Projekten darf es daher genutzt werden?"
+                        >
+                            <lsx-answer correct>In Projekten jedweder Art, solange der Lizenztext von Bootstrap beigelegt wird</lsx-answer>
+                            <lsx-answer>Ausschließlich in Projekten, die unter derselben Lizenz wie Bootstrap stehen</lsx-answer>
+                            <lsx-answer>Kostenlos in Projekten mit freier Lizenz, kostenpflichtig in kommerziellen Projekten</lsx-answer>
+                            <lsx-answer>In nicht-öffentlichen Testprojekten kostenlos, in öffentlichen Projekten gegen Gebühr</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "multiple-choice"
+                            text = "d) Welche Funktionalitäten sind in Bootstrap enthalten?"
+                        >
+                            <lsx-answer correct>Eine Sammlung häufig benötigter Icons im SVG-Format</lsx-answer>
+                            <lsx-answer correct>Eine Sammlung von Beispiel-Quellcodes für unterschiedliche Webseiten</lsx-answer>
+                            <lsx-answer correct>Vordefinierte CSS-Klassen für häufig benötigte Layout-Anweisungen</lsx-answer>
+                            <lsx-answer correct>Ein CSS-Grid zur Gestaltung sich ans Endgerät anpassender Layouts</lsx-answer>
+                            <lsx-answer correct>Vordefinierte UI-Komponenten wie Karten, Karussells, Navigationsmenüs, …</lsx-answer>
+                            <lsx-answer correct>Anpassung des Frameworks durch Überschreiben von Theme-Parametern</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "e) Die Nutzung von Bootstrap setzt zwingend JavaScript voraus."
+                        >
+                            <lsx-answer>Wahr</lsx-answer>
+                            <lsx-answer correct>Falsch</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "f) Mit Bootstrap erstellte Seiten sehen alle nahezu gleich aus."
+                        >
+                            <lsx-answer>Wahr</lsx-answer>
+                            <lsx-answer correct>Falsch</lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "g) Bootstrap eigent sich am besten für mobile Layouts und kleine Bildschirme."
+                        >
+                            <lsx-answer>Wahr</lsx-answer>
+                            <lsx-answer correct>Falsch</lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 3.2">
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question
+                            type = "single-choice"
+                            text = "a) Welcher Quellcode definiert ein Grid-Layout mit Bootstrap?"
+                        >
+                            <lsx-answer correct>
+                                <source-code language="html">
+                                    &lt;div class="container"&gt;
+                                        &lt;div class="row"&gt;
+                                            &lt;div class="col-md-8"&gt;...&lt;/div&gt;
+                                            &lt;div class="col"&gt;...&lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="row"&gt;
+                                            &lt;div class="col"&gt;...&lt;/div&gt;
+                                            &lt;div class="col-md-8"&gt;...&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                <source-code language="html">
+                                    &lt;div class="grid-container"&gt;
+                                        &lt;div class="grid-row"&gt;
+                                            &lt;div class="grid-col-md-8"&gt;...&lt;/div&gt;
+                                            &lt;div class="grid-col-md-4"&gt;...&lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="grid-row"&gt;
+                                            &lt;div class="grid-col-md-4"&gt;...&lt;/div&gt;
+                                            &lt;div class="grid-col-md-8"&gt;...&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "b) Welcher Container definiert ein Grid mit unbegrenzter Maximalbreite?"
+                        >
+                            <lsx-answer>
+                                <source-code language="html">
+                                    &lt;div class="container"&gt;...&lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer correct>
+                                <source-code language="html">
+                                    &lt;div class="container-fluid"&gt;...&lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                <source-code language="html">
+                                    &lt;div class="grid-container"&gt;...&lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                <source-code language="html">
+                                    &lt;div class="grid-fluid"&gt;...&lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "c) Welcher Container definiert ein Grid mit fester Maximalbreite?"
+                        >
+                            <lsx-answer correct>
+                                <source-code language="html">
+                                    &lt;div class="container"&gt;...&lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                <source-code language="html">
+                                    &lt;div class="container-fluid"&gt;...&lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                <source-code language="html">
+                                    &lt;div class="grid-container"&gt;...&lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                <source-code language="html">
+                                    &lt;div class="grid-fluid"&gt;...&lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question
+                            type = "single-choice"
+                            text = "d) Welcher Quellcode platziert die Elemente auf kleinen Bildschirmen untereinander?"
+                        >
+                            <lsx-answer correct>
+                                <source-code language="html">
+                                    &lt;div class="row"&gt;
+                                        &lt;div class="col-md-3"&gt;...&lt;/div&gt;
+                                        &lt;div class="col-md-6"&gt;...&lt;/div&gt;
+                                        &lt;div class="col-md-3"&gt;...&lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                <source-code language="html">
+                                    &lt;div class="row"&gt;
+                                        &lt;div class="col-sm-3"&gt;...&lt;/div&gt;
+                                        &lt;div class="col-sm-6"&gt;...&lt;/div&gt;
+                                        &lt;div class="col-sm-3"&gt;...&lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+
+            <lsx-tab-page title="Aufgabe 3.3">
+                <lsx-quiz>
+                    <lsx-exercise>
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                <p>
+                                    a) Welche Beschreibung passt am Besten zu folgendem Quellcode?
+                                </p>
+                                <source-code language="html">
+                                    &lt;div class="container"&gt;
+                                        &lt;div class="row"&gt;
+                                            &lt;div class="col-md-4"&gt;…&lt;/div&gt;
+                                            &lt;div class="col-md-8"&gt;…&lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="row"&gt;
+                                            &lt;div class="col-md-12"&gt;…&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-question-text>
+
+                            <lsx-answer>
+                                Auf mittelgroßen Bildschirmen werden zwei Zeilen mit jeweils zwei Elementen
+                                nebeneinander angezeigt. Auf kleineren Bildschirmen steht alles untereinander.
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                Auf allen Bildschirmen werden zwei unterschiedliche große Elemente in der
+                                ersten Zeile und ein großes Element in der zweiten Zeile dargestellt.
+                            </lsx-answer>
+
+                            <lsx-answer correct>
+                                Auf mittelgroßen Bildschirmen stehen zwei unterschiedlich große Elemente
+                                in der ersten Zeile und ein großes Element in der zweiten Zeile. Auf kleineren
+                                Bildschirmen steht alles untereinander.
+                            </lsx-answer>
+                        </lsx-question>
+
+                        <lsx-question type="single-choice">
+                            <lsx-question-text>
+                                <p>
+                                    b) Welche Beschreibung passt am Besten zu folgendem Quellcode?
+                                </p>
+                                <source-code language="html">
+                                    &lt;div class="container"&gt;
+                                        &lt;div class="row"&gt;
+                                            &lt;div class="col-lg-4"&gt;…&lt;/div&gt;
+                                            &lt;div class="col-lg-4"&gt;…&lt;/div&gt;
+                                            &lt;div class="col-lg-4"&gt;…&lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="row"&gt;
+                                            &lt;div class="col-lg-2"&gt;…&lt;/div&gt;
+                                            &lt;div class="col-lg-4"&gt;…&lt;/div&gt;
+                                            &lt;div class="col-lg-3"&gt;…&lt;/div&gt;
+                                            &lt;div class="col-lg-3"&gt;…&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-question-text>
+
+                            <lsx-answer correct>
+                                Auf großen Bildschirmen werden zwei Zeilen mit jeweils drei oder vier
+                                Elementen nebeneinander angezeigt. Auf kleineren Bildschirmen steht alles
+                                untereinander.
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                Auf mittelgroßen Bildschirmen werden zwei Zeilen mit jeweils drei oder
+                                vier Elementen nebeneinander angezeigt. Auf kleineren Bildschirmen steht
+                                alles untereinander.
+                            </lsx-answer>
+
+                            <lsx-answer>
+                                Auf allen Bildschirmen werden zwei Zeilen mit jeweils drei oder vier
+                                Elementen nebeneinander angezeigt.
+                            </lsx-answer>
+                        </lsx-question>
+                    </lsx-exercise>
+                </lsx-quiz>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+    </article>
+    <aside>
+        <p>
+            Das Gridlayout von Bootstrap ist so herrlich einfach und doch flexibel.
+            Dieser Test sollte daher ein Klacks für dich sein. 🎓
+        </p>
+        <img src="shared/quiz.png" class="img-fluid d-block" style="max-width: 20em;"/>
+        <p>
+            <small>
+                Bildnachweis:
+                <a href="https://pixabay.com/illustrations/quiz-tiles-letters-red-game-test-2058883/" target="_blank">Pixabay: 905513</a>
+            </small>
+        </p>
+    </aside>
+</section>

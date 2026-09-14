@@ -1,0 +1,1489 @@
+<section data-title="Kurzvorstellung von Bootstrap">
+    <article>
+        <style>
+            #bootstrap-beispiele .my-rp-background {
+                background-image: url(3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/bootstrap-bg.jpg);
+            }
+
+            #bootstrap-beispiele iframe {
+                border: 1px solid #999999;
+            }
+        </style>
+
+        <lsx-ul emoji="🖥️">
+            <li>
+                Ursprünglich als Einmannprojekt bei Twitter gestartet, wurde Bootstrap 2011 unter MIT-Lizenz veröffentlicht.
+            </li>
+            <li>
+                Einstiges Killer-Feature war das Grid-System zur Gestaltung responsiver, spaltenbasierter Layouts.
+            </li>
+            <li>
+                Inzwischen bietet es eine vielzahl von Funktionen, von denen insbesondere größere Projekte profitieren.
+            </li>
+        </lsx-ul>
+
+        <lsx-tab-pages id="bootstrap-beispiele" class="mb-0">
+            <!-- Screencast -->
+            <lsx-tab-page title="Screencast">
+                <lsx-youtube video="HSU9rqpZcfs"></lsx-youtube>
+                <lsx-info-box>
+                    Das Video gibt einen Überblick zu Herkunft, Vorteile und Umfang des Bootstrap-Frameworks.
+                    Anhand eines praktischen Beispiels wird gezeigt, wie ein neues Projekt mit Bootstrap gestartet
+                    und mit den vordefinierten CSS-Klassen ein responsives Layout gestaltet werden kann.
+                </lsx-info-box>
+            </lsx-tab-page>
+
+            <!-- Layout-Grid -->
+            <lsx-tab-page title="Layout-Grid">
+                <p>
+                    Bootstrap kennt zwei Container-Klassen namens <code>container</code> und
+                    <code>container-fluid</code>, die zur Definition spaltenbasierter Layouts
+                    verwendet werden können. Jeder Container besteht dabei aus einer oder
+                    mehrerer mit der Klasse <code>row</code> markierte Zeilen, die wiederum
+                    in bis zu zwölf <code>col</code> genannte Spalten unterteilt werden können.
+                </p>
+                <p class="mb-4">
+                    Durch entsprechende Zahlenzusätze von eins bis zwölf und die Angabe von
+                    Bildschirmgrößen kann für jede Spalte definiert werden, welche Breite sie
+                    haben soll. Hinzu kommen weitere CSS-Klassen, um die Ausrichtung der
+                    Inhalte oder die Abstände zwischen den Spalten zu optimieren.
+                </p>
+
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Große Darstellung" active>
+                        <div class="my-responsive-preview">
+                            <div class="my-rp-background">
+                                <div class="my-rp-content">
+                                    <iframe class="my-rp-size-screen" src="3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/bootstrap/container-screen.html"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Kleine Darstellung">
+                        <div class="my-responsive-preview">
+                            <div class="my-rp-background">
+                                <div class="my-rp-content">
+                                    <iframe class="my-rp-size-phone" src="3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/bootstrap/container-phone.html"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="HTML">
+                        <source-code language="html">
+                            &lt;!-- Container mit maximaler Breite (container-fluid) --&gt;
+                            &lt;div class="container-fluid p-0"&gt;
+                                &lt;!-- Zeile 1: Drei Bilder nebeneinander --&gt;
+                                &lt;div class="row align-items-center g-0"&gt;
+                                    &lt;!-- Spalte 1 --&gt;
+                                    &lt;div class="col-md"&gt;
+                                        &lt;img src="3-responsive/nature-1.jpg" alt="" class="d-block w-100" /&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;!-- Spalte 2 --&gt;
+                                    &lt;div class="col-md"&gt;
+                                        &lt;img src="3-responsive/nature-2.jpg" alt="" class="d-block w-100" /&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;!-- Spalte 3 --&gt;
+                                    &lt;div class="col-md"&gt;
+                                        &lt;img src="3-responsive/nature-3.jpg" alt="" class="d-block w-100" /&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;!-- Zeile 2: Überschrift --&gt;
+                                &lt;div class="row"&gt;
+                                    &lt;!-- Spalte 1 --&gt;
+                                    &lt;div class="col mt-3"&gt;
+                                        &lt;h1 class="text-info"&gt;Genießen Sie die Idylle der Natur!&lt;/h1&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;!-- Zeile 3: Liste und Text nebeneinander --&gt;
+                                &lt;div class="row"&gt;
+                                    &lt;!-- Spalte 1 --&gt;
+                                    &lt;div class="col-md-4"&gt;
+                                        &lt;ul&gt;
+                                            &lt;li&gt;Traumhafte Seen&lt;/li&gt;
+                                            &lt;li&gt;Weitläufige Strände&lt;/li&gt;
+                                            &lt;li&gt;Artenreiche Wälder&lt;/li&gt;
+                                            &lt;li&gt;Wilde Tiere&lt;/li&gt;
+                                        &lt;/ul&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;!-- Spalte 2 --&gt;
+                                    &lt;div class="col-md"&gt;
+                                        &lt;p&gt;
+                                            Egal ob mit Kindern oder alleine. Bei uns finden Sie garantiert den
+                                            passenden Urlaub. Wandern Sie durch dichte Wälder und beobachten Sie
+                                            wilde Tiere in ihrer natürlichen Umgebung. Genießen Sie die herrliche
+                                            Seen oder wandern sie weitläufige Strände entlang. Abend kehren Sie
+                                            dann in Ihre gemütliche Unterkunft zurück und lassen sich kulinarisch
+                                            verwöhnen. Wir machen es möglich.
+                                        &lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-apges>
+            </lsx-tab-page>
+
+            <!-- Typografie -->
+            <lsx-tab-page title="Typografie">
+                <p class="mb-4">
+                    Obwohl alle Browser heutzutage maximal kompatibel zueinander sind, besitzen sie immer noch
+                    leicht abweichende Voreinstellungen bezüglich der Darstellung einiger HTML-Elemente.
+                    Beispielsweise nutzt jeder Browser eine etwas andere Standard-Schriftart sowie andere
+                    Abstände um Überschriften und Absätzen herum, was zu geringfügigen Abweichungen in der
+                    Darstellung führen kann, wenn die Parameter nicht mit eigenen Werten überschrieben werden.
+                    Manche HTML-Elemente besitzen darüber hinaus von Haus aus entweder gar keine oder eine
+                    sehr altbackende Optik. Bootstrap übersteuert daher sämtliche Vorgaben der Browser zu
+                    Gunsten eines vordefinierten, modernen Erscheinungsbilds.
+                </p>
+
+                <lsx-accordion>
+                    <lsx-accordion-page title="Überschriften" bold active>
+                        <p>
+                            Bootstrap definiert einheitliche Schriftgrößen, so dass Unterüberschriften immer
+                            kleiner werden.
+                        </p>
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example">
+                                    <h1>Überschrift 1</h1>
+                                    <h2>Überschrift 2</h2>
+                                    <h3>Überschrift 3</h3>
+                                    <h4>Überschrift 4</h4>
+                                    <h5>Überschrift 5</h5>
+                                    <h6>Überschrift 6</h6>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;h1&gt;Überschrift 1&lt;/h1&gt;
+                                    &lt;h2&gt;Überschrift 2&lt;/h2&gt;
+                                    &lt;h3&gt;Überschrift 3&lt;/h3&gt;
+                                    &lt;h4&gt;Überschrift 4&lt;/h4&gt;
+                                    &lt;h5&gt;Überschrift 5&lt;/h5&gt;
+                                    &lt;h6&gt;Überschrift 6&lt;/h6&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Absätze" bold>
+                        <p>
+                            Absätze bekommen auf allen Geräte eine gut lesbere Schriftgröße.
+                            Mit der Klasse <code>lead</code> können einzelne Absätze hervorgehoben werden.
+                        </p>
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example">
+                                    <p class="dhbw-lightblue">
+                                        CSS-Frontends können auch heute noch sinnvoll sein, sagt Max Mustermann,
+                                        anerkannter Experte für Webentwicklung und Frontend-Technologien.
+                                    </p>
+                                    <p>
+                                        War HTML früher eine eher einfach gestrickte Seitenbeschriebungssprache
+                                        für Textdokumente und einfache Benutzungsoberflächen, hat sich das Web
+                                        spätestens seit der Bekanntgabe von HTML5 zu einer immer mächtigeren
+                                        Anwendungsplattform für die unterschiedlichsten Arten von Anwendungen
+                                        entwickelt. Kein Wunder also, dass die Kombination als HTML, CSS und
+                                        JavaScript heute weit mehr zu leisten vermag, als dies in all den Jahren
+                                        zuvor üblich war. Vor diesem Hintergrund mag die Verwendung eines
+                                        Frontends für die Frontendentwicklung zunächst überflüssig und altbacken
+                                        wirken, doch auch heute können gute Frameworks die Entwicklung bedeutend
+                                        vereinfachen. …
+                                    </p>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;p class="lead"&gt;
+                                        CSS-Frontends können auch heute noch sinnvoll sein, sagt Max Mustermann,
+                                        anerkannter Experte für Webentwicklung und Frontend-Technologien.
+                                    &lt;/p&gt;
+                                    &lt;p&gt;
+                                        War HTML früher eine eher einfach gestrickte Seitenbeschriebungssprache
+                                        für Textdokumente und einfache Benutzungsoberflächen, hat sich das Web
+                                        spätestens seit der Bekanntgabe von HTML5 zu einer immer mächtigeren
+                                        Anwendungsplattform für die unterschiedlichsten Arten von Anwendungen
+                                        entwickelt. Kein Wunder also, dass die Kombination als HTML, CSS und
+                                        JavaScript heute weit mehr zu leisten vermag, als dies in all den Jahren
+                                        zuvor üblich war. Vor diesem Hintergrund mag die Verwendung eines
+                                        Frontends für die Frontendentwicklung zunächst überflüssig und altbacken
+                                        wirken, doch auch heute können gute Frameworks die Entwicklung bedeutend
+                                        vereinfachen. …
+                                    &lt;/p&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Tabellen" bold>
+                        <p>
+                            Die CSS-Klasse <code>table</code> aktiviert verschiedene Voreinstellungen für
+                            ansprechend gestaltete Tabellen. Wahlweise können die Tabellen dann anhand
+                            zusätzlicher CSS-Klassen weiter optimiert werden.
+                        </p>
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen" class="my-bootstrap-example">
+                                <div class="my-bootstrap-example">
+                                    <table class="table table-striped">
+                                        <caption>Alben von Mark Knopfler</caption>
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Jahr</th>
+                                                <th scope="col">Album</th>
+                                                <th scope="col">Gruppe</th>
+                                                <th scope="col">Art</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td scope="row">1</td>
+                                                <td>1978</td>
+                                                <td>Dire Straits</td>
+                                                <td>Dire Straits</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">2</td>
+                                                <td>1979</td>
+                                                <td>Communiqué</td>
+                                                <td>Dire Straits</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">3</td>
+                                                <td>1980</td>
+                                                <td>Making Movies</td>
+                                                <td>Dire Straits</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">4</td>
+                                                <td>1982</td>
+                                                <td>Love over Gold</td>
+                                                <td>Dire Straits</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">5</td>
+                                                <td>1983</td>
+                                                <td>Twisting by the Pool</td>
+                                                <td>Dire Straits</td>
+                                                <td>EP</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">6</td>
+                                                <td>1984</td>
+                                                <td>Alchemy: Dire Straits Live</td>
+                                                <td>Dire Straits</td>
+                                                <td>Livealbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">7</td>
+                                                <td>1985</td>
+                                                <td>Brothers in Arms</td>
+                                                <td>Dire Straits</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">8</td>
+                                                <td>1988</td>
+                                                <td>Money for Nothing</td>
+                                                <td>Dire Straits</td>
+                                                <td>Best Of</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">9</td>
+                                                <td>1990</td>
+                                                <td>Missing…Presumed Having a Good Time</td>
+                                                <td>The Notting Hillbillies</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">10</td>
+                                                <td>1990</td>
+                                                <td>Neck and Neck</td>
+                                                <td>Mark Knopfler &amp; Chet Atkins</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">11</td>
+                                                <td>1991</td>
+                                                <td>On Every Street</td>
+                                                <td>Dire Straits</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">12</td>
+                                                <td>1993</td>
+                                                <td>On the Night</td>
+                                                <td>Dire Straits</td>
+                                                <td>Livealbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">13</td>
+                                                <td>1995</td>
+                                                <td>Live at the BBC</td>
+                                                <td>Dire Straits</td>
+                                                <td>Livealbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">14</td>
+                                                <td>1996</td>
+                                                <td>Golden Heart</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">15</td>
+                                                <td>1998</td>
+                                                <td>Sultans of Swing – The Very Best of Dire Straits</td>
+                                                <td>Dire Straits</td>
+                                                <td>Best Of</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">16</td>
+                                                <td>2000</td>
+                                                <td>Sailing to Philadelphia</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">17</td>
+                                                <td>2002</td>
+                                                <td>The Ragpicker's Dream</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">18</td>
+                                                <td>2004</td>
+                                                <td>Shangri-La</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">19</td>
+                                                <td>2005</td>
+                                                <td>Private Investigations: The best of Dire Straits &amp; Mark Knopfler</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Best Of</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">20</td>
+                                                <td>2006</td>
+                                                <td>All the Roadrunning</td>
+                                                <td>Mark Knopfler &amp; Emmylou Harris</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">21</td>
+                                                <td>2006</td>
+                                                <td>Real Live Roadrunning</td>
+                                                <td>Mark Knopfler &amp; Emmylou Harris</td>
+                                                <td>Livealbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">22</td>
+                                                <td>2007</td>
+                                                <td>Kill to Get Crimson</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">23</td>
+                                                <td>2009</td>
+                                                <td>Get Lucky</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">24</td>
+                                                <td>2012</td>
+                                                <td>Privateering</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">25</td>
+                                                <td>2015</td>
+                                                <td>Tracker</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">26</td>
+                                                <td>2018</td>
+                                                <td>Down the Road Wherever</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">27</td>
+                                                <td>2024</td>
+                                                <td>Going Home: Theme from Local Hero</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Single</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">28</td>
+                                                <td>2024</td>
+                                                <td>One Deep River</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>Studioalbum</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">27</td>
+                                                <td>2024</td>
+                                                <td>The Boy</td>
+                                                <td>Mark Knopfler</td>
+                                                <td>EP</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;table class="table table-striped"&gt;
+                                        &lt;caption&gt;Alben von Mark Knopfler&lt;/caption&gt;
+                                        &lt;thead class="thead-dark"&gt;
+                                            &lt;tr&gt;
+                                                &lt;th scope="col"&gt;#&lt;/th&gt;
+                                                &lt;th scope="col"&gt;Jahr&lt;/th&gt;
+                                                &lt;th scope="col"&gt;Album&lt;/th&gt;
+                                                &lt;th scope="col"&gt;Gruppe&lt;/th&gt;
+                                                &lt;th scope="col"&gt;Art&lt;/th&gt;
+                                            &lt;/tr&gt;
+                                        &lt;/thead&gt;
+                                        &lt;tbody&gt;
+                                            &lt;tr&gt;
+                                                &lt;td scope="row"&gt;1&lt;/td&gt;
+                                                &lt;td&gt;1978&lt;/td&gt;
+                                                &lt;td&gt;Dire Straits&lt;/td&gt;
+                                                &lt;td&gt;Dire Straits&lt;/td&gt;
+                                                &lt;td&gt;Studioalbum&lt;/td&gt;
+                                            &lt;/tr&gt;
+                                            &lt;tr&gt;
+                                                &lt;td scope="row"&gt;2&lt;/td&gt;
+                                                &lt;td&gt;1979&lt;/td&gt;
+                                                &lt;td&gt;Communiqué&lt;/td&gt;
+                                                &lt;td&gt;Dire Straits&lt;/td&gt;
+                                                &lt;td&gt;Studioalbum&lt;/td&gt;
+                                            &lt;/tr&gt;
+                                            ...
+                                        &lt;/tbody&gt;
+                                    &lt;/table&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Sonstiges" bold>
+                        <p>
+                            Viele weitere HTML-Elemente erhalten durch Bootstrap browserübergreifend ein einheitliches Aussehen.
+                            Hier seien als Beispiele die Elemente <src-code language="html">&lt;blockquote&gt;</src-code> zur
+                            Kennzeichnung von Zitaten und <src-code language="html">&lt;kbd&gt;</src-code> für Tastenkürzel gezeigt.
+                        </p>
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen" class="my-bootstrap-example">
+                                <div class="my-bootstrap-example">
+                                    <figure class="text-right">
+                                        <blockquote class="blockquote">
+                                            <p>
+                                                Phantasie ist wichtiger als Wissen, denn Wissen ist begrenzt.
+                                            </p>
+                                        </blockquote>
+                                        <figcaption class="blockquote-footer">
+                                            Albert Einstein (1879-1955)
+                                        </figcaption>
+                                    </figure>
+
+                                    <h4>Beispiel zur Kennzeichnung von Tastenkürzeln</h4>
+                                    <p>
+                                        Die Entwicklungswerkzeuge des Browsers lassen sich mit <kbd>F12</kbd> öffnen.
+                                        <kbd>Shift</kbd>+<kbd>Strg</kbd>+<kbd>M</kbd> öffnet hingegen den Responsive-Design-Modus.
+                                    </p>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;!-- Zitat --&gt;
+                                    &lt;figure class="text-end"&gt;
+                                        &lt;blockquote class="blockquote"&gt;
+                                            &lt;p&gt;
+                                                Phantasie ist wichtiger als Wissen, denn Wissen ist begrenzt.
+                                            &lt;/p&gt;
+                                        &lt;/blockquote&gt;
+                                        &lt;figcaption class="blockquote-footer"&gt;
+                                            Albert Einstein (1879-1955)
+                                        &lt;/figcaption&gt;
+                                    &lt;/figure&gt;
+
+                                    &lt;!-- Tastenkürzel --&gt;
+                                    &lt;h4&gt;Beispiel zur Kennzeichnung von Tastenkürzeln&lt;/h4&gt;
+                                    &lt;p&gt;
+                                        Die Entwicklungswerkzeuge des Browsers lassen sich mit &lt;kbd&gt;F12&lt;/kbd&gt; öffnen.
+                                        &lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;Strg&lt;/kbd&gt;+&lt;kbd&gt;M&lt;/kbd&gt; öffnet hingegen den Responsive-Design-Modus.
+                                    &lt;/p&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+                </lsx-accordion>
+            </lsx-tab-page>
+
+            <!-- Formulare -->
+            <lsx-tab-page title="Formulare">
+                <p class="mb-4">
+                    Um die browserseitige Darstellung eines Formulars zu übersteuern, müssen lediglich
+                    die CSS-Klassen <code>form-label</code>, <code>form-field</code> usw. dem ansonsten
+                    unveränderten HTML-Code hinzugefügt werden. Dadurch werden die Feldbezeichner und
+                    Eingabefelder auf die Bootstrap-Optik umgestellt. Zur Anordnung der Felder können
+                    dann zusätzliche <src-code language="html">&lt;div&gt;</src-code>-Elemente und die
+                    CSS-Klassen des Bootstrap Layout-Grids wie im folgenden Beispiel ergänzt werden.
+                </p>
+
+                <lsx-tab-pages>
+                    <lsx-tab-page title="Große Darstellung">
+                        <div class="my-responsive-preview">
+                            <div class="my-rp-background">
+                                <div class="my-rp-content">
+                                    <iframe class="my-rp-size-screen" src="3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/bootstrap/form-screen.html"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="Kleine Darstellung">
+                        <div class="my-responsive-preview">
+                            <div class="my-rp-background">
+                                <div class="my-rp-content">
+                                    <iframe class="my-rp-size-phone" src="3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/bootstrap/form-phone.html"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </lsx-tab-page>
+
+                    <lsx-tab-page title="HTML">
+                        <source-code language="html">
+                            &lt;form class="row g-3"&gt;
+                                &lt;div class="col-md-4"&gt;
+                                    &lt;label for="field01" class="form-label"&gt;Vorname&lt;/label&gt;
+                                    &lt;input type="text" class="form-control" id="field01" value="Mark" required&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="col-md-4"&gt;
+                                    &lt;label for="field02" class="form-label"&gt;Nachname&lt;/label&gt;
+                                    &lt;input type="text" class="form-control" id="field02" value="Otto" required&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="col-md-4"&gt;
+                                    &lt;label for="field03" class="form-label"&gt;Benutzername&lt;/label&gt;
+                                    &lt;div class="input-group has-validation"&gt;
+                                        &lt;span class="input-group-text" id="inputGroupPrepend"&gt;@&lt;/span&gt;
+                                        &lt;input type="text" class="form-control" id="field03" aria-describedby="inputGroupPrepend" required&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="col-md-6"&gt;
+                                    &lt;label for="field04" class="form-label"&gt;Ort&lt;/label&gt;
+                                    &lt;input type="text" class="form-control" id="field04" required&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="col-md-3"&gt;
+                                    &lt;label for="field05" class="form-label"&gt;Bundesland&lt;/label&gt;
+                                    &lt;select class="form-select" id="field05" required&gt;
+                                        &lt;option selected disabled value=""&gt;Auswählen...&lt;/option&gt;
+                                        &lt;option&gt;Baden-Württemberg&lt;/option&gt;
+                                        &lt;option&gt;Bayern&lt;/option&gt;
+                                        &lt;option&gt;Berlin&lt;/option&gt;
+                                        &lt;option&gt;Brandenburg&lt;/option&gt;
+                                        &lt;option&gt;Bremen&lt;/option&gt;
+                                        &lt;option&gt;Hamburg&lt;/option&gt;
+                                        &lt;option&gt;Hessen&lt;/option&gt;
+                                        &lt;option&gt;Mecklenburg-Vorpommern&lt;/option&gt;
+                                        &lt;option&gt;Niedersachsen&lt;/option&gt;
+                                        &lt;option&gt;Nordrhein-Westfalen&lt;/option&gt;
+                                        &lt;option&gt;Rheinland-Pfalz&lt;/option&gt;
+                                        &lt;option&gt;Saarland&lt;/option&gt;
+                                        &lt;option&gt;Sachsen&lt;/option&gt;
+                                        &lt;option&gt;Sachsen-Anhalt&lt;/option&gt;
+                                        &lt;option&gt;Schleswig-Holstein&lt;/option&gt;
+                                        &lt;option&gt;Thüringen&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="col-md-3"&gt;
+                                    &lt;label for="field06" class="form-label"&gt;Postleitzahl&lt;/label&gt;
+                                    &lt;input type="text" class="form-control" id="field06" required&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class="col-12"&gt;
+                                    &lt;div class="form-check"&gt;
+                                        &lt;input class="form-check-input" type="checkbox" value="" id="invalidCheck" required&gt;
+                                        &lt;label class="form-check-label" for="invalidCheck"&gt;Ich stimme den allgemeinen Geschäftsbedingungen zu&lt;/label&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/form&gt;
+                        </source-code>
+                    </lsx-tab-page>
+                </lsx-tab-pages>
+            </lsx-tab-page>
+
+            <!-- UI-Komponenten -->
+            <lsx-tab-page title="UI-Komponenten">
+                <p>
+                    Über die standardmäßig in HTML enthaltenen Elemente hinaus bietet Bootstrap eine ganze Reihe
+                    häufig benötigter UI-Komponenten, die sich auch einfacheren HTML-Elementen zusammensetzen.
+                    Beispiele hierfür sind Navigationsleisten, Menüs, Karten, Modale Popups, Akkordeons, Tabreiter,
+                    Badges und so weiter, wie sich auch hier im Skript¹ reichlich genutzt werden.
+                </p>
+                <p class="mb-4">
+                    <small>
+                        ¹
+                        <small>
+                            Das Onlineskript setzt ebenfalls auf Bootstrap sowie einer selbst-entwickelten
+                            JavaScript-Anwendung für die Anwendungslogik auf.
+                        </small>
+                    </small>
+                </p>
+
+                <lsx-accordion>
+                    <lsx-accordion-page title="Buttons und Badges" bold active>
+                        <p>
+                            Buttons können sehr flexibel gestaltet werden. Neben der Farbe und der Größe
+                            werden unterschiedliche Arten von Buttons sowie Button-Gruppen zur visuellen
+                            Zusammenfassung mehrerer Knäpfe unterstützt.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example">
+                                    <button type="button" class="btn btn-primary">
+                                        Benachrichtigungen
+                                        <span class="badge bg-secondary ml-3">4</span>
+                                    </button>
+
+                                    <button type="button" class="btn btn-secondary">Andere Zahlungsarten</button>
+                                    <button type="button" class="btn btn-outline-danger">Kauf abbrechen</button>
+
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-dark">Kopieren</button>
+                                        <button type="button" class="btn btn-dark">Ausschneiden</button>
+                                        <button type="button" class="btn btn-dark">Einfügen</button>
+                                    </div>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;button type="button" class="btn btn-primary"&gt;
+                                        Benachrichtigungen
+                                        &lt;span class="badge bg-secondary ms-3"&gt;4&lt;/span&gt;
+                                    &lt;/button&gt;
+
+                                    &lt;button type="button" class="btn btn-secondary"&gt;Andere Zahlungsarten&lt;/button&gt;
+                                    &lt;button type="button" class="btn btn-outline-danger"&gt;Kauf abbrechen&lt;/button&gt;
+
+                                    &lt;div class="btn-group" role="group"&gt;
+                                        &lt;button type="button" class="btn btn-dark"&gt;Kopieren&lt;/button&gt;
+                                        &lt;button type="button" class="btn btn-dark"&gt;Ausschneiden&lt;/button&gt;
+                                        &lt;button type="button" class="btn btn-dark"&gt;Einfügen&lt;/button&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Karten" bold>
+                        <p>
+                            Karten dienen als allgemeiner Container für umrahmte Inhalte. Ihr Name und ihre Gestaltung
+                            erinnern ein wenig an Quartett-Karten aus der realen Welt. Sie können aber für ganz
+                            unterschiedliche Aufgaben wie zur Darstellung kleiner Inhalte, zur Gestaltung von UI-Panels
+                            oder zur Einrahmung von Formularen verwendet werden.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example d-flex justify-content-center" style="gap: 1em;">
+                                    <div class="card w-100" style="max-width: 20em;">
+                                        <img src="3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/car.jpg" class="card-img-top" alt="Citroen Xsara WRC">
+
+                                        <div class="card-body">
+                                            <h4 class="card-title m-0">Citroen Xsara WRC</h4>
+                                        </div>
+
+                                        <table class="table">
+                                            <tr>
+                                                <td>Hersteller</td>
+                                                <td>Citroën</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Produktionszeitraum</td>
+                                                <td>2001 – 2005</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Klasse</td>
+                                                <td>Rennwagen</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Motor</td>
+                                                <td>Benzin, 231 kW</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Radstand</td>
+                                                <td>2540 mm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Leergewicht</td>
+                                                <td>1230 kg</td>
+                                            </tr>
+                                        </table>
+
+                                        <div class="card-footer">
+                                            <a href="https://de.wikipedia.org/wiki/Citro%C3%ABn_Xsara_WRC" target="_blank" class="btn btn-primary">Weitere Informationen</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="card w-100" style="max-width: 20em;">
+                                        <img src="3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/salad.jpg" class="card-img-top" alt="Salat">
+
+                                        <div class="card-body">
+                                            <h4 class="card-title m-0">Salatkarte</h4>
+                                        </div>
+
+                                        <div class="list-group list-group-flush">
+                                            <a href="#" class="list-group-item list-group-item-action">Rucola-Salat</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Vier Jahreszeiten</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Bunter Salatteller</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Salat „Venezia“</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Caesar-Salat</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Insalata Colloseo</a>
+                                        </div>
+
+                                        <div class="card-body d-flex justify-content-between">
+                                            <a href="#" class="card-link">Bestellen</a>
+                                            <a href="#" class="card-link text-secondary">Zurück</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;div class="d-flex justify-content-center" style="gap: 1em;"&gt;
+                                        &lt;!-- Karte: Citroen Xsara WRC --&gt;
+                                        &lt;div class="card w-100" style="max-width: 20em;"&gt;
+                                            &lt;img src="3-responsive/car.jpg" class="card-img-top" alt="Citroen Xsara WRC"&gt;
+
+                                            &lt;div class="card-body"&gt;
+                                                &lt;h4 class="card-title m-0"&gt;Citroen Xsara WRC&lt;/h4&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;table class="table"&gt;
+                                                &lt;tr&gt;
+                                                    &lt;td&gt;Hersteller&lt;/td&gt;
+                                                    &lt;td&gt;Citroën&lt;/td&gt;
+                                                &lt;/tr&gt;
+                                                &lt;tr&gt;
+                                                    &lt;td&gt;Produktionszeitraum&lt;/td&gt;
+                                                    &lt;td&gt;2001 – 2005&lt;/td&gt;
+                                                &lt;/tr&gt;
+                                                &lt;tr&gt;
+                                                    &lt;td&gt;Klasse&lt;/td&gt;
+                                                    &lt;td&gt;Rennwagen&lt;/td&gt;
+                                                &lt;/tr&gt;
+                                                &lt;tr&gt;
+                                                    &lt;td&gt;Motor&lt;/td&gt;
+                                                    &lt;td&gt;Benzin, 231 kW&lt;/td&gt;
+                                                &lt;/tr&gt;
+                                                &lt;tr&gt;
+                                                    &lt;td&gt;Radstand&lt;/td&gt;
+                                                    &lt;td&gt;2540 mm&lt;/td&gt;
+                                                &lt;/tr&gt;
+                                                &lt;tr&gt;
+                                                    &lt;td&gt;Leergewicht&lt;/td&gt;
+                                                    &lt;td&gt;1230 kg&lt;/td&gt;
+                                                &lt;/tr&gt;
+                                            &lt;/table&gt;
+
+                                            &lt;div class="card-footer"&gt;
+                                                &lt;a href="https://de.wikipedia.org/wiki/Citro%C3%ABn_Xsara_WRC" target="_blank" class="btn btn-primary"&gt;Weitere Informationen&lt;/a&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+
+                                        &lt;!-- Karte: Salatkarte --&gt;
+                                        &lt;div class="card w-100" style="max-width: 20em;"&gt;
+                                            &lt;img src="3-responsive/salad.jpg" class="card-img-top" alt="Salat"&gt;
+
+                                            &lt;div class="card-body"&gt;
+                                                &lt;h4 class="card-title m-0"&gt;Salatkarte&lt;/h4&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="list-group list-group-flush"&gt;
+                                                &lt;a href="#" class="list-group-item list-group-item-action"&gt;Rucola-Salat&lt;/a&gt;
+                                                &lt;a href="#" class="list-group-item list-group-item-action"&gt;Vier Jahreszeiten&lt;/a&gt;
+                                                &lt;a href="#" class="list-group-item list-group-item-action"&gt;Bunter Salatteller&lt;/a&gt;
+                                                &lt;a href="#" class="list-group-item list-group-item-action"&gt;Salat „Venezia“&lt;/a&gt;
+                                                &lt;a href="#" class="list-group-item list-group-item-action"&gt;Caesar-Salat&lt;/a&gt;
+                                                &lt;a href="#" class="list-group-item list-group-item-action"&gt;Insalata Colloseo&lt;/a&gt;
+                                            &lt;/div&gt;
+
+                                            &lt;div class="card-body d-flex justify-content-between"&gt;
+                                                &lt;a href="#" class="card-link"&gt;Bestellen&lt;/a&gt;
+                                                &lt;a href="#" class="card-link text-secondary"&gt;Zurück&lt;/a&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Karussells" bold>
+                        <p>
+                            Karussells zeigen abwechselnd eines von mehreren Elementen mit einer Art Diashow-Effekt.
+                            Normalweise laufen die Bilder automatisch durch. Hier im Skript werden sie aber auch für
+                            die Schritt-für-Schritt-Anleitungen ohne automatische Weiterschaltung genutzt.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example">
+                                    <div id="bootstrap-beispiel-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                                        <!-- Inhalt des Karussells -->
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/city1.jpg" class="d-block w-100" alt="">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/city2.jpg" class="d-block w-100" alt="">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="3-responsive/2-bootstrap/kurzvorstellung-von-bootstrap/city3.jpg" class="d-block w-100" alt="">
+                                            </div>
+                                        </div>
+
+                                        <!-- Steuerbuttons -->
+                                        <a class="carousel-control-prev" href="#bootstrap-beispiel-carousel" role="button" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Zurück</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#bootstrap-beispiel-carousel" role="button" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Weiter</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;div id="bootstrap-beispiel-carousel" class="carousel slide" data-bs-ride="carousel"&gt;
+                                        &lt!-- Inhalt des Karussells --&gt;
+                                        &lt;div class="carousel-inner"&gt;
+                                            &lt;div class="carousel-item active"&gt;
+                                                &lt;img src="3-responsive/city1.jpg" class="d-block w-100" alt=""&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class="carousel-item"&gt;
+                                                &lt;img src="3-responsive/city2.jpg" class="d-block w-100" alt=""&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class="carousel-item"&gt;
+                                                &lt;img src="3-responsive/city3.jpg" class="d-block w-100" alt=""&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+
+                                        &lt;!-- Steuerbuttons --&gt;
+                                        &lt;a class="carousel-control-prev" href="#bootstrap-beispiel-carousel" role="button" data-bs-slide="prev"&gt;
+                                            &lt;span class="carousel-control-prev-icon" aria-hidden="true"&gt;&lt;/span&gt;
+                                            &lt;span class="visually-hidden"&gt;Zurück&lt;/span&gt;
+                                        &lt;/a&gt;
+                                        &lt;a class="carousel-control-next" href="#bootstrap-beispiel-carousel" role="button" data-bs-slide="next"&gt;
+                                            &lt;span class="carousel-control-next-icon" aria-hidden="true"&gt;&lt;/span&gt;
+                                            &lt;span class="visually-hidden"&gt;Weiter&lt;/span&gt;
+                                        &lt;/a&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Dropdown-Menüs" bold>
+                        <p>
+                            Dropdown-Menüs werden überwiegend innerhalb einer Toolbar genutzt, um seltener benötigte
+                            Menüpunkte zu verstecken. Die Inhalte des Menüs können mit Bootstrap sehr frei gestaltet
+                            werden, so dass u.A. reguläre Menüeinträge, Listen, Tabellen, Formulare, Trennstriche
+                            oder Zwischenüberschriften möglich sind.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example" style="padding-top: 10em; padding-bottom: 20em;">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Anmelden
+                                        </button>
+
+                                        <div class="dropdown-menu">
+                                            <form class="px-4 py-3">
+                                                <div class="form-group">
+                                                    <label for="exampleDropdownFormEmail1">Email-Adresse</label>
+                                                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@beispiel.de">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleDropdownFormPassword1">Passwort</label>
+                                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Passwort">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                                        <label class="form-check-label" for="dropdownCheck">Eingeloggt bleiben</label>
+                                                    </div>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-primary">Registrieren</button>
+                                            </form>
+
+                                            <div class="dropdown-divider"></div>
+
+                                            <a class="dropdown-item" href="#">Wer und wo bin ich?</a>
+                                            <a class="dropdown-item" href="#">Passwort vergessem</a>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 text-muted">
+                                        Hier ist absichtlich viel Platz, damit das Menü nicht abgeschnitten wird.
+                                    </p>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;div class="dropdown"&gt;
+                                        &lt;button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                                            Anmelden
+                                        &lt;/button&gt;
+
+                                        &lt;div class="dropdown-menu"&gt;
+                                            &lt;form class="px-4 py-3"&gt;
+                                                &lt;div class="form-group"&gt;
+                                                    &lt;label for="exampleDropdownFormEmail1"&gt;Email-Adresse&lt;/label&gt;
+                                                    &lt;input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@beispiel.de"&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class="form-group"&gt;
+                                                    &lt;label for="exampleDropdownFormPassword1"&gt;Passwort&lt;/label&gt;
+                                                    &lt;input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Passwort"&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class="form-group"&gt;
+                                                    &lt;div class="form-check"&gt;
+                                                        &lt;input type="checkbox" class="form-check-input" id="dropdownCheck"&gt;
+                                                        &lt;label class="form-check-label" for="dropdownCheck"&gt;Eingeloggt bleiben&lt;/label&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+
+                                                &lt;button type="submit" class="btn btn-primary"&gt;Registrieren&lt;/button&gt;
+                                            &lt;/form&gt;
+
+                                            &lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+
+                                            &lt;a class="dropdown-item" href="#"&gt;Wer und wo bin ich?&lt;/a&gt;
+                                            &lt;a class="dropdown-item" href="#"&gt;Passwort vergessem&lt;/a&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+                </lsx-accordion>
+
+                <p class="mt-4">
+                    Diese Seite zeigt eine kleine Auswahl oft eingesetzter UI-Komponenten. Jede Komponente
+                    besitzt darüber hinaus zahlreiche Varianten, so dass sich auch komplexe Oberflächen mit
+                    Bootstrap gestalten lassen.
+                </p>
+            </lsx-tab-page>
+
+            <!-- Hilfsklassen -->
+            <lsx-tab-page title="Hilfsklassen">
+                <p class="mb-4">
+                    Um die Entwicklung komplexer Layouts weiter zu vereinfachen, bietet Bootstrap eine ganze
+                    Reihe zusätzlicher CSS-Klassen an, mit denen bestimmte Eigenschaften eines HTML-Elements
+                    wie sein Rahmen, seine Farbe oder die Innen- und Außenabstände definiert werden können.
+                    Bootstrap folgt damit der Philospohie, das komplette Layout in HTML ohne zusätzliche,
+                    selbst-entwickelte Stylesheets zu beschreiben.
+                </p>
+
+                <lsx-accordion>
+                    <lsx-accordion-page title="Farben" bold active>
+                        <p>
+                            Bootstrap definiert eine Reihe semantischer Standardfarben, die als Text- oder
+                            Hintergrundfarbe verwendet werden können. Auf diese Weise soll eine einheitliche
+                            Farbgebung sichergestellt werden.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example">
+                                    <h5 class="m-0 mb-2">Textfarben</h5>
+                                    <div class="dummy-container">
+                                        <div class="dummy1 p-2 border text-primary">text-primary</div>
+                                        <div class="dummy1 p-2 border text-secondary">text-secondary</div>
+                                        <div class="dummy1 p-2 border text-succes">text-success</div>
+                                        <div class="dummy1 p-2 border text-danger">text-danger</div>
+                                        <div class="dummy1 p-2 border text-warning">text-warning</div>
+                                        <div class="dummy1 p-2 border text-info">text-info</div>
+                                        <div class="dummy1 p-2 border text-light bg-dark">text-light</div>
+                                        <div class="dummy1 p-2 border text-dark">text-dark</div>
+                                        <div class="dummy1 p-2 border text-muted">text-muted</div>
+                                        <div class="dummy1 p-2 border text-white bg-dark">text-white</div>
+                                    </div>
+
+                                    <h5 class="m-0 mt-4 mb-2">Hintergrundfarben</h5>
+                                    <div class="dummy-container">
+                                        <div class="dummy1 p-2 border bg-primary text-light">bg-primary</div>
+                                        <div class="dummy1 p-2 border bg-secondary text-light">bg-secondary</div>
+                                        <div class="dummy1 p-2 border bg-success text-light">bg-success</div>
+                                        <div class="dummy1 p-2 border bg-danger text-light">bg-danger</div>
+                                        <div class="dummy1 p-2 border bg-warning">bg-warning</div>
+                                        <div class="dummy1 p-2 border bg-info text-light">bg-info</div>
+                                        <div class="dummy1 p-2 border bg-light">bg-light</div>
+                                        <div class="dummy1 p-2 border bg-dark text-light">bg-dark</div>
+                                        <div class="dummy1 p-2 border bg-white">bg-white</div>
+                                    </div>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;h5 class="m-0 mb-2"&gt;Textfarben&lt;/h5&gt;
+                                    &lt;div class="d-flex flex-wrap gap-3"&gt;
+                                        &lt;div class="p-2 border text-primary"&gt;text-primary&lt;/div&gt;
+                                        &lt;div class="p-2 border text-secondary"&gt;text-secondary&lt;/div&gt;
+                                        &lt;div class="p-2 border text-succes"&gt;text-success&lt;/div&gt;
+                                        &lt;div class="p-2 border text-danger"&gt;text-danger&lt;/div&gt;
+                                        &lt;div class="p-2 border text-warning"&gt;text-warning&lt;/div&gt;
+                                        &lt;div class="p-2 border text-info"&gt;text-info&lt;/div&gt;
+                                        &lt;div class="p-2 border text-light bg-dark"&gt;text-light&lt;/div&gt;
+                                        &lt;div class="p-2 border text-dark"&gt;text-dark&lt;/div&gt;
+                                        &lt;div class="p-2 border text-muted"&gt;text-muted&lt;/div&gt;
+                                        &lt;div class="p-2 border text-white bg-dark"&gt;text-white&lt;/div&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;h5 class="m-0 mt-4 mb-2"&gt;Hintergrundfarben&lt;/h5&gt;
+                                    &lt;div class="d-flex flex-wrap gap-3"&gt;
+                                        &lt;div class="p-2 border bg-primary text-light"&gt;bg-primary&lt;/div&gt;
+                                        &lt;div class="p-2 border bg-secondary text-light"&gt;bg-secondary&lt;/div&gt;
+                                        &lt;div class="p-2 border bg-success text-light"&gt;bg-success&lt;/div&gt;
+                                        &lt;div class="p-2 border bg-danger text-light"&gt;bg-danger&lt;/div&gt;
+                                        &lt;div class="p-2 border bg-warning"&gt;bg-warning&lt;/div&gt;
+                                        &lt;div class="p-2 border bg-info text-light"&gt;bg-info&lt;/div&gt;
+                                        &lt;div class="p-2 border bg-light"&gt;bg-light&lt;/div&gt;
+                                        &lt;div class="p-2 border bg-dark text-light"&gt;bg-dark&lt;/div&gt;
+                                        &lt;div class="p-2 border bg-white"&gt;bg-white&lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Transparenz" bold>
+                        <p>
+                            Mit den <code>opacity</code>-Klassen können einzelne Elemente halbtransparent
+                            dargestellt werden, beispielweise um anzudeuten, dass ihre Inhalte noch nicht
+                            vollständig geladen wurden.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example dummy-container">
+                                    <div class="dummy bg-primary text-light" style="opacity: 1.00;"><span>100%</span></div> <!-- Bootstrap 5: .opacity-100 -->
+                                    <div class="dummy bg-primary text-light" style="opacity: 0.75;"><span>75%</span></div> <!-- Bootstrap 5: .opacity-75 -->
+                                    <div class="dummy bg-primary text-light" style="opacity: 0.50;"><span>50%</span></div> <!-- Bootstrap 5: .opacity-50 -->
+                                    <div class="dummy bg-primary text-light" style="opacity: 0.25;"><span>25%</span></div> <!-- Bootstrap 5: .opacity-25 -->
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;div class="bg-primary text-light opacity-100"&gt;&lt;/div&gt;
+                                    &lt;div class="bg-primary text-light opacity-75"&gt;&lt;/div&gt;
+                                    &lt;div class="bg-primary text-light opacity-50"&gt;&lt;/div&gt;
+                                    &lt;div class="bg-primary text-light opacity-25"&gt;&lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Rahmen" bold>
+                        <p>
+                            Dezente Umrandungen können, wenn sie richtig eingesetzt werden, einem Layout einen
+                            professionellen Feinschliff verleihen. Bootstrap definiert daher eine Reihe von
+                            CSS-Klassen, mit denen die wichtigsten Parameter gesetzt werden können, wobei hierzu
+                            auch abgerundete Ecken und kreisrunde Elemente zählen¹.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example dummy-container">
+                                    <div class="dummy border"></div>
+                                    <div class="dummy border border-primary"></div>
+                                    <div class="dummy border border-primary" style="border-width: 3px !important;"></div> <!-- Bootstrap 5: .border-2 -->
+                                    <div class="dummy border rounded rounded-lg"></div> <!-- Bootstrap 5: .rounded-3 -->
+                                    <div class="dummy border rounded-circle"></div>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;div class="border"&gt;&lt;/div&gt;
+                                    &lt;div class="border border-primary"&gt;&lt;/div&gt;
+                                    &lt;div class="border border-primary border-2"&gt;&lt;/div&gt;
+                                    &lt;div class="border rounded rounded-3"&gt;&lt;/div&gt;
+                                    &lt;div class="border rounded-circle"&gt;&lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+
+                        <p>
+                            ¹
+                            <small>
+                                <small>
+                                    Kreisrunde Elemente werden in CSS mit den Anweisungen
+                                    <src-code language="css">border-radius: 50%; overflow: hidden;</src-code>
+                                    definiert, also denselben Anweisungen, die auch für abgerundete Ecken
+                                    verwendet werden. Damit wirklich ein Kreis entsteht, muss zusätzlich
+                                    eine quadratische Größe sichergestellt werden.
+                                </small>
+                            </small>
+                        </p>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Schatten" bold>
+                        <p>
+                            Schatten können entweder sehr sparsam als Ersatz für einen Rahmen oder zur
+                            pseudodreidimensionalen Visualisierung einer Hierarchie eingesetzt werden.
+                            Die CSS-Klassen von Bootstrap dienen eher Letzterem und orientieren sich
+                            dabei grob am
+                            <a href="https://material.io/design/environment/light-shadows.html" target="_blank">Google Material Design</a>.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example dummy-container">
+                                    <div class="dummy border shadow-none"><span>None</span></div>
+                                    <div class="dummy border shadow-sm"><span>Small</span></div>
+                                    <div class="dummy border shadow"><span>Normal</span></div>
+                                    <div class="dummy border shadow-lg"><span>Large</span></div>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;div class="border shadow-none"&gt;&lt;/div&gt;
+                                    &lt;div class="border shadow-sm"&gt;&lt;/div&gt;
+                                    &lt;div class="border shadow"&gt;&lt;/div&gt;
+                                    &lt;div class="border shadow-lg"&gt;&lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Abstände" bold>
+                        <p>
+                            Innenabstände können mit den Klassen <code>p-0</code> bis <code>p-5</code>
+                            und Außenabstände mit <code>m-0</code> bis <code>m-5</code> gesetzt werden.
+                            Durch Anhängen eines weiteren Buchstabens können die Abstände auch nur für
+                            einzelne Seiten gesetzt werden, zum Beispiel <code>mb-3</code> für den
+                            Außenabstand nach unten oder <code>mt-3</code> für oben.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example">
+                                    <h5 class="m-0 mb-2">Innenabstände (Padding)</h5>
+                                    <div>
+                                        <div class="dummy2 border m-3 p-0">p-0</div>
+                                        <div class="dummy2 border m-3 p-1">p-1</div>
+                                        <div class="dummy2 border m-3 p-2">p-2</div>
+                                        <div class="dummy2 border m-3 p-3">p-3</div>
+                                        <div class="dummy2 border m-3 p-4">p-4</div>
+                                        <div class="dummy2 border m-3 p-5">p-5</div>
+                                    </div>
+
+                                    <h5 class="m-0 mt-4 mb-2">Außenabstände (Margin)</h5>
+                                    <div>
+                                        <div class="dummy2 border bg-info">
+                                            <div class="dummy2 border p-2 m-0">m-0</div>
+                                        </div>
+                                        <div class="dummy2 border bg-info">
+                                            <div class="dummy2 border p-2 m-1">m-1</div>
+                                        </div>
+                                        <div class="dummy2 border bg-info">
+                                            <div class="dummy2 border p-2 m-2">m-2</div>
+                                        </div>
+                                        <div class="dummy2 border bg-info">
+                                            <div class="dummy2 border p-2 m-3">m-3</div>
+                                        </div>
+                                        <div class="dummy2 border bg-info">
+                                            <div class="dummy2 border p-2 m-4">m-4</div>
+                                        </div>
+                                        <div class="dummy2 border bg-info">
+                                            <div class="dummy2 border p-2 m-5">m-5</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;h5 class="m-0 mb-2"&gt;Innenabstände (Padding)&lt;/h5&gt;
+                                    &lt;div&gt;
+                                        &lt;div class="bg-light border p-0"&gt;p-0&lt;/div&gt;
+                                        &lt;div class="bg-light border p-1"&gt;p-1&lt;/div&gt;
+                                        &lt;div class="bg-light border p-2"&gt;p-2&lt;/div&gt;
+                                        &lt;div class="bg-light border p-3"&gt;p-3&lt;/div&gt;
+                                        &lt;div class="bg-light border p-4"&gt;p-4&lt;/div&gt;
+                                        &lt;div class="bg-light border p-5"&gt;p-5&lt;/div&gt;
+                                    &lt;/div&gt;
+
+                                    &lt;h5 class="m-0 mb-2"&gt;Außenabstände (Margin)&lt;/h5&gt;
+                                    &lt;div&gt;
+                                        &lt;div class="bg-light border m-0"&gt;p-0&lt;/div&gt;
+                                        &lt;div class="bg-light border m-1"&gt;p-1&lt;/div&gt;
+                                        &lt;div class="bg-light border m-2"&gt;p-2&lt;/div&gt;
+                                        &lt;div class="bg-light border m-3"&gt;p-3&lt;/div&gt;
+                                        &lt;div class="bg-light border m-4"&gt;p-4&lt;/div&gt;
+                                        &lt;div class="bg-light border m-5"&gt;p-5&lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="Seiten">
+                                <ul>
+                                    <li>
+                                        Leer – Alle Seiten
+                                    </li>
+                                    <li>
+                                        <code>t</code> – Oben
+                                    </li>
+                                    <li>
+                                        <code>b</code> – Unten
+                                    </li>
+                                    <li>
+                                        <code>s</code> – Links (bei westlicher Links-nach-Rechts-Schreibrichtung)
+                                    </li>
+                                    <li>
+                                        <code>e</code> – Rechts (bei westlicher Links-nach-Rechts-Schreibrichtung)
+                                    </li>
+                                    <li>
+                                        <code>x</code> – Links und Rechts
+                                    </li>
+                                    <li>
+                                        <code>y</code> – Oben und Unten
+                                    </li>
+                                </ul>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+
+                    <lsx-accordion-page title="Flexbox" bold>
+                        <p>
+                            Keine andere Entwicklung hat das Webdesign so sehr verändert, wie die Standardisierung
+                            des <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Flexbox-Algorithmus</a>
+                            im Jahr 2018. Seither wurde Bootstrap komplett umgeschrieben, so dass insbesondere das
+                            Grid-Layout auf dem Flexbox-Algorithmus basiert. Aber auch ohne das Grid-Layout können
+                            Flexboxen mit Bootstrap genutzt werden.
+                        </p>
+
+                        <lsx-tab-pages>
+                            <lsx-tab-page title="Aussehen">
+                                <div class="my-bootstrap-example">
+                                    <div class="d-flex justify-content-between align-items-stretch border bg-secondary p-3" style="height: 25em; gap: 1em;"> <!-- Bootstrap 5: .gap3 -->
+                                        <div class="d-flex flex-column justify-content-center border bg-light p-3" style="gap: 1em;"> <!-- Bootstrap 5: .gap3 -->
+                                            <div class="dummy border bg-primary"></div>
+                                            <div class="dummy border bg-primary"></div>
+                                            <div class="dummy border bg-primary"></div>
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-around border bg-light p-3" style="gap: 1em;"> <!-- Bootstrap 5: .gap3 -->
+                                            <div class="dummy border bg-success"></div>
+                                            <div class="dummy border bg-success"></div>
+                                            <div class="dummy border bg-success"></div>
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-between border bg-light p-3" style="gap: 1em;"> <!-- Bootstrap 5: .gap3 -->
+                                            <div class="dummy border bg-warning"></div>
+                                            <div class="dummy border bg-warning"></div>
+                                            <div class="dummy border bg-warning"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </lsx-tab-page>
+                            <lsx-tab-page title="HTML-Code">
+                                <source-code language="html">
+                                    &lt;div class="d-flex justify-content-between align-items-stretch gap-3   border bg-secondary p-3" style="height: 25em;"&gt;
+                                        &lt;div class="d-flex flex-column justify-content-center gap-3   border bg-light p-3"&gt;
+                                            &lt;div class="border bg-primary"&gt;&lt;/div&gt;
+                                            &lt;div class="border bg-primary"&gt;&lt;/div&gt;
+                                            &lt;div class="border bg-primary"&gt;&lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="d-flex flex-column justify-content-around gap-3   border bg-light p-3"&gt;
+                                            &lt;div class="border bg-success"&gt;&lt;/div&gt;
+                                            &lt;div class="border bg-success"&gt;&lt;/div&gt;
+                                            &lt;div class="border bg-success"&gt;&lt;/div&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="d-flex flex-column justify-content-between gap-3   border bg-light p-3"&gt;
+                                            &lt;div class="border bg-warning"&gt;&lt;/div&gt;
+                                            &lt;div class="border bg-warning"&gt;&lt;/div&gt;
+                                            &lt;div class="border bg-warning"&gt;&lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                </source-code>
+                            </lsx-tab-page>
+                        </lsx-tab-pages>
+                    </lsx-accordion-page>
+                </lsx-accordion>
+
+                <p class="mt-4">
+                    Diese Seite zeigt einige CSS-Hilfsklassen von Bootstrap. Die meisten Klassen lassen sich
+                    durch Anhängen von <code>-md</code>, <code>-lg</code> und so weiter auf Bildschirme mit
+                    einer bestimmten Mindestgröße beschränken. Insgesamt decken die CSS-Hilfsklassen einen
+                    großen Teil von CSS-Anweisungen ab, so dass in vielen Fällen auf eigene Stylesheets
+                    verzichtet werden kann (zugunsten eines aufwändigeren und wenig übersichtlichen HTML-Codes).
+                </p>
+            </lsx-tab-page>
+        </lsx-tab-pages>
+
+        <p>
+            <small>
+                <small>
+                    Bildnachweise:
+                    <a href="https://pixabay.com/photos/workspace-coffee-laptop-macbook-1280538/" target="_blank">Pixabay: freephotocc</a>,
+                    <a href="https://pixabay.com/photos/lake-rocks-forest-nature-water-6641880/" target="_blank">Pixabay: shogun</a>,
+                    <a href="https://pixabay.com/photos/nature-beach-outdoors-exploration-6565499/" target="_blank">Pixabay: ELG21</a>,
+                    <a href="https://pixabay.com/photos/avenue-trees-path-sunbeams-sunrays-815297/" target="_blank">Pixabay: bertvthul</a>,
+                    <a href="https://pixabay.com/photos/desk-table-simple-mockup-1081708/" target="_blank">Pixabay: Free-Photos</a>,
+                    <a href="https://pixabay.com/photos/race-car-race-track-dirt-road-car-1031767/" target="_blank">Pixabay: Free-Photos</a>,
+                    <a href="https://pixabay.com/photos/meal-salad-cucumbers-food-leaves-2834549/" target="_blank">Pixabay: Sponchia</a>,
+                    <a href="https://pixabay.com/photos/tianjin-sunset-city-aerial-view-2185510/" target="_blank">Pixabay: amuSe</a>,
+                    <a href="https://pixabay.com/photos/hong-kong-city-traffic-lights-1990268/" target="_blank">Pixabay: 12019</a>,
+                    <a href="https://pixabay.com/photos/buildings-river-city-cityscape-668616/" target="_blank">Pixabay: mpewny</a>
+                </small>
+            </small>
+        </p>
+    </article>
+    <aside>
+        <p>
+            Ursprünglich als Einmannprojekt zur vereinheitlichung interner Webanwendungen bei Twitter
+            erfunden, wurde Bootstrap schnell von anderen Entwickler*innen aufgegriffen und im Jahr 2011
+            als Open-Source-Projekt unter MIT-Lizenz der Allgemeinheit vorgestellt. Seither hat sich
+            Bootstrap zu einem der beliebtesten Webframeworks für die Frontendentwicklung entwickelt,
+            das auch heute noch in vielen Projekten genutzt wird. Im Gegensatz zu anderen Frameworks,
+            die oft nach kurzer Zeit wieder von der Bildfläche verschwinden (oder wie jQuery nicht
+            mehr benötigt werden), wurde Bootstrap inzwischen mehrmals neugeschrieben, um mit aktuellen
+            Entwicklungen im Web schrittzuhalten. Auch wenn heute die Notwendigkeit für Frameworks nicht
+            mehr so groß ist wie früher¹, bietet insbesondere Bootstrap in größeren Projekten nach wie vor
+            viele Vorteile. Stellvertretend für eine ganze Reihe ähnlich gelagerter Frameworks² wollen uns
+            daher die Programmierung mit Bootstrap an dieser Stelle genauer anschauen.
+        </p>
+        <p>
+            Anfangs war Bootstrap vor allem für sein Grid-System bekannt, da sich damit leicht gängige
+            Layouts, die zudem auch responsive sind, realisieren lassen. Inzwischen bietet es aber
+            eine ganze Fülle an Funktionen, die nicht minder interessant sind:
+        </p>
+        <ul class="dhbw-list-spacious">
+            <li>
+                <b>Layout-Grid:</b>
+                Mit Hilfe des Grid-Systems von Bootstrap können spaltenbasierte Layouts definiert
+                werden, deren Inhalte auf unterschiedlichen Geräten automatisch in unterschiedlichen
+                Größenverhältnissen nebeneinander oder in maximaler Breite untereinander angeordnet werden.
+            </li>
+            <li>
+                <b>Typografie:</b>
+                Bootstrap definiert einheitliche Vorgaben für Schriftarten, Farben und Abstände,
+                um eine absolut identische Darstellung in allen Browsern sicherzustellen. Zusätzlich
+                wird für HTML-Elemente wie <src-code language="html">&lt;blockquote&gt;</src-code>
+                oder <src-code language="html">&lt;kbd&gt;</src-code>, die ohne eigenes Styling
+                in jedem Browser etwas anders aussehen, eine einheitliche Formatierung vorgegeben.
+            </li>
+            <li>
+                <b>Formulare:</b>
+                Für Benutzereingaben werden in HTML typischerweise Eingabeformulare mit den Elementen
+                <src-code language="html">&lt;form&gt;</src-code>, <src-code language="html">&lt;input&gt;</src-code>,
+                <src-code language="html">&lt;select&gt;</src-code>, <src-code language="html">&lt;button&gt;</src-code>
+                usw. definiert. Ihre standardmäßige Darstellung entspricht jedoch längst nicht mehr
+                aktuellen Vorstellungen, so dass diese in der Regel mit CSS umfangreich bearbeitet
+                werden müssen. Bootstrap überschreibt die Vorgaben der Browser mit sinnvollen Werten
+                und bietet eine Vielzahl von Hilfsklassen, um die Gesaltung selbst komplexer Formulare
+                zu vereinfachen.
+            </li>
+            <li>
+                <b>UI-Komponenten:</b>
+                Im Laufe der Zeit haben sich auch im Web verschiedene UI-Patterns herauskristalisiert,
+                die immer wieder vorzufinden sind. Die obligatorische Kopfzeile mit dem Namen der Seite,
+                Navigationspunkten und Suchfeld ist zum Beispiel auf vielen Seiten nicht mehr wegzudenken.
+                Aber auch Dropdown-Menüs, Tabreiter, Karten, Akkordeons, Karussells, Spinner oder modale
+                Popup-Fenster gehören inzwischen zum Standard-Repertoire, das ohne Framework jedes Mal
+                aufs neue implementiert werden müsste.
+            </li>
+            <li>
+                <b>Vordefinierte CSS-Klassen:</b>
+                Die Entwicklung eigener Stylesheets ist durch Bootstrap auch deshalb häufig
+                überflüssig, weil es für viele CSS-Anweisungen passende Klassennamen gibt,
+                die im HTML-Code direkt verwendet werden können, um ein Element damit auszuzeichnen.
+                Beispielsweise kann mit <src-code language="html">&lt;div class="shadow-sm"&gt;</src-code>
+                einem Element ein dezenter Schatten gegeben werden, ohne diesen in CSS definieren
+                zu müssen. Oftmals kann dabei über den Klassennamen eingeschränkt werden, auf welchen
+                Geräten die Darstellung zum Tragen kommen soll.
+            </li>
+        </ul>
+        <p>
+            Grundgedanke von Bootstrap ist, alle Funktionen durch vordefinierte CSS-Klassen
+            zu implementieren, so dass in vielen Fällen lediglich der HTML-Code angepasst werden
+            muss, um ein bestimmtes Layout zu erzielen. Eigene Stylesheets werden nur benötigt,
+            wenn die Vorgaben von Bootstrap übersteuert werden sollen oder Bootstrap für ein
+            Problem keine passende Lösung bietet. Wahlweise kann dann noch der enthaltene
+            JavaScript-Code eingbeunden werden, um die vordefinierten UI-Elemente ohne eigene
+            Logik programmieren zu müssen „zum Leben zu erwecken“.³
+        </p>
+        <p>
+            Auf dieser Seite finden sich ein ausführlicher Screencast zur Vorestellung von
+            Bootstrap (inklusive praktischer Demonstration) sowie ein paar Beispiele zum
+            gebotenen Funktionsumfang. Wie immer wird das Anschauen des Videos sehr empfohlen,
+            um auch die Inhalte der folgenden Seiten besser nachvollziehen zu können!
+        </p>
+        <hr />
+        <p>
+            ¹
+            <small>
+                Frameworks wie jQuery entstanden, um die vielen kleinen Inkompatibilitäten zwischen
+                den Browsern auszugleichen oder Funktionen bereitzustellen, die mit reinem HTML, CSS
+                und JavaScript nur umständlich zu realisieren waren. Inzwischen sind die Browserkriege
+                zum Glück längst vorbei, so dass Abweichungen lediglich bei ganz aktuellen Standards
+                vorkommen, die noch nicht final ratifiziert wurden, aber bereits als Vorabversion in
+                den Browsern implementiert sind, um Erfahrungen damit zu sammeln. Auf diese Weise sind
+                auch immer mehr Funktionen nach HTML, CSS und JavaScript zurückgeflossen, wodurch
+                komplexe Webanwendungen zunehmend ohne Frameworks auskommen. Frameworks können aber
+                immer noch sinnvoll sein, um bestimmte Aufgaben zu vereinfachen, den Quellcode zu
+                strukturieren oder komplexe UI-Elemente zur Verfügung zu stellen.
+            </small>
+        </p>
+        <p>
+            ²
+            <small>
+                Genauer gesagt schauen wir uns hier die Entwicklung mit CSS-Frameworks an, die zum
+                größten Teil aus vordefinierten Stylesheets mit optionalem JavaScript-Code bestehen,
+                um die Gestaltung bestimmter Layouts zu vereinfachen. Ein moderner Trend geht inzwischen
+                von sog. Komponenten-Frameworks wie Knockout, Anuglar, Vue.js uvm. aus, mit denen komplett
+                eigene HTML-Elemente definiert werden können, was wiederum zur Aufnahme von Web Components
+                als neue Standardfunktionalität in HTML führte. Da der Schwerpunkt dabei aber nicht zwingend
+                auf der gestaltung responsiver Layouts liegt, fallen diese zunächst aus unserem Fokus.
+            </small>
+        </p>
+        <p>
+            ³
+            <small>
+                An dieser Stelle sei dahingestellt, ob es wirklich eine Verbesserung oder gar eine
+                Verschlechterung ist, dass Inhalt und Gestaltung durch Bootstrap komplett in den
+                HTML-Code wandern. Sicher ist dies auch den Einschränkungen von CSS geschuldet, die
+                eine anderweitige Wiederverwendung von fremdem Code nur sehr eingeschränkt zulassen.
+            </small>
+        </p>
+    </aside>
+</section>
