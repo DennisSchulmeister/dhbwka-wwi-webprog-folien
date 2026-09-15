@@ -316,3 +316,67 @@
         </p>
     </aside>
 </section>
+
+<!--
+Lernkontrolle: Übungen und Kontrollfragen
+
+Multiple Choice Fragen:
+1. Was ist der Hauptunterschied zwischen Media Queries und Container Queries?
+   a) Media Queries prüfen das Ausgabegerät, Container Queries prüfen ein HTML-Container-Element
+   b) Media Queries prüfen ein HTML-Container-Element, Container Queries prüfen das Ausgabegerät
+   c) Media Queries sind veraltet, Container Queries sind die moderne Alternative
+   d) Es gibt keinen Unterschied
+   Richtige Antwort: a)
+
+2. Welche CSS-Eigenschaft muss einem Element zugewiesen werden, damit es als Container für Container Queries genutzt werden kann?
+   a) container-type
+   b) container-name
+   c) container-query
+   d) container-size
+   Richtige Antwort: a)
+
+3. Welche Werte kann die Eigenschaft container-type annehmen? (Mehrfachantwort möglich)
+   a) normal
+   b) size
+   c) inline-size
+   d) block-size
+   Richtige Antworten: a), b), c), d)
+
+4. Welche Eigenschaft wird verwendet, um einem Container einen eindeutigen Namen zu geben?
+   a) container-type
+   b) container-name
+   c) container-id
+   d) container-class
+   Richtige Antwort: b)
+
+5. Welches Problem lösen Container Queries, das Media Queries nicht lösen können?
+   a) Sie können den verfügbaren Platz für ein Element an seiner konkreten Position abfragen
+   b) Sie können die Eigenschaften des Ausgabegeräts abfragen
+   c) Sie können die Bildschirmauflösung abfragen
+   d) Sie können die Ausrichtung des Geräts abfragen
+   Richtige Antwort: a)
+
+Freitext-Verständnisfrage:
+Erklären Sie, warum Container Queries besonders nützlich für komplexe, modulare Layouts sind. Nennen Sie konkrete Beispiele, bei denen Container Queries Vorteile gegenüber Media Queries bieten.
+
+Fehlersuch-Aufgabe:
+Ein Entwickler hat einen Container mit `container-type: size` definiert, aber die Container Queries funktionieren nicht. Welche mögliche Ursache könnte dafür verantwortlich sein?
+
+Programmieraufgabe:
+Erstellen Sie eine Webseite mit:
+- Einem Header
+- Einem Hauptbereich mit einer Karten-Komponente
+- Einem Footer
+Verwenden Sie Container Queries, um die Darstellung der Karten-Komponente abhängig von der verfügbaren Breite anzupassen.
+
+Lückentext:
+Container Queries reagieren auf die Größe eines __________, nicht auf das gesamte Viewport-Fenster. (Lösung: Elternelements)
+
+Zuordnungsaufgabe:
+Ordnen Sie die folgenden container-type-Werte den passenden Beschreibungen zu:
+1. normal           a) Das Element ist ein einfacher Container, der nur die Inline-Achse berücksichtigt
+2. size             b) Standardwert – das Element ist kein Container
+3. inline-size      c) Das Element ist ein voller Container: Sowohl Breite als auch Höhe können abgefragt werden
+4. block-size       d) Beobachtet nur die Block-Achse
+(Lösung: 1-b, 2-c, 3-a, 4-d)
+-->
