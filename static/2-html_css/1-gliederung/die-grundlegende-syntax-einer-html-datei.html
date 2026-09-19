@@ -36,6 +36,30 @@
                 </source-code>
             </lsx-tab-page>
 
+            <lsx-tab-page title="HTML-Code validieren">
+                <lsx-info-box>
+                    Die Browser sind in der Regel sehr nachsichtig bei Syntaxfehlern im HTML-Code.
+                    Dennoch sollte der Code regelmäßig mit einem Tool wie dem
+                    <a href="https://validator.w3.org/" target="_blank">W3C Markup Validation Service</a>
+                    überprüft werden, um Darstellungsfehler zu vermeiden.
+                </lsx-info-box>
+                <p>
+                    Der zu prüfende Quellcode kann aus dem Internet geladen werden, als Datei hochgeladen
+                    oder direkt eingegeben. Anschließend sollte man wenigstens alle Fehler, eigentlich aber
+                    auch alle Warnungen, beheben.
+                </p>
+                <lsx-grid-fluid>
+                    <lsx-row>
+                        <lsx-col size="md">
+                            <img src="2-html_css/1-gliederung/die-grundlegende-syntax-einer-html-datei/validierung1.png" class="d-block w-100 img-thumbnail"/>
+                        </lsx-col>
+                        <lsx-col size="md">
+                            <img src="2-html_css/1-gliederung/die-grundlegende-syntax-einer-html-datei/validierung2.png" class="d-block w-100 img-thumbnail"/>
+                        </lsx-col>
+                    </lsx-row>
+                </lsx-grid-fluid>
+            </lsx-tab-page>
+
             <lsx-tab-page title="Aufbau einer Webseite">
                 <lsx-youtube video="Kkimbj_cvo4"></lsx-youtube>
                 <lsx-info-box>
@@ -158,8 +182,8 @@
             außerhalb von Tags vorkommen dürfen. Sie müssen stattdessen durch eine als „Entität“ bezeichnete
             Ersatzschreibweise ersetzt werden:
         </p>
-        <table>
-            <thead>
+        <table class="table border mb-3">
+            <thead class="table-dark">
                 <tr>
                     <th>Zeichen</th>
                     <th>Ersatzschreibweise</th>
@@ -190,6 +214,13 @@
                 </td>
             </tr>
         </table>
+        <p>
+            Darüber hinaus ist es immer eine gute Idee, den HTML-Code von Zeit zu Zeit mit einem Werkzeug
+            wie den <a href="https://validator.w3.org/" target="_blank">W3C Markup Validation Service</a>
+            zu überprüfen. Zwar sind die Browser sehr nachsichtig bei Syntaxfehlern. Es kann aber trotzdem
+            zu unerwarteten Darstellungsfehlern kommen und auch die Code-Vervollständigung der meisten IDEs
+            kommen nicht gut damit zurecht.
+        </p>
     </aside>
 </section>
 
