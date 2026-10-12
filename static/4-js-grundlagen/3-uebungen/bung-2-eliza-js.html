@@ -28,28 +28,41 @@
                 </div>
 
                 <p>
-                    Das Grundgerüst der Anwendung ist bereits fertiggestellt. Der Quellcode enthält aber noch sehr
-                    viele Lücken, die erst noch fertig programmiert werden wollen, bevor der Chatbot wirklich mit
-                    uns spricht.
+                    Das Grundgerüst der Anwendung ist bereits fertiggestellt. Sie besitzt zwei Chat Engines:
+                </p>
+                <ol>
+                    <li>
+                        <p>
+                            <b>Simple:</b> Regelbasierter Chat ähnlich wie in Weizenbaums Original, allerdings ohne
+                            Gedächtnis für den Bot und ohne, dass der Bot Teile der Benutzereingabe in seiner Ausgabe
+                            wiederverwendet. Sprache: Deutsch.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>LLM:</b> Chat mit einem im Browser lokal laufenden Large Language Model als technischer
+                            Proof-of-Concept. Das Modell bricht bei längeren Eingaben schnell zusammen, weshalb auch
+                            dieser Bot kein Gedächtnis besitzt. Sprache: Englisch.
+                        </p>
+                    </li>
+                </ol>
+                <p>
+                    Beim Start der Anwendung muss <code>*simple</code> oder <code>*llm</code> in das Eingabefeld eingegeben
+                    wurden, um die gewünschte Engine zu laden. Die LLM Chat Engine ist bereits fertig programmiert. Insgesamt
+                    enthält der Quellcode aber nicht viele Lücken, die Sie fertig programmieren müssen, bevor der Bot mit
+                    Ihnen spricht.
                 </p>
             </lsx-tab-page>
 
             <lsx-tab-page title="Vorgehensweise">
                 <p>
-                    Die zu ändernden Stellen sind im Quellcode wie üblich mit dem Hinweis
-                    <code>TODO</code> gekennzeichnet. Sie alle befinden sich innerhalb
-                    der Datei <code>index.js</code>. Weitere Dateien sind dieses Mal
-                    nicht zu bearbeiten:
+                    Die zu ändernden Stellen sind im Quellcode wie üblich mit dem Hinweis <code>TODO</code> gekennzeichnet.
+                    Los geht es in der Datei <span class="fn">src/index.js</span>:
                 </p>
                 <ol class="dhbw-list-spacious">
                     <li>
-                        Die Variablen <code>messagesElement</code> und
-                        <code>inputElement</code> müssen mit den jeweiligen
-                        HTML-Elementen aus dem DOM-Baum versorgt werden.
-                    </li>
-                    <li>
-                        Die Struktur <code>chatbotKeywords</code> muss um weitere
-                        Schlüsselwörter und mögliche Antworten ergänzt werden.
+                        Die Variablen <code>messagesElement</code> und <code>inputElement</code>
+                        müssen mit den jeweiligen HTML-Elementen aus dem DOM-Baum versorgt werden.
                     </li>
                     <li>
                         Die Funktion <code>postMessage()</code> muss wie in den Kommentaren
@@ -57,83 +70,40 @@
                         Chatteilnehmer anzuzeigen.
                     </li>
                     <li>
-                        Die Anzeige der manuell eingegebenen Nachrichten muss innerhalb des
-                        <code>keyup</code>-Event-Handlers vorgenommen werden. In derselben
-                        Funktion müssen auch die Antworten des Chatbots angefordert und angezeigt
-                        werden.
+                        Innerhalb des <code>keyup</code>-Event-Handlers muss die Funktion
+                        <code>postMessage()</code> aufgerufen werden, um die Benutzernachricht
+                        tatsächlich anzuzeigen.
                     </li>
                     <li>
-                        Schlussendlich muss dann noch die Funktion <code>generateBotAnswer()</code>
-                        wie in den Kommentaren beschrieben vervollständigt werden. Dort muss die empfangene
-                        Nachricht auf bekannten Schlüsselwörter abgeklopft werden. Bei einer Übereinstimmung
-                        muss die Liste der möglichen Antworten entsprechend verlängert werden, bevor ganz am
-                        Ende dann eine zufällige Auswahl erfolgt.
+                        Am Ende muss die Methode <code>generateBotAnswer()</code> der aktuellen
+                        Engine aufgerufen werden, um eine Antwort zu generieren und anzuzeigen.
+                    </li>
+                </ol>
+                <p>
+                    Jetzt sollten Sie beim Start der Anwendung schon ein paar Meldungen sehen und Sie
+                    sollten auch mit der Simple Engine chatten können. Sie generiert aber immer dieselbe
+                    Antwort. Um dies zu ändern muss in der Datei <span class="fn">src/chat-engine/simple.js</span>
+                    die Funktion <code>generateBotAnswer()</code> ausprogrammiert werden:
+                </p>
+                <ol class="dhbw-list-spacious">
+                    <li>
+                        Zunächst müssen am Anfang die beiden Zeilen zum Generieren der Dummy-Antwort
+                        entfernt werden.
+                    </li>
+                    <li>
+                        Nun müssen die Kommentare in der Mitte umgesetzt werden, um die empfangene Nachricht
+                        auf bekannte Schlüsselwörter abzuklopfen und die Liste <code>possibleAnswers</code>
+                        um die passenden Antworten aus dem Regelkatalog zu ergänzen.
+                    </li>
+                    <li>
+                        Am Schluss muss eine kleine Verzögerung eingebaut werden, um das „Nachdenken” des
+                        Bots zu simulieren, bevor eine zufällige Antwort aus den gefundenen Möglichkeiten
+                        tatsächlich ausgegeben wird.
                     </li>
                 </ol>
                 <p>
                     Viel Erfolg bei der Umsetzung und eine angenehme Unterhaltung mit Eliza!
                 </p>
-            </lsx-tab-page>
-
-            <lsx-tab-page title="Weitere Seiten laden">
-                <p>
-                    Mit Hilfe der JavaScript-Bibliothek <a href="https://htmx.org/" target="_blank">htmx</a>
-                    lässt sich die Anwendung ganz leicht um weitere Seiten erweitern. Die Bibliothek sorgt
-                    dabei dafür, dass diese die geladene HTML-Datei im Browser nicht ersetzen (und dadurch
-                    auch den JavaScript-Code neustarten), sondern dass sie in die bestehende Seite nachgeladen
-                    werden. Hierfür sind im HTML-Code lediglich folgende Anpassungen notwendig:
-                </p>
-
-                <source-code language="html">
-                    &lt;!DOCTYPE html&gt;
-                    &lt;html&gt;
-                        &lt;head&gt;
-                            &lt;title&gt;🤖 Eliza.js&lt;/title&gt;
-                            &lt;meta charset="utf-8" /&gt;
-                            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                    
-                            &lt;!-- HTMX als einfache Lösung für Single Page Apps --&gt;
-                            &lt;script src="https://unpkg.com/htmx.org@2.0.3"&gt;&lt;/script&gt;
-                    
-                            &lt;!-- Eigene Skripte --&gt;
-                            &lt;link rel="stylesheet" href="style.css"/&gt;
-                            &lt;script src="index.js"&gt;&lt;/script&gt;
-                    
-                            &lt;!-- Ein- und Ausblenden des Chats --&gt;
-                            &lt;script&gt;
-                                function showChat() {
-                                    htmx.find('#chat-area').classList.remove("hidden");
-                                    htmx.find('#page-content').classList.add("hidden");
-                                }
-                    
-                                function hideChat() {
-                                    htmx.find('#chat-area').classList.add("hidden");
-                                    htmx.find('#page-content').classList.remove("hidden");
-                                }
-                            &lt;/script&gt;
-                        &lt;/head&gt;
-                        &lt;body&gt;
-                            &lt;!-- Navigationslinks --&gt;
-                            &lt;nav&gt;
-                                &lt;a hx-on:click="showChat()"&gt;Chat&lt;/a&gt;
-                                &lt;a hx-get="pages/settings.html" hx-target="#page-content" hx-on:click="hideChat()"&gt;Einstellungen&lt;/a&gt;
-                                &lt;a hx-get="pages/about.html" hx-target="#page-content" hx-on:click="hideChat()"&gt;Informationen&lt;/a&gt;
-                            &lt;/nav&gt;
-                    
-                            &lt;main id="chat-area"&gt;
-                                &lt;div class="banner"&gt;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&lt;/div&gt;
-                                &lt;div class="banner"&gt;Eliza.js – Chatten bis der Arzt kommt!&lt;/div&gt;
-                                &lt;div class="banner"&gt;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~&lt;/div&gt;
-                            
-                                &lt;div class="messages"&gt;&lt;/div&gt;
-                                &lt;input autofocus /&gt;
-                            &lt;/main&gt;
-                    
-                            &lt;!-- Bereich für die nachgeladenen Seiteninhalte --&gt;
-                            &lt;main id="page-content" class="hidden"&gt;&lt;/main&gt;
-                        &lt;/body&gt;
-                    &lt;/html&gt;                
-                </source-code>
             </lsx-tab-page>
         </lsx-tab-pages>
     </article>
